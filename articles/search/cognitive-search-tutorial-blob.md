@@ -1,63 +1,66 @@
 ---
-title: Tutorial for cognitive search preview in Azure Search | Microsoft Docs
-description: Learn how natural language processing and AI-powered pretrained models can transform unstructured data into searchable content during indexing. Build a cognitive search solution in Azure Search. 
+title: Tutorial for calling Cognitive Search APIs in Azure Search | Microsoft Docs
+description: Learn how natural language processing and AI-powered algorithms can transform unsearchable or unstructured files into searchable content during indexing. 
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-# Tutorial: Enrich indexing with cognitive search (Preview)
+# Tutorial: Learn how to call Cognitive Search APIs (Preview)
 
-Find out how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline helps you extract structure and information from raw content. By attaching a *skillset* to an Azure Search indexer, you can add named entity recognition, natural language processing, and image analysis that makes latent information usable and searchable in custom apps. 
+Learn the programming steps for enriching data through *cognitive skills* in an Azure Search indexing pipeline. Cognitive skills are natural language processing (NLP) and image analysis operations, based on the same AI algorithms behind Cognitive Services. Adding skills to indexing allows you to pull text from images, detect and extract entitites, language, key phrases, or integrate any custom classifiers and processing you require.
 
-In this tutorial, learn the following tasks:
+In this tutorial, call the REST API to perform the following tasks:
 
 > [!div class="checklist"]
-> * Create resources used in an enriched indexing pipeline
-> * Apply skills: entity recognition, language detection, pagination, key phrase extraction
-> * Map inputs to outputs
-> * Run code and review results
+> * Create an enriched indexing pipeline that transforms data in route to an index
+> * Use built-in entity recognition, language detection, pagination, and key phrase extraction skills on a sample data set
+> * Learn how to chain skills together by mapping inputs to outputs
+> * Execute requests and review results
 > * Reset the index and indexers for further development
 
-The output is a full text searchable index on Azure Search. You can enhance the index with other Azure Search capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
+Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 > [!Note]
-> Enrichment is a preview feature with limited availability. Create a search service running in a data region providing this feature.
+> New to cognitive search? Read [this article](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for an introduction to important concepts.
+>
+> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-To issue REST calls to Azure Search, use a web test tool such as Telerik Fiddler or Postman to formulate HTTP calls. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](https://docs.microsoft.com/azure/search/search-fiddler).
+To make REST calls to Azure Search, use PowerShell or a web test tool like Telerik Fiddler or Postman to formulate HTTP requests. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md).
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
- ![Dashboard portal](./media/cognitive-search-get-start-preview/create-service-full-portal.png)
+ ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
 
 ### Set up Azure Search
 
-First, sign up for the Azure Search service. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+First, sign up for the Azure Search service. 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in by using your Azure account.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create a service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
 
-1. For Resource group, create a resource group for all resources you create today to make cleanup easier.
+1. For Resource group, create a resource group to contain all the resources you create today to make cleanup easier.
 
 1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in those regions.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16-MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity).
+  A Free service is limited to 3 indexes, 16-MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-get-start-preview/create-search-service.png)
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
 1. After the service is created, collect the following information once the search service is created: "endpoint", "api-key" (either primary or secondary).
 
-  ![Endpoint and key information in the portal](./media/cognitive-search-get-start-preview/create-search-collect-info.png)
+  ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
 ### Set up Azure Blob service and load sample data
 
@@ -104,7 +107,11 @@ api-key: [admin key]
     "container" : { "name" : "<your blob container name>" }
 }  
 ```
-The web test tool should return a status code of 201 confirming success. Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
+Send the request. The web test tool should return a status code of 201 confirming success. 
+
+Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
+
+  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png)
 
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
 
@@ -113,26 +120,20 @@ If you got a 403 or 404 error, check the request construction: `api-version=2017
 
 ## Create a skillset
 
-In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. You can use [predefined cognitive skills](cognitive-search-predefined-skills.md) or create custom skills and hook them up to the enrichment pipeline.
+In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [predefined cognitive skills](cognitive-search-predefined-skills.md) for data transforms:
 
-For this exercise, start with built-in skills, defining four enrichment steps to run on your data:
++ [Named entity recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
-1. Extract the names of organizations from the content of documents in the blob container using the [named entity recognition skill](cognitive-search-skill-named-entity-recognition.md). 
++ [Language detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-2. Identify the language of a document using the [language detection skill](cognitive-search-skill-language-detection.md).
++ [Key phrase extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases. 
 
-3. Extract the top key phrases from the document using the [key phrase extraction skill](cognitive-search-skill-keyphrases.md). Use the language detected in the previous step as an input. 
-
-4. Since the key phrase skill only works with text that is at most 5,000 characters, use the [pagination skill](cognitive-search-skill-pagination.md) to break the content into several pages first before calling the key phrase extraction skill.
-
-Each step executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
-
-A graphical representation of the skillset is shown below:
-
-![](media/cognitive-search-get-start-preview/skillset.png)
++ [Text Split skill](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 5,000 characters or less.
 
 ### Sample Request
-Make sure to replace the service name and the admin key in the request below. Reference the skillset name ```demoskillset``` for the rest of this demo.
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+
+This request creates a skillset. Reference the skillset name ```demoskillset``` for the rest of this tutorial.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
@@ -216,13 +217,23 @@ Content-Type: application/json
   ]
 }
 ```
+Send the request. The web test tool should return a status code of 201 confirming success. 
+
+#### About the request
+
 Notice how the key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"``` you run this enricher for each member of the document/pages array (for each page in the document).
+
+Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
+
+A graphical representation of the skillset is shown below:
+
+![](media/cognitive-search-tutorial-blob/skillset.png)
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
 ## Create an index
 
-Now let's define what fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
+In the next request, define the index schma. Specify which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
 
 This exercise uses the following fields and field types:
 
@@ -232,8 +243,9 @@ This exercise uses the following fields and field types:
 
 
 ### Sample Request
-Make sure to replace the service name and the admin key in the request below.
-Recall that ```demoindex``` is the index name in this exercise.
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+
+This request creates an index. Use the index name ```demoindex``` for the rest of this tutorial.
 
 ```http
 PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
@@ -287,6 +299,7 @@ Content-Type: application/json
   ]
 }
 ```
+Send the request. The web test tool should return a status code of 201 confirming success. 
 
 To learn more about defining an index, see [Create Index (Azure Search REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -300,8 +313,10 @@ For non-enriched indexing, the indexer definition provides an optional *fieldMap
 For cognitive search workloads having an enrichment pipeline, an indexer requires *outputFieldMappings*. These mappings are used when an internal process (the enrichment pipeline) is the source of field values. Behaviors unique to *outputFieldMappings* include the ability to handle complex types created as part of enrichment (through the shaper skill). Also, there may be many elements per document (for instance, multiple organizations in a document). The *outputFieldMappings* construct can direct the system to "flatten" collections of elements into a single record.
 
 ### Sample Request
-Make sure to replace the service name and the admin key in the request below.
-Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this exercise.
+
+Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
+
+Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this tutorial.
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
@@ -356,6 +371,8 @@ Content-Type: application/json
 
 ```
 
+Send the request. The web test tool should return a status code of 204 confirming successful processing. 
+
 Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are particularly long-running.
 
 > [!Tip]
@@ -385,7 +402,7 @@ The response tells you whether the indexer is running. After indexing is finishe
  
 ## Verify content
 
-After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](https://docs.microsoft.com/azure/search/search-pagination-page-layout).
+After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
 
 As a verification step, query the index for all of the fields.
 
@@ -397,7 +414,7 @@ Content-Type: application/json
 
 The output is the index schema, with the name, type, and attributes of each field.
 
-Submit a second query for "*" to return all contents of a single field, such as `organizations`.
+Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
 ```http
 GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
@@ -491,7 +508,7 @@ Content-Type: application/json
 
 Status code 204 is returned on successful deletion.
 
-As your code matures, this approach becomes impractical, especially if you want to preserve existing computations such as analyzed images. For more guidance, see [How to perform incremental indexing](search-howto-index-incremental.md).
+As your code matures, this approach becomes impractical, especially if you want to preserve existing computations such as analyzed images. For more guidance, see [How to perform incremental indexing](search-howto-reindex.md).
 
 ## Takeaways
 

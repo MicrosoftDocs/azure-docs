@@ -1,5 +1,5 @@
 ---
-title: Microsoft.Skills.Text.KeyPhrases cognitive search skill (Azure Search) | Microsoft Docs
+title: Key phrase extraction cognitive search skill (Azure Search) | Microsoft Docs
 description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search augmentation pipeline.
 services: search
 manager: pablocas
@@ -9,30 +9,35 @@ author: luiscabrer
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#	Microsoft.Skills.Text.KeyPhrases cognitive skill
+#	Key Phrase Extraction cognitive skill
 
-The **KeyPhrases** extraction skill evaluates unstructured text, and for each record, returns a list of key phrases.
+The **Key Phrase Extraction** skill evaluates unstructured text, and for each record, returns a list of key phrases.
 
 This capability is useful if you need to quickly identify the main talking points in the record. For example, given input text "The food was delicious and there were wonderful staff", the service returns "food" and "wonderful staff".
 
 ## @odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
-## Data Limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, consider using the [pagination skill](cognitive-search-skill-pagination.md).
+## Data limits
+The maximum size of a record should be 50,000 characters as measured by String.Length. If you need to break up your data before sending it to the key phrase extractor, consider using the [Text Split skill](cognitive-search-skill-textsplit.md).
 
-## Skill Parameters
+## Skill parameters
 
 Parameters are case-sensitive.
+| Inputs	            | Description |
+|---------------------|-------------|
+| defaultLanguageCode | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> [Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| maxKeyPhraseCount   | (Optional) The maximum number of key phrases to produce. |
 
+## Skill inputs
 | Inputs	 | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
-| languageCode	|  A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/><br/>[Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| languageCode	|  A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>[Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ##	Sample definition
 
@@ -58,7 +63,7 @@ Parameters are case-sensitive.
   }
 ```
 
-##	Sample Input
+##	Sample input
 
 ```json
 {
@@ -75,7 +80,7 @@ Parameters are case-sensitive.
 ```
 
 
-##	Sample Output
+##	Sample output
 
 ```json
 {
@@ -100,8 +105,10 @@ Parameters are case-sensitive.
 ```
 
 
-## Error cases
+## Errors and warnings
 If you provide an unsupported language code, an error is generated and key phrases are not extracted.
+If your text is empty, a warning will be produced.
+If your text is larger than 50,000 characters, only the first 50,000 characters will be analyzed and a warning will be issued.
 
 ## See also
 

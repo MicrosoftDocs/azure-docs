@@ -1,5 +1,5 @@
 ---
-title: Microsoft.Skills.Vision.ImageAnalysis cognitive search skill (Azure Search) | Microsoft Docs
+title: Image Analysis cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search augmentation pipeline.
 services: search
 manager: pablocas
@@ -10,19 +10,19 @@ ms.assetid:
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#	Microsoft.Skills.Vision.ImageAnalysis cognitive skill
+#	Image Analysis cognitive skill
 
-The image analysis skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
 
 ## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
 
-## Skill Parameters
+## Skill parameters
 
 Parameters are case-sensitive.
 
@@ -33,18 +33,18 @@ Parameters are case-sensitive.
 | details	| An array of strings indicating which domain-specific details to return.  <br/><br/> Valid visual feature types include: <br/> *Celebrities* - identifies celebrities if detected in the image. <br/> *Landmarks* - identifies landmarks if detected in the image.
  |
 
-## Skill Inputs
+## Skill inputs
 
 | Inputs	 | Description |
 |--------------------|-------------|
-| url | Unique locator for the image. It could be a web url or the location of blob storage.|
+| url | Unique locator for the image. It could be a web URL or the location of blob storage.|
 
 
 
 ##	Sample definition
 
 ```json
- {
+{
     "@odata.type": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
     "visualFeatures": [
         "Tags",
@@ -57,61 +57,61 @@ Parameters are case-sensitive.
     ],
     "defaultLanguageCode": "en",
     "inputs": [
-      {
-        "name": "url",
-        "source": "/document/metadata_storage_path"
-      }
+        {
+            "name": "url",
+            "source": "/document/metadata_storage_path"
+        }
     ],
     "outputs": [
-      {
-        "name": "categories",
-        "targetName": "myCategories"
-      },
-      {
-        "name": "tags",
-        "targetName": "myTags"
-      },
-      {
-        "name": "description",
-        "targetName": "myDescription"
-      },
-      {
-        "name": "faces",
-        "targetName": "myFaces"
-      },
-      {
-        "name": "imageType",
-        "targetName": "myImageType"
-      },
-      {
-        "name": "color",
-        "targetName": "myColor"
-      },
-      {
-        "name": "adult",
-        "targetName": "myAdultCategory"
-      }
+        {
+            "name": "categories",
+            "targetName": "myCategories"
+        },
+        {
+            "name": "tags",
+            "targetName": "myTags"
+        },
+        {
+            "name": "description",
+            "targetName": "myDescription"
+        },
+        {
+            "name": "faces",
+            "targetName": "myFaces"
+        },
+        {
+            "name": "imageType",
+            "targetName": "myImageType"
+        },
+        {
+            "name": "color",
+            "targetName": "myColor"
+        },
+        {
+            "name": "adult",
+            "targetName": "myAdultCategory"
+        }
     ]
-  }
+}
 ```
 
-##	Sample Input
+##	Sample input
 
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
+        {
+            "recordId": "1",
             "data": {
-             "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
-           }
-      }
+                "url": "https://storagesample.blob.core.windows.net/sample-container/image.jpg"
+            }
+        }
     ]
 }
 ```
 
 
-##	Sample Output
+##	Sample output
 
 ```json
 {

@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage workspaces in Azure Log Analytics | Microsoft Docs
 description: You can manage workspaces in Azure Log Analytics using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
@@ -30,7 +30,7 @@ To create a workspace, you need to:
 ## Determine the number of workspaces you need
 A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Previously you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription. Now you can [query across multiple workspaces](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search), providing a system-wide view of your data. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription and you can have access to more than one workspace. Previously you could only analyze data from within the current workspace and this limited your ability to query across multiple workspaces defined in your subscription. Now you can [query across multiple workspaces](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), providing a system-wide view of your data. This section describes when it can be helpful to create more than one workspace.
 
 Today, a workspace provides:
 

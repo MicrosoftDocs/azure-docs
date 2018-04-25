@@ -1,29 +1,16 @@
 ---
-title: "Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)"
-ms.custom: ""
+title: Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)
+description: In the preview API, indexers are extended to include outputFieldMapping parameters used to map enrichment output to a field in an Azure Search index.
+services: search
+manager: pablocas
+author: luiscabrer
+ms.author: luisca
 ms.date: 05/01/2018
 ms.prod: "azure"
-ms.reviewer: ""
 ms.service: search
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: rest-api
-applies_to:
-  - "Azure"
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: "jhubbard"
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.devlang: rest-api
+ms.workload: search
+ms.topic: language-reference
 ---
 # Create Indexer (Azure Search Service REST api-version=2017-11-11-Preview)
 

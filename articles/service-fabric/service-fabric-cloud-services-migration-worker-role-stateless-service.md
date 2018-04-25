@@ -204,7 +204,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 ## Startup tasks
 Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that in Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
 
-| Cloud Services | Service Fabric |
+| Service Fabric | Cloud Services |
 | --- | --- | --- |
 | Configuration location |ServiceDefinition.csdef |
 | Privileges |"limited" or "elevated" |

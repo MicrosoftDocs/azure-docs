@@ -449,7 +449,7 @@ public async Task RunMyTaskAsync()
 
 Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
 
 ### Parallel operations processing and tracking
 

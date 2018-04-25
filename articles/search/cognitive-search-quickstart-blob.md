@@ -10,12 +10,12 @@ ms.author: heidist
 ---
 # Quickstart: Try cognitive search (preview) in a portal walkthrough
 
-Cognitive search is a new pre-release capability in the Azure Search indexing subsystem that transforms raw, unstructured content into rich searchable content in a searchable index. Depending on indexer configuration, the system could extract text from images, entities and key phrases from unstructured text, channel text into either deconstructed or constructed shapes, or apply custom analysis or transformations that you provide.
+Cognitive search is a new pre-release capability in the Azure Search indexing subsystem that transforms raw, unstructured content into rich searchable content in a searchable index. Depending on indexer configuration, you can extract text from images, entities and key phrases from unstructured text, channel text into either deconstructed or constructed shapes, or apply custom analysis or transformations that you provide.
 
-In this quickstart, the Azure portal guides you through pipeline configuration, providing a list of built-in skills that you can apply to sample data. You
+In this quickstart, the Azure portal guides you through pipeline configuration, providing a list of built-in skills that you can apply to sample data.
 
 > [!Note]
-> Cognitive search is a preview feature with limited availability. Create a search service running in a data region providing this feature.
+> Cognitive search is a preview feature with limited availability. Be sure to create a search service running in a data region providing this feature.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ To issue REST calls to Azure Search, use a web test tool such as Telerik Fiddler
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
- ![Dashboard portal](./media/cognitive-search-get-start-preview/create-service-full-portal.png)
+ ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
 
 ### Set up Azure Search
 
@@ -43,11 +43,11 @@ First, sign up for the Azure Search service. If you don't have an Azure subscrip
 
 1. Pin the service to the dashboard for fast access to service information.
 
-  ![Service definition page in the portal](./media/cognitive-search-get-start-preview/create-search-service.png)
+  ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
 1. After the service is created, collect the following information once the search service is created: "endpoint", "api-key" (either primary or secondary).
 
-  ![Endpoint and key information in the portal](./media/cognitive-search-get-start-preview/create-search-collect-info.png)
+  ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
 ### Set up Azure Blob service and load sample data
 
@@ -70,7 +70,6 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
 
 
-## TBD
 
 ## Next steps
 

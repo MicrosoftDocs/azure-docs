@@ -8,13 +8,15 @@ ms.service: sql-database
 ms.custom: mvc
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/24/2018
 ms.author: carlrab
 ---
 
 # Azure SQL Database Connect and Query Quickstarts
 
-The following table includes links to Azure examples showing how to connect and query an Azure SQL database.
+The following document includes links to Azure examples showing how to connect and query an Azure SQL database. It also provides some recommendations for Transport Level Security.
+
+## Quickstarts
 
 | |  |
 |---|---|
@@ -32,4 +34,24 @@ The following table includes links to Azure examples showing how to connect and 
 |[Ruby](sql-database-connect-query-ruby.md)|This quickstart demonstrates how to use Ruby to create a program to connect to an Azure SQL database and use Transact-SQL statements to query data.|
 |||
 
+## TLS considerations for SQL Database connectivity
+Transport Layer Security (TLS) is used by all drivers that Microsoft supplies or supports for connecting to Azure SQL Database. No
+special configuration is necessary. For all connections to SQL Server or to Azure SQL Database, we recommend that all applications set
+the following configurations, or their equivalents:
 
+ - **Encrypt = On**
+ - **TrustServerCertificate = Off**
+
+Some systems use different yet equivalent keywords for those configuration keywords. These configurations ensure that the client driver
+verifies the identity of the TLS certificate received from the server.
+
+We also recommend that you disable TLS 1.1 and 1.0 on the client if you need to comply with Payment Card Industry - Data Security
+Standard (PCI-DSS).
+
+Non-Microsoft drivers might not use TLS by default. This can be a factor when connecting to Azure SQL Database. Applications with
+embedded drivers might not allow you to control these connection settings. We recommend that you examine the security of such drivers
+and applications before using them on systems that interact with sensitive data.
+
+## Next steps
+
+For connectivity architecture information, see [Azure SQL Database Connectivity Architecture](sql-database-connectivity-architecture.md).

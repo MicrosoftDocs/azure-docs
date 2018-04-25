@@ -22,11 +22,11 @@ To create a Bing Custom Search instance:
 2.	Sign in to the portal using a Microsoft account (MSA). Click the **Sign in** button. If it's your first time using the portal follow the additional steps below, otherwise continue to step 3.
     - If you don’t have an MSA, click **Create a Microsoft account**. The portal asks for permissions to access your data. Click **Yes**.
     - Agree to the Cognitive Services Terms. Check **I agree** and click **Agree**.  
-3.	After signing in, click **New instance** and name the instance. Use a name that’s meaningful and describes the type of content the search returns. You can change the name at any time. 
-4.  On the **Active** tab of the **Definition Editor**, enter the URL of one or more sites you want to include in your search.
+3.	After signing in, click **New Instance** and name the instance. Use a name that’s meaningful and describes the type of content the search returns. You can change the name at any time. 
+4.  On the **Active** tab in **Search Experience**, enter the URL of one or more sites you want to include in your search.
 5.	To confirm that your instance returns results, enter a query in the preview pane on the right. If there are no results, specify a new site. Bing returns results only for public sites that it has indexed.
-6.  Click **Publish to Live State** to publish configuration changes to production. When prompted, click **Publish** to confirm.
-7.  Click **Production** > **API Endpoint** and copy the **Custom Configuration ID**. You need this ID to call the Custom Search API.
+6.  Click **Publish** to publish configuration changes to production. When prompted, click **Publish** to confirm.
+7.  Click **Production** > **Endpoints** and copy the **Custom Configuration ID**. You need this ID to call the Custom Search API.
 
 ## Next steps
 

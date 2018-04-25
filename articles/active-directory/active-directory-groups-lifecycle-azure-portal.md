@@ -135,7 +135,7 @@ New-AzureADMSGroupLifecyclePolicy:  This cmdlet sets the lifetime for all Office
   Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
   ````
   
-The following cmdlets can be used to configure the policy in more detail. For more informatin, see [PowerShell documentation](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+The following cmdlets can be used to configure the policy in more detail. For more informatin, see [PowerShell documentation](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 
 * Get-AzureADMSGroupLifecyclePolicy
 * New-AzureADMSGroupLifecyclePolicy
