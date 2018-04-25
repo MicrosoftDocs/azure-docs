@@ -136,6 +136,9 @@ Data Factory submits the See [SearchLogProcessing.txt Script Definition](#sample
 ## Sample U-SQL script
 
 ```
+DECLARE EXTERNAL @in string = "/datalake/input/SearchLog.tsv";
+DECLARE EXTERNAL @out string = "/datalake/output/Result.tsv";
+
 @searchlog =
     EXTRACT UserId          int,
             Start           DateTime,
