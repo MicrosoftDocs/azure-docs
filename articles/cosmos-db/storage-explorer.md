@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Manage Azure Cosmos DB in Azure Storage Explorer'
 description: Learn how to manage Azure Cosmos DB in Azure Storage Explorer.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
@@ -74,7 +74,7 @@ An alternative way of connecting to an Azure Cosmos DB is to use a connection st
 Use the following steps to connect to an Azure Cosmos DB by Emulator, only support SQL account currently.
 
 1. Install Emulator and launch. For how to install Emulator, see
- [Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator)
+ [Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator)
 
 2. Find **Local and Attached** in the left tree, right-click **Cosmos DB Accounts**, choose **Connect to Cosmos DB Emulator...**
 
@@ -208,7 +208,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 ## Troubleshooting
 
-[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
+[Azure Cosmos DB in Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer) is a standalone app that allows you to connect to Azure Cosmos DB accounts hosted on Azure and Sovereign Clouds from Windows, macOS, or Linux. It enables you to manage Azure Cosmos DB entities, manipulate data, update stored procedures and triggers along with other Azure entities like Storage blobs and queues.
 
 These are solutions for common issues seen for Azure Cosmos DB in Storage Explorer.
 

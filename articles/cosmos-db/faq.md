@@ -111,7 +111,7 @@ The PreferredLocations value can be set to any of the Azure regions in which Cos
 ### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
-When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a sovereign region, you cannot replicate out of that sovereign region. Similarly, you cannot enable replication into other sovereign locations from an outside account. 
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
 ## Develop against the SQL API
 
