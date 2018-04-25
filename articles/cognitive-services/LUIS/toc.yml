@@ -237,6 +237,18 @@
       href: https://aka.ms/luis-endpoint-sdk
     - name: .Net Authoring
       href: https://aka.ms/luis-authoring-sdk
+- name: Related
+  items: 
+  - name: Bot framework
+    href: https://dev.botframework.com/
+  - name: Bot Builder SDK
+    href: https://github.com/Microsoft/BotBuilder
+  - name: QnA maker 
+    href: https://qnamaker.ai/
+  - name: Bing Speech API
+    href: https://azure.microsoft.com/services/cognitive-services/speech/
+  - name: Text Analytics 
+    href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
 - name: Resources
   items: 
   - name: Azure Roadmap
