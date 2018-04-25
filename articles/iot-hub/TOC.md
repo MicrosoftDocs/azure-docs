@@ -106,6 +106,9 @@
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 #### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
+### Get started with module twins
+#### [Ibiza portal backend/.NET device](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
