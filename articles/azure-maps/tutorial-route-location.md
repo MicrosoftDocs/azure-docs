@@ -5,7 +5,7 @@ services: azure-maps
 keywords: 
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 
@@ -20,19 +20,18 @@ ms.custom: mvc
 This tutorial shows how to use your Azure Maps account and the Route Service SDK, to find the route to your point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Get address coordinates
+> * Create a new web page using the map control API
+> * Set address coordinates
 > * Query Route Service for directions to point of interest
 
 ## Prerequisites
 
-Before you proceed, make sure to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey). You may also observe how to use the Map Control and Search Service APIs as discussed in the tutorial [Search nearby point of interest using Azure Maps](./tutorial-search-location.md).
-
+Before you proceed, follow the steps in the previous tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey). 
 
 <a id="getcoordinates"></a>
 
-## Get address coordinates
-
-Use the following steps to create a static HTML page embedded with the map control API. 
+## Create a new map 
+The following steps show you how to create a static HTML page embedded with the Map Control API. 
 
 1. On your local machine, create a new file and name it **MapRoute.html**. 
 2. Add the following HTML components to the file:
@@ -74,33 +73,26 @@ Use the following steps to create a static HTML page embedded with the map contr
     ```
     Note how the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Maps APIs.
 
-3. Add the following JavaScript code to the *script* block of the HTML file. Use the primary key from your Maps account in the script.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<_your account key_>";
+    var MapsAccountKey = "<your account key>";
     var map = new atlas.Map("map", {
         "subscription-key": MapsAccountKey
     });
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
-4. Add the following JavaScript code to the *script* block. This adds a layer of *linestrings* to the Map Control to show the route:
+4. Save the file and open it in your browser. At this point, you have a basic map that you can add components to and build on top of. 
 
-    ```JavaScript
-    // Initialize the linestring layer for routes on the map
-    var routeLinesLayerName = "routes";
-    map.addLinestrings([], {
-        name: routeLinesLayerName,
-        color: "#2272B9",
-        width: 5,
-        cap: "round",
-        join: "round",
-        before: "labels"
-    });
-    ```
+   ![View basic map](./media/tutorial-route-location/basic-map.png)
 
-5. Add the following JavaScript code to create start and end points for the route:
+## Set start and end points
+
+For this tutorial, set the start point as Microsoft, and the destination point as a gas station in Seattle. 
+
+1. In the same *script* block of the **MapRoute.html** file, add the following JavaScript code to create start and end points for the route:
 
     ```JavaScript
     // Create the GeoJSON objects which represent the start and end point of the route
@@ -116,9 +108,9 @@ Use the following steps to create a static HTML page embedded with the map contr
         icon: "pin-blue"
     });
     ```
-    This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. The end point is the latitude/longitude combination for one of the *gasoline stations* searched in the previous tutorial [Search nearby point of interest using Azure Maps](./tutorial-search-location.md).
+    This code creates two [GeoJSON objects](https://en.wikipedia.org/wiki/GeoJSON) to represent the start and end points of the route. 
 
-6. Add the following JavaScript code to add the pins for the start and end points to the map:
+2. Add the following JavaScript code to add the pins for the start and end points to the map:
 
     ```JavaScript
     // Fit the map window to the bounding box defined by the start and destination points
@@ -138,17 +130,37 @@ Use the following steps to create a static HTML page embedded with the map contr
         textOffset: [0, -20]
     });
     ``` 
-    The API **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
+    The **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
 
-7. Save the **MapRoute.html** file on your machine. 
+7. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the round blue pin marking the start point and the blue pin marking the finish point.
+
+   ![View map with start and end points marked](./media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
-## Query Route Service for directions to point of interest
+## Get directions
 
-This section shows how to use the Azure Maps' Route Service API to find the route from a given start point to a destination. The Route Service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
-1. Open the **MapRoute.html** file created in the preceding section, and add the following JavaScript code to the *script* block, to illustrate the Route Service.
+
+1. First, add a new layer called to the map that will display the route path, or *linestring*. Add the following JavaScript code to the *script* block:
+
+    ```JavaScript
+    // Initialize the linestring layer for routes on the map
+    var routeLinesLayerName = "routes";
+    map.addLinestrings([], {
+        name: routeLinesLayerName,
+        color: "#2272B9",
+        width: 5,
+        cap: "round",
+        join: "round",
+        before: "labels"
+    });
+    ```
+
+ Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response that the Maps Search service sends. This code snippet builds the event handler to collect the addresses, names, and latitude and longitude information for each location returned in the `searchPins` variable. Finally, it adds this collection of location points to the `map` control as pins. 
+
+2. Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response that the Maps route service sends. This code constructs an array of coordinates for the line segments of the route, then adds the set of coordinates to the linestrings layer of the map. 
 
     ```JavaScript
     // Perform a request to the route service and draw the resulting route on the map
@@ -169,13 +181,12 @@ This section shows how to use the Azure Maps' Route Service API to find the rout
         }
     };
     ```
-    This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it constructs an array of coordinates for line segments of the first route returned. It then adds this set of coordinates for this route to the map's *linestrings* layer.
 
-2. Add the following code to the *script* block, to send the XMLHttpRequest to the Azure Maps' Route Service:
+3. Add the following code to send the XMLHttpRequest to the Azure Maps' Route Service:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
-    url += "&api-version=1.0";
+    url += "api-version=1.0";
     url += "&subscription-key=" + MapsAccountKey;
     url += "&query=" + startPoint.coordinates[1] + "," + startPoint.coordinates[0] + ":" +
         destinationPoint.coordinates[1] + "," + destinationPoint.coordinates[0];
@@ -185,7 +196,7 @@ This section shows how to use the Azure Maps' Route Service API to find the rout
     ```
     The request above shows the required parameters, which are your account key and the coordinates for the start and end points, in the given order. 
 
-3. Save the **MapRoute.html** file locally, then open it in a web browser of your choice and observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
+3. Save the **MapRoute.html** file and refresh your web browser. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
 
     ![Azure Map Control and Route Service](./media/tutorial-route-location/map-route.png)
 
@@ -194,7 +205,9 @@ This section shows how to use the Azure Maps' Route Service API to find the rout
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Get address coordinates
-> * Query Route Service for directions to point of interest
+> * Create a new web page using the map control API
+> * Set address coordinates
+> * Query the route service for directions to point of interest
 
-Proceed to the tutorial [Find routes for different modes of travel using Azure Maps](./tutorial-prioritized-routes.md) to learn how to use the Azure Maps to prioritize routes to your point of interest, based on the mode of transport. 
+> [!div class="nextstepaction"]
+> [Find routes for different modes of travel](./tutorial-prioritized-routes.md)
