@@ -53,8 +53,10 @@ sections:
         src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_php.svg
       text: PHP
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-php
-
-
+    - image: 
+        src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_ruby.svg
+      text: Ruby
+      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
 
 - title: Step-by-Step Tutorials
   items:
