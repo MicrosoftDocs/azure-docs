@@ -56,7 +56,7 @@ Kafka stores records (data) in **topics**. Records are produced by **producers**
 
 Topics partition records across brokers. When consuming records, you can use up to one consumer per partition to achieve parallel processing of the data.
 
-Replication is employed to duplicate partitions across nodes, protecting against node (broker) outages. A partition denoted with an *(L)* is the leader for the given partition. Producer traffic is routed to the leader of each node, using the state managed by ZooKeeper.
+Replication is employed to duplicate partitions across nodes, protecting against node (broker) outages. A partition denoted with an *(L)* in the diagram is the leader for the given partition. Producer traffic is routed to the leader of each node, using the state managed by ZooKeeper.
 
 ## Why use Kafka on HDInsight?
 
