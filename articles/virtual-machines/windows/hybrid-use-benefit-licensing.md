@@ -54,6 +54,7 @@ New-AzureRmVm `
     -ImageName "Win2016Datacenter" `
     -LicenseType "Windows_Server"
 ```
+
 ### CLI
 ```Azure CLI
 az vm create \
@@ -62,6 +63,7 @@ az vm create \
     --location eastus \
     --license-type Windows_Server
 ```
+
 ### Template
 Within your Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md)
 ```json
@@ -91,6 +93,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     $vm.LicenseType = "None"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
     ```
+    
 ### CLI
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
     ```Azure CLI
@@ -111,6 +114,7 @@ The following example shows the license type for a single VM
 ```powershell
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
+
 Output:
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -124,6 +128,7 @@ Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
 LicenseType              :
 ```
+
 ### CLI
 ```Azure CLI
 az vm get-instance-view -g MyResourceGroup -n MyVm --query '[?licenseType==Windows_Server]' -o table
@@ -140,6 +145,7 @@ From the Virtual Machine or Virtual machine scale sets resource blade, you can v
 $vms = Get-AzureRMVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
+
 ### CLI
 ```Azure CLI
 az vm list --query '[?licenseType==Windows_Server]' -o table
@@ -147,8 +153,6 @@ az vm list --query '[?licenseType==Windows_Server]' -o table
 
 ## Deploy a virtual machine scale set with Azure Hybrid Benefit for Windows Server
 Within your virtual machine scale set Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the licenseType property as part of the scale set’s virtualMachineProfile and deploy your template as normal - see following example using 2016 Windows Server image:
-
-
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
