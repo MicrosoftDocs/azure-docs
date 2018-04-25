@@ -97,6 +97,8 @@ You can now deploy a function code project to this function app.
 
 The C# function that performs image resizing is available in [this GitHub repository](https://github.com/Azure-Samples/function-image-upload-resize). 
 
+---
+
 # [Node.js](#tab/nodejs)
 The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). 
 
