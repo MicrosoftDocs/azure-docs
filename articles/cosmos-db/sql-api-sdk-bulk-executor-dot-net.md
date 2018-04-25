@@ -41,7 +41,7 @@ ms.author: ramkris
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.Net API reference documentation]()</td></tr>
+<tr><td>**API documentation**</td><td>[.Net API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)</td></tr>
 
 <tr><td>**Get started**</td><td>[Get started with the BulkExecutor library .NET SDK]()</td></tr>
 
