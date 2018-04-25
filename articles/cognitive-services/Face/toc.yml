@@ -42,7 +42,7 @@
   - name: Work with Visual Studio
     items:
     - name: Use the Face API Connected Service
-    - href: vs-face-connected-service.md
+      href: vs-face-connected-service.md
 - name: Reference
   items:
   - name: Face API reference
