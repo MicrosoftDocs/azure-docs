@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
@@ -924,7 +924,7 @@ There are two ways for you to stay GDPR compliant:
 1. Upon request, extract data for a person and remove data from that person from the Windows Event logs. 
 2. Keep retention of Windows Event logs sourced from the AADSyncAgent process to under 48 hours
 
-For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385772.aspx).
+For information on how to configure data retention for the Windows Event logs, see the [Settings for event logs](https://technet.microsoft.com/en-us/library/cc952132.aspx). For general information on the Windows Event log, see [this article](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx).
 
 
 ## Next steps
