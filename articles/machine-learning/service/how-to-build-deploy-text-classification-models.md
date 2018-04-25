@@ -1,6 +1,6 @@
 ---
-title: Build and deploy an image classification model using Azure Machine Learning Package for Computer Vision. 
-description: Learn how to build, train, test and deploy a computer vision image classification model using the Azure Machine Learning Package for Computer Vision. 
+title: Build and deploy a text classification model using Azure Machine Learning Package for Text Analytics. 
+description: Learn how to build, train, test and deploy a text classification model using the Azure Machine Learning Package for Text Analytics. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
-ms.date: 04/23/2018
+ms.date: 05/07/2018
 ---
 
-# Build and deploy image classification models with Azure Machine Learning
+# Build and deploy text classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. Consult the [full package reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision) for detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. Consult the [full package reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/text-analytics) for detailed reference for each class.
 
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 

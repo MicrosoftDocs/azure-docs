@@ -112,12 +112,6 @@
       href: ../desktop-workbench/how-to-use-model-data-collection.md
     - name: Deployment troubleshooting guide
       href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-  - name: Computer Vision
-    items:
-    - name: Build and deploy image classification models
-      href: how-to-build-deploy-image-classification-models.md
-    - name: Improve model accuracy
-      href: how-to-improve-accuracy-for-computer-vision-models.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
@@ -151,8 +145,26 @@
   - name: Python packages
     href: reference-python-package-overview.md
     items:    
+    - name: Computer Vision
+      items:
+      - name: Package overview and install
+        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision
+      - name: Build and deploy image classification models
+        href: how-to-build-deploy-image-classification-models.md
+      - name: Improve model accuracy
+        href: how-to-improve-accuracy-for-computer-vision-models.md
+    - name: Forecasting
+      items:
+      - name: Package overview and install
+        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/forecasting
     - name: FPGA hardware acceleration
       href: reference-fpga-package-overview.md
+    - name: Text Analytics
+      items:
+      - name: Package overview and install
+        href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/text-analytics
+      - name: Build and deploy text classification models
+        href: how-to-build-deploy-text-classification-models.md    
   - name: Data preparation
     items:
     - name: Python extensions for data preparation
