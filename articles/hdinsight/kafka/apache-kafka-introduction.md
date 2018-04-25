@@ -28,7 +28,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
 * Microsoft provides a 99.9% Service Level Agreement (SLA) on Kafka uptime. For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
 
-* It uses Azure Managed Disks as the backing store for Kafka. This provides up to 16 TB of storage per Kafka broker. For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md).
+* It uses Azure Managed Disks as the backing store for Kafka. Managed Disks can provide up to 16 TB of storage per Kafka broker. For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md).
 
     For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
