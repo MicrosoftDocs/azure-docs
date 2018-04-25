@@ -1,5 +1,5 @@
 ---
-title: Set up your development environment on Linux | Microsoft Docs
+title: Set up your Azure development environment on Linux | Microsoft Docs
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
 services: service-fabric
 documentationcenter: .net
@@ -30,7 +30,7 @@ To deploy and run [Azure Service Fabric applications](service-fabric-application
 
 The steps in this article assume that you install natively on Linux or use the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`.
 
-Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which allows you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. You can manage Service Fabric entities hosted elsewhere in the cloud or on-premises with the Azure Service Fabric command-line interface (CLI), which is supported. For information on how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
 
 
 ## Prerequisites
@@ -51,7 +51,7 @@ These operating system versions are supported for development:
 
 ### 1. Script installation (Ubuntu)
 
-For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with **sfctl** CLI. Run the manual installation steps in the next section to determine what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed. 
+For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Run the manual installation steps in the next section. You see what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed.
 
 After the script executes successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
@@ -68,39 +68,39 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Ubuntu
 
 1. Open a terminal.
-2. Add the Service Fabric repo to your sources list.
+2. Add the Service Fabric repo to your sources list:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
-3. Add the `dotnet` repo to your sources list.
+3. Add the `dotnet` repo to your sources list:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring:
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Add the official Docker GPG key to your APT keyring.
+5. Add the official Docker GPG key to your APT keyring:
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Set up the Docker repository.
+6. Set up the Docker repository:
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Refresh your package lists based on the newly added repositories.
+7. Refresh your package lists based on the newly added repositories:
 
     ```bash
     sudo apt-get update
@@ -110,32 +110,32 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 1. Open a terminal.
-2. Download and install Extra Packages for Enterprise Linux (EPEL).
+2. Download and install Extra Packages for Enterprise Linux (EPEL):
 
     ```bash
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install epel-release-latest-7.noarch.rpm
     ```
-3. Add the EfficiOS RHEL7 package repository to your system.
+3. Add the EfficiOS RHEL7 package repository to your system:
 
     ```bash
     sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-4. Import the EfficiOS package signing key to the local GPG keyring.
+4. Import the EfficiOS package signing key to the local GPG keyring:
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
     ```
 
-5. Add the Microsoft RHEL repository to your system.
+5. Add the Microsoft RHEL repository to your system:
 
     ```bash
     curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. Install the .NET SDK.
+6. Install the .NET SDK:
 
     ```bash
     yum install rh-dotnet20 -y
@@ -174,17 +174,17 @@ RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 ## Set up a local cluster
 Start a local cluster after the installation completes.
 
-1. Run the cluster setup script.
+1. Run the cluster setup script:
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster has starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system's ready, wait a few minutes and try again.
+2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system's ready, wait a few minutes and try again.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-    At this point, you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
+    At this point, you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. Build new services by using the Java or .NET Core SDKs with the optional setup steps in the following sections.
 
 
     > [!NOTE]
@@ -255,10 +255,10 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
  
 ## Install the Eclipse plug-in (optional)
 
-You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
+You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable and container applications, and Service Fabric Java applications.
 
 > [!IMPORTANT]
-> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. You can either remove it before running the installer or install the newer version in a different directory.
+> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. Either remove it before running the installer, or install the newer version in a different directory.
 > 
 > On Ubuntu, we recommend that you install direct from the Eclipse site instead of by using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. You can install the Eclipse IDE for Java Developers or for Java EE Developers.
 
@@ -268,15 +268,15 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 3. In the **Work with** box, enter **http://dl.microsoft.com/eclipse**.
 
-4. Click **Add**.
+4. Select **Add**.
 
     ![Available Software page][sf-eclipse-plugin]
 
 5. Select the **ServiceFabric** plug-in, and then select **Next**.
 
-6. Complete the installation steps, and then accept the end-user license agreement.
+6. Complete the installation steps. Then accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version. Check by selecting **Help** > **About Eclipse** > **Installation Details**. Then search for Service Fabric in the list of installed plug-ins. If a newer version is available, select **Update**.
+If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version. Check by selecting **Help** > **About Eclipse** > **Installation Details**. Then search for Service Fabric in the list of installed plug-ins. Select **Update** if a newer version is available.
 
 For more information, see [Service Fabric plug-in for Eclipse Java application development](service-fabric-get-started-eclipse.md).
 
@@ -294,7 +294,7 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
 
 ## Remove the SDK
-To remove the Service Fabric SDKs, run the following:
+To remove the Service Fabric SDKs, run the following commands:
 
 ### Ubuntu
 
