@@ -45,8 +45,8 @@ ms.author: ramkris
 
 <tr><td>**Get started**</td><td>[Get started with the BulkExecutor library .NET SDK]()</td></tr>
 
-<tr><td>**Current supported framework**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)/(version >= 1.21.1/)</li><li>
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)/(version >= 10.0.2/)
+<tr><td>**Current supported framework**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(version >= 1.21.1)</li><li>
+[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)(version >= 10.0.2)
 </li></ul></td></tr>
 </table></br>
 
