@@ -498,7 +498,7 @@ This example adds one day to the specified timestamp:
 addToTime('2018-01-01T00:00:00Z', 1, 'Day', 'D')
 ```
 
-And returns the result in the optional "D" format: `"Tuesday, January 2, 2018"`
+And returns the result using the optional "D" format: `"Tuesday, January 2, 2018"`
 
 <a name="and"></a>
 
@@ -1381,7 +1381,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-quotient*> | Integer | The integer result from dividing the first number by the second number | 
+| <*quotient-result*> | Integer | The integer result from dividing the first number by the second number | 
 |||| 
 
 *Example*
@@ -2002,7 +2002,7 @@ int('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-integer*> | Integer | The integer version for the specified string | 
+| <*integer-result*> | Integer | The integer version for the specified string | 
 |||| 
 
 *Example* 
@@ -2088,7 +2088,7 @@ json('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-JSON*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. | 
+| <*JSON-result*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. | 
 |||| 
 
 *Example 1* 
@@ -2496,7 +2496,7 @@ mod(<dividend>, <divisor>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-modulo*> | Integer or Float | The remainder from dividing the first number by the second number | 
+| <*modulo-result*> | Integer or Float | The remainder from dividing the first number by the second number | 
 |||| 
 
 *Example* 
@@ -2527,7 +2527,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-product*> | Integer or Float | The product from multiplying the first number by the second number | 
+| <*product-result*> | Integer or Float | The product from multiplying the first number by the second number | 
 |||| 
 
 *Example* 
@@ -2724,7 +2724,7 @@ rand(<minValue>, <maxValue>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| <*result-random*> | Integer | The random integer returned from the specified range |  
+| <*random-result*> | Integer | The random integer returned from the specified range |  
 |||| 
 
 *Example*
@@ -2755,7 +2755,7 @@ range(<startIndex>, <count>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [<*result-range*>] | Array | The array with integers starting from the specified index |  
+| [<*range-result*>] | Array | The array with integers starting from the specified index |  
 |||| 
 
 *Example*
@@ -3220,10 +3220,10 @@ And returns this result: `"2018-01-01T00:00:00:0000000Z"`
 This example subtracts one day from this timestamp:
 
 ```
-subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day') 
+subtractFromTime('2018-01-02T00:00:00Z', 1, 'Day', 'D') 
 ```
 
-And returns this result in the optional "D" format: `"Monday, January, 1, 2018"`
+And returns this result using the optional "D" format: `"Monday, January, 1, 2018"`
 
 <a name="take"></a>
 
@@ -3877,13 +3877,13 @@ And returns this result: `"2018-04-15T13:00:00.0000000Z"`
 *Example 2*
 
 Suppose today is April 15, 2018 at 1:00:00 PM. 
-This example gets the current timestamp: 
+This example gets the current timestamp using the optional "D" format:
 
 ```
 utcNow('D')
 ```
 
-And returns this result in the optional "D" format: `"Sunday, April 15, 2018"`
+And returns this result: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
