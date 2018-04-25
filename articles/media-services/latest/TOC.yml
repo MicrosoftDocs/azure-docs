@@ -59,6 +59,8 @@
     href: /powershell/module/azurerm.media
   - name: REST
     href: /rest/api/media/mediaservice
+  - name: CLI 2.0
+    href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
   - name: Event schemas
     href: media-services-event-schemas.md    
 - name: Resources
@@ -71,4 +73,5 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
- 
+  - name: Quotas and limitations
+    href: limits-quotas-constraints.md
