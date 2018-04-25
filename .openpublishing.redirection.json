@@ -181,9 +181,54 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-overview.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-known-issues.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/known-issues",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/preview/model-management-overview.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-cli-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-cli.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-sign-in.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sign-in",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-cosmosdb.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-token.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-sdk-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-sdk-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-sdk.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sdk",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/preview/model-management-service-deploy.md",
@@ -18951,11 +18996,6 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-b2b-hybrid-on-premises-to-cloud.md",
-            "redirect_url": "/azure/active-directory/active-directory-b2b-hybrid-organizations",
             "redirect_document_id": true
         }
     ]
