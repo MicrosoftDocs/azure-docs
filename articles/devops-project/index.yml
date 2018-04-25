@@ -34,7 +34,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: media\index\logo_net.svg
+        src: media\logo_net.svg
       text: ASP.NET
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
     - image: 
