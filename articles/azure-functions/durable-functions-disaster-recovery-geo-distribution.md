@@ -4,10 +4,7 @@
 
 In Azure Durable Functions, all state is persisted in Azure Storage. A task hub is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The scenarios described in this article propose deployment options to increase availability and minimize downtime during disaster recovery activities.
-
-If the whole DC goes down, you'll lose access to both compute and storage, so all in progress orchestrations will be effectively stopped.
-When the DC comes back up processing will continue automatically from where it left off. There will be no data loss as long as the underlying Azure Storage data isn't lost (which is highly unlikely).
-Multiple function apps cannot collaborate on the same task hub today. For geo/disaster recovery, you will want to go with multiple storage accounts - one in each geo region. It's up to you to decide how you want to configure Traffic Manager (failover mode or geo-load balancing). Just remember that the two environments are completely isolated from each other.*
+It is important to notice that these scenarios are based on an Active-Passive configuration, since the underlying storage strategy makes it difficult to implement other approaches.
 
 ##Scenario 1 - Load Balanced Compute with Shared Storage
 In the event of problems of the compute service in Azure, the Function App could be affected. To minimize the possibility of such downtime, this scenario uses two instances of the Function App deployed to different regions. The underlying storage account and task hub are created in the main region, and it is shared by both instances.
@@ -29,6 +26,8 @@ However, consider the following when using this scenario.
 
 ## Scenario 2 - Load Balanced Compute with Regional Storage
 ### Traffic Manager, Load Balanced Function Apps, One Storage account per region
+The previous proposed scenario covers only the case of failure in the compute services. If the storage service fails, it will result in a downtime of the FunctionApp.
+To ensure continuous operation of the durable functions, this scenario uses a local storage account on each region to which the FunctionApps are deployed.
 
 Each function app deployment has a dedicated Storage account and deployed in the same region
 
