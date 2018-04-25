@@ -12,7 +12,7 @@ ms.date: 04/25/2018
 ---
 # Add a streaming data or reference data as input to a Stream Analytics job
 
-Azure Stream Analytics jobs connect to one or more data input. Each input defines a connection to an existing data source. Stream Analytics accepts data incoming from several kinds of event sources including Event Hubs, IoT Hub, and Blob storage. The inputs are referenced in the streaming SQL query that you write for each job. In the query, you can join multiple inputs to blend data or compare streaming data with a lookup to reference data, and pass the results to outputs. 
+Azure Stream Analytics jobs connect to one or more data inputs. Each input defines a connection to an existing data source. Stream Analytics accepts data incoming from several kinds of event sources including Event Hubs, IoT Hub, and Blob storage. The inputs are referenced by name in the streaming SQL query that you write for each job. In the query, you can join multiple inputs to blend data or compare streaming data with a lookup to reference data, and pass the results to outputs. 
 
 Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
@@ -32,7 +32,7 @@ A data stream is an unbounded sequence of events over time. Stream Analytics job
 For more information about streaming data inputs, see [Stream data as input into Stream Analytics](stream-analytics-define-inputs.md)
 
 ### Reference data input
-Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. Reference data is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
+Stream Analytics also supports input known as *reference data*. Reference data is either completely static or changes slowly. It is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
 
 For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
 
