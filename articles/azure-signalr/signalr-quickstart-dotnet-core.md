@@ -1,6 +1,6 @@
 ---
-title: Quickstart to learn how to use SignalR with Azure | Microsoft Docs
-description: A quickstart for using SignalR to create a chat room with ASP.NET Core MVC apps.
+title: Quickstart to learn how to use Azure SignalR Service | Microsoft Docs
+description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core MVC apps.
 services: signalr
 documentationcenter: ''
 author: wesmc7777
@@ -19,9 +19,9 @@ ms.author: wesmc
 ---
 # Quickstart: Create a chat room with SignalR Service
 
-Azure SignalR Service is an Azure-managed service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
+Azure SignalR Service is an Azure service that helps developers easily build web applications with real-time features. This service is based on [SignalR for ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
-This article shows you how to get started with the SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app with the SignalR Service. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
+This article shows you how to get started with the Azure SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Also, the creation of the Azure resources used in this quickstart can be accomplished with the [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
@@ -41,9 +41,9 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 ## Create an ASP.NET Core web app
 
-In this section, you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC Web App project. The advantage of using the .NET Core CLI is that it is available across the Windows, Linux, and MacOS platforms. You could also use Visual Studio on the Windows and MacOS platforms.
+In this section, you use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new ASP.NET Core MVC Web App project. The advantage of using the .NET Core CLI over Visual Studio is that it is available across the Windows, macOS, and Linux platforms. 
 
-1. Create a new folder for your project. In this article, the *E:\Testing\chattest* folder is created and used.
+1. Create a new folder for your project. In this quickstart, the *E:\Testing\chattest* folder is used.
 
 2. In the new folder, execute the following command to create a new ASP.NET Core MVC Web App project:
 
@@ -54,7 +54,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 ## Add Azure SignalR to the web app
 
 
-1. Add a reference to the *Microsoft.Azure.SignalR* NuGet package by executing the following command:
+1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
         dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10001
 
@@ -73,7 +73,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 
     This environment variable is only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
 
-3. In your project directory, add a new code file named *Constants.cs*. This file will contain the constant name of the connection string used to access your SignalR Service resource. Add the following code:
+3. In your project directory, add a new code file named *Constants.cs*. This file will contain a constant for the connection string used to access your SignalR Service resource. Add the following code:
 
     ```cscharp
     namespace Microsoft.Azure.SignalR.Samples.ChatRoom
@@ -85,13 +85,12 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
     }
     ```
 
-4. Open *Startup.cs* and update the `ConfigureServices` method to make the web app a singleton and use the SignalR Service resource by calling the `services.AddAzureSignalR()` method:
+4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddAzureSignalR()` method:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc();
-        services.AddSingleton(typeof(IConfiguration), Configuration);
         services.AddAzureSignalR();
     }
     ```
