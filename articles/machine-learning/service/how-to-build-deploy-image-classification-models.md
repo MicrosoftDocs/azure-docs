@@ -122,7 +122,38 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-The dataset object provides functionality to download images using the [Bing Image Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/). Two types of search queries are supported: (i) regular text queries; and (ii) image URL queries. These queries should be provided inside a json-encoded text file. In addition to the search queries, also their class label has to be specified. Furthermore, a Context object needs to be created explicitly and contain the Bing Image Search API key that requires a Bing Image Search API subscription.     
+The dataset object provides functionality to download images using the [Bing Image Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/). 
+
+Two types of search queries are supported: 
++ Regular text queries
++ Image URL queries
+
+These queries as well as the class label must be provided inside a json-encoded text file, such as:
+
+```json
+{
+	"bowl": [
+					"plastic bowl",
+					"../imgs_recycling/bowl"
+	],
+	"cup": [
+					"plastic cup",
+					"../imgs_recycling/cup",
+					"http://cdnimg2.webstaurantstore.com/images/products/main/123662/268841/dart-solo-ultra-clear-conex-tp12-12-oz-pet-plastic-cold-cup-1000-case.jpg"
+	],
+	"cutlery": [
+					"plastic cutlery",
+					"../imgs_recycling/cutlery",
+					"http://img4.foodservicewarehouse.com/Prd/1900SQ/Fineline_2514-BO.jpg"
+	],
+	"plate": [
+					"plastic plate",
+					"../imgs_recycling/plate"
+	]
+}
+```
+
+Furthermore, a Context object needs to be created explicitly and contain the Bing Image Search API key that requires a Bing Image Search API subscription.     
 
 ## Visualize and annotate images
 
@@ -288,6 +319,8 @@ if classifier_name == "dnn":
     plt.legend()
 ```
 
+![png](media/how-to-build-deploy-image-classification-models/output_17_0.png)
+
 
 ## Evaluate and visualize
 
@@ -322,6 +355,10 @@ plt.show()
      [ 0  0  2  0]
      [ 0  0  0 11]]
     
+
+
+![png](media/how-to-build-deploy-image-classification-models/output_20_1.png)
+
 
 
 ```python
