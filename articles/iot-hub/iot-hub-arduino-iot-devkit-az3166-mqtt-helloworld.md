@@ -44,20 +44,13 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 2. Start VS Code.
 
 3. Connect the DevKit to your computer.
-    VS Code automatically detects your DevKit and opens the following pages:
-    * The DevKit introduction page.
-    * Arduino Examples: Hands-on samples to get you started with your DevKit.
-
-    ![mini-solution-vscode](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/vscode-start.png)
 
 ## Open the MQTTClient Sample
 
 Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP AZ3166 > MQTT**, and select **MQTTClient**. A new VS Code window opens with a project folder in it.
 
-![examples-folder](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/examples.png)
-
 > [!NOTE]
-> If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ## Build and upload the Arduino sketch to the DevKit
 

@@ -37,12 +37,16 @@
     href: assets-concept.md
   - name: Autogen adaptive bitrate ladder
     href: autogen-bitrate-ladder.md
+  - name: Reacting to events
+    href: reacting-to-media-services-events.md    
 - name: How-to guides
   items:
   - name: Create an account - CLI
     href: create-account-cli-how-to.md  
   - name: Access APIs - CLI
     href: access-api-cli-how-to.md
+  - name: Job state events - CLI
+    href: job-state-events-cli-how-to.md    
   - name: Upload content - .NET
     items:
     - name: From HTTP(s)
@@ -57,6 +61,8 @@
     href: /rest/api/media/mediaservice
   - name: CLI 2.0
     href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
+  - name: Event schemas
+    href: media-services-event-schemas.md    
 - name: Resources
   items:
   - name: Azure Roadmap

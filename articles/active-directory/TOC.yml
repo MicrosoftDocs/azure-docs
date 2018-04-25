@@ -23,7 +23,7 @@
     href: ../role-based-access-control/custom-roles.md
   - name: Assign custom roles for internal and external users
     href: ../role-based-access-control/role-assignments-external-users.md
-  - name: Reporting
+  - name: Activity logs
     href: ../role-based-access-control/change-history-report.md
   - name: Elevate tenant admin access
     href: ../role-based-access-control/elevate-access-global-admin.md
