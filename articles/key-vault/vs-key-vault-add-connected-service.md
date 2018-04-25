@@ -57,11 +57,12 @@ For details on the changes that Connected Services makes in your project to enab
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
 1. Enter a secret, such as "MySecret", and give it any string value as a test, then choose the **Create** button.
-2. 
-3. ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
-4. 
-5. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
-6. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
+
+   ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
+
+1. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
+
+1. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
    ```csharp
       config["MySecret"] // Access a secret without a section
@@ -84,6 +85,14 @@ For details on the changes that Connected Services makes in your project to enab
    ```
 
 1. Build and run the web application, navigate to the About page, and see the "secret" value.
+
+## Clean up resources
+
+When no longer needed, delete the resource group. This deletes the Key Vault and related resources. To delete the resource group through the portal:
+
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+2. Select **Delete resource group**.
+3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 ## Next steps
 

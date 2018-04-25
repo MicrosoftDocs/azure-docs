@@ -11,14 +11,13 @@ ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
 ---
-
-# Get started with Key Vault Connected Service in Visual Studio
+# Get started with Key Vault Connected Service in Visual Studio (ASP.NET Core Projects)
 
 > [!div class="op_single_selector"]
 > - [Getting Started](vs-key-vault-aspnet-core-get-started.md)
 > - [What Happened](vs-key-vault-aspnet-core-what-happened.md)
 
-This article provides additional guidance after you've added Key Vault to an ASP.NET Core project through the **Add Connected Services** command of Visual Studio. If you've not already added the service to your project, you can do so at any time by following the instructions in [Add Key Vault to your web application by using Visual Studio Connected Services](vs-key-vault-add-connected-service.md).
+This article provides additional guidance after you've added Key Vault to an ASP.NET Core project through the **Add Connected Services** command in Visual Studio. If you've not already added the service to your project, you can do so at any time by following the instructions in [Add Key Vault to your web application by using Visual Studio Connected Services](vs-key-vault-add-connected-service.md).
 
 See [What happened to my ASP.NET Core project?](vs-key-vault-aspnet-core-what-happened.md) for the changes made to your project when adding the connected service.
 
@@ -43,21 +42,15 @@ See [What happened to my ASP.NET Core project?](vs-key-vault-aspnet-core-what-ha
       config.GetSection("Secrets")["MySecret"] // Get the configuration section and access a secret in it.
    ```
 
-   On a .cshtml page, say About.cshtml, add the @inject directive near the top of the file to set up a variable you can use to access the Key Vault configuration.
+Congratulations, you have now enabled your web app to use Key Vault to access securely stored secrets.
 
-   ```cshtml
-      @inject Microsoft.Extensions.Configuration.IConfiguration config
-   ```
+## Clean up resources
 
-1. You can confirm that the value of the secret is available by displaying it on one of the pages. Use @config to reference the config variable.
- 
-   ```cshtml
-      <p> @config["MySecret"] </p>
-      <p> @config.GetSection("Secrets")["MySecret"] </p>
-      <p> @config["Secrets:MySecret"] </p>
-   ```
+When no longer needed, delete the resource group. This deletes the Key Vault and related resources. To delete the resource group through the portal:
 
-1. Build and run the web application, navigate to the About page, and see the "secret" value.
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+2. Select **Delete resource group**.
+3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 # Next steps
 
