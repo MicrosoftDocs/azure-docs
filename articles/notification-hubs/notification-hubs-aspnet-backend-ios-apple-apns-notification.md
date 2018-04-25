@@ -2,9 +2,9 @@
 title: Push notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs. 
 documentationcenter: ios
-author: spelluru
-manager: 
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
 
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/13/2018
-ms.author: spelluru
+ms.author: dimazaid
 
 ---
 # Tutorial: Push notifications to specific users using Azure Notification Hubs
