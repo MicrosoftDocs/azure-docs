@@ -1,4 +1,4 @@
----
+﻿---
 title: How to build an app that can sign in any Azure AD user
 description: Step by step instructions for building an application that can sign in a user from any Azure Active Directory tenant, also known as a multi-tenant application.
 services: active-directory
@@ -228,7 +228,7 @@ Use the following comments section to provide feedback and help us refine and sh
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
+[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
 [OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 

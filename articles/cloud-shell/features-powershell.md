@@ -74,7 +74,7 @@ Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget
 After installation, your modules are automatically persisted across Cloud Shell sessions.
 
 > [!TIP]
-> Modules installed by users are saved in the `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
+> Modules installed by users are saved in the `$Home\clouddrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
