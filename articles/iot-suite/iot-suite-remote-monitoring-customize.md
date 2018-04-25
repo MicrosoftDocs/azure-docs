@@ -1,6 +1,6 @@
 ---
-title: Customize the remote monitoring solution UI - Azure | Microsoft Docs 
-description: This article provides information about how you can access the source code for the remote monitoring solution accelerator UI and make some customizations.
+title: Customize the Remote Monitoring solution UI - Azure | Microsoft Docs 
+description: This article provides information about how you can access the source code for the Remote Monitoring solution accelerator UI and make some customizations.
 services: iot-suite
 suite: iot-suite
 author: dominicbetts
@@ -26,7 +26,7 @@ To make changes to the UI, you can run a copy of it locally. The local copy conn
 
 The following steps outline the process to set up a local environment for UI development:
 
-1. Deploy a **basic** instance of the preconfigured solution using the **pcs** CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md).
+1. Deploy a **basic** instance of the solution accelerator using the **pcs** CLI. Make a note of the name of your deployment and the credentials you provided for the virtual machine. For more information, see [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md).
 
 1. Use the Azure portal or the [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  to enable SSH access to the virtual machine that hosts the microservices in your solution. For example:
 
@@ -70,7 +70,7 @@ The following steps outline the process to set up a local environment for UI dev
 
 ## Customize the layout
 
-Each page in the remote monitoring solution is composed of a set of controls, referred to as *panels* in the source code. For example, the **Dashboard** page is made up of five panels: Overview, Map, Alarms, Telemetry, and KPIs. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
+Each page in the Remote Monitoring solution is composed of a set of controls, referred to as *panels* in the source code. For example, the **Dashboard** page is made up of five panels: Overview, Map, Alarms, Telemetry, and KPIs. You can find the source code that defines each page and its panels in the [pcs-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub repository. For example, the code that defines the **Dashboard** page, its layout, and the panels on the page is located in the [src/components/pages/dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) folder.
 
 Because the panels manage their own layout and sizing, you can easily modify the layout of a page. For example, the following changes to the **PageContent** element in the `src/components/pages/dashboard/dashboard.js` file swap the positions of the map and telemetry panels, and change the relative widths of the map and KPI panels:
 
@@ -451,7 +451,7 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 ## Other customization options
 
-To further modify the presentation and visualizations layer in the remote monitoring solution, you can edit the code. The relevant GitHub repositories are:
+To further modify the presentation and visualizations layer in the Remote Monitoring solution, you can edit the code. The relevant GitHub repositories are:
 
 * [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
 * [The configuration microservice for Azure IoT Solutions  (Java)](https://github.com/Azure/pcs-ui-config-java/)
@@ -461,7 +461,7 @@ To further modify the presentation and visualizations layer in the remote monito
 
 In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator.
 
-For more conceptual information about the remote monitoring solution accelerator, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the Remote Monitoring solution accelerator, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
-For more information about customizing the remote monitoring solution, see [Customize the Remote Monitoring solution accelerator back end](iot-suite-remote-monitoring-customize-backend.md)
+For more information about customizing the Remote Monitoring solution, see [Customize the Remote Monitoring solution accelerator back end](iot-suite-remote-monitoring-customize-backend.md)
 <!-- Next tutorials in the sequence -->
