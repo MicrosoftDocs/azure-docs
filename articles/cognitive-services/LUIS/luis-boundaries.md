@@ -57,7 +57,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 |[Subscription][pricing] - F0 - Free tier |invalid|10 thousand/month, 5/second|Querying your LUIS endpoint|
 |[Subscription][pricing] - S0 - Basic tier|invalid|50/second|Querying your LUIS endpoint|
 |[Sentiment analysis integration](publishapp.md#enable-sentiment-analysis)|invalid|no charge|Adding sentiment information including key phrase data extraction |
-|[Speech integration](luis-how-to-integrate-speech.md)|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
+|Speech integration|invalid|$5.50 USD/1 thousand endpoint requests|Convert spoken utterance to text utterance and return LUIS results|
 
 ## Keyboard controls
 
