@@ -40,12 +40,19 @@ This update includes the following improvements for Azure Stack.
 
 - <!-- 1951191 --> Doubled the VPN Gateway capacity.
  
-- <!-- 1660015 --> Infrastructure backups on the external share are deleted based on a retention period of 7 days. 
 
 
 ## Fixed issues
+-  <!-- 2096388 - IS --> You can now use the admin portal to update rules for a network security group.
+
+- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information.
+ 
+- <!-- 2050709  -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+ 
+- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
+
 <!-- ### Changes -->
  
 
@@ -62,6 +69,8 @@ This update includes the following improvements for Azure Stack.
 
 ### Post-update steps
 *There are no post-update steps for update 1804.*
+
+
 
 ### Known issues (post-installation)
 The following are post-installation known issues for build  **201804xx.x**.
@@ -105,7 +114,7 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 
 #### Networking
-- <!-- TBD - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
 
   Currently, you must use only new public IP addresses for new VMs you create.
 
@@ -113,74 +122,11 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 
 
-- <!-- TBD - IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 - IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
-- <!-- TBD - IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 - IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
 
 - <!-- TBD - IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
-
-- <!-- 2096388 - IS --> You cannot use the admin portal to update rules for a network security group. 
-
-    Workaround for App Service: If you need to remote desktop to the Controller instances, you modify the security rules within the network security groups with PowerShell.  Following are examples of how to *allow*, and then restore the configuration to *deny*:  
-    
-    - *Allow:*
- 
-      ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-      
-      $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-      
-      $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-      
-      ##This doesn’t work. Need to set properties again even in case of edit
-      
-      #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-      
-      Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-        -Name $RuleConfig_Inbound_Rdp_3389.Name `
-        -Description "Inbound_Rdp_3389" `
-        -Access Allow `
-        -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-        -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-        -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-        -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-        -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-        -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-        -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-      
-      # Commit the changes back to NSG
-      Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
-
-    - *Deny:*
-
-        ```powershell
-        
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
-        
-        $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
-        
-        $RuleConfig_Inbound_Rdp_3389 =  $nsg | Get-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389"
-        
-        ##This doesn’t work. Need to set properties again even in case of edit
-    
-        #Set-AzureRmNetworkSecurityRuleConfig -Name "Inbound_Rdp_3389" -NetworkSecurityGroup $nsg -Access Allow  
-    
-        Set-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg `
-          -Name $RuleConfig_Inbound_Rdp_3389.Name `
-          -Description "Inbound_Rdp_3389" `
-          -Access Deny `
-          -Protocol $RuleConfig_Inbound_Rdp_3389.Protocol `
-          -Direction $RuleConfig_Inbound_Rdp_3389.Direction `
-          -Priority $RuleConfig_Inbound_Rdp_3389.Priority `
-          -SourceAddressPrefix $RuleConfig_Inbound_Rdp_3389.SourceAddressPrefix `
-          -SourcePortRange $RuleConfig_Inbound_Rdp_3389.SourcePortRange `
-          -DestinationAddressPrefix $RuleConfig_Inbound_Rdp_3389.DestinationAddressPrefix `
-          -DestinationPortRange $RuleConfig_Inbound_Rdp_3389.DestinationPortRange
-          
-        # Commit the changes back to NSG
-        Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg 
-        ```
 
 
 #### SQL and MySQL
