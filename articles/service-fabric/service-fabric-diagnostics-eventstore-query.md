@@ -65,7 +65,7 @@ Method: GET
 URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.2-preview&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
-This could either return an error if no events are available, or if the query was successful:
+This could either return an error if no events are available, or if the query was successful, you'll see events returned in json:
 
 ```json
 Response: 200
