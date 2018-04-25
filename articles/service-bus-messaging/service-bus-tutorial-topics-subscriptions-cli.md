@@ -65,7 +65,7 @@ Once CLI is installed, open Cloud Shell and issue the following commands to log 
 
 ## Use CLI to provision resources
 
-After logging in to Azure, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
+Issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
 ```azurecli
 # Create a resource group
