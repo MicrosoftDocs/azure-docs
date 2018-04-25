@@ -1,34 +1,45 @@
 # Disaster Recovery and Geo-Distribution Documentation (TODO)
 
-##Overview
+## Overview
 
-Today, all durable state is stored in a particular storage account + task hub. More info here.
+*Today, all durable state is stored in a particular storage account + task hub. More info here.
 If the whole DC goes down, you'll lose access to both compute and storage, so all in progress orchestrations will be effectively stopped.
 When the DC comes back up processing will continue automatically from where it left off. There will be no data loss as long as the underlying Azure Storage data isn't lost (which is highly unlikely).
-Multiple function apps cannot collaborate on the same task hub today. For geo/disaster recovery, you will want to go with multiple storage accounts - one in each geo region. It's up to you to decide how you want to configure Traffic Manager (failover mode or geo-load balancing). Just remember that the two environments are completely isolated from each other.
+Multiple function apps cannot collaborate on the same task hub today. For geo/disaster recovery, you will want to go with multiple storage accounts - one in each geo region. It's up to you to decide how you want to configure Traffic Manager (failover mode or geo-load balancing). Just remember that the two environments are completely isolated from each other.*
 
-##Scenario 1 - Load Balanced Compute with Shared Storage
-//Traffic Manager, Load Balanced Funcion Apps, Single Storage
-This scenario 
+Using these scenarios requires understanding of Traffic Manager [priority traffic-routing method](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#traffic-routing-methods) and [endpoint failover and recovery](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery)
+
+## Scenario 1 - Load Balanced Compute with Shared Storage
+### Traffic Manager, Load Balanced Funcion Apps, Single Storage
 
 Storage must be deployed in the same region as the primary compute region
 
 Pros:
-State is kept even if compute layer dies.
-Automatic failover of the compute layer if it dies
+- Automatic failover to the secondary region, where function app is deployed. 
+- State is kept even if the function app dies.
+ 
 
 Cons:
-increased cost by using an additional compute instance if on dedicated AppService plans.
-the storage dies, the whole thing dies
-increased latency during fail over period
-increased egress networking cost during fail over
-depends on Traffic Manager - client affinity takes time to correct; requires understanding of the limitations of TM (ADD URL TO TRAFFIC MANAGER'S EXPLANATION OF THIS ISSUE)
+- When hosting it on a dedicated App Service Plan, it brings increased costs.
+- Storage fails, the whole thing fails.
+- Increased network latency and egress costs during fail over period.
 
 
 
 
-##Scenario 2 - Load Balanced Compute with Regional Storage
-//Traffic Manager, Load Balanced Function Apps, One Storage account per region
+## Scenario 2 - Load Balanced Compute with Regional Storage
+### Traffic Manager, Load Balanced Function Apps, One Storage account per region
 
-##Improved Recovery Option
+Each function app deployment has a dedicated Storage account and deployed in the same region
+
+Pros:
+- Automatic failover to the secondary region, where function app is deployed. 
+- High-availabily, in case of both compute and storage failures
+ 
+
+Cons:
+- When hosting it on a dedicated App Service Plan, it brings increased costs.
+- State is lost (primary region) not kept in sync
+
+## Improved Recovery Option
 Same scenarios, but using RA-GRS for storage -> improves recoverability
