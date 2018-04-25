@@ -280,9 +280,9 @@ The telemetry chart on the **Dashboard** page is defined by the files in the `sr
 1. In the `src/services/telemetryService.js` file, locate the function called **getTelemetryByDeviceIdP15M**. Make a copy of this function and modify the copy as follows:
 
     ```nodejs
-    static getTelemetryByDeviceIdP5M(devices = []) {
+    static getTelemetryByDeviceIdP1D(devices = []) {
       return TelemetryService.getTelemetryByMessages({
-        from: 'NOW-PT5M',
+        from: 'NOW-P1D',
         to: 'NOW',
         order: 'desc',
         devices
@@ -293,12 +293,15 @@ The telemetry chart on the **Dashboard** page is defined by the files in the `sr
 1. To use this new function to populate the telemetry chart, open the `src/components/pages/dashboard/dashboard.js` file. Locate the line that initializes the telemetry stream and modify it as follows:
 
     ```node.js
-    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP1D(deviceIds)
     ```
 
-The telemetry chart now shows the last five minutes worth of telemetry data:
+The telemetry chart now shows the last day of telemetry data:
 
-![Telemetry chart showing five minutes](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
+![Telemetry chart showing one day](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
+
+> [!NOTE]
+> In the previous screenshot, the solution has not been running for a full day so the chart isn't showing a full 24 hours.
 
 ## Add a new KPI
 
