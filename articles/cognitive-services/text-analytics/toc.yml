@@ -1,6 +1,6 @@
 
 - name: Text Analytics Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: About Text Analytics
