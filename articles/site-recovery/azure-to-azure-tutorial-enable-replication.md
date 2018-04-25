@@ -160,7 +160,8 @@ your requirements.
 
 - **Target resource group**: The resource group in the target region that holds Azure VMs after
   failover. By default, Site Recovery creates a new resource group in the target region with an
-  "asr" suffix.
+  "asr" suffix. resource group location of the target resource group can be any region except the 
+region where your source virtual machines are hosted. 
 
 - **Target virtual network**: The network in the target region that VMs are located after failover.
   By default, Site Recovery creates a new virtual network (and subnets) in the target region with
