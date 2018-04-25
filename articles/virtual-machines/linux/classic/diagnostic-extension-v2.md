@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitoring a Linux VM with a VM extension | Microsoft Docs
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
@@ -49,7 +49,7 @@ The latest version of the extension is **2.3**, and **any old versions (2.0, 2.1
 
 You can enable this extension by using the [Azure portal](https://portal.azure.com/#), Azure PowerShell, or Azure CLI scripts.
 
-To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
+To view and configure the system and performance data directly from the Azure portal, follow [these steps on the Azure blog](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/).
 
 This article focuses on how to enable and configure the extension by using Azure CLI commands. This allows you to read and view the data directly from the storage table.
 

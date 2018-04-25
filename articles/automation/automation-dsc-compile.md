@@ -291,7 +291,7 @@ authorized source.
 > [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
 
-You can learn how to sign node configurations at https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+You can learn how to sign node configurations at https://msdn.microsoft.com/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
 
 ### Importing a node configuration in the Azure portal
 
