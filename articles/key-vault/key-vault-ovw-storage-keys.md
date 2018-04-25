@@ -1,4 +1,4 @@
----
+﻿---
 ms.assetid:
 title: Azure Key Vault Storage Account Keys
 description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
@@ -207,7 +207,7 @@ Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Contain
 
 Get the corresponding SAS tokens and make calls to storage. `-SecretName` is
 constructed using the input from the `AccountName` and `Name` parameters when
-you executed [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/en-us/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
+you executed [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition).
 
 ```powershell
 $readSasToken = (Get-AzureKeyVaultSecret -VaultName $keyVaultName -SecretName "$accountName-$readSasName").SecretValueText

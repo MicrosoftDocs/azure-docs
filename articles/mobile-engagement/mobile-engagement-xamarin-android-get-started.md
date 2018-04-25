@@ -28,7 +28,7 @@ This topic shows you how to use Azure Mobile Engagement to understand your app u
 This tutorial demonstrates the simple broadcast scenario using Mobile Engagement. In it, you create a blank Xamarin.Android app that collects basic data and receives push notifications using Google Cloud Messaging (GCM).
 
 > [!NOTE]
-> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 This tutorial requires the following:
 
