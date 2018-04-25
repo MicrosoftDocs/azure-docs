@@ -20,35 +20,51 @@ ms.author: larryfr
 ---
 # What is Apache Kafka on HDInsight?
 
-[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. Kafka on HDInsight provides you with a managed, highly scalable, and highly available service in the Microsoft Azure cloud.
+[Apache Kafka](https://kafka.apache.org) is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams. 
 
-## Why use Kafka on HDInsight?
+The following are specific characteristics of Kafka on HDInsight:
 
-Kafka on HDInsight provides the following features:
+* It is a managed service that provides a simplified configuration process. The result is a configuration that is tested and supported by Microsoft.
 
-* __99.9% Service Level Agreement (SLA) on Kafka uptime__: For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
+* Microsoft provides a 99.9% Service Level Agreement (SLA) on Kafka uptime. For more information, see the [SLA information for HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) document.
 
-* __Fault-tolerance__: Kafka was designed with a single dimensional view of a rack, which works well on some environments. However on environments such as Azure, a rack is separated out into two dimensions - Update Domains (UDs) and Fault Domains (FDs). Microsoft provides tools that can rebalance Kafka partitions and replicas across UDs and FDs. 
-
-    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
-
-* **Integration with Azure Managed Disks**: Managed disks provide higher scale and throughput for the disks used by Kafka on HDInsight, up to 16 TB per node in the cluster.
-
-    For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md).
+* It uses Azure Managed Disks as the backing store for Kafka. Managed Disks can provide up to 16 TB of storage per Kafka broker. For information on configuring managed disks with Kafka on HDInsight, see [Increase scalability of Kafka on HDInsight](apache-kafka-scalability.md).
 
     For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
-* **Alerting, monitoring, and predictive maintenance**: Azure Log Analytics can be used to monitor Kafka on HDInsight. Log Analytics surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
+* Kafka was designed with a single dimensional view of a rack. Azure separates a rack into two dimensions - Update Domains (UD) and Fault Domains (FD). Microsoft provides tools that rebalance Kafka partitions and replicas across UDs and FDs. 
+
+    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
+
+* HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
+
+    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
+
+* Azure Log Analytics can be used to monitor Kafka on HDInsight. Log Analytics surfaces virtual machine level information, such as disk and NIC metrics, and JMX metrics from Kafka.
 
     For more information, see [Analyze logs for Kafka on HDInsight](apache-kafka-log-analytics-operations-management.md).
+
+### Kafka on HDInsight architecture
+
+The following diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance:
+
+![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster.png)
+
+Apache ZooKeeper manages the state of the Kafka cluster. Zookeeper is built for concurrent, resilient, and low-latency transactions. 
+
+Kafka stores records (data) in **topics**. Records are produced by **producers**, and consumed by **consumers**. Producers send records to Kafka **brokers**. Each worker node in your HDInsight cluster is a Kafka broker. 
+
+Topics partition records across brokers. When consuming records, you can use up to one consumer per partition to achieve parallel processing of the data.
+
+Replication is employed to duplicate partitions across nodes, protecting against node (broker) outages. A partition denoted with an *(L)* in the diagram is the leader for the given partition. Producer traffic is routed to the leader of each node, using the state managed by ZooKeeper.
+
+## Why use Kafka on HDInsight?
+
+The following are common tasks and patterns that can be performed using Kafka on HDInsight:
 
 * **Replication of Kafka data**: Kafka provides the MirrorMaker utility, which replicates data between Kafka clusters.
 
     For information on using MirrorMaker, see [Replicate Kafka topics with Kafka on HDInsight](apache-kafka-mirroring.md).
-
-* **Cluster scaling**: HDInsight allows you to change the number of worker nodes (which host the Kafka-broker) after cluster creation. Scaling can be performed from the Azure portal, Azure PowerShell, and other Azure management interfaces. For Kafka, you should rebalance partition replicas after scaling operations. Rebalancing partitions allows Kafka to take advantage of the new number of worker nodes.
-
-    For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
 
 * **Publish-subscribe messaging pattern**: Kafka provides a Producer API for publishing records to a Kafka topic. The Consumer API is used when subscribing to a topic.
 
@@ -75,14 +91,6 @@ Kafka on HDInsight provides the following features:
 * **Aggregation**: Using stream processing, you can aggregate information from different streams to combine and centralize the information into operational data.
 
 * **Transformation**: Using stream processing, you can combine and enrich data from multiple input topics into one or more output topics.
-
-## Architecture
-
-![Kafka cluster configuration](./media/apache-kafka-introduction/kafka-cluster.png)
-
-This diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance. Apache ZooKeeper is built for concurrent, resilient, and low-latency transactions, as it manages the state of the Kafka cluster. Kafka stores records in *topics*. Records are produced by *producers*, and consumed by *consumers*. Producers send records to Kafka *brokers*. Each worker node in your HDInsight cluster is a Kafka broker. One partition is created for each consumer, allowing parallel processing of the streaming data. Replication is employed to duplicate partitions across nodes, protecting against node (broker) outages. A partition denoted with an *(L)* is the leader for the given partition. Producer traffic is routed to the leader of each node, using the state managed by ZooKeeper.
-
-Each Kafka broker uses Azure Managed Disks. The number of disks is user-defined, and can provide up to 16 TB of storage per broker.
 
 ## Next steps
 
