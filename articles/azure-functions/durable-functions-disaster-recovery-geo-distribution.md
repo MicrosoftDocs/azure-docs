@@ -26,7 +26,7 @@ It is important to notice that these scenarios are based on an Active-Passive co
 
 
 > [!NOTE]
-> All function apps must share the same function access keys in the case of being activated via HTTP. The Functions Runtime exposes a [management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) that enables consumers to programmatically add, delete, and update function keys.
+> All function apps that are redundantly deployed, must share the same function access keys in the case of being activated via HTTP. The Functions Runtime exposes a [management API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) that enables consumers to programmatically add, delete, and update function keys.
 
 ## Scenario 1 - Load Balanced Compute with Shared Storage
 
