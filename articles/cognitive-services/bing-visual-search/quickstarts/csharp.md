@@ -42,10 +42,12 @@ To run this example, follow these steps:
 ```csharp
 ```
 
+<!-->
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
+<-->
 
 ## See also 
 

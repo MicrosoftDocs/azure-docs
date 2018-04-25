@@ -86,10 +86,12 @@ for i in range(4):
         axes[i][j].axis("off")
 ```
 
+<!-->
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
+<-->
 
 ## See also 
 

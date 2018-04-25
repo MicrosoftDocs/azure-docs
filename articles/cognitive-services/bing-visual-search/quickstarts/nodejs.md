@@ -185,10 +185,12 @@ A sample response follows. To limit the length of the JSON, only a single result
 }
 ```
 
+<!-->
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
+<-->
 
 ## See also 
 

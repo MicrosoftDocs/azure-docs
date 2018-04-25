@@ -96,7 +96,7 @@ The tag with the `displayName` field set to an empty string contains the default
 
 ## PagesIncluding insight
 
-The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of Image objects; the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding example](./examples-bing-insights.md#pagesincluding-insight-example). 
+The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of Image objects; the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding example](./bing-insights-usage.md#pagesincluding-insight-example). 
 
 ```json
       {
@@ -135,7 +135,7 @@ The PagesIncluding insight provides a list of webpages that include this image. 
 
 ## ShoppingSources insight
 
-The ShoppingSources insight provides a list of websites where the user can buy the item shown in the image. The list of offers include the URL of the webpage where the user may buy the item, the price of the item, and rating or review details. For example usage, see [ShoppingSources example](./examples-bing-insights.md#shoppingsources-insight-example).
+The ShoppingSources insight provides a list of websites where the user can buy the item shown in the image. The list of offers include the URL of the webpage where the user may buy the item, the price of the item, and rating or review details. For example usage, see [ShoppingSources example](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -200,7 +200,7 @@ The MoreSizes insight identifies the number of sizes (larger or smaller) of the 
 
 ## VisualSearch insight
 
-The VisualSearch insight provides a list of images that are visually similar to the original image (contains content that's similar to the content shown in the original image). For example usage, see [VisualSearch example](./examples-bing-insights.md#visualsearch-insight-example).
+The VisualSearch insight provides a list of images that are visually similar to the original image (contains content that's similar to the content shown in the original image). For example usage, see [VisualSearch example](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -240,7 +240,7 @@ The VisualSearch insight provides a list of images that are visually similar to 
 
 ## Recipes insight
 
-The Recipes insight provides a list of webpages that include a recipe for making the food shown in the image. For example usage, see [Recipes example](./examples-bing-insights.md#recipes-insight-example).
+The Recipes insight provides a list of webpages that include a recipe for making the food shown in the image. For example usage, see [Recipes example](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -311,7 +311,7 @@ The ImageById insight provides an `Image` object of the image that you requested
 
 ## ProductVisualSearch insight
 
-The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product. For example usage, see [ProductVisualSearch example](./examples-bing-insights.md#productvisualsearch-insight-example).
+The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product. For example usage, see [ProductVisualSearch example](./bing-insights-usage.md#productvisualsearch-insight-example).
 
 ```json
       {
@@ -372,7 +372,7 @@ The ProductVisualSearch insight provides a list of images of products that are v
 
 ## RelatedSearches insight
 
-The RelatedSearches insight provides a list of related searches made by others (based on other users' search terms). For example usage, see [RelatedSearches example](./examples-bing-insights.md#relatedsearches-insight-example).
+The RelatedSearches insight provides a list of related searches made by others (based on other users' search terms). For example usage, see [RelatedSearches example](./bing-insights-usage.md#relatedsearches-insight-example).
 
 
 ```json
@@ -397,7 +397,7 @@ The RelatedSearches insight provides a list of related searches made by others (
 
 ## DocumentLevelSuggestions insight
 
-The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image. For example usage, see [DocumentLevelSuggestions example](./examples-bing-insights.md#documentlevelsuggestions-insight-example).
+The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image. For example usage, see [DocumentLevelSuggestions example](./bing-insights-usage.md#documentlevelsuggestions-insight-example).
 
 ```json
       {
@@ -418,6 +418,3 @@ The DocumentLevelSuggestions insight provides a list of suggested search terms b
       }
 ```
 
-## Next steps
-
-For examples of how you might display the insights, see [Example of Bing insights usage](./example-bing-insights.md).

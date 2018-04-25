@@ -5,7 +5,7 @@
     - name: About Bing Visual Search API
       href: overview.md
     - name: Default image insights
-      href: default-image-tag.md
+      href: default-insights-tag.md
     - name: Bing insights usage 
       href: bing-insights-usage.md
     - name: Supported countries and markets
