@@ -1,4 +1,4 @@
----
+﻿---
 title: What's new? Release notes for Azure Active Directory | Microsoft Docs
 description: Learn what is new with Azure Active Directory (Azure AD), such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: active-directory
@@ -359,7 +359,7 @@ For more information, see [Customizing claims issued in the SAML token for enter
 
 To make application deployment easier and reduce your administrative overhead, we now support the ability to publish applications using wildcards. To publish a wildcard application, you can follow the standard application publishing flow, but use a wildcard in the internal and external URLs.
 
-For more information, see [Wildcard applications in the Azure Active Directory application proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-wildcard)
+For more information, see [Wildcard applications in the Azure Active Directory application proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-wildcard)
 
  
 
