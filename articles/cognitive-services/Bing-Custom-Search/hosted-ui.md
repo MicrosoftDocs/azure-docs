@@ -47,8 +47,10 @@ Use the following instructions to configure a hosted UI to include in your web a
    > [!IMPORTANT]
    > At least one of Image search or Web search must be enabled.
 
-6.  Select the search subscription key. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-7.  If you enabled autosuggest, select the autosuggest subscription key. Custom Autosuggest requires a specifiec subscription tier, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+6.  Enter the search subscription key, or choose one from the drop-down. The drop-down is populated with keys from your account's Azure subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+7.  If you enabled autosuggest, enter the autosuggest subscription key, or choose one from the drop-down. The drop-down is populated with keys from your account's Azure subscriptions. Custom Autosuggest requires a specifiec subscription tier, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
+
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
@@ -73,6 +75,8 @@ To consume the hosted UI, either:
   > The page cannot display your privacy statement or other notices and terms. Suitability for your use may vary.
 
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
+
+For additional information, including your Custom Configuration ID, go to **Endpoints** under the **Production** tab.
 
 ## Next steps
 - [Use decoration markers to highlight text](./hit-highlighting.md)
