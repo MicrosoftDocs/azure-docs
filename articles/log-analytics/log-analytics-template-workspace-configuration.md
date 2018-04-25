@@ -503,10 +503,9 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Monitor SQL Azure using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-sqlazure-oms-monitoring/)
-* [Deploy a Service Fabric cluster and monitor it with an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/service-fabric-oms/)
-* [Deploy a Service Fabric cluster and create a Log Analytics workspace to monitor it](https://azure.microsoft.com/documentation/templates/service-fabric-vmss-oms/)
+* [Add an existing storage account to OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy agents into Azure VMs using Resource Manager templates](log-analytics-azure-vm-extension.md)
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../azure/virtual-machines/windows/extensions-oms.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../azure/virtual-machines/linux/extensions-oms.md).
 
