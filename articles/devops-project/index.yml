@@ -34,7 +34,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/devops-project/media/index/logo_net.svg
+        src: media\index\logo_net.svg
       text: ASP.NET
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
     - image: 
@@ -57,6 +57,8 @@ sections:
         src: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-logo_ruby.svg
       text: Ruby
       href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+
+
 
 - title: Step-by-Step Tutorials
   items:
