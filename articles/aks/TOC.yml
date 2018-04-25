@@ -63,6 +63,8 @@
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: VNet
+      href: vnet.md
   - name: Security and authentication
     items:
     - name: Create service principal

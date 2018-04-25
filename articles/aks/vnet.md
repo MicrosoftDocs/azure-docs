@@ -69,6 +69,8 @@ By default, each node can host a maximum of 30 pods. When you scale out your clu
 
 Learn more about networking in AKS in the following articles:
 
+[Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
+
 [HTTPS ingress on Azure Container Service (AKS)](ingress.md)
 
 [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
