@@ -504,8 +504,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|CPU percent|Percent|Average|CPU percent|No Dimensions|
-|compute_limit|Compute Unit limit|Count|Average|Compute Unit limit|No Dimensions|
-|compute_consumption_percent|Compute Unit percentage|Percent|Average|Compute Unit percentage|No Dimensions|
 |memory_percent|Memory percent|Percent|Average|Memory percent|No Dimensions|
 |io_consumption_percent|IO percent|Percent|Average|IO percent|No Dimensions|
 |storage_percent|Storage percent|Percent|Average|Storage percent|No Dimensions|
@@ -523,8 +521,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |cpu_percent|CPU percent|Percent|Average|CPU percent|No Dimensions|
-|compute_limit|Compute Unit limit|Count|Average|Compute Unit limit|No Dimensions|
-|compute_consumption_percent|Compute Unit percentage|Percent|Average|Compute Unit percentage|No Dimensions|
 |memory_percent|Memory percent|Percent|Average|Memory percent|No Dimensions|
 |io_consumption_percent|IO percent|Percent|Average|IO percent|No Dimensions|
 |storage_percent|Storage percent|Percent|Average|Storage percent|No Dimensions|
