@@ -36,7 +36,7 @@ The scenario in this article assumes that you have:
 
 ## Enabling Your Tenant 
 
-Using application proxy for Tableau requires one service side change. To be enabled for this scenario, please email [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com) with your tenantId and this scenario as subject. 
+Using application proxy for Tableau requires one service side change. To be enabled for this scenario, send email to [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com) with your tenantId and this scenario as subject. 
 
 You get a confirmation when you are ready to use the application.
 Typically, this takes about a week.
