@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Automation Linux Hybrid Runbook Worker
 description: This article provides information on installing an Azure Automation Hybrid Runbook Worker that allows you to run runbooks on Linux-based computers in your local datacenter or cloud environment.
 services: automation
@@ -32,7 +32,7 @@ Before you proceed, you need to note the Log Analytics workspace your Automation
 
 1.	Enable the “Automation Hybrid Worker” solution in Azure. This can be done by either:
 
-   1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-add-solutions).
+   1. Add the **Automation Hybrid Worker** solution to your subscription using the procedure at [Add Log Analytics management solutions to your workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
    2. Run the following cmdlet:
 
         ```powershell

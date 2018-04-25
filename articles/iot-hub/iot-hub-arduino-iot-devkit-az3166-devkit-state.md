@@ -28,7 +28,7 @@ You can use this example to monitor the MXChip IoT DevKit WiFi information and s
 
 ## What you need
 
-- Set up your development environment by following the [Getting Started Guide](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+- Set up your development environment by following the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 - From your GitBash terminal window (or other Git command-line interface), type the following commands:
     - `git clone https://github.com/DevKitExamples/DevKitState.git`
     - `cd DevKitState`
@@ -93,4 +93,4 @@ You have learned how to:
 Here are the suggested next steps:
 
 * [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

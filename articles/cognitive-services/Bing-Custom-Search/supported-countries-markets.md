@@ -1,4 +1,4 @@
----
+﻿---
 title: Supported countries and languages for Bing Custom Search API on Azure | Microsoft Docs
 description: Find out which countries and languages are supported by the Bing Custom Search API.
 services: cognitive-services
@@ -18,7 +18,7 @@ You can specify a country using the `cc` query parameter. If you specify a count
 
 Alternatively, you can specify the market by the `mkt` query parameter with a code from the **Markets** table. Use the country code `cc` and the `Accept-Language header` if you specify multiple languages. Otherwise, you should use the `mkt` and `setLang query` parameters.
 
-The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
+The `Accept-Language` header and the `setLang` query parameter are mutually exclusive—do not specify both. For details, see [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage).
 
 ## Countries
 
