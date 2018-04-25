@@ -329,8 +329,8 @@ Check out Spark documentation for more details.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks
-[acr-create]: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-azure-cli
-[aks-quickstart]: https://docs.microsoft.com/en-us/azure/aks/
-[azure-cli]: https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest
-[storage-account]: https://docs.microsoft.com/en-us/azure/storage/common/storage-azure-cli
+[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
+[aks-quickstart]: https://docs.microsoft.com/azure/aks/
+[azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest
+[storage-account]: https://docs.microsoft.com/azure/storage/common/storage-azure-cli

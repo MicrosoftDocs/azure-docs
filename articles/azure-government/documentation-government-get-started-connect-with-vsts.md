@@ -131,7 +131,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 	
 6. Edit the name of the release definition, choose Save, and choose OK. The default environment is named Environment1, which you can edit by clicking directly on the name.
 	
-Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/en-us/vsts/build-release/) to your applications in Azure Government. 
+Now that your pipeline has been constructed, you can [deploy changes](https://docs.microsoft.com/vsts/build-release/) to your applications in Azure Government. 
 
 ## Q&A
 * Do I need a build agent?

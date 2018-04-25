@@ -60,6 +60,7 @@
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 ##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Grant local users access to cloud apps](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -261,7 +262,7 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Manage access to Azure](toc.yml)
+## [Manage access to Azure](../role-based-access-control/toc.yml)
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)

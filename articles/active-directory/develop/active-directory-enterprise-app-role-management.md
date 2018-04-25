@@ -1,4 +1,4 @@
----
+﻿---
 title: Configuring Role claim issued in the SAML token for enterprise applications in Azure Active Directory | Microsoft Docs
 description: Learn how to configure the Role claim issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
@@ -247,7 +247,7 @@ If your application expects custom roles to be passed in SAML response, you need
 
 ## Next Steps
 
-Refer [App documentation ](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-tutorial-list) for the additional steps.
+Refer [App documentation ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) for the additional steps.
 
 <!--Image references-->
 <!--Image references-->
