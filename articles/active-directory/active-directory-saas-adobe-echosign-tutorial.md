@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 04/25/2018
 ms.author: jeedes
 
 ---
@@ -130,23 +130,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log in to your Adobe Sign company site as an administrator.
 
-8. In the menu on the top, click **Account**, and then, in the navigation pane on the left side, click **SAML Settings** under **Account Settings**.
+8. In the SAML menu, click **Account Settings**, and then, click **SAML Settings**.
    
-   ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
+	![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
 9. In the SAML Settings section, perform the following steps:
+  
+	![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
-   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "SAML Settings")
+    a. As **SAML Mode**, select **SAML Mandatory**.
    
-   a. As **SAML Mode**, select **SAML Mandatory**.
+    b. Select **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**.
    
-   b. Select **Allow EchoSign Account Administrators to log in using their EchoSign Credentials**.
-   
-   c. As **User Creation**, select **Automatically add users authenticated through SAML**.
+    c. As **User Creation**, select **Automatically add users authenticated through SAML**.
 
 10. Move on, performing the following steps:
 
-	   ![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML Settings")
+	![SAML Settings](./media/active-directory-saas-adobe-echosign-tutorial/ic789522.png "SAML Settings")
 
 	a. Paste **SAML Entity ID**, which you have copied from Azure portal into the **IdP Entity ID** textbox.
    	
@@ -157,10 +157,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	d. Open your downloaded **Certificate(Base64)** file in notepad, copy the content of it into your clipboard, and then paste it to the **IdP Certificate** textbox
 
 	e. Click **Save Changes**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
