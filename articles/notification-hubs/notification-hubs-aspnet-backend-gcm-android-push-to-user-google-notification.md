@@ -3,9 +3,9 @@ title: Push notifications to specific Android application users using Azure Noti
 description: Learn how to send push notifications to specific users by using Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
-author: spelluru
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: ae0e17a8-9d2b-496e-afd2-baa151370c25
 ms.service: notification-hubs
@@ -15,7 +15,7 @@ ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/07/2018
-ms.author: spelluru
+ms.author: dimazaid
 
 ---
 # Tutorial: Push notification to specific Android application users by using Azure Notification Hubs
