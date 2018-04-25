@@ -35,9 +35,11 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
     - *myBackendSubnet* - for the subnet name.
 2. Click **Create** to create the virtual network.
 
-## Create a Basic Load Balancer
+## Create load balancer and its resources
+In this section, you create and internal load balancer, its health probe, and load balancing rules.
 
-In this section, you create an internal Basic Load Balancer using the portal.
+# Create a Basic Load Balancer
+Create an internal Basic Load Balancer using the portal.
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
 2. In the **Create a load balancer** page enter these values for the load balancer:
@@ -55,34 +57,44 @@ In this section, you create an internal Basic Load Balancer using the portal.
 
 ## Create backend servers
 
-In this section, you create a virtual network, create two virtual machines for the backend pool of your Basic Load Balancer, and then install IIS on the virtual machines to help test the load balancer.
-
-### Create a virtual network
-1. On the top left-hand side of the screen click **New** > **Networking** > **Virtual network** and enter these values for the virtual network:
-    - *myVnet* - for the name of the virtual network.
-    - *myResourceGroupLB* - for the name of the existing resource group
-    - *myBackendSubnet* - for the subnet name.
-2. Click **Create** to create the virtual network.
-
-    ![Create a virtual network](./media/load-balancer-get-started-internet-portal/2-load-balancer-virtual-network.png)
+In this section, you create two virtual machines for the backend pool of your Basic Load Balancer, and then install IIS on the virtual machines to help test the load balancer.
 
 ### Create virtual machines
 
-1. On the top left-hand side of the screen, click **New** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
+1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
     - *myVM1* - for the name of the virtual machine.        
-    - *azureuser* - for the administrator user name. -    
-    - *myResourceGroupLB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupLB*.
+    - *azureuser* - for the administrator user name.   
+    - *myResourceGroupILB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupILB*.
 2. Click **OK**.
 3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
 4. Enter these values for the VM settings:
     - *myAvailabilitySet* - for the name of the new Availability set that you create.
     -  *myVNet* - ensure it is selected as the virtual network.
     - *myBackendSubnet* - ensure it is selected as the subnet.
-    - *myVM1-ip* - for Public IP address.
     - *myNetworkSecurityGroup* - for the name of the new network security group (firewall) that you must create.
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
 7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailabilityset* as the Availability set, *myVnet* as the virtual network, *myBackendSubnet* as subnet, and *myNetworkSecurityGroup* as its Network Security Group, . 
+
+### Install IIS and customize the default web page
+
+1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
+2. On the **Overview** page, click **Connect** to RDP into the VM.
+3. Log into the VM.
+4. On the server desktop, navigate to **Windows Administrative Tools**>**Server Manager**.
+5. Launch Windows PowerShell on VM1 and using the following commands to install IIS server and update the default htm file.
+    ```powershell-interactive
+    # Install IIS
+      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # Remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    #Add custom htm file
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+    ```
+5. Close the RDP connection with *myVM1*.
+6. Repeat steps 1-5 with *myVM2* to install IIS and customize the default web page.
 
 ### Create NSG rules
 
@@ -112,24 +124,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *myRDPRule* for name
     - *Allow RDP* - for description
 
-   
-
-### Install IIS
-
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
-2. On the **Overview** page, click **Connect** to RDP into the VM.
-3. Log into the VM with username *azureuser* and password *Azure123456!*
-4. On the server desktop, navigate to **Windows Administrative Tools**>**Server Manager**.
-5. In Server Manager, click Manage, and then, click **Add Roles and features**.
- ![Adding server manager role](./media/load-balancer-get-started-internet-portal/servermanager.png)
-6. In the **Add Roles and Features Wizard**, use the following values:
-    - In the **Select installation type** page, click **Role-based or feature-based installation**.
-    - In the **Select destination server** page, click **myVM1**
-    - In the **Select server role** page, click **Web Server (IIS)**
-    - Follow instructions to complete the rest of the wizard 
-7. Repeat steps 1 to 6 for the virtual machine *myVM2*.
-
-## Create Basic Load Balancer resources
+   ## Create Basic Load Balancer resources
 
 In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
 
@@ -184,12 +179,27 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
     
     ![Adding a load balancing rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
+## Create a virtual machine to test the load balancer
+In order to test the internal load balancer, you must create a virtual machine that is located in the same virtual network as the backend server VMs.
+1. On the top left-hand side of the screen, click **Create a resource** > **Compute** > **Windows Server 2016 Datacenter** and enter these values for the virtual machine:
+    - *myVMTest* - for the name of the virtual machine.        
+    - *myResourceGroupILB* - for **Resource group**, select **Use existing**, and then select *myResourceGroupILB*.
+2. Click **OK**.
+3. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+4. Enter these values for the VM settings:
+    -  *myVNet* - ensure it is selected as the virtual network.
+    - *myBackendSubnet* - ensure it is selected as the subnet.
+5. Click **Disabled** to disable boot diagnostics.
+6. Click **OK**, review the settings on the summary page, and then click **Create**.
+
 ## Test the load balancer
-1. Find the public IP address for the Load Balancer on the **Overview** screen. Click **All resources** and then click **myPublicIP**.
+1. Find the Private IP address for the Load Balancer on the **Overview** screen (in this example, it is 10.1.0.7.
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
+2. Copy the Private IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
 
-  ![IIS Web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+      ![IIS Web server](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 
 ## Clean up resources
 
