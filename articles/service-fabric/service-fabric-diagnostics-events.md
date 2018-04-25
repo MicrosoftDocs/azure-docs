@@ -27,7 +27,7 @@ The Service Fabric platform writes several structured events for key operational
 * Replica 
 * Container
 
-To see a full list of events exposed by the platform - [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
+To see a full list of events exposed by the platform - [List of Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
 
 Here are some examples of important scenarios that you should see events for in your cluster. 
 1. Node lifecycle events: as nodes come up, go down, are activated/deactivated or restarted, events will be exposed showing you what happened, and help you identify if there's something wrong with the machine itself or if there was an API that was called through SF to modify the status of a node.
