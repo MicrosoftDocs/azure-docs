@@ -26,7 +26,7 @@ A common scenario with real-time applications is for content updates to originat
 
 Normally, this scenario would present a problem when trying to use SignalR because SignalR tries to maintain a connection between client and server for pushing content updates. Since the code only runs on-demand, a connection cannot be maintained. However, Azure SignalR Service can support this scenario since it manages connections for you at run-time.
 
-In this tutorial, you will use Azure Functions to generate messages using a [timer trigger](../azure-functions/functions-create-scheduled-function.md) at the beginning of each minute. The function will publish the messages to all clients of the chat room created in the previous tutorials. 
+In this tutorial, you will use Azure Functions to generate messages using a timer function at the beginning of each minute. The function will publish the messages to all clients of the chat room created in the previous tutorials. For more information timer functions, see [Timer Function](../azure-functions/functions-create-scheduled-function.md).
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Timer).
 
@@ -146,8 +146,6 @@ The trigger for the function code is a *timerTrigger*, defined in the bindings i
   "entryPoint": "Timer.TimerFunction.Run"
 }
 ```
-
-For more information on developing a Timer function with Azure Functions, see [Timer](../azure-functions/functions-create-scheduled-function.md). 
 
 
 ## Building the timer function
