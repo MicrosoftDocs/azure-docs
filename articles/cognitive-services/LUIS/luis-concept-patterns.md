@@ -18,22 +18,28 @@ Patterns are designed to improve accuracy when an utterance has the same words b
 ## Patterns solve low intent confidence
 Consider a Human Resources app that reports on the organizational chart in relation to an employee. Given an employee's name and relationship, LUIS returns the employees involved. Consider an employee, Tom, with a manager name Alice, and a team of subordinates named: Michael, Rebecca, and Carl.
 
-Tom reports to Alice
-Michael, Rebecca, and Carl report to Tom
+![Image of Organization chart](./media/luis-concept-patterns/org-chart.png)
 
-`Who is Tom's subordinate?" GetOrgChart (.30)
-'Who is the subordinate of Tom?' (.30)
-
-`Who manages Tom?` (.30)
-`Who does Tom manage?` (.30)
+|Utterances|Intent predicted|Intent score|
+|--|--|--|
+|Who is Tom's subordinate?|GetOrgChart|.30|
+|Who is the subordinate of Tom?|GetOrgChart|.30|
 
 If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of subordinate, manage, report, LUIS may return a low confidence score. In order to help LUIS understand the importance of the word order, create a pattern. 
 
+Patterns solves the following situations: 
+
+*  When the intent score is low
+* When the correct intent is not the top score but too close to the top score. 
+<!--
 ## Patterns solve missed entity detection
 A second issue is that LUIS doesn't find the employee name in the utterance, to return in an entity. 
+-->
+## Patterns are not a guarantee of intent
+Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
 
 ## Prediction scores with and without patterns
-Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score and find the entity without having to provide as many utterances as without using patterns.  
+Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances as without using patterns.  
 
 ## Pattern matching
 A pattern is matched based on finding the entities inside the pattern first, then validating the rest of the words and word order of the pattern. 
@@ -71,6 +77,10 @@ How much does {Booktitle} cost and what format is it available in?
 |How much does **The Curious Incident of the Dog in the Night-Time** cost and what format is it available in?| 
 
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
+
+### Syntax to mark optional text in a template utterance
+Mark optional text in the utterance using the regular expression square bracket syntax []. The optional text can nest square brackets up to two brackets only.
+<!-- TBD: add example with square brackets -->
 
 ## Best practices
 Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
