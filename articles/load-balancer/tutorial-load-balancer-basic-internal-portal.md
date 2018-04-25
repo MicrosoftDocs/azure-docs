@@ -78,7 +78,7 @@ In this section, you create two virtual machines for the backend pool of your Ba
 
 ### Install IIS and customize the default web page
 
-1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupLB* resource group.
+1. Click **All resources** in the left-hand menu, and then from the resources list click **myVM1** that is located in the *myResourceGroupILB* resource group.
 2. On the **Overview** page, click **Connect** to RDP into the VM.
 3. Log into the VM.
 4. On the server desktop, navigate to **Windows Administrative Tools**>**Server Manager**.
@@ -193,13 +193,19 @@ In order to test the internal load balancer, you must create a virtual machine t
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
 
 ## Test the load balancer
-1. Find the Private IP address for the Load Balancer on the **Overview** screen (in this example, it is 10.1.0.7.
+1. In the Azure portal, get the Private IP address for the Load Balancer on the **Overview** screen. To do so:
+    a. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
+    b. In the **Overview** details page, copy the Private IP address (in this example, it is 10.1.0.7).
 
-2. Copy the Private IP address, and then paste it into the address bar of your browser. The default page of IIS Web server is displayed on the browser.
+2. Create a RDP connection to *myVMTest* as follows:
+    a. Click **All resources** in the left-hand menu, and then from the resources list click **myVMTest** that is located in the *myResourceGroupILB* resource group.
+2. On the **Overview** page, click **Connect** to RDP into the VM.
+3. Log into the *myVMTest*.
+3. Paste the Private IP address into the address bar of the browser in *myVMTest*. The default page of IIS Web server is displayed on the browser.
 
       ![IIS Web server](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
 
-To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
+To see the load balancer distribute traffic across both VMs running your app, you can force-refresh your web browser.
 
 ## Clean up resources
 
