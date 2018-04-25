@@ -68,4 +68,4 @@
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: Quotas and limitations
-    href: limits_quotas_constraints.md
+    href: limits-quotas-constraints.md
