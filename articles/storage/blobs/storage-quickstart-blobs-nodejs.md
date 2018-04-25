@@ -140,7 +140,7 @@ const upload = () => {
 ```
 In context of the sample application, the file named *example.txt* is uploaded to a blob named *example* inside a container named *test-container*. Other approaches available to upload content into blobs include working with [text](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) and [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
 
-To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) to view the data in your account.
+To verify the file is uploaded to your blob storage, you can use the [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to view the data in your account.
 
 ### List the blobs in a container
 
