@@ -13,7 +13,7 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. For more details, please check the API doc.
+In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. Consult the [full package reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision) for detailed reference for each class.
 
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
@@ -49,7 +49,7 @@ The following example uses a dataset consisting of 63 tableware images, each lab
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
 > [!div class="nextstepaction"]
-> [Try it yourself in this Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
+> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
 
                              
 ## Storage context
