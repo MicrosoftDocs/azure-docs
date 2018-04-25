@@ -43,7 +43,7 @@ sections:
       - html: <a href="https://rubygems.org/gems/azure">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_ruby.svg" alt="">
               <br><b>Ruby SDK</b></a>
-              <p>Get the Azure libraries for Ruby">
+              <p>Get the Azure libraries for Ruby</p>
       - html: <a href="/azure/app-service-web/app-service-web-get-started-php">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_php.svg" alt="">
               <br><b>PHP SDK</b></a>
