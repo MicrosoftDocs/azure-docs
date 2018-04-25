@@ -36,7 +36,7 @@ Make sure to remember the values that you used for the Media Services account na
 
 ## Enable Event Grid resource provider
 
-First thing you need to do is make sure that you have EventGrid resource provider enabled on your subscription. 
+First thing you need to do is make sure that you have Event Grid resource provider enabled on your subscription. 
 
 In the **Azure** portal do the following:
 
@@ -44,7 +44,7 @@ In the **Azure** portal do the following:
 2. Select your subscription.
 3. Under Settings, select Resource Providers.
 4. Search for "EventGrid".
-5. Make sure EventGrid is registered. If not, press the **Register** button.  
+5. Make sure Event Grid is registered. If not, press the **Register** button.  
 
 ## Create a generic Azure Function webhook 
 
@@ -60,7 +60,7 @@ Once the webhook is created, copy the URL by clicking on the *Get function URL* 
 
 ### Validate the webhook
 
-When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation. For more information, see [Event Grid security and authentication](https://docs.microsoft.com/azure/event-grid/security-authentication). This section defines two parts that must be defined for the validation to pass.
+When you register your own webhook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to webHook endpoints that haven't passed the validation. For more information, see [Event Grid security and authentication](https://docs.microsoft.com/azure/event-grid/security-authentication). This section defines two parts that must be defined for the validation to pass.
 
 #### Update the source code
 
@@ -124,7 +124,7 @@ Press **Save and run** at the top of the window.
 
 ![Request body](./media/job-state-events-cli-how-to/generic_webhook_test.png)
 
-## Register for the EventGrid subscription 
+## Register for the Event Grid subscription 
 
 You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from  Azure Function webhook you created as the endpoint for event notification. Replace `event_subscription_name` with a unique name for your event subscription. Replace the Media Services resource id with the resource path of your Media Services account. Replace `<endpoint_URL>` with the value from the preceding section. 
 
@@ -144,7 +144,7 @@ For example:
 
 ```json
 [{
-  "topic": "/subscriptions/<subscription id>/resourceGroups/juliakoams_rg/providers/Microsoft.Media/mediaservices/juliakoamsaccountname",
+  "topic": "/subscriptions/<subscription id>/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount",
   "subject": "transforms/VideoAnalyzerTransform/jobs/<job id>",
   "eventType": "Microsoft.Media.JobStateChange",
   "eventTime": "2018-04-20T21:17:26.2534881",
