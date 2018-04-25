@@ -20,12 +20,12 @@ ms.author: saysa
 # Use Jenkins to build and deploy your Linux applications
 Jenkins is a popular tool for continuous integration and deployment of your apps. Here's how to build and deploy your Azure Service Fabric application by using Jenkins.
 
-- First follow the steps to [Set up Jenkins inside a Service Fabric cluster](#set-up-jenkins-inside-a-service-fabric-cluster), [Set up Jenkins outside a Service Fabric cluster](#set-up-jenkins-outside-a-service-fabric-cluster), or [Install the Service Fabric plugin in an existing Jenkins environment](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-- After you have set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
-- Finally, configure the Jenkins job post-build step to deploy your application to your Service Fabric cluster. There are two ways to configure Jenkins to deploy your application to a cluster: 
+1. First follow the steps to [Set up Jenkins inside a Service Fabric cluster](#set-up-jenkins-inside-a-service-fabric-cluster), [Set up Jenkins outside a Service Fabric cluster](#set-up-jenkins-outside-a-service-fabric-cluster), or [Install the Service Fabric plugin in an existing Jenkins environment](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
+2. After you have set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
+3. Finally, configure the Jenkins job post-build step to deploy your application to your Service Fabric cluster. There are two ways to configure Jenkins to deploy your application to a cluster: 
    
-  * For development and test environments, [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This is the simplest deployment method to set up.
-  * For production environments, [Configure deployment using Azure credentials](configure-deployment-using-azure-credentials). Microsoft recommends this method for production environments because with Azure credentials you can limit the access that a Jenkins job has to your Azure resources. 
+   * For development and test environments, [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This is the simplest deployment method to set up.
+   * For production environments, [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials). Microsoft recommends this method for production environments because with Azure credentials you can limit the access that a Jenkins job has to your Azure resources. 
 
 
 ## Prerequisites
@@ -260,7 +260,7 @@ For development and test environments, you can use the cluster management endpoi
 2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
 3. Under **Service Fabric Cluster Configuration**, select the **Fill the Service Fabric Management Endpoint** radio button.
 4. For **Management Host**, enter the connection endpoint for your cluster; for example `{your-cluster}.eastus.cloudapp.azure.com`.
-5. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container; for example `/var/jenkins_home/clustercert.pem`. (You copied the location of the certificate the last step of [Create and configure a Jenkins job](create-and-configure-a-jenkins-job).)
+5. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container; for example `/var/jenkins_home/clustercert.pem`. (You copied the location of the certificate the last step of [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).)
 6. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
 
    ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
