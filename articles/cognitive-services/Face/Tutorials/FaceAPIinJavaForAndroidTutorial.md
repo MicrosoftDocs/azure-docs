@@ -1,4 +1,4 @@
----
+﻿---
 title: Face API Java for Android tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: Create a simple Android app that uses the Cognitive Services Face API to detect and frame human faces in an image.
@@ -27,7 +27,7 @@ To use the tutorial, you will need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe for Face API and get your subscription key
 
-Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
+Before using any Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both primary and secondary key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the application framework
 
