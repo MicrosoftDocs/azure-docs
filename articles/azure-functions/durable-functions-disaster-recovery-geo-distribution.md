@@ -1,8 +1,26 @@
+---
+title: Disaster Recovery and Geo Distribution in Durable Functions - Azure
+description: Learn about Disaster Recovery and Geo Distribution in Durable Functions.
+services: functions
+author: casard
+manager: cfowler
+editor: ''
+tags: ''
+keywords:
+ms.service: functions
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 04/25/2018
+ms.author: azfuncdf
+---
+
 # Disaster Recovery and Geo-Distribution
 
 ## Overview
 
-In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
+In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub](durable-functions-task-hubs.md) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The scenarios described in this article propose deployment options to increase availability and minimize downtime during disaster recovery activities.
 It is important to notice that these scenarios are based on an Active-Passive configuration, since the underlying storage strategy makes it difficult to implement other approaches.
 
@@ -25,7 +43,7 @@ However, consider the following when using this scenario.
 - This scenario covers outages at the compute layer, but the storage account continues to be the single point of failure for the Function App. If there is a Storage outage, the application suffers a downtime.
 - If the FunctionApp is failed over, there will be increased latency since it will access its storage account across regions.
 - Accessing the storage service from a different region where it is located incurs in higher cost due to network egress traffic.
-- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview#how-traffic-manager-works), it may be some time until a client application that consumes a Durable Function needs to re-query the FunctionApp address from Traffic Manager. 
+- This scenario depends on Traffic Manager. Considering [how Traffic Manager works](../traffic-manager/traffic-manager-overview#how-traffic-manager-works), it may be some time until a client application that consumes a Durable Function needs to re-query the FunctionApp address from Traffic Manager. 
 
 
 ## Scenario 2 - Load Balanced Compute with Regional Storage
