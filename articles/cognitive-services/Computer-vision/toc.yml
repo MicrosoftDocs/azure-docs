@@ -37,6 +37,10 @@
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Analyze videos in real time
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+  - name: Work with Visual Studio
+    items:
+    - name: Use the Computer Vision Connected Service in Visual Studio
+      href: vs-computer-vision-connected-service.md
 - name: Reference
   items: 
   - name: Computer Vision API
