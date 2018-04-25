@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments | Microsoft Docs
 description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node Azure Stack Development Kit environments.
 services: azure-stack
@@ -30,7 +30,7 @@ The following diagram shows what the connection configuration should look like w
 To complete the connection configuration, ensure that you have the following items before you begin:
 
 * Two servers and other prerequisites that meet the Azure Stack Development Kit hardware requirements, as described in [Quickstart: Evaluate the Azure Stack Development Kit](azure-stack-deploy-overview.md). 
-* The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
+* The [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) deployment package.
 
 ## Deploy the Azure Stack Development Kit environments
 To complete the connection configuration, you must deploy two Azure Stack Development Kit environments.

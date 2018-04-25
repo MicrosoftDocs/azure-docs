@@ -12,7 +12,7 @@
 
 ## Deployment considerations
 
-* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/en-us/regions/services/).
+* For availability of N-series VMs, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 * N-series VMs can only be deployed in the Resource Manager deployment model.
 

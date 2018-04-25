@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Lake Store Hive Performance Tuning Guidelines | Microsoft Docs
 description: Azure Data Lake Store Hive Performance Tuning Guidelines
 services: data-lake-store
@@ -86,6 +86,6 @@ Restart all the nodes/service for the config to take effect.
 ## Further information on Hive tuning
 
 Here are a few blogs that will help tune your Hive queries:
-* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Optimize Hive queries for Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Troubleshooting Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Ignite talk on optimize Hive on HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

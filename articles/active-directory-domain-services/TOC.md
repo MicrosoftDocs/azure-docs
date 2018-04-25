@@ -56,7 +56,7 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)

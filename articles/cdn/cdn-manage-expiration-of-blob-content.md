@@ -145,7 +145,7 @@ class Program
 ## Setting Cache-Control headers by using other methods
 
 ### Azure Storage Explorer
-With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
+With [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
 
 To update the *CacheControl* property of a blob with Azure Storage Explorer:
    1. Select a blob, then select **Properties** from the context menu. 
@@ -165,8 +165,8 @@ azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .
 ### Azure storage services REST API
 You can use the [Azure storage services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) to explicitly set the *x-ms-blob-cache-control* property by using the following operations on a request:
   
-   - [Put Blob](https://msdn.microsoft.com/en-us/library/azure/dd179451.aspx)
-   - [Put Block List](https://msdn.microsoft.com/en-us/library/azure/dd179467.aspx)
+   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
+   - [Put Block List](https://msdn.microsoft.com/library/azure/dd179467.aspx)
    - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
 
 ## Testing the Cache-Control header

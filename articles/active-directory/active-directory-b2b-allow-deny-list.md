@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Allow or block invitations to B2B users from specific organizations - Azure Active Directory | Microsoft Docs
 description: Shows how an administrator can use the Azure portal or PowerShell to set an access or deny list to allow or block B2B users from certain domains.
@@ -144,7 +144,7 @@ To set the allow or deny list policy, use the [Set-AzureADPolicy](https://docs.m
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ````
 
-To get the policy, use the [Get-AzureADPolicy](https://docs.microsoft.com/en-us/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
+To get the policy, use the [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet. For example:
 
 ````powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
