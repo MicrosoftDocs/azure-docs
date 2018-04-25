@@ -3,13 +3,13 @@ title: Publish your LUIS app | Microsoft Docs
 description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure.
 services: cognitive-services
 titleSuffix: Azure
-author: cahann
-manager: hsalama
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/25/2018
-ms.author: cahann;v-geberr;
+ms.date: 05/07/2018
+ms.author: v-geberr;
 ---
 
 
@@ -21,8 +21,8 @@ You can optionally [test](train-test.md) your app before publishing it.
 ## Product and staging slot
 You can publish your app to the **Staging slow** or the **Production Slot**. Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
 
-## Include all intent scores with prediction response
-The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each utterance for each intent. This allows your chat bot or LUIS-calling application to make a programming decision based on the scores of the returned intents. Generally the top two intents are the most interesting. The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
+## Include all predicted intent scores
+In the **Endpoint url settings**, the **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each utterance for each intent. This allows your chat bot or LUIS-calling application to make a programming decision based on the scores of the returned intents. Generally the top two intents are the most interesting. The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
 
 ```
 {
@@ -47,8 +47,8 @@ The **Include all predicted intent scores** checkbox allows the endpoint query r
 
 The checkbox is useful if you are copying the endpoint URLs from the publish page. If you are constructing your own URLs for your LUIS-calling application, make sure the **verbose=true** parameter is added to the endpoint URL querystring. 
 
-## Enable Bing spell checker to correct utterances 
-The **Enable Bing spell checker** checkbox allows LUIS to correct misspelled words before prediction. This requires you to create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Once the key is created, two querystring parameters are added to the endpoint URL on the publish page. 
+## Enable Bing spell checker 
+In the **Endpoint url settings**, the **Enable Bing spell checker** checkbox allows LUIS to correct misspelled words before prediction. This requires you to create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Once the key is created, two querystring parameters are added to the endpoint URL on the publish page. 
 
 If you are constructing your own URLs for your LUIS-calling application, make sure the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
 
@@ -64,8 +64,8 @@ If you are constructing your own URLs for your LUIS-calling application, make su
 }
 ```
 
-## Enable Sentiment Analysis
-The **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
+## Enable sentiment analysis
+In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
 
@@ -85,6 +85,13 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
     "favorite trail"
 ]
 ```
+
+## Enable speech priming 
+In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). In order to use this option, you need the LUIS subscription endpoint key, the LUIS app ID, and the LUIS endpoint URL. These are needed to configure speech priming. 
+
+Once this feature is enabled, when you publish your LUIS app, your own Speech service is sent your app model to prime the Speech service. 
+
+When your app is deleted or the Speech service is deleted, the model data is removed. 
 
 ## Publish your trained app to an HTTP endpoint
 
