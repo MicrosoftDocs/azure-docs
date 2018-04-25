@@ -71,7 +71,6 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 
 5. Add the `temperatureThreshold` under the required libraries. The temperature threshold sets the value that the measured temperature must exceed in order for the data to be sent to IoT Hub.
 
-
     ```javascript
     var temperatureThreshold = 25;
     ```
