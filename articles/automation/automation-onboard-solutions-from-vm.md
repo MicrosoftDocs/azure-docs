@@ -4,7 +4,7 @@ description: Learn how to onboard an Azure Virtual machine with Update Managemen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
