@@ -178,9 +178,11 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
 
 1. To monitor data arriving at the IoT hub, in the context menu of your IoT Edge device, select **Start monitoring D2C messages**.
+
     ![Monitor D2C messages](./media/tutorial-node-module/monitor-message.png)
 
 2. To stop monitoring data, use the **IoT: Stop monitoring D2C message** or select **Stop monitoring D2C message** in the context menu of the output window. 
+
     ![Stop monitoring](./media/tutorial-node-module/stop-monitor-message.png)
 
 ## Next steps
