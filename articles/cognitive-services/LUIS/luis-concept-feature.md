@@ -23,7 +23,7 @@ LUIS offers the following type of features:
 
 | Type          | Description           |
 | ------------- |-----------------------|
-| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This is not a white list of matched words.|
+| Phrase list      | A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This is not a closed list (exact text matches) of matched words.|
 
 
 ## How to use phrase lists

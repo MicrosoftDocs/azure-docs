@@ -147,6 +147,11 @@ LUIS quota is the limitation of the [Azure subscription tier](https://aka.ms/lui
 ## <a name="recall"></a>Recall
 In [batch testing][batch-testing], recall (also known as sensitivity), is the ability for LUIS to generalize. 
 
+## <a name="semantic-dictionary"></a>Semantic dictionary
+A semantic dictionary is provided on the List entity page as well as the Phrase list page. The semantic dictionary provides suggestions of words based on the current scope.
+
+Same as [programmatic key](#programmatic-key).
+
 ## <a name="starter-key"></a>Starter key
 
 Same as [programmatic key](#programmatic-key).

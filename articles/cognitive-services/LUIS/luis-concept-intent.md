@@ -12,7 +12,7 @@ ms.author: v-geberr
 ---
 # Intents in LUIS
 
-An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md). 
+An intent represents a task or action the user wants to perform. It is a purpose or goal expressed in a user's [utterance](luis-concept-utterance.md).
 
 Define a set of intents that correspond to actions users want to take in your application. For example, a travel app defines an intent named `BookFlight`.
 
@@ -24,6 +24,9 @@ Example intent   |   Example utterances   |
  None         | "Get me a cookie recipe" |
 
 All applications come with the predefined intent, **"[None](#none-intent-is-fallback-for-app)"**. 
+
+## Intent compared to entity
+The intent represents the prediction of the entire utterance. By comparison, the entity represents the prediction for a word or phrase inside the utterance that you want extracted.
 
 ## Prebuilt domains provide intents
 In addition to intents that you define, you can use prebuilt intents from one of the prebuilt domains. See [Use prebuilt domains in LUIS apps](luis-how-to-use-prebuilt-domains.md) to learn about how to customize intents from a prebuilt domain for use in your app.
@@ -40,7 +43,7 @@ Create an intent when this intent would trigger an action in your client applica
 
 ## Custom intents
 
-Create an intent when you want to group utterances. [Utterances](luis-concept-utterance.md) correspond to a single intent. Utterances in your intent can use any [entity](luis-concept-entity-types.md) in the app since entities are not intent-specific. 
+Similar intentioned [utterances](luis-concept-utterance.md) correspond to a single intent. Utterances in your intent can use any [entity](luis-concept-entity-types.md) in the app since entities are not intent-specific. 
 
 ## Prebuilt domain intents
 

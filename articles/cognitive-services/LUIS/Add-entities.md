@@ -20,7 +20,7 @@ You can add, edit, or delete entities in your app through the **Entities list** 
 The following sections are only available inside a LUIS app, from the **Build** section. The **Build** link is in the top navigation bar. Once inside the **Build** section, select **Entities** from the left navigation menu. Once an entity is added to the application, if the entity is machine-learned, you can [label the entity](add-example-utterances.md) inside the utterance. Once the app is trained and published, you can receive entity data [extracted](luis-concept-data-extraction.md) from the prediction. 
 
 ## Add prebuilt entity
-A prebuilt entity is a regular expression match using the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open-source project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 
+Prebuilt entities are defined in the [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Common prebuilt entities added to an application are *number* and *datetimeV2*. 
 
 1. In your app, from the **Build** section, and then click **Entities** in the left panel.
  
@@ -153,7 +153,7 @@ The syntax for a role is **{Entity name:Role name}** where the entity name is fo
     See [Data Extraction](luis-concept-data-extraction.md) to learn more about extracting roles from the endpoint JSON query response. Try the pattern tutorial to learn more about how to use a Pattern.any entity.
 
 ## Add list entities
-List entities represent a fixed, closed set (white list) of related words in your system. 
+List entities represent a fixed, closed set of related words in your system. 
 
 For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
@@ -176,7 +176,7 @@ For a drinks list entity, you can have two normalized values: water and soda pop
 
     ![Screenshot of Drinks list entity with synonym items for water highlighted](./media/add-entities/menu-list-synonyms.png)
 
-5. If you want more normalized items for the list, select **Recommend**.
+5. If you want more normalized items for the list, select **Recommend** to see options from the [semantic dictionary](luis-glossary.md#semantic-dictionary).
 
     ![Screenshot of Drink list entity with Recommended items highlighted](./media/add-entities/entity-list-recommended-list.png)
 
