@@ -138,4 +138,4 @@ Now you make the IoT DevKit as a translator by using Azure Function and Cognitiv
 Advance to the other tutorials to learn:
 
 > [!div class="nextstepaction"]
-> [Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
