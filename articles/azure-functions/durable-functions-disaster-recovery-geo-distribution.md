@@ -63,10 +63,13 @@ Important considerations for this scenario:
 - Current state is not failed over. This implies that executing and checkpointed functions will fail. It is up to the client application to retry/restart the work.
 
 ## Scenario 3 - Load Balanced Compute with GRS Shared Storage
-This scenario is a modification over the first scenario, implementing a shared storage account, but with the difference that this storage account is created using geo-replication.
-Although functionally, this scenario provides the same advantages as Scenario 3
-- Same scenarios, but using RA-GRS for storage -> improves recoverability
-- Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account. RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
+This scenario is a modification over the first scenario, implementing a shared storage account. The main difference that the storage account is created with geo-replication enabled.
+Functionally, this scenario provides the same advantages as Scenario 1, but it enables additional data recovery advantages:
+- Geo-redundant storage (GRS) and Read-access GRS (RA-GRS) maximize availability for your storage account. Additionally, RA-GRS provides read-only access to the data in the secondary location, in addition to geo-replication across two regions.
+- If there is a region outage of the storage service, one of the possibilities is that the datacenter operations determine that storage must be failed over to the secondary region. In this case, storage account access will be redirected transparently to the geo-replicated copy of the storage account, without user intervention.
+- In this case, state of the durable functions will be preserved up to the last replication of the storage account.
 
-
-See my [About](/Overview/) page for details.   
+As with the other scenarios, there are important considerations:
+- Failover to the replica is done by datacenter operators and it may take some time. Until that time, the FunctionApp will suffer an outage.
+- There is an increased cost for using geo-replicated storage accounts.
+- GRS occurs asynchronously. It is possible that some or the latest transactions are lost because of the latency of the replication process.
