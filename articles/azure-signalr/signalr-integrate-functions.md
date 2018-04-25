@@ -24,7 +24,7 @@ A common scenario with real-time applications is for content updates to originat
 
 Normally, this scenario would present a problem when trying to use SignalR. Because SignalR tries to maintain a connection between client and server to allow pushing content updates. Since the code only runs on-demand, a connection can not be maintained. However, Azure SignalR Service can support this scenartio. Because the service manages the connections for you.
 
-In this tutorial, you will use Azure Functions to generate messages using a [timer trigger](../azure-functions/functions-bindings-timer) and publish them to the chat room created in the previous tutorials. The server will send the messages at the beginning of each minute. 
+In this tutorial, you will use Azure Functions to generate messages using a [timer trigger](../azure-functions/functions-create-scheduled-function.md) and publish them to the chat room created in the previous tutorials. The server will send the messages at the beginning of each minute. 
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Timer).
 
@@ -52,15 +52,18 @@ To complete this tutorial, you must have the following prerequisites:
 * [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## Create a function app
 
 You must create a function app to define the serverless execution, and environment for your functions. It lets you group multiple functions as a logical unit for easier management, deployment, and resource sharing. For more information, see [Create your first function using the Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md).
 
-In this section, you will use the Azure command-line interface (CLI) to create a new Azure Function app configured for deployment from a local git repository. 
+In this section, you will use the Azure Cloud Shell to create a new Azure Function app configured for deployment from a local git repository. 
 
 When creating the function app, create it in the same resource group you created in the previous tutorial. That resource group contains the SignalR Service resources and your web app. This makes managing all tutorial resources easier.
 
-Copy the script below and change the script variables if necessary. Paste into your Azure Cloud Shell, to create and configure your function app.
+Copy the script below and change the script variables if necessary. Paste the updated script into your Azure Cloud Shell, to create and configure your function app.
 
 ```azurecli-interactive
 #========================================================================
@@ -113,8 +116,46 @@ az functionapp deployment source config-local-git --name $functionappName \
 
 Make a note the git deployment URL returned from the last command. You will use this URL for deploying the funtion code.
 
+For more information on Azure Functions, see [An introduction to Azure Functions](../azure-functions/functions-overview.md)
 
-## Build the timer function
+## The timer function
+
+The timer function sample is located in the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository. The logic is contained in the following three lines of code in *TimerFunction.cs*:
+
+```csharp
+var connectionString = Environment.GetEnvironmentVariable("AzureSignalRConnectionString");
+var proxy = CloudSignalR.CreateHubProxyFromConnectionString(connectionString, "chat");
+await proxy.Clients.All.SendAsync("broadcastMessage", new object[] { "_BROADCAST_", $"Current time is: {DateTime.Now}" });
+```
+
+This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, we are not requiring it to authenticate as a regular client. This server-side code is trusted to use the key with the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the *BroadcastMessage* method to report the time whenever the trigger fires.
+
+The trigger for the function code is a *timerTrigger*, defined in the *TimerFunction/function.json* file as a binding. It includes a [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression) to indicate when it will fire. This timer trigger fires at the beginning of every minute triggering the function code to execute.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "timerTrigger",
+      "schedule": "0 * * * * *",
+      "useMonitor": true,
+      "runOnStartup": false,
+      "name": "myTimer"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "../Timer.dll",
+  "entryPoint": "Timer.TimerFunction.Run"
+}
+```
+
+For more information on developing a Timer function with Azure Functions, see [Timer](../azure-functions/functions-create-scheduled-function.md). 
+
+
+
+## Building the timer function
+
+Perform the following steps to build the function and prepare it for deployment:
 
 1. Navigate to the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
@@ -127,7 +168,7 @@ Make a note the git deployment URL returned from the last command. You will use 
         msbuild /p:Configuration=Release
 
 
-## Initialize and deploy the local git repository
+## Create and deploy the local git repo
 
 1. In a git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
 

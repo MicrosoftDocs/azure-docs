@@ -252,7 +252,8 @@ In this section, you will update the *AuthController* class to support OAuth aut
     * username
     * company
     * accessToken
-    
+
+
     *AuthController* adds cookies to the client response for this information, along with the *serviceURL*. Client-side code will use the cookies when connecting and pushing content updates with Azure SignalR Service.
 
 
