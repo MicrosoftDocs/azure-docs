@@ -1,6 +1,6 @@
 ---
-title: 'Backup Azure Linux VMs | Microsoft Docs'
-description: Protect your Linux VMs by backing them up using Azure Backup.
+title: Tutorial - Back up Linux virtual machines in the Azure portal | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure portal to protect your Linux virtual machines with Azure Backup.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -17,8 +17,10 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about Azure Backup so that I can back up and restore files on Linux virtual machines.
 ---
-# Back up Linux  virtual machines in Azure
+# Tutorial: Back up and restore files for Linux virtual machines in Azure
 
 You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
 
@@ -26,8 +28,6 @@ You can protect your data by taking backups at regular intervals. Azure Backup c
 > * Create a backup of a VM
 > * Schedule a daily backup
 > * Restore a file from a backup
-
-
 
 ## Backup overview
 

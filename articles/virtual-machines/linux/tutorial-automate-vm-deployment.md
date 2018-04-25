@@ -1,6 +1,6 @@
 ---
-title: Customize a Linux VM on first boot in Azure | Microsoft Docs
-description: Learn how to use cloud-init and Key Vault to customze Linux VMs the first time they boot in Azure 
+title: Tutorial - Customize a Linux VM with cloud-init in Azure | Microsoft Docs
+description: In this tutorial, you learn how to use cloud-init and Key Vault to customze Linux VMs the first time they boot in Azure 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -17,9 +17,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
+
+#Customer intent: As an IT administrator or developer, I want learn about cloud-init so that I customize and configure Linux VMs in Azure on first boot to minimize the number of post-deployment configuration tasks required.
 ---
 
-# How to customize a Linux virtual machine on first boot
+# Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot
+
 In a previous tutorial, you learned how to SSH to a virtual machine (VM) and manually install NGINX. To create VMs in a quick and consistent manner, some form of automation is typically desired. A common approach to customize a VM on first boot is to use [cloud-init](https://cloudinit.readthedocs.io). In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -29,12 +32,9 @@ In a previous tutorial, you learned how to SSH to a virtual machine (VM) and man
 > * Use Key Vault to securely store certificates
 > * Automate secure deployments of NGINX with cloud-init
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).  
-
-
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Cloud-init overview
 [Cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. As cloud-init runs during the initial boot process, there are no additional steps or required agents to apply your configuration.

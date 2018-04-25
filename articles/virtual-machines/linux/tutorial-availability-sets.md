@@ -1,6 +1,6 @@
 ---
-title: Availability sets tutorial for Linux VMs in Azure | Microsoft Docs
-description: Learn about the Availability Sets for Linux VMs in Azure.
+title: Tutorial - High availability for Linux VMs in Azure | Microsoft Docs
+description: In this tutorial, you learn how to use the Azure CLI 2.0 to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
@@ -17,10 +17,11 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
+
+#Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# How to use availability sets
-
+# Tutorial: Create and deploy highly available virtual machines with the Azure CLI 2.0
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
@@ -31,10 +32,9 @@ In this tutorial, you learn how to:
 > * Create a VM in an availability set
 > * Check available VM sizes
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Availability set overview
 
