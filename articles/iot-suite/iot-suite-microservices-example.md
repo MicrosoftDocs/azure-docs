@@ -38,44 +38,6 @@ To follow this tutorial, you need:
 > * [A Docker account](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - Needed to view the API response
 
-## Delete all docker images and containers on your local machine
-
-First remove all images and containers on your local machine so that you are starting with a fresh Docker slate. Having cached docker images or docker containers could interfere with new local deployments of the Remote Monitoring solution.
-
-1. To remove all containers, you'll first need to stop all running containers. Open your terminal and type
-
-```cmd/sh
-docker stop $(docker ps -aq)
-```
-
-After that runs, you need to type
-
-```cmd/sh
-docker rm $(docker ps -aq)
-```
-
-2. To remove all images, open your terminal and type 
-
-```cmd/sh
-docker rmi $(docker images -q)
-```
-
-3. You can check if there are any containers on the machine by typing
-
-```cmd/sh
-docker ps -aq 
-```
-
-If you successfully removed all containers, nothing should show up.
-
-4. You can check if there are any images on the machine by typing
-
-```cmd/sh
-docker images
-```
-
-If you successfully removed all containers, nothing should show up.
-
 ## Call the microservice API and view response status
 
 In this part you call the default IoT hub manager microservice API. The API returns a status message that you change later on by customizing the microservice.
@@ -181,6 +143,44 @@ docker-compose up
 4. You should now see, "Status": "OK: New Edits Made Here!".
 
 ![New Edits Made Here postman message](media/iot-suite-microservices-example/new-postman-message.png)
+
+## Troubleshoot
+
+If you're running into issues, try removing the docker images and containers on the local machine.
+
+1. To remove all containers, you'll first need to stop all running containers. Open your terminal and type
+
+```cmd/sh
+docker stop $(docker ps -aq)
+```
+
+After that runs, you need to type
+
+```cmd/sh
+docker rm $(docker ps -aq)
+```
+
+2. To remove all images, open your terminal and type 
+
+```cmd/sh
+docker rmi $(docker images -q)
+```
+
+3. You can check if there are any containers on the machine by typing
+
+```cmd/sh
+docker ps -aq 
+```
+
+If you successfully removed all containers, nothing should show up.
+
+4. You can check if there are any images on the machine by typing
+
+```cmd/sh
+docker images
+```
+
+If you successfully removed all containers, nothing should show up.
 
 ## Next steps
 
