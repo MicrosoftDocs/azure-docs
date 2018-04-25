@@ -76,5 +76,5 @@ Use the following steps to schedule the script to run every 48 hours.
 
 
 ## Next steps
-- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
-- [Azure AD Connect Health and GDPR](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
+- [Azure AD Connect Health and User Privacy](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md)

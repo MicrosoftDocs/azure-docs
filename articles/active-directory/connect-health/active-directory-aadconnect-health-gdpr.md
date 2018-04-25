@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect Health and General Data Protection Regulation | Microsoft Docs'
-description: This document describes how to obtain GDPR compliancy with Azure AD Connect.
+title: 'Azure AD Connect Health and User Privacy | Microsoft Docs'
+description: This document describes user privacy with Azure AD Connect Health.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,22 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ---
 
-# GDPR compliance and Azure AD Connect Health 
+# User privacy and Azure AD Connect Health 
 
-[General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) is a European Union (EU) data protection and privacy law. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the EU, or that collect and analyze data tied to EU residents. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
-
-Azure AD Connect Health monitors your on-premises identity infrastructure and synchronization service. It also provides you insights and surfaces alerts. Microsoft is committed to GDPR-compliance across cloud services when enforcement begins May 2018 and to provide GDPR-related assurances in its contractual commitments. 
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
-> This article outlines GDPR compliance in Azure AD Connect Health. For information on GDPR compliance in Azure AD Connect, see [GDPR compliance and Azure AD Connect](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
+>This article deals with Azure AD Connect Health and GDPR compliance.  For information on Azure AD Connect and GDPR compliance see the article [here](../../active-directory/connect/active-directory-aadconnect-gdpr.md).
 
-## GDPR classification
+## User privacy classification
 Azure AD Connect Health falls into the **data processor** category of GDPR classification. As a data processor pipeline, the service provides data processing services to key partners and end consumers. Azure AD Connect Health does not generate user data and has no independent control over what personal data is collected and how it is used. Data retrieval, aggregation, analysis, and reporting in Azure AD Connect Health are based on existing on-premises data. 
 
 ## Data retention policy
@@ -64,5 +60,5 @@ To re-enable monitoring in Azure AD Connect Health for a previously deleted moni
 
 ## Next steps
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
-* [Azure AD Connect and GDPR](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
-* [Azure AD Connect Health operations](active-directory-aadconnect-health-operations.md)
+* [Azure AD Connect and User Privacy](../../active-directory/connect/active-directory-aadconnect-gdpr.md)
+
