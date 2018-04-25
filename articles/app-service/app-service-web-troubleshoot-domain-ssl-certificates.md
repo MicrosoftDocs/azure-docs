@@ -22,7 +22,9 @@ This article lists common problems that you might encounter when you configure d
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
-## Unable to add bind SSL certificate to a Web App 
+## Certificate problems
+
+### Unable to add bind SSL certificate to a Web App 
 
 ### Symptom
 
@@ -41,7 +43,7 @@ To fix this problem, use one of the following methods:
 - Delete the IP-based SSL binding on web app that uses the old certificate. 
 - Create a new IP-based SSL binding that uses the new certificate.
 
-## Unable to delete a certificate 
+### Unable to delete a certificate 
 
 ### Symptom
 
@@ -57,7 +59,7 @@ This problem might occur if the certificate is used by another web app.
 
 Remove SSL binding for that certificate from the web apps. Then try to delete the certificate. If you still cannot delete the certificate, clear the Internet browser cache, reopen the Azure portal in a new browser window. And then try to delete the certificate.
 
-## Unable to purchase an App Service certificate 
+### Unable to purchase an App Service certificate 
 
 ### Symptom
 You cannot purchase an [App Service certificate](./web-sites-purchase-ssl-web-site.md) from Azure portal.
@@ -88,7 +90,9 @@ This problem can occur for any of the following reasons:
     2. Go to **App Service Certificates**, select the certificate.
     3. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This sends an email notice to the Azure certificate provider to resolve the problem.
 
-## Purchased SSL certificate for wrong domain
+## Domain problems
+
+### Purchased SSL certificate for wrong domain
 
 ### Symptom
 
@@ -99,7 +103,7 @@ You purchased an App Service certificate for the wrong domain and you cannot upd
 - Delete that certificate and then buy a new certificate.
 - If the current certificate that uses the wrong domain is in the “Issued” state, then you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
 
-## App Service certificate was renewed but still shows the old certificate 
+### App Service certificate was renewed but still shows the old certificate 
 
 ### Symptom
 
@@ -116,7 +120,7 @@ You can force a sync of the certificate:
 2. Click **Rekey and Sync**, and then click **Sync**. This takes some time to finish. 
 3. When the sync is completed, you see the following notification: "Successfully updated all the resources with the latest certificate".
 
-## Domain verification is not working 
+### Domain verification is not working 
 
 ### Symptom 
 The App Service certificate requires domain verification before the certificate is ready to use. When you click **Verify**, the process fails.
@@ -143,7 +147,7 @@ For example, if you are buying a standard certificate for azure.com with Domain 
 >
 > 
 
-## Unable to purchase a domain
+### Unable to purchase a domain
 
 ### Symptom
 You cannot buy a domain from Web app or App Service Domain in the Azure portal.
@@ -166,7 +170,7 @@ This problem occurs for one of the following reasons:
 
     **Solution**: Upgrade your Azure subscription to other subscription types such as a Pay-as-you-go subscription.
 
-## Unable to add a hostname to Web app 
+### Unable to add a hostname to Web app 
 
 ### Symptom
 
@@ -189,7 +193,7 @@ This problem occurs for one of the following reasons:
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
-## DNS cannot be resolved
+### DNS cannot be resolved
 
 ### Symptom
 
@@ -206,7 +210,7 @@ This problem occurs for one of the following reasons:
 - If you can change the TTL setting in your DNS configuration, change the value to 5 minutes to see whether this resolves the problem.
 - Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app IP address. If it does not, configure the A record to the correct IP address of the web app.
 
-## Restore a deleted domain 
+### Restore a deleted domain 
 
 ### Symptom
 Your domain is no longer visible in the Azure portal.
@@ -217,7 +221,7 @@ The domain may have been accidentally deleted by the owner of the subscription.
 ### Solution
 If your domain was deleted less than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription (make sure to type the exact domain name in search box). You will not be charged again for this domain. If the domain was deleted more than seven days ago, please contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
 
-## Custom domain returns 404 or site inaccessible 
+### Custom domain returns 404 or site inaccessible 
 
 ### Symptom
 
@@ -246,7 +250,7 @@ The Internet browser might still be caching the old IP address for your domain.
 
 Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app IP address. 
 
-## Unable to add subdomain 
+### Unable to add subdomain 
 
 ### Symptom
 
