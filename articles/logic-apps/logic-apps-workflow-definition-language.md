@@ -90,9 +90,9 @@ Here is the general structure for a parameter definition:
   
 ## Triggers and actions  
 
-In a workflow definition, triggers and actions define 
-the calls that happen during your workflow's execution. 
-For syntax and more information about this section, see 
+In a workflow definition, the `triggers` and `actions` sections 
+define the calls that happen during your workflow's execution. 
+For syntax and more information about these sections, see 
 [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
   
 ## Outputs 
