@@ -37,7 +37,7 @@ Return the *current* action's output at runtime,
 or values from other JSON name-and-value pairs, 
 which you can assign to an expression. 
 By default, this function references the entire action object, 
-but you can optionally specify a property whose value that you want. 
+but you can optionally specify a property whose value you want. 
 See also [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
 You can use the `action()` function only in these places: 
@@ -59,15 +59,15 @@ action().outputs.body.<property>
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| "*action-output*" | String | The output from the current action or property | 
+| <*action-output*> | String | The output from the current action or property | 
 |||| 
 
 <a name="actionBody"></a>
 
 ## actionBody
 
-Return an action's `body` output at runtime. Also, 
-shorthand for `actions('<actionName>').outputs.body`. 
+Return an action's `body` output at runtime. 
+Shorthand for `actions('<actionName>').outputs.body`. 
 See [body()](#body) and [actions()](#actions).
 
 ```
@@ -81,7 +81,7 @@ actionBody('<actionName>')
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| "*action-body-output*" | String | The `body` output from the specified action | 
+| <*action-body-output*> | String | The `body` output from the specified action | 
 |||| 
 
 *Example*
@@ -113,8 +113,8 @@ And returns this result:
 
 ## actionOutputs
 
-Return an action's output at runtime. Also, 
-shorthand for `actions('<actionName>').outputs`. 
+Return an action's output at runtime. 
+Shorthand for `actions('<actionName>').outputs`. 
 See [actions()](#actions).
 
 ```
@@ -128,7 +128,7 @@ actionOutputs('<actionName>')
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| "*output*" | String | The output from the specified action | 
+| <*output*> | String | The output from the specified action | 
 |||| 
 
 *Example*
@@ -209,7 +209,7 @@ actions('<actionName>').outputs.body.<property>
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| "*action-output*" | String | The output from the specified action or property | 
+| <*action-output*> | String | The output from the specified action or property | 
 |||| 
 
 *Example*
@@ -240,7 +240,7 @@ add(<summand_1>, <summand_2>)
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| *result-sum* | Integer or Float | The result from adding the specified numbers | 
+| <*result-sum*> | Integer or Float | The result from adding the specified numbers | 
 |||| 
 
 *Example*
@@ -272,7 +272,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp plus the specified number of days  | 
+| <*updated-timestamp*> | String | The timestamp plus the specified number of days  | 
 |||| 
 
 *Example 1*
@@ -314,7 +314,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp plus the specified number of hours  | 
+| <*updated-timestamp*> | String | The timestamp plus the specified number of hours  | 
 |||| 
 
 *Example 1*
@@ -356,7 +356,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp plus the specified number of minutes | 
+| <*updated-timestamp*> | String | The timestamp plus the specified number of minutes | 
 |||| 
 
 *Example 1*
@@ -400,7 +400,7 @@ addProperty(<object>, '<property>', <value>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *updated-object* | Object | The updated JSON object with the specified property | 
+| <*updated-object*> | Object | The updated JSON object with the specified property | 
 |||| 
 
 *Example*
@@ -433,7 +433,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp plus the specified number of seconds  | 
+| <*updated-timestamp*> | String | The timestamp plus the specified number of seconds  | 
 |||| 
 
 *Example 1*
@@ -477,7 +477,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp plus the specified number of time units  | 
+| <*updated-timestamp*> | String | The timestamp plus the specified number of time units  | 
 |||| 
 
 *Example 1*
@@ -572,7 +572,7 @@ array('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| ["*value*"] | Array | An array that contains the single specified input | 
+| [<*value*>] | Array | An array that contains the single specified input | 
 |||| 
 
 *Example*
@@ -602,7 +602,7 @@ base64('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*base64-string*" | String | The base64-encoded version for the input string | 
+| <*base64-string*> | String | The base64-encoded version for the input string | 
 |||| 
 
 *Example*
@@ -632,7 +632,7 @@ base64ToBinary('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*binary-for-base64-string*" | String | The binary version for the base64-encoded string | 
+| <*binary-for-base64-string*> | String | The binary version for the base64-encoded string | 
 |||| 
 
 *Example*
@@ -668,7 +668,7 @@ base64ToString('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*decoded-base64-string*" | String | The string version for a base64-encoded string | 
+| <*decoded-base64-string*> | String | The string version for a base64-encoded string | 
 |||| 
 
 *Example*
@@ -698,7 +698,7 @@ binary('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*binary-for-input-value*" | String | The binary version for the specified string | 
+| <*binary-for-input-value*> | String | The binary version for the specified string | 
 |||| 
 
 *Example*
@@ -717,8 +717,8 @@ And returns this result:
 
 ## body
 
-Return an action's `body` output at runtime. Also, 
-shorthand for `actions('<actionName>').outputs.body`. 
+Return an action's `body` output at runtime. 
+Shorthand for `actions('<actionName>').outputs.body`. 
 See [actionBody()](#actionBody) and [actions()](#actions).
 
 ```
@@ -732,7 +732,7 @@ body('<actionName>')
 
 | Return value | Type | Description | 
 | ------------ | -----| ----------- | 
-| "*action-body-output*" | String | The `body` output from the specified action | 
+| <*action-body-output*> | String | The `body` output from the specified action | 
 |||| 
 
 *Example*
@@ -849,7 +849,7 @@ concat('<text1>', '<text2>', ...)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*text1text2...*" | String | The string created from the combined input strings | 
+| <*text1text2...*> | String | The string created from the combined input strings | 
 |||| 
 
 *Example*
@@ -930,7 +930,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*converted-timestamp*" | String | The timestamp converted to the target time zone | 
+| <*converted-timestamp*> | String | The timestamp converted to the target time zone | 
 |||| 
 
 *Example 1*
@@ -973,7 +973,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*converted-timestamp*" | String | The timestamp converted to the target time zone | 
+| <*converted-timestamp*> | String | The timestamp converted to the target time zone | 
 |||| 
 
 *Example 1*
@@ -1015,7 +1015,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*converted-timestamp*" | String | The timestamp converted to UTC | 
+| <*converted-timestamp*> | String | The timestamp converted to UTC | 
 |||| 
 
 *Example 1*
@@ -1056,7 +1056,7 @@ createArray('<object1>', '<object2>', ...)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [<*object1*>,<*object2*>,...] | Array | The array created from all the input items | 
+| [<*object1*>, <*object2*>, ...] | Array | The array created from all the input items | 
 |||| 
 
 *Example*
@@ -1086,7 +1086,7 @@ dataUri('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *data-uri-for-string* | String | The data URI for the input string | 
+| <*data-uri*> | String | The data URI for the input string | 
 |||| 
 
 *Example*
@@ -1119,7 +1119,7 @@ dataUriToBinary('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*binary-for-data-uri*" | String | The binary version for the data URI | 
+| <*binary-for-data-uri*> | String | The binary version for the data URI | 
 |||| 
 
 *Example*
@@ -1154,7 +1154,7 @@ dataUriToString('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*string-for-data-uri*" | String | The string version for the data URI | 
+| <*string-for-data-uri*> | String | The string version for the data URI | 
 |||| 
 
 *Example*
@@ -1184,7 +1184,7 @@ dayOfMonth('<timestamp>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *dayOfMonth* | Integer | The day of the month from the specified timestamp | 
+| <*day-of-month*> | Integer | The day of the month from the specified timestamp | 
 |||| 
 
 *Example*
@@ -1215,7 +1215,7 @@ dayOfWeek('<timestamp>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *dayOfWeek* | Integer | The day of the week from the specified timestamp where Sunday is 0, Monday is 1, and so on | 
+| <*day-of-week*> | Integer | The day of the week from the specified timestamp where Sunday is 0, Monday is 1, and so on | 
 |||| 
 
 *Example*
@@ -1245,7 +1245,7 @@ dayOfYear('<timestamp>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *dayOfYear* | Integer | The day of the year from the specified timestamp | 
+| <*day-of-year*> | Integer | The day of the year from the specified timestamp | 
 |||| 
 
 *Example*
@@ -1280,7 +1280,7 @@ decodeBase64('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*decoded-base64-string*" | String | The string version for a base64-encoded string | 
+| <*decoded-base64-string*> | String | The string version for a base64-encoded string | 
 |||| 
 
 *Example*
@@ -1314,7 +1314,7 @@ decodeDataUri('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*binary-for-data-uri*" | String | The binary version for a data URI string | 
+| <*binary-for-data-uri*> | String | The binary version for a data URI string | 
 |||| 
 
 *Example*
@@ -1349,7 +1349,7 @@ decodeUriComponent('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*decoded-uri*" | String | The updated string with the decoded escape characters | 
+| <*decoded-uri*> | String | The updated string with the decoded escape characters | 
 |||| 
 
 *Example*
@@ -1381,7 +1381,7 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-quotient* | Integer | The integer result from dividing the first number by the second number | 
+| <*result-quotient*> | Integer | The integer result from dividing the first number by the second number | 
 |||| 
 
 *Example*
@@ -1417,7 +1417,7 @@ encodeUriComponent('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*encoded-uri*" | String | The URI-encoded string with escape characters | 
+| <*encoded-uri*> | String | The URI-encoded string with escape characters | 
 |||| 
 
 *Example*
@@ -1565,7 +1565,7 @@ first([<collection>])
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *first-collection-item* | Any | The first item in the collection | 
+| <*first-collection-item*> | Any | The first item in the collection | 
 |||| 
 
 *Example*
@@ -1602,7 +1602,7 @@ float('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *float-value* | Float | The floating-point number for the specified string | 
+| <*float-value*> | Float | The floating-point number for the specified string | 
 |||| 
 
 *Example*
@@ -1633,7 +1633,7 @@ formatDateTime('<timestamp>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*reformatted-timestamp*" | String | The updated timestamp in the specified format | 
+| <*reformatted-timestamp*> | String | The updated timestamp in the specified format | 
 |||| 
 
 *Example*
@@ -1665,7 +1665,7 @@ formDataMultiValues('<actionName>', '<key>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
+| [<*array-with-key-values*>] | Array | An array with all the values that match the specified key | 
 |||| 
 
 *Example* 
@@ -1700,7 +1700,7 @@ formDataValue('<actionName>', '<key>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*key-value*" | String | The value in the specified key  | 
+| <*key-value*> | String | The value in the specified key  | 
 |||| 
 
 *Example* 
@@ -1733,7 +1733,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The current timestamp plus the specified number of time units | 
+| <*updated-timestamp*> | String | The current timestamp plus the specified number of time units | 
 |||| 
 
 *Example 1*
@@ -1777,7 +1777,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The current timestamp minus the specified number of time units | 
+| <*updated-timestamp*> | String | The current timestamp minus the specified number of time units | 
 |||| 
 
 *Example 1*
@@ -1904,7 +1904,7 @@ guid('<format>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*GUID-value*" | String | A randomly generated GUID | 
+| <*GUID-value*> | String | A randomly generated GUID | 
 |||| 
 
 *Example* 
@@ -1938,7 +1938,7 @@ if(<expression>, <valueIfTrue>, <valueIfFalse>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *specified-return-value* | Any | The specified value that returns based on whether the expression is true or false | 
+| <*specified-return-value*> | Any | The specified value that returns based on whether the expression is true or false | 
 |||| 
 
 *Example* 
@@ -1971,7 +1971,7 @@ indexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *index-value* | Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*index-value*>| Integer | The starting position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
 |||| 
 
 *Example* 
@@ -2002,7 +2002,7 @@ int('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-integer* | Integer | The integer version for the specified string | 
+| <*result-integer*> | Integer | The integer version for the specified string | 
 |||| 
 
 *Example* 
@@ -2029,7 +2029,7 @@ item()
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *current-array-item* | Any | The current item in the array for the action's current iteration | 
+| <*current-array-item*> | Any | The current item in the array for the action's current iteration | 
 |||| 
 
 *Example* 
@@ -2059,7 +2059,7 @@ items('<loopName>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *item* | Any | The item from the current cycle in the specified for-each loop | 
+| <*item*> | Any | The item from the current cycle in the specified for-each loop | 
 |||| 
 
 *Example* 
@@ -2088,7 +2088,7 @@ json('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-JSON* | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. | 
+| <*result-JSON*> | JSON native type or object | The JSON native type value or object for the specified string or XML. If the string is null, the function returns an empty object. | 
 |||| 
 
 *Example 1* 
@@ -2163,7 +2163,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *common-items* | Array or Object, respectively | A collection that has only the common items across the specified collections | 
+| <*common-items*> | Array or Object, respectively | A collection that has only the common items across the specified collections | 
 |||| 
 
 *Example* 
@@ -2195,7 +2195,7 @@ join([<collection>], '<delimiter>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "<*char1*><*delimiter*><*char2*><*delimiter*>..." | String | The resulting string created from all the items in the specified array |
+| <*char1*><*delimiter*><*char2*><*delimiter*>... | String | The resulting string created from all the items in the specified array |
 |||| 
 
 *Example* 
@@ -2227,7 +2227,7 @@ last([<collection>])
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *last-collection-item* | String or Array, respectively | The last item in the collection | 
+| <*last-collection-item*> | String or Array, respectively | The last item in the collection | 
 |||| 
 
 *Example* 
@@ -2264,7 +2264,7 @@ lastIndexOf('<text>', '<searchText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *ending-index-value* | Integer | The ending position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
+| <*ending-index-value*> | Integer | The ending position or index value for the specified substring. <p>If the string is not found, return the number -1. </br>If the string is empty, return the number 0. | 
 |||| 
 
 *Example* 
@@ -2296,7 +2296,7 @@ length([<collection>])
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *length-or-count* | Integer | The number of items in the collection | 
+| <*length-or-count*> | Integer | The number of items in the collection | 
 |||| 
 
 *Example*
@@ -2401,7 +2401,7 @@ listCallbackUrl()
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*callback-URL*" | String | The callback URL for a trigger or action |  
+| <*callback-URL*> | String | The callback URL for a trigger or action |  
 |||| 
 
 *Example*
@@ -2430,7 +2430,7 @@ max([<number1>, <number2>, ...])
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *max-value* | Integer or Float | The highest value in the specified array or set of numbers | 
+| <*max-value*> | Integer or Float | The highest value in the specified array or set of numbers | 
 |||| 
 
 *Example* 
@@ -2463,7 +2463,7 @@ min([<number1>, <number2>, ...])
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *min-value* | Integer or Float | The lowest value in the specified set of numbers or specified array | 
+| <*min-value*> | Integer or Float | The lowest value in the specified set of numbers or specified array | 
 |||| 
 
 *Example* 
@@ -2496,7 +2496,7 @@ mod(<dividend>, <divisor>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-modulo* | Integer or Float | The remainder from dividing the first number by the second number | 
+| <*result-modulo*> | Integer or Float | The remainder from dividing the first number by the second number | 
 |||| 
 
 *Example* 
@@ -2527,7 +2527,7 @@ mul(<multiplicand1>, <multiplicand2>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-product* | Integer or Float | The product from multiplying the first number by the second number | 
+| <*result-product*> | Integer or Float | The product from multiplying the first number by the second number | 
 |||| 
 
 *Example* 
@@ -2563,7 +2563,7 @@ multipartBody('<actionName>', <index>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*body*" | String | The body for the specified part | 
+| <*body*> | String | The body for the specified part | 
 |||| 
 
 <a name="not"></a>
@@ -2684,7 +2684,7 @@ parameters('<parameterName>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *parameter-value* | Any | The value for the specified parameter | 
+| <*parameter-value*> | Any | The value for the specified parameter | 
 |||| 
 
 *Example* 
@@ -2724,7 +2724,7 @@ rand(<minValue>, <maxValue>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result-random* | Integer | The random integer returned from the specified range |  
+| <*result-random*> | Integer | The random integer returned from the specified range |  
 |||| 
 
 *Example*
@@ -2755,14 +2755,13 @@ range(<startIndex>, <count>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [*result-range*] | Array | The array with integers starting from the specified index |  
+| [<*result-range*>] | Array | The array with integers starting from the specified index |  
 |||| 
 
 *Example*
 
 This example creates an integer array that starts from 
 the specified index and has the specified number of integers:
-
 
 ```
 range(1, 4)
@@ -2791,7 +2790,7 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-text*" | String | The updated string after replacing the substring <p>If the substring is not found, return the original string. | 
+| <*updated-text*> | String | The updated string after replacing the substring <p>If the substring is not found, return the original string. | 
 |||| 
 
 *Example* 
@@ -2823,7 +2822,7 @@ removeProperty(<object>, '<property>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *updated-object* | Object | The updated JSON object without the specified property | 
+| <*updated-object*> | Object | The updated JSON object without the specified property | 
 |||| 
 
 *Example*
@@ -2856,7 +2855,7 @@ setProperty(<object>, '<property>', <value>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *updated-object* | Object | The updated JSON object whose property you set | 
+| <*updated-object*> | Object | The updated JSON object whose property you set | 
 |||| 
 
 *Example*
@@ -2889,7 +2888,7 @@ skip([<collection>], <count>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *updatedCollection* | Array | The updated collection after removing the specified items | 
+| [<*updated-collection*>] | Array | The updated collection after removing the specified items | 
 |||| 
 
 *Example*
@@ -2954,7 +2953,7 @@ startOfDay('<timestamp>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The specified timestamp but starting at the zero-hour mark for the day | 
+| <*updated-timestamp*> | String | The specified timestamp but starting at the zero-hour mark for the day | 
 |||| 
 
 *Example* 
@@ -2985,7 +2984,7 @@ startOfHour('<timestamp>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The specified timestamp but starting at the zero-minute mark for the hour | 
+| <*updated-timestamp*> | String | The specified timestamp but starting at the zero-minute mark for the hour | 
 |||| 
 
 *Example* 
@@ -3016,7 +3015,7 @@ startOfMonth('<timestamp>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The specified timestamp but starting on the first day of the month at the zero-hour mark | 
+| <*updated-timestamp*> | String | The specified timestamp but starting on the first day of the month at the zero-hour mark | 
 |||| 
 
 *Example* 
@@ -3091,7 +3090,7 @@ string(<value>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*string-value*" | String | The string version for the specified value | 
+| <*string-value*> | String | The string version for the specified value | 
 |||| 
 
 *Example 1* 
@@ -3134,7 +3133,7 @@ sub(<minuend>, <subtrahend>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *result* | Integer or Float | The result from subtracting the second number from the first number | 
+| <*result*> | Integer or Float | The result from subtracting the second number from the first number | 
 |||| 
 
 *Example* 
@@ -3168,7 +3167,7 @@ substring('<text>', <startIndex>, <length>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*substringResult*" | String | A substring with the specified number of characters, starting at the specified index position in the source string | 
+| <*substring-result*> | String | A substring with the specified number of characters, starting at the specified index position in the source string | 
 |||| 
 
 *Example* 
@@ -3203,7 +3202,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updated-timestamp*" | String | The timestamp minus the specified number of time units | 
+| <*updated-timestamp*> | String | The timestamp minus the specified number of time units | 
 |||| 
 
 *Example 1*
@@ -3245,7 +3244,7 @@ take([<collection>], <count>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*subset*" or [*subset*] | String or Array, respectively | A string or array that has the specified number of items taken from the front of the original collection | 
+| <*subset*> or [<*subset*>] | String or Array, respectively | A string or array that has the specified number of items taken from the front of the original collection | 
 |||| 
 
 *Example*
@@ -3281,7 +3280,7 @@ ticks('<timestamp>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *ticks-number* | Integer | The number of ticks since the specified timestamp | 
+| <*ticks-number*> | Integer | The number of ticks since the specified timestamp | 
 |||| 
 
 <a name="toLower"></a>
@@ -3303,7 +3302,7 @@ toLower('<text>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*lowercase-text*" | String | The original string in lowercase format | 
+| <*lowercase-text*> | String | The original string in lowercase format | 
 |||| 
 
 *Example* 
@@ -3335,7 +3334,7 @@ toUpper('<text>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*uppercase-text*" | String | The original string in uppercase format | 
+| <*uppercase-text*> | String | The original string in uppercase format | 
 |||| 
 
 *Example* 
@@ -3373,15 +3372,16 @@ trigger()
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*trigger-output*" | String | The output from a trigger at runtime | 
+| <*trigger-output*> | String | The output from a trigger at runtime | 
 |||| 
 
 <a name="triggerBody"></a>
 
 ## triggerBody
 
-Return a trigger's `body` output at runtime. Also, 
-shorthand for `trigger().outputs.body`. See [trigger()](#trigger). 
+Return a trigger's `body` output at runtime. 
+Shorthand for `trigger().outputs.body`. 
+See [trigger()](#trigger). 
 
 ```
 triggerBody()
@@ -3389,7 +3389,7 @@ triggerBody()
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*trigger-body-output*" | String | The `body` output from the trigger | 
+| <*trigger-body-output*> | String | The `body` output from the trigger | 
 |||| 
 
 <a name="triggerFormDataMultiValues"></a>
@@ -3410,7 +3410,7 @@ triggerFormDataMultiValues('<key>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| [*array-with-key-values*] | Array | An array with all the values that match the specified key | 
+| [<*array-with-key-values*>] | Array | An array with all the values that match the specified key | 
 |||| 
 
 *Example* 
@@ -3444,7 +3444,7 @@ triggerFormDataValue('<key>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*key-value*" | String | The value in the specified key | 
+| <*key-value*> | String | The value in the specified key | 
 |||| 
 
 *Example* 
@@ -3473,7 +3473,7 @@ triggerMultipartBody(<index>)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*body*" | String | The body for the specified part in a trigger's multipart output | 
+| <*body*> | String | The body for the specified part in a trigger's multipart output | 
 |||| 
 
 <a name="triggerOutputs"></a>
@@ -3482,7 +3482,7 @@ triggerMultipartBody(<index>)
 
 Return a trigger's output at runtime, 
 or values from other JSON name-and-value pairs. 
-Also, shorthand for `trigger().outputs`. 
+Shorthand for `trigger().outputs`. 
 See [trigger()](#trigger). 
 
 ```
@@ -3491,7 +3491,7 @@ triggerOutputs()
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*trigger-output*" | String | The output from a trigger at runtime  | 
+| <*trigger-output*> | String | The output from a trigger at runtime  | 
 |||| 
 
 <a name="trim"></a>
@@ -3512,7 +3512,7 @@ trim('<text>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*updatedText*" | String | An updated version for the original string without leading or trailing whitespace | 
+| <*updatedText*> | String | An updated version for the original string without leading or trailing whitespace | 
 |||| 
 
 *Example* 
@@ -3547,7 +3547,7 @@ union([<collection1>], [<collection2>], ...)
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *updatedCollection* | Array or Object, respectively | A collection with all the items from the specified collections - no duplicates | 
+| <*updatedCollection*> | Array or Object, respectively | A collection with all the items from the specified collections - no duplicates | 
 |||| 
 
 *Example* 
@@ -3581,7 +3581,7 @@ uriComponent('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*encoded-uri*" | String | The URI-encoded string with escape characters | 
+| <*encoded-uri*> | String | The URI-encoded string with escape characters | 
 |||| 
 
 *Example*
@@ -3611,7 +3611,7 @@ uriComponentToBinary('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*binary-for-encoded-uri*" | String | The binary version for the URI-encoded string. The binary content is base64-encoded and represented by `$content`. | 
+| <*binary-for-encoded-uri*> | String | The binary version for the URI-encoded string. The binary content is base64-encoded and represented by `$content`. | 
 |||| 
 
 *Example*
@@ -3647,7 +3647,7 @@ uriComponentToString('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*decoded-uri*" | String | The decoded version for the URI-encoded string | 
+| <*decoded-uri*> | String | The decoded version for the URI-encoded string | 
 |||| 
 
 *Example*
@@ -3677,7 +3677,7 @@ uriHost('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*host-value*" | String | The `host` value for the specified URI | 
+| <*host-value*> | String | The `host` value for the specified URI | 
 |||| 
 
 *Example*
@@ -3707,7 +3707,7 @@ uriPath('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*path-value*" | String | The `path` value for the specified URI. If `path` doesn't have a value, return the "/" character. | 
+| <*path-value*> | String | The `path` value for the specified URI. If `path` doesn't have a value, return the "/" character. | 
 |||| 
 
 *Example*
@@ -3737,7 +3737,7 @@ uriPathAndQuery('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*path-query-value*" | String | The `path` and `query` values for the specified URI. If `path` doesn't specify a value, return the "/" character. | 
+| <*path-query-value*> | String | The `path` and `query` values for the specified URI. If `path` doesn't specify a value, return the "/" character. | 
 |||| 
 
 *Example*
@@ -3767,7 +3767,7 @@ uriPort('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*port-value*" | Integer | The `port` value for the specified URI. If `port` doesn't specify a value, return the default port for the protocol. | 
+| <*port-value*> | Integer | The `port` value for the specified URI. If `port` doesn't specify a value, return the default port for the protocol. | 
 |||| 
 
 *Example*
@@ -3797,7 +3797,7 @@ uriQuery('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*query-value*" | String | The `query` value for the specified URI | 
+| <*query-value*> | String | The `query` value for the specified URI | 
 |||| 
 
 *Example*
@@ -3827,7 +3827,7 @@ uriScheme('<uri>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*scheme-value*" | String | The `scheme` value for the specified URI | 
+| <*scheme-value*> | String | The `scheme` value for the specified URI | 
 |||| 
 
 *Example*
@@ -3860,7 +3860,7 @@ Optionally, you can specify a different format with the <*format*> parameter.
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*currentTimestamp*" | String | The current date and time | 
+| <*current-timestamp*> | String | The current date and time | 
 |||| 
 
 *Example 1*
@@ -3902,7 +3902,7 @@ variables('<variableName>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *variable-value* | Any | The value for the specified variable | 
+| <*variable-value*> | Any | The value for the specified variable | 
 |||| 
 
 *Example*
@@ -3956,7 +3956,7 @@ xml('<value>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| "*xml-version*" | Object | The encoded XML for the specified string or JSON object | 
+| <*xml-version*> | Object | The encoded XML for the specified string or JSON object | 
 |||| 
 
 *Example 1*
@@ -4019,9 +4019,9 @@ xpath('<xml>', '<xpath>')
 
 | Return value | Type | Description | 
 | ------------ | ---- | ----------- | 
-| *xml-node* | XML | An XML node when only a single node matches the specified XPath expression | 
-| *value* | Any | The value from an XML node when only a single value matches the specified XPath expression | 
-| [*xml-node1*, *xml-node2*, ...] </br>-or- </br>[*value1*, *value2*, ...] | Array | An array with XML nodes or values that match the specified XPath expression | 
+| <*xml-node*> | XML | An XML node when only a single node matches the specified XPath expression | 
+| <*value*> | Any | The value from an XML node when only a single value matches the specified XPath expression | 
+| [<*xml-node1*>, <*xml-node2*>, ...] </br>-or- </br>[<*value1*>, <*value2*>, ...] | Array | An array with XML nodes or values that match the specified XPath expression | 
 |||| 
 
 *Example 1*

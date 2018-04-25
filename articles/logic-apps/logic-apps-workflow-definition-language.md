@@ -61,7 +61,7 @@ Here is the high-level structure for a workflow definition:
 In the `parameters` section, define all the parameters 
 that accept inputs for the workflow at runtime. 
 Before you can use these parameters in other workflow sections, 
-make sure that you declare all the parameters in this section. 
+make sure that you declare all the parameters in these sections.
 
 Here is the general structure for a parameter definition:  
 
