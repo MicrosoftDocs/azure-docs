@@ -8,20 +8,21 @@ manager: femila
 
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 04/23/2018
+ms.date: 04/24/2018
 ms.author: brenduns
 ms.reviewer: 
 ms.custom: mvc
 ---
 
-# Create a Linux server virtual machine with the Azure Stack portal
+# Quickstart: create a Linux server virtual machine with the Azure Stack portal
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure Stack portal. Follow the steps in this article to create a virtual machine and then run some basic tests. These tests include:
+You can create a Ubuntu Server 16.04 LTS virtual machine by using the Azure Stack portal. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
 
-* Connecting to the virtual machine with a remote client.
-* Installing a web server.
+* Connect to the virtual machine with a remote client.
+* Install a NGINX web server.
+* Clean up your resources.
 
 ## Prerequisites
 
