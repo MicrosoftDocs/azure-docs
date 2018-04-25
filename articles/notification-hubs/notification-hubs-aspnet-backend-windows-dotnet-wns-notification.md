@@ -2,10 +2,10 @@
 title: Send notifications to specific users using Azure Notification Hubs | Microsoft Docs
 description: Learn how to send notifications to specific users using Universal Windows Platform (UWP) applications. 
 documentationcenter: windows
-author: spelluru
-manager: erikre
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 services: notification-hubs
-editor: ''
 
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
@@ -15,7 +15,7 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.author: spelluru
+ms.author: dimazaid
 
 ---
 # Tutorial: Send notifications to specific users by using Azure Notification Hubs
