@@ -138,7 +138,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 15 of Program.cs should now look similar to 
 
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
 5. Save the Program.cs file.
     
