@@ -19,9 +19,13 @@ When you create an Azure Kubernetes Service (AKS) cluster, you can select from t
 
 The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods are managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
 
+Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubenet] Kubernetes plugin.
+
 ## Advanced networking
 
-**Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. The [Azure Container Networking Interface (CNI)][cni-networking] plugin for Kubernetes provides this advanced networking support, and is installed on all AKS cluster nodes.
+**Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
+
+Nodes in an AKS cluster configured for Advanced newtorking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
@@ -73,7 +77,7 @@ Each node can host a maximum of 30 pods. When you scale out your cluster, each n
 
 1. Are there any scenarios in which Network Security Groups, user-defined routes, and other network policies will not work for pods?
 
-   Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictiable, and they may not be functional. As such, their usage is discouraged.
+   Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictable, and they may not be functional. As such, their usage is discouraged.
 
 1. Is the maximum number of pods deployable to a node configurable?
 
@@ -103,6 +107,7 @@ Learn more about networking in AKS in the following articles:
 
 <!-- LINKS - External -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
 [aks-ssh]: aks-ssh.md
