@@ -121,7 +121,7 @@ In the Object Explorer:
 #### Azure Data Factory (ADF)
 1. In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added. 
 
- ![adf_icon](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
+ ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
 This section explores the data factory created. 
 Follow the steps below to launch the data factory:
@@ -136,7 +136,7 @@ In the previous section, you deployed and initialized the necessary Azure resour
 ### Data factory pipeline overview
 This section explores the objects created in the data factory. The following figure describes the overall workflow of the ADF pipeline used in this tutorial. If you prefer to explore the pipeline later and see the results first, skip to the next section **Trigger the pipeline run**.
 
-![adf_overview](media/saas-tenancy-tenant-analytics/adf_pipeline.JPG)
+![adf_overview](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
 In the overview page, switch to **Author** tab on the left panel and observe that there are three [pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities) and three [datasets](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) created.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
