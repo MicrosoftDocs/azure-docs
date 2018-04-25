@@ -1,7 +1,7 @@
-# Integrate into Power BI
+# Visualize Remote Monitoring Data Using Power BI
 
 # Overview: 
-This tutorial will walk you through how to plug-in your Remote Monitoring solution data from CosmosDB into Power BI. With this connection established, you can then create your own custom dashboards, and add them back onto your Remote Monitoring solution dashboard. This allows for more specialized graphs to be created, in addition to the ones out of the box. 
+This tutorial will walk you through how to plug-in your Remote Monitoring solution data from CosmosDB into Power BI. With this connection established, you can then create your own custom dashboards, and add them back onto your Remote Monitoring solution dashboard. This allows for more specialized graphs to be created, in addition to the ones out of the box. You can then use this tutorial to integrate with other data streams or build custom dashboards to be consued outside of your Remote Monitoring Solution. You can also extend these steps to use your visualization tool of choice and hook into the Cosmos Database, or custom database if you have set one up. 
 
 ## Pre-requisites:
 	1. You must have a Remote Monitoring solution currently running
@@ -59,3 +59,5 @@ This tutorial will walk you through how to plug-in your Remote Monitoring soluti
 	Document.device.msg.received is just one of the columns with UNIX formatting and can be substituted with others that need conversion. 
 	
 	Other data points were converted to type String can should be changed into Doubles or Int where appropriate using the same steps as above.
+
+## Refreshing the Power BI Data

@@ -55,6 +55,51 @@ When you deploy the solution accelerator, there are several options that configu
 
 To learn about how to use the local deployment, see [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
+## Basic vs. Standard Deployments
+
+### Basic
+Basic deployment is geared toward showcasing the solution. To reduce the cost
+of this demonstration, all the microservices are deployed in a single
+virtual machine; this is not considered a production-ready architecture.
+
+Our Standard deployment option should be used when you are ready to customize
+a production-ready architecture, built for scale and extensibility.
+
+Creating a Basic solution will result in the following Azure services being
+provisioned into your Azure subscription at cost: 
+
+| Count | Resource                       | Type         | Used For |
+|-------|--------------------------------|--------------|----------|
+| 1     | [Linux Virtual Machine][virtual-machines] | Standard D1 V2  | Hosting microservices |
+| 1     | [Azure IoT Hub][iot-hub]                  | S1 – Basic tier | Device management and communication |
+| 1     | [Azure Cosmos DB][cosmos-db]              | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
+| 1     | [Azure Storage Account][storage-account]  | Standard        | Storage for VM and streaming checkpoints |
+| 1     | [Web Application][web-application]        |                 | Hosting front-end web application |
+
+### Standard
+The standard deployment is a production-ready deployment a developer can
+customize and extend to meet their needs. For reliability and scale, application
+microservices are built as Docker containers and deployed using an orchestrator
+([Kubernetes](https://kubernetes.io/) by default). The orchestrator is
+responsible for deployment, scaling, and management of the application.
+
+Creating a Standard solution will result in the following Azure services being
+provisioned into your Azure subscription at cost:
+
+| Count | Resource                                     | SKU / Size      | Used For |
+|-------|----------------------------------------------|-----------------|----------|
+| 4     | [Linux Virtual Machines][virtual-machines]   | Standard D2 V2  | 1 master and 3 agents for hosting microservices with redundancy |
+| 1     | [Azure Container Service][container-service] |                 | [Kubernetes](https://kubernetes.io) orchestrator |
+| 1     | [Azure IoT Hub][iot-hub]                     | S1 – Basic tier | Device management, command and control |
+| 1     | [Azure Cosmos DB][cosmos-db]                 | Standard        | Storing configuration data, and device telemetry like rules, alarms, and messages |
+| 5     | [Azure Storage Accounts][storage-account]    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
+| 1     | [App Service][web-application]               | S1 Standard     | Application gateway over SSL |
+
+> Pricing information for these services can be found
+[here](https://azure.microsoft.com/pricing). Usage amounts and billing details
+for your subscription can be found in the
+[Azure Portal](https://portal.azure.com/).
+
 ## Deploy the solution accelerator
 
 ### Example: deploy .NET version
