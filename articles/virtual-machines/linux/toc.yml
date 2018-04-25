@@ -426,7 +426,7 @@
     - name: VMAccess Extension
       href: using-vmaccess-extension.md
     - name: Restrict extension installation
-      href: extensions-rmpolicy-howto-cli.md   
+      href: ../extensions/extensions-rmpolicy-howto-cli.md   
   - name: Migrate VMs
     items:
     - name: Migrate AWS and on-premises VMs

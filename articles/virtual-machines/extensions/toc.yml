@@ -73,12 +73,18 @@
       href: stackify-retrace-linux.md
     - name: Symantec
       href: symantec.md
-  - name: Depricated extensions
+  - name: Deprecated extensions
     items:
     - name: Log Collector extension
       href: log-collector.md
     - name: Trend Micro Deep Security
       href: trend.md
+  - name: Restrict extension installation
+    items:
+    - name: Linux
+      href: extensions-rmpolicy-howto-cli.md
+    - name: Windows
+      href: extensions-rmpolicy-howto-ps.md         
   - name: Update Linux agent
     href: update-linux-agent.md
   - name: Export extensions
