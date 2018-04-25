@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Event Grid security and authentication
 description: Describes Azure Event Grid and its concepts.
 services: event-grid
@@ -60,7 +60,7 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 
 You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) which the webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
-When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter is used in Azure [CLI](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest).
+When editing the Event Subscription, the query parameters will not be displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Finally, it's important to note that Azure Event Grid only supports HTTPS webhook endpoints.
 

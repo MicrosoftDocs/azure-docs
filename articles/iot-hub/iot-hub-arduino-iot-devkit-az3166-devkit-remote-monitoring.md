@@ -32,7 +32,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you do not have one, you can register via one of these two methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Create an Azure IoT Suite
@@ -123,4 +123,4 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 Now that you have learned how to connect a DevKit device to your Azure IoT Suite and visualize the sensor data, here are the suggested next steps:
 
 * [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Cortana Intelligence AppSource publishing guide | Microsoft Docs
 description: As a Microsoft Partner, here are all the steps you need to follow to publish your Cortana Intelligence solution to AppSource.
 services: machine-learning
@@ -21,7 +21,7 @@ ms.author: anupams
 AppSource is the single destination for Business Decision Makers (BDMs) to discover and seamlessly try business solutions/apps built by partners and evaluated by Microsoft. Watch [this video](https://youtu.be/hpq_Y9LuIB8) to learn how AppSource works. 
 
 As a Microsoft Partner, you can really benefit from publishing on AppSource if you have:
-- Built an intelligent solution/app using [Cortana Intelligence Suite](https://azure.microsoft.com/en-us/suites/cortana-intelligence-suite/?cdn=disable).
+- Built an intelligent solution/app using [Cortana Intelligence Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/?cdn=disable).
 - Your solution or app addresses a specific business problem.
 - You built modules or intellectual property that your customers can reuse relatively quickly in a predictable manner.
 
