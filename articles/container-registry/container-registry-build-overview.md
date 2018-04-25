@@ -1,6 +1,6 @@
 ---
-title: Overview of Azure Container Registry Build (ACR Build)
-description: An introduction to the ACR Build feature of Azure Container Registry, containing a high-level overview of the features and benefits of ACR Build.
+title: Automatic container builds and patching with Azure Container Registry Build (ACR Build)
+description: An introduction ACR Build, a suite of features in Azure Container Registry that provides secure, automated container image build and patching in the cloud.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -11,15 +11,25 @@ ms.date: 04/27/2018
 ms.author: marsma
 ---
 
-# Overview of Azure Container Registry Build (ACR Build)
+# Automate building and patching container images with ACR Build
+
+<!--
+* TITLE: auto build, patch, run containers with acr build
+* TITLE: securely build and maintain container images ...
+* never patch again
+* ACR supports OS and framework patching through ACR BUild
+* lead in is patching
+* lead with the nugget
+* maintenance - the Big Deal
+-->
 
 As containers provide new levels of virtualization, isolating application and developer dependencies from the infrastructure and operational requirements, we must address how the application virtualization is patched.
 
 ## What is ACR Build?
 
-Azure Container Registry Build is an Azure-native container build service. As a feature of Azure Container Registry, ACR Build enables inner-loop development in the cloud with the [Quick Build](quick-build-inner-loop-extended-to-the-cloud), as well as automated container image building.
+Azure Container Registry Build is an Azure-native container build service. As a feature of Azure Container Registry, ACR Build enables inner-loop development in the cloud with the [Quick Build](container-registry-tutorial-quick-build.md), as well as automated container image building.
 
-ACR Build can trigger container image builds automatically when code is committed to a Git repository, and when a container's base image is updated. With base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments, while adhering to the principals of immutable containers.
+ACR Build supports triggering container image builds automatically when code is committed to a Git repository, and when a container's base image is updated. With base image update triggers, you can automate your OS and application framework patching workflow, maintaining secure environments, while adhering to the principals of immutable containers.
 
 ## Quick Build: inner-loop extended to the cloud
 
