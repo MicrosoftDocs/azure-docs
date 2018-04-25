@@ -56,7 +56,6 @@ Parameters are case-sensitive.
 {
     "skills": [
       {
-        "name": "OCR skill",
         "description": "Extracts text (plain and structured) from image."
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
