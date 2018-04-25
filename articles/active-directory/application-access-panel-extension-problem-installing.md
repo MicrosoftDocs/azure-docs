@@ -34,7 +34,6 @@ For password-based SSO, you can use any of the following browsers:
 - **Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
-- **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
 
 ## Install the access panel browser extension
 
