@@ -1,4 +1,4 @@
----
+﻿---
 title: Desired State Configuration extension with Azure Resource Manager templates | Microsoft Docs
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
 services: virtual-machines-windows
@@ -31,7 +31,7 @@ This article describes the Azure Resource Manager template for the
 The following snippet goes in the **Resource** section of the template.
 The DSC extension inherits default extension properties.
 For more information, see
-[VirtualMachineExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+[VirtualMachineExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
 {
@@ -83,7 +83,7 @@ Under **extensions**, add the details for DSC Extension.
 
 The DSC extension inherits default extension properties.
 For more information,
-see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
@@ -201,7 +201,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+[Local Configuration Manager basic settings](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 

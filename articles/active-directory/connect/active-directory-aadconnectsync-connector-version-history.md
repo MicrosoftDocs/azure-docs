@@ -1,4 +1,4 @@
----
+﻿---
 title: Connector Version Release History | Microsoft Docs
 description: This topic lists all releases of the Connectors for Forefront Identity Manager (FIM) and Microsoft Identity Manager (MIM)
 services: active-directory
@@ -31,7 +31,7 @@ Related links:
 * [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
 * [Generic LDAP Connector](active-directory-aadconnectsync-connector-genericldap.md) reference documentation
 * [Generic SQL Connector](active-directory-aadconnectsync-connector-genericsql.md) reference documentation
-* [Web Services Connector](https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
+* [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
 * [PowerShell Connector](active-directory-aadconnectsync-connector-powershell.md) reference documentation
 * [Lotus Domino Connector](active-directory-aadconnectsync-connector-domino.md) reference documentation
 
