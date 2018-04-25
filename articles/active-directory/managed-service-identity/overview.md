@@ -48,6 +48,7 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
         - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
 
+
     b. MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
 
