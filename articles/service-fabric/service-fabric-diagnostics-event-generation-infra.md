@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 04/25/2018
 ms.author: dekapur
 
 ---
@@ -22,13 +22,13 @@ ms.author: dekapur
 
 It is important to monitor at the platform level to determine whether or not your hardware and cluster are behaving as expected. Though Service Fabric can keep applications running during a hardware failure, but you still need to diagnose whether an error is occurring in an application or in the underlying infrastructure. You also should monitor your clusters to better plan for capacity, helping in decisions about adding or removing hardware.
 
-Service Fabric exposes several structured events, refered to as "Service Fabric events" through the EventStore and various log channels out-of-the-box. 
+Service Fabric exposes several structured platform events, as "[Service Fabric events](service-fabric-diagnostics-events.md)," through the EventStore and various log channels out-of-the-box. 
 
 The EventStore gives you access to your cluster's events on a per entity basis (entities including cluster, nodes, applications, services, partitions, replicas, and containers) and exposes them via REST APIs and the Service Fabric client library. Use the EventStore to monitor your dev/test clusters, and for getting a point-in-time understanding of the state of your production clusters. Read more about this at [EventStore Overview](service-fabric-diagnostics-eventstore.md).
 
 Service Fabric also provides the following log channels out-of-the-box for setting up a pipeline to monitor your production clusters:
 
-* **Operational**  
+* [**Operational**](service-fabric-diagnostics-event-generation-operational.md)  
 High-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc.
 
 * **Operational - detailed**  

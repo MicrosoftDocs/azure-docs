@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/03/2018
+ms.date: 04/25/2018
 ms.author: dekapur;srrengar
 
 ---
@@ -30,8 +30,6 @@ Application monitoring tracks how features and components of your application ar
 * Monitoring what is happening inside your running containers
 
 Service Fabric supports many options to instrument your application code with the proper traces and telemetry. We recommend that you use Application Insights (AI). AI's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal, as well as Service Fabric specific metrics, providing a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you with AI, we recommend that you add further custom logging to your applications to create a richer diagnostics experience. See more about getting started with Application Insights with Service Fabric at [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
-
-![AI trace details](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
 ## Platform (Cluster) monitoring
 Monitoring your Service Fabric cluster is critical in ensuring that the platform and all workloads are running as intended. One of Service Fabric's goals is to keep applications resilient to hardware failures. This goal is achieved through the platform's system services' ability to detect infrastructure issues and rapidly failover workloads to other nodes in the cluster. But in this particular case, what if the system services themselves have issues? Or if in attempting to move a workload, rules for the placement of services are violated? Monitoring the cluster allows you to stay informed about activity taking place in your cluster, which helps in diagnosing issues and fixing them effectively. Some key things you want to be looking out for are:

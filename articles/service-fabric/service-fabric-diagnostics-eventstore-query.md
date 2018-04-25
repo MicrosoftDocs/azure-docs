@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/20/2018
+ms.date: 04/25/2018
 ms.author: dekapur
 
 ---
@@ -35,6 +35,23 @@ In addition to these, there are optional parameters available as well, such as:
 * `eventstypesfilter`: this gives you the option to filter for specific event types
 * `ExcludeAnalysisEvents`: do not return 'Analysis' events. By default, EventStore queries will return with "analysis" events where possible - analysis events are richer operational channel events that contain additional context or information beyond a regular Service Fabric event and provide more depth.
 * `SkipCorrelationLookup`: do not look for potential correlated events in the cluster. By default, the EventStore will attempt to correlate events across a cluster, and link your events together when possible. 
+
+Each entity in a cluster can be queries for events. You can also query for events for all entities of the type. For example, you can query for events for a specific node, or for all nodes in your cluster. The current set of entities for which you can query for events is (with how the query would be structured):
+* Cluster: `/EventsStore/Cluster/Events`
+* Nodes: `/EventsStore/Nodes/Events`
+* Node: `/EventsStore/Nodes/<NodeName>/$/Events`
+* Applications: `/EventsStore/Applications/Events`
+* Application: `/EventsStore/Applications/<AppName>/$/Events`
+* Services: `/EventsStore/Services/Events`
+* Service: `/EventsStore/Services/<ServiceName>/$/Events`
+* Partitions: `/EventsStore/Partitions/Events`
+* Partition: `/EventsStore/Partitions/<PartitionID>/$/Events`
+* Replicas: `/EventsStore/Partitions/<PartitionID>/$/Replicas/Events`
+* Replica: `/EventsStore/Partitions/<PartitionID>/$/Replicas/<ReplicaID>/$/Events`
+
+>[!NOTE]
+>When referencing an application or service name, the query doesn't need to include the "fabric:/" prefix. Additionally, if your application or service names have a "/" in them, switch it to a "~" to keep the query working. For example, if your application shows up as "fabric:/App1/FrontendApp", your app specific queries would be structured as `/EventsStore/Applications/App1~FrontendApp/$/Events`.
+>Additionally, health reports for services today show up under the corresponding application, so you would query for `DeployedServiceHealthReportCreated` events for the right application entity. 
 
 ## Query the EventStore via REST API endpoints
 
@@ -124,31 +141,34 @@ Here are few examples on how you can call the Event Store REST APIs to understan
 
 1. Cluster upgrades
 To see the last time your cluster was successfully or attempted to be upgraded last week, you can query the APIs for recently completed upgrades to your cluster, by querying for the "ClusterUpgradeComplete" events in the EventStore:
-`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&eventstypesfilter=ClusterUpgradeComplete`
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
 
 1. Cluster upgrade issues
-Similarly, if there were issues with a recent cluster upgrade, you could query for all events for the cluster entity, using the following query: 
-`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
-You'll see various events, including the initiation of upgrades and each UD for which the upgrade rolled through successfully. You will also see events for the point at which the rollback started and corresponding health events.
+Similarly, if there were issues with a recent cluster upgrade, you could query for all events for the cluster entity. You'll see various events, including the initiation of upgrades and each UD for which the upgrade rolled through successfully. You will also see events for the point at which the rollback started and corresponding health events. Here's the query you would use for this: 
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 1. Node status changes
-Track your node status changes over the last few days to see when nodes went up or down, or were activated or deactivated (either by the platform, the chaos service, or from user input):
-``https://mycluster.cloudapp.net:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+To see your node status changes over the last few days - when nodes went up or down, or were activated or deactivated (either by the platform, the chaos service, or from user input) - use the following query:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 1. Application events
-You can also use the EventStore APIs to track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster: 
-`https://mycluster.cloudapp.net:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+You can also track your recent application deployments and upgrades. Use the following query to see all application related events in your cluster:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 1. Historical health for an application
-In addition to just seeing application lifecycle events, you may also want to see historical data on the health of a specific application. You can do this by specifying the application name for which you want to gather the data. Use this query to get all the application health events: `https://mycluster.cloudapp.net:19080/EventsStore/Applications/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. If you want to include health events that may have expired (gone passed their time to live (TTL)), add `,ExpiredDeployedApplicationEvent` to the end of the query, to filter on two types of events.
+In addition to just seeing application lifecycle events, you may also want to see historical data on the health of a specific application. You can do this by specifying the application name for which you want to gather the data. Use this query to get all the application health events:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. 
+If you want to include health events that may have expired (gone passed their time to live (TTL)), add `,ExpiredDeployedApplicationEvent` to the end of the query, to filter on two types of events.
 
-1. Container state
-To track each of your containers coming up or going down over the last few days, use `https://mycluster.cloudapp.net:19080/EventsStore/Containers/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z`.
+1. Historical health for all services in "myApp"
+Currently, health report events for services show up as `DeployedServiceHealthReportCreated` events under the corresponding application entity. To see how your services have been doing for "App1", use the following query:
+`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
 
 1. Partition reconfiguration
-To see all the partition movements that happened in your cluster, query for the `ReconfigurationCompleted` event. This can help you figure out what workloads ran on which node at specific times, when diagnosing issues in your cluster. Here's a sample query that does that: `https://mycluster.cloudapp.net:19080/EventsStore/Partitions/myApp/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ReconfigurationCompleted`
+To see all the partition movements that happened in your cluster, query for the `ReconfigurationCompleted` event. This can help you figure out what workloads ran on which node at specific times, when diagnosing issues in your cluster. Here's a sample query that does that:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
 
 1. Chaos service
 There is an event for when the Chaos service is started or stopped that is exposed at the cluster level. To see your recent use of the Chaos service, use the following query:
-`https://mycluster.cloudapp.net:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2018-04-24T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&eventstypesfilter=ChaosStartedEvent,ChaosStoppedEvent`
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

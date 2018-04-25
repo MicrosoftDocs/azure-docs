@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2018
+ms.date: 04/25/2018
 ms.author: dekapur
 
 ---
 
-# Service Fabric events 
+# List of Service Fabric events 
 
 Service Fabric exposes a primary set of cluster events to inform you of the status of your cluster. These are based on actions performed by Service Fabric on your nodes and your cluster or management decisions made by a cluster owner/operator. These events can be accessed by querying the [EventStore](service-fabric-diagnostics-eventstore.md) in your cluster, or through the operational channel. On Windows machines, the operational channel is also hooked up to the EventLog - so you can see Service Fabric Events in Event Viewer. 
 

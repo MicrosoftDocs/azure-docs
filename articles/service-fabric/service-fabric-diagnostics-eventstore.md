@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/20/2018
+ms.date: 04/25/2018
 ms.author: dekapur
 
 ---
@@ -42,7 +42,6 @@ The EventStore service can be queried for events that are available for each ent
 * Partition: events from a specific partition
 * Replicas: events from all replicas / instances
 * Replica: events from a specific replica / instance
-* Containers: events from all containers
 
 
 The EventStore service also has the ability to correlate events in your cluster. By looking at events that were written at the same time from different entities that may have impacted each other, the EventStore service is able to link these events to help with identifying causes for activities in your cluster. For example, if one of your applications happens to become unhealthy without any induced changes, the EventStore will also look at other events exposed by the platform and could correlate this with a `NodeDown` event. This helps with faster failure detection and root causes analysis.
