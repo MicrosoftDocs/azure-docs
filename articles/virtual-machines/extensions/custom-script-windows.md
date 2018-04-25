@@ -47,15 +47,16 @@ If your script is on a local server, then you may still need additional firewall
 
 ### Tips and Tricks
 * The highest failure rate for this extension is due to syntax errors in the script, test the script runs without error, and also put in additional logging into the script to make it easier to find where it stopped.
-* Write scripts that are idempotent, so if they get run again more than once accidently, then it will not cause system changes.
+* Write scripts that are idempotent, so if they get run again more than once accidentally, then it will not cause system changes.
 * Ensure the scripts do not require user input when they run.
-* There is 90mins allowed for the script to run, anything longer will result in a failed provision of the extension.
-* Do not put reboots inside the script, this may cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
-* If you have a script that will cause a reboot, then install applications and run scripts etc. You should do this using tools such as DSC, or Chef, Puppet extensions.
-* The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Sheduled Task.
-* If you want to shedule when a script will run, you should use the extension to create a Windows Sheduled Task. 
+* There is 90 mins allowed for the script to run, anything longer will result in a failed provision of the extension.
+* Do not put reboots inside the script, this will cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
+* If you have a script that will cause a reboot, then install applications and run scripts etc. You should schedule the reboot using a Windows Scheduled Task, or using tools such as DSC, or Chef, Puppet extensions.
+* The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Scheduled Task.
+* If you want to schedule when a script will run, you should use the extension to create a Windows Scheduled Task. 
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl* 
+* Be aware of non default directory locations that your scripts or commands may rely on, have logic to handle this.
 
 
 ## Extension schema
@@ -93,7 +94,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	}
 }
 ```
-**Note** - Only one version of an extension can be installed on a VM at a point in time, if you try to specify custom script twice in the same ARM template, this will fail. See Further examples on how to run custom script twice in the same ARM template.
+**Note** - Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail. See Further examples on how to run custom script twice in the same Resource Manager template.
 
 
 ### Property values
@@ -109,7 +110,7 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
-**Note** - these property names are case-sensitive. Use the names as seen above to avoid deployment issues. Also, fileUris is currently not support supported in 'ProtectedSettings', if you have any sensitive fileUris, such as they include a SAS token, use the commandToExecute to take the fileUris parameter, and reference that.
+**Note** - these property names are case-sensitive. Use the names as seen above to avoid deployment issues. Also, fileUris is currently not supported in 'ProtectedSettings', if you have any sensitive fileUris, such as they include a SAS token, use the commandToExecute to take the fileUris parameter, and reference that.
 
 ## Template deployment
 
@@ -130,7 +131,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 ## Further Examples
 
 ### Using Multiple Script
-In this example, you have 3 scripts that are used to build your server, the 'commandToExecute' calls the first script, then you have options on how the others are called, for example, you can have a master script that controls the execution, with the right error handling, logging and state management.
+In this example, you have three scripts that are used to build your server, the 'commandToExecute' calls the first script, then you have options on how the others are called, for example, you can have a master script that controls the execution, with the right error handling, logging, and state management.
 
 ```powershell
 
@@ -157,7 +158,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG `
 ```
 
 ### Running scripts from a local share
-In this example you may want use a local SMB server for your script location, note, you do not need pass in another other settings, except *commandToExecute*.
+In this example you may want to use a local SMB server for your script location, note, you do not need pass in another other settings, except *commandToExecute*.
 
 ```powershell
 $ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
@@ -176,7 +177,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### How to run custom script more than once with CLI
 If you want to run the custom script extension more than once, you can only do this under these conditions:
 1. The extension 'Name' parameter is the same as the previous deployment of the extension.
-2. The at least one of the settings have changed, this can be as trivial as an extra space in the commandToExecute.
+2. At least one of the settings have changed, this can be as trivial as an extra space in the commandToExecute.
 
 ## Troubleshoot and support
 
