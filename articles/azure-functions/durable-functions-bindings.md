@@ -88,7 +88,7 @@ Most orchestrator functions call activity functions, so here is a "Hello World" 
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }

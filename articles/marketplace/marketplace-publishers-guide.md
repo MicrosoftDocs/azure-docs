@@ -253,7 +253,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 
 |**Requirement**  | **Details**  |**Publishing option**  |
 |---------|---------|---------|
-|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br><br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the publisher's Microsoft product subscription, the publisher solely controls trial cost optimization and management.<br><br>You can choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<br><br>To begin the process of creating a test drive, reach out to cloudmarketplace@microsoft.com. <br><br>Note that Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Trial      | 
+|**Free trial period and trial experience**     |  A customer must be able to use your app for free for a limited time.<br><br>This means that the customer will not be subject to license or subscription fees for your product, nor the cost of the underlying Microsoft first-party product or service. Because all trial options are deployed to the publisher's Microsoft product subscription, the publisher solely controls trial cost optimization and management.<br><br>You can choose a free trial, interactive demo, or test drive. No matter what you choose, the free trial must offer the customer a minimum amount of time to try the app for no additional cost.<br><br>To begin the process of creating a test drive, reach out to cloudmarketplace@microsoft.com. <br><br>Note that Azure Marketplace SaaS trial experiences must allow users to sign in with their Active Directory work credentials. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences). |   Trial      | 
 | **Easily configurable, turnkey solution**    |  Your app must be easy and quick to configure and set up.       |  Trial       |
 |**Availability/uptime**    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |    Trial     |
 |**Azure Active Directory**    |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) with consent enabled.      |  Trial|
@@ -264,7 +264,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 |**Requirement**  |**Details** |**Publishing option**  |
 |---------|---------|---------|
 |**Billing and metering**    |  Your virtual machine must support either Bring Your Own License or usage-based, monthly billing.       |    Transaction    |
-|**Azure-compatible virtual hard disk (VHD)**     |   Virtual machines must be built on [Windows](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
+|**Azure-compatible virtual hard disk (VHD)**     |   Virtual machines must be built on [Windows](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) or [Linux](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation).    |   Transaction      |
 
 ### Prerequisites specific to Consulting Services publishing
 
@@ -277,7 +277,7 @@ Any Enterprise Agreement customer can add Azure to their agreement by making an 
 ## Using Azure Active Directory to enable trials
 Azure Active Directory is a cloud identity service that enables authentication with a Microsoft work or school account by using industry-standard protocols: OAuth and OpenID Connect. Learn more about Azure AD on the [product webpage](https://www.microsoft.com/en-us/cloud-platform/azure-active-directory-features). 
 
-Microsoft authenticates all Marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the Marketplace and is redirected to your trial environment, you can provision the user directly into a trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app. You can then automate the provisioning experience and increase the likelihood of conversion. 
+Microsoft authenticates all Marketplace users with Azure AD. When an authenticated user clicks through your trial listing in the Marketplace and is redirected to your trial environment, you can provision the user directly into a trial without requiring an additional sign-in step. The [token that your app receives from Azure AD during authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens) includes valuable user information that you can use to create a user account in your app. You can then automate the provisioning experience and increase the likelihood of conversion. 
 
 Using Azure AD to enable one-click authentication to your app or trial:
 
@@ -292,20 +292,20 @@ If you support Azure AD today:
 
 - Register your application in the Azure portal.
 - Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
-- [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).
+- [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 
 If you are new to Azure AD Federated SSO:
 
 - Register your application in the Azure portal.
-- Develop SSO with Azure AD by using [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+- Develop SSO with Azure AD by using [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) or [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 - Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
-- [Learn more](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
 
 ### Certify your Azure AD integration for the Marketplace: single-tenant applications
 
 There are multiple options for single-tenant applications:
 
-- Add users to your directory as guest users by using [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Add users to your directory as guest users by using [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 - Manually provision trials for customers via Contact Me.
 - Develop a per-customer test drive.
 - Build a multitenant sample demo app with SSO.
@@ -316,11 +316,11 @@ For AppSource apps that extend Office, Dynamics, and Power BI, you can learn mor
 
 |Product |Publishing information  |
 |---------|---------|
-|Office 365     |    Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365   for Finance and Operations  |   When you're building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 for Customer Engagement |Review the [publishing process and guidelines](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Review the [publishing process and guidelines]( https://docs.microsoft.com/en-us/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
+|Office 365     |    Review the [publishing process and guidelines]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
+|Dynamics 365   for Finance and Operations  |   When you're building for Enterprise Edition, review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
+|Dynamics 365 for Customer Engagement |Review the [publishing process and guidelines](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
+|Power BI   |     Review the [publishing process and guidelines]( https://docs.microsoft.com/power-bi/developer/office-store).    |
+|Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |AppSource Consulting Offers     |  Review the [guidelines and learn how to submit your offer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
 
 
@@ -523,11 +523,11 @@ When you're creating a company account, follow these guidelines if more than one
 
 Your developer account should be accessed primarily from trusted PCs. This is critical because there's a limit to the number of codes generated per account, per week. Using trusted PCs also enables the most seamless sign-in experience.
 
-For more information on additional developer account guidelines and security, see [Opening a developer account](https://docs.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account).
+For more information on additional developer account guidelines and security, see [Opening a developer account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account).
 
 ### Guidance for Microsoft IDs in an Azure AD federated domain
 
-Your corporate account can be federated through [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/). It will return an error if you try to create a Microsoft ID with a corporate email address. If you get an error, first check with your IT team to make sure this is the case. This is a known issue, and we are working on resolving it. 
+Your corporate account can be federated through [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). It will return an error if you try to create a Microsoft ID with a corporate email address. If you get an error, first check with your IT team to make sure this is the case. This is a known issue, and we are working on resolving it. 
 
 As a workaround, we recommend that you create a new email address in the @outlook.com domain and create a rule. Follow these steps:
 
@@ -563,7 +563,7 @@ After you complete the last step, Outlook will send all emails/communications fr
 5. For **Account Type**, select **Company** and then select the **Next** button.
 
    >[!IMPORTANT]
-   >To better understand account types and which is best for you to choose, see [Account types, locations, and fees](https://docs.microsoft.com/en-us/windows/uwp/publish/account-types-locations-and-fees).
+   >To better understand account types and which is best for you to choose, see [Account types, locations, and fees](https://docs.microsoft.com/windows/uwp/publish/account-types-locations-and-fees).
 
 6. For **Publisher display name**, enter the display name (typically the name of your company).
 

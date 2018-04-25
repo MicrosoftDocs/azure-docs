@@ -31,7 +31,7 @@ There are two versions of AzCopy that you can download. AzCopy on Linux targets 
 ### Installation on Linux
 
 > [!NOTE]
-> You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. For mainstream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
+> You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. For mainstream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
 
 Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
