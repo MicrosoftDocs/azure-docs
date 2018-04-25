@@ -262,4 +262,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
-[fix]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
+[fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
