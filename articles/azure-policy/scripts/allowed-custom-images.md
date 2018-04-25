@@ -73,4 +73,4 @@ az group delete --name myResourceGroup --yes
 ## Next steps
 
 - Additional Azure Policy template samples are at [Templates for Azure Policy](../json-samples.md)
-- Additional Azure Policy examples for Virtual Machines [](/azure/virtual-machines/windows/policy)
+- Additional Azure Policy examples for Virtual Machines at [Apply policies to Windows VMs](/azure/virtual-machines/windows/policy)
