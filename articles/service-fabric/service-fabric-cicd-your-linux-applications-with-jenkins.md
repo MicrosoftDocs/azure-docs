@@ -54,7 +54,7 @@ After you have installed the prerequisites needed for your environment, you can 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
 
 ### Prerequisites
-- Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster created from the Azure portal or Azure Resource Manager (ARM)already has Docker installed. If you are running the cluster locally (OneBox dev environment), check if Docker is installed on your machine with the  `docker info` command. If it is not installed, install it by using the following commands:
+- Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster running in Azure already has Docker installed. If you are running the cluster locally (OneBox dev environment), check if Docker is installed on your machine with the  `docker info` command. If it is not installed, install it by using the following commands:
 
    ```sh
    sudo apt-get install wget
