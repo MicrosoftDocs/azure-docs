@@ -141,7 +141,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
     yum install rh-dotnet20 -y
     ```
 
-## Install and set up the Service Fabric SDK for a local cluster setup
+## Install and set up the Service Fabric SDK for a local cluster
 
 After you update your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and accept the license agreement.
 
