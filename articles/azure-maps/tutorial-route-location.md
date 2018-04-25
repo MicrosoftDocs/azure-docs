@@ -71,7 +71,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     </html>
     ```
-    Note how the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Maps APIs.
+    The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment in the body of the HTML file, that will contain the inline JavaScript code to access the Azure Maps APIs.
 
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account.
 
@@ -140,10 +140,10 @@ For this tutorial, set the start point as Microsoft, and the destination point a
 
 ## Get directions
 
-This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Maps route service API to find the route from a given start point to a destination. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
 
-1. First, add a new layer called to the map that will display the route path, or *linestring*. Add the following JavaScript code to the *script* block:
+1. First, add a new layer on the map to display the route path, or *linestring*. Add the following JavaScript code to the *script* block:
 
     ```JavaScript
     // Initialize the linestring layer for routes on the map
@@ -157,8 +157,6 @@ This section shows how to use the Maps route service API to find the route from 
         before: "labels"
     });
     ```
-
- Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response that the Maps Search service sends. This code snippet builds the event handler to collect the addresses, names, and latitude and longitude information for each location returned in the `searchPins` variable. Finally, it adds this collection of location points to the `map` control as pins. 
 
 2. Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response that the Maps route service sends. This code constructs an array of coordinates for the line segments of the route, then adds the set of coordinates to the linestrings layer of the map. 
 
@@ -182,7 +180,7 @@ This section shows how to use the Maps route service API to find the route from 
     };
     ```
 
-3. Add the following code to send the XMLHttpRequest to the Azure Maps' Route Service:
+3. Add the following code to build the query and send the XMLHttpRequest to the Maps route service:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/route/directions/json?";
@@ -194,9 +192,8 @@ This section shows how to use the Maps route service API to find the route from 
     xhttp.open("GET", url, true);
     xhttp.send();
     ```
-    The request above shows the required parameters, which are your account key and the coordinates for the start and end points, in the given order. 
 
-3. Save the **MapRoute.html** file and refresh your web browser. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
+3. Save the **MapRoute.html** file and refresh your web browser. For a successful connection with the Maps APIs, you should see a map similar to the following. 
 
     ![Azure Map Control and Route Service](./media/tutorial-route-location/map-route.png)
 
@@ -208,6 +205,8 @@ In this tutorial, you learned how to:
 > * Create a new web page using the map control API
 > * Set address coordinates
 > * Query the route service for directions to point of interest
+
+The next tutorial demonstrates how to create a route query with restrictions like mode of travel or type of cargo, then display multiple routes on the same map. 
 
 > [!div class="nextstepaction"]
 > [Find routes for different modes of travel](./tutorial-prioritized-routes.md)

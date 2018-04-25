@@ -71,7 +71,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     </html>
     ```
-    Note that the HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
+    The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account.
 
     ```JavaScript
@@ -107,7 +107,7 @@ The following steps show you how to create a static HTML page embedded with the 
         flow: "relative"
     });
     ```
-    This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road, or `relative-delay` which displays the relative speed where it differs from free-flow. 
+    This code sets the traffic flow to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow. 
 
 2. Save the **MapTruckRoute.html** file and refresh the page in your browser. You should see the streets of Los Angeles with their current traffic data.
 
@@ -157,20 +157,20 @@ For this tutorial, set the start point as a fictitious company in Seattle called
         textOffset: [0, -20]
     });
     ``` 
-    The API **map.setCameraBounds** adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
+    The **map.setCameraBounds** call adjusts the map window according to the coordinates of the start and end points. The API **map.addPins** adds the points to the Map control as visual components.
 
 3. Save the file and refresh your browser to see the pins displayed on your map. Even though you declared your map with a center point in Los Angeles, the **map.setCameraBounds** moved the view to display the start and end points. 
 
-   ![View map with start and finish points](./media/tutorial-prioritized-routes/pin-map.png)
+   ![View map with start and finish points](./media/tutorial-prioritized-routes/pins-map.png)
 
 
 <a id="multipleroutes"></a>
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination, based on your mode of transport. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the real-time traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination, based on your mode of transport. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
 
-1. First, add a new layer called to the map that will display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route** that each get their own styling. Add the following JavaScript code to the *script* block:
+1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, that get their own styling. Add the following JavaScript code to the *script* block:
 
     ```JavaScript
     // Place route layers on the map
@@ -279,7 +279,7 @@ This section shows how to use the Maps route service API to find multiple routes
 
     ![Prioritized routes with Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    Note that the truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway. 
+    The truck route is blue and thicker, while the car route is purple and thinner. The car route goes across Lake Washington via I-90, which goes through tunnels under residential areas and so restricts hazardous waste cargo. The truck route, which specifies a USHazmatClass2 cargo type, is correctly directed to use a different highway. 
 
 ## Next steps
 In this tutorial, you learned how to:

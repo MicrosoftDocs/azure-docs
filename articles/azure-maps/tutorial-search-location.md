@@ -34,7 +34,7 @@ Log in to the [Azure portal](https://portal.azure.com).
 
 ## Create an account with Azure Maps
 
-Follow these steps to create a new Maps account.
+Create a new Maps account with the following steps:
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the *Search the Marketplace* box, type **Maps**.
@@ -54,11 +54,11 @@ Follow these steps to create a new Maps account.
 
 ## Get the primary key for your account
 
-Once your Maps account is successfully created, follow the steps to link it to its map search APIs:
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs:
 
 1. Open your Maps account in the portal.
 2. Find your account's settings, and select **Keys**.
-3. Copy the **Primary Key** to your clipboard. Save it locally to use in the following steps. 
+3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial. 
 
     ![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
 
@@ -132,7 +132,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
 This section shows how to use the Maps Search API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. 
 
-1. First, add a new layer to your map that will display the search results. Add the following Javascript code to the *script* block, after the code that initializes the map. 
+1. First, add a new layer on your map to display the search results. Add the following Javascript code to the *script* block, after the code that initializes the map. 
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -186,7 +186,7 @@ This section shows how to use the Maps Search API to find a point of interest on
     };
     ```
 
-3. Finally, add the following code to the *script* block, to build the XMLHttpRequest and send it to the Maps Search service:
+3. Finally, add the following code to the *script* block to build the query and send the XMLHttpRequest to the Maps Search service:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
@@ -216,7 +216,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map that we've made so far only looks at the latitude/longitude data for the search results. If you looked at the raw JSON that the Maps Search service returns, however, you see that a lot of information is returned about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes. 
+The map that we've made so far only looks at the latitude/longitude data for the search results. If you looked at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes. 
 
 1. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
@@ -263,5 +263,7 @@ In this tutorial, you learned how to:
 > * Create new web page using Map Control API
 > * Use Search Service to find nearby point of interest
 
+The next tutorial demonstrates how to display a route between two locations. 
+
 > [!div class="nextstepaction"]
-> [Route to a point of interest](./tutorial-route-location.md)
+> [Route to a destination](./tutorial-route-location.md)

@@ -12,7 +12,7 @@
   items:
   - name: 1 - Search for point of interest
     href: tutorial-search-location.md
-  - name: 2 - Route to point of interest
+  - name: 2 - Route to a destination
     href: tutorial-route-location.md
   - name: 3 - Multiple routes by mode of travel
     href: tutorial-prioritized-routes.md
