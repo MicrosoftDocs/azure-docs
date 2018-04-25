@@ -35,15 +35,15 @@ This article and its companion articles provide details for using the Visual Stu
 
 1. In the menu of available services, choose **Cognitive Services Computer Vision API**.
 
-   ![Choose the service to connect to](./media/vs-face-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Choose the service to connect to](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    If you've signed into Visual Studio, and have an Azure subscription associated with your account, a page appears with a dropdown list with your subscriptions.
 
-   ![Select your subscription](media/vs-face-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Select your subscription](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Select the subscription you want to use, and then choose a name for the Face API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
-   ![Edit connected service details](media/vs-face-connected-service/Cog-Vision-Connected-Service-2.PNG)
+   ![Edit connected service details](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-2.PNG)
 
    Follow the link for details on the pricing tiers.
 
