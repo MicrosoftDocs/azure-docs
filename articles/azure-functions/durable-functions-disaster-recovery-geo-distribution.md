@@ -2,14 +2,18 @@
 
 ## Overview
 
-In Azure Durable Functions, all state is persisted in Azure Storage. A task hub is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
+In Azure Durable Functions, all state is persisted in Azure Storage. A [task hub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The scenarios described in this article propose deployment options to increase availability and minimize downtime during disaster recovery activities.
 It is important to notice that these scenarios are based on an Active-Passive configuration, since the underlying storage strategy makes it difficult to implement other approaches.
 
-##Scenario 1 - Load Balanced Compute with Shared Storage
+## Scenario 1 - Load Balanced Compute with Shared Storage
+
 In the event of problems of the compute service in Azure, the Function App could be affected. To minimize the possibility of such downtime, this scenario uses two instances of the Function App deployed to different regions. The underlying storage account and task hub are created in the main region, and it is shared by both instances.
 Traffic Manager is configured to detect problems in the main site and automatically redirect traffic to the healthy Function App in the failover region.
 Because Function App the failover region shares the same Azure Storage account and Task Hub, the state of the functions is not lost, and word can resume normally. Once the health is restored in the main region, Traffic Manager will start routing requests to that instance of the Function App automatically.
+
+
+![Diagram showing scenario 1.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
 
 There are several benefits when using this deployment scenario:
 - In the case of a failure in the compute layer, work can resume in the failover region without state loss.
@@ -30,6 +34,8 @@ The previous proposed scenario covers only the case of failure in the compute se
 To ensure continuous operation of the durable functions, this scenario uses a local storage account on each region to which the FunctionApps are deployed.
 
 Each function app deployment has a dedicated Storage account and deployed in the same region
+
+![Diagram showing scenario 2.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
 Pros:
 - Automatic failover to the secondary region, where function app is deployed. 
