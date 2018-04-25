@@ -1,0 +1,44 @@
+- name: Bing Visual Search Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Bing Visual Search API
+      href: overview.md
+    - name: Default image insights
+      href: default-image-tag.md
+    - name: Bing insights usage 
+      href: bing-insights-usage.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
+- name: API Quickstarts
+  expanded: true
+  items:
+  - name: First query in C#
+    href: quickstarts/csharp.md
+  - name: First query in Java
+    href: quickstarts/java.md
+  - name: First query for Node.js
+    href: quickstarts/nodejs.md
+  - name: First query in Python
+    href: quickstarts/python.md
+- name: How To Guides
+  items:
+  - name: Use and display results
+    href: use-and-display-requirements.md
+  - name: Resize and crop thumbnails
+    href: resize-and-crop-thumbnails.md
+- name: Reference
+  expanded: true
+  items:
+  - name: REST v7 API
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference
+- name: Resources
+  items:
+  - name: Get free access key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/bing-visual-search-api/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: User Voice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
