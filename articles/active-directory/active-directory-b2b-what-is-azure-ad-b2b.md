@@ -24,6 +24,7 @@ Azure Active Directory (Azure AD) business-to-business (B2B) collaboration capab
 
 Organizations using Azure AD can provide access to documents, resources, and applications to their partners, while maintaining complete control over their own corporate data. Developers can use the Azure AD business-to-business APIs to write applications that bring two organizations together in more securely. Also, it's easy for end users to navigate.
 
+ 
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 ## Key benefits of Azure AD B2B collaboration
@@ -72,6 +73,7 @@ Conditional access policies, such as multi-factor authentication, can be enforce
 - For specific users to protect corporate apps and data
 
 ### Use APIs and sample code to easily build applications to onboard
+
 Bring your external partners on board in ways customized to your organization’s needs.
 
 Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences, including creating self-service sign-up portals. We provide sample code for a self-service portal [on Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
