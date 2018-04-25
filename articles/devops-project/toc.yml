@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: ASP.NET 
+  - name: .NET 
     href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
   - name: Node.js
     href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
@@ -24,6 +24,6 @@
   - name: 1 - GitHub and DevOps Project
     href: https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github
   - name: 2 - Deploy to VMs
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vm
+    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vms
   - name: 3 - Deploy to Azure SQL DB
     href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb
