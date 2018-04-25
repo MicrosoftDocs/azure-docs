@@ -85,6 +85,14 @@ See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happene
 
 Congratulations, you have now enabled your web app to use Key Vault to access securely stored secrets.
 
+## Clean up resources
+
+When no longer needed, delete the resource group. This deletes the Key Vault and related resources. To delete the resource group through the portal:
+
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+2. Select **Delete resource group**.
+3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+
 # Next steps
 
 Learn more about developing with Key Vault in the [Key Vault Developer's Guide](key-vault-developers-guide.md)
