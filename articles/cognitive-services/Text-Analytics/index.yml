@@ -5,15 +5,15 @@ metadata:
   title: Text Analytics API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description:  Learn how to use Text Analytics API to perform advanced natural language processing on text. Tutorials show you how write code that makes use of the Text Analytics service.
   services: cognitive-services
-  author: v-stadam
-  manager: nolachar
+  author: HeidiSteen
+  manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
-  ms.author: nolachar
+  ms.date: 03/07/2018
+  ms.author: heidist
 abstract:
   description: 'Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes three main functions: sentiment analysis, key phrase extraction, and language detection. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.'
 sections:
