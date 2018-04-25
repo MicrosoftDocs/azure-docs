@@ -2,13 +2,9 @@
 
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
-## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 
-# Get Started
-## Create a route-based VPN gateway
-### [Azure portal](create-routebased-vpn-gateway-portal.md)
-### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
-### [Azure CLI](create-routebased-vpn-gateway-cli.md)
+# Tutorials
+## [Create and manage a VPN gateway](vpn-gateway-tutorial-create-gateway-powershell.md)
 
 # Samples
 ## [Create a VPN gateway](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
@@ -63,33 +59,47 @@
 ### [Azure PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Configure highly available active-active connections
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
-## Configure BGP for a VPN gateway
-### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
-### [Azure CLI](bgp-how-to-cli.md)
-## Configure forced tunneling
-### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
+
+## Routing, BGP, and VNet Peering
+
+### Configure BGP for a VPN gateway
+#### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+#### [Azure CLI](bgp-how-to-cli.md)
+
+### Configure forced tunneling
+#### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
+#### [Azure PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
+
+### [Configure gateway transit for VNet peering](vpn-gateway-peering-gateway-transit.md)
+
 ## Modify local network gateway settings
 ### [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
+
+## Create a route-based VPN gateway
+### [Azure portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 ## [Verify a VPN gateway connection](vpn-gateway-verify-connection-resource-manager.md)
 ## [Reset a VPN gateway](vpn-gateway-resetgw-classic.md)
 ## Delete a VPN gateway
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ## [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md)
-## Configure 3rd party VPN devices
+## Configure third-party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+
 ## [Troubleshoot](vpn-gateway-troubleshoot.md)
 ### [Community-suggested VPN or firewall device settings](vpn-gateway-third-party-settings.md)
 ### [Configure and validate VNet or VPN connections](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 ### [Validate VPN throughput to a VNet](vpn-gateway-validate-throughput-to-vnet.md)
-### Point-to-Site connection issues
+### Point-to-Site connections
 #### [Point-to-Site connection problems](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 #### [Point-to-Site connection problems - Mac OS X VPN client](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
 ### Site-to-Site connection issues
-#### [Site-to-Site connection problems](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Site-to-Site connections](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
 #### [Site-to-Site connection disconnects intermittently](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 
 ## Classic deployment model articles
@@ -109,15 +119,8 @@
 ## [REST (classic)](https://msdn.microsoft.com/library/jj154113)
 ## [Azure CLI](/cli/azure/network/vnet-gateway)
 
-# Related
-## [Virtual Network](/azure/virtual-network/)
-## [Application Gateway](/azure/application-gateway/)
-## [Azure DNS](/azure/dns/)
-## [Traffic Manager](/azure/traffic-manager/)
-## [Load Balancer](/azure/load-balancer/)
-## [ExpressRoute](/azure/expressroute/)
-
 # Resources
+## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)

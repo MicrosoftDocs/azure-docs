@@ -22,7 +22,7 @@ Durable Function orchestrations are implemented in code and can use the error-ha
 
 ## Errors in activity functions
 
-Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `TaskFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
+Any exception that is thrown in an activity function is marshalled back to the orchestrator function and thrown as a `FunctionFailedException`. You can write error handling and compensation code that suits your needs in the orchestrator function.
 
 For example, consider the following orchestrator function which transfers funds from one account to another:
 
@@ -76,7 +76,7 @@ public static async Task Run(DurableOrchestrationContext context)
         firstRetryInterval: TimeSpan.FromSeconds(5),
         maxNumberOfAttempts: 3);
 
-    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions);
+    await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
     
     // ...
 }
