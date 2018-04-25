@@ -35,7 +35,7 @@ sections:
       href: quickstarts/java
     - image: 
         src: media/index/logo_nodejs.svg
-      text: Node
+      text: Node.js
       href: quickstarts/nodejs
     - image: 
         src: media/index/logo_python.svg
