@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to deliver location-based push noti
 services: notification-hubs
 documentationcenter: windows
 keywords: push notification,push notification
-author: spelluru
-manager: yuaxu
-editor: dend
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/02/2018
-ms.author: spelluru
+ms.date: 04/14/2018
+ms.author: dimazaid
 
 ---
 # Tutorial: Push location-based notifications with Azure Notification Hubs and Bing Spatial Data
