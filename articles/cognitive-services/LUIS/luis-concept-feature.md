@@ -46,8 +46,8 @@ Use phrase lists for rare, proprietary, and foreign words. LUIS may be unable to
  
 * A list entity explicitly defines every value an entity can take, and only identifies values that match exactly. A list entity may be appropriate for an app in which all instances of an entity are known and don't change often, like the food items on a restaurant menu that changes infrequently. 
 
-## Best practice
-After the model's first iteration, add a phrase list feature that has domain-specific words and phrases. This feature helps LUIS adapt to the domain-specific vocabulary, and learn it fast.
+## Best practices
+See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
 
 ## Next steps
 

@@ -57,6 +57,12 @@ Begin with 10-15 [utterances](luis-concept-utterance.md) per intent, but not mor
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](publishapp.md), and [test](train-test.md) again. 
 
+## Testing utterances
+Developers should start testing their LUIS application with real traffic by sending utterances to the endpoint. These utterances are used to improve the performance of the intents and entities with [Review utterances](label-suggested-utterances.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning.
+
+## Training data
+Developers should have three sets of test data. The first is for building the model, the second is for testing the model at the endpoint. The third is used in [batch testing](luis-how-to-batch-test.md). The first set is not used in training the application nor sent on the endpoint. 
+
 ## Improving prediction accuracy
 When your app endpoint is receiving endpoint requests, you can use prediction improvement practices: [reviewing endpoint utterances](##review-endpoint-utterances), adding [phrase lists](#phrase-lists), and adding [patterns](#patterns). Do not apply these practices before your app has received endpoint requests because that skews the confidence. 
 
@@ -70,6 +76,8 @@ Use the [phrase list](luis-concept-feature.md) when you want to emphasis domain 
 * That are obscure in general but significant in your domain. 
 
 ### Patterns
+Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
+
 If you have users from a common culture or work-place organization, utterances may take on a pattern in word order and word choice. When you find these patterns, instead of adding each unique utterance to the intent, create a [pattern](luis-concept-patterns.md). This use of patterns allows you to maintain a few patterns instead of many utterances. It also helps LUIS understand the importance of word choice and word order. The result is better prediction of intent and better data extraction of entities. 
 
 ## Data extraction
