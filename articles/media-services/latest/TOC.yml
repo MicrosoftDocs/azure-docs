@@ -29,14 +29,16 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Storage accounts
-    href: storage-account-concept.md
-  - name: Transforms and jobs
-    href: transform-concept.md
   - name: Assets
     href: assets-concept.md
   - name: Autogen adaptive bitrate ladder
     href: autogen-bitrate-ladder.md
+  - name: Media intelligence
+    href: intelligence-concept.md
+  - name: Storage accounts
+    href: storage-account-concept.md
+  - name: Transforms and jobs
+    href: transform-concept.md
 - name: How-to guides
   items:
   - name: Create an account - CLI
