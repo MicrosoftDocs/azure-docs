@@ -48,8 +48,8 @@ This update includes the following improvements for Azure Stack.
 - <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information.
  
 - <!-- 2050709  -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
-
-- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection you can now use either option, **VNet-to-VNet** or **Site-to-site (IPsec)**. 
+ 
+- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option.
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
