@@ -950,5 +950,5 @@ The following example defines an asset transfer application. The application all
 ```
 ## Next steps
 
-* Create your first blockchain app  **TODO: link when the article is in the release branch**
+* [Create your first blockchain app]()
 

@@ -220,3 +220,7 @@ public class AssignWorkflowInstanceChainIdentifierRequest : MessageModelBase
     public string ChainIdentifier { get; set; }
 }
 ```
+
+## Next steps
+
+* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)

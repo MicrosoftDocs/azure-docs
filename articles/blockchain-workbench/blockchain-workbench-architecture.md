@@ -12,7 +12,7 @@ ms.reviewer: zeyadr
 manager: femila
 #Customer intent: As a developer, I want to understand the architecture and components of Azure Blockchain Workbench.
 ---
-# Azure Blockchain Workbench Architecture
+# Azure Blockchain Workbench architecture
 
 Azure Blockchain Workbench simplifies blockchain application development by providing a solution using several Azure components. Blockchain Workbench can be deployed using a solution template in the Azure Marketplace. The template allows users to pick the modules and components to deploy with Blockchain Workbench, such as blockchain stack, type of client application, and support for IoT integration. Once deployed, Blockchain Workbench provides access to a web app, iOS app, and Android app.
 
@@ -119,3 +119,7 @@ the outbound message broker. The SQL DB consumes this information and sends it t
 Workbench provides application logging using Application Insights and Azure Monitor. Application Insights is used to store all logged information from Blockchain Workbench and includes errors, warnings, and successful operations. Application Insights can be used by developers to debug issues with Blockchain Workbench. 
 
 Azure Monitor provides information on the health of the blockchain network. 
+
+## Next steps
+
+* [Create your first blockchain app]()

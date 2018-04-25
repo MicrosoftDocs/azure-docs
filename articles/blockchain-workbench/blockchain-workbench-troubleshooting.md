@@ -63,3 +63,7 @@ The output ZIP file contains the following folder structure:
 | \details\workbench | Detailed logs about the workbench |
 
 The summary file gives you a snapshot of the overall state of the application and health of the application. The summary provides recommended actions, highlights top errors, and metadata about running services.
+
+## Next steps
+
+* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
