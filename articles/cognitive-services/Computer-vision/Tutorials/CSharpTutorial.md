@@ -1,4 +1,4 @@
----
+﻿---
 title: Computer Vision API C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
@@ -23,10 +23,10 @@ The below example has been developed for the .NET Framework using [Visual Studio
 
 #### Subscribe to Computer Vision API and get a subscription key 
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Microsoft Cognitive Services (formerly Project Oxford). For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary key can be used in this tutorial. 
 
 > [!NOTE]
-> The tutorial is designed to use subscription keys in the **westcentralus** region. The subscription keys generated in the Computer Vision free trail use the **westcentralus** region, so they work correctly. If you generated your subscription keys using your Azure account through [https://azure.microsoft.com/](https://azure.microsoft.com/en-us/), you must specify the **westcentralus** region. Keys generated outside the **westcentralus** region will not work.
+> The tutorial is designed to use subscription keys in the **westcentralus** region. The subscription keys generated in the Computer Vision free trail use the **westcentralus** region, so they work correctly. If you generated your subscription keys using your Azure account through [https://azure.microsoft.com/](https://azure.microsoft.com/), you must specify the **westcentralus** region. Keys generated outside the **westcentralus** region will not work.
 
 #### Get the client library and example
 
@@ -48,7 +48,7 @@ You can choose to persist your subscription key on your PC or laptop by clicking
 
 	![Vision Subscription Key](../Images/Vision_UI_Subscription.PNG)
 
-3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/en-us/support/legal/developer-code-of-conduct/).
+3. Under "Select Scenario" click to use one of the six scenarios, then follow the instructions on the screen. Microsoft receives the images you upload and may use them to improve Computer Vision API and related services. By submitting an image, you confirm that you have followed our [Developer Code of Conduct](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
 	![Analyze Image Interface](../Images/Analyze_Image_Example.PNG)
 

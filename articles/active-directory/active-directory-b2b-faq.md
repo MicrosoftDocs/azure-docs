@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
 services: active-directory
@@ -83,7 +83,7 @@ Yes. Here are the important details for self-service password reset (SSPR) for a
 Yes. A password reset mail can be sent that allows a user to reset their password in the JIT tenancy.
 
 ### Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
-Yes, Dynamics 365 (online) provides support for Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Yes, Dynamics 365 (online) provides support for Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that are not federated with another identity provider, such as 

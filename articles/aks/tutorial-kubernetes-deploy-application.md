@@ -1,4 +1,4 @@
----
+﻿---
 title: Kubernetes on Azure tutorial  - Deploy Application
 description: AKS tutorial - Deploy Application
 services: container-service
@@ -112,7 +112,7 @@ To see the application, browse to the external IP address.
 
 If the application did not load, it might be due to an authorization problem with your image registry.
 
-Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Please follow these steps to [allow access via a Kubernetes secret](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
 
 ## Next steps
 

@@ -44,9 +44,9 @@ Service Bus today sends events for two scenarios:
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication).
+Additionally, Service Bus uses the standard Event Grid security and [authentication mechanisms](https://docs.microsoft.com/azure/event-grid/security-authentication).
 
-For more information, see [Azure Event Grid event schemas](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
+For more information, see [Azure Event Grid event schemas](https://docs.microsoft.com/azure/event-grid/event-schema).
 
 #### Active Messages Available event
 
@@ -135,7 +135,7 @@ To create a new Event Grid subscription, do the following:
 
 ## Azure CLI instructions
 
-First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+First, make sure that you have Azure CLI version 2.0 or later installed. [Download the installer](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Select **Windows + X**, and then open a new PowerShell console with administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 Execute the following code:
 
@@ -151,7 +151,7 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## PowerShell instructions
 
-Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
+Make sure you have Azure PowerShell installed. [Download the installer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). Select **Windows + X**, and then open a new PowerShell console with Administrator permissions. Alternatively, you can use a command shell within the Azure portal.
 
 ```PowerShell-interactive
 Connect-AzureRmAccount
@@ -172,10 +172,10 @@ From here, you can explore the other setup options or [test that events are flow
 ## Next steps
 
 * Get Service Bus and Event Grid [examples](service-bus-to-event-grid-integration-example.md).
-* Learn more about [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/).
-* Learn more about [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/).
-* Learn more about [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/).
+* Learn more about [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
+* Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
+* Learn more about [Service Bus](https://docs.microsoft.com/azure/azure-functions/).
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png
