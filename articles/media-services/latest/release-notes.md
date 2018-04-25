@@ -31,7 +31,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 The following features are present in the .Net SDK:
 
-1. **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api).
+1. **Transforms** and **Jobs** to encode or analyze media content. For examples, see [Stream files](stream-files-tutorial-with-api.md) and [Analyze](analyze-videos-tutorial-with-api.md).
 2. **StreamingLocators** for publishing and streaming content to end-user devices
 3. **StreamingPolicies** and **ContentKeyPolicies** to configure key delivery and content protection (DRM) when delivering content.
 4. **LiveEvents** and **LiveOutputs** to configure the ingest and archiving of live streaming content.
