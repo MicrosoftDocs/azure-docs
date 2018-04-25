@@ -1,5 +1,5 @@
 ---
-title: Use a custom lab in Azure Lab Services| Microsoft Docs
+title: Access a custom lab in Azure Lab Services| Microsoft Docs
 description: In this tutorial, you access the custom lab that's created by using Azure Lab Services (formerly DevTest Labs), claim virtual machines, use them, and then unclaim them.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -18,7 +18,7 @@ ms.author: spelluru
 
 ---
 
-# Tutorial:  Use a self-managed custom lab (formerly DevTest Labs) 
+# Tutorial: Access a self-managed custom lab (formerly DevTest Labs) 
 In this tutorial, you use a custom lab that was created in the [Tutorial: Create a custom lab](tutorial-create-custom-lab.md) .
 
 In this tutorial, you do the following actions:
