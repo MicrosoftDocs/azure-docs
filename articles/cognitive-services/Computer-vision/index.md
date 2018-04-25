@@ -66,12 +66,12 @@ ms.author: kefre
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Develop applications using the Computer Vision API:</p>
-<ol>
+<ul>
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/CSharpTutorial">C&#35; Tutorial</a></li>
     <li><a href="/azure/cognitive-services/computer-vision/tutorials/Java-Tutorial">Java Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/Javascript-Tutorial">Javascript Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/PythonTutorial">Python Tutorial</a></li>
-</ol>
+</ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsD">
