@@ -11,32 +11,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ---
 
 # GDPR compliance and Azure AD Connect 
 
-In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter)
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
 >This article deals with Azure AD Connect and GDPR compliance.  For information on Azure AD Connect Health and GDPR compliance see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-General Data Protection Regulation compliance for Azure AD Connect installations can be reached in two ways:
+User privacy compliance for Azure AD Connect installations can be reached in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations
 2.	Ensure no data is retained beyond 48 hours.
 
 The Azure AD Connect team recommends the second option since it is much easier to implement and maintain.
 
-An Azure AD Connect sync server stores the following data that is in scope for GDPR compliance:
+An Azure AD Connect sync server stores the following user privacy data:
 1.	Data about a person in the **Azure AD Connect database**
 2.	Data in the **Windows Event log** files that may contain information about a person
 3.	Data in the **Azure AD Connect installation log files** that may contain about a person
 
-To be GDPR compliant, Azure AD Connect customers should use the following guidelines:
+Azure AD Connect customers should use the following guidelines when removing user data:
 1.	Delete the contents of the folder that contains the Azure AD Connect installation log files on a regular basis – at least every 48 hours
 2.	This product may also create Event Logs.  To learn more about Event Logs logs, please see the [documentation here](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx).
 
