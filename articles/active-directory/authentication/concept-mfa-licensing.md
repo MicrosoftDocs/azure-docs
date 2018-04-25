@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure MFA versions and consumption plans | Microsoft Docs
 description: Information about the Multi-factor Authentication client and the different methods and versions available. Details about each consumption plan
 keywords: 
@@ -65,7 +65,7 @@ The following table provides a list of the features that are available in the va
 | MFA for on-premises applications | | |● |
 
 ## How to turn on Azure Multi-Factor Authentication for Azure AD Administrators
-Users assigned the Global Administrator role in Azure AD tenants can enable two-step verification for their Azure AD Global Admin accounts at no additional cost. If you are using a Microsoft Account, you can register for multi-factor authentication [here](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). If you are not using a Microsoft Account, turn on multi-factor authentication for Global Admins [here](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
+Users assigned the Global Administrator role in Azure AD tenants can enable two-step verification for their Azure AD Global Admin accounts at no additional cost. If you are using a Microsoft Account, you can register for multi-factor authentication [here](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). If you are not using a Microsoft Account, turn on multi-factor authentication for Global Admins [here](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
 
 ## How to get Azure Multi-Factor Authentication
 If you would like the full functionality offered by Azure Multi-Factor Authentication, there are several options:

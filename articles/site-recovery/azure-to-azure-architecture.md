@@ -43,7 +43,7 @@ When you enable Azure VM replication, the following resources are automatically 
 
 **Resource** | **Details**
 --- | ---
-**Target resource group** | The resource group to which replicated VMs belong after failover.
+**Target resource group** | The resource group to which replicated VMs belong after failover. The location of this resource group can be in any Azure region except the Azure region in which the source virtual machines are hosted.
 **Target virtual network** | The virtual network in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.
 **Cache storage accounts** | Before source VM changes are replicated to a target storage account, they are tracked and sent to the cache storage account in source location. This step ensures minimal impact on production applications running on the VM.
 **Target storage accounts (If source VM does not use managed disks)**  | Storage accounts in the target location to which the data is replicated.
