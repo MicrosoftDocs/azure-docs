@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure virtual network service endpoints | Microsoft Docs
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
@@ -122,5 +122,5 @@ For an Azure service resource (such as, an Azure Storage account), services may 
 - Learn how to [secure an Azure Storage account to a virtual network](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn how to [secure an Azure SQL Database to a virtual network](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Learn about [Azure service integration in virtual networks](virtual-network-for-azure-services.md)
--  Quick start: [Azure resource manager template](https://azure.microsoft.com/en-us/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
+-  Quick start: [Azure resource manager template](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration) to set up service endpoint on a VNet's Subnet and secure Azure Storage account to that subnet.
 

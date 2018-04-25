@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Hybrid Benefit for Windows Server | Microsoft Docs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
@@ -191,4 +191,4 @@ Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recover
 
 Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
-Read more about [Frequently asked questions](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)
+Read more about [Frequently asked questions](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)

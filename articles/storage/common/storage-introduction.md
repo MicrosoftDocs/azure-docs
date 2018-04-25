@@ -176,7 +176,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Storage Client Library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Storage Client Library for Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Storage Client Library for Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Storage Client Library for Python](https://github.com/Azure/azure-storage-python)
 * [Storage Client Library for PHP](https://github.com/Azure/azure-storage-php)
 * [Storage Client Library for Ruby](https://github.com/Azure/azure-storage-ruby)
