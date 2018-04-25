@@ -67,7 +67,7 @@ Try a Managed Service Identity tutorial to learn end-to-end scenarios for access
 <br><br>
 | From MSI-enabled resource | Learn how to |
 | ------- | -------- |
-| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-arm.md) |
+| Azure VM (Linux)   | [Access Azure Resource Manager with a Linux VM Managed Service Identity](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Access Azure Storage via access key with a Linux VM Managed Service Identity](msi-tutorial-linux-vm-access-storage.md) |
 
 ## Which Azure services support Managed Service Identity?

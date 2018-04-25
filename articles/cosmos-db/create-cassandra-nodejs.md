@@ -165,7 +165,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 4 should now look similar to 
 
-    `config.contactPoint = "cosmos-db-quickstarts.documents.azure.com:10350"`
+    `config.contactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350"`
 
 4. Copy the USERNAME value from the portal and paste it over `<FillMEIN>` on line 2.
 
