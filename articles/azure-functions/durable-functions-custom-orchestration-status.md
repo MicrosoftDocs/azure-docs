@@ -18,17 +18,17 @@ ms.author: azfuncdf
 
 # Custom orchestration status in Durable Functions (Azure Functions)
 
-Custom orchestration status allows users to set a custom status value for their orchestrator function. And then it will be provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
 
 ## Use cases 
 
 ### Visualize progress
 
-Clients can observe the progress of the orchestration during its execution via the custom status. The clients can poll the status end point and display a progress UI that visualizes the current execution stage. Custom orchestration status allows configuring the preferred format for the clients.
+Clients can poll the status end point and display a progress UI that visualizes the current execution stage.
 
 ### Output customization 
 
-Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side allowing support for various platforms. 
+Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side. 
 
 ### Instruction specification 
 
@@ -36,7 +36,7 @@ The orchestrator can provide unique instructions to the clients via the custom s
 
 ## Sample
 
-Simple example is provided below. First the custom status is set:
+In the following sample, the custom status is set first;
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -59,7 +59,7 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-And the clients will get the following response that can be interpreted by their logic:
+Clients will get the following response: 
 
 ```http
 {
