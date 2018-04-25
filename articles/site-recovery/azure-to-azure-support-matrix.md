@@ -164,6 +164,8 @@ Encryption at rest (SSE) | Supported | For cache and target storage accounts, yo
 Azure Disk Encryption (ADE) | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.
+Storage Spaces Direct  | Not supported|
+Scale-out File Server  | Not supported|
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |

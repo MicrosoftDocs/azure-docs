@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Diagnostic Logs | Microsoft Docs
 description: 'Customer can enable log analysis for Azure CDN.'
 services: cdn
@@ -111,7 +111,7 @@ The following example shows how to enable Diagnostic Logs via the Azure PowerShe
 
 First log in and select a subscription:
 
-    Login-AzureRmAccount 
+    Connect-AzureRmAccount 
 
     Select-AzureSubscription -SubscriptionId 
 

@@ -4,10 +4,9 @@ description: Shows how to get started using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

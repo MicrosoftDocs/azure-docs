@@ -1,4 +1,4 @@
----
+﻿---
 title: Customize HDInsight Clusters using script actions - Azure | Microsoft Docs
 description: Learn how to customize HDInsight clusters using Script Action.
 services: hdinsight
@@ -10,10 +10,8 @@ tags: azure-portal
 
 ms.assetid: 3a63e216-4163-40c1-aa04-6b42fd0162ad
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
@@ -104,7 +102,7 @@ HDInsight provides several scripts to install the following components on HDInsi
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Login-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -127,7 +125,7 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
         Get-AzureRmSubscription
     }
     Catch{
-        Login-AzureRmAccount
+        Connect-AzureRmAccount
     }
     Select-AzureRmSubscription -SubscriptionId $subscriptionID
 

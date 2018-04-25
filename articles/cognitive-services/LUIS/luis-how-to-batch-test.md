@@ -3,13 +3,12 @@ title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Batch testing
