@@ -2,18 +2,13 @@
 
 ## Overview
 
-<<<<<<< HEAD
 In Azure Durable Functions, all state is persisted in Azure Storage. A task hub is a logical container for Azure Storage resources that are used for orchestrations. Orchestrator and activity functions can only interact with each other when they belong to the same task hub.
 The scenarios described in this article propose deployment options to increase availability and minimize downtime during disaster recovery activities.
 
-=======
-*Today, all durable state is stored in a particular storage account + task hub. More info here.
->>>>>>> d122c70eea48d9b53875ebbaa322f4ef8dc52d9d
 If the whole DC goes down, you'll lose access to both compute and storage, so all in progress orchestrations will be effectively stopped.
 When the DC comes back up processing will continue automatically from where it left off. There will be no data loss as long as the underlying Azure Storage data isn't lost (which is highly unlikely).
 Multiple function apps cannot collaborate on the same task hub today. For geo/disaster recovery, you will want to go with multiple storage accounts - one in each geo region. It's up to you to decide how you want to configure Traffic Manager (failover mode or geo-load balancing). Just remember that the two environments are completely isolated from each other.*
 
-<<<<<<< HEAD
 ##Scenario 1 - Load Balanced Compute with Shared Storage
 //Traffic Manager, Load Balanced Funcion Apps, Single Storage
 In the event of problems of the compute service in Azure, the Function App could be affected. To minimize the possibility of such downtime, this scenario uses two instances of the Function App deployed to different regions. The underlying storage account and task hub are created in the main region, and it is shared by both instances.
@@ -31,28 +26,6 @@ This scenario covers outages at the compute layer, but the storage account conti
 If the FunctionApp is failed over, there will be increased latency since it will access its storage account across regions.
 Accessing the storage service from a different region where it is located incurs in higher cost due to network egress traffic.
 This scenario depends on Traffic Manager. Considering the way Traffic Manager works,(https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview#how-traffic-manager-works), it may be some time until a client application that consumes a Durable Function needs to re-query the FunctionApp address from Traffic Manager. 
-=======
-Using these scenarios requires understanding of 
-- [Task Hubs](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs) in Durable Functions. All function app deployments must share the same task hub name.
-- Traffic Manager [priority traffic-routing method](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#traffic-routing-methods) and [endpoint failover and recovery](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-monitoring#endpoint-failover-and-recovery)
-
-## Scenario 1 - Load Balanced Compute with Shared Storage
-### Traffic Manager, Load Balanced Funcion Apps, Single Storage
-
-Storage must be deployed in the same region as the primary compute region
-
-Pros:
-- Automatic failover to the secondary region, where function app is deployed. 
-- State is kept even if the function app dies.
- 
-
-Cons:
-- When hosting it on a dedicated App Service Plan, it brings increased costs.
-- Storage fails, the whole thing fails.
-- Increased network latency and egress costs during fail over period.
-
-
->>>>>>> d122c70eea48d9b53875ebbaa322f4ef8dc52d9d
 
 
 ## Scenario 2 - Load Balanced Compute with Regional Storage
