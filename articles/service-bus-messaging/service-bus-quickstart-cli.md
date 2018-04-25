@@ -262,10 +262,10 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue with the following articles:
+In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue to the tutorial for Service Bus:
 
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+> [!div class="nextstepaction"]
+> [Update inventory using CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
