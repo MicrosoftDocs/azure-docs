@@ -55,7 +55,7 @@ Open Visual Studio and click **File**, **New**, **Project**.
 In the New Project dialog, take the following steps:
 
 1. Expand the **Visual C#** node in the **Templates** list
-1. Select **Cloud*
+1. Select **Cloud**
 1. Click **ASP.NET Web Application**
 1. Ensure that **.NET Framework 4.5.2** or higher is selected
 1. Give the project a name in the **Name** textbox, for this example we've used **ContosoTeamStats**
