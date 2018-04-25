@@ -2,28 +2,29 @@
 title: Azure Search Service REST API Version 2017-11-11-Preview | Microsoft Docs
 description: Azure Search Service REST API Version 2017-11-11-Preview includes experimental features such as Synonyms and moreLikeThis searches.
 services: search
-documentationcenter: na
 author: HeidiSteen
 manager: cgronlun
-editor: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: rest-api
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
-ms.date: 03/25/2018
+ms.date: 05/01/2018
 ms.author: HeidiSteen
 
 ---
 # Azure Search Service REST API: Version 2017-11-11-Preview
-This article describes the `api-version=2017-11-11-Preview` version of Azure Search service REST API. This preview extends the current generally-available version, [api-version=2016-09-01](https://msdn.microsoft.com/library/dn798935.aspx), by providing the following experimental features:
+This article describes the `api-version=2017-11-11-Preview` version of Azure Search service REST API, providing the following experimental features:
 
-* [Placeholder 1]() one-liner description.
-* [Placeholder 2]() one-liner description.
++ [Cognitive search](cognitive-search-concept-intro.md), a new enrichment capability in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
-Be sure to target the preview API version `api-version=2017-11-11-Preview` when evaluating the preview. The following example syntax illustrates a call to the preview API version.
+The preview API is equivalent to the generally available API with the exception of the following two operations:
+
++ [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
++ [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
+
+Be sure to target the preview API version `api-version=2017-11-11-Preview` when evaluating pre-release features. The following example syntax illustrates a call to the preview API version.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2017-11-11-Preview
 

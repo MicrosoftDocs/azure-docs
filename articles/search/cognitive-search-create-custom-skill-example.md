@@ -204,7 +204,7 @@ This example is a simple enricher that only works on one record at a time. This 
 Press **F5** to run the program and test function behaviors. Use Postman or Fiddler to issue a call like the one shown below:
 
 ```http
-POST http://localhost:7071/api/Translate
+POST https://localhost:7071/api/Translate
 ```
 #### Request body
 ```json
@@ -259,7 +259,7 @@ When you are satisfied with the function behavior, you can publish it.
 Now that you have the default host key, test your function as follows:
 
 ```http
-POST http://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
+POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
 ```
 #### Request Body
 ```json

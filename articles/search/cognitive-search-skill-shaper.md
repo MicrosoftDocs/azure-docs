@@ -1,5 +1,5 @@
 ---
-title: Microsoft.Skills.Util.Shaper cognitive search skill (Azure Search) | Microsoft Docs
+title: Shaper cognitive search skill (Azure Search) | Microsoft Docs
 description: Extract metadata and structured information from unstructured data and shape it as a complex type in an Azure Search augmentation pipeline.
 services: search
 manager: pablocas
@@ -9,12 +9,12 @@ author: luiscabrer
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-#	Microsoft.Skills.Util.Shaper cognitive skill
+#	Shaper cognitive skill
 
 The **Shaper** skill creates a complex type to support composite fields (also known as multipart fields). A complex type field has multiple parts but is treated as a single item in an Azure Search index. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single field, city and state into a single field, or name and birthdate into a single field to establish unique identity.
 
@@ -30,7 +30,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## Sample 1: complex types
 
-Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a shaper skill can be used to generate fields of a complex type in your index. 
+Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a Shaper skill can be used to generate fields of a complex type in your index. 
 
 This example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
 
@@ -58,25 +58,25 @@ This example provides the member names as the input. The output structure (your 
 }
 ```
 
-###	Sample Input
+###	Sample input
 A JSON document providing usable input for this Shaper skill could be:
 
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
-        "data":
-           {
-             "text": "this movie is awesome" ,
-             "sentiment": 0.9
-           }
-      }
+        {
+            "recordId": "1",
+            "data": {
+                "text": "this movie is awesome",
+                "sentiment": 0.9
+            }
+        }
     ]
+}
 ```
 
 
-###	Sample Output
+###	Sample output
 The Shaper skill generates a new element called *analyzedText* with the combined elements of *text* and *sentiment*. 
 
 ```json
@@ -105,47 +105,50 @@ The Shaper skill definition for this scenario might look like the following exam
 
 ```json
 {
-  "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
-  "context": "/document",
-  "inputs": [
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "context": "/document",
+    "inputs": [
         {
-      "name": "title",
-      "source": "/document/content/title"
-    },
-    {
-      "name": "chapterTitles",
-      "source": "/document/content/pages/*/chapterTitles/*"
-    }
-  ],
-  "outputs": [
-    {
-      "output": "titlesAndChapters",
-      "targetName": "analyzedText"
-    }
-  ]
+            "name": "title",
+            "source": "/document/content/title"
+        },
+        {
+            "name": "chapterTitles",
+            "source": "/document/content/pages/*/chapterTitles/*"
+        }
+    ],
+    "outputs": [
+        {
+            "output": "titlesAndChapters",
+            "targetName": "analyzedText"
+        }
+    ]
 }
 ```
-###	Sample Output
-In this case, the Shaper flattens all chapter titles to create a single array. 
 
+###	Sample output
+In this case, the Shaper flattens all chapter titles to create a single array. 
 
 ```json
 {
     "values": [
-      {
-        "recordId": "1",
-        "data":
         {
-        "titlesAndChapters": 
-          {
-            "title": "How to be happy" ,
-            "chapterTitles": ["Start young", "Laugh often", "Eat, sleep and exercise"]
-          }
+            "recordId": "1",
+            "data": {
+                "titlesAndChapters": {
+                    "title": "How to be happy",
+                    "chapterTitles": [
+                        "Start young",
+                        "Laugh often",
+                        "Eat, sleep and exercise"
+                    ]
+                }
+            }
         }
-      }
     ]
 }
 ```
+
 ## See also
 
 + [Predefined skills](cognitive-search-predefined-skills.md)

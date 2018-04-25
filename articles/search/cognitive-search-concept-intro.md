@@ -12,15 +12,15 @@ ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search, now in public preview, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+Cognitive search, now in public preview, is a new extensible enrichment pipeline in Azure Search. It uses AI powered algorithms to find latent information in non-text sources and unstructured text, transforming data into searchable content. New capabilities for content enrichment are:
 
-+ Natural language processing - in the form of entity recognition, sentiment analysis, key phrase analysis, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
-+ Image processing can make scanned documents searchable. Another scenario - analyze photographs for words and numbers that can be added to an index.
-+ Structural processing can deconstruct chunks of text into component parts, or blend smaller bits into larger units.
++	Natural language processing - in the form of entity recognition, sentiment analysis, key phrase extraction, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
++	Image processing can make scanned documents searchable through optical character recognition. You can even analyze photographs to identify faces or automatically create searchable tags.
++	Custom processing – create your own skills, and plug them into the enrichment pipeline. 
 
-At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, en route to a search index.
+At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, in route to a search index.
 
-![Component diagram of enrichment, augmentation pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
+![Component diagram of enrichment pipeline](./media/cognitive-search-intro/cogsearch-architecture.png)
 
 ## Pipeline components
 
@@ -56,9 +56,9 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 <a name="feature-concepts"></a>
 
-## Key concepts and terms
+## Key features and concepts
 
-| Concept | description|
+| Concept | Description|
 |---------|------------|
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. |
@@ -68,9 +68,9 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 | Skillset | A top-level named resource containing a collection of skills. A skillset is the augmentation pipeline. |
 | Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 
-## Get started
+## Where do I start?
 
-**Step 1: Create a service in a region providing the APIs** 
+**Step 1: Create a search service in a region providing the APIs** 
 
 + South Central US
 + West Europe
@@ -81,7 +81,19 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
 
-**Step 3: Apply what you learned**
+**Step 3: Review the API (REST only)**
+
+Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
+
+| REST API | Description |
+|-----|-------------|
+| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
+| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
+
+**Checklist: A typical workflow**
 
 1. Subset your Azure source data into a representative sample. Indexing takes time so start with a small, representative data set and then build it up incrementally as your solution matures.
 
@@ -100,48 +112,6 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 1. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
 1. Reset the indexer before rebuilding the pipeline.
-
-**Documentation**
-
-The following articles are the complete documentation for cognitive search.
-
-+ [Cognitive search overview](cognitive-search-concept-intro.md)
-+ [Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
-+ [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [How to map fields](cognitive-search-output-field-mapping.md)
-+ [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
-
-+ [Predefined skills](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
-  + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
-  + [Microsoft.Skills.Text.PaginationSkill](cognitive-search-skill-pagination.md)
-  + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
-  + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
-  + [Microsoft.Skills.Vision.OcrSkill]( cognitive-search-skill-ocr.md)
-  + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
-  + [Microsoft.Skills.Util.TextMergerSkill](cognitive-search-skill-textmerger.md)
-
-+ Reference (Preview REST APIs)
-  + [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)
-  + [Create Indexer (api-version=2017-11-11-Preview)](ref-create-indexer.md)
-
-
-**API (REST only)**
-
-Currently, only REST is available, but the .NET SDK is expected to follow shortly after the feature officially moves into public preview. Support for .NET will be announced as a service update. It will also be announced on this page if you want to check back later.
-
-Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.
-
-| REST API | Description |
-|-----|-------------|
-| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
-| [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
-| [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
-| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) | A command for rebuilding an index. Because pipeline development is an iterative process, plan for frequent index rebuilds.
 
 ## Next steps
 

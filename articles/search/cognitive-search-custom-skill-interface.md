@@ -1,5 +1,5 @@
 ---
-title: Interface defintion for custom skills for an augmentation pipeline (Azure Search) | Microsoft Docs
+title: Interface definition for custom skills in an augmentation pipeline (Azure Search) | Microsoft Docs
 description: Explanation of interface between custom web-api custom skill and Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -10,11 +10,11 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-# Custom Skills interface definition
+# How to add a custom skill to an enrichment pipline
 
-Azure Search includes a range of [built-in skills](cognitive-search-predefined-skills.md) that can be used for [enrichment and augmentation](cognitive-search-concept-intro.md) in an indexing pipeline. 
+An [enriched indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you create and add to the pipeline.
 
-Additionally, you can create custom skills to insert transformations unique to your content. A custom skill executes independently, applying whatever augmentation or enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
+Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever augmentation or enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
  Whatever custom capability you might require, there is a simple and clear interface for connecting a custom skill to the rest of the enrichment pipeline. The only requirement for inclusion in a [skillset](cognitive-search-defining-skillset.md) is the ability to accept inputs and emit outputs in ways that are consumable within the skillset as a whole. The focus of this article is on the input and output formats that the enrichment pipeline requires.
 
@@ -30,9 +30,9 @@ Suppose that you want to create a simple enricher that identifies the first date
 
 Your Web API should be ready to receive a batch of input records. Each member of the *values* array represents the input for a particular record. Each record is required to have the following elements:
 
-+ a *recordId* member that is the unique identifier for a particular record. When your enricher returns the results, it must provide this *recordId* in order to allow the caller to match the record results to their input.
++ A *recordId* member that is the unique identifier for a particular record. When your enricher returns the results, it must provide this *recordId* in order to allow the caller to match the record results to their input.
 
-+ a *data* member, which is essentially a bag of input fields for each record.
++ A *data* member, which is essentially a bag of input fields for each record.
 
 To be more concrete, for our example above, your Web API should expect requests that look like this:
 

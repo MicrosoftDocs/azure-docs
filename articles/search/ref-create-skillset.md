@@ -1,17 +1,14 @@
 ---
 title: Create Skillset (REST api-version=2017-11-11-Preview) - Azure Search | Microsoft Docs
-description: A skillset is a collection of cognitive skills that comprise an augmentation pipline.
+description: A skillset is a collection of cognitive skills that comprise an enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: language-reference
-ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
 ---
