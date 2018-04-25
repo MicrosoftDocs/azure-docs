@@ -1,5 +1,5 @@
 ---
-title: Understand input types for a Stream Analytics job
+title: Understand inputs for Azure Stream Analytics
 description: This article describe the concept of inputs in an Azure Stream Analytics job, comparing streaming input to reference data input.
 services: stream-analytics
 author: jseb225
@@ -10,7 +10,7 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
 ---
-# Understand input types for a Stream Analytics job
+# Understand inputs for Azure Stream Analytics
 
 Azure Stream Analytics jobs connect to one or more data inputs. Each input defines a connection to an existing data source. Stream Analytics accepts data incoming from several kinds of event sources including Event Hubs, IoT Hub, and Blob storage. The inputs are referenced by name in the streaming SQL query that you write for each job. In the query, you can join multiple inputs to blend data or compare streaming data with a lookup to reference data, and pass the results to outputs. 
 
