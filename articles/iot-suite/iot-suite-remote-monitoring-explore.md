@@ -1,7 +1,7 @@
 ---
 title: Get started with the remote monitoring solution - Azure | Microsoft Docs 
-description: This tutorial uses simulated scenarios to introduce the remote monitoring preconfigured solution. These scenarios are created when you deploy the remote monitoring preconfigured solution for the first time.
-services: ''
+description: This tutorial uses simulated scenarios to introduce the remote monitoring solution accelerator. These scenarios are created when you deploy the remote monitoring solution accelerator for the first time.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Explore the capabilities of the remote monitoring preconfigured solution
+# Explore the capabilities of the remote monitoring solution accelerator
 
 This tutorial shows you the key capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso.
 
@@ -37,14 +37,14 @@ The following video shows a walkthrough of the remote monitoring solution:
 
 To complete this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## The Contoso sample IoT deployment
 
 You can use the Contoso sample IoT deployment to understand the basic scenarios the remote monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the remote monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
 
 > [!NOTE]
-> If you used the CLI to deploy the preconfigured solution, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
+> If you used the CLI to deploy the solution accelerator, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
 
 The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the remote monitoring solution](iot-suite-remote-monitoring-monitor.md).
 
@@ -84,7 +84,7 @@ Operators at Contoso know the thresholds that determine whether a device is work
 
 ### Operate the Contoso sample deployment
 
-You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the preconfigured solution.
+You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the solution accelerator.
 
 ## Respond to a pressure alarm
 

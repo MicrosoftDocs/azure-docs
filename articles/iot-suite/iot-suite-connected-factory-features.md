@@ -48,7 +48,7 @@ Connected Factory includes the following features:
 ## Azure Time Series Insights
 
 - [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) is built for storing, visualizing, and querying large amounts of time-series data. Connected Factory leverages this service.
-- Connected factory integrates with this service enabling you perform deep, real-time analysis of your device data.
+- Connected Factory integrates with this service enabling you perform deep, real-time analysis of your device data.
 
 ## Rules and alerts
 
@@ -62,11 +62,11 @@ Connected Factory includes the following features:
 ## Customizability
 
 - [Customize](iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) the solution to meet specific business requirements.
-- Full solution source-code available on GitHub. See the [Connected factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
+- Full solution source-code available on GitHub. See the [Connected Factory preconfigured solution](https://github.com/Azure/azure-iot-connected-factory) repository.
 
 ## Next steps
 
-Learn more about the Connected factory preconfigured solution by reading the following articles:
+Learn more about the Connected Factory preconfigured solution by reading the following articles:
 
-* [Connected factory preconfigured solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
-* [Deploy a gateway for Connected factory]( iot-suite-connected-factory-gateway-deployment.md)
+* [Connected Factory preconfigured solution walkthrough](iot-suite-connected-factory-sample-walkthrough.md)
+* [Deploy a gateway for Connected Factory]( iot-suite-connected-factory-gateway-deployment.md)

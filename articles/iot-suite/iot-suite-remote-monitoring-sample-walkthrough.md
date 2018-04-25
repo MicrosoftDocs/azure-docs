@@ -1,7 +1,7 @@
 ---
 title: Architecture of remote monitoring solution - Azure | Microsoft Docs
-description: A walkthrough of the architecture of the remote monitoring preconfigured solution.
-services: ''
+description: A walkthrough of the architecture of the remote monitoring solution accelerator.
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -18,9 +18,9 @@ ms.date: 11/10/2017
 ms.author: dobett
 
 ---
-# Remote monitoring preconfigured solution architecture
+# Remote Monitoring solution accelerator architecture
 
-The IoT Suite remote monitoring [preconfigured solution](iot-suite-what-are-preconfigured-solutions.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](iot-suite-remote-monitoring-customize.md) it to meet your own specific business requirements.
+The Remote Monitoring [solution accelerator](iot-suite-what-are-solution-accelerators.md) implements an end-to-end monitoring solution for multiple machines in remote locations. The solution combines key Azure services to provide a generic implementation of the business scenario. You can use the solution as a starting point for your own implementation and [customize](iot-suite-remote-monitoring-customize.md) it to meet your own specific business requirements.
 
 This article walks you through some of the key elements of the remote monitoring solution to enable you to understand how it works. This knowledge helps you to:
 
@@ -30,13 +30,13 @@ This article walks you through some of the key elements of the remote monitoring
 
 ## Logical architecture
 
-The following diagram outlines the logical components of the remote monitoring preconfigured solution overlaid on the [IoT architecture](iot-suite-what-is-azure-iot.md):
+The following diagram outlines the logical components of the remote monitoring solution accelerator overlaid on the [IoT architecture](iot-suite-what-is-azure-iot.md):
 
 ![Logical architecture](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## Why microservices?
 
-Cloud architecture has evolved since Microsoft released the first preconfigured solutions. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated preconfigured solutions put these learnings into practice so you can also benefit from them.
+Cloud architecture has evolved since Microsoft released the first solution accelerators. [Microservices](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) have emerged as a proven practice to achieve scale and flexibility without sacrificing development speed. Several Microsoft services use this architectural pattern internally with great reliability and scalability results. The updated solution accelerators put these learnings into practice so you can also benefit from them.
 
 > [!TIP]
 > To learn more about microservice architectures, see [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) and [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
@@ -109,11 +109,11 @@ Use the RESTful endpoint provided by this microservice to manage telemetry, rule
 
 ### Storage
 
-The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the preconfigured solution. It provides simple collection and key-value storage.
+The [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is an adapter in front of the main storage service used for the solution accelerator. It provides simple collection and key-value storage.
 
-The standard deployment of the preconfigured solution uses Cosmos DB as its main storage service.
+The standard deployment of the solution accelerator uses Cosmos DB as its main storage service.
 
-The Cosmos DB database stores data in the preconfigured solution. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
+The Cosmos DB database stores data in the solution accelerator. The **storage-adapter** microservice acts as an adapter for the other microservices in the solution to access storage services.
 
 ## Presentation
 
@@ -125,7 +125,7 @@ The [web user interface is a React Javascript application](https://github.com/Az
 * Is styled with CSS.
 * Interacts with public facing microservices through AJAX calls.
 
-The user interface presents all the preconfigured solution functionality, and interacts with other services such as:
+The user interface presents all the solution accelerator functionality, and interacts with other services such as:
 
 * The [authentication](https://github.com/Azure/pcs-auth-dotnet) microservice to protect user data.
 * The [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice to list and manage the IoT devices.
@@ -136,8 +136,8 @@ The [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice enables
 
 If you want to explore the source code and developer documentation, start with one the two main GitHub repositories:
 
-* [Preconfigured solution for remote monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Preconfigured solution for remote monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Preconfigured solution for remote monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Solution accelerator for remote monitoring with Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Solution accelerator for remote monitoring with Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Solution accelerator for remote monitoring architecture)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
-For more conceptual information about the remote monitoring preconfigured solution, see [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md).
+For more conceptual information about the remote monitoring solution accelerator, see [Customize the solution accelerator](iot-suite-remote-monitoring-customize.md).

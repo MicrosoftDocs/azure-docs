@@ -17480,6 +17480,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
+          "redirect_url": "azure/iot-suite/iot-suite-what-are-solution-accelerators",
+          "redirect_document_id": false
+      },
+      {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false
