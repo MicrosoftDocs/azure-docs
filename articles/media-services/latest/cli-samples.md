@@ -24,3 +24,4 @@ The following table includes links to Azure CLI examples for Azure Media Service
 |**Create an account**||
 | [Create a Media Services account](./scripts/cli-create-account.md) | Creates an Azure Media Services account. Also, creates a service principal that can be used to access APIs to programmatically manage the account. |
 
+See more CLI 2.0 samples [CLI samples](https://github.com/johndeu/BUILD2018/tree/master/Azure%20Media%20v3/CLI).
