@@ -22,7 +22,7 @@ ms.custom: it-pro
 
 # Azure Active Directory application proxy and Tableau 
 
-Azure Active Directory Application Proxy and Tableau have partnered to ensure you are easily able to use application proxy to provide remote access for your Tableau deployment.  
+Azure Active Directory Application Proxy and Tableau have partnered to ensure you are easily able to use application proxy to provide remote access for your Tableau deployment. This article explains how to configure this scenario.  
 
 ## Prerequisites 
 
