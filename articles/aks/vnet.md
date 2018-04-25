@@ -1,17 +1,17 @@
 ---
-title: Network configuration for Azure Kubernetes Service (AKS) clusters
+title: Network configuration in Azure Kubernetes Service (AKS)
 description: Learn about basic and advanced network configuration in Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: nepeters
+ms.author: marsma
 ---
 
-# Network configuration for Azure Kubernetes Service (AKS) clusters
+# Network configuration in Azure Kubernetes Service (AKS)
 
 When you create an Azure Kubernetes Service (AKS) cluster, you can select from two networking options: **Basic** or **Advanced**.
 
@@ -25,7 +25,7 @@ Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubene
 
 **Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
 
-Nodes in an AKS cluster configured for Advanced newtorking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
+Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
@@ -37,7 +37,7 @@ Advanced networking provides the following benefits:
 * Every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other VMs in the VNet.
 * A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
 * A Kubernetes service can be exposed externally or internally through the Azure Load Balancer.
-* Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL.
+* Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL DB.
 * You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
 * Pods can access resources on the public Internet.
 
@@ -61,15 +61,17 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ## Plan IP addressing for your cluster
 
-When you plan the size of your VNet and the subnet, consider the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
+Clusters configured with Advanced networking require additional planning. The size of your VNet and its subnet must accommodate the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
 
 Each VNet provisioned for use with the Azure CNI plugin is limited to 4096 IP addresses.
 
-IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI, and assigned to pods that are scheduled to a node.
+IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node.
 
 Each node can host a maximum of 30 pods. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
 ## Frequently asked questions
+
+The following questions and answers apply to the Advanced networking configuration.
 
 1. Can I deploy VMs in my cluster subnet?
 
