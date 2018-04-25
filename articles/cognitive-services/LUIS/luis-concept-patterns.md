@@ -83,8 +83,8 @@ Mark optional text in the utterance using the regular expression square bracket 
 <!-- TBD: add example with square brackets -->
 
 ## Best practices
-Do not create a pattern when you first create the app. Give LUIS the opportunity to learn from the provided utterances before adding patterns. 
- 
+See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
