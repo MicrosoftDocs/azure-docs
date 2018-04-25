@@ -3,7 +3,7 @@ title: Triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/07/2018
-ms.author: glenga
+ms.author: tdykstra
 ---
 
 # Azure Functions triggers and bindings concepts

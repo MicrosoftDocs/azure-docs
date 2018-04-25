@@ -14,7 +14,7 @@ ms.author: carlrab
 ---
 # Create an Azure SQL database in the Azure portal
 
-This quickstart tutorial walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating a SQL database using the Azure portal.
+This quickstart walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating a SQL database using the Azure portal.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -74,7 +74,7 @@ Follow these steps to create a SQL database containing the Adventure Works LT sa
    >\* In the Premium tier, more than 1 TB of storage is currently available in the following regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central US, France Central, Germany Central, Japan East, Japan West, Korea Central, North Central US, North Europe, South Central US, South East Asia, UK South, UK West, US East2, West US, US Gov Virginia, and West Europe. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
-7. For this quickstart tutorial, select the **Standard** service tier and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
+7. For this quickstart, select the **Standard** service tier and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
 
    ![create database-s1](./media/sql-database-get-started-portal/create-database-s1.png)
 
@@ -104,7 +104,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration.
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials.
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts.
 
    ![server name](./media/sql-database-get-started-portal/server-name.png)
 

@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
