@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/16/2017
+ms.date: 04/24/2018
 ms.author: danis
 
 ---
@@ -37,11 +37,26 @@ The Custom Script Extension for Windows can be run against Windows 10 Client, Wi
 
 ### Script Location
 
-The script needs to be stored in Azure Blob storage, or any other location accessible through a valid URL.
+You can use the extension to take your Azure Blob storage credentials, to access Azure Blob storage. Alternative, you can have scripts placed on and reference their location in the command, see Further Examples for this scenario.
+
 
 ### Internet Connectivity
+If you need to download a script externally such as GitHub or Azure Storage, then additional firewall/Network Security Group ports need to be opened. For example if your script is located in Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
-The Custom Script Extension for Windows requires that the target virtual machine is connected to the internet. 
+If your script is on a local server, then you may still need additional firewall/Network Security Group ports need to be opened.
+
+### Tips and Tricks
+* The highest failure rate for this extension is due to syntax errors in the script, test the script runs without error, and also put in additional logging into the script to make it easier to find where it stopped.
+* Write scripts that are idempotent, so if they get run again more than once accidently, then it will not cause system changes.
+* Ensure the scripts do not require user input when they run.
+* There is 90mins allowed for the script to run, anything longer will result in a failed provision of the extension.
+* Do not put reboots inside the script, this may cause issues with other extensions that are being installed, and post reboot, the extension will not continue after the restart. 
+* If you have a script that will cause a reboot, then install applications and run scripts etc. You should do this using tools such as DSC, or Chef, Puppet extensions.
+* The extension will only run a script once, if you want to run a script on every boot, then you need to use the extension to create a Windows Sheduled Task.
+* If you want to shedule when a script will run, you should use the extension to create a Windows Sheduled Task. 
+* When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
+* Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl* 
+
 
 ## Extension schema
 
@@ -78,21 +93,23 @@ The following JSON shows the schema for the Custom Script Extension. The extensi
 	}
 }
 ```
+**Note** - Only one version of an extension can be installed on a VM at a point in time, if you try to specify custom script twice in the same ARM template, this will fail. See Further examples on how to run custom script twice in the same ARM template.
+
 
 ### Property values
 
-| Name | Value / Example |
-| ---- | ---- |
-| apiVersion | 2015-06-15 |
-| publisher | Microsoft.Compute |
-| type | extensions |
-| typeHandlerVersion | 1.9 |
-| fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
-| commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
-| storageAccountName (e.g) | examplestorageacct |
-| storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |
+| Name | Value / Example | Data Type |
+| ---- | ---- | ---- |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Compute | string |
+| type | extensions | string |
+| typeHandlerVersion | 1.9 | int |
+| fileUris (e.g) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| commandToExecute (e.g) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName (e.g) | examplestorageacct | string |
+| storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
-**Note** - these property names are case-sensitive. Use the names as seen above to avoid deployment issues.
+**Note** - these property names are case-sensitive. Use the names as seen above to avoid deployment issues. Also, fileUris is currently not support supported in 'ProtectedSettings', if you have any sensitive fileUris, such as they include a SAS token, use the commandToExecute to take the fileUris parameter, and reference that.
 
 ## Template deployment
 
@@ -110,6 +127,56 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
 	-Run 'myScript.ps1' `
 	-Name DemoScriptExtension
 ```
+## Further Examples
+
+### Using Multiple Script
+In this example, you have 3 scripts that are used to build your server, the 'commandToExecute' calls the first script, then you have options on how the others are called, for example, you can have a master script that controls the execution, with the right error handling, logging and state management.
+
+```powershell
+
+$fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
+"https://xxxxxxx.blob.core.windows.net/buildServer1/2_Add_Features.ps1",
+"https://xxxxxxx.blob.core.windows.net/buildServer1/3_CompleteInstall.ps1")
+
+$Settings = @{"fileUris" = $fileUri};
+
+$storageaccname = "xxxxxxx"
+$storagekey = "1234ABCD"
+$ProtectedSettings = @{"storageAccountName" = $storageaccname; "storageAccountKey" = $storagekey; "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File 1_Add_Tools.ps1"};
+
+#run command
+Set-AzureRmVMExtension -ResourceGroupName myRG `
+	-Location myLocation ` 
+	-VMName myVM ` 
+	-Name "buildserver1" ` 
+	-Publisher "Microsoft.Compute" ` 
+	-ExtensionType "CustomScriptExtension" ` 
+	-TypeHandlerVersion "1.9" ` 
+	-Settings $Settings	` 
+	-ProtectedSettings $ProtectedSettings `
+```
+
+### Running scripts from a local share
+In this example you may want use a local SMB server for your script location, note, you do not need pass in another other settings, except *commandToExecute*.
+
+```powershell
+$ProtectedSettings = @{"commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File \\filesvr\build\serverUpdate1.ps1"};
+ 
+Set-AzureRmVMExtension -ResourceGroupName myRG 
+	-Location myLocation ` 
+	-VMName myVM ` 
+	-Name "serverUpdate" 
+	-Publisher "Microsoft.Compute" `
+	-ExtensionType "CustomScriptExtension" ` 
+	-TypeHandlerVersion "1.9" `
+	-ProtectedSettings $ProtectedSettings
+
+```
+
+### How to run custom script more than once with CLI
+If you want to run the custom script extension more than once, you can only do this under these conditions:
+1. The extension 'Name' parameter is the same as the previous deployment of the extension.
+2. The at least one of the settings have changed, this can be as trivial as an extra space in the commandToExecute.
 
 ## Troubleshoot and support
 
