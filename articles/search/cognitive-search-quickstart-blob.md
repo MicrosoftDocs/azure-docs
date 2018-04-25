@@ -10,12 +10,12 @@ ms.author: heidist
 ---
 # Quickstart: Try cognitive search (preview) in a portal walkthrough
 
-Cognitive search is a new pre-release capability in the Azure Search indexing subsystem that transforms raw, unstructured content into rich searchable content in a searchable index. Depending on indexer configuration, the system could extract text from images, entities and key phrases from unstructured text, channel text into either deconstructed or constructed shapes, or apply custom analysis or transformations that you provide.
+Cognitive search is a new pre-release capability in the Azure Search indexing subsystem that transforms raw, unstructured content into rich searchable content in a searchable index. Depending on indexer configuration, you can extract text from images, entities and key phrases from unstructured text, channel text into either deconstructed or constructed shapes, or apply custom analysis or transformations that you provide.
 
-In this quickstart, the Azure portal guides you through pipeline configuration, providing a list of built-in skills that you can apply to sample data. You
+In this quickstart, the Azure portal guides you through pipeline configuration, providing a list of built-in skills that you can apply to sample data.
 
 > [!Note]
-> Cognitive search is a preview feature with limited availability. Create a search service running in a data region providing this feature.
+> Cognitive search is a preview feature with limited availability. Be sure to create a search service running in a data region providing this feature.
 
 ## Prerequisites
 
@@ -70,7 +70,6 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
 
 
-## TBD
 
 ## Next steps
 
