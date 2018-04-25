@@ -116,7 +116,7 @@ We recommend that you install at least two agents on each side of the ExpressRou
   >
   
   >[!NOTE]
-  >Agents pushed by SCOM (includes [MMA](https://technet.microsoft.com/en-us/library/dn465154(v=sc.12).aspx)) may not be able to consistently detect their location, if they are hosted in Azure.  We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
+  >Agents pushed by SCOM (includes [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) may not be able to consistently detect their location, if they are hosted in Azure.  We recommend that you do not use these agents in Azure VNETs to monitor ExpressRoute.
   >
   >
 
