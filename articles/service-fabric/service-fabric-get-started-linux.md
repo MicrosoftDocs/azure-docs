@@ -184,7 +184,7 @@ Start a local cluster after the installation completes.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-    At this point, you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. Build new services by using the Java or .NET Core SDKs with the optional setup steps in the following sections.
+    Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. Build new services by using the Java or .NET Core SDKs with the optional setup steps in the following sections.
 
 
     > [!NOTE]
