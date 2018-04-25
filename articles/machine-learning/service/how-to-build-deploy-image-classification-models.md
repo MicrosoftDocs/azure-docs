@@ -11,23 +11,21 @@ author: nhaiby
 ms.date: 04/23/2018
 ---
 
-# Build and deploy image classification models with Azure Machine Learning Package for Computer Vision
+# Build and deploy image classification models with Azure Machine Learning
+
+In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. For more details, please check the API doc.
 
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
-In this article, learn how to use Azure Machine Learning Package for Computer Vision to train, test, and deploy an **image classification** model. For more details, please check the API doc.
-
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
-
-The following steps are performed:
+When building and deploying this model, you go through the following steps:
 1. Dataset Creation
 2. Image Visualization and annotation
 3. Image Augmentation
 4. DNN Model Definition
 5. Classifier Training
 6. Evaluation and Visualization
-7. Webservice Deployment
-8. Webservice Load Testing
+7. Web service Deployment
+8. Web service Load Testing
 
 [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
@@ -44,11 +42,15 @@ The following steps are performed:
 
    If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
 
-## Sample dataset
+## Sample dataset and Jupyter notebook
 
 The following example uses a dataset consisting of 63 tableware images, each labeled as belonging to one of four different classes (bowl, cup, cutlery, plate). The number of images in this example is small so that this tutorial can be executed quickly; in practice at least 100 images per class should be provided. All images are located at *"../sample_data/imgs_recycling/"*, in subdirectories called "bowl", "cup", "cutlery", and "plate".
 
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
+
+> [!div class="nextstepaction"]
+> [Try it yourself in this Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
+
                              
 ## Storage context
 

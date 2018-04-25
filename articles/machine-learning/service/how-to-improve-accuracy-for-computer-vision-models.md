@@ -11,9 +11,9 @@ author: nhaiby
 ms.date: 04/23/2018
 ---
 
-# Improve the accuracy of computer vision models with Azure Machine Learning Package for Computer Vision
+# Improve the accuracy of computer vision models
 
-With the Azure Machine Learning Package for Computer Vision, you can build and deploy image classification, object detection, and image similarity models. Learn more about this package and how to install it.
+With the **Azure Machine Learning Package for Computer Vision**, you can build and deploy image classification, object detection, and image similarity models. Learn more about this package and how to install it.
 
 In this article, you learn how to fine-tune these models to increase their accuracy. 
 
@@ -66,7 +66,7 @@ The first row in the table corresponds to the default parameters that are set in
 
 Deeper models and higher input resolution take up more DNN memory, and hence the minibatch size needs to be reduced with increased model complexity to avoid out-of-memory-errors. As can be seen in the table below, it is beneficial to decrease the learning rate by a factor of two whenever decreasing the minibatch size by the same multiplier. The minibatch size might need to get reduced further on GPUs with smaller amounts of memory.
 
-| Training time (rough estimate) | Example accuracy | Minibatch size (`mb_size`) | Learning rate (`lr_per_mb`) | Image resolution (`image_dims`) | DNN architecture (`base_model_name`) |
+| Training time (rough estimate) | Example accuracy | Minibatch size (*mb_size*) | Learning rate (*lr_per_mb*) | Image resolution (*image_dims*) | DNN architecture (*base_model_name*) |
 |------------- |:-------------:|:-------------:|:-----:|:-----:|:---:|
 | 1x (reference) | 82.6% | 32 | [0.05]\*7  + [0.005]\*7  + [0.0005]  | (3, 224, 224) | ResNet18_ImageNet_CNTK |
 | 2-5x    | 90.2% | 16 | [0.025]\*7 + [0.0025]\*7 + [0.00025] | (3, 500, 500) | ResNet18_ImageNet_CNTK |
