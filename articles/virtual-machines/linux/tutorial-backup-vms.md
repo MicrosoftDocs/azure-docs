@@ -22,7 +22,7 @@ ms.custom: mvc
 ---
 # Tutorial: Back up and restore files for Linux virtual machines in Azure
 
-You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or just specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
+You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that are stored in geo-redundant recovery vaults. When you restore from a recovery point, you can restore the whole VM or specific files. This article explains how to restore a single file to a Linux VM running nginx. If you don't already have a VM to use, you can create one using the [Linux quickstart](quick-create-cli.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Create a backup of a VM
@@ -40,7 +40,7 @@ When the data transfer is complete, the snapshot is removed and a recovery point
 
 
 ## Create a backup
-Create a simple scheduled daily backup to a Recovery Services Vault. 
+Create a scheduled daily backup to a Recovery Services Vault:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the menu on the left, select **Virtual machines**. 
@@ -51,7 +51,7 @@ Create a simple scheduled daily backup to a Recovery Services Vault.
 7. On the **Enable backup** blade, click **Enable Backup**. This creates a daily backup based on the default schedule.
 10. To create an initial recovery point, on the **Backup** blade click **Backup now**.
 11. On the **Backup Now** blade, click the calendar icon, use the calendar control to select the last day this recovery point is retained, and click **Backup**.
-12. In the **Backup** blade for your VM, you will see the number of recovery points that are complete.
+12. In the **Backup** blade for your VM, you see the number of recovery points that are complete.
 
 	![Recovery points](./media/tutorial-backup-vms/backup-complete.png)
 
@@ -59,7 +59,7 @@ The first backup takes about 20 minutes. Proceed to the next part of this tutori
 
 ## Restore a file
 
-If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as a local drive. These drives will remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
+If you accidentally delete or make changes to a file, you can use File Recovery to recover the file from your backup vault. File Recovery uses a script that runs on the VM, to mount the recovery point as a local drive. These drives remain mounted for 12 hours so that you can copy files from the recovery point and restore them to the VM.  
 
 In this example, we show how to recover the default nginx web page /var/www/html/index.nginx-debian.html. The public IP address of our VM in this example is *13.69.75.209*. You can find the IP address of your vm using:
 

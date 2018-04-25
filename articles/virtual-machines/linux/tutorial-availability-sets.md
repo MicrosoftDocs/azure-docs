@@ -47,16 +47,13 @@ Use Availability Sets when you want to deploy reliable VM-based solutions within
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In this example, we set both the number of update and fault domains at *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
-Create a resource group.
+First, create a resource group with [az group create](/cli/azure/group#az-group-create), then create the availability set:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAvailability --location eastus
-```
 
-
-```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupAvailability \
     --name myAvailabilitySet \
@@ -64,44 +61,44 @@ az vm availability-set create \
     --platform-update-domain-count 2
 ```
 
-Availability Sets allow you to isolate resources across fault domains and update domains. A **fault domain** represents an isolated collection of server + network + storage resources. In the preceding example, we indicate that we want our availability set to be distributed across at least two fault domains when our VMs are deployed. We also indicate that we want our availability set distributed across two **update domains**.  Two update domains ensure that when Azure performs software updates our VM resources are isolated, preventing all the software running underneath our VM from being updated at the same time.
+Availability Sets allow you to isolate resources across fault domains and update domains. A **fault domain** represents an isolated collection of server + network + storage resources. In the preceding example, the availability set is distributed across at least two fault domains when the VMs are deployed. The availability set is also distributed across two **update domains**. Two update domains ensure that when Azure performs software updates, the VM resources are isolated, preventing all the software that runs on the VM from being updated at the same time.
 
 
 ## Create VMs inside an availability set
 
-VMs must be created within the availability set to make sure they are correctly distributed across the hardware. You can't add an existing VM to an availability set after it is created. 
+VMs must be created within the availability set to make sure they are correctly distributed across the hardware. An existing VM cannot be added to an availability set after it is created.
 
-When you create a VM using [az vm create](/cli/azure/vm#az_vm_create) you specify the availability set using the `--availability-set` parameter to specify the name of the availability set.
+When a VM is created with [az vm create](/cli/azure/vm#az_vm_create), use the `--availability-set` parameter to specify the name of the availability set.
 
-```azurecli-interactive 
+```azurecli-interactive
 for i in `seq 1 2`; do
    az vm create \
      --resource-group myResourceGroupAvailability \
      --name myVM$i \
      --availability-set myAvailabilitySet \
      --size Standard_DS1_v2  \
-     --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+     --image UbuntuLTS \
      --admin-username azureuser \
      --generate-ssh-keys \
 	 --no-wait
-done 
+done
 ```
 
-We now have two virtual machines within our newly created availability set. Because they are in the same availability set, Azure ensures that the VMs and all their resources (including data disks) are distributed across isolated physical hardware. This distribution helps ensure much higher availability of our overall VM solution.
+There are now two virtual machines within the availability set. Because they are in the same availability set, Azure ensures that the VMs and all their resources (including data disks) are distributed across isolated physical hardware. This distribution helps ensure much higher availability of the overall VM solution.
 
-If you look at the availability set in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet, you should see how the VMs are distributed across the two fault and update domains.
+The availability set distribution can be viewed in the portal by going to Resource Groups > myResourceGroupAvailability > myAvailabilitySet. The VMs are distributed across the two fault and update domains, as shown in the following example:
 
 ![Availability set in the portal](./media/tutorial-availability-sets/fd-ud.png)
 
-## Check for available VM sizes 
+## Check for available VM sizes
 
-You can add more VMs to the availability set later, but you need to know what VM sizes are available on the hardware.  Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set.
+Additional VMs can be added to the availability set later, where VM sizes are available on the hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) to list all the available sizes on the hardware cluster for the availability set:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vm availability-set list-sizes \
      --resource-group myResourceGroupAvailability \
      --name myAvailabilitySet \
-	 --output table  
+	 --output table
 ```
 
 ## Next steps
@@ -117,4 +114,3 @@ Advance to the next tutorial to learn about virtual machine scale sets.
 
 > [!div class="nextstepaction"]
 > [Create a virtual machine scale set](tutorial-create-vmss.md)
-
