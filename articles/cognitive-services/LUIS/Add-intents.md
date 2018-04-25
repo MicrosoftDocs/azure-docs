@@ -64,6 +64,9 @@ On the intent page, enter a relevant utterance you expect from your users, such 
 
 Utterances are added to the utterances list for the current intent. 
 
+## Create a pattern from an utterance
+See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+
 ## Edit an utterance on intent page
 
 To edit an utterance, select the three dots (...) icon at the right end of the line for that utterance, and then select **Edit**. Modify the text then press Enter on the keyboard.
