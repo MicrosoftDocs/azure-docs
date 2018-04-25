@@ -397,7 +397,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 You can use the IoT Hub [identity registry][lnk-identity-registry] to configure per-device/module security credentials and access control using [tokens][lnk-sas-tokens]. If an IoT solution already has a custom identity registry and/or authentication scheme, consider creating a *token service* to integrate this infrastructure with IoT Hub. In this way, you can use other IoT features in your solution.
 
-A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** or **ModuleConnect** permissions to create *device-scoped* or "module-scoped" tokens. These tokens enable a device/module to connect to your IoT hub.
+A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** or **ModuleConnect** permissions to create *device-scoped* or *module-scoped* tokens. These tokens enable a device and module to connect to your IoT hub.
 
 ![Steps of the token service pattern][img-tokenservice]
 

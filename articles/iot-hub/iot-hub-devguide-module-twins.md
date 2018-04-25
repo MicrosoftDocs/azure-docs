@@ -20,9 +20,9 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand and use module twins in IoT Hub
 
-If you haven't yet, please read [understand and use device twins in IoT Hub][lnk-devguide-device-twins] first. In IoT Hub, under each device identity, you can create up to 20 module identities. Each module identity implicitly generates a module twin. Very similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
+This article assumes you've read [understand and use device twins in IoT Hub][lnk-devguide-device-twins] first. In IoT Hub, under each device identity, you can create up to 20 module identities. Each module identity implicitly generates a module twin. Very similar to device twins, module twins are JSON documents that store module state information including metadata, configurations, and conditions. Azure IoT Hub maintains a module twin for each module that you connect to IoT Hub. 
 
-On the device side, IoT Hub device SDKs allow you to create modules which each open an independent connection to IoT Hub. This allows you to achieve namespacing between different components on your device. Here is an example, you have a vending machine that has three different sensors. And each sensor is controlled by different departments in your company. You can create a module for each sensor. This way, each department is only able to send jobs or direct methods to the sensor that they have control of to avoid conflicts and user errors. 
+On the device side, the IoT Hub device SDKs enable you to create modules which each open an independent connection to IoT Hub. This enables you to use separate namespaces for different components on your device. For example, you have a vending machine that has three different sensors. Each sensor is controlled by different departments in your company. You can create a module for each sensor. This way, each department is only able to send jobs or direct methods to the sensor that they control, avoiding conflicts and user errors.
 
  Module identity and module twin provides the same capabilities as device identity and devic twin but at a finer granularity. This finer granularity enables capable devices, such as operating system based devices or firmware devices managing multiple components, to isolate configuration and conditions for each of those components. Module identity and module twins provide a management separation of concerns when working with IoT devices that have modular software components. We aim at supporting all the device twin functionality at module twin level by module twin general availability. 
 
@@ -217,9 +217,6 @@ In addition to these operations, the solution back end can:
 
 * Query the module twins using the SQL-like [IoT Hub query language][lnk-query].
 
-> [!NOTE]
-> Upcoming feature: Perform operations on large sets of device twins using jobs.
-
 ## Module operations
 The module app operates on the module twin using the following atomic operations:
 
@@ -343,6 +340,8 @@ To try out some of the concepts described in this article, see the following IoT
 [lnk-security]: iot-hub-devguide-security.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
+[ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
+[RFC7232]: https://tools.ietf.org/html/rfc7232
 
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md

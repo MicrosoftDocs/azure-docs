@@ -20,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand the identity registry in your IoT hub
 
-Every IoT hub has an identity registry that stores information about the devices/modules permitted to connect to the IoT hub. Before a device/module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device/module must also authenticate with the IoT hub based on credentials stored in the identity registry.
+Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to the IoT hub. Before a device or module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device/module must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
 The device/module ID stored in the identity registry is case-sensitive.
 
@@ -28,7 +28,7 @@ At a high level, the identity registry is a REST-capable collection of device/mo
 
 Use the identity registry when you need to:
 
-* Provision devices/modules that connect to your IoT hub.
+* Provision devices or modules that connect to your IoT hub.
 * Control per-device/per-module access to your hub's device/module-facing endpoints.
 
 > [!NOTE]
@@ -55,7 +55,7 @@ All these operations can use optimistic concurrency, as specified in [RFC7232][l
 An IoT Hub identity registry:
 
 * Does not contain any application metadata.
-* Can be accessed like a dictionary, by using the **deviceId** or **moduleId** tuple as the key.
+* Can be accessed like a dictionary, by using the **deviceId** or **moduleId** as the key.
 * Does not support expressive queries.
 
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
@@ -109,15 +109,15 @@ Notification message for device:
 
 | Name | Value |
 | --- | --- |
-$content-type | application/json |
-$iothub-enqueuedtime |  Time when the notification was sent |
-$iothub-message-source | deviceLifecycleEvents |
-$content-encoding | utf-8 |
-opType | **createDeviceIdentity** or **deleteDeviceIdentity** |
-hubName | Name of IoT Hub |
-deviceId | ID of the device |
-operationTimestamp | ISO8601 timestamp of operation |
-iothub-message-schema | deviceLifecycleNotification |
+|$content-type | application/json |
+|$iothub-enqueuedtime |  Time when the notification was sent |
+|$iothub-message-source | deviceLifecycleEvents |
+|$content-encoding | utf-8 |
+|opType | **createDeviceIdentity** or **deleteDeviceIdentity** |
+|hubName | Name of IoT Hub |
+|deviceId | ID of the device |
+|operationTimestamp | ISO8601 timestamp of operation |
+|iothub-message-schema | deviceLifecycleNotification |
 
 Body: This section is in JSON format and represents the twin of the created device identity. For example,
 
