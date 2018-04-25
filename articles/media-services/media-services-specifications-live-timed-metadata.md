@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Media Services - Signaling Timed Metadata in Live Streaming | Microsoft Docs
 description: This specification outlines two modes that are supported by Media Services for signaling timed metadata within live streaming. This includes support for generic timed metadata signals, as well as SCTE-35 signaling for ad splice insertion. 
 services: media-services
@@ -453,7 +453,7 @@ formats, 2nd edition
 **[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
 **[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest
-Specification](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
+Specification](https://docs.microsoft.com/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth
 Edition 2012-07-15.

@@ -23,7 +23,7 @@ ms.author: pabutler
 # SaaS applications technical publishing guide
 
 Welcome to the Azure Marketplace SaaS Applications Technical Publishing Guide. This guide is designed to help candidate and existing publishers to list their applications and services in the Azure Marketplace using the SaaS Applications offering.  
-You want to use SaaS Applications offer when your solution will be deployed in your own Azure subscription and customers will log on through an interface that you design and manage to test the application. It does this by using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) to leverage your existing trial environment. In other words, it is a customer-led, partner-hosted free trial. It is critical to expose your solution in a way that gives cloud buyers the opportunity to experience your solution independently for no charge or fee, and so this offer type provides a trial experience that matches how customers search for cloud solutions.  
+You want to use SaaS Applications offer when your solution will be deployed in your own Azure subscription and customers will log on through an interface that you design and manage to test the application. It does this by using [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) to leverage your existing trial environment. In other words, it is a customer-led, partner-hosted free trial. It is critical to expose your solution in a way that gives cloud buyers the opportunity to experience your solution independently for no charge or fee, and so this offer type provides a trial experience that matches how customers search for cloud solutions.  
 
 For an overview of all other Marketplace offerings, please refer to the [Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
@@ -31,8 +31,8 @@ For an overview of all other Marketplace offerings, please refer to the [Marketp
 The technical requirements for SaaS applications are simple. Publishers are only required to be integrated with Azure AD to be published.  Azure AD integration with applications is well documented and Microsoft provides multiple SDKs and resources to accomplish this.  
 
 To start, we recommend that you have a subscription dedicated for your Azure Marketplace publishing, allowing you to isolate the work from other initiatives. In addition, if not already installed, we recommend that you have the following tools as part of your development environment: 
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)  
-- [Azure powerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-5.0.0)  
+- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)  
+- [Azure powerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)  
 - [Azure Developer Tools (Review what's available)](https://azure.microsoft.com/tools/)  
 - [Visual Studio Code](https://code.visualstudio.com/)  
 
@@ -41,11 +41,11 @@ The following lists provide links to the best Azure AD resources to get you star
 
 **Documentation**
 
-- [Azure Active Directory Developer's Guide](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+- [Azure Active Directory Developer's Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-- [Integrating with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+- [Integrating with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+- [Integrating Applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 - [Azure Roadmap - Security and Identity](https://azure.microsoft.com/roadmap/?category=security-identity)
 

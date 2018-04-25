@@ -13,7 +13,7 @@
 ## [3 - Run a Javascript UDF](stream-analytics-javascript-user-defined-functions.md)
 
 # Samples
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=stream-analytics)
 
 # Concepts
 ## [Input types for a job](stream-analytics-add-inputs.md)
