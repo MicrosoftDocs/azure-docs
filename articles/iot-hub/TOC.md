@@ -1,7 +1,7 @@
+# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
 # [IoT Hub Documentation](index.md)
 
 # Overview
-## [Azure and IoT](iot-hub-what-is-azure-iot.md)
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 ## [Overview of device management](iot-hub-device-management-overview.md)
 
@@ -13,6 +13,7 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
+#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 
 ### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
 
@@ -92,6 +93,7 @@
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
+#### [iOS](iot-hub-ios-swift-c2d.md)
 ### Upload files from devices
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -184,11 +186,18 @@
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
 
 # Related
-## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Azure IoT Hub Device Provisioning Service](https://azure.microsoft.com/documentation/services/iot-dps/)
-## [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/)
-## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## Solutions 
+### [Iot Suite Preconfigured Solutions](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Services 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)

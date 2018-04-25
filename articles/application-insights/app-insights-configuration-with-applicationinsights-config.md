@@ -35,7 +35,7 @@ There isn't an equivalent file to control the [SDK in a web page][client].
 This document describes the sections you see in the configuration file, how they control the components of the SDK, and which NuGet packages load those components.
 
 > [!NOTE]
-> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
+> ApplicationInsights.config and .xml instructions do not apply to the .NET Core SDK. For changes to a .NET Core application we typically use the appsettings.json file. An example of this can be found in the [Snapshot Debugger documentation.](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)
 
 ## Telemetry Modules (ASP.NET)
 Each telemetry module collects a specific type of data and uses the core API to send the data. The modules are installed by different NuGet packages, which also add the required lines to the .config file.
@@ -271,6 +271,91 @@ If you just want to send a specific set of events to a different resource, you c
 ```
 
 To get a new key, [create a new resource in the Application Insights portal][new].
+
+
+
+## ApplicationId Provider
+
+_Available starting in v2.6.0_
+
+The purpose of this provider is to lookup an Application Id based on an Instrumentation Key. The Application Id is included in RequestTelemetry and DependencyTelemetry and used to determine Correlation in the Portal.
+
+This is available by setting `TelemetryConfiguration.ApplicationIdProvider` either in code or in config.
+
+### Interface: IApplicationIdProvider
+
+```csharp
+public interface IApplicationIdProvider
+{
+    bool TryGetApplicationId(string instrumentationKey, out string applicationId);
+}
+```
+
+
+We provide two implementations in the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) sdk: `ApplicationInsightsApplicationIdProvider` and `DictionaryApplicationIdProvider`.
+
+### ApplicationInsightsApplicationIdProvider
+
+This is a wrapper around our Profile Api. It will throttle requests and cache results.
+
+This provider is added to your config file when you install either [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) or [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)
+
+This class has an optional property `ProfileQueryEndpoint`.
+By default this is set to `https://dc.services.visualstudio.com/api/profiles/{0}/appId`.
+If you need to configure a proxy for this configuration, we recommend proxying the base address and including "/api/profiles/{0}/appId". Note that '{0}' is substituted at runtime per request with the Instrumentation Key.
+
+#### Example Configuration via ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### Example Configuration via code:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApplicationIdProvider();
+```
+
+### DictionaryApplicationIdProvider
+
+This is a static provider which will rely on your configured Instrumentation Key / Application Id pairs.
+
+This class has a property `Defined` which is a Dictionary<string,string> of Instrumentation Key to Application Id pairs.
+
+This class has an optional property `Next` which can be used to configure another provider to use when an Instrumentation Key is requested that does not exist in your configuration.
+
+#### Example Configuration via ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.DictionaryApplicationIdProvider, Microsoft.ApplicationInsights">
+        <Defined>
+            <Type key="InstrumentationKey_1" value="ApplicationId_1"/>
+            <Type key="InstrumentationKey_2" value="ApplicationId_2"/>
+        </Defined>
+        <Next Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights" />
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
+```
+
+#### Example Configuration via code:
+```csharp
+TelemetryConfiguration.Active.ApplicationIdProvider = new DictionaryApplicationIdProvider{
+ Defined = new Dictionary<string, string>
+    {
+        {"InstrumentationKey_1", "ApplicationId_1"},
+        {"InstrumentationKey_2", "ApplicationId_2"}
+    }
+};
+```
+
+
+
 
 ## Next steps
 [Learn more about the API][api].

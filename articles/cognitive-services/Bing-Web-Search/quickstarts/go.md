@@ -4,7 +4,7 @@ description: Quickly get started using Go language to query the Bing Web Search 
 services: cognitive-services
 author: Nhoya
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: rosh, nhoyadx@gmail.com, v-gedod
@@ -14,7 +14,7 @@ ms.author: rosh, nhoyadx@gmail.com, v-gedod
 
 The Bing Web Search API is similar to Bing.com, returning search results relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The results are based on their relevance and the tier of the Bing Search APIs to which you subscribe.
 
-Refer to the [API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) for details about the APIs.
+Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) for details about the APIs.
 
 ## Prerequisites
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.

@@ -18,7 +18,7 @@ ms.author: robb
 
 ---
 # What is Azure Diagnostics
-Azure Diagnostics is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service Web and Worker Roles, Azure Virtual Machines running Microsoft Windows and Service Fabric. Other Azure services have their own separate diagnostics.
+Azure Diagnostics is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](monitoring-overview.md). 
 
 ## Data you can collect
 Azure Diagnostics can collect the following types of data:
@@ -35,16 +35,13 @@ Azure Diagnostics can collect the following types of data:
 | Custom error logs |Logs created by your application or service |
 | Azure Diagnostic infrastructure logs |Information about Diagnostics itself |
 
-The Azure diagnostics extension can transfer this data to an Azure storage account or send it to services like [Application Insights](../application-insights/app-insights-cloudservices.md). You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
+The Azure diagnostics extension can transfer this data to an Azure storage account or send it to [Application Insights](../application-insights/app-insights-cloudservices.md). You can also stream it to [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), which then allows you to send it to non-Azure montoring services. You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
 ## Versioning
 See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history.md).
 
 ## Next steps
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
-
-## Web Apps
-Note that Web Apps do not use Azure Diagnostics. Find the equivalent information at [Web Apps](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## Cloud Services using Azure Diagnostics
 * If using Visual Studio, see [Use Visual Studio to trace a Cloud Services application](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see

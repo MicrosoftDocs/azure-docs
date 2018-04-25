@@ -1,4 +1,4 @@
----
+﻿---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -51,7 +51,7 @@ In the past, your network perimeter was used to control access to corporate data
 
 One of the most beneficial steps that you can take to secure an account is to enable two-factor authentication. Two-factor authentication is a way of authenticating by using something in addition to a password. It helps mitigate the risk of access by someone who manages to get someone else’s password.
 
-[Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
+[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options--phone call, text message, or mobile app notification. Users choose the method that they prefer.
 
 The easiest way to use Multi-Factor Authentication is the Microsoft Authenticator mobile app that can be used on mobile devices running Windows, iOS, and Android. With the latest release of Windows 10 and the integration of on-premises Active Directory with Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) can be used for seamless single sign-on to Azure resources. In this case, the Windows 10 device is used as the second factor for authentication.
 
@@ -117,7 +117,7 @@ Alternatively, you can use the [point-to-site](../vpn-gateway/vpn-gateway-howto-
 >[!NOTE]
 >You can use either VPN option to reconfigure the ACLs on the NSGs to not allow access to management endpoints from the Internet.
 
-Another option worth considering is a [Remote Desktop Gateway](../multi-factor-authentication/multi-factor-authentication-get-started-server-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
+Another option worth considering is a [Remote Desktop Gateway](../active-directory/authentication/howto-mfaserver-nps-rdg.md) deployment. You can use this deployment to securely connect to Remote Desktop servers over HTTPS, while applying more detailed controls to those connections.
 
 Features that you would have access to include:
 
@@ -165,7 +165,7 @@ All virtual machines in Azure IaaS should be hardened so that they expose only s
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
 
-Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/en-us/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
+Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
 
 You can use Security Compliance Manager to import the current configuration of your computers by using two different methods. First, you can import Active Directory-based group policies. Second, you can import the configuration of a “golden master” reference machine by using the [LocalGPO tool](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) to back up the local group policy. You can then import the local group policy into Security Compliance Manager.
 

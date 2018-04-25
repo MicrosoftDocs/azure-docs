@@ -67,7 +67,7 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Name**: The name for your SendGrid service. Choose a unique name, differing from other services you may have.
 
@@ -109,7 +109,7 @@ You then see the following page.
 
 Complete the sign-up form:
 
-  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-portal).
+  * **Resource group**: Create a resource group to host the SendGrid service, or use an existing one. See [Using resource groups to manage your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
 
   * **Iot Hub Name**: The name for your IoT hub. Choose a unique name, differing from other services you may have.
 
@@ -130,10 +130,6 @@ Complete the sign-up form:
 - Start VS Code.
 - Connect the DevKit to your computer.
 
-VS Code will automatically detect your DevKit and open an introduction page:
-
-![VSCode](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-start.png)
-
 > [!NOTE]
 > When you launch VS Code, you may receive an error message stating that it cannot find the Arduino IDE or related board package. If you receive this error, close VS Code, launch the Arduino IDE again, and VS Code should locate the Arduino IDE path correctly.
 
@@ -143,7 +139,8 @@ Expand the left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCH
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/vscode-examples.png)
 
-If you happen to close the pane, you can reopen it. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
+> [!NOTE]
+> You can also open example from command palette. Use `Ctrl+Shift+P` (macOS: `Cmd+Shift+P`) to open the command palette, type **Arduino**, and then find and select **Arduino: Examples**.
 
 ### Provision Azure services
 
@@ -215,4 +212,4 @@ If you encounter problems, refer to [FAQs](https://microsoft.github.io/azure-iot
 You have learned how to connect a DevKit device to your Azure IoT Suite and use the SendGrid service to send an email. Here are the suggested next steps:
 
 * [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

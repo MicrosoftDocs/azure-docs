@@ -25,7 +25,7 @@ Azure Storage is Microsoft's cloud storage solution for modern data storage scen
 
 Azure Storage includes these data services: 
 
-- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary day.
+- [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components. 
 - [Azure Tables](../../cosmos-db/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
@@ -176,7 +176,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [Storage Client Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Storage Client Library for Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Storage Client Library for Node.js](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Storage Client Library for Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Storage Client Library for Python](https://github.com/Azure/azure-storage-python)
 * [Storage Client Library for PHP](https://github.com/Azure/azure-storage-php)
 * [Storage Client Library for Ruby](https://github.com/Azure/azure-storage-ruby)

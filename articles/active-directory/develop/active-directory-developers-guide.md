@@ -2,7 +2,7 @@
 title: Azure Active Directory for developers | Microsoft Docs
 description: This article provides an overview of signing in Microsoft work and school accounts by using Azure Active Directory.
 services: active-directory
-author: dstrockis
+author: jmprieur
 manager: mtillman
 editor: ''
 
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2017
-ms.author: dastrock
+ms.date: 04/24/2018
+ms.author: jmprieur
 ms.custom: aaddev
 ---
 # Azure Active Directory for developers
+
 Azure Active Directory (Azure AD) is a cloud identity service that allows developers to build apps which securely sign in users with a Microsoft work or school account. Azure AD supports developers building both single-tenant, line-of-business (LOB) apps, as well as developers looking to develop multi-tenant apps. In addition to basic sign in, Azure AD also lets apps call both Microsoft APIs like [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) and custom APIs that are built on the Azure AD platform.  This documentation shows you how to add Azure AD support to your application by using industry standard protocols like OAuth2.0 and OpenID Connect.
 
 > [!NOTE]
@@ -39,7 +40,7 @@ The guided setups below walk you through building an app on your preferred platf
 | <center>![Web apps](./media/active-directory-developers-guide/Web_app.png)<br />Web apps</center> | [Overview](active-directory-authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](active-directory-devquickstarts-webapp-dotnet.md)<br /><br />[Java](active-directory-devquickstarts-webapp-java.md) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](active-directory-devquickstarts-openidconnect-nodejs.md) | |
 | <center>![Single page apps](./media/active-directory-developers-guide/SPA.png)<br />Single page apps</center> | [Overview](active-directory-authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |  |
 | <center>![Web APIs](./media/active-directory-developers-guide/Web_API.png)<br />Web APIs</center> | [Overview](active-directory-authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Service-to-service](./media/active-directory-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
+| <center>![Service-to-service](./media/active-directory-developers-guide/Service_App.png)<br />Service-to-service</center> | [Overview](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 
 ## How-to guides
 The guides below walk you through some of the most common tasks in Azure AD.

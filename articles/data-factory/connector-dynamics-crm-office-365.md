@@ -1,4 +1,4 @@
----
+﻿---
 title: Copy data from and to Dynamics CRM or Dynamics 365 (Common Data Service) by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from Microsoft Dynamics CRM or Microsoft Dynamics 365 (Common Data Service) to supported sink data stores, or from supported source data stores to Dynamics CRM or Dynamics 365, by using a copy activity in a data factory pipeline.
 services: data-factory
@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/20/2018
 ms.author: jingwang
 
 ---
@@ -60,7 +60,7 @@ The following properties are supported for the Dynamics linked service.
 |:--- |:--- |:--- |
 | type | The type property must be set to **Dynamics**. | Yes |
 | deploymentType | The deployment type of the Dynamics instance. It must be **"Online"** for Dynamics online. | Yes |
-| organizationName | The organization name of the Dynamics instance. | No, should specify when there are more than one Dynamics instances associated with the user |
+| serviceUri | The service URL of your Dynamics instance, e.g. `https://adfdynamics.crm.dynamics.com`. | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Specify **"Office365"** for Dynamics online. | Yes |
 | username | Specify the user name to connect to Dynamics. | Yes |
 | password | Specify the password for the user account you specified for username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -68,6 +68,9 @@ The following properties are supported for the Dynamics linked service.
 
 >[!IMPORTANT]
 >When you copy data into Dynamics, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly [create an Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) with a location near your Dynamics instance. Associate it in the Dynamics linked service as in the following example.
+
+>[!NOTE]
+>The Dynamics connector used to use optional "organizationName" property to identify your Dynamics CRM/365 Online instance. While it keeps working, you are suggested to specify the new "serviceUri" property instead to gain better performance for instance discovery.
 
 **Example: Dynamics online using Office365 authentication**
 
@@ -79,7 +82,7 @@ The following properties are supported for the Dynamics linked service.
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "organizationName": "orga02d9c75",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
             "username": "test@contoso.onmicrosoft.com",
             "password": {
@@ -204,7 +207,7 @@ To copy data from Dynamics, set the source type in the copy activity to **Dynami
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **DynamicsSource**. | Yes |
-| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/en-us/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
+| query | FetchXML is a proprietary query language that is used in Dynamics (online and on-premises). See the following example. To learn more, see [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | No (if "entityName" in the dataset is specified) |
 
 **Example:**
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Explore the new Alerts experience in Azure Monitor| Microsoft Docs
 description: Understand how the new simple and scalable alerts experience in Azure makes authoring, viewing and managing alerts easier
 author: manishsm-msft
@@ -29,7 +29,7 @@ ms.custom:
 
 Alerts has new experience. The older alerts experience is now under the Alerts (Classic) tab. The new Alerts experience has the following benefits over the Alerts (Classic) experience:
 
--	**Better notification system**: All newer alerts use [action groups]( https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
+-	**Better notification system**: All newer alerts use [action groups]( https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups), which are named groups of notifications and actions that can be reused in multiple alerts.  Classic metric alerts and older Log Analytics alerts do not use action groups. 
 - **A unified authoring experience**  - All alert creation for metrics, logs and activity log across Azure Monitor, Log Analytics, and Application Insights is in one place. 
 - **View fired Log Analytics alerts in Azure portal** - You can now also see fired Log Analytics alerts in your subscription. Previously these were in a separate portal. 
 - **Separation of Fired alerts and Alert Rules** - Alert Rules (the definition of condition that triggers an alert), and Fired Alerts (an instance of the alert rule firing) are differentiated, so the operational and configuration views are separated.
@@ -101,7 +101,7 @@ Alerts are available across several Azure monitoring services. For information o
 | **Signal Type** | **Monitor Source** | **Description** | 
 |-------------|----------------|-------------|
 | Metric | Azure monitor | Also called [near-real-time metric alerts](monitoring-near-real-time-metric-alerts.md), they support evaluating metric conditions as frequently as 1 minute and allow for multi-metric and multi-dimensional metric rules. A list of supported resource types is available [here](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported). |
-| Metric | Azure monitor | [Older classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
+| Metric | Azure monitor | [Older classic metric alerts](monitoring-overview-alerts.md) are not supported in the new alerts experience. You can find them under Alerts (Classic) in the Azure portal. The classic alerts support some metrics types that have not yet been moved to the newer alerts. For a full list, see [supported metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-supported-metrics)
 | Logs  | Log Analytics | Receive notifications or run automated actions when a Log search query over metric and/or event data meets certain criteria. Older Log Analytics alerts are still available, but are [being copied into the new experience](monitoring-alerts-extend.md). In addition, a [preview of *Log Analytics logs as metrics*](monitoring-alerts-extend-tool.md) is available. The preview allows you to take some types of logs and convert them to metrics, where you can then alert on them using the new alerting experience. The preview is useful if you have non-Azure logs that you want to get alongside native Azure Monitor metrics. |
 | Activity Log | Activity Logs (general) | Contains the records of all Create, Update, and Delete actions performed through the selected target (resource/resource group/subscription). |
 | Activity Log  | Service Health | Not supported in new alerts experience. See [Create activity log alerts on service notifications](monitoring-activity-log-alerts-on-service-notifications.md).  |

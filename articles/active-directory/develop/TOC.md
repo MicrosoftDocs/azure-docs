@@ -68,7 +68,7 @@
 ## [ACS Migration](active-directory-acs-migration.md)
 ## [Error handling best practices for ADAL](active-directory-devhowto-adal-error-handling.md)
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)
 ## [Code samples article](active-directory-code-samples.md)
 ## [Glossary](active-directory-dev-glossary.md)
@@ -96,7 +96,8 @@
 ### Mobile & Desktop apps
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [.NET (Windows Desktop)](guidedsetups/active-directory-windesktop.md)
+#### [Windows Desktop .NET](guidedsetups/active-directory-windesktop.md)
+#### [Universal Windows Platform](guidedsetups/active-directory-uwp-v2.md)
 ### Web apps
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
