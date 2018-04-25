@@ -113,7 +113,7 @@
 - name: Resources
   items:  
   - name: FAQ
-    href: FAQ.md
+    href: FAQs.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: UserVoice

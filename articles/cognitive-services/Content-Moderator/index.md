@@ -2,7 +2,7 @@
 title: Content Moderator Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
 description: Learn how to moderate user-generated content.
 services: cognitive-services
-author: v-johnma
+author: easyj2j
 manager: nolachar
 layout: LandingPage
 ms.service: cognitive-services
@@ -43,9 +43,9 @@ ms.author: nolachar
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Develop applications using the Content Moderator API:</p>
 <ul>
-    <li><a href="azure/cognitive-services/content-moderator/facebook-post-moderation">Facebook content moderation</a></li>
-    <li><a href="azure/cognitive-services/content-moderator/ecommerce-retail-catalog-moderation">eCommerce image moderation</a></li>
-    <li><a href="azure/cognitive-services/content-moderator/ecommerce-retail-catalog-moderation">Video and trancript moderation</a></li>
+    <li><a href="/azure/cognitive-services/content-moderator/facebook-post-moderation">Facebook content moderation</a></li>
+    <li><a href="/azure/cognitive-services/content-moderator/ecommerce-retail-catalog-moderation">eCommerce image moderation</a></li>
+    <li><a href="/azure/cognitive-services/content-moderator/ecommerce-retail-catalog-moderation">Video and trancript moderation</a></li>
 </ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
