@@ -94,6 +94,8 @@
     items:
       - name: Configure identity providers
         items:
+        - name: Custom OpenID Connect
+          href: active-directory-b2c-setup-oidc-idp.md
         - name: Microsoft Account
           href: active-directory-b2c-setup-msa-app.md
         - name: Facebook

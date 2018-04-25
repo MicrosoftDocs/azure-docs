@@ -3,7 +3,7 @@ title: Azure Policy json sample - enforce match pattern  | Microsoft Docs
 description: This json sample policy requires that resources meet the match pattern for naming conventions.
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.topic: sample
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 11/13/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 ---
 

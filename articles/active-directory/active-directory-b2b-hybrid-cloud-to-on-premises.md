@@ -84,6 +84,6 @@ Make sure that you have the correct Client Access Licenses (CALs) for external g
 ## Next steps
 
 - [Azure Active Directory B2B collaboration for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
-- [Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - For an overview of Azure AD Connect, see [Integrate your on-premises directories with Azure Active Directory](connect/active-directory-aadconnect.md).
 

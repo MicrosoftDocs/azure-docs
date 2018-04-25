@@ -36,12 +36,11 @@ Here’s another similar usage and cost summary. This example shows a subscripti
 
 ## New pricing model
 
-In April 2018, a new monitoring pricing model was released. It features cloud-friendly, consumption-based pricing. You only pay for what you use, without node-based commitments. Details of the new pricing model are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+In April 2018, a [new monitoring pricing model was released](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  This features cloud-friendly, consumption-based pricing. You only pay for what you use, without node-based commitments. Details of the new pricing model are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-For customers who start to use Log Analytics or Application Insights after April 2, 2018, the new pricing model is the only option. For customers who already use these services, moving to the new pricing model is optional.
+For customers onboarding to Log Analytics or Application Insights after April 2, 2018, the new pricing model is the only option. For customers who already use these services, moving to the new pricing model is optional.
 
 ## Assessing the impact of the new pricing model
-
 The new pricing model will have different impacts on each customer based on their monitoring usage patterns. For customers who were using Log Analytics or Application Insights before April 2, 2018, the **Usage and estimated cost** page in Azure Monitor estimates any change in costs if they move to the new pricing model. It provides the way to move a subscription into the new model. For most customers, the new pricing model will be advantageous. For customers with especially high data usage patterns or in higher-cost regions, this may not be the case.
 
 To see an estimate of your costs for the subscriptions that you chose on the **Usage and estimated costs** page, select the blue banner near the top of the page. It’s best to do this one subscription at a time, because that's the level at which the new pricing model can be adopted.
@@ -68,11 +67,30 @@ There's another change to data ingested into Log Analytics or Application Insigh
 
 ## New pricing model and Operations Management Suite subscription entitlements
 
-Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription, that subscription's pricing model must remain in the pre-April 2018 pricing model. That's where the Log Analytics "Per-node (OMS)" pricing tier and the Application Insights "Enterprise" pricing plans are available. Depending on the number of nodes of the suite that your organization purchased, moving some subscriptions to the new pricing model may still be advantageous. But this requires careful consideration.
+Customers who purchased Microsoft Operations Management Suite E1 and E2 are eligible for per-node data ingestion entitlements for [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) and [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). To receive these entitlements for Log Analytics workspaces or Application Insights resources in a given subscription: 
+
+- The subscription's pricing model must remain in the pre-April 2018 model.
+- Log Analytics workspaces should use the "Per-node (OMS)" pricing tier.
+- Application Insights resources should use the "Enterprise" pricing plan.
+
+Depending on the number of nodes of the suite that your organization purchased, moving some subscriptions to the new pricing model could be advantageous, but this requires careful consideration. In general, it is advisable simply to stay in the pre-April 2018 model as described above.
+
+> [!WARNING]
+> If your organization has purchased the Microsoft Operations Management Suite E1 and E2, it is usually best to keep your subscriptions in the pre-April 2018 pricing model. 
+>
 
 ## Changes when you're moving to the new pricing model
 
-Moving a subscription into the new pricing model will change the pricing tier for each Log Analytics to a new Per-GB tier, and it will move any (called “pergb2018” in Azure Resource Manager). This move will also change any Application Insights resources in the Enterprise plan to the Basic plan. The cost estimation shows the effects of these changes.
+The new pricing model simplifies Log Analytics and Application Insights pricing options to only a single tier (or plan). Moving a subscription into the new pricing model will:
+
+- Change the pricing tier for each Log Analytics to a new Per-GB tier (called “pergb2018” in Azure Resource Manager)
+- Any Application Insights resources in the Enterprise plan is changed to the Basic plan.
+
+The cost estimation shows the effects of these changes.
+
+> [!WARNING]
+> Here an important note if you use Azure Resource Manager or PowerShell to deploy [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) or [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in a subscription you have moved to the new pricing model. If you specify a pricing tier/plan other than the “pergb2018” for Log Analytics or “Basic” for Application Insights, rather than failing the deployment due to specifying an invalid pricing tier/plan, it will succeed **but it will use only the valid pricing tier/plan**. 
+>
 
 ## Moving to the new pricing model
 
