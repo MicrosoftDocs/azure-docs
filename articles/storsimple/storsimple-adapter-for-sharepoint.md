@@ -1,4 +1,4 @@
----
+﻿---
 title: Install StorSimple Adapter for SharePoint | Microsoft Docs
 description: Describes how to install and configure or remove the StorSimple Adapter for SharePoint in a SharePoint server farm.
 services: storsimple
@@ -258,4 +258,4 @@ After you move the BLOBs back to the SQL Server content databases, use one of th
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/en-us/library/ff943565.aspx
+[8]: https://technet.microsoft.com/library/ff943565.aspx

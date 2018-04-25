@@ -40,22 +40,20 @@ Update the `cloud_init_modules` section in `/etc/cloud/cloud.cfg` to include the
 
 Here is a sample of what a general-purpose `cloud_init_modules` section looks like.
 ```bash
- cloud_config_modules:
- - mounts
- - locale
- - set-passwords
- - rh_subscription
- - yum-add-repo
- - package-update-upgrade-install
- - timezone
- - puppet
- - chef
- - salt-minion
- - mcollective
- - disable-ec2-metadata
- - runcmd
+cloud_init_modules:
+ - migrator
+ - bootcmd
+ - write-files
+ - growpart
+ - resizefs
  - disk_setup
  - mounts
+ - set_hostname
+ - update_hostname
+ - update_etc_hosts
+ - rsyslog
+ - users-groups
+ - ssh
 ```
 A number of tasks relating to provisioning and handling ephemeral disks need to be updated in `/etc/waagent.conf`. Run the following commands to update the appropriate settings. 
 ```bash
