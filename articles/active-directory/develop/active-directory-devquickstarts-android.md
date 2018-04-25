@@ -87,6 +87,7 @@ You will need to have a native client application registered with Microsoft usin
     - Click ***Add***, inside ***Select an API*** select ***Microsoft Graph***. 
     - Select the permission `Sign in and read user profile` > Hit `Select` to save. 
         - This permission maps to the `User.Read` scope. 
+    - Optional: Inside the ***Required permissions*** > ***Windows Azure Active Directory***, remove the selected permission `Sign in and read user profile`. This will avoid the user consent page listing the permission twice.   
 
 4. Congrats! Your app is successfully configured. In the next section, you'll need:
     - `Application ID`
@@ -128,8 +129,6 @@ tag `azure-active-directory`.
 
 ### Cross-app SSO
 Learn [how to enable cross-app SSO on Android by using ADAL](active-directory-sso-android.md).  
-
-[!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 
 ### Auth Telemetry
 the ADAL library exposes auth telemetry to help app developers understand how their apps are behaving and build better experiences.  This allows you to capture sign in success, active users, and several other interesting insights.  Using auth telemetry does require app developers to establish a telemetry service to aggregate and store events.
