@@ -9,26 +9,26 @@ editor: ''
 
 ms.assetid:
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
+ms.workload: logic-apps
 ms.date: 1/17/2018
 ms.author: LADocs; shhurst
 
 ---
 
-# Handle large messages through chunking with Logic Apps
+# Handle large messages with chunking in Azure Logic Apps
 
 Logic Apps limits the maximum size of messages that it will handle. When a message has content that exceeds this size limit, Logic Apps *chunks* this large message into multiple smaller messages. That way, you can still transfer large files with logic apps under specific circumstances. Content that exceeds the message size limit can only be consumed by Logic Apps if it has been chunked. This means the connector used to consume the content must support chunking, or the underlying HTTP message exchange between Logic Apps and the service is chunked.
 
 ## Understanding large messages
 
-The classification of a message as *large* is relative to the service that is handling that message. Large messages can add extra overhead to a service because they require more space to store and time to process. Because Logic Apps' communicate with a variety of services via connectors and HTTP, what is considered a large message can vary based on service-specific constraints. For this reason, there can be multiple qualifications that could make a message *large*. Here you can learn more about the [message size limits for logic apps](../logic-apps/logic-apps-limits-and-config.md) specifically. For Logic Apps and connectors, *large* messages cannot be directly consumed, and instead must be *chunked*.
+The classification of a message as *large* is relative to the service that is handling that message. Large messages can add extra overhead to a service because they require more space to store and time to process. Because Logic Apps communicate with a variety of services via connectors and HTTP, what is considered a large message can vary based on service-specific constraints. For this reason, there can be multiple qualifications that could make a message *large*. Here you can learn more about the [message size limits for logic apps](../logic-apps/logic-apps-limits-and-config.md) specifically. For Logic Apps and connectors, *large* messages cannot be directly consumed, and instead must be *chunked* into smaller messages.
 
 ### Using large chunked messages within Logic Apps
 
-Within Logic Apps, messages ingested in chunks and with size greater than the Logic Apps message size limit, cannot have their outputs accessed directly. These types of messages can only have their outputs used by other actions that support chunked transfer. If you reference large message output in an action that does not support chunking, or does not have chunking enabled in the runtime configuration a runtime error occurs.
+Messages received in chunks within Logic Apps and with size greater than the Logic Apps message size limit, cannot have the contents of their outputs accessed directly. These types of messages can only have their outputs used by other actions that support chunked transfer. If you reference large message output in an action that does not support chunking, or does not have chunking enabled in the runtime configuration a runtime error occurs.
 
 ### Using large chunked messages with connectors
 
@@ -40,6 +40,10 @@ If you want an endpoint to be able to exchange large content with Logic Apps, th
 
 Here's the description for the protocol that Logic Apps uses for chunking both downloads and uploads:
 
+> [!NOTE]
+> In most cases the following chunked protocol details are not significant to users because Logic Apps handles these behind the scenes.
+> These details are provided for special circumstances to help with troubleshooting and custom endpoint configuration.
+
 ### Download chunks
 
 When you download content from an endpoint with an HTTP GET request, and that endpoint responds with a "206" status code, that response contains chunked content. Logic Apps can't control whether the endpoint supports partial requests. However, after receiving a "206" partial content response, Logic Apps automatically sends multiple requests to download all the content. To handle large messages by using chunking, an endpoint must support partial content requests, and thus, chunked download.
@@ -50,7 +54,7 @@ When you download content from an endpoint with an HTTP GET request, and that en
 
 First, Logic Apps sends an HTTP GET request optionally containing a header field for the `Range` of the chunked content it is requesting. Next the endpoint responds with status code 206 and the HTTP message body contains the chunk of requested content based on the range or some default chunk size. Then, Logic Apps automatically sends follow-up HTTP GET requests with the next range of content it needs to sequentially get the complete content.
 
-Here is a workflow definition using an HTTP GET action to download content from an endpoint that supports partial content chunked downloads. This example illustrates setting the `Range` header on request so that *if* the endpoint supports partial content requests, the response contains the chunk of content in this range. Additionally, the exact format of the range header field could differ by endpoint.
+Many endpoints automatically send large content in chunks when it is downloaded via an HTTP GET request. In some cases however, even though an endpoint support chunking, it may not respond with chunked content. Here is an example illustrating setting the `Range` header to *suggest* an endpoint respond with chunked content.
 
 ```json
 "getAction":
@@ -108,8 +112,3 @@ This example shows the definition for an action that uploads chunked content. If
     "type": "Http"
 }
 ```
-
-> [!NOTE]
-> Here, content that's downloaded in chunks is also uploaded in chunks.
-> However, you can also upload content that's not chunked,
-> which is useful when you use connectors with message size limits that are smaller than Logic Apps.
