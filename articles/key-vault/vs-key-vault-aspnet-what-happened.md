@@ -17,7 +17,7 @@ ms.author: ghogen
 > - [Getting Started](vs-key-vault-aspnet-get-started.md)
 > - [What Happened](vs-key-vault-aspnet-what-happened.md)
 
-This article identifies the exact changes made to am ASP.NET project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
+This article identifies the exact changes made to an ASP.NET project when adding the [Key Vault connected service using Visual Studio](vs-key-vault-add-connected-service.md).
 
 For information on working with the connected service, see [Getting Started](vs-key-vault-aspnet-get-started.md).
 
