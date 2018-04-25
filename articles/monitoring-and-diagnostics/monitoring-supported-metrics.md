@@ -85,13 +85,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|Location, Hostname|
 |OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|Location, Hostname|
 |Duration|Overall Duration of Gateway Requests|Milliseconds|Average|Overall Duration of Gateway Requests in milliseconds|Location, Hostname|
-|Capacity|Capacity (Preview)|Percent|Maximum|Utilization metric for ApiManagement service|Location|
+|Capacity|Capacity (Preview)|Percent|Average|Utilization metric for ApiManagement service|Location|
 
 ## Microsoft.Automation/automationAccounts
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TotalJob|Total Jobs|Count|Total|The total number of jobs|RunbookName, Status|
+|TotalJob|Total Jobs|Count|Total|The total number of jobs|Runbook, Status|
 
 ## Microsoft.Batch/batchAccounts
 
@@ -357,6 +357,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|No Dimensions|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk QD|OS Disk QD (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|No Dimensions|
 
 ## Microsoft.Compute/virtualMachineScaleSets
 
@@ -371,6 +381,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|No Dimensions|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk QD|OS Disk QD (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|No Dimensions|
 
 ## Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -385,6 +405,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Average|Disk Write IOPS|No Dimensions|
 |CPU Credits Remaining|CPU Credits Remaining|Count|Average|Total number of credits available to burst|No Dimensions|
 |CPU Credits Consumed|CPU Credits Consumed|Count|Average|Total number of credits consumed by the Virtual Machine|No Dimensions|
+|Per Disk Read Bytes/sec|Data Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period|SlotId|
+|Per Disk Write Bytes/sec|Data Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period|SlotId|
+|Per Disk Read Operations/Sec|Data Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period|SlotId|
+|Per Disk Write Operations/Sec|Data Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period|SlotId|
+|Per Disk QD|Data Disk QD (Preview)|Count|Average|Data Disk Queue Depth(or Queue Length)|SlotId|
+|OS Per Disk Read Bytes/sec|OS Disk Read Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec read from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Bytes/sec|OS Disk Write Bytes/Sec (Preview)|CountPerSecond|Average|Total Bytes/Sec written to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Read Operations/Sec|OS Disk Read Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while reading from a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk Write Operations/Sec|OS Disk Write Operations/Sec (Preview)|CountPerSecond|Average|Total IOPS done while writing to a single disk during monitoring period for OS disk|No Dimensions|
+|OS Per Disk QD|OS Disk QD (Preview)|Count|Average|OS Disk Queue Depth(or Queue Length)|No Dimensions|
 
 ## Microsoft.ContainerInstance/containerGroups
 
@@ -432,8 +462,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|FailedRuns|Failed Runs|Count|Total||pipelineName, activityName, windowEnd, windowStart |
-|SuccessfulRuns|Successful Runs|Count|Total||pipelineName, activityName, windowEnd, windowStart |
+|FailedRuns|Failed Runs|Count|Total||pipelineName, activityName, windowEnd, windowStart|
+|SuccessfulRuns|Successful Runs|Count|Total||pipelineName, activityName, windowEnd, windowStart|
 
 ## Microsoft.DataFactory/factories
 
@@ -478,11 +508,15 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |compute_consumption_percent|Compute Unit percentage|Percent|Average|Compute Unit percentage|No Dimensions|
 |memory_percent|Memory percent|Percent|Average|Memory percent|No Dimensions|
 |io_consumption_percent|IO percent|Percent|Average|IO percent|No Dimensions|
-|storage_percent|Storage percentage|Percent|Average|Storage percentage|No Dimensions|
+|storage_percent|Storage percent|Percent|Average|Storage percent|No Dimensions|
 |storage_used|Storage used|Bytes|Average|Storage used|No Dimensions|
 |storage_limit|Storage limit|Bytes|Average|Storage limit|No Dimensions|
+|serverlog_storage_percent|Server Log storage percent|Percent|Average|Server Log storage percent|No Dimensions|
+|serverlog_storage_usage|Server Log storage used|Bytes|Average|Server Log storage used|No Dimensions|
+|serverlog_storage_limit|Server Log storage limit|Bytes|Average|Server Log storage limit|No Dimensions|
 |active_connections|Total active connections|Count|Average|Total active connections|No Dimensions|
-|connections_failed|Total failed connections|Count|Average|Total failed connections|No Dimensions|
+|connections_failed|Total failed connections|Count|Total|Total failed connections|No Dimensions|
+|seconds_behind_master|Replication lag in seconds|Count|Total|Replication lag in seconds|No Dimensions|
 
 ## Microsoft.DBforPostgreSQL/servers
 
@@ -493,11 +527,14 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |compute_consumption_percent|Compute Unit percentage|Percent|Average|Compute Unit percentage|No Dimensions|
 |memory_percent|Memory percent|Percent|Average|Memory percent|No Dimensions|
 |io_consumption_percent|IO percent|Percent|Average|IO percent|No Dimensions|
-|storage_percent|Storage percentage|Percent|Average|Storage percentage|No Dimensions|
+|storage_percent|Storage percent|Percent|Average|Storage percent|No Dimensions|
 |storage_used|Storage used|Bytes|Average|Storage used|No Dimensions|
 |storage_limit|Storage limit|Bytes|Average|Storage limit|No Dimensions|
-|active_connections|Total active connections|Count|Average|Total active connections|No Dimensions|
-|connections_failed|Total failed connections|Count|Average|Total failed connections|No Dimensions|
+|serverlog_storage_percent|Server Log storage percent|Percent|Average|Server Log storage percent|No Dimensions|
+|serverlog_storage_usage|Server Log storage used|Bytes|Average|Server Log storage used|No Dimensions|
+|serverlog_storage_limit|Server Log storage limit|Bytes|Average|Server Log storage limit|No Dimensions|
+|active_connections|Total active connections|Count|Total|Total active connections|No Dimensions|
+|connections_failed|Total failed connections|Count|Total|Total failed connections|No Dimensions|
 
 ## Microsoft.Devices/IotHubs
 
@@ -508,8 +545,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |c2d.commands.egress.complete.success|Commands completed|Count|Total|Number of cloud-to-device commands completed successfully by the device|No Dimensions|
 |c2d.commands.egress.abandon.success|Commands abandoned|Count|Total|Number of cloud-to-device commands abandoned by the device|No Dimensions|
 |c2d.commands.egress.reject.success|Commands rejected|Count|Total|Number of cloud-to-device commands rejected by the device|No Dimensions|
-|devices.totalDevices|Total devices|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
-|devices.connectedDevices.allProtocol|Connected devices|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
+|devices.totalDevices|Total devices (deprecated)|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
+|devices.connectedDevices.allProtocol|Connected devices (deprecated)|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
 |d2c.telemetry.egress.success|Telemetry messages delivered|Count|Total|Number of times messages were successfully written to endpoints (total)|No Dimensions|
 |d2c.telemetry.egress.dropped|Dropped messages|Count|Total|Number of messages dropped because the delivery endpoint was dead|No Dimensions|
 |d2c.telemetry.egress.orphaned|Orphaned messages|Count|Total|The count of messages not matching any routes including the fallback route|No Dimensions|
@@ -561,6 +598,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
 |deviceDataUsage|Total devicedata usage|Count|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
+|totalDeviceCount|Total devices (preview)|Count|Maximum|Number of devices registered to your IoT hub|No Dimensions|
+|connectedDeviceCount|Connected devices (preview)|Count|Maximum|Number of devices connected to your IoT hub|No Dimensions|
 
 ## Microsoft.Devices/provisioningServices
 
@@ -587,8 +626,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |c2d.commands.egress.complete.success|Commands completed|Count|Total|Number of cloud-to-device commands completed successfully by the device|No Dimensions|
 |c2d.commands.egress.abandon.success|Commands abandoned|Count|Total|Number of cloud-to-device commands abandoned by the device|No Dimensions|
 |c2d.commands.egress.reject.success|Commands rejected|Count|Total|Number of cloud-to-device commands rejected by the device|No Dimensions|
-|devices.totalDevices|Total devices|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
-|devices.connectedDevices.allProtocol|Connected devices|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
+|devices.totalDevices|Total devices (deprecated)|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
+|devices.connectedDevices.allProtocol|Connected devices (deprecated)|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
 |d2c.telemetry.egress.success|Telemetry messages delivered|Count|Total|Number of times messages were successfully written to endpoints (total)|No Dimensions|
 |d2c.telemetry.egress.dropped|Dropped messages|Count|Total|Number of messages dropped because the delivery endpoint was dead|No Dimensions|
 |d2c.telemetry.egress.orphaned|Orphaned messages|Count|Total|The count of messages not matching any routes including the fallback route|No Dimensions|
@@ -639,6 +678,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
+|totalDeviceCount|Total devices (preview)|Count|Maximum|Number of devices registered to your IoT hub|No Dimensions|
+|connectedDeviceCount|Connected devices (preview)|Count|Maximum|Number of devices connected to your IoT hub|No Dimensions|
 
 ## Microsoft.DocumentDB/databaseAccounts
 
@@ -917,13 +958,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |incoming.all.requests|All Incoming Requests|Count|Total|Total incoming requests for a notification hub|No Dimensions|
 |incoming.all.failedrequests|All Incoming Failed Requests|Count|Total|Total incoming failed requests for a notification hub|No Dimensions|
 
-## Microsoft.PowerBIDedicated/capacities
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|QueryDuration|Query Duration|Milliseconds|Average|DAX Query duration in last interval|No Dimensions|
-|QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|No Dimensions|
-
 ## Microsoft.OperationalInsights/workspaces
 (Public Preview)
 
@@ -999,6 +1033,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Average_Processor Queue Length|Average_Processor Queue Length|Count|Average|Average_Processor Queue Length|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Heartbeat|Heartbeat|Count|Average|Heartbeat|Computer, OSType, Version, SourceComputerId|
 |Update|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
+
+## Microsoft.PowerBIDedicated/capacities
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|QueryDuration|Query Duration|Milliseconds|Average|DAX Query duration in last interval|No Dimensions|
+|QueryPoolJobQueueLength|Threads: Query pool job queue length|Count|Average|Number of jobs in the queue of the query thread pool.|No Dimensions|
+|qpu_high_utilization_metric|QPU High Utilization|Count|Total|QPU High Utilization In Last Minute, 1 For High QPU Utilization, Otherwise 0|No Dimensions|
+|memory_metric|Memory|Bytes|Average|Memory. Range 0-3 GB for A1, 0-5 GB for A2, 0-10 GB for A3, 0-25 GB for A4, 0-50 GB for A5 and 0-100 GB for A6|No Dimensions|
+|memory_thrashing_metric|Memory Thrashing|Percent|Average|Average memory thrashing.|No Dimensions|
 
 ## Microsoft.Relay/namespaces
 
