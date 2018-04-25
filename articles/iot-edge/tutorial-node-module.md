@@ -63,7 +63,7 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 
 2. Create a project for the new IoT Edge soltuion. Type and run the command **Edge: New IoT Edge solution** in the Command Palette. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**). Then select **Node.js Module** as your first module in this solution. Then provide the module name, **FilterModule**  The following command creates the project folder, **FilterModule**. You also need to specify the Docker image repository for your first module. it should be in the form of `<your container registry name>.azurecr.io/filtermodule` if you are using Azure container registry.
  
-3. The VS Code window will load your IoT Edge solution workspace. There is a `modules` folder, a `.vscode` folder and a deployment manifest template file in the root folder. You can see debug configurations in `.vscode` folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
+3. The VS Code window will load your IoT Edge solution workspace. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. You can see debug configurations in `.vscode` folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
     ![Folder Structure](./media/tutorial-node-module/folder-structure.png)
 
@@ -122,7 +122,7 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 
 ## Update the solution deployment manifest
 
-1. Click and open **deployment.template.json** in the solution folder. In the `"modules"` section, you have two modules. The **tempSensor** module is automatically populated. And the **FilterModule** is the module you are developing now. The image URL is parsed from the **module.json** file in your module folder. Update the `amd64` to other value if your module if for Windows containers or for ARM devices. You can get the full container image address with tag in the VS Code integrated terminal. For more infomation about the build and push definition, you can refer to the `module.json` file.
+1. Click and open **deployment.template.json** in the solution folder. In the `"modules"` section, you have two modules. The **tempSensor** module is automatically populated. And the **FilterModule** is the module you are developing now. The image URL is parsed from the **module.json** file in your module folder. Update the `amd64` to other value if your module if for Windows containers or for ARM devices. You can get the full container image address with tag in the VS Code integrated terminal. For more information about the build and push definition, you can refer to the `module.json` file.
 
     ![Update image URL](./media/tutorial-node-module/update-image-url.png)     
 
@@ -152,7 +152,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-## Build and run the soltuion
+## Build and run the solution
 
 1. Sign in to Docker by entering the following command in the VS Code integrated terminal: 
      
@@ -165,11 +165,11 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
     ![Select IoT Hub](./media/tutorial-node-module/select-iot-hub.png)
 
-3. Build your solution. In VS Code explorer, Right-click the **deployment.template.json** file and click **Build IoT Edge soltuion**. There will be a **deployment.json** file generated under the **config** folder. In the integrated terminal, you can see the underlying docker build CLI and the build process. It might take several minutes for the first time.
+3. Build your solution. In VS Code explorer, Right-click the **deployment.template.json** file and click **Build IoT Edge solution**. There will be a **deployment.json** file generated under the **config** folder. In the integrated terminal, you can see the underlying docker build CLI and the build process. It might take several minutes for the first time.
 
     ![Build IoT Edge solution](./media/tutorial-node-module/build-solution.png)
 
-4. Deploy your solution to your IoT Edge device. In the device explorer, select one of your IoT Edge device, in the context menu, select **Create deployment for Edge device**. Then select the **deployment.json** file under **config** folder. You can find the deployment response in the output window.
+4. Deploy your solution to your IoT Edge device. In the device explorer, select one of your IoT Edge devices, in the context menu, select **Create deployment for Edge device**. Then select the **deployment.json** file under **config** folder. You can find the deployment response in the output window.
 
     ![Deploy to IoT Edge](./media/tutorial-node-module/create-deployment.png)
 
@@ -178,7 +178,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
 
 To monitor device to cloud messages sent from your IoT Edge device to your IoT hub:
 
-1. To monitor data arriving at the IoT hub, in the context menu of your IoT Edge device, select **Start monitorning D2C messages**.
+1. To monitor data arriving at the IoT hub, in the context menu of your IoT Edge device, select **Start monitoring D2C messages**.
     ![Monitor D2C messages](./media/tutorial-node-module/monitor-message.png)
 
 2. To stop monitoring data, use the **IoT: Stop monitoring D2C message** or select **Stop monitoring D2C message** in the context menu of the output window. 
