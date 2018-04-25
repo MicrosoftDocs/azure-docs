@@ -36,7 +36,7 @@
 ##### [How does it work?](active-directory-aadconnect-sso-how-it-works.md)
 ##### [Frequently asked questions](active-directory-aadconnect-sso-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-sso.md)
-##### [GDPR](active-directory-aadconnect-sso-gdpr.md)
+##### [User Privacy and Azure AD Seamless Single Sign-On](active-directory-aadconnect-sso-gdpr.md)
 #### [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md)
 ##### [Quick start](active-directory-aadconnect-pass-through-authentication-quick-start.md)
 ##### [Current limitations](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
@@ -46,7 +46,7 @@
 ##### [Frequently asked questions](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Troubleshoot](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Security deep dive](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
-##### [GDPR](active-directory-aadconnect-pass-through-authentication-gdpr.md)
+##### [User Privacy and Azure Active Directory Pass-through Authentication](active-directory-aadconnect-pass-through-authentication-gdpr.md)
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
@@ -54,7 +54,7 @@
 
 
 ## Manage Azure AD Connect Sync
-### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [User Privacy and Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Preferred data location for O365 resources](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)

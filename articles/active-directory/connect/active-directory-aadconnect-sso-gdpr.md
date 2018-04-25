@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - GDPR compliance | Microsoft Docs'
+title: 'User Privacy and Azure AD Seamless Single Sign-On | Microsoft Docs'
 description: This article deals with Azure Active Directory (Azure AD) Seamless SSO and GDPR compliance.
 services: active-directory
 keywords: what is Azure AD Connect, GDPR, required components for Azure AD, SSO, Single Sign-on
@@ -16,19 +16,18 @@ ms.date: 03/12/2018
 ms.author: billmath
 ---
 
-# Azure AD Seamless Single Sign-On: GDPR compliance
+# User Privacy and Azure AD Seamless Single Sign-On
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## Overview
 
-In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 Azure AD Seamless SSO creates the following log type, which can contain EUII:
 
 - Azure AD Connect trace log files.
 
-GDPR compliance for Seamless SSO can be reached in two ways:
+User privacy compliance for Seamless SSO can be reached in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
@@ -61,6 +60,6 @@ To learn more about related Azure AD Connect GDPR requirements, see [this articl
 If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
-
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
