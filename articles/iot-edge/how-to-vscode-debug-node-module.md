@@ -40,13 +40,12 @@ Before following the guidance in this article, complete the steps in  [Develop a
 
 ## Start debugging Node.js module in VS Code
 1. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file has been generated when creating a new IoT Edge solution. And it will be updated each time you add a new module that support debugging. Navigate to the debug view and select the corresponding debug configuration file.
-    ![Select debug configuration](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
+    > [!NOTE]
+    > If you are using Windows container, please choose the **(Node.js in Windows Container)** launch config 
 
 2. Navigate to `app.js`. Add a breakpoint in this file.
 
 3. Click Start Debugging button or press **F5**, and select the process to attach to.
-    > [!NOTE]
-    > If you are using Windows container, please choose the **(Node.js in Windows Container)** launch config 
 
 4. In VS Code Debug view, you can see the variables in left panel. 
 
