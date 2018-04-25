@@ -31,6 +31,7 @@ ms.author: sedusch
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -157,15 +158,36 @@ To deploy the template, follow these steps:
         1. Enter the name of the new health probe (for example hana-hp)
         1. Select TCP as protocol, port 625**03**, keep Interval 5 and Unhealthy threshold 2
         1. Click OK
-    1. Create load balancing rules
+    1. SAP HANA 1.0: Create load balancing rules
         1. Open the load balancer, select load balancing rules and click Add
         1. Enter the name of the new load balancer rule (for example hana-lb-3**03**15)
+        1. Select the frontend IP address, backend pool, and health probe you created earlier (for example hana-frontend)
+        1. Keep protocol TCP, enter port 3**03**15
+        1. Increase idle timeout to 30 minutes
+        1. **Make sure to enable Floating IP**
+        1. Click OK
+        1. Repeat the steps above for port 3**03**17
+    1. SAP HANA 2.0: Create load balancing rules for system database
+        1. Open the load balancer, select load balancing rules and click Add
+        1. Enter the name of the new load balancer rule (for example hana-lb-3**03**13)
         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example hana-frontend)
         1. Keep protocol TCP, enter port 3**03**13
         1. Increase idle timeout to 30 minutes
         1. **Make sure to enable Floating IP**
         1. Click OK
-        1. Repeat the steps above for port  3**03**15 and 3**03**17
+        1. Repeat the steps above for port 3**03**14
+    1. SAP HANA 2.0: Create load balancing rules for first the tenant database
+        1. Open the load balancer, select load balancing rules and click Add
+        1. Enter the name of the new load balancer rule (for example hana-lb-3**03**40)
+        1. Select the frontend IP address, backend pool, and health probe you created earlier (for example hana-frontend)
+        1. Keep protocol TCP, enter port 3**03**40
+        1. Increase idle timeout to 30 minutes
+        1. **Make sure to enable Floating IP**
+        1. Click OK
+        1. Repeat the steps above for port  3**03**41 and 3**03**42
+
+For more information about the required ports for SAP HANA, read chapter [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) of the [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guide or [SAP Note 2388694][2388694].
+
 
 ## Create Pacemaker cluster
 

@@ -16,6 +16,8 @@ ms.author: davidmu
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as validation on user input
 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.  
 
 At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.

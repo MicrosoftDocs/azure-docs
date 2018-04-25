@@ -1,10 +1,10 @@
----
+﻿---
 title: Azure Cosmos DB diagnostic logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Cosmos DB logging.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Azure Cosmos DB diagnostic logging
@@ -137,7 +137,7 @@ If you've already installed Azure PowerShell and don't know the version, from th
 Start an Azure PowerShell session and sign in to your Azure account with the following command:  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the pop-up browser window, enter your Azure account user name and password. Azure PowerShell gets all of the subscriptions that are associated with this account, and by default, uses the first one.

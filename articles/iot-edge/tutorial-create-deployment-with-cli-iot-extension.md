@@ -12,7 +12,7 @@ ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
 
-ms.custom: mvc
+ms.custom: 
 ms.reviewer: kgremban
 ---
 
@@ -22,7 +22,7 @@ ms.reviewer: kgremban
 
 Azure CLI 2.0 enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI 2.0 with features such as device management and full IoT Edge capability.
 
-In this tutorial, you first complete the steps to set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to an IoT Edge device using the available CLI commands.
+In this article, you set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to an IoT Edge device using the available CLI commands.
 
 ## Prerequisites
 

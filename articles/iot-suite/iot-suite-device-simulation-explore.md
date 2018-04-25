@@ -1,6 +1,6 @@
 ---
 title: Get started with the Device Simulation solution - Azure | Microsoft Docs 
-description: The IoT Suite simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other preconfigured solutions or used with your own custom solutions.
+description: The IoT solution accelerators simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other solution accelerators or used with your own custom solutions.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Device Simulation walkthrough
 
-Azure IoT Device Simulation is a tool that can be used to assist in the development and testing of an IoT solution. Device Simulation is a standalone offering that you can use in conjunction with other preconfigured solutions or with your own custom solutions.
+Azure IoT Device Simulation is a tool that can be used to assist in the development and testing of an IoT solution. Device Simulation is a standalone offering that you can use in conjunction with other solution accelerators or with your own custom solutions.
 
 This tutorial walks you through some of the features of Device Simulation. It shows you how it works, and enables you to use it to test your own IoT solutions.
 
@@ -35,7 +35,7 @@ If you haven't deployed Device Simulation yet, you should complete the [Deploy A
 
 ## Configuring Device Simulation
 
-You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT Suite [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
+You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
 
 ### Target IoT Hub
 
@@ -65,22 +65,22 @@ The device model enables you to choose the type of device to simulate. You can c
 
 Device Simulation provides three pre-configured device models. Device models for Chillers, Elevators, and Trucks are available.
 
-Pre-configured device models include multiple sensors with a pre-determined telemetry frequency. You cannot customize the telemetry frequency for these devices.
+Pre-configured device models include multiple sensors with advanced behaviors defined in a JavaScript file. These custom behaviors are not supported in the web UI. 
 
 The following table shows a list of the configurations for each pre-configured device model:
 
-| Device model | Sensor | Unit | Telemetry frequency
-| -------------| ------ | -----| --------------------|
-| Chiller | humidity | % | 5 seconds |
-| | pressure | psig | 5 seconds |
-| | temperature | F | 5 seconds |
-| Elevator | Floor | | 5 seconds |
-| | Vibration | mm | 5 seconds |
-| | Temperature | F | 5 seconds |
-| Truck | Latitude | | 3 seconds |
-| | Longitude | | 3 seconds |
-| | speed | mph | 5 seconds |
-| | cargotemperature | F | 5 seconds |
+| Device model | Sensor | Unit | 
+| -------------| ------ | -----| 
+| Chiller | humidity | % |
+| | pressure | psig | 
+| | temperature | F | 
+| Elevator | Floor | 
+| | Vibration | mm | 
+| | Temperature | F | 
+| Truck | Latitude | |
+| | Longitude | | 
+| | speed | mph | 
+| | cargotemperature | F | 
 
 #### Custom device model
 
@@ -102,7 +102,7 @@ Custom sensors have the following properties:
 
 ### Number of devices
 
-Device Simulation currently enables you to simulate up to 1,000 devices.
+Device Simulation currently enables you to simulate up to 20,000 devices.
 
 ![Number of devices](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

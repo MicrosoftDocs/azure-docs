@@ -1,7 +1,7 @@
 ---
 title: Device schema in remote monitoring solution - Azure | Microsoft Docs
 description: This article describes the JSON schema that defines a simulated device in the remote monitoring solution.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -100,10 +100,10 @@ The following example shows the definition of the device state object for a simu
     "pressure_unit": "psig",
     "simulation_state": "normal_pressure"
   },
-  "Script": {
+  "Interval": "00:00:10",
+  "Scripts": {
     "Type": "javascript",
-    "Path": "chiller-01-state.js",
-    "Interval": "00:00:05"
+    "Path": "chiller-01-state.js"
   }
 }
 ```

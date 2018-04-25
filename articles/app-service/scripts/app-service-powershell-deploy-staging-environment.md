@@ -22,7 +22,7 @@ ms.custom: mvc
 
 This sample script creates a web app in App Service with an additional deployment slot called "staging", and then deploys a sample app to the "staging" slot.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Login-AzureRmAccount` to create a connection with Azure.
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -48,7 +48,7 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzureRmAppServicePlan](/powershell/module/azurerm.websites/set-azurermappserviceplan) | Modifies an App Service plan to change its pricing tier. |
 | [New-AzureRmWebAppSlot](/powershell/module/azurerm.websites/new-azurermwebappslot) | Creates a deployment slot for a web app. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Modifies a resource in a resource group. |
-| [Swap-AzureRmWebAppSlot](/powershell/module/azurerm.websites/swap-azurermwebappslot) | Swaps a web app's deployment slot into production. |
+| [Switch-AzureRmWebAppSlot](/powershell/module/azurerm.websites/switch-azurermwebappslot) | Swaps a web app's deployment slot into production. |
 
 ## Next steps
 

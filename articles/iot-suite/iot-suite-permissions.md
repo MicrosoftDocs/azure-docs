@@ -1,7 +1,7 @@
 ---
-title: Azure IoT Suite and Azure Active Directory | Microsoft Docs
-description: Describes how Azure IoT Suite uses Azure Active Directory to manage permissions.
-services: ''
+title: Azure IoT solution accelerators and Azure Active Directory | Microsoft Docs
+description: Describes how Azure IoT solution accelerators uses Azure Active Directory to manage permissions.
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -26,35 +26,35 @@ The first time you sign in at [azureiotsuite.com][lnk-azureiotsuite], the site d
 
 1. First, to populate the list of tenants seen next to your username, the site finds out from Azure which AAD tenants you belong to. Currently, the site can only obtain user tokens for one tenant at a time. Therefore, when you switch tenants using the dropdown in the top right corner, the site logs you in to that tenant to obtain the tokens for that tenant.
 
-2. Next, the site finds out from Azure which subscriptions you have associated with the selected tenant. You see the available subscriptions when you create a new preconfigured solution.
+2. Next, the site finds out from Azure which subscriptions you have associated with the selected tenant. You see the available subscriptions when you create a new solution accelerator.
 
-3. Finally, the site retrieves all the resources in the subscriptions and resource groups tagged as preconfigured solutions and populates the tiles on the home page.
+3. Finally, the site retrieves all the resources in the subscriptions and resource groups tagged as solution accelerators and populates the tiles on the home page.
 
-The following sections describe the roles that control access to the preconfigured solutions.
+The following sections describe the roles that control access to the solution accelerators.
 
 ## AAD roles
 
-The AAD roles control the ability provision preconfigured solutions and manage users in a preconfigured solution.
+The AAD roles control the ability provision solution accelerators and manage users in a solution accelerator.
 
-You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin]. The current article focuses on the **Global Administrator** and the **User** directory roles as used by the preconfigured solutions.
+You can find more information about administrator roles in AAD in [Assigning administrator roles in Azure AD][lnk-aad-admin]. The current article focuses on the **Global Administrator** and the **User** directory roles as used by the solution accelerators.
 
 ### Global administrator
 
 There can be many global administrators per AAD tenant:
 
 * When you create an AAD tenant, you are by default the global administrator of that tenant.
-* The global administrator can provision a basic and standard preconfigured solutions.
+* The global administrator can provision a basic and standard solution accelerators.
 
 ### Domain user
 
 There can be many domain users per AAD tenant:
 
-* A domain user can provision a basic preconfigured solution through the [azureiotsuite.com][lnk-azureiotsuite] site.
-* A domain user can create a basic preconfigured solution using the CLI.
+* A domain user can provision a basic solution accelerator through the [azureiotsuite.com][lnk-azureiotsuite] site.
+* A domain user can create a basic solution accelerator using the CLI.
 
 ### Guest User
 
-There can be many guest users per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a preconfigured solution in the AAD tenant.
+There can be many guest users per AAD tenant. Guest users have a limited set of rights in the AAD tenant. As a result, guest users cannot provision a solution accelerator in the AAD tenant.
 
 For more information about users and roles in AAD, see the following resources:
 
@@ -91,7 +91,7 @@ Look at the following diagram for guidance:
 If you're certain you have an Azure subscription, validate the tenant mapping for your subscription and ensure the correct tenant is selected in the dropdown. If you’ve validated the desired tenant is correct, follow the preceding diagram and validate the mapping of your subscription and this AAD tenant.
 
 ## Next steps
-To continue learning about IoT Suite, see how you can [customize a preconfigured solution][lnk-customize].
+To continue learning about IoT solution accelerators, see how you can [customize a solution accelerator][lnk-customize].
 
 [img-flowchart]: media/iot-suite-permissions/flowchart.png
 

@@ -17,18 +17,18 @@
     href: tutorial-simulate-device-linux.md
   - name: Simulate an Edge device - Windows
     href: tutorial-simulate-device-windows.md
-  - name: Develop a C# module
-    href: tutorial-csharp-module.md
-  - name: Develop a Python module
-    href: tutorial-python-module.md
+  - name: Deploy code in a module
+    items:
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
   - name: Deploy Azure Stream Analytics
     href: tutorial-deploy-stream-analytics.md
   - name: Deploy Azure Machine Learning
     href: tutorial-deploy-machine-learning.md
   - name: Deploy Azure Functions
     href: tutorial-deploy-function.md
-  - name: Work with multiple modules in VS Code
-    href: tutorial-multiple-modules-in-vscode.md
 - name: How-to guides
   items:
   - name: Create gateways
@@ -45,12 +45,10 @@
     href: how-to-install-iot-core.md
   - name: Use VS Code to develop IoT Edge solutions
     items:
-      - name: Develop and deploy C# module
-        href: how-to-vscode-develop-csharp-module.md
+      - name: Work with multiple modules
+        href: tutorial-multiple-modules-in-vscode.md
       - name: Debug C# module
         href: how-to-vscode-debug-csharp-module.md
-      - name: Develop and deploy Azure Functions
-        href: how-to-vscode-develop-azure-function.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
   - name: Store data at the edge

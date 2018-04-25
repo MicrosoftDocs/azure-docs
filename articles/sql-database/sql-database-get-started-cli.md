@@ -25,7 +25,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Define variables
 
-Define variables for use in the scripts in this quick start.
+Define variables for use in the scripts in this quickstart.
 
 ```azurecli-interactive
 # The data center and resource name for your resources
@@ -74,7 +74,7 @@ az sql server firewall-rule create --resource-group $resourcegroupname --server 
 
 ## Create a database in the server with sample data
 
-Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quick starts in this collection build upon the values in this quick start).
+Create a database with an [S0 performance level](sql-database-service-tiers.md) in the server using the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command. The following example creates a database called `mySampleDatabase` and loads the AdventureWorksLT sample data into this database. Replace these predefined values as desired (other quickstarts in this collection build upon the values in this quickstart).
 
 ```azurecli-interactive
 az sql db create --resource-group $resourcegroupname --server $servername \
@@ -83,10 +83,10 @@ az sql db create --resource-group $resourcegroupname --server $servername \
 
 ## Clean up resources
 
-Other quick starts in this collection build upon this quick start. 
+Other quickstarts in this collection build upon this quickstart. 
 
 > [!TIP]
-> If you plan to continue on to work with subsequent quick starts, do not clean up the resources created in this quick start. If you do not plan to continue, use the following steps to delete all resources created by this quick start in the Azure portal.
+> If you plan to continue on to work with subsequent quickstarts, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
 >
 
 ```azurecli-interactive
