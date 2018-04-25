@@ -1,4 +1,4 @@
----
+﻿---
   title: Security best practices for IaaS workloads in Azure | Microsoft Docs
   description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
   services: security
@@ -165,7 +165,7 @@ All virtual machines in Azure IaaS should be hardened so that they expose only s
 
 Security Compliance Manager is a free tool. You can use it to quickly configure and manage your desktops, traditional datacenter, and private and public cloud by using Group Policy and System Center Configuration Manager.
 
-Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/en-us/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
+Security Compliance Manager provides ready-to-deploy policies and Desired Configuration Management configuration packs that are tested. These baselines are based on [Microsoft Security Guidance](https://technet.microsoft.com/library/cc184906.aspx) recommendations and industry best practices. They help you manage configuration drift, address compliance requirements, and reduce security threats.
 
 You can use Security Compliance Manager to import the current configuration of your computers by using two different methods. First, you can import Active Directory-based group policies. Second, you can import the configuration of a “golden master” reference machine by using the [LocalGPO tool](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) to back up the local group policy. You can then import the local group policy into Security Compliance Manager.
 

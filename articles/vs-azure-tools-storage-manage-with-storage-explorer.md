@@ -52,7 +52,7 @@ Azure Storage Explorer may work on other distros, but only ones listed above are
 
 You must also have the following dependencies/libraries installed to run Azure Storage Exploer on Linux:
 
-* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * libsecret (Note: libsecret-1.so.0 must be available on your machine. If you have a different version of libsecret installed, you can try soft linking its .so file to libsecret-1.so.0)
 * libgconf-2-4
 * Up-to-date GCC

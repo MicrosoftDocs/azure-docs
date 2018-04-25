@@ -369,7 +369,7 @@ The Machine Learning Free tier does not require or allow separate storage. The M
 
 **Does Machine Learning support high availability?**
 
-Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
+Yes. For details, see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for a description of the service level agreement (SLA).
 
 **What specific kind of compute resources will my production API calls be run on?**
 
