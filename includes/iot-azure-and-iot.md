@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/25/2018
+ ms.author: dobett
+ ms.custom: include file
+---
 
 # Azure and the Internet of Things
 
