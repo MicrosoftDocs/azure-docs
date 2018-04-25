@@ -35,7 +35,13 @@ If reducing the number of intents or dividing your intents into multiple apps do
 It is important to add utterances to your **None** intent as you add more labels to other intents. A good ratio is 1 or 2 labels added to **None** for every 10 labels added to an intent. This ratio boosts the discriminative power of LUIS.
 
 ## Entities
-Create an [entity](luis-concept-entity-types.md) when the calling application or bot needs some parameters or data from the utterance required to execute an action. 
+Create an [entity](luis-concept-entity-types.md) when the calling application or bot needs some parameters or data from the utterance required to execute an action. An entity is a word or phrase in the utterance that you need extracted -- perhaps as a parameter for a function.
+
+In order to select the correct type of entity to add to your application, you need to know how that data is entered by users. Each entity type is found using a different mechanism such as machine-learning, closed list or regular expression. If you are unsure, begin with a simple entity and label the word or phrase that represents that data in all utterances, across all intents including the None intent. 
+
+Review endpoint utterances on a regular basis to find common usage where an entity can be identified as a regular expression or found with an exact text match. 
+
+As part of the review, consider adding a phrase list to add a signal to LUIS for words or phrases that are significant to your domain but are not exact matches, and for which LUIS doesn't have a high confidence. 
 
 ### If you need more than the maximum number of entities
 You might need to use hierarchical and composite entities. Hierarchical entities reflect the relationship between entities that share characteristics or are members of a category. The child entities are all members of their parent's category. For example, a hierarchical entity named PlaneTicketClass might have the child entities EconomyClass and FirstClass. The hierarchy spans only one level of depth. 

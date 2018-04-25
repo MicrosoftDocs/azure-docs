@@ -1,5 +1,5 @@
 ---
-title: Create a LUIS app to get white listed data - Azure | Microsoft Docs 
+title: Create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
 description: Learn how to create a simple LUIS app using intents and list entities to extract data. 
 services: cognitive-services
 author: v-geberr

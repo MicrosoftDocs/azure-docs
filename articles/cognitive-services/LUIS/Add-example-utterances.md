@@ -19,7 +19,14 @@ Utterances are examples of user questions or commands. To teach Language Underst
 Generally, you add an utterance first, and then you create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](Add-entities.md).
 
 ## Add an utterance
-See [Manage Intents](add-intents.md) to learn how to add utterances to an intent. 
+On an intent page, enter a relevant utterance you expect from your users, such as `book 2 adult business tickets to Paris tomorrow on Air France` in the text box below the intent name, and then press Enter. 
+ 
+>[!NOTE]
+>LUIS converts all utterances to lowercase.
+
+![Screenshot of Intents details page, with utterance highlighted](./media/add-example-utterances/add-new-utterance-to-intent.png) 
+
+Utterances are added to the utterances list for the current intent. 
 
 ## Add simple entity label
 In the following procedure, you create and label custom entities within the following utterance on the intent page:
@@ -39,36 +46,15 @@ book me 2 adult business tickets to Paris tomorrow on Air France
  
     ![Screenshot of Intents details page, with simple entity labeling option highlighted](./media/add-example-utterances/create-airline-simple-entity.png)
 
-3. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the correct entity type, and then select **Done**.
+3. In the **What type of entity do you want to create?** pop-up dialog box, verify the entity name and select the simple entity type, and then select **Done**.
 
     ![Image of confirmation dialog](./media/add-example-utterances/create-simple-airline-entity.png)
 
     See [Data Extraction](luis-concept-data-extraction.md#simple-entity-data) to learn more about extracting the simple entity from the endpoint JSON query response. Try the simple entity [quickstart](luis-quickstart-primary-and-secondary-data.md) to learn more about how to use a simple entity.
 
-## Add hierarchical entity and label
-A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
-
-In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
-
-1. On the Intent page, in the utterance, select "Seattle", then enter the entity name `Location, and then select **Create new entity**.
-
-    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/add-example-utterances/create-hier-ent-1.png)
-
-2. In the pop-up dialog box, select hierarchical for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
-
-    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/create-location-hierarchical-entity.png)
-
-3. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
-
-    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/label-tolocation.png)
-
-    >[!CAUTION]
-    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
-
-    See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
 
 ## Add list entity and label
-List entities represent a fixed, closed set (white list) of related words in your system. 
+List entities represent a fixed, closed set (exact text matches) of related words in your system. 
 
 For a drinks list entity, you can have two normalized values: water and soda pop. Each normalized name has synonyms. For water, synonyms are H20, gas, flat. For soda pop, synonyms are fruit, cola, ginger. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
@@ -143,6 +129,29 @@ Before you wrap the entities in a composite entity, make sure all the child enti
     ![Screenshot of utterance with composite entity highlighted](./media/add-example-utterances/wrap-5.png)
 
     See [Data Extraction](luis-concept-data-extraction.md#composite-entity-data) to learn more about extracting the composite entity from the endpoint JSON query response. Try the composite entity [tutorial](luis-tutorial-composite-entity.md) to learn more about how to use a composite entity.
+
+## Add hierarchical entity and label
+A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
+
+In the utterance `Book 2 tickets from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
+
+1. On the Intent page, in the utterance, select "Seattle", then enter the entity name `Location, and then select **Create new entity**.
+
+    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/add-example-utterances/create-hier-ent-1.png)
+
+2. In the pop-up dialog box, select hierarchical for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
+
+    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/create-location-hierarchical-entity.png)
+
+3. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
+
+    ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/add-example-utterances/label-tolocation.png)
+
+    >[!CAUTION]
+    >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
+
+    See [Data Extraction](luis-concept-data-extraction.md#hierarchical-entity-data) to learn more about extracting the hierarchical entity from the endpoint JSON query response. Try the hierarchical entity [quickstart](luis-quickstart-intent-and-hier-entity.md) to learn more about how to use a hierarchical entity.
+
 
 ## Remove entity labels from utterances
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 

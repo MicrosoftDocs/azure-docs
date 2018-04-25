@@ -17,7 +17,7 @@ LUIS gives you the ability to get information from a user's natural language utt
 In the following sections, learn what data is returned from intents and entities with examples of JSON. The hardest data to extract is the machine-learned data because it is not an exact text match. Data extraction of the machine-learned [entities](luis-concept-entity-types.md) needs to be part of the [authoring cycle](luis-concept-app-iteration.md) until you are confident you receive the data you expect. 
 
 ## Data location and key usage
-LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. You do not have to URL-encode utterances at the endpoint. 
+LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments. 
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
