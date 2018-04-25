@@ -174,7 +174,7 @@ When you redirect the user to the `end_session_endpoint`, Azure AD clears the us
 4. Click on **Settings**, then **Properties** and find the **Logout URL** text box. 
 
 ## Token Acquisition
-Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously acquiring an `authorization_code` that can be used to get `access_tokens` using the OAuth Authorization Code Flow.
+Many web apps need to not only sign the user in, but also access a web service on behalf of that user using OAuth. This scenario combines OpenID Connect for user authentication while simultaneously acquiring an `authorization_code` that can be used to get `access_tokens` using the [OAuth Authorization Code Flow](active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 
 ## Get Access Tokens
 To acquire access tokens, you need to modify the sign-in request from above:
