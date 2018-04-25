@@ -1,4 +1,4 @@
-﻿---
+---
 title: Getting started with Microsoft Azure security | Microsoft Docs
 description: This article provides an overview of Microsoft Azure security capabilities and general considerations for organizations that are migrating their assets to a cloud provider.
 services: security
@@ -42,7 +42,7 @@ Some other capabilities for identity and access management include:
 * Azure AD enables [SSO](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) to SaaS applications, regardless of where they are hosted. Some applications are federated with Azure AD, and others use password SSO. Federated applications can also support user provisioning and password vaulting.
 * Access to data in [Azure Storage](https://azure.microsoft.com/services/storage/) is controlled via authentication. Each storage account has a primary key ([storage account key](https://msdn.microsoft.com/library/azure/ee460785.aspx), or SAK) and a secondary secret key (the shared access signature, or SAS).
 * Azure AD provides Identity as a Service through federation by using [Active Directory Federation Services](../active-directory/fundamentals-identity.md), synchronization, and replication with on-premises directories.
-* [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
+* [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) is the multi-factor authentication service that requires users to verify sign-ins by using a mobile app, phone call, or text message. It can be used with Azure AD to help secure on-premises resources with the Azure Multi-Factor Authentication server, and also with custom applications and directories using the SDK.
 * [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) lets you join Azure virtual machines to a domain without deploying domain controllers. You can sign in to these virtual machines with your corporate Active Directory credentials and administer domain-joined virtual machines by using Group Policy to enforce security baselines on all your Azure virtual machines.
 * [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) provides a highly available global-identity management service for consumer-facing applications that scales to hundreds of millions of identities. It can be integrated across mobile and web platforms. Your consumers can sign in to all your applications through customizable experiences by using their existing social accounts or by creating new credentials.
 

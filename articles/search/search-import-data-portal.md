@@ -4,7 +4,7 @@ description: Use the Azure Search Import Data Wizard in the Azure Portal to craw
 author: HeidiSteen
 manager: cgronlun
 tags: Azure Portal
-
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2017

@@ -3,7 +3,6 @@
 # Overview
 ## [About VPN Gateway](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Get Started
 ## Create a route-based VPN gateway
@@ -64,11 +63,19 @@
 ### [Azure PowerShell](vpn-gateway-ipsecikepolicy-rm-powershell.md)
 ## Configure highly available active-active connections
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
-## Configure BGP for a VPN gateway
-### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
-### [Azure CLI](bgp-how-to-cli.md)
-## Configure forced tunneling
-### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
+
+## Routing, BGP, and VNet Peering
+
+### Configure BGP for a VPN gateway
+#### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+#### [Azure CLI](bgp-how-to-cli.md)
+
+### Configure forced tunneling
+#### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
+#### [Azure PowerShell (classic)](vpn-gateway-about-forced-tunneling.md)
+
+### [Configure gateway transit for VNet peering](vpn-gateway-peering-gateway-transit.md)
+
 ## Modify local network gateway settings
 ### [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
@@ -79,7 +86,7 @@
 ### [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ## [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md)
-## Configure 3rd party VPN devices
+## Configure third party VPN devices
 ### [Overview & Azure configuration](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Sample: Cisco ASA device (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Troubleshoot](vpn-gateway-troubleshoot.md)
@@ -122,6 +129,7 @@
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Subscription and service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## [Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)

@@ -1,7 +1,7 @@
 ---
 title: Device simulation in remote monitoring solution - Azure | Microsoft Docs
-description: This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution.
-services: ''
+description: This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Create a new simulated device
 
-This tutorial shows you how to customize the device simulator microservice in the remote monitoring preconfigured solution. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
+This tutorial shows you how to customize the device simulator microservice in the remote monitoring solution accelerator. To show the capabilities of the device simulator, this tutorial uses two scenarios in the Contoso IoT application.
 
 The following video presents an overview of the options for customizing the device simulator microservice:
 
@@ -68,7 +68,7 @@ The following table shows the initial status of the device:
 
 In the second scenario, you add a new telemetry type to Contoso's existing **Chiller** device.
 
-This tutorial shows you how to use the device simulator with the remote monitoring preconfigured solution:
+This tutorial shows you how to use the device simulator with the remote monitoring solution accelerator:
 
 In this tutorial, you learn how to:
 
@@ -86,7 +86,7 @@ The following video shows a walkthrough of connecting simulated and real devices
 
 To follow this tutorial, you need:
 
-* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+* A deployed instance of the remote monitoring solution in your Azure subscription. If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 * Visual Studio 2017. If you don't have Visual Studio 2017 installed, you can download the free [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) edition.
 
@@ -289,10 +289,10 @@ The **lightbulb-01.json** file defines the characteristics of the type, such as 
         "temperature_unit": "F",
         "status": "on"
       },
-      "Script": {
+      "Interval": "00:00:20",
+      "Scripts": {
         "Type": "javascript",
-        "Path": "lightbulb-01-state.js",
-        "Interval": "00:00:20"
+        "Path": "lightbulb-01-state.js"
       }
     },
     ```

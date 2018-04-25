@@ -1,12 +1,11 @@
 ---
-title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs 
+title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: v-geberr

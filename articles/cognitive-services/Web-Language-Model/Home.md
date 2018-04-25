@@ -4,9 +4,8 @@ description: Web Language Model API in Microsoft Cognitive Services provides sta
 services: cognitive-services
 author: piyushbehre
 manager: yanbo
-
 ms.service: cognitive-services
-ms.technology: web-language-model
+ms.component: web-language-model
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: pibehre

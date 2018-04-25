@@ -1,7 +1,7 @@
 ---
 title: Customize the remote monitoring solution UI - Azure | Microsoft Docs 
-description: This article provides information about how you can access the source code for the remote monitoring preconfigured solution UI and make some customizations.
-services: ''
+description: This article provides information about how you can access the source code for the remote monitoring solution accelerator UI and make some customizations.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Customize the remote monitoring preconfigured solution UI
+# Customize the Remote Monitoring solution accelerator
 
-This article provides information about how you can access the source code and customize the remote monitoring preconfigured solution UI.
+This article provides information about how you can access the source code and customize the Remote Monitoring solution accelerator UI. The article describes:
 
 ## Prepare a local development environment for the UI
 
-The remote monitoring PCS UI code is implemented using the React.js framework. You can find the source code in the [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub repository.
+The Remote Monitoring solution accelerator UI code is implemented using the React.js framework. You can find the source code in the [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub repository.
 
 To make changes to the UI, you can run a copy of it locally. The local copy connects to a deployed instance of the solution to perform actions such as retrieving telemetry.
 
@@ -461,7 +461,7 @@ To further modify the presentation and visualizations layer in the remote monito
 
 In this article, you learned about the resources available to help you customize the web UI in the Remote Monitoring solution accelerator.
 
-For more conceptual information about the remote monitoring preconfigured solution, see [Remote monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+For more conceptual information about the remote monitoring solution accelerator, see [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
 
 For more information about customizing the remote monitoring solution, see [Customize the Remote Monitoring solution accelerator back end](iot-suite-remote-monitoring-customize-backend.md)
 <!-- Next tutorials in the sequence -->
