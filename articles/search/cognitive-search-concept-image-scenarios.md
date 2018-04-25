@@ -1,5 +1,5 @@
 ---
-title: Images in Cognitive Search | Microsoft Docs
+title: Images in Cognitive Search in Azure Search | Microsoft Docs
 description: Dealing with Images in Cognitive Search
 services: search
 manager: pablocas
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: heidist
 ---
-# Dealing with Images for Cognitive Search Scenarios
+# Dealing with images for cognitive search scenarios
 
 Cognitive Search has several capabilities that allow you to work with images and image files.
 
-## Getting Normalized Images
+## Getting normalized images
 
 As part of the "document cracking" step, there is a new set of indexer configuration parameters. These parameters allow you to specify what an indexer should do when it encounters image files or images that are embedded in files; for instance, a .PDF that contains several images inside it.
 
@@ -80,15 +80,15 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
 
 Currently there are two built-in cognitive skills that take images as an input, the OCR skill and the analyze image skill. 
 
-At this point, the *analyze image skill* and the *OCR skill* only work with images generated from the document cracking step. So the only supported input is "\document\normalized_images".
+At this point, the *Image Analysis skill* and the *OCR skill* only work with images generated from the document cracking step. So the only supported input is "\document\normalized_images".
 
-## Analyze Image Skill
+## Image Analysis skill
 
-The image analysis skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+The Image Analysis skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
 
 Learn more about it [here](cognitive-search-skill-image-analysis.md).
 
-## OCR Skill
+## OCR skill
 
 This skill extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
 
@@ -97,7 +97,7 @@ The OCR skill allows you to select the algorithm to use for detecting text in yo
 Learn more about it [here](cognitive-search-skill-ocr.md).
 
 
-## Common Scenario: Dealing with files that contain embedded images
+## Common scenario: Dealing with files that contain embedded images
 
 If you need to create a single string that includes all the content of the file, you need to perform the following steps:  
 
@@ -107,7 +107,7 @@ If you need to create a single string that includes all the content of the file,
 
 The following example skillset creates a *merged_text* field to contain the textual content of your document. It also includes the OCRed text from each of the embedded images. 
 
-#### Request Body Syntax
+#### Request body syntax
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -161,7 +161,7 @@ The following example skillset creates a *merged_text* field to contain the text
 
 Now that you have a merged_text field, you could map that as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable!
 
-## Common Scenario: Visualizing bounding boxes of extracted text
+## Common scenario: Visualizing bounding boxes of extracted text
 
 Sometimes you need to visualize search results layout information. For instance, you may want to highlight where a piece of text is found in an image as part of your search results.
 
