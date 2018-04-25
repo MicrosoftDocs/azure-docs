@@ -38,8 +38,6 @@ Azure Media Services REST v3 API enables you to analyze audio and video content.
 * Visual content moderation – the portion of the videos that have been flagged as adult or racy in nature
 * Annotation – a result of annotating the videos based on a pre-defined object model
 
-<Follow this up with the code sample to create a job with the above presets and a link to the JSON file schema that is an output of a job submitted to AMS (not VI)>
-
 ## Next steps
 
 > [!div class="nextstepaction"]
