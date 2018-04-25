@@ -18,7 +18,8 @@ ms.author: chrisgre
 
 # Configure and monitor IoT devices at scale - preview
 
-Over-the-air configuration in Azure IoT Hub provides the ability to perform IoT device configuration at scale.  You can build the set of golden configurations for your IoT solution, configure sets of devices, summarize completion and compliance, ensure devices are configured as they go in and out of scope, and roll out configurations in a phased approach.
+Over-the-air configuration in Azure IoT Hub provides the ability to perform IoT device configuration at scale.  You can build the set of standard configurations for your IoT solution, configure sets of devices, summarize completion and compliance, ensure devices are configured as they go in and out of scope, and roll out configurations in a phased approach.
+
 Over-the-air configuration works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
@@ -164,6 +165,7 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 
 * [Azure IoT Hub Device Provisioning Service][lnk-dps]
 
+[lnk-device-twin]: iot-hub-devguide-device-twins.md
 [lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
@@ -171,3 +173,4 @@ To explore using the IoT Hub Device Provisioning Service to enable zero-touch, j
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-portal]: https://portal.azure.com

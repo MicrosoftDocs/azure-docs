@@ -46,8 +46,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 | Twin updates (device and module)<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
 | Jobs operations<sup>1</sup> <br/> (create, update, list, delete) | 1.67/sec/unit (100/min/unit) | 1.67/sec/unit (100/min/unit) | 83.33/sec/unit (5000/min/unit) |
 | Jobs per-device operation throughput<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
-| Jobs per-device operation throughput<sup>1</sup> | 10/sec | Higher of 10/sec or 1/sec/unit | 50/sec/unit |
-| Configurations & edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
+| Configurations and edge deployments<sup>1</sup> <br/> (create, update, list, delete) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) | 0.33/sec/unit (20/min/unit) |
 
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 8 KB.
