@@ -20,9 +20,9 @@ ms.author: wesmc
 
 # Tutorial: Integrate Azure Functions with Azure SignalR Service
 
-A common scenario with real-time applications is for content updates to originate from a web server before being published to the desired clients. In this scenario, [Azure Functions](../azure-functions/functions-overview.md) is an excellent candiate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs, as the result of a trigger firing.  
+A common scenario with real-time applications is for content updates to originate from a web server before being published to the desired clients. In this scenario, [Azure Functions](../azure-functions/functions-overview.md) is an excellent candidate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs, as the result of a trigger firing.  
 
-Normally, this scenario would present a problem when trying to use SignalR. Because SignalR tries to maintain a connection between client and server to allow pushing content updates. Since the code only runs on-demand, a connection can not be maintained. However, Azure SignalR Service can support this scenartio. Because the service manages the connections for you.
+Normally, this scenario would present a problem when trying to use SignalR. Because SignalR tries to maintain a connection between client and server to allow pushing content updates. Since the code only runs on-demand, a connection cannot be maintained. However, Azure SignalR Service can support this scenario. Because the service manages the connections for you.
 
 In this tutorial, you will use Azure Functions to generate messages using a [timer trigger](../azure-functions/functions-create-scheduled-function.md) and publish them to the chat room created in the previous tutorials. The server will send the messages at the beginning of each minute. 
 
@@ -114,7 +114,7 @@ az functionapp deployment source config-local-git --name $functionappName \
 
 ```
 
-Make a note the git deployment URL returned from the last command. You will use this URL for deploying the funtion code.
+Make a note the git deployment URL returned from the last command. You will use this URL for deploying the function code.
 
 For more information on Azure Functions, see [An introduction to Azure Functions](../azure-functions/functions-overview.md)
 
@@ -224,7 +224,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this tutorial, you learned how to intergrate with Azure Function to push updates to clients based on Azure Function triggers. To learn more about using Azure SignalR Server, continue to the Azure CLI samples for SignalR Service.
+In this tutorial, you learned how to integrate with Azure Function to push updates to clients based on Azure Function triggers. To learn more about using Azure SignalR Server, continue to the Azure CLI samples for SignalR Service.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR CLI Samples](./signalr-cli-samples.md)
