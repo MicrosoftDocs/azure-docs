@@ -53,9 +53,9 @@ However, consider the following when using this scenario:
 The previous proposed scenario covers only the case of failure in the compute services. If the storage service fails, it will result in an outage of the FunctionApp.
 To ensure continuous operation of the durable functions, this scenario uses a local storage account on each region to which the FunctionApps are deployed.
 
-<p style="text-align: center;">
+<center>
 ![Diagram showing scenario 2.](media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
-</p>
+</center>
 
 This approach adds improvements on the previous scenario:
 - In the case of failure, failover to the failover regions is still managed by Traffic Manager. However, because the FunctionApp relies on its own storage account, the durable functions continue to work.
