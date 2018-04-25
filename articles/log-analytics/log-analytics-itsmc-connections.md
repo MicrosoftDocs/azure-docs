@@ -269,8 +269,8 @@ Once the user is successfully created, the status of **Check Installation Checkl
 
 > ITSM Connector can send incidents to ServiceNow without any other modules installed on your ServiceNow instance. If you are using EventManagement module in your ServiceNow instance and wish to create Events or Alerts in ServiceNow using the connector, add the following roles to the integration user:
 
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+>    - evt_mgmt_integration
+>    - evt_mgmt_operator  
 
 
 ## Connect Provance to IT Service Management Connector in Azure
