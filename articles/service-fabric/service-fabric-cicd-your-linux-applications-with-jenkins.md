@@ -46,7 +46,7 @@ If you are adding the Service Fabric plugin to an existing Jenkins environment, 
 - To deploy Java applications, install both [Gradle and Open JDK 8.0](service-fabric-get-started-linux.md#set-up-java-development). 
 - To deploy .NetCore 2.0 applications, install the [.NET Core 2.0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development). 
 
-After you install the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
+After you have installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
 
 
 ## Set up Jenkins inside a Service Fabric cluster
@@ -54,7 +54,7 @@ After you install the prerequisites needed for your environment, you can search 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
 
 ### Prerequisites
-1. Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster created from the Azure portal already has Docker installed. If you are running the cluster locally, check if Docker is installed by using the command `docker info`. If it is not installed, install it by using the following commands:
+- Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster created from the Azure portal or Azure Resource Manager (ARM)already has Docker installed. If you are running the cluster locally (OneBox dev environment), check if Docker is installed on your machine with the  `docker info` command. If it is not installed, install it by using the following commands:
 
    ```sh
    sudo apt-get install wget
@@ -142,18 +142,18 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
 You can set up Jenkins either inside or outside of a Service Fabric cluster. The following sections show how to set it up outside a cluster.
 
 ### Prerequisites
-Make sure that Docker is installed on your machine. The following commands can be used to install Docker from the terminal:
+- Make sure that Docker is installed on your machine. The following commands can be used to install Docker from the terminal:
 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
   ```
 
-When you run `docker info` in the terminal, the output should show that the Docker service is running.
+  When you run `docker info` in the terminal, the output should show that the Docker service is running.
 
 ### Steps
-1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:latest`. This image comes with Service Fabric Jenkins plugin pre-installed.
-2. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
+1. Pull the Service Fabric Jenkins container image: `docker pull rapatchi/jenkins:v10`. This image comes with Service Fabric Jenkins plugin pre-installed.
+2. Run the container image: `docker run -itd -p 8080:8080 rapatchi/jenkins:v10`
 3. Get the ID of the container image instance. You can list all the Docker containers with the command `docker ps –a`
 4. Sign in to the Jenkins portal with the following steps:
 
@@ -290,6 +290,7 @@ For development and test environments, you can configure either Azure credential
    * **Tenant ID** : *Directory ID*
    * **Subscription ID** : *Subscription ID*
 6. Enter a descriptive **ID** that you use to select the credential in Jenkins and a brief **Description**. Then click **Verify Service Principal**. If the verification succeeds, click **Add**.
+
    ![Service Fabric Jenkins enter Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
 7. Back under **Service Fabric Cluster Configuration**, ensure that your new credential is selected for **Azure Credentials**. 
 8. From the **Resource Group** drop-down select the resource group of the cluster you want to deploy the application to.
