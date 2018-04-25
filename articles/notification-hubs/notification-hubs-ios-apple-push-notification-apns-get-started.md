@@ -4,9 +4,9 @@ description: In this tutorial, you learn how to use Azure Notification Hubs to s
 services: notification-hubs
 documentationcenter: ios
 keywords: push notification,push notifications,ios push notifications
-author: spelluru
-manager: 
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: b7fcd916-8db8-41a6-ae88-fc02d57cb914
 ms.service: notification-hubs
@@ -15,9 +15,8 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/11/2018
-ms.author: spelluru
-
+ms.date: 04/14/2018
+ms.author: dimazaid
 ---
 # Tutorial: Push notifications to iOS apps using Azure Notification Hubs
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]

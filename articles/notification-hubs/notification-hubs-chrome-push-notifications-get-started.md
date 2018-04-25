@@ -4,9 +4,9 @@ description: Learn how to use Azure Notification Hubs to send push notifications
 services: notification-hubs
 keywords: mobile push notifications,push notifications,push notification,chrome push notifications
 documentationcenter: ''
-author: spelluru
-manager: 
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 75d4ff59-d04a-455f-bd44-0130a68e641f
 ms.service: notification-hubs
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: mobile-chrome
 ms.devlang: JavaScript
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/26/2018
-ms.author: spelluru
+ms.date: 04/14/2018
+ms.author: dimazaid
 #Customer intent: As a developer, I want to create backend applications that send notifications to client applications running on desktops or mobile devices so that users can take appropriate actions, get up-to-date information about an event, or receive coupons based on your current location.
 ---
 
