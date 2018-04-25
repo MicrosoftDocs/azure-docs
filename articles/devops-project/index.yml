@@ -70,3 +70,6 @@ sections:
     - html: <a href="https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github">Bring your own code with GitHub</a>
     - html: <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vm">Deploy your ASP.NET App to Azure Virtual Machines</a>
     - html: <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb">Deploy your ASP.NET App and Azure SQL Database</a>
+    - html: <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb">Deploy your App to Azure Container Service and Kubernetes</a>
+    - html: <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb">Deploy your App to Service Fabric</a>
+
