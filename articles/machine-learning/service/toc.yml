@@ -208,7 +208,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: ../desktop-workbench/aml-pricing.md
+    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Team Data Science Process
