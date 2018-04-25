@@ -1,18 +1,25 @@
 ---
-title: Incremental indexing to refresh Azure Search content | Microsoft Docs
-description: Add new and modified or updated documents, delete obsolete documents, in a partial indexing operation that preserves unchanged documents in an Azure Search index.
+title: Reindex an Azure Search index to refresh searchable content | Microsoft Docs
+description: Add new and modified or updated documents, delete obsolete documents, in a full rebuild or partial indexing operation that preserves unchanged documents in an Azure Search index.
+services: search
 author: HeidiSteen
 manager: cgronlun
 
 ms.service: search
-ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 12/28/2017
+ms.date: 05/01/2018
 ms.author: heidist
 
 ---
 # How to re-index an Azure Search index
 
+Synchronize document updates in external data sources to content in an Azure Search database. You can use REST or .NET API calls to refresh an index. For indexes populated using data source-specific indexers, you can refresh an index on schedule running at least every 15 minutes, up to whatever interval and pattern you require. Faster refresh schedules require pushing index updates manually, perhaps using an external scheduler or doing a double-write on transactions for concurrent updates on both the external data source and the Azure Search index.
+
+## When to rebuild
+
++ During active development, when index schemas are in a state of flux. Most updates to an existing field require an index rebuild, with the exception of these [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index): Retrievable, SearchAnalyzer, SynonymMaps
+
++ In production to synchronize changes in transactional, external data stores with searchable content in an index.
 
 ## Full rebuilds
 

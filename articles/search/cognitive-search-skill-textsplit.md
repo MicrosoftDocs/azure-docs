@@ -14,7 +14,7 @@ ms.author: luisca
 ---
 #	Text split cognitive skill
 
-The **Text Split** skill breaks text into chunks or pages of text. You can specify the desired maximum page length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
+The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
 ## @odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -25,15 +25,17 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
+| textSplitMode      | Either "pages" or "sentences" | 
+| maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by String.Length. The minimum value is 100. | 
 | defaultLanguageCode	| (optional) One of the following language codes: da, de, en, es, fi, fr, it, ko, pt.  <br/> If you pass a languagecode-countrycode format, only the languagecode part of the format will be used. 
 If the language is not in the previous list, the split skill will break text at character boundaries. <br/> Default is English (en). <br/> Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.  |
-| maximumPageLength	| Maximum page length as measured by String.Length. The minimum value is 100. |
+
 
 ## Skill Inputs
 
 | Parameter name	   | Description      |
-|--------------------|------------------|
-| text	| The text to split into pages. |
+|----------------------|------------------|
+| text	| The text to split into substring. |
 | languageCode	| (Optional) Language code for the document.  |
 
 ## Skill Outputs 
@@ -48,6 +50,7 @@ If the language is not in the previous list, the split skill will break text at 
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+    "textSplitMode" : "pages", 
     "maximumPageLength": 1000,
     "defaultLanguageCode": "en",
     "inputs": [
@@ -62,7 +65,7 @@ If the language is not in the previous list, the split skill will break text at 
     ],
     "outputs": [
         {
-            "name": "pages",
+            "name": "textitems",
             "targetName": "mypages"
         }
     ]

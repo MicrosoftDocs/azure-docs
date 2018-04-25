@@ -3,6 +3,7 @@ title: Tutorial for calling Cognitive Search APIs in Azure Search | Microsoft Do
 description: Learn how natural language processing and AI-powered algorithms can transform unsearchable or unstructured files into searchable content during indexing. 
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
@@ -11,21 +12,21 @@ ms.author: luisca
 ---
 # Tutorial: Learn how to call Cognitive Search APIs (Preview)
 
-Learn how adding enrichment steps, called *cognitive skills*, to an Azure Search indexing pipeline helps you extract structure and information from raw content. By attaching a *skillset* to an Azure Search indexer, you can add named entity recognition, natural language processing, and image analysis that makes latent information usable and searchable in custom apps. 
+Learn the programming steps for enriching data through *cognitive skills* in an Azure Search indexing pipeline. Cognitive skills are natural language processing (NLP) and image analysis operations, based on the same AI algorithms behind Cognitive Services. Adding skills to indexing allows you to pull text from images, detect and extract entitites, language, key phrases, or integrate any custom classifiers and processing you require.
 
-In this tutorial, learn the following tasks:
+In this tutorial, call the REST API to perform the following tasks:
 
 > [!div class="checklist"]
-> * Create an enriched indexing pipeline that transform data in route to an index
-> * Use built-in entity recognition, language detection, pagination, and key phrase extraction
-> * Learn how to chain transformations together by mapping inputs to outputs
-> * Run code and review results
+> * Create an enriched indexing pipeline that transforms data in route to an index
+> * Use built-in entity recognition, language detection, pagination, and key phrase extraction skills on a sample data set
+> * Learn how to chain skills together by mapping inputs to outputs
+> * Execute requests and review results
 > * Reset the index and indexers for further development
 
-Output is a full text searchable index on Azure Search. You can enhance the index with other Azure Search capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
+Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 > [!Note]
-> New to cognitive search? Read [this article](cognitive-search-concept-intro.md) to get acquainted.
+> New to cognitive search? Read [this article](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for an introduction to important concepts.
 >
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
