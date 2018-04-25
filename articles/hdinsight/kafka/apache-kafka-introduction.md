@@ -32,7 +32,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
     For more information on managed disks, see [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md).
 
-* Kafka was designed with a single dimensional view of a rack. Azure seperates a rack into two dimensions - Update Domains (UD) and Fault Domains (FD). Microsoft provides tools that rebalance Kafka partitions and replicas across UDs and FDs. 
+* Kafka was designed with a single dimensional view of a rack. Azure separates a rack into two dimensions - Update Domains (UD) and Fault Domains (FD). Microsoft provides tools that rebalance Kafka partitions and replicas across UDs and FDs. 
 
     For more information, see [High availability with Kafka on HDInsight](apache-kafka-high-availability.md).
 
