@@ -80,7 +80,7 @@ See [Data Extraction](luis-concept-data-extraction.md#regular-expression-entity-
 After your app gets endpoint utterances, plan to implement [improvements for prediction accuracy](luis-concept-best-practices.md#improving-prediction-accuracy). One of the improvements includes the Pattern.any entity. 
 
 ### Pattern.any entity
-Patterns.any is a variable-length placeholder used only in a [pattern's](luis-concept-patterns.md) template utterance to mark where the entity begins and ends. Template utterances conform to [proper syntax](luis-concept-patterns#pattern-syntax) to identify entities, and ignorable text.
+Patterns.any is a variable-length placeholder used only in a [pattern's](luis-concept-patterns.md) template utterance to mark where the entity begins and ends. Template utterances conform to [proper syntax](luis-concept-patterns.md#pattern-syntax) to identify entities, and ignorable text.
 
 
 ## Next steps
