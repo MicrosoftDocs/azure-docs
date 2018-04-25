@@ -84,6 +84,7 @@ az functionapp create --resource-group $ResourceGroupName \
 --name $functionappName \
 --consumption-plan-location $location \
 --storage-account $storageAccountName
+
 ```
 
 ## Configure the function app
