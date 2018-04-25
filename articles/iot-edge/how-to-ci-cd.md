@@ -28,11 +28,47 @@ It will take 30 minutes to complete this tutorial.
 
 In this section, you will create a simple IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
-1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**pipemodule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/pipemodule`). You need to change it to Azure Container Registry(`<your container registry address>/pipemodule`) or Docker Hub for furthur continuous integration.
+1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). You need to change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for furthur continuous integration.
 
 2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
-3. Now your sample IoT Edge solution with single basic modules is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `SampleModule`, then sent to your IoT hub.
+3. Now your sample IoT Edge solution with single basic modules is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Update code
+
+4. Integrated terminal
+
+Add a new folder "tests\filtermodule.test" in root
+```
+cd to tests\filtermodule.test 
+dotnet new xunit
+dotnet add reference ../../modules/filtermodule/filtermodule.csproj
+```
+
+5. Update test case code (ProgramTest.cs)
+
+6. Run test case locally
+```
+cd
+dotnet test
+```
+
+## CI VSTS
+prepare VSTS account
+install iot edge extension
+create repo
+upload code
+init builds
+    dotnet build test
+    Edge build and push
+    Edge deploy to edge device
+
+## deploy to test/staging/production
+
+
+
+
+
+
+
 
 
 
