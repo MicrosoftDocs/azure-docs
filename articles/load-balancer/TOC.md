@@ -61,7 +61,7 @@
 #### [Configure public Load Balancer (Classic CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=load-balancer)
 ## [Azure PowerShell](/powershell/module/azurerm.network)
 ## [Azure Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)

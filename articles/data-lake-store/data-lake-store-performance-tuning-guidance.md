@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Data Lake Store Performance Tuning Guidelines | Microsoft Docs
 description: Azure Data Lake Store Performance Tuning Guidelines
 services: data-lake-store
@@ -39,7 +39,7 @@ Whether you are using on-premises machines or VMs in Azure, you should carefully
 
 ### Network Connectivity to Azure Data Lake Store
 
-The network connectivity between your source data and Azure Data Lake store can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Store.
+The network connectivity between your source data and Azure Data Lake store can sometimes be the bottleneck. When your source data is On-Premises, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) . If your source data is in Azure, the performance will be best when the data is in the same Azure region as the Data Lake Store.
 
 ### Configure Data Ingestion tools for maximum parallelization
 

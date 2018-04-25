@@ -27,7 +27,7 @@ ms.author: piyushjo
 This topic shows you how to use Azure Mobile Engagement to understand your Web App usage.
 
 > [!NOTE]
-> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> The Azure Mobile Engagement service will be retired March 2018 and is currently only available to existing customers. For more information, see [Mobile Engagement](https://azure.microsoft.com/services/mobile-engagement/).
 
 This tutorial requires the following:
 
