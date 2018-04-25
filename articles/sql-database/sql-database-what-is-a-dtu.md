@@ -28,7 +28,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 - Drill down into the details of a query, view its text and history of resource utilization.
 - Access performance tuning recommendations that show actions performed by [SQL Database Advisor](sql-database-advisor.md).
 
-You can [change service tiers](sql-database-service-tiers-dtu.md) or [compute resources](sql-database-service-tiers-vcore.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
+You can change [DTU service tiers](sql-database-service-tiers-dtu.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs that are shared among multiple databases in the pool.
 
 ![Intro to SQL Database: Single database DTUs by tier and level](./media/sql-database-what-is-a-dtu/single_db_dtus.png)
 
@@ -51,7 +51,7 @@ Pools are suited for a large number of databases with specific utilization patte
 Performance levels are calibrated and governed to provide the needed resources to run your database workload up to the max limits allowed for your selected service tier/performance level. If your workload is hitting the limits in one of CPU/Data IO/Log IO limits, you continue to receive the resources at the maximum allowed level, but you are likely to see increased latencies for your queries. These limits do not result in any errors, but rather a slowdown in the workload, unless the slowdown becomes so severe that queries start timing out. If you are hitting limits of maximum allowed concurrent user sessions/requests (worker threads), you see explicit errors. See [Azure SQL Database resource limits]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) for information on limit on resources other than CPU, memory, data IO, and transaction log IO.
 
 ## Next steps
-* See [DTU-Based purchasing model](sql-database-service-tiers-dtu.md) for information on the DTUs and eDTUs available for single databases and for elastic pools, as well as limits on resources other than CPU, memory, data IO, and transaction log IO.
-* See [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview) for information on vCore-based resource allocation and service tiers. 
+* See [DTU-based purchasing model](sql-database-service-tiers-dtu.md) for information on the DTUs and eDTUs available for single databases and for elastic pools, as well as limits on resources other than CPU, memory, data IO, and transaction log IO.
+* See [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview) for information on vCore-based resource allocation and service tiers. 
 * See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
 * See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.

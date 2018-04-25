@@ -122,8 +122,8 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 ## Resources
 [Introduction to SQL Database](sql-database-technical-overview.md)
 
-[DTU-Based Service tiers and performance levels](sql-database-service-tiers-dtu.md)
+[DTU-based service tiers and performance levels](sql-database-service-tiers-dtu.md)
 
-[vCore-Based Service tiers and performance levels](sql-database-service-tiers-vcore.md)
+[vCore-based service tiers and performance levels](sql-database-service-tiers-vcore.md)
 
 [Performance guidance for single databases](sql-database-performance-guidance.md)

@@ -93,7 +93,7 @@ You can restore a deleted database to the deletion time for a deleted database o
 
 ### Azure portal
 
-To recover a deleted database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-Based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
+To recover a deleted database during its [DTU-based model retention period](sql-database-service-tiers-dtu.md) or [vCore-based model retention period](sql-database-service-tiers-vcore.md) using the Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 

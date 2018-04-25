@@ -111,7 +111,7 @@ The following errors are related to creating and using elastic pools:
 | 40862 |EX_USER |Elastic pool name must be specified if the elastic pool service objective is specified. |None |Elastic pool service objective does not uniquely identify an elastic pool. |Specify the elastic pool name if using the elastic pool service objective. |
 | 40864 |EX_USER |The DTUs for the elastic pool must be at least (%d) DTUs for service tier '%.*ls'. |DTUs for elastic pool; elastic pool service tier. |Attempting to set the DTUs for the elastic pool below the minimum limit. |Retry setting the DTUs for the elastic pool to at least the minimum limit. |
 | 40865 |EX_USER |The DTUs for the elastic pool cannot exceed (%d) DTUs for service tier '%.*ls'. |DTUs for elastic pool; elastic pool service tier. |Attempting to set the DTUs for the elastic pool above the maximum limit. |Retry setting the DTUs for the elastic pool to no greater than the maximum limit. |
-| 40867 |EX_USER |The DTU max per database must be at least (%d) for service tier '%.*ls'. |DTU max per database; elastic pool service tier |Attempting to set the DTU max per database below the supported limit. | consider using the elastic pool service tier that supports the desired setting. |
+| 40867 |EX_USER |The DTU max per database must be at least (%d) for service tier '%.*ls'. |DTU max per database; elastic pool service tier |Attempting to set the DTU max per database below the supported limit. | Consider using the elastic pool service tier that supports the desired setting. |
 | 40868 |EX_USER |The DTU max per database cannot exceed (%d) for service tier '%.*ls'. |DTU max per database; elastic pool service tier. |Attempting to set the DTU max per database beyond the supported limit. | Consider using the elastic pool service tier that supports the desired setting. |
 | 40870 |EX_USER |The DTU min per database cannot exceed (%d) for service tier '%.*ls'. |DTU min per database; elastic pool service tier. |Attempting to set the DTU min per database beyond the supported limit. | Consider using the elastic pool service tier that supports the desired setting. |
 | 40873 |EX_USER |The number of databases (%d) and DTU min per database (%d) cannot exceed the DTUs of the elastic pool (%d). |Number databases in elastic pool; DTU min per database; DTUs of elastic pool. |Attempting to specify DTU min for databases in the elastic pool that exceeds the DTUs of the elastic pool. | Consider increasing the DTUs of the elastic pool, or decrease the DTU min per database, or decrease the number of databases in the elastic pool. |
@@ -200,7 +200,7 @@ The following errors do not fall into any previous categories.
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 
 ## Next steps
-* Read about [Azure SQL Database Features](sql-database-features.md).
-* Read about [DTU-Based Purchasing](sql-database-service-tiers-dtu.md).
-* Read about [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md).
+* Read about [Azure SQL Database features](sql-database-features.md).
+* Read about [DTU-based purchasing model](sql-database-service-tiers-dtu.md).
+* Read about [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 

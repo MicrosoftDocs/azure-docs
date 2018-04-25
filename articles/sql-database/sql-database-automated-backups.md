@@ -40,10 +40,10 @@ Full database backups happen weekly, differential database backups generally hap
 The backup storage geo-replication occurs based on the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
-Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and the [vCore-Based Purchasing Model)](sql-database-service-tiers-vcore.md). 
+Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing Model)](sql-database-service-tiers-vcore.md). 
 
 
-### Database Retention for DTU-Based Purchasing Model
+### Database Retention for DTU-based purchasing model
 The retention period for a database in the DTU-based purchasing model depends on the service tier. The retention period for a database for the:
 
 * Basic service tier is 7 days.
@@ -63,7 +63,7 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
-### Database Retention for the vCore-Based Purchasing Model
+### Database Retention for the vCore-based purchasing model
 
 Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
 

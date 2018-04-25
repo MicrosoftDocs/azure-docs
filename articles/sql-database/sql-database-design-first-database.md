@@ -14,7 +14,7 @@ ms.author: carlrab
 
 # Tutorial: Design your first Azure SQL database using SSMS
 
-Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this Tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
+Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsoft Cloud (Azure). In this tutorial, you learn how to use the Azure portal and [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a database in the Azure portal*
@@ -27,7 +27,7 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
    >[!NOTE]
-   > For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md) (preview). 
+   > For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (preview). 
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ Follow these steps to create a blank SQL database.
 
 5. Click **Select**.
 
-6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this Tutorial, we are using the [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview). 
+6. Click **Pricing tier** to specify the service tier, the number of DTUs or vCores, and the amount of storage. Explore the options for the number of DTUs/vCores and storage that is available to you for each service tier. For the purpose of this tutorial, we are using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but you do have the option of choosing the [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview). 
 
 7. For this tutorial, select the **Standard** service tier and then use the slider to select **100 DTUs (S3)** and **400** GB of storage.
 
@@ -107,7 +107,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent tutorials and quickstarts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -295,27 +295,6 @@ Execute the following queries to retrieve information from the database tables. 
    WHERE person.FirstName = 'Noe'
    AND person.LastName = 'Coleman'
    ```
-
-## Restore a database to a previous point in time
-
-Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure SQL Database allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new database. You can you this database to recover your deleted data. The following steps restore the sample database to a point before the tables were added.
-
-1. On the SQL Database page for your database, click **Restore** on the toolbar. The **Restore** page opens.
-
-   ![restore](./media/sql-database-design-first-database/restore.png)
-
-2. Fill out the **Restore** form with the required information:
-	* Database name: Provide a database name 
-	* Point-in-time: Select the **Point-in-time** tab on the Restore form 
-	* Restore point: Select a time that occurs before the database was changed
-	* Target server: You cannot change this value when restoring a database 
-	* Elastic database pool: Select **None**  
-	* Pricing tier: Select **20 DTUs** and **40 GB** of storage.
-
-   ![restore-point](./media/sql-database-design-first-database/restore-point.png)
-
-3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers-dtu.md).
-
 
 ## Next steps 
 In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:

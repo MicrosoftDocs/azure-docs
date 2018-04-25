@@ -75,7 +75,7 @@ To create an Azure SQL database using the [Azure portal](https://portal.azure.co
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> For information on selecting the pricing tier for your database, see [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview)..
+> For information on selecting the pricing tier for your database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview)..
 
 To create a Managed Instance, see [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md)
 
@@ -88,11 +88,11 @@ To manage an existing database, navigate to the **SQL databases** page and click
    ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> To configure performance properties for a database, see [DTU-Based Purchasing Model](sql-database-service-tiers-dtu.md) and [vCore-Based Purchasing Model](sql-database-service-tiers-vcore.md)(preview)..
+> To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview)..
 >
 
 > [!TIP]
-> For an Azure portal quickstart tutorial, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
+> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
@@ -117,7 +117,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 | New-AzureRmSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](sql-database-vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
 > [!TIP]
-> For a PowerShell quickstart tutorial, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> For a PowerShell quickstart, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
@@ -147,7 +147,7 @@ To create and manage Azure SQL server, databases, and firewalls with the [Azure 
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart tutorial, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a single Azure SQL database using the Azure CLI](sql-database-get-started-cli.md). For Azure CLI example scripts, see [Use CLI to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-cli.md) and [Use CLI to monitor and scale a single SQL database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using Transact-SQL
@@ -178,7 +178,7 @@ To create and manage Azure SQL server, databases, and firewalls with Transact-SQ
 
 
 > [!TIP]
-> For quickstart tutorial using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quickstart tutorial using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
+> For a quickstart using SQL Server Management Studio on Microsoft Windows, see [Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md). For a quickstart using Visual Studio Code on the macOS, Linux, or Windows, see [Azure SQL Database: Use Visual Studio Code to connect and query data](sql-database-connect-query-vscode.md).
 
 ## Manage Azure SQL servers, databases, and firewalls using the REST API
 
