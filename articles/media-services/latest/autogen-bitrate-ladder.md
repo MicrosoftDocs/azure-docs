@@ -1,6 +1,6 @@
 ---
-title: Use Azure Media Services built-in standard encoder to auto-generate a bitrate ladder | Microsoft Docs
-description: This topic shows how to use Media Services to auto-generate a bitrate ladder based on the input resolution and bitrate. The input resolution and bitrate will never be exceeded. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
+title: Use the Standard Encoder in Azure Media Services to encode videos using an auto-generated bitrate ladder | Microsoft Docs
+description: This topic shows how to use the Standard Encoder in Media Services to encode an input video with an auto-generated bitrate ladder, based on the input resolution and bitrate. The input resolution and bitrate will never be exceeded. For example, if the input is 720p at 3Mbps, output will remain 720p at best, and will start at rates lower than 3Mbps.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,21 +16,21 @@ ms.date: 03/19/2018
 ms.author: juliako
 
 ---
-#  Auto-generate a bitrate ladder
+#  Encode with an auto-generated bitrate ladder
 
 ## Overview
 
-This article explains how to auto-generate a bitrate ladder (bitrate-resolution pairs) with Azure Media Services based on the input resolution and bitrate. The auto-generated preset will never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps.
+This article explains how to use the Standard Encoder in Media Services to encode an input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate. This built-in encoder setting, or preset, will never exceed the input resolution and bitrate. For example, if the input is 720p at 3 Mbps, output remains 720p at best, and will start at rates lower than 3 Mbps.
 
-### Encoding for streaming only
+### Encoding for streaming
 
-If your intent is to encode your source video only for streaming, then you should use the **AdaptiveStreaming** preset when creating an encoding transform. When using the **AdaptiveStreaming** preset, Media Services built-in standard encoder intelligently caps a bitrate ladder. However, you will not be able to control the encoding costs, since the service determines how many layers to use and at what resolution. The output Asset contains MP4 files where audio and video is not interleaved.
+As the name suggests, if you use the **AdaptiveStreaming** preset when creating an encoding Transform, you will get an output that is suitable for delivery via streaming protocols like HLS, DASH, CMAF etc. When using this **AdaptiveStreaming** preset, the encoder intelligently determines how many video layers to generate and at what bitrate and resolution. The output Asset contains MP4 files where AAC-encoded audio and H.264-encoded video is not interleaved.
 
 To see an example of how this preset is used, see [Stream a file](stream-files-dotnet-quickstart.md).
 
 ## Output
 
-This section shows three examples of output layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming** preset. 
+This section shows three examples of the output video layers produced by the Media Services encoder as a result of encoding with the **AdaptiveStreaming** preset. In all cases, the output will contain audio-only MP4 file with stereo audio encoded at 128 kbps.
 
 ### Example 1
 Source with height "1080" and framerate "29.970" produces 6 video layers:
