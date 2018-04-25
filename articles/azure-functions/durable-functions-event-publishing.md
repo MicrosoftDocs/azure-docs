@@ -264,7 +264,7 @@ The following list explains the lifecycle events schema:
 * **metadataVersion**:  Version of the metadata.
 * **topic**: EventGrid Topic resource.
 
-# How to test locally
+## How to test locally
 
 To test locally, use [ngrok](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#local-testing-with-ngrok).
 
