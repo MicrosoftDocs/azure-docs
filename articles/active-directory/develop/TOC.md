@@ -69,7 +69,7 @@
 ## [ACS Migration](active-directory-acs-migration.md)
 ## [Error handling best practices for ADAL](active-directory-devhowto-adal-error-handling.md)
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)
 ## [Code samples article](active-directory-code-samples.md)
 ## [Glossary](active-directory-dev-glossary.md)

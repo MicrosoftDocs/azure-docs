@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Security Documentation | Microsoft Docs
 description: Security is integrated into every aspect of the Azure. Azure offers you unique security advantages derived from global security intelligence, sophisticated customer-facing controls, and a secure hardened infrastructure. This powerful combination helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes.
 services: security
@@ -24,7 +24,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_overview.svg" data-linktype="external" data-hoverimage="">
+                            <img alt="" src="https://docs.microsoft.com/media/common/i_overview.svg" data-linktype="external" data-hoverimage="">
                         </div>
                     </div>
                     <div class="cardText">
@@ -162,7 +162,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_article.svg" alt="" /></div>
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_article.svg" alt="" /></div>
 					    <h3>White papers</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
@@ -185,7 +185,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_guidelines.svg" alt="" /></div>
+                        <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_guidelines.svg" alt="" /></div>
 					    <h3>Best practices</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
@@ -220,7 +220,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
-                     <div class="ico64Link"><img src="https://docs.microsoft.com/en-us/media/common/i_tasks.svg" alt="" /></div>
+                     <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_tasks.svg" alt="" /></div>
 					 <h3>Checklists</h3>
                      <ul class="noBullet">
                         <li style="list-style: none;">
@@ -247,7 +247,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_cloud-security.svg" data-linktype="external" data-hoverimage="">
+                            <img alt="" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" data-linktype="external" data-hoverimage="">
                         </div>
                     </div>
                     <div class="cardText">
@@ -347,7 +347,7 @@ Security is integrated into every aspect of the Azure. Azure offers you unique s
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img alt="" src="https://docs.microsoft.com/en-us/media/common/i_best-practices.svg" data-linktype="external" data-hoverimage="">
+                            <img alt="" src="https://docs.microsoft.com/media/common/i_best-practices.svg" data-linktype="external" data-hoverimage="">
                         </div>
                     </div>
                     <div class="cardText">
