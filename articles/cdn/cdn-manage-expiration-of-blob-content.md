@@ -145,7 +145,7 @@ class Program
 ## Setting Cache-Control headers by using other methods
 
 ### Azure Storage Explorer
-With [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
+With [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), you can view and edit your blob storage resources, including properties such as the *CacheControl* property. 
 
 To update the *CacheControl* property of a blob with Azure Storage Explorer:
    1. Select a blob, then select **Properties** from the context menu. 

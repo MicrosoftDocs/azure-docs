@@ -30,7 +30,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you don't have one, you can register via one of these methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Open the project folder

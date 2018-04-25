@@ -239,7 +239,7 @@ To fully re-create the VMs after restoring to disk, follow these steps:
 
    a. Create a VM in the cloud service with an [internal load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
-   b. Create a VM to connect to an [internet-facing load balancer](https://azure.microsoft.com/en-us/documentation/articles/load-balancer-internet-getstarted/).
+   b. Create a VM to connect to an [internet-facing load balancer](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
    c. Create a VM with [multiple NICs](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
 
