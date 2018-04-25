@@ -1,4 +1,4 @@
----
+﻿---
 title: Download a Linux VHD from Azure | Microsoft Docs
 description: Download a Linux VHD using the Azure CLI and the Azure portal.
 services: virtual-machines-windows
@@ -32,7 +32,7 @@ A VHD can’t be downloaded from Azure if it's attached to a running VM. You nee
 
 To use the VHD as an image to create other VMs, complete these steps:
 
-1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
+1. Use SSH, the account name, and the public IP address of the VM to connect to it and deprovision it. You can find the public IP address with [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). The +user parameter also removes the last provisioned user account. If you are baking account credentials in to the VM, leave out this +user parameter. The following example removes the last provisioned user account:
 
     ```bash
     ssh azureuser@<publicIpAddress>

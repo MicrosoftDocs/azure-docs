@@ -1,4 +1,4 @@
----
+﻿---
 title: Integrate LUIS with a bot using the Bot Builder SDK for Node.js in Azure | Microsoft Docs
 description: Build a bot integrated with a LUIS application using the Bot Framework.
 services: cognitive-services
@@ -163,7 +163,7 @@ var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 bot.recognizer(recognizer);
 
 // Add a dialog for each intent that the LUIS app recognizes.
-// See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
+// See https://docs.microsoft.com/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis 
 bot.dialog('GreetingDialog',
     (session) => {
         session.send('You reached the Greeting intent. You said \'%s\'.', session.message.text);

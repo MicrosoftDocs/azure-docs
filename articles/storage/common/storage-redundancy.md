@@ -43,7 +43,7 @@ See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/
 > Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
 
 ## Changing replication strategy
-We allow you to change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the many [Azure client libraries](https://docs.microsoft.com/en-us/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
+We allow you to change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the many [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.
 
    > [!NOTE]
    > Currently, you cannot use the Portal or API to convert your account to ZRS. However, we plan to support migrating to ZRS from LRS, GRS, and RA-GRS after ZRS is generally available. See [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md) for details.

@@ -1,4 +1,4 @@
----
+﻿---
 title: Article Index for Application Management in Azure Active Directory | Microsoft Azure
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
@@ -183,7 +183,7 @@ The Azure AD Access Panel is where end-users can launch their apps and access th
 | A comparison of the different options available for deploying single sign-on apps to users |[Deploying Azure AD Integrated Applications to Users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users) |
 | An overview of the Access Panel and its mobile equivalent MyApps |[Introduction to Access Panel and MyApps](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | How to access Azure AD apps from the Office 365 website |[Using the Office 365 App Launcher](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
-| How to access Azure AD apps from the Intune Managed Browser mobile app |[Intune Managed Browser](https://technet.microsoft.com/en-us/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
+| How to access Azure AD apps from the Intune Managed Browser mobile app |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | How to access Azure AD apps using deep links to initiate single sign-on |[Getting Direct Sign-On Links to Your Apps](active-directory-appssoaccess-whatis.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
 
 Access Panel is available for [all editions of Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
