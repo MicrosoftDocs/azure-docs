@@ -250,7 +250,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
   - name: Stack Overflow 
-    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c
+    href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
     href: active-directory-b2c-support.md
   - name: Videos
