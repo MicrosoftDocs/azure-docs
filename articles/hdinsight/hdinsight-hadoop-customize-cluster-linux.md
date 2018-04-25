@@ -205,7 +205,7 @@ This section provides examples on the different ways you can use script actions 
 
 ### Use a script action from Azure Resource Manager templates
 
-Script actions can be used with Azure Resource Manager templates. For an example, see [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Script actions can be used with Azure Resource Manager templates. For an example, see [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/).
 
 In this example, the script action is added using the following code:
 
