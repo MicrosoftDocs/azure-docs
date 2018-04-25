@@ -80,12 +80,12 @@ This tutorial explores analytics over ticket sales data. In this step, you gener
 
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1*, and set the following value:
     - **$DemoScenario** = **1** Purchase tickets for events at all venues
-2. Press **F5** to run the script and create ticket purchasing history for all the venues. With 20 tenants, the script generates tens of thousands of tickets and may take 10 minutes minutes or more.
+2. Press **F5** to run the script and create ticket purchasing history for all the venues. With 20 tenants, the script generates tens of thousands of tickets and may take 10 minutes or more.
 
 ### Deploy SQL Data Warehouse, Data Factory, and Blob Storage 
-In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then use [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.   
+In the Wingtip Tickets app, the tenants' transactional data is distributed over many databases. Azure Data Factory (ADF) is used to orchestrate the Extract, Load, and Transform (ELT) of this data into the data warehouse. To load data into SQL Data Warehouse most efficiently, ADF extracts data into intermediate blob files and then uses [PolyBase](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading) to load the data into the data warehouse.   
 
-In this step, you deploy the additional resources used in the tutorial: a SQL Data Warehouse called _tenantanalytics_, an Azure Data Factory called _dbtodwload-<username>_, and an Azure storage account called _wingtipstaging<username>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
+In this step, you deploy the additional resources used in the tutorial: a SQL Data Warehouse called _tenantanalytics_, an Azure Data Factory called _dbtodwload-\<user\>_, and an Azure storage account called _wingtipstaging\<user\>_. The storage account is used to temporarily hold extracted data files as blobs before they are loaded into the data warehouse. This step also deploys the data warehouse schema and defines the ADF pipelines that orchestrate the ELT process.
 1. In PowerShell ISE, open *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* and set:
     - **$DemoScenario** = **2** Deploy tenant analytics data warehouse, blob storage, and data factory 
 1. Press **F5** to run the demo script and deploy the Azure resources. 
@@ -109,27 +109,27 @@ In the Object Explorer:
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### Blob storage
-1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<username\>** has been added.
+1. In the [Azure Portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<user\>** has been added.
 
   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
-1. Click **wingtipstaging\<username\>** storage account to explore the objects present.
+1. Click **wingtipstaging\<user\>** storage account to explore the objects present.
 1. Click **Blobs** tile
 1. Click the container **configfile**
 1. Verify that **configfile** contains a JSON file called **TableConfig.json**. This file contains the source and destination table names, column names, and tracker column name.
 
 #### Azure Data Factory (ADF)
-1. In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-<username>_ has been added. 
+1. In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added. 
 
  ![adf_icon](media/saas-tenancy-tenant-analytics/adf-data-factory.PNG)
 
 This section explores the data factory created. 
 Follow the steps below to launch the data factory:
-1. In the portal, click the data factory called **dbtodwload-\<username\>**.
+1. In the portal, click the data factory called **dbtodwload-\<user\>**.
 2. Click **Author & Monitor** tile to launch the Data Factory designer in a separate tab. 
 
 ## Extract, Load, and Transform data
-Azure Data Factory is used for orchestrating extraction, loading, and transformation of data. In this tutorial, you extract data from four different SQL views from each of the tenant databases: **rawTickets**, **rawCustomers**, **rawEvents, and **rawVenues**. These views include  venue Id, so you can discriminate data from each venue in the data warehouse. The data is loaded into corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** and **raw_Venue**. A stored procedure then transforms the raw data and populates the star-schema tables: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
+Azure Data Factory is used for orchestrating extraction, loading, and transformation of data. In this tutorial, you extract data from four different SQL views from each of the tenant databases: **rawTickets**, **rawCustomers**, **rawEvents**, and **rawVenues**. These views include  venue Id, so you can discriminate data from each venue in the data warehouse. The data is loaded into corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** and **raw_Venue**. A stored procedure then transforms the raw data and populates the star-schema tables: **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
 
 In the previous section, you deployed and initialized the necessary Azure resources, including the data factory. The deployed data factory includes the pipelines, datasets, linked services, etc., required to extract, load, and transform the tenant data. Let's explore these objects further and then trigger the pipeline to move data from tenant databases to the data warehouse.
 
@@ -143,27 +143,23 @@ In the overview page, switch to **Author** tab on the left panel and observe tha
 
 The three nested pipelines are: SQLDBToDW, DBCopy, and TableCopy.
 
-**Pipeline 1 - SQLDBToDW** looks up the names of the tenant databases stored in the Catalog database (table name: [__ShardManagement].[ShardsGlobal]) and for each tenant database executes the **DBCopy** pipeline. Upon completion, the provided **sp_TransformExtractedData** stored procedure schema, is executed. This stored procedure transforms the loaded data in the staging tables and populates the star-schema tables.
+**Pipeline 1 - SQLDBToDW** looks up the names of the tenant databases stored in the Catalog database (table name: [__ShardManagement].[ShardsGlobal]) and for each tenant database, executes the **DBCopy** pipeline. Upon completion, the provided **sp_TransformExtractedData** stored procedure schema, is executed. This stored procedure transforms the loaded data in the staging tables and populates the star-schema tables.
 
-**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. **[Foreach](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.    
+**Pipeline 2 - DBCopy** looks up the names of the source tables and columns from a configuration file stored in blob storage.  The **TableCopy** pipeline is then run for each of the four tables: TicketFacts, CustomerFacts, EventFacts, and VenueFacts. The **[Foreach](https://docs.microsoft.com/en-us/azure/data-factory/control-flow-for-each-activity)** activity executes in parallel for all 20 databases. ADF allows a maximum of 20 loop iterations to be run in parallel. Consider creating multiple pipelines for more databases.    
 
 **Pipeline 3 - TableCopy** uses row version numbers in SQL Database (_rowversion_) to identify rows that have been changed or updated. This activity looks up the start and the end row version for extracting rows from the source tables. The **CopyTracker** table stored in each tenant database tracks the last row extracted from each source table in each run. New or changed rows are copied to the corresponding staging tables in the data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues**, and **raw_Events**. Finally the last row version is saved in the **CopyTracker** table to be used as the initial row version for the next extraction. 
 
-There are also three parameterized linked services that link the data factory to the source SQL Databases, the target SQL Data Warehouse, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services created as shown in the following image:
+There are also three parameterized linked services that link the data factory to the source SQL Databases, the target SQL Data Warehouse, and the intermediate Blob storage. In the **Author** tab, click on **Connections** to explore the linked services, as shown in the following image:
 
 ![adf_linkedservices](media/saas-tenancy-tenant-analytics/linkedservices.JPG)
 
 Corresponding to the three linked services, there are three datasets that refer to the data you use in the pipeline activities as inputs or outputs. Explore each of the datasets to observe connections and parameters used. _AzureBlob_ points to the configuration file containing source and target tables and columns, as well as the tracker column in each source.
   
 ### Data warehouse pattern overview
-SQL Data Warehouse is used as the analytics store to perform SQL-based aggregation on the tenant data. In this sample PolyBase is used to load data into the SQL Data warehouse. Raw data is loaded into staging tables in the data warehouse containing an identity column to keep track of data that is transformed and loaded into the star-schema tables. The following image shows the loading pattern:
+SQL Data Warehouse is used as the analytics store to perform aggregation on the tenant data. In this sample, PolyBase is used to load data into the SQL Data warehouse. Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables. The following image shows the loading pattern:
 ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG)
 
-Slowly Changing Dimension (SCD) type 1 is used in this pattern. Moreover, Surrogate key is defined in the dimension tables using an identity column. As a best practice, date dimension table is pre-populated to save time. For the rest of the dimension tables, CTAS statement is used to create a temporary table containing the existing modified and non-modified rows along with the surrogate keys. Next, the new rows are inserted into the table. For easy roll-back, the existing dimension table is renamed as the old dimension table and the temporary table becomes the new dimension table. Before each run, the old dimension table is replaced with the new dimension table.
-
-SQL Data Warehouse is used as the analytics store to perform SQL-based aggregation on the tenant data. In this sample PolyBase is used to load data into the SQL Data warehouse.  Raw data is loaded into staging tables that have an identity column to keep track of rows that have been transformed into the star-schema tables.
-
-Slowly Changing Dimension (SCD) type 1 dimension tables are used in this example. Each dimension has a surrogate key defined using an identity column. As a best practice, the date dimension table is pre-populated to save time. For the other dimension tables, a CREATE TABLE AS SELECT... (CTAS) statement is used to create a temporary table containing the existing modified and non-modified rows along with the surrogate keys. This is done with IDENTITY_INSERT=ON. New rows are then inserted into the table with IDENTITY_INSERT=OFF. For easy roll-back, the existing dimension table is renamed and the temporary table is renamed to become the new dimension table. Before each run, the old dimension table is deleted.
+Slowly Changing Dimension (SCD) type 1 dimension tables are used in this example. Each dimension has a surrogate key defined using an identity column. As a best practice, the date dimension table is pre-populated to save time. For the other dimension tables, a CREATE TABLE AS SELECT... (CTAS) statement is used to create a temporary table containing the existing modified and non-modified rows, along with the surrogate keys. This is done with IDENTITY_INSERT=ON. New rows are then inserted into the table with IDENTITY_INSERT=OFF. For easy roll-back, the existing dimension table is renamed and the temporary table is renamed to become the new dimension table. Before each run, the old dimension table is deleted.
 
 Dimension tables are loaded before the fact table. This sequencing ensures that for each arriving fact, all referenced dimensions already exist. As the facts are loaded, the business key for each corresponding dimension is matched and the corresponding surrogate keys are added to each fact.
 
@@ -172,12 +168,12 @@ The final step of the transform deletes the staging data ready for the next exec
 ### Trigger the pipeline run
 Follow the steps below to run the complete extract, load, and transform pipeline for all the tenant databases:
 1. In the **Author** tab of the ADF user interface, select **SQLDBToDW** pipeline from the left pane.
-1. Click **Trigger** and from the pulled down menu click **Trigger Now**. This action runs the pipeline immediately. In a production scenario, you would define a timetable for running the pipeline to refresh the data periodically.
+1. Click **Trigger** and from the pulled down menu click **Trigger Now**. This action runs the pipeline immediately. In a production scenario, you would define a timetable for running the pipeline to refresh the data on a schedule.
   ![adf_trigger](media/saas-tenancy-tenant-analytics/adf_trigger.JPG)
 1. On **Pipeline Run** page, click **Finish**.
  
 ### Monitor the pipeline run
-1. In the ADF user interface, switch to the **Monitor** tab from the left pane.
+1. In the ADF user interface, switch to the **Monitor** tab from the menu on the left.
 1. Click **Refresh** until SQLDBToDW pipeline's status is **Succeeded**.
   ![adf_monitoring](media/saas-tenancy-tenant-analytics/adf_monitoring.JPG)
 1. Connect to the data warehouse with SSMS and query the star-schema tables to verify that data was loaded in these tables.
@@ -195,7 +191,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 1. Launch Power BI desktop.
 2. From the Home ribbon, select **Get Data**, and select **More…** from the menu.
 3. In the **Get Data** window, select **Azure SQL Database**.
-4. In the database login window, enter your server name (catalog-dpt-&lt;User&gt;.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click **OK**. 
+4. In the database login window, enter your server name (**catalog-dpt-&lt;User&gt;.database.windows.net**). Select **Import** for **Data Connectivity Mode**, and then click **OK**. 
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
@@ -248,7 +244,7 @@ The plot above shows that even though most venues sell more than 80% of their ti
 ## Embedding analytics in your apps 
 This tutorial has focused on cross-tenant analytics used to improve the software vendor's understanding of their tenants. Analytics can also provide insights to the _tenants_, to help them manage their business more effectively  themselves. 
 
-In the Wingtip Tickets example, you earlier discovered that ticket sales tend to follow predictable patterns. This insight might be used to help underperforming venues boost ticket sales. Perhaps there is an opportunity to employ machine learning techniques to predict ticket sales for events. The effects of price changes could also be modeled, to allow the impact of offering discounts to be predicted. Power BI Embedded could be integrated into an event management application to visualize predicted sales, including the impact of discounts on total seats sold and revenue on low-selling events. With Power BI Embedded, you can even integrate actually applying the discount to the ticket prices, right in the graphical experience.
+In the Wingtip Tickets example, you earlier discovered that ticket sales tend to follow predictable patterns. This insight might be used to help underperforming venues boost ticket sales. Perhaps there is an opportunity to employ machine learning techniques to predict ticket sales for events. The effects of price changes could also be modeled, to allow the impact of offering discounts to be predicted. Power BI Embedded could be integrated into an event management application to visualize predicted sales, including the impact of discounts on total seats sold and revenue on low-selling events. With Power BI Embedded, you can even integrate actually applying the discount to the ticket prices, right in the visualization experience.
 
 
 ## Next steps
@@ -258,10 +254,10 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > - Deploy a SQL Data Warehouse populated with a star schema for tenant analytics 
 > - Use Azure Data Factory to:
-> - Extract data from tenant databases
-> - Load it into staging tables with PolyBase
-> - Use a stored procedure to transform new and changed data into the star schema 
-> -	Query a data warehouse 
+    > - Extract data from tenant databases
+    > - Load it into staging tables with PolyBase
+    > - Use a stored procedure to transform new and changed data into the star schema 
+    > -	Query a data warehouse 
 > -	Use Power BI to visualize trends in data across all the tenants 
 
 Congratulations!
