@@ -73,10 +73,10 @@ For example, a complete Azure Resource Manager template might look like the foll
 ```
 ## Use the managed service identity to access other resources
 
-    > [!NOTE]
-    > Currently, managed service identity can be used to obtain certificates from Azure Key Vault for API Management custom domain names. 
-    > 
-    > 
+> [!NOTE]
+> Currently, managed service identity can be used to obtain certificates from Azure Key Vault for API Management custom domain names. More scenarios will be supported soon.
+> 
+>
 
 
 ### Obtain a certificate from Azure Key Vault
