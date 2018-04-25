@@ -1,5 +1,5 @@
 ---
-title: "Run analytics queries against databases | Microsoft Docs"
+title: "Run analytics queries against tenant databases using Azure SQL Data Warehouse | Microsoft Docs"
 description: "Cross-tenant analytics queries using data extracted from multiple Azure SQL Database databases."
 keywords: "sql database tutorial"
 services: "sql-database"
@@ -17,7 +17,7 @@ ms.topic: "article"
 ms.date: "11/08/2017"
 ms.author: "anjangsh; billgib; genemi"
 ---
-# Cross-tenant analytics using extracted data
+# Explore SaaS analytics with Azure SQL Database, SQL Data Warehouse, Data Factory, and Power BI
 
 In this tutorial, you walk through an end-to-end analytics scenario. The scenario demonstrates how analytics over tenant data can empower software vendors to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
@@ -119,7 +119,7 @@ In the Object Explorer:
 1. Verify that **configfile** contains a JSON file called **TableConfig.json**. This file contains the source and destination table names, column names, and tracker column name.
 
 #### Azure Data Factory (ADF)
-1. In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added. 
+In the [Azure Portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added. 
 
  ![adf_portal](media/saas-tenancy-tenant-analytics/adf-data-factory-portal.png)
 
