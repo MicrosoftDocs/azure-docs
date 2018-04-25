@@ -20,6 +20,35 @@ sections:
   items:
   - type: paragraph
     text: 'Get started using the Bing News Search API by making a query and viewing the JSON response:'
+  - type: list
+    style: icon48
+    items:
+      - image:
+          src: media/index/logo_csharp.svg
+        href: csharp
+        text: "C#"
+      - image:
+          src: media/index/logo_java.svg
+        href: java
+        text: "Java"
+      - image:
+          src: media/index/logo_nodejs.svg
+        href: nodejs
+        text: "Node.js"
+      - image:
+          src: media/index/logo_python.svg
+        href: python
+        text: "Python"
+      - image:
+          src: media/index/logo_php.svg
+        href: php
+        text: "PHP"
+      - image:
+          src: media/index/logo_ruby.svg
+        href: ruby
+        text: "Ruby"
+  - type: paragraph
+    text: "Sample"
   - type: table
     style: dataMatrix
     columns:
@@ -41,6 +70,14 @@ sections:
       - image:
           src: media/index/logo_ruby.svg
         html: <a href="ruby.md">Ruby</a>
+    rows:
+      - values:
+        - href: csharp
+        - href: java
+        - href: nodejs
+        - href: python
+        - href: php
+        - href: ruby
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
