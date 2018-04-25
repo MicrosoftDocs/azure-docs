@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Media intelligence
 
-Azure Media Services REST v3 API enables you to analyze audio and vidio content. To analyze your content you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. 
+Azure Media Services REST v3 API enables you to analyze audio and video content. To analyze your content you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. 
 
 ## AudioAnalyzerPreset
 
