@@ -14,6 +14,17 @@ ms.date: 03/28/2018
 
 In this article, learn about the new releases for [Azure Machine Learning Services](../service/overview-what-is-azure-ml.md). 
 
+
+## 2018-05 (Sprint 5)
+
+With this release of Azure Machine Learning, you can:
++ Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and deploy that model to an FPGA on Azure for ultra-low latency inferencing.
+
++ Quickly build and deploy highly-accurate machine learning and deep learning models using Azure Machine Learning Python packages for the following domains:
+  + Computer vision
+  + Text analytics
+  + Forecasting
+
 ## 2018-03 (Sprint 4)
 **Version number**: 0.1.1801.24353  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Find your version](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 

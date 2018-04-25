@@ -83,7 +83,7 @@
   - name: Develop models
     items: 
     - name: Classify Iris using CLI
-      href: ../desktop-workbench/tutorial-iris-azure-cli.md  
+      href: ../desktop-workbench/tutorial-iris-azure-cli.md
     - name: Track run history and model metrics
       href: ../desktop-workbench/how-to-use-run-history-model-metrics.md    
     - name: Find run with the best accuracy
@@ -112,6 +112,12 @@
       href: ../desktop-workbench/how-to-use-model-data-collection.md
     - name: Deployment troubleshooting guide
       href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
+  - name: Computer Vision
+    items:
+    - name: Build and deploy image classification models
+      href: how-to-build-deploy-image-classification-models.md
+    - name: Improve model accuracy
+      href: how-to-improve-accuracy-for-computer-vision-models.md
   - name: Real-world examples
     items:
     - name: Document collection analysis
@@ -144,6 +150,9 @@
   items:  
   - name: Python packages
     href: reference-python-package-overview.md
+    items:    
+    - name: FPGA hardware acceleration
+      href: reference-fpga-package-overview.md
   - name: Data preparation
     items:
     - name: Python extensions for data preparation
