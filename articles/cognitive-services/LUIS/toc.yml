@@ -241,8 +241,10 @@
   items: 
   - name: Bot framework
     href: https://dev.botframework.com/
-  - name: Bot Builder SDK
+  - name: Bot Builder 3.x SDK C#
     href: https://github.com/Microsoft/BotBuilder
+  - name: Bot Builder 4.x SDK C#
+    href: https://github.com/Microsoft/botbuilder-dotnet
   - name: QnA maker 
     href: https://qnamaker.ai/
   - name: Bing Speech API
