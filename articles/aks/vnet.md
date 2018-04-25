@@ -1,6 +1,6 @@
 ---
-title: Advanced networking with VNets in Azure Kubernetes Service (AKS)
-description: Learn about placing your pods in an Azure VNet using the advanced network features of Azure Kubernetes Service (AKS).
+title: Network configuration for Azure Kubernetes Service (AKS) clusters
+description: Learn about basic and advanced network configuration in Azure Kubernetes Service (AKS).
 services: container-service
 author: neilpeterson
 manager: jeconnoc
@@ -11,9 +11,17 @@ ms.date: 05/07/2018
 ms.author: nepeters
 ---
 
-# Advanced networking with VNets in Azure Kubernetes Service (AKS)
+# Network configuration for Azure Kubernetes Service (AKS) clusters
 
-Advanced networking places your pods in an Azure Virtual Network (VNet), providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. The [Azure Container Networking Interface (CNI)][cni-networking] plugin for Kubernetes provides this advanced networking support, and is installed on all AKS cluster nodes.
+When you create an Azure Kubernetes Service (AKS) cluster, you can select from two networking options: **Basic** or **Advanced**.
+
+## Basic networking
+
+The **Basic** networking option is the default configuration for AKS cluster creation. The network configuration of the cluster and its pods are managed completely by Azure, and is appropriate for deployments that do not require custom VNet configuration. You do not have control over network configuration such as subnets or the IP address ranges assigned to the cluster when you select Basic networking.
+
+## Advanced networking
+
+**Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer. The [Azure Container Networking Interface (CNI)][cni-networking] plugin for Kubernetes provides this advanced networking support, and is installed on all AKS cluster nodes.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
@@ -37,11 +45,11 @@ When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure 
 
 **Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select **Create new** and follow the steps in the **Create new subnet** page.
 
-**Service CIDR address range**: The IP address range for the Kubernetes cluster Service IPs. This range should be *outside* the subnet IP address range of your cluster.
+**Service CIDR address range**: The IP address range for the Kubernetes cluster service IPs. This range must not be within the VNet IP address range of your cluster.
 
 **DNS service IP address**:  The IP address for the Kubernetes cluster DNS service. This address must be from within the *Service CIDR address range*.
 
-**Docker Bridge IP address**: The IP address and netmask to assign to the Docker bridge. This address must not be in any subnet IP range, or in the range of Service CIDR.
+**Docker Bridge IP address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the VNet IP address range of your cluster.
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
@@ -49,7 +57,7 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 ## Plan IP addressing for your cluster
 
-When planning the size of your VNet and the subnet, consider the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
+When you plan the size of your VNet and the subnet, consider the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
 
 Each VNet provisioned for use with the Azure CNI plugin is limited to 4096 IP addresses.
 
