@@ -1,4 +1,4 @@
----
+﻿---
 title: Cheat sheet for Azure SQL Data Warehouse | Microsoft Docs
 description: Find links and best practices to quickly build your Azure SQL Data Warehouse solutions.
 services: sql-data-warehouse
@@ -30,7 +30,7 @@ Knowing the types of operations in advance helps you optimize the design of your
 
 ## Data migration
 
-First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
+First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) or Azure Blob storage. Next, use PolyBase to load your data into SQL Data Warehouse in a staging table. Use the following configuration:
 
 | Design | Recommendation |
 |:--- |:--- |
@@ -39,7 +39,7 @@ First, load your data into [Azure Data Lake Store](https://docs.microsoft.com/en
 | Partitioning | None |
 | Resource Class | largerc or xlargerc |
 
-Learn more about [data migration], [data loading], and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/design-elt-data-loading). 
+Learn more about [data migration], [data loading], and the [Extract, Load, and Transform (ELT) process](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
 
 ## Distributed or replicated tables
 

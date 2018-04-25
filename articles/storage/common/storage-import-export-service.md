@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: muralikk
@@ -26,7 +26,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
 2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
 1.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
-2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
 7.	Download WAImportExport V1 from https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.	Unzip to the default folder waimportexportv1. For example, C:\WaImportExportV1  
