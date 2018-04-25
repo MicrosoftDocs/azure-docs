@@ -132,6 +132,9 @@ Toggle **Tokens View** to view the tokens instead of the entity type names. On t
 
 ![Screenshot of BookFlight intent, with Token View highlighted](./media/add-example-utterances/toggle-tokens-view.png)
 
+## Train your app after changing model with intents
+After you add, edit, or remove intents, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
+
 ## Next steps
 
 After adding intents to your app, your next task is to start adding [example utterances](Add-example-utterances.md) for the intents you've added. 

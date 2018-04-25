@@ -31,7 +31,7 @@ buy a ticket from {Location:origin} to {Location:destination}
 ```
 
 ## Role syntax in patterns
-The entity and role are surrounded in parentheses, `{}`. The entity is separated by the role with a colon. 
+The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
 ## Next steps
 

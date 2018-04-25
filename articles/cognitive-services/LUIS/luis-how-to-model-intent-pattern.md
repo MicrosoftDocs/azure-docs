@@ -33,12 +33,12 @@ After a LUIS app receives endpoint utterances, use Patterns to improve predictio
 
     ![Screenshot of entity with role](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
-    After you select the correct entity, finish entering the pattern, and then select Enter.
+    After you select the correct entity, finish entering the pattern, and then select Enter. When you are done entering patterns, [train](luis-how-to-train.md) your app.
 
     ![Screenshot of entered pattern with both types of entities](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## Search patterns
-Searching allows you to find patterns that contain text.  
+Searching allows you to find patterns that contain some given text.  
 
 1. Select the magnifying glass icon.
 
@@ -53,17 +53,17 @@ Searching allows you to find patterns that contain text.
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## Edit a pattern
-1. To edit a pattern, select the three dots (...) icon at the right end of the line for that pattern then select **Edit**. 
+1. To edit a pattern, select the three dots (...) icon at the right end of the line for that pattern, then select **Edit**. 
 
     ![Screenshot of Edit menu item in pattern row](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
-2. Enter any changes in the text box. When you are done, select enter.
+2. Enter any changes in the text box. When you are done, select enter. When you are done editing patterns, [train](luis-how-to-train.md) your app.
 
     ![Screenshot of editing pattern](./media/luis-how-to-model-intent-pattern/edit-pattern.png)
 
 ## Reassign individual pattern to different intent
 
-To reassign a single pattern to a different intent, select the intent list box to the right off the pattern text, and select a different intent.
+To reassign a single pattern to a different intent, select the intent list box to the right of the pattern text, and select a different intent.
 
 ![Screenshot of reassigning individual pattern to different intent](./media/luis-how-to-model-intent-pattern/reassign-individual-pattern.png)
 
@@ -75,7 +75,7 @@ To reassign several patterns to a different intent, select the checkbox to the l
 
 ## Delete a single pattern
 
-1. To delete a pattern, select the three dots (...) icon at the right end of the line for that pattern then select **Delete**. 
+1. To delete a pattern, select the three dots (...) icon at the right end of the line for that pattern, then select **Delete**. 
 
     ![Screenshot of Delete utterance](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -114,7 +114,7 @@ When the pattern list is filtered, the entity or intent name appears below the t
 
 ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
-The filter is removed and all patterns display.
+The filter is removed and all patterns display. 
 
 ## Add pattern from existing utterance on intent or entity page
 You can create a pattern from an existing utterance on either the **Intent** or **Entity** page. All utterances on any intent or entity page are displayed in a list with the right column providing access to utterance-level options such as **Edit**, **Delete**, and **Add as pattern**.
@@ -126,6 +126,9 @@ You can create a pattern from an existing utterance on either the **Intent** or 
 2. Modify the pattern according to the [syntax rules](luis-concept-patterns.md#pattern-syntax). If the utterance you selected is labeled with entities, those entities are already in the pattern with the correct syntax.
 
     ![Screenshot of filtered patterns by entity](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
+
+## Train your app after changing model with patterns
+After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](PublishApp.md) your app for your changes to affect endpoint queries. 
 
 ## Next steps
 
