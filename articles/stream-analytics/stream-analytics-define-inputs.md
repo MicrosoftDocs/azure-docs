@@ -45,7 +45,7 @@ To create new inputs, and list or edit existing inputs on your streaming job, yo
 7. Select **Test** on the input details page to verify that the connection options are valid and working. 
 8. Right-click on the name of an existing input, and select **Sample data from input** as needed for further testing.
 
-You can also use [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
+You can also use [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
 
 ## Stream data from Event Hubs
 

@@ -607,7 +607,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Programs"
 							]
 						},
-						"description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				},
@@ -683,7 +683,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"AccessPolicies"
 							]
 						},
-						"description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
+						"description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
 					},
 					"response": []
 				},
@@ -751,7 +751,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Start"
 							]
 						},
-						"description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				},
@@ -808,7 +808,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Locators"
 							]
 						},
-						"description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+						"description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
 					},
 					"response": []
 				},
@@ -877,7 +877,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Stop"
 							]
 						},
-						"description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				}

@@ -37,7 +37,7 @@ App Service on Linux supports a number of Built-in images in order to increase d
 | Go | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
-See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-java) for more details.
+See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) for more details.
 
 ## Deployments
 
