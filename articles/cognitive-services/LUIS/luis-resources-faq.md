@@ -147,7 +147,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Tutorial|
 |--|
 |Integrate LUIS with a bot with [C#](luis-csharp-tutorial-build-bot-framework-sample.md) and [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights) and [Node.js](luis-tutorial-function-appinsights)|
+|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights.md) and [Node.js](luis-tutorial-function-appinsights.md)|
 |Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
 |Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
@@ -156,7 +156,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 
 Does LUIS have any certificates or ISO conformance for security or GDPR? 
 
-See [Security Compliance](luis-concept-security.md#security-compliance) for ISO and CSA STAR conformance. See [GDPR](luis-reference-gdpr) regarding General Data Protection Regulation information.
+See [Security Compliance](luis-concept-security.md#security-compliance) for ISO and CSA STAR conformance. See [GDPR](luis-reference-gdpr.md) regarding General Data Protection Regulation information.
 
 ## Next steps
 
