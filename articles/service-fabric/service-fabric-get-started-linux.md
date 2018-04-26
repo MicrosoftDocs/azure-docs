@@ -1,5 +1,5 @@
 ---
-title: Set up your Azure development environment on Linux | Microsoft Docs
+title: Set up your development environment on Linux | Microsoft Docs
 description: Install the runtime and SDK and create a local development cluster on Linux. After completing this setup, you'll be ready to build applications.
 services: service-fabric
 documentationcenter: .net
@@ -49,7 +49,7 @@ These operating system versions are supported for development:
 
 ## Installation methods
 
-### 1. Script installation (Ubuntu)
+### Script installation (Ubuntu)
 
 For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Run the manual installation steps in the next section. You see what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed.
 
@@ -59,7 +59,7 @@ After the script executes successfully, you can skip to [Set up a local cluster]
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### 2. Manual installation
+### Manual installation
 For manual installation of the Service Fabric runtime and common SDK, follow the rest of this guide.
 
 ## Update your APT sources or Yum Repositories
@@ -172,7 +172,7 @@ Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
 RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
-Start a local cluster after the installation completes.
+Start a local cluster after the installation finishes.
 
 1. Run the cluster setup script:
 
@@ -187,13 +187,12 @@ Start a local cluster after the installation completes.
     Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. Build new services by using the Java or .NET Core SDKs with the optional setup steps in the following sections.
 
 
-    > [!NOTE]
-    > Standalone clusters aren't supported in Linux.
-    >
+> [!NOTE]
+> Standalone clusters aren't supported in Linux.
 
 
-    > [!TIP]
-    > If you have an SSD disk available, it's recommended to pass an SSD folder path by using `--clusterdataroot` with devclustersetup.sh for superior performance.
+> [!TIP]
+> If you have an SSD disk available, it's recommended to pass an SSD folder path by using `--clusterdataroot` with devclustersetup.sh for superior performance.
 
 ## Set up the Service Fabric CLI
 
@@ -274,7 +273,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 5. Select the **ServiceFabric** plug-in, and then select **Next**.
 
-6. Complete the installation steps. Then accept the end-user license agreement.
+6. Perform the installation steps. Then accept the end-user license agreement.
 
 If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version. Check by selecting **Help** > **About Eclipse** > **Installation Details**. Then search for Service Fabric in the list of installed plug-ins. Select **Update** if a newer version is available.
 
@@ -291,7 +290,7 @@ sudo apt-get install servicefabric servicefabricsdkcommon
 To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, refer to any ``build.gradle`` file in the Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
-> Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions on this page.
+> Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions in this article.
 
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following commands:
