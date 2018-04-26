@@ -34,7 +34,7 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
 
 2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose one of the following:
    * **None**: No one can use the SSPR functionality.
-   * **Selected**: Only members of a specific Azure AD group that you choose can use the SSPR functionality. We recommend that you define a group of users and use this setting when you deploy this functionality for a proof of concept.
+   * **Selected**: Only members of a specific Azure AD group that you choose can use the SSPR functionality. We recommend that you define a group of users and use this setting when you deploy this functionality for a proof of concept. Nesting of security groups is supported here.
    * **All**: All users with accounts in your Azure AD tenant can use the SSPR functionality. We recommend that you use this setting when you're ready to deploy this functionality to your entire tenant after you have completed a proof of concept.
 
    > [!IMPORTANT]
