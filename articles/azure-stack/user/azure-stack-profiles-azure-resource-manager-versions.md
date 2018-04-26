@@ -28,8 +28,8 @@ The API profile uses three naming conventions:
 
 For an explanation of API profiles and version release cadence for Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
- > ![note]  
- > The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
+> [!note]  
+> The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
 
 ## Overview of 2018 – 03-01-hybrid
 
