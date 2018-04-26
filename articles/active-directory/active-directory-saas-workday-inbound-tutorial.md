@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Configure Workday for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to use Workday as source of identity data for Active Directory and Azure Active Directory.
 services: active-directory
