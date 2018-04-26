@@ -1,5 +1,5 @@
 ---
-title: Automatic container builds and patching with Azure Container Registry Build (ACR Build)
+title: Automate OS and framework patching with Azure Container Registry Build (ACR Build)
 description: An introduction ACR Build, a suite of features in Azure Container Registry that provides secure, automated container image build and patching in the cloud.
 services: container-registry
 author: mmacy
@@ -7,21 +7,11 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 05/02/2018
 ms.author: marsma
 ---
 
-# Automate building and patching container images with ACR Build
-
-<!--
-* TITLE: auto build, patch, run containers with acr build
-* TITLE: securely build and maintain container images ...
-* never patch again
-* ACR supports OS and framework patching through ACR BUild
-* lead in is patching
-* lead with the nugget
-* maintenance - the Big Deal
--->
+# Automate OS and framework patching with ACR Build
 
 As containers provide new levels of virtualization, isolating application and developer dependencies from the infrastructure and operational requirements, we must address how the application virtualization is patched.
 
