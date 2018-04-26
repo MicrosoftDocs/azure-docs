@@ -1,6 +1,6 @@
 ---
 title: Types of outputs from Azure Stream Analytics jobs
-description: Learn about targeting Stream Analytics data outputs options including Power BI for analysis results.
+description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 04/26/2018
 ---
 # Stream Analytics outputs: Options for storage and analysis
 When authoring a Stream Analytics job, consider how the resulting data is consumed. How can you view the results of the Stream Analytics job and where can you store it?
@@ -358,6 +358,24 @@ The following table summarizes the partition support and the number of output wr
 | Azure Service Bus Queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output. |
 | Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
 | Azure Functions | No | None | Not applicable. | 
+
+## Output batch sizes 
+Stream Analytics uses a variable size batches to process events and write to outputs. Typically the Stream Analytics engine does not write one message at a time, and uses batches for efficiency. When both the incoming and the outgoing events rate is high, it can batching agressively. When the egress rate is low, it can use batches to keep latency low. 
+
+The following table explains some of the considerations to output batching:
+
+| Output type |	Max throughput | Batch size optimization |
+| :--- | :--- | :--- | 
+| Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
+| SQL Database | 10,000 Max rows per single bulk insert</br>100 Min rows per single bulk insert </br>See also [Azure SQL limits](../sql-database/sql-database-resource-limits.md) |  Every batch is initially bulk inserted with Max batch size and may split batch into half (until Min batch size) based on retryable errors from SQL. |
+| Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size id 4 MB</br>Maximum Blob bock count is 50000 |
+| Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | 100 entities per single transaction |
+| Service Bus queue	| 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
+| Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
+| Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
+| Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx) |
+| Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4MB per write operation	</br> Stream Analytics batch events together up to 4MB to minimize the number of transactions. When the frequency of incoming events is low, smaller batches are used to ensure low latency|
+| Azure Functions	| | Default batch size is 246 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
 
 
 ## Get help
