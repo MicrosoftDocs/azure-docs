@@ -19,21 +19,17 @@ ms.reviewer: sijuman
 
 # Resource provider API versions supported by profiles in Azure Stack
 
-You can find the resource provider and version numbers for each API profile used by Azure Stack.
-
-An API profile is a set of resource providers and their API versions. During the year, resource providers update API versions independently of the profile definition. Tools should be able to tag releases with API profiles as well be able to release individual modules to support each API version.
+You can find the resource provider and version numbers for each API profile used by Azure Stack in this article. The tables in this article list the versions supported for each resource provider and the API versions of the profiles. Each resource provider contains a set of resource types and specific version numbers.
 
 The API profile uses three naming conventions:
  - latest
  - yyyy-mm-dd-hybrid
  - yyyy-mm-dd-profile
 
-You can a more detailed explanation of the profile version release cadence and how to use API profiles with Azure Stack at [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
+For an explanation of API profiles and version release cadence for Azure Stack, see [Manage API version profiles in Azure Stack](azure-stack-version-profiles.md).
 
-The tables in this article list the versions supported for each resource provider and the API versions of the profiles. Each resource provider contains a set of resource types and specific version numbers.
-
-> ![note]  
-> The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
+ > ![note]  
+ > The **latest** API profile contains the latest of the resource provider API version, and is not listed in this article.
 
 ## Overview of 2018 – 03-01-hybrid
 
