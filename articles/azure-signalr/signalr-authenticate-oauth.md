@@ -17,7 +17,7 @@ ms.date: 04/17/2018
 ms.author: wesmc
 #Customer intent: As an ASP.NET Core developer, I want to provide real authentication for my clients before allowing them to push content updates.
 ---
-# Tutorial: Azure SignalR Service authentication with OAuth
+# Tutorial: Azure SignalR Service authentication
 
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete those exercises first. 
 
@@ -246,14 +246,13 @@ In this section, you will update the *AuthController* class to support OAuth aut
     }
     ```
 
-    After successful authentication, this code uses the temporary authentication code returned from the GitHub OAuth API to send HTTP POST requests back to GitHub. These HTTP POST requests allow the *AuthController* class to get the following information about the GutHub user account being authenticated:
+    After successful authentication, this code uses the temporary authentication code returned from the GitHub OAuth API to send HTTP POST requests back to GitHub. These HTTP POST requests allow the `AuthController` class to get the following information about the GutHub user account being authenticated:
 
     * username
     * company
     * accessToken
 
-
-    *AuthController* adds cookies to the client response for this information, along with the *serviceURL*. Client-side code will use the cookies when connecting and pushing content updates with Azure SignalR Service.
+    The `AuthController` class adds cookies to the client response for this information, along with the *serviceURL*. Client-side code will use the cookies when connecting and pushing content updates with Azure SignalR Service.
 
 
 ### Add the OAuth app secrets as constants
