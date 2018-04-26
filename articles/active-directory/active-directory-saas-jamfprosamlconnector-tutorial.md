@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 04/26/2018
 ms.author: jeedes
 
 ---
@@ -104,18 +104,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Jamf Pro SAML Connector Domain and URLs single sign-on information](./media/active-directory-saas-jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://aadsso.jamfcloud.com/saml/metadata`
+    a. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://aadsso.jamfcloud.com/saml/SSO`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Jamf Pro SAML Connector Domain and URLs single sign-on information](./media/active-directory-saas-jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://aadsso.jamfcloud.com`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.jamfcloud.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Jamf Pro SAML Connector Client support team](aaaaaaaaaa) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Jamf Pro SAML Connector Client support team](https://www.jamf.com/support/) to get these values.
 
 5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
 
@@ -216,7 +216,7 @@ In the case of Jamf Pro SAML Connector, provisioning is a manual task.
 
 	a. In the **USERNAME** textbox, type the full name of BrittaSimon.
 
-	b. Select appropriate options as per your organization for **ACCESS LEVEL**, **PRIVILGE SET**, **ACCESS STATUS**.
+	b. Select appropriate options as per your organization for **ACCESS LEVEL**, **PRIVILGE SET**, and for **ACCESS STATUS**.
 	
 	c. In the **FULL NAME** textbox, type the full name of Britta Simon.
 
