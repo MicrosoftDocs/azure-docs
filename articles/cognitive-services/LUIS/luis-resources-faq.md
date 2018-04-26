@@ -154,7 +154,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
 |[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
-Does LUIS have any certificates or ISO conformance for security or GDPR? 
+## Does LUIS have any certificates or ISO conformance for security or GDPR? 
 
 See [Security Compliance](luis-concept-security.md#security-compliance) for ISO and CSA STAR conformance. See [GDPR](luis-reference-gdpr.md) regarding General Data Protection Regulation information.
 
