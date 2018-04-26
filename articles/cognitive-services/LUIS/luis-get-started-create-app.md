@@ -26,6 +26,8 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
 1. Click **Create new app**.
 
+    [![](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
+
 2. In the dialog box, name your application "Home Automation".
 
     [![](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
