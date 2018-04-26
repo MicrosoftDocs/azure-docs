@@ -7,10 +7,7 @@
 ## [Create and manage a VPN gateway](vpn-gateway-tutorial-create-gateway-powershell.md)
 
 # Samples
-## [Create a VPN gateway](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
-## [Point-to-Site - RADIUS authentication](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
-## [Point-to-Site - certificate authentication](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
-## [Site-to-Site](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
+## [Azure PowerShell](powershell-samples.md)
 
 # Concepts
 ## [Planning and design for VPN Gateway](vpn-gateway-plan-design.md)
