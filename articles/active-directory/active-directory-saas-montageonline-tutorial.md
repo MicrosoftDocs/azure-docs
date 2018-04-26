@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	For Production Environment: `https://<subdomain>.montageonline.co.nz/`
 
-	For Test Environment: `https://build-<Subdomain>.montageonline.co.nz/`
+	For Test Environment: `https://build-<subdomain>.montageonline.co.nz/`
 
 	b. In the **Identifier** textbox, type a URL:
 
