@@ -1,12 +1,13 @@
 ---
-title: Create a Standard Load Balancer - Azure portal | Microsoft Docs
-description: Learn how to create a Standard load balancer by using the Azure portal.
+title: Quickstart:Create a Standard Load Balancer - Azure portal | Microsoft Docs
+description: This quickstart shows how to create a Standard load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
@@ -16,9 +17,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
 ms.author: kumud
+ms.custom: mvc
 ---
 
-# Create a Standard Load Balancer to load balance VMs using the Azure portal
+# Quickstart: Create a Standard Load Balancer to load balance VMs using the Azure portal
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to create a load balancer to load balance virtual machines (VMs). This quickstart shows you how to load balance VMs using a Standard Load Balancer.
 
