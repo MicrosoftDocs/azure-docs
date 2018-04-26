@@ -160,7 +160,7 @@ Let's look at the first skill, which is the predefined [named entity recognition
 
 Every predefined skill has odata.type, input, and output properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, "categories" is one entity among a fixed set of entity types that the pretrained model can recognize.
 
-Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"\document"```. In downstream skills, you can refer to this newly created information as ```"\document\organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
+Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"/document"```. In downstream skills, you can refer to this newly created information as ```"/document/organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
 
 The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (named entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
 
