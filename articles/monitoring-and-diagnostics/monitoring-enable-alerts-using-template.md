@@ -33,7 +33,7 @@ The basic steps are as follows:
 
 Below we describe how to create a Resource Manager template first for an alert alone, then for an alert during the creation of another resource.
 
-## Resource Manager template for a metric alert
+## Resource Manager template for a classic metric alert
 To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/alertRules` and fill in all related properties. Below is a template that creates an alert rule.
 
 ```json
@@ -183,7 +183,7 @@ To create an alert using a Resource Manager template, you create a resource of t
 
 An explanation of the schema and properties for an alert rule [is available here](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
-## Resource Manager template for a resource with an alert
+## Resource Manager template for a resource with a classic metric alert
 An alert on a Resource Manager template is most often useful when creating an alert while creating a resource. For example, you may want to ensure that a “CPU % > 80” rule is set up every time you deploy a Virtual Machine. To do this, you add the alert rule as a resource in the resource array for your VM template and add a dependency using the `dependsOn` property to the VM resource ID. Here’s a full example that creates a Windows VM and adds an alert that notifies subscription admins when the CPU utilization goes above 80%.
 
 ```json
