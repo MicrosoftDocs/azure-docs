@@ -32,36 +32,378 @@ In this section, you will create a simple IoT Edge solution containing unit test
 
 2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
-3. Now your sample IoT Edge solution with single basic modules is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Update code
+3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Replace the entire file with below content. For more infomation about this code snippet, you can refer to [Create an IoT Edge C# module project](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
-4. Integrated terminal
+    ```csharp
+    namespace FilterModule
+    {
+        using System;
+        using System.IO;
+        using System.Runtime.InteropServices;
+        using System.Runtime.Loader;
+        using System.Security.Cryptography.X509Certificates;
+        using System.Text;
+        using System.Threading;
+        using System.Threading.Tasks;
+        using Microsoft.Azure.Devices.Client;
+        using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+        using System.Collections.Generic;     // for KeyValuePair<>
+        using Microsoft.Azure.Devices.Shared; // for TwinCollection
+        using Newtonsoft.Json;                // for JsonConvert
 
-Add a new folder "tests\filtermodule.test" in root
-```
-cd to tests\filtermodule.test 
-dotnet new xunit
-dotnet add reference ../../modules/filtermodule/filtermodule.csproj
-```
+        public class MessageBody
+        {
+            public Machine machine { get; set; }
+            public Ambient ambient { get; set; }
+            public string timeCreated { get; set; }
+        }
+        public class Machine
+        {
+            public double temperature { get; set; }
+            public double pressure { get; set; }
+        }
+        public class Ambient
+        {
+            public double temperature { get; set; }
+            public int humidity { get; set; }
+        }
 
-5. Update test case code (ProgramTest.cs)
+        public class Program
+        {
+            static int counter;
+            static int temperatureThreshold { get; set; } = 25;
 
-6. Run test case locally
-```
-cd
-dotnet test
-```
+            static void Main(string[] args)
+            {
+                // The Edge runtime gives us the connection string we need -- it is injected as an environment variable
+                string connectionString = Environment.GetEnvironmentVariable("EdgeHubConnectionString");
 
-## CI VSTS
-prepare VSTS account
-install iot edge extension
-create repo
-upload code
-init builds
-    dotnet build test
-    Edge build and push
-    Edge deploy to edge device
+                // Cert verification is not yet fully functional when using Windows OS for the container
+                bool bypassCertVerification = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+                if (!bypassCertVerification) InstallCert();
+                Init(connectionString, bypassCertVerification).Wait();
 
-## deploy to test/staging/production
+                // Wait until the app unloads or is cancelled
+                var cts = new CancellationTokenSource();
+                AssemblyLoadContext.Default.Unloading += (ctx) => cts.Cancel();
+                Console.CancelKeyPress += (sender, cpe) => cts.Cancel();
+                WhenCancelled(cts.Token).Wait();
+            }
+
+            /// <summary>
+            /// Handles cleanup operations when app is cancelled or unloads
+            /// </summary>
+            public static Task WhenCancelled(CancellationToken cancellationToken)
+            {
+                var tcs = new TaskCompletionSource<bool>();
+                cancellationToken.Register(s => ((TaskCompletionSource<bool>)s).SetResult(true), tcs);
+                return tcs.Task;
+            }
+
+            /// <summary>
+            /// Add certificate in local cert store for use by client for secure connection to IoT Edge runtime
+            /// </summary>
+            static void InstallCert()
+            {
+                string certPath = Environment.GetEnvironmentVariable("EdgeModuleCACertificateFile");
+                if (string.IsNullOrWhiteSpace(certPath))
+                {
+                    // We cannot proceed further without a proper cert file
+                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
+                    throw new InvalidOperationException("Missing path to certificate file.");
+                }
+                else if (!File.Exists(certPath))
+                {
+                    // We cannot proceed further without a proper cert file
+                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
+                    throw new InvalidOperationException("Missing certificate file.");
+                }
+                X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
+                store.Open(OpenFlags.ReadWrite);
+                store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
+                Console.WriteLine("Added Cert: " + certPath);
+                store.Close();
+            }
+
+
+            /// <summary>
+            /// Initializes the DeviceClient and sets up the callback to receive
+            /// messages containing temperature information
+            /// </summary>
+            static async Task Init(string connectionString, bool bypassCertVerification = false)
+            {
+                Console.WriteLine("Connection String {0}", connectionString);
+
+                MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+                // During dev you might want to bypass the cert verification. It is highly recommended to verify certs systematically in production
+                if (bypassCertVerification)
+                {
+                    mqttSetting.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+                }
+                ITransportSettings[] settings = { mqttSetting };
+
+                // Open a connection to the Edge runtime
+                DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(connectionString, settings);
+                await ioTHubModuleClient.OpenAsync();
+                Console.WriteLine("IoT Hub module client initialized.");
+
+                // Register callback to be called when a message is received by the module
+                // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+
+                // Read TemperatureThreshold from Module Twin Desired Properties
+                var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+                var moduleTwinCollection = moduleTwin.Properties.Desired;
+                if (moduleTwinCollection["TemperatureThreshold"] != null)
+                {
+                    temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+                }
+
+                // Attach callback for Twin desired properties updates
+                await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+
+                // Register callback to be called when a message is received by the module
+                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+            }
+
+            static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+            {
+                try
+                {
+                    Console.WriteLine("Desired property change:");
+                    Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+
+                    if (desiredProperties["TemperatureThreshold"] != null)
+                        temperatureThreshold = desiredProperties["TemperatureThreshold"];
+
+                }
+                catch (AggregateException ex)
+                {
+                    foreach (Exception exception in ex.InnerExceptions)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Error when receiving desired property: {0}", exception);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
+                }
+                return Task.CompletedTask;
+            }
+
+            public static Message filter(Message message)
+            {
+                var counterValue = Interlocked.Increment(ref counter);
+
+                var messageBytes = message.GetBytes();
+                var messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message {counterValue}: [{messageString}]");
+
+                // Get message body
+                var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+
+                if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                {
+                    Console.WriteLine($"Machine temperature {messageBody.machine.temperature} " +
+                        $"exceeds threshold {temperatureThreshold}");
+                    var filteredMessage = new Message(messageBytes);
+                    foreach (KeyValuePair<string, string> prop in message.Properties)
+                    {
+                        filteredMessage.Properties.Add(prop.Key, prop.Value);
+                    }
+
+                    filteredMessage.Properties.Add("MessageType", "Alert");
+                    return filteredMessage;
+                }
+                return null;
+            }
+
+            static async Task<MessageResponse> FilterMessages(Message message, object userContext)
+            {
+                try
+                {
+                    DeviceClient deviceClient = (DeviceClient)userContext;
+
+                    var filteredMessage = filter(message);
+                    if (filteredMessage != null)
+                    {
+                        await deviceClient.SendEventAsync("output1", filteredMessage);
+                    }
+
+                    // Indicate that the message treatment is completed
+                    return MessageResponse.Completed;
+                }
+                catch (AggregateException ex)
+                {
+                    foreach (Exception exception in ex.InnerExceptions)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Error in sample: {0}", exception);
+                    }
+                    // Indicate that the message treatment is not completed
+                    var deviceClient = (DeviceClient)userContext;
+                    return MessageResponse.Abandoned;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", ex.Message);
+                    // Indicate that the message treatment is not completed
+                    DeviceClient deviceClient = (DeviceClient)userContext;
+                    return MessageResponse.Abandoned;
+                }
+            }
+        }
+    }
+    ```
+
+4. Create a .Net Core unit test project. In VS Code file explorer, create a new folder **tests\FilterModuleTest** in your workspace. Then in VS Code integrated ternimal (**Ctrl + `**), run following commands to create a xunit test project and add reference to the **FilterModule** project.
+
+    ```cmd
+    cd tests\FilterModuleTest
+    dotnet new xunit
+    dotnet add reference ../../modules/FilterModule/FilterModule.csproj
+    ```
+
+5. In the **FilterModuleTest** folder, update the file name of **UnitTest1.cs** to **FilterModuleTest.cs**. Select and open **FilterModuleTest.cs**, replace the entire code with below code snippet, which contains the unit tests against the FilterModule project.
+
+    ```csharp
+    using Xunit;
+    using FilterModule;
+    using Newtonsoft.Json;
+    using System;
+    using System.IO;
+    using System.Runtime.InteropServices;
+    using System.Runtime.Loader;
+    using System.Security.Cryptography.X509Certificates;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.Devices.Client.Transport.Mqtt;
+
+    namespace FilterModuleTest
+    {
+        public class FilterModuleTest
+        {
+            [Fact]
+            public void filterLessThanThresholdTest()
+            {
+                var source = createMessage(25 - 1);
+                var result = Program.filter(source);
+                Assert.True(result == null);
+            }
+
+            [Fact]
+            public void filterMoreThanThresholdAlertPropertyTest()
+            {
+                var source = createMessage(25 + 1);
+                var result = Program.filter(source);
+                Assert.True(result.Properties["MessageType"] == "Alert");
+            }
+
+            [Fact]
+            public void filterMoreThanThresholdCopyPropertyTest()
+            {
+                var source = createMessage(25 + 1);
+                source.Properties.Add("customTestKey", "customTestValue");
+                var result = Program.filter(source);
+                Assert.True(result.Properties["customTestKey"] == "customTestValue");
+            }
+
+            private Message createMessage(int temperature)
+            {
+                var messageBody = createMessageBody(temperature);
+                var messageString = JsonConvert.SerializeObject(messageBody);
+                var messageBytes = Encoding.UTF8.GetBytes(messageString);
+                return new Message(messageBytes);
+            }
+
+            private MessageBody createMessageBody(int temperature)
+            {
+                var messageBody = new MessageBody
+                {
+                    machine = new Machine
+                    {
+                        temperature = temperature,
+                        pressure = 0
+                    },
+                    ambient = new Ambient
+                    {
+                        temperature = 0,
+                        humidity = 0
+                    },
+                    timeCreated = string.Format("{0:O}", DateTime.Now)
+                };
+
+                return messageBody;
+            }
+        }
+    }
+    ```
+
+6. In integrated ternimal, you can enter following commands to run unit tests locally. 
+    ```cmd
+    dotnet test
+    ```
+
+7. Save these projects, then check it into your VSTS or TFS repository.
+
+> [!NOTE]
+> For more details about using VSTS code repositories, see [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+
+
+## Configure continuous integration and deployment
+In this section, you will create a build definition that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
+
+1. Sign into your VSTS account (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
+
+1. Visit [Azure IoT Edge For VSTS](Azure IoT Edge For VSTS) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
+
+1. In your VSTS, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
+
+1. If prompted, select the **VSTS Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
+
+1. In **Select a template** window, choose **start with an Empty process**.
+
+1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **.Net Core**, and click **Add** to add this task to the phase.
+
+1. Update the **Display name** to **dotnet test**, and in the **Command** dropdown list, select **test**. Add below path to the **Path to project(s)**.
+
+    ```
+    tests/FilterModuleTest/*.csproj
+    ```
+1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **Azure IoT Edge**, and click **Add** button **twice** to add these tasks to the phase.
+
+1. In the first Azure IoT Edge task, update the **Display name** to **Module Build and Push**, and in the **Action** dropdown list, select **Build and Push**. In the **Module.json File** textbox, add below path to it. Then choose **Container Registry Type**, make sure you configure and select the same registry in your code. This task will build and push all your modules in the solution and publish to the container registry you specified. 
+
+    ```
+    **/module.json
+    ```
+
+1. In the second Azure IoT Edge task, update the **Display name** to **Deploy to IoT Edge device**, and in the **Action** dropdown list, select **Deploy to IoT Edge device**. Select your Azure subscription and input your IoT Hub name. You can specify an IoT Edge deployment ID and the deployment priority. You can also choose to deploy to single or multiple devices. If you are deploying to multiple devices, you need to specify the device target condition. For example, if you want to use device Tags as the condition, you need to update your corresponding devices Tags before the deployment. 
+
+1. Click the **Process** and make sure your **Agent queue** is **Hosted Linux Preview**.
+
+1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
+
+1. Save the new build definition and queue a new build.
+
+1. Choose the link to the build in the message bar that appears.
+
+1. After the build has finished, you see the summary for each task and the results in the live log file. 
+
+
+## Next steps
+
+This tutorial demonstrates how you can use the continuous integration and continuous deployment features of VSTS or TFS. 
+
+* Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale][how-to-deploy-monitor.md].
+
+> [!div class="nextstepaction"]
+> [Deploy Azure Function as a module](tutorial-deploy-function.md)
 
 
 
