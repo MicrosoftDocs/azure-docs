@@ -8,11 +8,9 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 04/25/2018
 ---
 # Stream data as input into Stream Analytics
-
-Stream Analytics accepts data incoming from several kinds of event sources. The data connection provided as an input into a Stream Analytics job is referred to as the job's *input*. 
 
 Stream Analytics has first-class integration with Azure data streams as inputs from three kinds of resources:
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
@@ -20,17 +18,6 @@ Stream Analytics has first-class integration with Azure data streams as inputs f
 - [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) 
 
 These input resources can live in same Azure subscription as your Stream Analytics job, or from a different subscription.
-
-## Compare stream and reference inputs
-As data is pushed to a data source, it's consumed by the Stream Analytics job and processed in real time. Inputs are divided into two types: data stream inputs and reference data inputs.
-
-### Data stream input
-A data stream is an unbounded sequence of events over time. Stream Analytics jobs must include at least one data stream input. Event Hubs, IoT Hub, and Blob storage are supported as data stream input sources. Event Hubs are used to collect event streams from multiple devices and services. These streams might include social media activity feeds, stock trade information, or data from sensors. IoT Hubs are optimized to collect data from connected devices in Internet of Things (IoT) scenarios.  Blob storage can be used as an input source for ingesting bulk data as a stream, such as log files.  
-
-### Reference data input
-Stream Analytics also supports input known as *reference data*. This is auxiliary data that is either static or that changes slowly. Reference data is typically used to perform correlation and lookups. For example, you might join data in the data stream input to data in the reference data, much as you would perform a SQL join to look up static values. Azure Blob storage is currently the only supported input source for reference data. Reference data source blobs are limited to 100 MB in size.
-
-To learn how to create reference data inputs, see [Use Reference Data](stream-analytics-use-reference-data.md).  
 
 ### Compression
 Stream Analytics supports compression across all data stream input sources. Currently supported reference types are: None, GZip, and Deflate compression. Support for compression is not available for reference data. If the input format is Avro data that is compressed, it's handled transparently. You don't need to specify compression type with Avro serialization. 
@@ -45,7 +32,6 @@ To create new inputs, and list or edit existing inputs on your streaming job, yo
 7. Select **Test** on the input details page to verify that the connection options are valid and working. 
 8. Right-click on the name of an existing input, and select **Sample data from input** as needed for further testing.
 
-You can also use [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job inputs.
 
 ## Stream data from Event Hubs
 
@@ -67,7 +53,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Event Hub name** | The name of the event hub to use as input. |
 | **Event Hub policy name** | The shared access policy that provides access to the Event Hub. Each shared access policy has a name, permissions that you set, and access keys. This option is automatically populated in unless you select the option to provide the Event Hub settings manually.|
 | **Event Hub consumer group** (recommended) | It is highly recommended to use a distinct consumer group for each Stream Analytics job. This string identifies the consumer group to use to ingest data from the event hub. If no consumer group is specified, the Stream Analytics job uses the $Default consumer group.  |
-| **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
+| **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
 
@@ -117,7 +103,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Shared access policy name** | The shared access policy that provides access to the IoT Hub. Each shared access policy has a name, permissions that you set, and access keys. |
 | **Shared access policy key** | The shared access key used to authorize access to the IoT Hub.  This option is automatically populated in unless you select the option to provide the Iot Hub settings manually. |
 | **Consumer group** | It is highly recommended that you use a different consumer group for each Stream Analytics job. The consumer group is used to ingest data from the IoT Hub. Stream Analytics uses the $Default consumer group unless you specify otherwise.  |
-| **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream. |
+| **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
 
@@ -166,7 +152,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Path pattern** (optional) | The file path used to locate the blobs within the specified container. Within the path, you can specify one or more instances of the following three variables: `{date}`, `{time}`, or `{partition}`<br/><br/>Example 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Example 2: `cluster1/logs/{date}`<br/><br/>The `*` character is not an allowed value for the path prefix. Only valid <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure blob characters</a> are allowed. |
 | **Date format** (optional) | If you use the date variable in the path, the date format in which the files are organized. Example: `YYYY/MM/DD` |
 | **Time format** (optional) |  If you use the time variable in the path, the time format in which the files are organized. Currently the only supported value is `HH` for hours. |
-| **Event serialization format** | The serialization format (JSON, CSV, or Avro) for incoming data streams. |
+| **Event serialization format** | The serialization format (JSON, CSV, or Avro) of the incoming data stream.  Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | For CSV and JSON, UTF-8 is currently the only supported encoding format. |
 | **Compression** | The compression type used to read the incoming data stream, such as None (default), GZip, or Deflate. |
 
@@ -190,12 +176,8 @@ FROM Input
 ```
 
 ## Next steps
-You've learned about data connection options in Azure for your Stream Analytics jobs. To learn more about Stream Analytics, see:
-
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

@@ -65,6 +65,17 @@ topics|May contain one or more [topics](#topics)
 sentiments|May contain one or more [sentiments](#sentiments)
 audioEffects| May contain one or more [audioEffects](#audioEffects)
 brands| May contain zero or more [brands](#brands)
+Statistics|For more information, see [Statistics](#Statistics)
+
+### Statistics
+
+|Name|Description|
+|---|---|
+|CorrespondenceCount|Number of correspondences in the video.|
+|WordCount|The number of words per speaker.|
+|SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
+|SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the 3rd decimal point.|
 
 ## breakdowns
 
