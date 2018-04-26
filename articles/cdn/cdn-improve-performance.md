@@ -27,7 +27,7 @@ There are two ways to enable file compression:
 
 > [!IMPORTANT]
 > CDN configuration changes can take some time to propagate through the network: 
-- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in two minutes. 
+- For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
 - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
 - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 >

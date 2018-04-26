@@ -20,7 +20,7 @@ ms.author: mazha
 # Troubleshooting CDN endpoints returning 404 statuses
 This article helps you troubleshoot issues with [CDN endpoints](cdn-create-new-endpoint.md) returning 404 errors.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 ## Symptom
 You've created a CDN profile and an endpoint, but your content doesn't seem to be available on the CDN.  Users who attempt to access your content via the CDN URL receive HTTP 404 status codes. 
@@ -36,7 +36,7 @@ There are several possible causes, including:
 ## Troubleshooting steps
 > [!IMPORTANT]
 > After creating a CDN endpoint, it will not immediately be available for use, as it takes time for the registration to propagate through the CDN:
-> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in two minutes. 
+> - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in ten minutes. 
 > - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
 > - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 > 
