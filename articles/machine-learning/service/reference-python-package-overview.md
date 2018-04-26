@@ -16,32 +16,36 @@ This section contains the reference documentation for proprietary Python package
 You can use these libraries and functions in combination with other open source or third-party packages, but to use the proprietary packages, your Python code must run against a service or on a computer that provides the interpreters.
 
 
-|Library details||
-|---------|---------|
-|Service|Azure Machine Learning (not Studio)|
-|Built on|Anaconda 4.2 distribution of Python 3.5|
-
-
 ## Domain-specific packages 
+
+The Azure Machine Learning packages are Python pip-installable extensions for Azure Machine Learning that enable data scientists and AI developers to quickly build and deploy highly-accurate machine learning and deep learning models for various domains.
  
 ### Azure ML Package for Computer Vision
 
-In one sentence, this package allows you to do this and that. 
+With Azure ML Package for Computer Vision, you can build, fine-tune and deploy deep learning models for image classification, object detection, and image similarity.
 
-Learn more about this package in this [Overview and Installation](https://docs.microsoft.com/en-us/machine-learning-server/python-reference/introducing-python-package-reference) article.  Try it out by building and deploying an image classification model using this [Jupyter notebook](how-to-build-deploy-image-classification-models.md)
+Try these next steps for this package:
++ [Download](https://aka.ms/aml-packages/vision/download) the package
++ Read the [install docs](https://aka.ms/aml-packages/vision)
++ [Build and deploy a text classification model](how-to-build-deploy-image-classification-models.md) with a Jupyter notebook
++ Explore the package [reference documentation](https://aka.ms/aml-packages/vision)
 
 ### Azure ML Package for Forecasting
 
-In one sentence, this package allows you to do this and that. 
+With Azure ML Package for Forecasting, you can create and deploy time series forecasting models for financial and demand forecasting scenarios.
 
-Learn more about this package in this [Overview and Installation](https://docs.microsoft.com/en-us/machine-learning-server/python-reference/introducing-python-package-reference) article.  Try it out by building and deploying an image classification model using this [Jupyter notebook](how-to-build-deploy-image-classification-models.md)
+Try these next steps for this package:
++ [Download](https://aka.ms/aml-packages/forecasting/download) the package
++ Read the [install docs](https://aka.ms/aml-packages/forecasting)
++ [Build and deploy a text classification model](how-to-build-deploy-forecast-models.md) with a Jupyter notebook
++ Explore the package [reference documentation](https://aka.ms/aml-packages/forecasting)
 
 ### Azure ML Package for Text Analytics
 
-In one sentence, this package allows you to do this and that. 
+With Azure ML Package for Text Analytics, you can build text deep-learning models for text classification, custom entity extraction, and word embedding.
 
-Learn more about this package in this [Overview and Installation](https://docs.microsoft.com/en-us/machine-learning-server/python-reference/introducing-python-package-reference) article.  Try it out by building and deploying an image classification model using this [Jupyter notebook](how-to-build-deploy-image-classification-models.md)
-
-## Next steps
-
-For information about machine learning, see another article once it gets written.
+Try these next steps for this package:
++ [Download](https://aka.ms/aml-packages/text/download) the package
++ Read the [install docs](https://aka.ms/aml-packages/text)
++ [Build and deploy a text classification model](how-to-build-deploy-text-classification-models.md) with a Jupyter notebook
++ Explore the package [reference documentation](https://aka.ms/aml-packages/text)
