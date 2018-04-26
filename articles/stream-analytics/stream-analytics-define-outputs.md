@@ -36,52 +36,19 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 
    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
-<table>
-<tbody>
-<tr>
-<td><B>PROPERTY NAME</B></td>
-<td><B>DESCRIPTION</B></td>
-</tr>
-<tr>
-<td>Output Alias</td>
-<td>A friendly name used in queries to direct the query output to this Data Lake Store.</td>
-</tr>
-<tr>
-<td>Account Name</td>
-<td>The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription.</td>
-</tr>
-<tr>
-<td>Path Prefix Pattern</td>
-<td>The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.<BR> Example 1: folder1/logs/{date}/{time}<BR>Example 2: folder1/logs/{date}<BR>Also, here are the situations, where a new file is created:<BR>1. Change in output schema <BR>2. External or Internal restart of a job<BR><BR>Additionally, if the file path pattern does not contain a trailing “/”, the last pattern in the file path is treated as a filename prefix.<BR></td>
-</tr>
-<tr>
-<td>Date Format [<I>optional</I>]</td>
-<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
-</tr>
-<tr>
-<td>Time Format [<I>optional</I>]</td>
-<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
-</tr>
-<tr>
-<td>Event Serialization Format</td>
-<td>Serialization format for output data. JSON, CSV, and Avro are supported.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
-</tr>
-<tr>
-<td>Delimiter</td>
-<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and, vertical bar.</td>
-</tr>
-<tr>
-<td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.</td>
-</tr>
-</tbody>
-</table>
+| Property name | Description | 
+| --- | --- |
+| Output alias | A friendly name used in queries to direct the query output to this Data Lake Store. | 
+| Account name | The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
+| Path prefix pattern | The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.</br>Example 1: folder1/logs/{date}/{time} </br>Example 2: folder1/logs/{date}</br>If the file path pattern does not contain a trailing "/", the last pattern in the file path is treated as a filename prefix. </br>New files are created in these circumstances:</br>1. Change in output schema </br>2. External or Internal restart of a job.</br> |
+| Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
+|Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
+| Event serialization format | Serialization format for output data. JSON, CSV, and Avro are supported.| 
+| Encoding | If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.|
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab and, vertical bar.|
+| Format | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.|
 
-### Renew Data Lake Store Authorization
+### Renew Data Lake Store authorization
 You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error indicating the need for reauthorization in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
 
 To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating **Redirecting to authorization...**. The page automatically closes and if successful, indicates **Authorization has been successfully renewed**. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
@@ -91,18 +58,17 @@ To renew authorization, **Stop** your job > go to your Data Lake Store output > 
 ## SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) can be used as an output for data that is relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in an Azure SQL Database.  The table schema must exactly match the fields and their types being output from your job. An [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) can also be specified as an output via the SQL Database output option as well. The table below lists the property names and their description for creating a SQL Database output.
 
-| Property Name | Description |
+| Property name | Description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this database. |
-| Database |The name of the database where you are sending your output |
-| Server Name |The SQL Database server name |
-| Username |The Username, which has access to write to the database |
-| Password |The password to connect to the database |
-| Table |The table name where the output is written. The table name is case-sensitive and the schema of this table should match exactly to the number of fields and their types being generated by your job output. |
+| Output alias |A friendly name used in queries to direct the query output to this database. |
+| Database | The name of the database where you are sending your output. |
+| Server name | The SQL Database server name. |
+| Username | The Username, which has access to write to the databas. |
+| Password | The password to connect to the databas.e |
+| Table | The table name where the output is written. The table name is case-sensitive and the schema of this table should match exactly to the number of fields and their types being generated by your job output. |
 
 > [!NOTE]
 > Currently the Azure SQL Database offering is supported for a job output in Stream Analytics. However, an Azure Virtual Machine running SQL Server with a database attached is not supported. This is subject to change in future releases.
-> 
 > 
 
 ## Blob storage
@@ -110,58 +76,19 @@ Blob storage offers a cost-effective and scalable solution for storing large amo
 
 The table below lists the property names and their description for creating a blob output.
 
-<table>
-<tbody>
-<tr>
-<td>PROPERTY NAME</td>
-<td>DESCRIPTION</td>
-</tr>
-<tr>
-<td>Output Alias</td>
-<td>A friendly name used in queries to direct the query output to this blob storage.</td>
-</tr>
-<tr>
-<td>Storage Account</td>
-<td>The name of the storage account where you are sending your output.</td>
-</tr>
-<tr>
-<td>Storage Account Key</td>
-<td>The secret key associated with the storage account.</td>
-</tr>
-<tr>
-<td>Storage Container</td>
-<td>Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob.</td>
-</tr>
-<tr>
-<td>Path Prefix Pattern [optional]</td>
-<td>The file path pattern used to write your blobs within the specified container. <BR> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: <BR> {date}, {time} <BR> Example 1: cluster1/logs/{date}/{time} <BR> Example 2: cluster1/logs/{date} <BR> <BR> File naming follows the following convention: <BR> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension <BR> <BR> Example output files: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Also, here are the situations, where a new file is created: <BR> 1. Current file exceeds the maximum permissible number of blocks (currently 50,000) <BR> 2. Change in output schema <BR> 3. External or internal restart of a job  </td>
-</tr>
-<tr>
-<td>Date Format [optional]</td>
-<td>If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD</td>
-</tr>
-<tr>
-<td>Time Format [optional]</td>
-<td>If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH.</td>
-</tr>
-<tr>
-<td>Event Serialization Format</td>
-<td>Serialization format for output data.  JSON, CSV, and Avro are supported.</td>
-</tr>
-<tr>
-<td>Encoding</td>
-<td>If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time.</td>
-</tr>
-<tr>
-<td>Delimiter</td>
-<td>Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar.</td>
-</tr>
-<tr>
-<td>Format</td>
-<td>Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to.</td>
-</tr>
-</tbody>
-</table>
+| Property name | Description | 
+| --- | --- |
+| Output Alias | A friendly name used in queries to direct the query output to this blob storage. |
+| Storage Account | The name of the storage account where you are sending your output. |
+| Storage Account Key | The secret key associated with the storage account. |
+| Storage Container | Containers provide a logical grouping for blobs stored in the Microsoft Azure Blob service. When you upload a blob to the Blob service, you must specify a container for that blob. |
+| Path pattern | Optional. The file path pattern used to write your blobs within the specified container. </br> In the path pattern, you may choose to use one or more instances of the following 2 variables to specify the frequency that blobs are written: </br> {date}, {time} </br> Example 1: cluster1/logs/{date}/{time} </br> Example 2: cluster1/logs/{date} <BR> <BR> File naming follows the following convention: </br> {Path Prefix Pattern}/schemaHashcode_Guid_Number.extension </br></br> Example output files: </br>Myoutput/20170901/00/45434_gguid_1.csv </br> Myoutput/20170901/01/45434_gguid_1.csv |
+| Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
+| Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
+| Event serialization format | Serialization format for output data.  JSON, CSV, and Avro are supported.
+| Encoding | If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing CSV data. Supported values are comma, semicolon, space, tab, and vertical bar. |
+| Format | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
 
 When using blob storage as output, a new file is created in the blob in the following cases:
 
@@ -177,18 +104,18 @@ When using blob storage as output, a new file is created in the blob in the foll
 
 There are a few parameters that are needed to configure Event Hub data streams as an output.
 
-| Property Name | Description |
+| Property name | Description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this Event Hub. |
-| Service Bus Namespace |A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace |
-| Event Hub |The name of your Event Hub output |
-| Event Hub Policy Name |The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys |
-| Event Hub Policy Key |The Shared Access key used to authenticate access to the Service Bus namespace |
-| Partition Key Column [optional] |This column contains the partition key for Event Hub output. |
-| Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
-| Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time |
-| Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
-| Format |Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
+| Output alias | A friendly name used in queries to direct the query output to this Event Hub. |
+| Event Hub namespace |A Event Hub namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Event Hub namespace. |
+| Event Hub name | The name of your Event Hub output. |
+| Event Hub policy name | The shared access policy, which can be created on the Event Hub Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
+| Event Hub policy key | The Shared Access key used to authenticate access to the Event Hub namespace. |
+| Partition key column [optional] | This column contains the partition key for Event Hub output. |
+| Event serialization format | Serialization format for output data.  JSON, CSV, and Avro are supported. |
+| Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
+| Delimiter | Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
+| Format | Only applicable for JSON serialization. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it is preferable to use line separated JSON, since it doesn't require any special handling while the output file is still being written to. |
 
 ## Power BI
 [Power BI](https://powerbi.microsoft.com/) can be used as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. This capability can be used for operational dashboards, report generation, and metric driven reporting.
@@ -207,18 +134,17 @@ There are a few parameters that are needed to configure Event Hub data streams a
 ### Configure the Power BI output properties
 Once you have the Power BI account authenticated, you can configure the properties for your Power BI output. The table below is the list of property names and their description to configure your Power BI output.
 
-| Property Name | Description |
+| Property name | description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this PowerBI output. |
-| Group Workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
-| Dataset Name |Provide a dataset name that it is desired for the Power BI output to use |
-| Table Name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
+| Output alias |A friendly name used in queries to direct the query output to this PowerBI output. |
+| Group workspace |To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
+| Dataset name |Provide a dataset name that it is desired for the Power BI output to use |
+| Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 
 For a walk-through of configuring a Power BI output and dashboard, see the [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) article.
 
 > [!NOTE]
 > Do not explicitly create the dataset and table in the Power BI dashboard. The dataset and table is automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t generate any results, the dataset, and table isn't created. Note that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
-> 
 > 
 
 ### Schema Creation
@@ -228,7 +154,6 @@ Azure Stream Analytics creates a Power BI dataset and table on behalf of the use
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
 
 This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
-
 
 From Stream Analytics | To Power BI
 -----|-----|------------
@@ -266,29 +191,29 @@ To resolve this issue, stop your running job and go to your Power BI output.  Se
 
 The table below lists the property names and their description for creating a table output.
 
-| Property Name | Description |
+| Property Name | description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this table storage. |
-| Storage Account |The name of the storage account where you are sending your output. |
-| Storage Account Key |The access key associated with the storage account. |
+| Output alias |A friendly name used in queries to direct the query output to this table storage. |
+| Storage account |The name of the storage account where you are sending your output. |
+| Storage account key |The access key associated with the storage account. |
 | Table Name |The name of the table. The table gets created if it does not exist. |
-| Partition Key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
-| Row Key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
-| Batch Size |The number of records for a batch operation. Typically the default (100) is sufficient for most jobs. Refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
+| Partition key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
+| Row key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
+| Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. Refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
  
 ## Service Bus Queues
 [Service Bus Queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
 
 The table below lists the property names and their description for creating a Queue output.
 
-| Property Name | Description |
+| Property name | description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this Service Bus Queue. |
-| Service Bus Namespace |A Service Bus namespace is a container for a set of messaging entities. |
-| Queue Name |The name of the Service Bus Queue. |
-| Queue Policy Name |When you create a Queue, you can also create shared access policies on the Queue Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
-| Queue Policy Key |The Shared Access key used to authenticate access to the Service Bus namespace |
-| Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
+| Output alias |A friendly name used in queries to direct the query output to this Service Bus Queue. |
+| Service Bus namespace |A Service Bus namespace is a container for a set of messaging entities. |
+| Queue name |The name of the Service Bus Queue. |
+| Queue policy name |When you create a Queue, you can also create shared access policies on the Queue Configure tab. Each shared access policy has a name, permissions that you set, and access keys. |
+| Queue policy key |The Shared Access key used to authenticate access to the Service Bus namespace |
+| Event serialization format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format |Only applicable for JSON type. Line separated specifies that the output is formatted by having each JSON object separated by a new line. Array specifies that the output is formatted as an array of JSON objects. |
@@ -300,15 +225,15 @@ While Service Bus Queues provide a one to one communication method from sender t
 
 The table below lists the property names and their description for creating a table output.
 
-| Property Name | Description |
+| Property name | Description |
 | --- | --- |
-| Output Alias |A friendly name used in queries to direct the query output to this Service Bus Topic. |
-| Service Bus Namespace |A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace |
-| Topic Name |Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic isn't available unless a subscription is created, so ensure there are one or more subscriptions under the topic |
-| Topic Policy Name |When you create a Topic, you can also create shared access policies on the Topic Configure tab. Each shared access policy has name, permissions that you set, and access keys |
-| Topic Policy Key |The Shared Access key used to authenticate access to the Service Bus namespace |
-| Event Serialization Format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
- | Encoding |If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
+| Output alias |A friendly name used in queries to direct the query output to this Service Bus Topic. |
+| Service Bus namespace |A Service Bus namespace is a container for a set of messaging entities. When you created a new Event Hub, you also created a Service Bus namespace |
+| Topic name |Topics are messaging entities, similar to event hubs and queues. They're designed to collect event streams from a number of different devices and services. When a topic is created, it is also given a specific name. The messages sent to a Topic isn't available unless a subscription is created, so ensure there are one or more subscriptions under the topic |
+| Topic policy name |When you create a Topic, you can also create shared access policies on the Topic Configure tab. Each shared access policy has name, permissions that you set, and access keys |
+| Topic policy key |The Shared Access key used to authenticate access to the Service Bus namespace |
+| Event serialization format |Serialization format for output data.  JSON, CSV, and Avro are supported. |
+| Encoding |If using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time |
 | Delimiter |Only applicable for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
@@ -321,7 +246,7 @@ The number of partitions is [based on the Service Bus SKU and size](../service-b
 > Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored. 
 
 The following table describes the properties for creating an Azure Cosmos DB output.
-| Property Name | Description |
+| Property name | description |
 | --- | --- |
 | Output alias | An alias to refer this output in your Stream Analytics query. |
 | Sink | Cosmos DB |
@@ -338,13 +263,13 @@ Azure Functions is a serverless compute service that enables you to run code on-
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure Function Output adapter is available with the following configurable properties:
 
-| Property Name | Description |
+| Property name | description |
 | --- | --- |
-| Function App |Name of your Azure Functions App |
+| Function app |Name of your Azure Functions App |
 | Function |Name of the function in your Azure Functions App |
-| Max Batch Size |This property can be used to set the maximum size for each output batch that is sent to your Azure Function. By default, this value is 256 KB |
-| Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
 | Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
+| Max batch size |This property can be used to set the maximum size for each output batch that is sent to your Azure Function. By default, this value is 256 KB |
+| Max batch count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
 
 When Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
 
