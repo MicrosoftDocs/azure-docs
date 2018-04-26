@@ -19,7 +19,7 @@ ms.author: wesmc
 ---
 # Tutorial: Azure SignalR Service authentication with OAuth
 
-This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Quickstart: Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that first. 
+This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete those exercises first. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
@@ -267,8 +267,8 @@ In this section, you will update the *AuthController* class to support OAuth aut
 
 2. In the command shell, add environment variables for the values of both of these constant strings:
 
-    set GitHubClientId=<Enter your Client ID here>
-    set GitHubClientSecret=<Enter your Client Secret here>
+        set GitHubClientId=<Enter your Client ID here>
+        set GitHubClientSecret=<Enter your Client Secret here>
 
     Replace the placeholder values, including the brackets (<>), using the Client ID, and Client Secret values of the new OAuth app you registered.
 
@@ -374,6 +374,8 @@ The hub class will now be updated to use the user's claim for identification. In
 
     You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button. You should be logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
 
+    ![Account identified](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
+
     Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations. 
 
 
@@ -385,7 +387,7 @@ In this section, you will use the Azure command-line interface (CLI) from the Az
 
 When creating these resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
-Update the values for the variables shown below. These variables will be reused for other operations. In the Azure Cloud Shell, execute the following commands to create the variables:
+Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to create the variables:
 
 ```azurecli-interactive
 #========================================================================
@@ -395,10 +397,10 @@ Update the values for the variables shown below. These variables will be reused 
 ResourceName=mySignalRresourcename
 
 #========================================================================
-#=== Update this group name if you did not use the recommended group  ===
-#=== name, SignalRTestResources.                                      ===
+#=== Update these values based on your GitHub OAuth App registration. ===
 #========================================================================
-ResourceGroupName=SignalRTestResources
+GitHubClientId=1234567890
+GitHubClientSecret=1234567890
 
 #========================================================================
 #=== Update these values based on your desired deployment username    ===
@@ -408,31 +410,29 @@ deploymentUser=myUserName
 deploymentUserPassword=myPassword
 
 #========================================================================
-#=== Update these values based on your GitHub OAuth App registration. ===
+#=== Update this group name if you did not use the recommended group  ===
+#=== name, SignalRTestResources.                                      ===
 #========================================================================
-GitHubClientId=1234567890
-GitHubClientSecret=1234567890
+ResourceGroupName=SignalRTestResources
 
 let randomNum=$RANDOM*$RANDOM
 WebAppName=SignalRTestWebApp$randomNum
 WebAppPlanName=$myWebAppName"Plan"
+
 ```
 
 
 ### Create the web app and plan
 
-In the Azure Cloud Shell, execute the following command to create a new app plan for your web app.
+In the Azure Cloud Shell, paste the following script to create a new app plan and web app.
 
 ```azurecli-interactive
 # Create an App Service plan.
 az appservice plan create --name $WebAppPlanName --resource-group $ResourceGroupName --sku FREE
-```
 
-Execute the following command to create the web app:
-
-```azurecli-interactive
 # Create the new Web App
 az webapp create --name $WebAppName --resource-group $ResourceGroupName --plan $WebAppPlanName
+
 ```
 
 ### Add app settings to the web app
@@ -443,7 +443,7 @@ In this section, you will add app settings for the following components:
 * GitHub OAuth app client ID
 * GitHub OAuth app client secret
 
-Execute the following commands:
+In the Azure Cloud Shell, paste the following script to add the app settings:
 
 ```azurecli-interactive
 # Get the SignalR Service resource
@@ -453,7 +453,7 @@ signalRresource=$(az signalr show --name $ResourceName --resource-group $Resourc
 signalRkeys=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName)
 signalRprimarykey=$(echo "$signalRkeys" | grep -Po '(?<="primaryKey": ")[^"]*')
 
-# Form the connection string for use in your application
+# Form the connection string to the service resource
 signalRhostname=$(echo "$signalRresource" | grep -Po '(?<="hostName": ")[^"]*')
 connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 
@@ -461,17 +461,18 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
   --settings "AzureSignalRConnectionString=$connstring" 
 
-#Add app settings to use with GitHub authentication
+#Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
   --settings "GitHubClientId=$GitHubClientId" 
 az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
   --settings "GitHubClientSecret=$GitHubClientSecret" 
+
 ```
 
 
 ### Configure the web app for local git deployment
 
-Execute the command below to create a new deployment user name and password that you will use when deploying your code to the web app with Git. 
+In the Azure Cloud Shell, paste the following script. This script creates a new deployment user name and password that you will use when deploying your code to the web app with Git. The script also configures the web app for deployment with a local git repository, and returns the git deployment URL.
 
 ```azurecli-interactive
 # Add the desired deployment user name and password
@@ -480,6 +481,7 @@ az webapp deployment user set --user-name $deploymentUser --password $deployment
 # Configure Git deployment and note the deployment URL in the output
 az webapp deployment source config-local-git --name $WebAppName --resource-group $ResourceGroupName \
 --query [url] -o tsv
+
 ```
 
 Make a note the git deployment URL returned from this command. You will use this URL later.

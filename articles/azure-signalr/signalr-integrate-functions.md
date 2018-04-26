@@ -62,11 +62,11 @@ In this section, you will use the Azure Cloud Shell to create a new Azure Functi
 
 When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
-Copy the script below and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Paste the updated script into your Azure Cloud Shell, to create a storage account and function app.
+Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell, to create a storage account and function app.
 
 ```azurecli-interactive
 #====================================================================
-#=== Update these variables with your values.                     ===
+#=== These variables should match with your values.               ===
 #====================================================================
 ResourceGroupName=SignalRTestResources
 location=eastus
@@ -74,7 +74,7 @@ location=eastus
 # Generate a unique suffix for a unique name
 let randomNum=$RANDOM*$RANDOM
 functionappName=signalrfunctionapp$randomNum
-storageAccountName=functionstorageaccount$randomNum
+storageAccountName=funcstoraccount$randomNum
 
 # Create a storage account to hold function app code and settings
 az storage account create --resource-group $ResourceGroupName \
