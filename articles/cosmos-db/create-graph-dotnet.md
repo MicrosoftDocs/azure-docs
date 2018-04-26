@@ -1,4 +1,4 @@
----
+﻿---
 title: Build an Azure Cosmos DB .NET Framework or Core application using the Graph API | Microsoft Docs
 description: Presents a .NET Framework/Core code sample you can use to connect to and query Azure Cosmos DB
 services: cosmos-db
@@ -66,7 +66,7 @@ Now let's clone a Graph API app from GitHub, set the connection string, and run 
 5. Restore the NuGet packages in the project. This should include the Gremlin.Net driver, as well as the Newtonsoft.Json package.
 
 
-6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
+6. You can also install the Gremlin.Net driver manually using the Nuget package manager, or the [nuget command-line utility](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net

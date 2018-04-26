@@ -28,7 +28,7 @@ or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid
 
 Learn more about:
  
-- [Support from Microsoft for Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
+- [Support from Microsoft for Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>

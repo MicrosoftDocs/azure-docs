@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Disk Encryption FAQ| Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -65,7 +65,7 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | SLES | Priority:11-SP4 | Data disk |
 | SLES | 11 SP4 | Data disk |
 
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the ADE whitepaper for Linux OS disk encryption [here](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the ADE whitepaper for Linux OS disk encryption [here](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## How can I start using Azure Disk Encryption?
 
