@@ -55,7 +55,7 @@ Returned Json
       },
       {
          "name":"sky",
-         "confidence":999289751052856
+         "confidence":0.999289751052856
       },
       {
          "name":"building",
