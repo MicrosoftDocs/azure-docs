@@ -44,8 +44,8 @@ Next, looking at where our users are located helps to determine the correct solu
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | Azure AD and on-premises AD using federation with AD FS |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync |● |● |
-| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync |● | |
+| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password hash sync or pass-through authentication |● |● |
+| Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password hash sync or pass-through authentication |● | |
 | On-premises Active Directory | |● |
 
 ## What features do I need?

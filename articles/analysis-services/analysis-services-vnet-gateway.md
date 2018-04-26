@@ -1,6 +1,6 @@
 ---
-title: Use On-premises data gateway for Azure Virtual Network datasources | Microsoft Docs
-description: Learn how to configure a server to use a gateway for datasources on VNet.
+title: Use On-premises data gateway for Azure Virtual Network data sources | Microsoft Docs
+description: Learn how to configure a server to use a gateway for data sources on VNet.
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -10,11 +10,11 @@ ms.author: owend
 ms.reviewer: minewiskan
 
 ---
-# Use gateway for datasources on an Azure Virtual Network (VNet)
+# Use gateway for data sources on an Azure Virtual Network (VNet)
 
 This article describes the **AlwaysUseGateway** server property for use when data sources are on an [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-## Server access to VNet datasources
+## Server access to VNet data sources
 
 If your data sources are accessed through a VNet, your Azure Analysis Services server must connect to those data sources as if they are on-premises, in your own environment. You can configure the **AlwaysUseGateway** server property to specify the server to access all datasource data through an [On-premises gateway](analysis-services-gateway.md). 
 

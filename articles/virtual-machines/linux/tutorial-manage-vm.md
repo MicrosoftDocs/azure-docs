@@ -82,7 +82,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 You can now connect to the VM with SSH in the Azure Cloud Shell or from your local computer. Replace the example IP address with the `publicIpAddress` noted in the previous step.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 Once logged in to the VM, you can install and configure applications. When you are finished, you close the SSH session as normal:
