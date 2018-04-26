@@ -48,14 +48,6 @@ sections:
     - html: <a href="stream-analytics-manage-job">Create a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard</a> 
     - html: <a href="stream-analytics-with-azure-functions">Run Azure Functions from Azure Stream Analytics jobs</a>
     - html: <a href="stream-analytics-javascript-user-defined-functions">Run JavaScript user-defined functions in Azure Stream Analytics jobs</a>
-    - html: <a href="stream-analytics-twitter-sentiment-analysis-trends">Real-time Twitter sentiment analysis in Azure Stream Analytics</a>
-    - html: <a href="stream-analytics-real-time-fraud-detection">Real-time fraud detection</a>
-    - html: <a href="stream-analytics-edge">Azure Stream Analytics on IoT Edge (preview)</a>
-    - html: <a href="stream-analytics-build-an-iot-solution-using-stream-analytics">Build an IoT solution by using Stream Analytics</a>
-    - html: <a href="stream-analytics-javascript-user-defined-aggregates">JavaScript user-defined aggregates in Stream Analytics</a>
-    - html: <a href="stream-analytics-high-frequency-trading">High-frequency trading simulation with Stream Analytics</a>
-    - html: <a href="stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices">Get started with Azure Stream Analytics to process data from IoT devices</a>
-    - html: <a href="stream-analytics-machine-learning-integration-tutorial">Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
