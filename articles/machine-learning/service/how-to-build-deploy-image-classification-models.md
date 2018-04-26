@@ -15,6 +15,12 @@ ms.date: 04/23/2018
 
 In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. 
 
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_annotation.png)
+
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
+
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
+
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
 When building and deploying this model, you go through the following steps:
