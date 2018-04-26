@@ -157,6 +157,8 @@
       items:
       - name: Overview and install
         href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/forecasting
+      - name: Build and deploy forecast models
+        href: how-to-build-deploy-forecast-models.md
     - name: FPGA acceleration
       href: reference-fpga-package-overview.md
     - name: Text analytics
