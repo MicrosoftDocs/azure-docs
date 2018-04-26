@@ -237,10 +237,10 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 ## Azure CLI
-When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, configuration files contain the file URI and the script execution command.
+When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, you must have 'commandToExecute'.
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --protected-settings ./script-config.json
 ```
 
 Optionally, you can specify the settings in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.

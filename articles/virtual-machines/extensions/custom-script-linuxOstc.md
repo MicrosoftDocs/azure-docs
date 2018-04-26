@@ -176,7 +176,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 ## Azure CLI
-When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, you must have an execution command.
+When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, you must have 'commandToExecute'.
 
 ```azurecli
 az vm extension set -n VMAccessForLinux \
@@ -240,7 +240,11 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name Custo
 ```
 
 ## Troubleshooting
-When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files. <<<<CHECK>>>>
+When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files. 
+
+```bash
+/var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-<version>/download/1
+```
 
 To troubleshoot, first check the Linux Agent Log, ensure the extension ran:
 
