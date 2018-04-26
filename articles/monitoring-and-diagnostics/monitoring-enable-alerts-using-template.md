@@ -1,6 +1,6 @@
 ---
-title: Create a metric alert with a Resource Manager template | Microsoft Docs
-description: Learn how to use a Resource Manager template to create a metric alert to receive notifications by email or webhook.
+title: Create a classic metric alert with a Resource Manager template | Microsoft Docs
+description: Learn how to use a Resource Manager template to create a classic metric alert to receive notifications by email or webhook.
 author: johnkemnetz
 manager: orenr
 editor: ''
@@ -13,12 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/21/2017
+ms.date: 4/27/2018
 ms.author: johnkem
 
 ---
-# Create a metric alert with a Resource Manager template
+# Create a classic metric alert with a Resource Manager template
 This article shows how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Azure metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
+
+> [!NOTE]
+> 
+> This article describes creating **classic metric alerts** using Resource Manager templates. If you are looking for creating [newer metric alerts](monitoring-near-real-time-metric-alerts.md) using templates, [this article](monitoring-create-metric-alerts-with-templates.md) provides the details.
+>
+
 
 The basic steps are as follows:
 
