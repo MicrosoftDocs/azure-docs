@@ -73,26 +73,26 @@ sections:
       style: dataMatrix
       columns:
         - image:
-          title: Java
             src: media/index/logo_java.svg
+          title: Java
         - image:
-          title: .NET
             src: media/index/logo_net.svg
+          title: .NET
         - image:
-          title: Node.js
             src: media/index/logo_nodejs.svg
+          title: Node.js
         - image:
-          title: Python
             src: media/index/logo_python.svg
+          title: Python
         - image:
-          title: Gremlin
             src: media/index/logo_gremlin.svg
+          title: Gremlin
         - image:
-          title: Go
             src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+          title: Go
         - image:
-          title: Xamarin
             src: media/index/logo_xamarin.svg
+          title: Xamarin
       rows:
         - title: SQL API
           values:
