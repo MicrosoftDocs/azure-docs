@@ -44,10 +44,9 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
 4. Now that the VM has an identity, we use its Service Principal information to grant the VM access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD. If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
 5. Your code running on the VM can request a token from two endpoints that are only accessible from within the VM:
 
-    a. Azure Instance Metadata Service (IMDS) identity endpoint: http://169.254.169.254/metadata/identity/oauth2/token (recommended)
+    - Azure Instance Metadata Service (IMDS) identity endpoint: http://169.254.169.254/metadata/identity/oauth2/token (recommended)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
         - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
-
     - MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
 
