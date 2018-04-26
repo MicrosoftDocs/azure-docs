@@ -33,7 +33,7 @@ Managed labs offer different types of labs that fit for your specific need. Curr
 
 When you create and use Azure resources in these managed labs, the service creates and manages resources in internal Microsoft subscriptions. They are not created in your own Azure subscription. With managed labs, the service handles all the infrastructure work for you. The service keeps track of usage of the resources and it is billed back to your Azure subscription that contains the lab account.   
 
-Here are some of the **use cases for classroom labs**: 
+Here are some of the **use cases for managed labs**: 
 
 - Provide students with a lab of virtual machines that are configured with exactly what’s needed for a class. Give each student a limited number of hours for using the VMs for homework or personal projects.
 - Set up a pool of high performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and clean up the machines once you are done. 
@@ -54,7 +54,7 @@ Here are some of the **use cases for using custom labs**:
 - Offer training sessions to your customers using a lab configured with the latest version of your product. Give each customer limited number of hours for using in the lab. 
 
 
-### Managed labs vs. Custom labs
+### Managed labs vs. custom labs
 The following table compares two types of labs that are supported by Azure Lab Services: 
 
 | Features | Managed labs | Custom labs |
@@ -77,7 +77,7 @@ A lab owner adds users to a lab and provide them access to lab’s set of resour
 For custom labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in a lab. For managed labs such as classroom labs, currently some cost optimization and analysis options are available. 
 
 ### Embedded security
-For custom labs in Azure Lab Services, a lab owner can set up a private virtual networks and a subnet for a lab, and enable shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN.
+For custom labs in Azure Lab Services, a lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN.
 
 ### Integration into your workflows and tools
 Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
