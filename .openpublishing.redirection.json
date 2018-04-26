@@ -18199,6 +18199,11 @@
             "source_path": "articles/stream-analytics/stream-analytics-troubleshoot-visualization.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-job-diagram-with-metrics",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+            "redirect_url": "/articles/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_document_id": false
         }
     ]
 }
