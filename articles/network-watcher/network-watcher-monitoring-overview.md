@@ -5,7 +5,8 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor:
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Network Watcher, and how it can help me diagnose problems within my virtual network. 
 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
@@ -15,6 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
+ms.custom: mvc
 ---
 
 # What is Azure Network Watcher?
