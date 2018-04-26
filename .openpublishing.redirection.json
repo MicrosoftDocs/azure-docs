@@ -1,6 +1,5 @@
 {
-    "redirections": [
-        {
+    "redirections": [{
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -7194,7 +7193,7 @@
             "source_path": "articles/sql-database/sql-database-export-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
-        },       {
+        }, {
             "source_path": "articles/sql-database/sql-database-export-powershell.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
@@ -8815,64 +8814,59 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
-          "redirect_url": "/azure/iot-hub/",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
-          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-dotnet",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
-          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-dotnet",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-node-node-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-node-node-getstarted.md",
-          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-java-java-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-java",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-java-java-getstarted.md",
-          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-java",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-python-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-python",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-python-getstarted.md",
-          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-python",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-how-to.md",
+            "redirect_url": "/azure/iot-hub/",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-how-to.md",
-          "redirect_url": "/azure/iot-hub/",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-node-node-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-node-node-direct-methods.md",
-          "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
-          "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
-          "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-java-java-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-java",
+            "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-java-java-direct-methods.md",
-          "redirect_url": "/azure/iot-hub/quickstart-control-device-java",
-          "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
-          "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
-          "redirect_document_id": false
+            "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
@@ -18762,6 +18756,7 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/support-for-aml-services.md",
             "redirect_url": "/azure/machine-learning/service/support-for-aml-services",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
@@ -19047,52 +19042,52 @@
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-powershell.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-rest.md",
             "redirect_url": "/rest/api/network-watcher/networkwatchers/verifyipflow",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli-nodejs.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-rest.md",
             "redirect_url": "/rest/api/network-watcher/networkwatchers/getnexthop",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-portal.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-powershell.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-powershell",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",

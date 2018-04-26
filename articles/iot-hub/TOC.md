@@ -1,5 +1,5 @@
 # [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-# [IoT Hub Documentation](index.md)
+# [IoT Hub Documentation](index.yml)
 
 # Overview
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
