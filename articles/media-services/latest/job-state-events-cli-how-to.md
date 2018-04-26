@@ -131,13 +131,17 @@ You subscribe to an article to tell Event Grid which events you want to track. T
 Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you created earlier.  For the `<endpoint_URL>` paste your endpoint URL. Remove *&clientID=default* from the URL. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
 
 ```cli
-amsid=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --resource-id $amsid \
+  --resource-id $amsResourceId \
   --name <event_subscription_name> \
   --endpoint <endpoint_URL>
 ```
+
+The Media Services account resource id value looks similar to this:
+
+/subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
 
 ## Test the events
 
