@@ -8,8 +8,8 @@
 <sup>1</sup> Create an [Azure support request][azure-support] to request a limit increase.<br />
 
 <!-- LINKS - Internal -->
-[basic-networking]: ./networking-overview.md#basic-networking
-[advanced-networking]: ./networking-overview.md#advanced-networking
+[basic-networking]: ../articles/aks/networking-overview.md#basic-networking
+[advanced-networking]: ../articles/aks/networking-overview.md#advanced-networking
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
