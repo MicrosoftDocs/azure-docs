@@ -37,11 +37,11 @@ For more information, see [Media Services event schemas](media-services-event-sc
 ## Practices for consuming events
 
 Applications that handle Media Services events should follow a few recommended practices:
-> [!div class="checklist"]
-> * As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
-> * Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
-> * Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
-> * Use the "subject" prefix and suffix matches to limit events to a particular event.
+
+* As multiple subscriptions can be configured to route events to the same event handler, it is important not to assume events are from a particular source, but to check the topic of the message to ensure that it comes from the storage account you are expecting.
+* Similarly, check that the eventType is one you are prepared to process, and do not assume that all events you receive will be the types you expect.
+* Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
+* Use the "subject" prefix and suffix matches to limit events to a particular event.
 
 ## Next steps
 
