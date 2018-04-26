@@ -3,7 +3,7 @@ title: Make SQL databases available to your Azure Stack users | Microsoft Docs
 description: Tutorial to install the SQL Server resource provider and create offers that let Azure Stack users create SQL databases.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: brenduns
+ms.date: 03/22/2017
+ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
 
 ---
 # Make SQL databases available to your Azure Stack users
-
 As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create SQL databases that they can use with their cloud-native apps, websites, and workloads. By providing these custom, on-demand, cloud-based databases to your users, you can save them time and resources. To set this up, you will:
 
 > [!div class="checklist"]

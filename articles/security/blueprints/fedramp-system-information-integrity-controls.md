@@ -48,7 +48,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
+| **Customer** | This blueprint deploys the Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -76,7 +76,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | Windows virtual machines deployed by this blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | Windows virtual machines deployed by this blueprint are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the Automation & Control solution through which Update Deployments can be created to deploy patches to Windows servers when needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -104,7 +104,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the OMS dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
+| **Customer** | This blueprint deploys the Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. From the dashboard, the Update Management tile displays flaw remediation status for all deployed Windows servers. Update Deployments can be created to deploy patches to Windows servers when needed. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -118,7 +118,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the OMS Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
+| **Customer** | This blueprint deploys the Automation & Control solution to track the status of updates for the Windows virtual machines deployed in this architecture. For each managed Windows computer, a scan is performed twice per day. Every 15 minutes the Windows API is called to query for the last update time to determine if status has changed, and if so a compliance scan is initiated. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -216,7 +216,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure OMS provides a centralized capability to review the current status of the antimalware solution. |
+| **Customer** | This blueprint deploys host-based antimalware protections for all deployed Windows virtual machines implemented using the Microsoft Antimalware virtual machine extension. Azure provides a centralized capability to review the current status of the antimalware solution. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -258,7 +258,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the Log Analytics and the OMS Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This blueprint deploys the Log Analytics and the Security and Audit solution. This solution provides a comprehensive view of security posture, attacks, and indicators of potential attacks. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed management solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -272,7 +272,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the  OMS Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
+| **Customer** | This blueprint deploys the  Security and Audit solution. The Identify and Access domain provides a dashboard with an overview of the information system identity state, including number of failed attempts to log on and current number of accounts that are logged in. The information available in this dashboard can assist in identification of potential suspicious activity. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -286,7 +286,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the Log Analytics and the OMS Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed OMS solutions, including insight into VM operating system monitoring data. |
+| **Customer** | This blueprint deploys the Log Analytics and the Security and Audit solution. The Security and Audit dashboard provides high-level insight into the security state of deployed resources using data available across deployed management solutions, including insight into VM operating system monitoring data. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -370,7 +370,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This blueprint deploys the Log Analytics and various management solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. Management solutions provide a comprehensive view of security posture across solution domains. Log Analytics provides insight into the security state of deployed resources using data available across deployed management solutions. Log Analytics can be configured to generate alerts based on defined criteria. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -398,7 +398,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys various OMS solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. OMS solutions provides a comprehensive view of security posture across solution domains. OMS can be configured to generate alerts based on defined criteria. |
+| **Customer** | This blueprint deploys various management solutions, including the Security and Audit solution. Log Analytics provides near real-time analysis of events across deployed resources. Management solutions provide a comprehensive view of security posture across solution domains. Log Analytics can be configured to generate alerts based on defined criteria. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -440,7 +440,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint deploys the Log Analytics and various OMS solutions, including the Security and Audit solution. OMS provides insight into the security state of deployed resources using data available across deployed OMS solutions. |
+| **Customer** | This blueprint deploys the Log Analytics and various management solutions, including the Security and Audit solution. Log Analytics provides insight into the security state of deployed resources using data available across deployed management solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 
@@ -510,7 +510,7 @@ ms.author: jomolesk
 
 |||
 |---|---|
-| **Customer** | This blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other OMS solutions. |
+| **Customer** | This blueprint collects monitoring data from deployed resources, including data from host-based monitoring capabilities. The Microsoft Monitoring Agent is installed on all Windows virtual machines to collect monitoring data used by Log Analytics and other management solutions. |
 | **Provider (Microsoft Azure)** | Not Applicable |
 
 

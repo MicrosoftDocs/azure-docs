@@ -39,7 +39,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-logback</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -52,7 +52,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -65,7 +65,7 @@ Then refresh the project dependencies, to get the binaries downloaded.
        <dependency>
           <groupId>com.microsoft.azure</groupId>
           <artifactId>applicationinsights-logging-log4j1_2</artifactId>
-          <version>[1.0,)</version>
+          <version>[2.0,)</version>
        </dependency>
     </dependencies>
 ```
@@ -79,19 +79,19 @@ Then refresh the project dependencies, to get the binaries downloaded.
 
 ```
 
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.0.+'
 ```
 
 **Log4J v2.0**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '2.0.+'
 ```
 
 **Log4J v1.2**
 
 ```
-    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
+    compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
 ```
 
 #### Otherwise ...

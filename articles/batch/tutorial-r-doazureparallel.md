@@ -2,15 +2,15 @@
 title: Parallel R simulation with Azure Batch
 description: Tutorial - Step by step instructions to run a Monte Carlo financial simulation in Azure Batch using the R doAzureParallel package
 services: batch
-author: jiata
-manager: jkabat
+author: dlepow
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: jiata
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -46,7 +46,10 @@ In the RStudio console, install the [doAzureParallel Github package](http://www.
 ```R
 # Install the devtools package  
 install.packages("devtools") 
-  
+
+# Install rAzureBatch package
+devtools::install_github("Azure/rAzureBatch") 
+
 # Install the doAzureParallel package 
 devtools::install_github("Azure/doAzureParallel") 
  

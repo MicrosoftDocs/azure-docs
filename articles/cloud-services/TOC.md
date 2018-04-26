@@ -1,3 +1,5 @@
+# [Cloud Services Documentation](index.md)
+
 # Overview
 ## [What is Cloud Services?](cloud-services-choose-me.md)
 ## [Cloud service config files and packaging](cloud-services-model-and-package.md)
@@ -33,6 +35,7 @@
 ### Configure Remote Desktop
 #### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
 ## Deploy
 ### [Create and deploy a cloud service in portal](cloud-services-how-to-create-deploy-portal.md)
@@ -89,7 +92,7 @@
 #### [Deployment FAQ](cloud-services-deployment-faq.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=cloud-services)
 ## [.csdef XML Schema](schema-csdef-file.md)
 ### [LoadBalancerProbe Schema](schema-csdef-loadbalancerprobe.md)
 ### [WebRole Schema](schema-csdef-webrole.md)

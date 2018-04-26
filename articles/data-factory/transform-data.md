@@ -4,8 +4,8 @@ description: Learn how to transform data or process data in Azure Data Factory u
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services

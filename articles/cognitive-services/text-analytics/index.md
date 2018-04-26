@@ -2,15 +2,15 @@
 title: Azure Cognitive Services, Text Analytics API Documentation - Tutorials, API Reference | Microsoft Docs
 description: Learn how to create and develop apps using Text Analytics API
 services: cognitive-services
-author: kaiqb
-manager: carolz
+author: HeidiSteen
+manager: cgronlun
 layout: LandingPage
 ms.service: cognitive-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 08/30/2017
-ms.author: kamrani
+ms.date: 3/07/2018
+ms.author: heidist
 ---
 <div class="content">
     <h1>Text Analytics API Documentation</h1>

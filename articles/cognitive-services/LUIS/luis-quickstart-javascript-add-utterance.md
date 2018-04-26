@@ -1,12 +1,11 @@
 ---
-title: Add utterances to a LUIS app using JavaScript | Microsoft Docs 
-description: Learn to call a LUIS app using JavaScript. 
+title: Add utterances to a LUIS app using JavaScript | Microsoft Docs
+description: Learn to call a LUIS app using JavaScript.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: v-geberr
@@ -18,7 +17,7 @@ For more information, see the technical documentation for the [add utterance](ht
 
 ## Prerequisites
 > [!div class="checklist"]
-> * Your LUIS [**authoring key**](Manage-Keys.md#programmatic-key). 
+> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
 > * Your existing LUIS **application ID** and **version ID**. 
 > * A new file named `add-utterances.html` project in VSCode.
 

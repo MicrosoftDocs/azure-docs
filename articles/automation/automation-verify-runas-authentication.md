@@ -1,20 +1,13 @@
----
-title: Validate Azure Automation account configuration | Microsoft Docs
+﻿---
+title: Validate Azure Automation account configuration
 description: This article describes how to confirm the configuration of your Automation account is setup correctly.  
 services: automation
-documentationcenter: ''
-author: georgewallace
-manager: carmonm
-editor: ''
-
-ms.assetid: 
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/07/2017
-ms.author: magoedte
+manager: carmonm
 ---
 
 # Test Azure Automation Run As account authentication
@@ -30,7 +23,7 @@ Use the sample code below to [create a PowerShell runbook](automation-creating-i
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
            -ServicePrincipal `
            -TenantId $servicePrincipalConnection.TenantId `
            -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -61,7 +54,7 @@ Use the sample code below to [create a PowerShell runbook](automation-creating-i
        Write-Output ("")
     } 
 
-Notice the cmdlet used for authenticating in the runbook - **Add-AzureRmAccount**, uses the *ServicePrincipalCertificate* parameter set.  It authenticates by using service principal certificate, not credentials.  
+Notice the cmdlet used for authenticating in the runbook - **Connect-AzureRmAccount**, uses the *ServicePrincipalCertificate* parameter set.  It authenticates by using service principal certificate, not credentials.  
 
 When you [run the runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) to validate your Run As account, a [runbook job](automation-runbook-execution.md) is created, the job page is displayed, and the job status displayed in the **Job Summary** tile. The job status will start as *Queued* indicating that it is waiting for a runbook worker in the cloud to become available. It will then move to *Starting* when a worker claims the job, and then *Running* when the runbook actually starts running.  When the runbook job completes, we should see a status of **Completed**.
 

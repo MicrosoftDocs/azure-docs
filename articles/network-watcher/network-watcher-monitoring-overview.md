@@ -4,7 +4,7 @@ description: This page provides an overview of the Network Watcher service for m
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -44,10 +44,11 @@ Network Watcher currently has the following capabilities:
 * **[Network subscription limits](#network-subscription-limits)** - Enables you to view network resource usage against limits.
 * **[Configuring Diagnostics Log](#diagnostic-logs)** – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
 * **[Connection Troubleshoot](network-watcher-connectivity-overview.md)** - Verifies the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint enriched with Azure context.
+* **[Connection Monitor](connection-monitor.md)** - Monitor latency and configuration issues between an Azure virtual machine and an IP address, using source and destination IP address and port.
 
 ### Role-based Access Control (RBAC) in Network Watcher
 
-Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../active-directory/role-based-access-control-what-is.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
+Network watcher uses the [Azure Role-Based Access Control (RBAC) model](../role-based-access-control/overview.md). The following permissions are required by the Network Watcher. It is important to make sure that the role used for initiating Network Watcher APIs or using Network Watcher from the portal has the required access.
 
 |Resource| Permission|
 |---|---| 

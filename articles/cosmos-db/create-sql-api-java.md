@@ -3,9 +3,8 @@ title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | 
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
@@ -14,17 +13,15 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
-ms.author: mimig
+ms.date: 03/26/2018
+ms.author: sngun
 
 ---
 # Azure Cosmos DB: Create a document database using Java and the Azure portal
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
-
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. Using Azure Cosmos DB, you can quickly create and query managed document, table, and graph databases.
 
-This quickstart creates a document database using the Azure portal tools for Azure Cosmos DB. This quickstart also shows you how to quickly create a Java console app using the [SQL Java API](sql-api-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
+This quickstart creates a document database using the Azure portal tools for the Azure Cosmos DB [SQL API](sql-api-introduction.md). This quickstart also shows you how to quickly create a Java console app using the [SQL Java API](sql-api-sdk-java.md). The instructions in this quickstart can be followed on any operating system that is capable of running Java. By completing this quickstart you'll be familiar with creating and modifying document database resources in either the UI or programmatically, whichever is your preference.
 
 ## Prerequisites
 
@@ -43,7 +40,7 @@ In addition:
 
 ## Create a database account
 
-Before you can create a document database, you need to create a SQL database account with Azure Cosmos DB.
+Before you can create a document database, you need to create a SQL API account with Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -54,43 +51,11 @@ Before you can create a document database, you need to create a SQL database acc
 <a id="add-sample-data"></a>
 ## Add sample data
 
-You can now add data to your new collection using Data Explorer.
-
-1. Expand the **Items** collection, click **Documents** > **New Document**.
-
-   ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Now add a document to the collection with the following structure and click **Save**.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  Create and save one more document where you change `id` to 2, and change the other properties as you see fit. Your new documents can have any structure you want as Azure Cosmos DB doesn't impose any schema on your data.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## Query your data
 
-You can now use queries in Data Explorer to retrieve and filter your data.
-
-1. See that by default, the query is set to `SELECT * FROM c`. This default query retrieves and displays all documents in the collection. 
-
-    ![Default query in Data Explorer is `SELECT * FROM c`](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. Change the query by clicking the **Edit Filter** button, adding `ORDER BY c._ts DESC` to the query predicate box, and then clicking **Apply Filter**.
-
-    ![Change the default query by adding ORDER BY c._ts DESC and clicking Apply Filter](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-This modified query lists the documents in descending order based on their time stamp, so now your second document is listed first. If you're familiar with SQL syntax, you can enter any of the supported [SQL queries](sql-api-sql-query.md) in this box. 
-
-That completes our work in Data Explorer. Before we move on to working with code, note that you can also use Data Explorer to create stored procedures, UDFs, and triggers to perform server-side business logic as well as scale throughput. Data Explorer exposes all of the built-in programmatic data access available in the APIs, but provides easy access to your data in the Azure portal.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## Clone the sample application
 
@@ -116,9 +81,11 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.java` file installed in the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-* `DocumentClient` initialization. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
+The following snippets are all taken from the C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java file.
+
+* `DocumentClient` initialization. The [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service. The `FILLME` portions of this code will be updated later in the quickstart.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -228,13 +195,15 @@ Now go back to the Azure portal to get your connection string information and co
 
     The terminal window displays a notification that the FamilyDB database was created. 
     
-4. Press a key to create the collection. 
+4. Press a key to create the database, and then another key to create the collection. 
 
-5. Switch back to the Data Explorer and you'll see that it now contains a FamilyDB database.
-    
-6. Continue to press keys in the console window to have the code create documents and perform a query.
-    
-    At the end of the program, all the resources from this app are deleted from your account so that you don't incur any charges. 
+    At the end of the program all the resources are deleted, so switch back to Data Explorer in your browser to see that it now contains a FamilyDB database, and FamilyCollection collection.
+
+5. Switch to the console window and press a key to create the first document, and then another key to create the second document. Then switch back to Data Explorer to view them. 
+
+6. Press a key to run a query and see the output in the console window. 
+
+7. The next key you press deletes the resources. If you want to keep the resources you can press CTRL+C in the console window to end the program. Otherwise, press any key to delete the resources from your account so that you don't incur charges. 
 
     ![Console output](./media/create-sql-api-java/console-output.png)
 

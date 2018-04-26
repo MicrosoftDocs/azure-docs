@@ -54,6 +54,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 
 #### Output example:
 
+```json
 	{
 	  "version": 1,
 	  "timescale": 24000,
@@ -100,6 +101,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 	        ],
 
     … truncated
+```
 
 ### Redact mode
 The second pass of the workflow takes a larger number of inputs that must be combined into a single asset.
@@ -135,7 +137,9 @@ You can find samples of the blur types below.
 
 ### Example JSON:
 
+```json
 	{'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+```
 
 #### Low
 
@@ -169,8 +173,16 @@ The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a face redaction task based on a configuration file that contains the following json preset: 
-   
-        {'version':'1.0', 'options': {'mode':'combined'}}
+
+    ```json
+            {
+                'version':'1.0',
+                'options': {
+                    'mode':'combined'
+                }
+            }
+    ```
+
 3. Download the output JSON files. 
 
 #### Create and configure a Visual Studio project
@@ -179,7 +191,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.IO;

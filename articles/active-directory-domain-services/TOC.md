@@ -1,3 +1,5 @@
+# [Azure AD Domain Services Documentation](index.md)
+
 # Overview
 ## [What is Azure AD Domain Services?](active-directory-ds-overview.md)
 ## Is it right for you?
@@ -30,7 +32,6 @@
 ## Administer a managed domain
 ### [Administer a managed domain](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administer DNS on a managed domain](active-directory-ds-admin-guide-administer-dns.md)
-
 ### Configure secure LDAP for a managed domain
 #### [Task 1: obtain a certificate for secure LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Task 2: export the secure LDAP certificate](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
@@ -55,12 +56,12 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Related
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 
 # Resources
 ## [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)

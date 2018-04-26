@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy an Azure Container Service (AKS) cluster
+# Quickstart: Deploy an Azure Container Service (AKS) cluster
 
 In this quickstart, you deploy an AKS cluster using the Azure portal. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 
@@ -80,6 +80,11 @@ Open Cloud Shell using the button on the top right-hand corner of the Azure port
 
 ![Cloud shell](media/container-service-walkthrough-portal/kubectl-cs.png)
 
+Specify subscription (if not done already)
+```azurecli-interactive
+az account set -s SUBSCRIPTION_NAME
+```
+
 Use the [az aks get-credentials][az-aks-get-credentials] command to configure kubectl to connect to your Kubernetes cluster.
 
 Copy and paste the following command into the Cloud Shell. Modify the resource group and cluster name if needed.
@@ -107,7 +112,7 @@ aks-agentpool-14693408-2   Ready     agent     7m        v1.8.1
 
 A Kubernetes manifest file defines a desired state for the cluster, including which container images should be running. For this example, you use a manifest to create all objects needed to run the Azure Vote application.
 
-Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, you can create the file using vi or Nano, as if working on a virtual or physical system.
+Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, create the file using vi or Nano, as if working on a virtual or physical system.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -208,13 +213,13 @@ Once the *EXTERNAL-IP* address has changed from *pending* to an *IP address*, us
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-You can now browse to the external IP address to see the Azure Vote App.
+Now browse to the external IP address to see the Azure Vote App.
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## Delete cluster
 
-When the cluster is no longer needed, you can delete the cluster resource group, which deletes all associated resources. This can be completed in the Azure portal by selecting the resource group and clicking the delete button. Alternatively, the [az group delete][az-group-delete] command can be used in the Cloud Shell.
+When the cluster is no longer needed, delete the cluster resource group, which deletes all associated resources. This can be completed in the Azure portal by selecting the resource group and clicking the delete button. Alternatively, the [az group delete][az-group-delete] command can be used in the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait

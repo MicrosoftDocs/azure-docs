@@ -23,7 +23,7 @@ In this tutorial, part four of seven, a sample application is deployed into a Ku
 > * Run application in Kubernetes
 > * Test the application
 
-In subsequent tutorials, this application is scaled out, updated, and Operations Management Suite configured to monitor the Kubernetes cluster.
+In subsequent tutorials, this application is scaled out, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 This tutorial assumes a basic understanding of Kubernetes concepts, for detailed information on Kubernetes see the [Kubernetes documentation](https://kubernetes.io/docs/home/).
 

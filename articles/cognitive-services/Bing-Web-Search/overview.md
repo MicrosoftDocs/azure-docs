@@ -6,7 +6,7 @@ author: swhite-msft
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: scottwhi

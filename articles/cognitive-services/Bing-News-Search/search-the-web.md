@@ -4,10 +4,9 @@ description: Shows how to use the Bing News Search API to search the web for new
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 4B35B035-34FB-403A-9F52-6470AF726FB6
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi

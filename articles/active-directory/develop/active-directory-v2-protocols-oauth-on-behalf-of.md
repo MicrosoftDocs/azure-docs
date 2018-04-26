@@ -3,7 +3,7 @@ title: Azure AD v2.0 OAuth2.0 On-Behalf-Of flow | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: ''
-author: navyasric
+author: hpsin
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: nacanuma
+ms.date: 04/18/2018
+ms.author: hirsin
 ms.custom: aaddev
 
 ---
@@ -27,14 +27,17 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 >
 
 ## Protocol diagram
-Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md). At this point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
+Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](active-directory-v2-protocols-oauth-code.md).  At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
+
+> [!IMPORTANT]
+> Tokens acquired using the [implicit grant](active-directory-v2-protocols-implicit.md) cannot be used for the On-Behalf-Of flow.  The client in implcit flows is not authenticated (via e.g. a client secret) and therefore should not be allowed to bootstrap into another, possibly more powerful token.
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
 
 ![OAuth2.0 On-Behalf-Of Flow](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. The client application makes a request to API A with the token A.
+1. The client application makes a request to API A with the token A (with an `aud` claim of API A).
 2. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
 3. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
 4. The token B is set in the authorization header of the request to API B.

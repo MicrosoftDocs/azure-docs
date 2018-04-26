@@ -3,8 +3,8 @@ title: Azure Security Center and Linux virtual machines in Azure | Microsoft Doc
 description: Learn about security for your Azure Linux virtual machine with Azure Security Center.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
 ---
 # Monitor virtual machine security by using Azure Security Center

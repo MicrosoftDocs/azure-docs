@@ -4,7 +4,7 @@ description: Learn how to create a Visual Studio Team Services pipeline for cont
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 

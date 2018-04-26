@@ -27,6 +27,9 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
+## Storage Sync Service object management
+If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
+
 ## Agent installation and server registration
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
@@ -46,7 +49,7 @@ If you try and install the sync agent on an Active Directory domain controller w
 To resolve, transfer the PDC role to another domain controller running Windows Server 2012R2 or more recent, then install sync.
 
 <a id="agent-installation-websitename-failure"></a>**Agent installation fails with this error: "Storage Sync Agent Wizard ended prematurely"**  
-This issue can occur if the IIS website default name is changed. To work around this issue, rename the IIS default website as "Default Web Site" and retry installation. The issue will be fixed in a future update of the agent. 
+This issue can occur with version 1.x agent and if the IIS website default name is changed. To work around this issue, use our 2.0.11+ agent.
 
 <a id="server-registration-missing"></a>**Server is not listed under registered servers in the Azure portal**  
 If a server is not listed under **Registered servers** for a Storage Sync Service:
@@ -144,15 +147,14 @@ If sync fails on a server:
 <a id="replica-not-ready"></a>**Sync fails, with this error: "0x80c8300f - The replica is not ready to perform the required operation"**  
 This issue is expected if you create a cloud endpoint and use an Azure file share that contains data. When the change detection job finishes running on the Azure file share (it might take up to 24 hours), sync should start working correctly.
 
-<a id="broken-sync-files"></a>**Troubleshoot individual files that fail to sync**  
-If individual files fail to sync:
-1. In Event Viewer, review the operational and diagnostic event logs, located under Applications and Services\Microsoft\FileSync\Agent.
-2. Verify that there are no open handles on the file.
 
     > [!NOTE]
     > Azure File Sync periodically takes VSS snapshots to sync files that have open handles.
 
 We currently do not support resource move to another subscription or, moving to a different Azure AD tenant.  If the subscription moves to a different tenant, the Azure file share becomes inaccessible to our service based on the change in ownership. If the tenant is changed, you will need to delete the server endpoints and the cloud endpoint (see Sync Group Management section for instructions how to clean the Azure file share to be re-used) and recreate the sync group.
+
+<a id="doesnt-have-enough-free-space"></a>**This PC doesn't have enough free space error**  
+If the portal shows the status "This PC doesn't have enough free space" the issue could be that less than 1 GB of free space remains on the volume.  For example, if there is a 1.5GB volume, sync will only be able to utilize .5GB   If you hit this issue, please expand the size of the volume being used for the server endpoint.
 
 ## Cloud tiering 
 There are two paths for failures in cloud tiering:

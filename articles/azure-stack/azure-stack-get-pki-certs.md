@@ -1,9 +1,9 @@
 ---
 title: Generate Azure Stack Public Key Infrastructure certificates for Azure Stack integrated systems deployment | Microsoft Docs
-description: Describes the Azure Stack PKI certificate deployment processfor Azure Stack integrated systems.
+description: Describes the Azure Stack PKI certificate deployment process for Azure Stack integrated systems.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 
@@ -13,63 +13,102 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: jeffgilb
+ms.date: 04/11/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
 ---
 
-# Generate PKI certificates for Azure Stack deployment
-Now that you know [the PKI certificate requirements](azure-stack-pki-certs.md) for Azure Stack deployments, you need to obtain those certificates from the Certificate Authority (CA) of your choice. 
+# Azure Stack certificates signing request generation
 
-## Request certificates using an INF file
-One way to request certificates from either a Public CA or an Internal CA is by using an INF file. The Windows built-in certreq.exe utility can use an INF file specifying certificate detail, to generate a request file as described in this section. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
 
-### Sample INF file 
-The example certificate request INF file can be used to create an offline certificate request file for submission to a CA (either internal or public). The INF covers all of the required endpoints (including the optional PaaS services) in a single wildcard certificate. 
+The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
 
-The sample INF file assumes that region is equal to **sea** and the external FQDN value is **sea&#46;contoso&#46;com**. Change those values to match your environment before generating an .INF file for your deployment. 
+ - **Standard Certificate Requests**  
+    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md). 
+ - **Request Type**  
+    Request multiple wildcard SAN, multiple domain certificates, single wildcard certificate requests.
+ - **Platform-as-a-Service**  
+    Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## Prerequisites
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+Your system should meet the following prerequisites before generating the CSR(s) for PKI certificates for an Azure Stack deployment:
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Microsoft Azure Stack Readiness Checker
+ - Certificate attributes:
+    - Region name
+    - External fully qualified domain name (FQDN)
+    - Subject
+ - Windows 10 or Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## Generate certificate signing request(s)
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  Install AzsReadinessChecker from a PowerShell prompt (5.1 or above), by running the following cmdlet:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## Generate and submit request to the CA
-The following workflow describes how you can customize and use the sample INF file generated earlier to request a certificate from a CA:
+2.  Declare the **subject** as an ordered dictionary. For example: 
 
-1. **Edit and save INF file**. Copy the sample provided and save it to a new text file. Replace the subject name and external FQDN with the values that match your deployment and save the file as an .INF file.
-2. **Generate a request using certreq**. Using a Windows computer, launch a command prompt as Administrator and run the following command to generate a request (.req) file: `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **Submit to CA**. Submit the .REQ file generated to your CA (can be internal or public).
-4. **Import .CER**. The CA returns a .CER file. Using the same Windows computer from which you generated the request file, import the .CER file returned into the computer/personal store. 
-5. **Export and copy .PFX to deployment folders**. Export the certificate (including the Private Key) as a .PFX file, and copy the .PFX file to the deployment folders described in [Azure Stack deployment PKI requirements](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > If a common name (CN) is supplied this will be overwritten by the first DNS name of the certificate request.
+
+3.  Declare an output directory that already exists:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
+
+5. To generate a single certificate request with multiple Subject Alternative Names including those needed for PaaS services:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. To generate individual certificate signing requests for each DNS name without PaaS services:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. Review the output:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
-[Prepare Azure Stack PKI certificates](prepare-pki-certs.md)
+
+[Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md)
+

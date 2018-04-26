@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Prepare application for Azure Container Service (AKS)
+# Tutorial: Prepare application for Azure Container Service (AKS)
 
 In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
 

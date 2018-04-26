@@ -4,7 +4,7 @@ description: Learn how to manage Data Lake Analytics acounts, data sources, user
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
-ms.author: edmaca
+ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics by using the Azure portal

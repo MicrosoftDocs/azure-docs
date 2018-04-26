@@ -326,7 +326,7 @@ namespace OIAPIExample
 		{
 			// Create a hash for the API signature
 			var datestring = DateTime.UtcNow.ToString("r");
-			var jsonBytes = Encoding.UTF8.GetBytes(message);
+			var jsonBytes = Encoding.UTF8.GetBytes(json);
 			string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
 			string hashedString = BuildSignature(stringToHash, sharedKey);
 			string signature = "SharedKey " + customerId + ":" + hashedString;

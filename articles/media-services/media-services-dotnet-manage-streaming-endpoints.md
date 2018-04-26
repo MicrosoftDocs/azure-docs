@@ -54,7 +54,7 @@ Set up your development environment and populate the app.config file with connec
 	
 Replace the code in the Program.cs with the following code:
 
-```
+```csharp
 using System;
 using System.Configuration;
 using System.Linq;

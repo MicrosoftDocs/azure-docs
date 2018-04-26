@@ -16,12 +16,12 @@ These classic IaaS resources are supported during migration
 * Virtual Networks
 * VPN Gateways
 * Express Route Gateways _(in the same subscription as Virtual Network only)_
-* Network Security Groups 
-* Route Tables 
-* Reserved IPs 
+* Network Security Groups
+* Route Tables
+* Reserved IPs
 
 ## Supported scopes of migration
-There are 4 different ways to complete migration of compute, network, and storage resources. These are 
+There are 4 different ways to complete migration of compute, network, and storage resources. These are
 
 * Migration of virtual machines (NOT in a virtual network)
 * Migration of virtual machines (in a virtual network)
@@ -77,7 +77,7 @@ The following features are not currently supported. You can optionally remove th
 | Compute | Virtual machine images. | The VHD blobs behind these disks will get migrated when the Storage Account is migrated |
 | Network | Endpoint ACLs. | Remove Endpoint ACLs and retry migration. |
 | Network | Application Gateway | Remove the Application Gateway before beginning migration and then recreate the Application Gateway once migration is complete. |
-| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Network | Virtual networks using VNet Peering. | Migrate Virtual Network to Resource Manager, then peer. Learn more about [VNet Peering](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### Unsupported configurations
 The following configurations are not currently supported.
@@ -85,7 +85,7 @@ The following configurations are not currently supported.
 | Service | Configuration | Recommendation |
 | --- | --- | --- |
 | Resource Manager |Role Based Access Control (RBAC) for classic resources |Because the URI of the resources is modified after migration, it is recommended that you plan the RBAC policy updates that need to happen after migration. |
-| Compute |Multiple subnets associated with a VM |Update the subnet configuration to reference only subnets. |
+| Compute |Multiple subnets associated with a VM |Update the subnet configuration to reference only one subnet. This may require you to remove a secondary NIC (that is referring to another subnet) from the VM and reattach it after migration has completed. |
 | Compute |Virtual machines that belong to a virtual network but don't have an explicit subnet assigned |You can optionally delete the VM. |
 | Compute |Virtual machines that have alerts, Autoscale policies |The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete. |
 | Compute |XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) |This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process. |
