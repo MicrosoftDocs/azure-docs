@@ -39,46 +39,47 @@ The model building and deployment workflow is as follows:
 1. The Azure Machine Learning Package for Forecasting must be [installed](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
 1. The following dependencies should be imported or loaded.
-```python
-### Import dependencies for example ###
-import warnings
 
-# Suppress warnings
-warnings.filterwarnings("ignore") 
-
-# Import packages
-import pandas as pd
-import numpy as np
-import math
-import pkg_resources
-from datetime import timedelta
-import datetime
-import matplotlib
-matplotlib.use('agg')
-from matplotlib import pyplot as plt
-from sklearn.linear_model import Lasso
-
-from ftk.tsutils import last_n_periods_split
-from ftk.dataframets import TimeSeriesDataFrame
-from ftk.dataframeforecast import ForecastDataFrame
-from ftk.pipeline import AzureMLForecastPipeline
-
-from ftk.transforms.lagoperator import LagOperator
-from ftk.transforms.rollingwindow import RollingWindow
-from ftk.transforms.tsimputer import TimeSeriesImputer
-from ftk.transforms.time_index_featurizer import TimeIndexFeaturizer
-from ftk.transforms.dropcolumns import DropColumns
-
-from ftk.models.arima import Arima
-from ftk.models.naive import SeasonalNaive, Naive
-from ftk.models.regressionforecaster import RegressionForecaster
-
-from ftk.operationalization.scorecontext import ScoreContext
-from ftk.operationalization.deployment import AMLEnvironment, AMLDeployment
-
-from ftk.model_selection import (TSGridSearchCV, RollingOriginValidator)
-from ftk.data.weather.noaa_weather_data import get_a_year_of_daily_weather_data
-```
+    ```python
+    ### Import dependencies for example ###
+    import warnings
+    
+    # Suppress warnings
+    warnings.filterwarnings("ignore") 
+    
+    # Import packages
+    import pandas as pd
+    import numpy as np
+    import math
+    import pkg_resources
+    from datetime import timedelta
+    import datetime
+    import matplotlib
+    matplotlib.use('agg')
+    from matplotlib import pyplot as plt
+    from sklearn.linear_model import Lasso
+    
+    from ftk.tsutils import last_n_periods_split
+    from ftk.dataframets import TimeSeriesDataFrame
+    from ftk.dataframeforecast import ForecastDataFrame
+    from ftk.pipeline import AzureMLForecastPipeline
+    
+    from ftk.transforms.lagoperator import LagOperator
+    from ftk.transforms.rollingwindow import RollingWindow
+    from ftk.transforms.tsimputer import TimeSeriesImputer
+    from ftk.transforms.time_index_featurizer import TimeIndexFeaturizer
+    from ftk.transforms.dropcolumns import DropColumns
+    
+    from ftk.models.arima import Arima
+    from ftk.models.naive import SeasonalNaive, Naive
+    from ftk.models.regressionforecaster import RegressionForecaster
+    
+    from ftk.operationalization.scorecontext import ScoreContext
+    from ftk.operationalization.deployment import AMLEnvironment, AMLDeployment
+    
+    from ftk.model_selection import (TSGridSearchCV, RollingOriginValidator)
+    from ftk.data.weather.noaa_weather_data import get_a_year_of_daily_weather_data
+    ```
 
 ## Sample dataset and notebook
 
@@ -2586,10 +2587,10 @@ webservice_fcst_errors
 
 ## Next steps
 
-For more information about the Azure Machine Learning Package for Forecasting:
+Learn more about the Azure Machine Learning Package for Forecasting:
 
 + Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
-+ Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
++ Explore the [reference docs](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for Azure Machine Learning Package for Forecasting.
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
