@@ -1,20 +1,25 @@
 ---
 title: Create a simple app with two intents - Azure | Microsoft Docs
-description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances.
+description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
 
-# Simple app with intents
+# Quickstart: Create app with intents
+In this quickstart, you create an app that demonstrates how to use intents to determine the user's intention based on the utterance they submit to the app.
+
 This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
 
 Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
@@ -105,6 +110,9 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 ## What about entities? 
 This LUIS app is so simple that it doesn't need entities yet. 
 
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -112,4 +120,4 @@ This LUIS app is so simple that it doesn't need entities yet.
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website

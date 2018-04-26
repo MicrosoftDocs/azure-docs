@@ -1,21 +1,26 @@
 ---
 title: Create a LUIS app to extract data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data. 
+description: Learn how to create a simple LUIS app using intents and a simple entity to extract machine-learned data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
-# Simple app with intents and a simple entity
+# Quickstart: Create app with intents and a simple entity
+In this quickstart, you create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+
 This simple app has two intents and one entity . This app demonstrates how to pull data out of an utterance. In the utterance, `Send a message telling them to stop`, the intent (primary data) is to send a message and the simple entity (secondary data) is the content of the message, `telling them to stop`.  
 
 When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
@@ -185,6 +190,8 @@ Your chat bot now has enough information to determine the primary action, `SendM
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to send the message through an 3rd party API. If there are other programmatic options for the bot or calling application, LUIS doesn't do that work. LUIS only determines what the user's intention is. 
 
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
@@ -193,4 +200,4 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website
