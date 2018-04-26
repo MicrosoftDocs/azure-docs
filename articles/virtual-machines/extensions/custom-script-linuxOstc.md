@@ -210,7 +210,12 @@ az vm extension set \
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name CustomScriptForLinux --publisher Microsoft.OSTCExtensions --settings ./script-config.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name CustomScriptForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --settings ./script-config.json
 ```
 
 #### Public and protected configuration files
@@ -236,7 +241,13 @@ Protected configuration file:
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name CustomScriptForLinux --publisher Microsoft.OSTCExtensions--settings ./script-config.json --protected-settings ./protected-config.json
+az vm extension set 
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name CustomScriptForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --settings ./script-config.json \
+  --protected-settings ./protected-config.json
 ```
 
 ## Troubleshooting
@@ -246,10 +257,10 @@ When the Custom Script Extension runs, the script is created or downloaded into 
 /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-<version>/download/1
 ```
 
-To troubleshoot, first check the Linux Agent Log, ensure the extension ran:
+To troubleshoot, first check the Linux Agent Log, ensure the extension ran, check:
 
 ```bash
- cat /var/log/waagent.log 
+/var/log/waagent.log 
 ```
 
 You should look for the extension execution, it will look something like:
@@ -271,7 +282,8 @@ You should look for the extension execution, it will look something like:
 ```
 Some points to note:
 1. Enable is when the command starts running.
-2. You can also see which log file it is writing out to, '/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
+2. Download relates to the downloading of the CustomScript extension package from Azure, not the script files specified in fileUris.
+3. You can also see which log file it is writing out to, '/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
 '.
 
 Next step is to go an check the log file, this is the format:

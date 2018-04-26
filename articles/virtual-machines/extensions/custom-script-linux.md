@@ -240,7 +240,11 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, you must have 'commandToExecute'.
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --protected-settings ./script-config.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --protected-settings ./script-config.json
 ```
 
 Optionally, you can specify the settings in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
@@ -268,7 +272,11 @@ az vm extension set \
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings ./script-config.json
 ```
 
 #### Public configuration with no script file
@@ -282,7 +290,11 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings ./script-config.json
 ```
 
 #### Public and protected configuration files
@@ -308,7 +320,13 @@ Protected configuration file:
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \ 
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --settings ./script-config.json \
+  --protected-settings ./protected-config.json
 ```
 
 ## Troubleshooting
@@ -318,10 +336,10 @@ When the Custom Script Extension runs, the script is created or downloaded into 
 /var/lib/waagent/custom-script/download/0/
 ```
 
-To troubleshoot, first check the Linux Agent Log, ensure the extension ran:
+To troubleshoot, first check the Linux Agent Log, ensure the extension ran, check:
 
 ```bash
- cat /var/log/waagent.log 
+/var/log/waagent.log 
 ```
 
 You should look for the extension execution, it will look something like:
@@ -337,6 +355,7 @@ You should look for the extension execution, it will look something like:
 ```
 Some points to note:
 1. Enable is when the command starts running.
+2. Download relates to the downloading of the CustomScript extension package from Azure, not the script files specified in fileUris.
 
 
 The Azure Script Extension produces a log, which you can find here:
