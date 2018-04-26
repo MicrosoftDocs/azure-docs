@@ -13,7 +13,7 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. Consult the [full package reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision) for detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. Consult the [full package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for detailed reference for each class.
 
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
@@ -27,7 +27,7 @@ When building and deploying this model, you go through the following steps:
 7. Web service Deployment
 8. Web service Load Testing
 
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
+[CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
 ## Prerequisites 
 
@@ -124,7 +124,7 @@ print("Select information for image 2: name={}, label={}, unique id={}.".format(
     Dataset consists of 63 images with 4 labels.
     Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
 
-The dataset object provides functionality to download images using the [Bing Image Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/). 
+The dataset object provides functionality to download images using the [Bing Image Search API](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/). 
 
 Two types of search queries are supported: 
 + Regular text queries
@@ -398,24 +398,25 @@ display(pr_ui.ui)
 
 <b>Introduction:</b></n>
 
-Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, we can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/en-us/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
+Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, we can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
 
 
 <b>Prerequisite:</b> 
-   - You need an [Azure](https://azure.microsoft.com/en-us/) account with a valid subscription. You need to login to your account if you haven't done so. Change to your target subscription if you need.
+   - You need an [Azure](https://azure.microsoft.com/) account with a valid subscription. You need to login to your account if you haven't done so. Change to your target subscription if you need.
    >Azure CLI command to login: 
    `az login` 
    
    >Azure CLI command to change subscription: 
    `az account set --subscription [your subscription name]` 
    
-   - You need an [Azure ML Model Management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview) account. Set your model management account if you haven't done it before. **Note: Create your Azure Machine Learning Model Management account with location of "westcentralus", avoiding "eastus2" for now (Because some locations are having deployment timeout issue, which the Azure Machine Learning CLI team is going to fix).** For more details, you can follow the instruction from this [page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
+   - You need an [Azure ML Model Management](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-overview) account. Set your model management account if you haven't done it before.  For more details, you can follow the instruction from this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
    >Azure CLI command example to create and set model management account:
    ```
    az ml account modelmanagement create -l [Azure region, e.g. westcentralus] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
    az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
    ``` 
-   - You need a deployment environment. If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, please follow the following instruction in this [page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need. <b>Note:</b> The local environment deployment is not supported for the Windows DSVM/DLVM today. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. You can use this CLI command to show your active deployment environment: az ml env show
+   - You need a deployment environment. If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, please follow the following instruction in this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need.  
+   The local environment deployment is not supported for the Windows DSVM/DLVM today. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. You can use this CLI command to show your active deployment environment: az ml env show
    
    >Azure CLI command example to create and set deployment environment
     ```
@@ -441,7 +442,7 @@ Operationalization is the process of publishing models and code as web services 
 
 <b>API Documentation:</b>
 
-For more API details, refer to the API doc. For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-cli-reference).
+For more API details, refer to the API doc. For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
 <b>Deployment management with portal:</b>
 
@@ -657,8 +658,10 @@ print("Class label:", dnn_model.class_map[class_index])
 
 For information about the Azure Machine Learning Package for Computer Vision:
 
-+ Check out the reference documentation
-
 + Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md)
+
++ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision)
+
++ Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision)
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md)

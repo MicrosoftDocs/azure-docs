@@ -13,27 +13,25 @@ ms.date: 05/07/2018
 
 # Build and deploy text classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. Consult the [full package reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/text-analytics) for detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. Consult the [full package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for detailed reference for each class.
 
-A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
+There are broad applications of text classification: categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a basic traditional text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a web service using twitter sentiment dataset using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
 
-When building and deploying this model, you go through the following steps:
-1. Dataset Creation
-2. Image Visualization and annotation
-3. Image Augmentation
-4. DNN Model Definition
-5. Classifier Training
-6. Evaluation and Visualization
-7. Web service Deployment
-8. Web service Load Testing
-
-[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
+When building and deploying this text classification model, follow these steps:
+1. Load the training dataset
+2. Train the model
+3. Apply the classifier 
+4. Evaluate performance
+5. Save the pipeline
+6. Load the pipeline
+7. Test the pipeline
+8. Deploy the model as a web service
 
 ## Prerequisites 
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You need to install the Azure Machine Learning Package for Computer Vision.
+1. You need to [install](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) the Azure Machine Learning Package for Text Analytics.
 
 1. You also need:
    - An Azure Machine Learning Experimentation account 
@@ -44,621 +42,730 @@ When building and deploying this model, you go through the following steps:
 
 ## Sample dataset and Jupyter notebook
 
-The following example uses a dataset consisting of 63 tableware images, each labeled as belonging to one of four different classes (bowl, cup, cutlery, plate). The number of images in this example is small so that this tutorial can be executed quickly; in practice at least 100 images per class should be provided. All images are located at *"../sample_data/imgs_recycling/"*, in subdirectories called "bowl", "cup", "cutlery", and "plate".
-
-![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
+The following example uses a [sentiment dataset](http://qwone.com/~jason/20Newsgroups/) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and SKlearn. 
 
 > [!div class="nextstepaction"]
 > [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
 
-                             
-## Storage context
 
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information abotu this see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, we are setting the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
+## Load the training dataset
+
+Define and get your data. This downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. 
+Input dataset is a *.tsv file with the following [ID, Text, Label] format. 
 
 
 ```python
-import warnings
-warnings.filterwarnings("ignore")
-import json, numpy as np, os, timeit 
+# Import Packages 
+# Use Azure Machine Learning history magic to control history collection
+# History is off by default, options are "on", "off", or "show"
+#%azureml history on
+
+# Use the Azure Machine Learning data collector to log various metrics
 from azureml.logging import get_azureml_logger
-from imgaug import augmenters
-from IPython.display import display
-from sklearn import svm
-from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
-from cvtk.augmentation import augment_dataset
-from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
-import matplotlib.pyplot as plt
-%matplotlib inline
+import os
 
-# Disable printing of logging messages
-from azuremltkbase.logging import ToolkitLogger
-ToolkitLogger.getInstance().setEnabled(False)
+logger = get_azureml_logger()
 
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
+# Log cell runs into run history
+logger.log('Cell','Set up run')
+# from tatk.utils import load_newsgroups_data, data_dir, dictionaries_dir, models_dir
+import pip
+pip.main(["show", "azureml-tatk"])
 ```
 
+Get data from blob storage training and test data sets. Set the below blob parameters to point to your blob or set the resource_dir path to read a file from a local directory.
 
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
-
-
-
-## Create a dataset
-
-Once you have imported the dependencies and set the storage context, you can create the dataset.
-
-Create the Dataset object in the AML Package for Computer Vision is by providing the root directory of the images on the local disk. This directory has to follow the same general structure as the tableware dataset, that is, contain subdirectories with the actual images:
-- root
-    - label 1
-    - label 2
-    - ...
-    - label n
-  
-Training an image classification model for a different dataset is therefore as easy as changing the root path `dataset_location` in the following code to point at different images.
+To use your own blob storage, update the following parameters: <br />
+- connection_string=None, (replace None with your connection string) <br />
+- container_name=None,    (replace None with your container name) <br />
+- blob_name=os.path.join("sentiment", "SemEval2013.Train.tsv") (replace the sub directory "sentiment" and the file name)
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+from tatk.utils import download_blob_from_storage, resources_dir, data_dir
 
-dataset_name = 'recycling'
-dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
-print("Dataset consists of {} images with {} labels.".format(len(dataset.images), len(dataset.labels)))
-print("Select information for image 2: name={}, label={}, unique id={}.".format(
-    dataset.images[2].name, dataset.images[2]._labels[0].name, dataset.images[2]._storage_id))
+#set the working directory where to save the training data files
+resources_dir = os.path.join(os.path.expanduser("~"), "tatk", "resources")
+
+download_blob_from_storage(download_dir=resources_dir, 
+                           #connection_string=None, 
+                           #container_name=None,
+                            blob_name=os.path.join("sentiment", "SemEval2013.Train.tsv"))
+        
+download_blob_from_storage(download_dir=resources_dir, 
+                               blob_name=os.path.join("sentiment", "SemEval2013.Test.tsv"))
 ```
-
-    F1 2018-04-23 17:12:57,593 INFO azureml.vision:machine info {"is_dsvm": true, "os_type": "Windows"} 
-    F1 2018-04-23 17:12:57,599 INFO azureml.vision:dataset creating dataset for scenario=classification 
-    Dataset consists of 63 images with 4 labels.
-    Select information for image 2: name=msft-plastic-bowl20170725152154282.jpg, label=bowl, unique id=3.
-
-The dataset object provides functionality to download images using the [Bing Image Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/). 
-
-Two types of search queries are supported: 
-+ Regular text queries
-+ Image URL queries
-
-These queries as well as the class label must be provided inside a json-encoded text file, such as:
-
-```json
-{
-	"bowl": [
-					"plastic bowl",
-					"../imgs_recycling/bowl"
-	],
-	"cup": [
-					"plastic cup",
-					"../imgs_recycling/cup",
-					"http://cdnimg2.webstaurantstore.com/images/products/main/123662/268841/dart-solo-ultra-clear-conex-tp12-12-oz-pet-plastic-cold-cup-1000-case.jpg"
-	],
-	"cutlery": [
-					"plastic cutlery",
-					"../imgs_recycling/cutlery",
-					"http://img4.foodservicewarehouse.com/Prd/1900SQ/Fineline_2514-BO.jpg"
-	],
-	"plate": [
-					"plastic plate",
-					"../imgs_recycling/plate"
-	]
-}
-```
-
-Furthermore, a Context object needs to be created explicitly and contain the Bing Image Search API key that requires a Bing Image Search API subscription.     
-
-## Visualize and annotate images
-
-The following widget can be used to visualize the images in the dataset object, and to correct some of the labels if needed. In case you see a "Widget Javascript not detected" error, it can often be solved by running the command: 
-  `jupyter nbextension enable --py --sys-prefix widgetsnbextension`
+Update train data and test data paths to load your data - 
+file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
-annotation_ui = AnnotationUI(dataset, Context.get_global_context())
-display(annotation_ui.ui)
+import pandas as pd
+# Training Dataset Location
+file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
+
+df_train = pd.read_csv(file_path,
+                        sep = '\t',                        
+                        header = 0, names= ["id","text","label"])
+df_train.head()
+print("df_train.shape= {}".format(df_train.shape))
+
+# Test Dataset Location
+df_test = pd.read_csv(os.path.join(resources_dir,"sentiment", "SemEval2013.Test.tsv"),
+                        sep = '\t',                        
+                        header = 0, names= ["id","text","label"])
+
+print("df_test.shape= {}".format(df_test.shape))
+print(df_test.head())
 ```
 
-
-    Tab(children=(HBox(children=(VBox(children=(HBox(children=(VBox(children=(Button(button_style='primary', descr…
-
-
-## Augment images
-
-The augmentation module provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
-
-Adding augmented images to the training set is especially beneficial for small datasets. However, since it slows down DNN training due to the increased number of training images, it is recommended that you start experimentation without augmentation.
-
-
-```python
-# Split the dataset into train and test  
-train_set_orig, test_set = dataset.split(train_size = 0.66, stratify = "label")
-print("Number of training images = {}, test images = {}.".format(train_set_orig.size(), test_set.size()))
-```
-
-    F1 2018-04-23 17:13:01,780 INFO azureml.vision:splitter splitting a dataset 
-    F1 2018-04-23 17:13:01,805 INFO azureml.vision:dataset creating dataset for scenario=classification 
-    F1 2018-04-23 17:13:01,809 INFO azureml.vision:dataset creating dataset for scenario=classification 
-    Number of training images = 41, test images = 22.
+    df_train.shape= (8655, 3)
+    df_test.shape= (3809, 3)
+       id                                               text     label
+    0   1  @killa_1983 - If you ain't doing nothing Satur...  positive
+    1   2  - Pop bottles , make love , thug passion , RED...  positive
+    2   3  @TheScript_Danny @thescript - St Patricks Day ...  positive
+    3   4  @TheScript_Danny @thescript - St Patricks Day ...  positive
+    4   5  @DJT103 - You know what the holidays alright w...  positive
     
 
 
 ```python
-augment_train_set = False
+import numpy as np
+import math
+from matplotlib import pyplot as plt
 
-if augment_train_set:
-    aug_sequence = augmenters.Sequential([
-            augmenters.Fliplr(0.5),             # horizontally flip 50% of all images
-            augmenters.Crop(percent=(0, 0.1)),  # crop images by 0-10% of their height/width
-        ])
-    train_set = augment_dataset(train_set_orig, [aug_sequence])
-    print("Number of original training images = {}, with augmented images included = {}.".format(train_set_orig.size(), train_set.size()))
-else:
-    train_set = train_set_orig  
-```
+data = df_train["label"].values
+labels = set(data)
+print(labels)
+bins = range(len(labels)+1) 
 
-## Define DNN models
+#plt.xlim([min(data)-5, max(data)+5])
 
-Six different per-trained Deep Neural Network models are supported in the Computer Vision Package: AlexNet, Resnet-18, Resnet-34, and Resnet-50, Resnet-101, and Resnet-152. These DNNs can be used either as classifier, or as featurizer (see step 5). More information about the networks can be found [here](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), and a basic introduction to Transfer Learning is [here](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+plt.hist(data, bins=bins, alpha=0.8)
+plt.title('training data distribution over the class labels)')
+plt.xlabel('class label')
+plt.ylabel('frequency')
+plt.grid(True)
+plt.show()
 
-The Computer Vision Package comes with deparametersametes (224x224 pixel resolution and Resnet-18 DNN) which were selected to work well on a wide variety of tasks. Accuracy can often be imply, for example, by, for example,  increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50), however this comes at a significant increase in training time. See the "How to improve accuracy" section in the Appendix for more detail, and why the minibatch-size and the learning rate need to be updated.
+data = df_test["label"].values
+labels = set(data)
+print(labels)
+bins = range(len(labels)+1) 
 
+#plt.xlim([min(data)-5, max(data)+5])
 
-```python
-# Default parameters (224 x 224 pixels resolution, Resnet-18)
-lr_per_mb = [0.05]*7 + [0.005]*7 +  [0.0005]
-mb_size = 32
-input_resoluton = 224
-base_model_name = "ResNet18_ImageNet_CNTK"
-
-# Suggested parameters for 500 x 500 pixels resolution, Resnet-50
-# (see in the Appendix "How to improve accuracy", last row in table)
-# lr_per_mb   = [0.01] * 7 + [0.001] * 7 + [0.0001]
-# mb_size    = 8
-# input_resoluton = 500
-# base_model_name = "ResNet50_ImageNet_CNTK"
-
-# Initialize model
-dnn_model = CNTKTLModel(train_set.labels,
-                       base_model_name=base_model_name,
-                       image_dims = (3, input_resoluton, input_resoluton))
-```
-
-    Successfully downloaded ResNet18_ImageNet_CNTK
-    
-
-## Train the classifier
-
-The pre-trained DNN from the last section can be used in two ways:
-  - DNN refinement: trains the DNN to directly perform the classification. While DNN training is slow, it typically leads to the best results since all network weights can be improved during training to give best accuracy.
-  - DNN featurization: runs the DNN as-is to obtain a lower-dimensional representation of an image (512, 2048, or 4096 floats), which is then used as input to train a separate classifier. Since the DNN is kept unchanged, this approach is much faster compared to DNN refinement, however accuracy is not as good. Nevertheless, training an external classifier such as a linear SVM (shown below) can provide a strong baseline, and help with understanding the feasibility of a problem.
-  
-Tensorboard can be used to visualize the training progress. To activate, add the parameter `tensorboard_logdir=PATH` as shown below, start the tensorboard client by running in a new console the command `tensorboard --logdir=PATH`, and open a web-browser as instructed by tensorboard (default is localhost:6006). 
-
-
-```python
-# Train either the DNN or a SVM as classifier 
-classifier_name = "dnn"
-
-if classifier_name.lower() == "dnn":  
-    dnn_model.train(train_set, lr_per_mb = lr_per_mb, mb_size = mb_size, eval_dataset=test_set) #, tensorboard_logdir=r"tensorboard"
-    classifier = dnn_model
-elif classifier_name.lower() == "svm":
-    learner = svm.LinearSVC(C=1.0, class_weight='balanced', verbose=0)
-    classifier = ScikitClassifier(dnn_model, learner = learner)
-    classifier.train(train_set)
-else:
-    raise Exception("Classifier unknown: " + classifier)   
-```
-
-    F1 2018-04-23 17:13:28,238 INFO azureml.vision:Fit starting in experiment  1541466320 
-    F1 2018-04-23 17:13:28,239 INFO azureml.vision:model starting training for scenario=classification 
-    <class 'int'>
-    1 worker
-    Training transfer learning model for 15 epochs (epoch_size = 41).
-    non-distributed mode
-    Training 15741700 parameters in 53 parameter tensors.
-    Training 15741700 parameters in 53 parameter tensors.
-    Learning rate per minibatch: 0.05
-    Momentum per minibatch: 0.9
-    PROGRESS: 0.00%
-    Finished Epoch[1 of 15]: [Training] loss = 2.820586 * 41, metric = 68.29% * 41 5.738s (  7.1 samples/s);
-    Evaluation Set Error :: 29.27%
-    Finished Epoch[2 of 15]: [Training] loss = 0.286728 * 41, metric = 9.76% * 41 0.752s ( 54.5 samples/s);
-    Evaluation Set Error :: 34.15%
-    Finished Epoch[3 of 15]: [Training] loss = 0.206938 * 41, metric = 4.88% * 41 0.688s ( 59.6 samples/s);
-    Evaluation Set Error :: 41.46%
-    Finished Epoch[4 of 15]: [Training] loss = 0.098931 * 41, metric = 2.44% * 41 0.785s ( 52.2 samples/s);
-    Evaluation Set Error :: 48.78%
-    Finished Epoch[5 of 15]: [Training] loss = 0.046547 * 41, metric = 0.00% * 41 0.724s ( 56.6 samples/s);
-    Evaluation Set Error :: 43.90%
-    Finished Epoch[6 of 15]: [Training] loss = 0.059709 * 41, metric = 4.88% * 41 0.636s ( 64.5 samples/s);
-    Evaluation Set Error :: 34.15%
-    Finished Epoch[7 of 15]: [Training] loss = 0.005817 * 41, metric = 0.00% * 41 0.710s ( 57.7 samples/s);
-    Evaluation Set Error :: 14.63%
-    Learning rate per minibatch: 0.005
-    Finished Epoch[8 of 15]: [Training] loss = 0.014917 * 41, metric = 0.00% * 41 0.649s ( 63.2 samples/s);
-    Evaluation Set Error :: 9.76%
-    Finished Epoch[9 of 15]: [Training] loss = 0.040539 * 41, metric = 2.44% * 41 0.777s ( 52.8 samples/s);
-    Evaluation Set Error :: 9.76%
-    Finished Epoch[10 of 15]: [Training] loss = 0.024606 * 41, metric = 0.00% * 41 0.626s ( 65.5 samples/s);
-    Evaluation Set Error :: 7.32%
-    PROGRESS: 0.00%
-    Finished Epoch[11 of 15]: [Training] loss = 0.004225 * 41, metric = 0.00% * 41 0.656s ( 62.5 samples/s);
-    Evaluation Set Error :: 4.88%
-    Finished Epoch[12 of 15]: [Training] loss = 0.004364 * 41, metric = 0.00% * 41 0.702s ( 58.4 samples/s);
-    Evaluation Set Error :: 4.88%
-    Finished Epoch[13 of 15]: [Training] loss = 0.007974 * 41, metric = 0.00% * 41 0.721s ( 56.9 samples/s);
-    Evaluation Set Error :: 4.88%
-    Finished Epoch[14 of 15]: [Training] loss = 0.000655 * 41, metric = 0.00% * 41 0.711s ( 57.7 samples/s);
-    Evaluation Set Error :: 4.88%
-    Learning rate per minibatch: 0.0005
-    Finished Epoch[15 of 15]: [Training] loss = 0.024865 * 41, metric = 0.00% * 41 0.688s ( 59.6 samples/s);
-    Evaluation Set Error :: 4.88%
-    Stored trained model at ../../../cvtk_output\model_trained\ImageClassification.model
-    F1 2018-04-23 17:13:45,097 INFO azureml.vision:Fit finished in experiment  1541466320 
-    
-
-
-```python
-# Plot how the training and test accuracy increases during gradient descent. 
-if classifier_name == "dnn":
-    [train_accs, test_accs, epoch_numbers] = classifier.train_eval_accs
-    plt.xlabel("Number of training epochs") 
-    plt.ylabel("Classification accuracy") 
-    train_plot = plt.plot(epoch_numbers, train_accs, 'r-', label = "Training accuracy")
-    test_plot = plt.plot(epoch_numbers, test_accs, 'b-.', label = "Test accuracy")
-    plt.legend()
-```
-
-![png](media/how-to-build-deploy-image-classification-models/output_17_0.png)
-
-
-## Evaluate and visualize
-
-The evaluation module provides functionality to evaluate the performance of the trained model on an independent test dataset. Some of the evaluation metrics it computes are: accuracy (by default class-averaged), PR curve, ROC curve, area-under-curve, confusion matrix, etc.
-
-
-```python
-# Run the classifier on all test set images
-ce = ClassificationEvaluation(classifier, test_set, minibatch_size = mb_size)
-
-# Compute Accuracy and the confusion matrix
-acc = ce.compute_accuracy()
-print("Accuracy = {:2.2f}%".format(100*acc))
-cm  = ce.compute_confusion_matrix()
-print("Confusion matrix = \n{}".format(cm))
-
-# Show PR curve, ROC curve, and confusion matrix
-fig, ((ax1, ax2, ax3)) = plt.subplots(1,3)
-fig.set_size_inches(18, 4)
-graph_roc_curve(ce, ax=ax1)
-graph_pr_curve(ce, ax=ax2)
-graph_confusion_matrix(ce, ax=ax3)
+plt.hist(data, bins=bins, alpha=0.8)
+plt.title('test data distribution over the class labels)')
+plt.xlabel('class label')
+plt.ylabel('frequency')
+plt.grid(True)
 plt.show()
 ```
 
-    F1 2018-04-23 17:14:37,449 INFO azureml.vision:evaluation doing evaluation for scenario=classification 
-    F1 2018-04-23 17:14:37,450 INFO azureml.vision:model scoring dataset for scenario=classification 
-    Accuracy = 95.45%
-    Confusion matrix = 
-    [[ 0  1  0  1]
-     [ 0  7  0  0]
-     [ 0  0  2  0]
-     [ 0  0  0 11]]
+The dataset includes three classes Negative, Neutral, and Positive: 
+```
+    {'negative', 'neutral', 'positive'}
     
 
 
-![png](media/how-to-build-deploy-image-classification-models/output_20_1.png)
+    <matplotlib.figure.Figure at 0x1cce9385b38>
 
 
-
-```python
-# Results viewer UI
-labels = [l.name for l in dataset.labels] 
-pred_scores = ce.scores #classification scores for all images and all classes
-pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
-
-from ui_utils.ui_results_viewer import ResultsUI
-results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
-display(results_ui.ui)
-```
-
-
-    Tab(children=(HBox(children=(VBox(children=(HBox(children=(Button(description='Image -1', layout=Layout(width=…
-
-
-
-```python
-# Precision / recall curve UI
-precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
-thresholds = list(thresholds)
-thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
-pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
-display(pr_ui.ui) 
-```
-
-
-    VBox(children=(Figure(axes=[Axis(label='Precision', orientation='vertical', scale=LinearScale(max=100.0, min=0…
-
-
-## Deploy web services
-
-
-<b>Introduction:</b></n>
-
-Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, we can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/en-us/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
-
-
-<b>Prerequisite:</b> 
-   - You need an [Azure](https://azure.microsoft.com/en-us/) account with a valid subscription. You need to login to your account if you haven't done so. Change to your target subscription if you need.
-   >Azure CLI command to login: 
-   `az login` 
-   
-   >Azure CLI command to change subscription: 
-   `az account set --subscription [your subscription name]` 
-   
-   - You need an [Azure ML Model Management](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-overview) account. Set your model management account if you haven't done it before. **Note: Create your Azure Machine Learning Model Management account with location of "westcentralus", avoiding "eastus2" for now (Because some locations are having deployment timeout issue, which the Azure Machine Learning CLI team is going to fix).** For more details, you can follow the instruction from this [page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
-   >Azure CLI command example to create and set model management account:
-   ```
-   az ml account modelmanagement create -l [Azure region, e.g. westcentralus] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
-   az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
-   ``` 
-   - You need a deployment environment. If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, please follow the following instruction in this [page](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need. <b>Note:</b> The local environment deployment is not supported for the Windows DSVM/DLVM today. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. You can use this CLI command to show your active deployment environment: az ml env show
-   
-   >Azure CLI command example to create and set deployment environment
-    ```
-    az provider register -n Microsoft.MachineLearningCompute
-    az provider register -n Microsoft.ContainerRegistry
-    az provider register -n Microsoft.ContainerService
-    az ml env setup --cluster -n [your environment name] -l [Azure region e.g. westcentralus] [-g [resource group]]
-    az ml env set -n [environment name] -g [resource group]
-    az ml env cluster
-    ```
+    {'negative', 'neutral', 'positive'}
     
-   
-<b>Deployment API:</b>
-
-> **Examples:**
-- ```deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")``` # create deployment object
-- ```deploy_obj.deploy()``` # deploy web service
-- ```deploy_obj.score_image(local_image_path_or_image_url)``` # score an image
-- ```deploy_obj.delete()``` # delete the web service
-- ```deploy_obj.build_docker_image()``` # build docker image without creating webservice
-- ```AMLDeployment.list_deployment()``` # list existing deployment
-- ```AMLDeployment.delete_if_service_exist(deployment_name)``` # delete if the service exists with the deployment name
-
-<b>API Documentation:</b>
-
-For more API details, refer to the API doc. For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-cli-reference).
-
-<b>Deployment management with portal:</b>
-
-You can go to [Azure portal](https://ms.portal.azure.com/) to track and manage your deployments. From Azure portal, find your Machine Learning Model Management account page (You can search for your model management account name). Then go to: the model management account page->Model Management->Services.
 
 
-```python
-# ##### OPTIONAL###### 
-# Interactive CLI setup helper, including model management account and deployment environment.
-# If you haven't setup you CLI before or if you want to change you CLI settings, you can use this block to help you interactively.
-#
-# UNCOMMENT THE FOLLOWING LINES IF YOU HAVE NOT CREATED OR SET THE MODEL MANAGEMENT ACCOUNT AND DEPLOYMENT ENVIRONMENT
-#
-# from azuremltkbase.deployment import CliSetup
-# CliSetup().run()
+    <matplotlib.figure.Figure at 0x1cce90ea128>
 ```
 
+## Train the model
+This step involves training a Scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
+Full list of learners can be found here [Scikit Learners](http://scikit-learn.org/stable/supervised_learning)
+
 
 ```python
-# # Optional. Persist you model on disk and reuse it later for deployment. 
-# from cvtk import TFFasterRCNN, Context
-# import os
-# save_model_path = os.path.join(Context.get_global_context().storage.persistent_path, "saved_classifier.model")
-# # Save model to disk
-# dnn_model.serialize(save_model_path)
-# # Load model from disk
-# dnn_model = CNTKTLModel.deserialize(save_model_path)
+from sklearn.linear_model import LogisticRegression
+import tatk
+from tatk.pipelines.text_classification.text_classifier import TextClassifier
+
+log_reg_learner =  LogisticRegression(penalty='l2', dual=False, tol=0.0001, 
+                            C=1.0, fit_intercept=True, intercept_scaling=1, 
+                            class_weight=None, random_state=None, 
+                            solver='lbfgs', max_iter=100, multi_class='ovr',
+                            verbose=1, warm_start=False, n_jobs=3) 
+
+#train the model a text column "tweets"
+text_classifier = TextClassifier(estimator=log_reg_learner, 
+                                text_cols = ["text"], 
+                                label_cols = ["label"], 
+#                                 numeric_cols = None,
+#                                 cat_cols = None, 
+                                extract_word_ngrams=True, extract_char_ngrams=True)
+
 ```
 
-
-```python
-from cvtk.operationalization import AMLDeployment
-
-# set deployment name
-deployment_name = "wsdeployment"
-
-# Optional azure machine learning deployment cluster name (environment name) and resource group name
-# If you don't provide here. It will use the current deployment environment (you can check with CLI command "az ml env show").
-azureml_rscgroup = "<resource group>"
-cluster_name = "<cluster name>"
-
-# If you provide the cluster information, it will use the provided cluster to deploy. 
-# Example: deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model,
-#                            aml_env="cluster", cluster_name=cluster_name, resource_group=azureml_rscgroup, replicas=1)
-
-# Create deployment object
-deploy_obj = AMLDeployment(deployment_name=deployment_name, aml_env="cluster", associated_DNNModel=dnn_model, replicas=1)
-
-# Check if the deployment name exists, if yes remove it first.
-if deploy_obj.is_existing_service():
-    AMLDeployment.delete_if_service_exist(deployment_name)
+    TextClassifier::create_pipeline ==> start
+    :: number of jobs for the pipeline : 6
+    0	text_nltk_preprocessor
+    1	text_word_ngrams
+    2	text_char_ngrams
+    3	assembler
+    4	learner
+    TextClassifier::create_pipeline ==> end
     
-# create the webservice
-print("Deploying to Azure cluster...")
-deploy_obj.deploy()
-print("Deployment DONE")
-```
 
-## Consume the web service 
-
-Once you created the webservice, you can score images with the deployed webservice. You have several options:
-
-   - You can directly score the webservice with the deployment object with: deploy_obj.score_image(image_path_or_url) 
-   - Or, you can use the Service endpoint url and Service key (None for local deployment) with: AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)
-   - Form your http requests directly to score the webservice endpoint (For advanced users).
-
-### Score with existing deployment object
-```
-deploy_obj.score_image(image_path_or_url)
-```
+Train the model using the default parameters of the package: By default, the text classifier will extract word unigrams and bigrams and character 4 grams.
 
 
 ```python
-# Score with existing deployment object
-
-# Score local image with file path
-print("Score local image with file path")
-image_path_or_url = test_set.images[0].storage_path
-print("Image source:",image_path_or_url)
-serialized_result_in_json = deploy_obj.score_image(image_path_or_url, image_resize_dims=[224,224])
-print("serialized_result_in_json:", serialized_result_in_json)
-
-# Score image url and remove image resizing
-print("Score image url")
-image_path_or_url = "https://cvtkdata.blob.core.windows.net/publicimages/microsoft_logo.jpg"
-print("Image source:",image_path_or_url)
-serialized_result_in_json = deploy_obj.score_image(image_path_or_url)
-print("serialized_result_in_json:", serialized_result_in_json)
-
-# Score image url with added paramters. Add softmax to score.
-print("Score image url with added paramters. Add softmax to score")
-from cvtk.utils.constants import ClassificationRESTApiParamters
-image_path_or_url = "https://cvtkdata.blob.core.windows.net/publicimages/microsoft_logo.jpg"
-print("Image source:",image_path_or_url)
-serialized_result_in_json = deploy_obj.score_image(image_path_or_url, image_resize_dims=[224,224], parameters={ClassificationRESTApiParamters.ADD_SOFTMAX:True})
-print("serialized_result_in_json:", serialized_result_in_json)
+text_classifier.fit(df_train)        
 ```
+
+    TextClassifier::fit ==> start
+    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 header+
+    NltkPreprocessor::tatk_fit_transform ==> start
+    NltkPreprocessor::tatk_fit_transform ==> end 	 Time taken: 0.0 mins
+    NGramsVectorizer::tatk_fit_transform ==> startNGramsVectorizer::tatk_fit_transform ==> start
+    
+    			vocabulary size=12839
+    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.03 mins
+    			vocabulary size=14635
+    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.03 mins
+    VectorAssembler::transform ==> start, num of input records=8655
+    (8655, 12839)
+    (8655, 14635)
+    all_features::
+    (8655, 27474)
+    Time taken: 0.0 mins
+    VectorAssembler::transform ==> end
+    LogisticRegression::tatk_fit ==> start
+    
+
+    [Parallel(n_jobs=3)]: Done   3 out of   3 | elapsed:    2.1s finished
+    
+
+    LogisticRegression::tatk_fit ==> end 	 Time taken: 0.04 mins
+    Time taken: 0.08 mins
+    TextClassifier::fit ==> end
+    
+
+
+
+
+    TextClassifier(add_index_col=False, callable_proprocessors_list=None,
+            cat_cols=None, char_hashing_original=False, col_prefix='tmp_00_',
+            decompose_n_grams=False, detect_phrases=False,
+            dictionary_categories=None, dictionary_file_path=None,
+            embedding_file_path=None, embedding_file_path_fasttext=None,
+            estimator=LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+              intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=3,
+              penalty='l2', random_state=None, solver='lbfgs', tol=0.0001,
+              verbose=1, warm_start=False),
+            estimator_vectorizers_list=None, extract_char_ngrams=True,
+            extract_word_ngrams=True, label_cols=['label'], numeric_cols=None,
+            pos_tagger_vectorizer=False,
+            preprocessor_dictionary_file_path=None, regex_replcaement='',
+            replace_regex_pattern=None, scale_numeric_cols=False,
+            text_callable_list=None, text_cols=['text'], text_regex_list=None,
+            weight_col=None)
+
+
+
+### Read the parameters in different pipelines
+
+get step param names by step index in the pipeline
+
 
 
 ```python
-# Time image scoring
-import timeit
-
-for img_index, img_obj in enumerate(test_set.images[:10]):
-    print("Calling API for image {} of {}: {}...".format(img_index, len(test_set.images), img_obj.name))
-    tic = timeit.default_timer()
-    return_json = deploy_obj.score_image(img_obj.storage_path, image_resize_dims=[224,224])
-    print("   Time for API call: {:.2f} seconds".format(timeit.default_timer() - tic))
-    print(return_json)
+text_classifier.get_step_param_names_by_name("text_word_ngrams")
 ```
 
-### Score with service endpoint url and service key
-`AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+
+
+
+    ['input',
+     'max_features',
+     'output_col',
+     'min_df',
+     'binary',
+     'tokenizer',
+     'save_overwrite',
+     'n_hashing_features',
+     'max_df',
+     'vocabulary',
+     'hashing',
+     'lowercase',
+     'analyzer',
+     'stop_words',
+     'smooth_idf',
+     'input_col',
+     'dtype',
+     'preprocessor',
+     'token_pattern',
+     'use_idf',
+     'ngram_range',
+     'sublinear_tf',
+     'encoding',
+     'strip_accents',
+     'norm',
+     'decode_error']
+
+
+
+get step params by step name in the pipeline
 
 
 ```python
-# Import related classes and functions
-from cvtk.operationalization import AMLDeployment
-
-service_endpoint_url = "" # please replace with your own service url
-service_key = "" # please replace with your own service key
-# score local image with file path
-image_path_or_url = test_set.images[0].storage_path
-print("Image source:",image_path_or_url)
-serialized_result_in_json = AMLDeployment.score_existing_service_with_image(image_path_or_url,service_endpoint_url, service_key = service_key)
-print("serialized_result_in_json:", serialized_result_in_json)
-
-# score image url
-image_path_or_url = "https://cvtkdata.blob.core.windows.net/publicimages/microsoft_logo.jpg"
-print("Image source:",image_path_or_url)
-serialized_result_in_json = AMLDeployment.score_existing_service_with_image(image_path_or_url,service_endpoint_url, service_key = service_key, image_resize_dims=[224,224])
-print("serialized_result_in_json:", serialized_result_in_json)
+text_classifier.get_step_params_by_name("text_char_ngrams")        
 ```
 
-### Score endpoint with http request directly
-Following is some example code to form the http request directly in Python. You can do it in other programming languages.
+
+
+
+    {'analyzer': 'char_wb',
+     'binary': False,
+     'decode_error': 'strict',
+     'dtype': numpy.float32,
+     'encoding': 'utf-8',
+     'hashing': False,
+     'input': 'content',
+     'input_col': 'NltkPreprocessor5283a730506549cc880f074e750607b0',
+     'lowercase': True,
+     'max_df': 1.0,
+     'max_features': None,
+     'min_df': 3,
+     'n_hashing_features': None,
+     'ngram_range': (4, 4),
+     'norm': 'l2',
+     'output_col': 'NGramsVectorizer8eb11031f6b64eaaad9ff0fd3b0f5b80',
+     'preprocessor': None,
+     'save_overwrite': True,
+     'smooth_idf': True,
+     'stop_words': None,
+     'strip_accents': None,
+     'sublinear_tf': False,
+     'token_pattern': '(?u)\\b\\w\\w+\\b',
+     'tokenizer': None,
+     'use_idf': True,
+     'vocabulary': None}
+
+
+
+You can change the default parameters as follows: here we show how to change the range of extracted character n-grams from (4,4) to (3,4) to extract both character tri-grams and 4 grams  
 
 
 ```python
-def score_image_list_with_http(images, service_endpoint_url, service_key=None, parameters={}):
-    """Score image list with http request
-
-    Args:
-        images(list): list of (input image file path, base64 image string, url or buffer)
-        service_endpoint_url(str): endpoint url
-        service_key(str): service key, None for local deployment.
-        parameters(dict): service additional paramters in dictionary
+text_classifier.set_step_params_by_name("text_char_ngrams", ngram_range =(3,4)) 
+text_classifier.get_step_params_by_name("text_char_ngrams")
+```
 
 
-    Returns:
-        result (list): list of serialized result 
+
+
+    {'analyzer': 'char_wb',
+     'binary': False,
+     'decode_error': 'strict',
+     'dtype': numpy.float32,
+     'encoding': 'utf-8',
+     'hashing': False,
+     'input': 'content',
+     'input_col': 'NltkPreprocessor5283a730506549cc880f074e750607b0',
+     'lowercase': True,
+     'max_df': 1.0,
+     'max_features': None,
+     'min_df': 3,
+     'n_hashing_features': None,
+     'ngram_range': (3, 4),
+     'norm': 'l2',
+     'output_col': 'NGramsVectorizer8eb11031f6b64eaaad9ff0fd3b0f5b80',
+     'preprocessor': None,
+     'save_overwrite': True,
+     'smooth_idf': True,
+     'stop_words': None,
+     'strip_accents': None,
+     'sublinear_tf': False,
+     'token_pattern': '(?u)\\b\\w\\w+\\b',
+     'tokenizer': None,
+     'use_idf': True,
+     'vocabulary': None}
+
+
+
+### Export the parameters to a file
+
+
+```python
+import os
+params_file_path = os.path.join(data_dir, "params.tsv")
+text_classifier.export_params(params_file_path)
+```
+
+## Apply the classifier
+Apply the trained text classifier on the test dataset
+
+
+```python
+ df_test = text_classifier.predict(df_test)
+```
+
+    TextClassifier::predict ==> start
+    NltkPreprocessor::tatk_transform ==> start
+    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
+    
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
+    VectorAssembler::transform ==> start, num of input records=3809
+    (3809, 12839)
+    (3809, 14635)
+    all_features::
+    (3809, 27474)
+    Time taken: 0.0 mins
+    VectorAssembler::transform ==> end
+    LogisticRegression::tatk_predict ==> start
+    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
+    Time taken: 0.02 mins
+    TextClassifier::predict ==> end
+    
+
+## Evaluate model performance
+The Evaluation module evaluates the accuracy of the trained text classifier on the test dataset.
+
+
+```python
+ text_classifier.evaluate(df_test)          
+```
+
+    TextClassifier::evaluate ==> start
+    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 col=prediction:TX:3 header+
+    NltkPreprocessor::tatk_transform ==> start
+    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
+    
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
+    VectorAssembler::transform ==> start, num of input records=3809
+    (3809, 12839)
+    (3809, 14635)
+    all_features::
+    (3809, 27474)
+    Time taken: 0.0 mins
+    VectorAssembler::transform ==> end
+    LogisticRegression::tatk_predict ==> start
+    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
+    [[ 188  338   75]
+     [  34 1443  161]
+     [  44  594  932]]
+    macro_f1 = 0.6112103240853114
+    Time taken: 0.02 mins
+    TextClassifier::evaluate ==> end
+    
+
+
+
+
+    (array([[ 188,  338,   75],
+            [  34, 1443,  161],
+            [  44,  594,  932]], dtype=int64), 0.6112103240853114)
+
+
+
+Create a confusion matrix
+
+
+```python
+# Confusion Matrix UI 
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import itertools
+def plot_confusion_matrix(cm, classes,
+                          normalize=False,
+                          title='Confusion matrix',
+                          cmap=plt.cm.Blues):
     """
-    import requests
-    from io import BytesIO
-    import base64
-    routing_id = ""
-
-    if service_key is None:
-        headers = {'Content-Type': 'application/json',
-                   'X-Marathon-App-Id': routing_id}
+    This function prints and plots the confusion matrix.
+    Normalization can be applied by setting `normalize=True`.
+    """
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        print("Normalized confusion matrix")
     else:
-        headers = {'Content-Type': 'application/json',
-                   "Authorization": ('Bearer ' + service_key), 'X-Marathon-App-Id': routing_id}
-    payload = []
-    for image in images:
-        encoded = None
-        # read image
-        with open(image,'rb') as f:
-            image_buffer = BytesIO(f.read()) ## Getting an image file represented as a BytesIO object
-        # convert your image to base64 string
-        encoded = base64.b64encode(image_buffer.getvalue())
-        image_request = {"image_in_base64": "{0}".format(encoded), "parameters": parameters}
-        payload.append(image_request)
-    body = json.dumps(payload)
-    r = requests.post(service_endpoint_url, data=body, headers=headers)
-    try:
-        result = json.loads(r.text)
-    except:
-        raise ValueError("Incorrect output format. Result cant not be parsed: " + r.text)
-    return result
+        print('Confusion matrix, without normalization')
 
-# Test with images
-images = [test_set.images[0].storage_path, test_set.images[1].storage_path] # A list of local image files
-score_image_list_with_http(images, service_endpoint_url, service_key)
+    print(cm)
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes, rotation=45)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt),
+                 horizontalalignment="center",
+                 color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    
+class_labels = set(df_train['label'].values)
+print(class_labels)
 ```
 
-## Parse serialized result from web service
-The result from the webservice is in json string. You can parse it the with different DNN model classes
+    {'negative', 'neutral', 'positive'}
+    
 
 
 ```python
-image_path_or_url = test_set.images[0].storage_path
-print("Image source:",image_path_or_url)
-serialized_result_in_json = deploy_obj.score_image(image_path_or_url, image_resize_dims=[224,224])
-print("serialized_result_in_json:", serialized_result_in_json)
-```
-
-
-```python
-# Parse result from json string
 import numpy as np
-parsed_result = CNTKTLModel.parse_serialized_result(serialized_result_in_json)
-print("Parsed result:", parsed_result)
-# Map result to image class
-class_index = np.argmax(np.array(parsed_result))
-print("Class index:", class_index)
-dnn_model.class_map
-print("Class label:", dnn_model.class_map[class_index])
+np.set_printoptions(precision=2)
+
+#create the confusion matrix
+cnf_matrix = confusion_matrix(y_pred=df_test['prediction'].values, y_true=df_test['label'].values)
+
+# Plot non-normalized confusion matrix
+plt.figure()
+plot_confusion_matrix(cnf_matrix, classes = class_labels,
+                      title='Confusion matrix, without normalization')
+
+# Plot normalized confusion matrix
+plt.figure()
+plot_confusion_matrix(cnf_matrix, classes = class_labels, normalize=True,
+                      title='Normalized confusion matrix')
+
+plt.show()
 ```
+
+    Confusion matrix, without normalization
+    [[ 188  338   75]
+     [  34 1443  161]
+     [  44  594  932]]
+    Normalized confusion matrix
+    [[0.31 0.56 0.12]
+     [0.02 0.88 0.1 ]
+     [0.03 0.38 0.59]]
+    
+
+
+![png](./media/how-to-build-deploy-text-classification-models/output_28_1.png)
+
+
+
+![png](./media/how-to-build-deploy-text-classification-models/output_28_2.png)
+
+
+## Save the pipeline
+Save the classification pipeline into a zip file and the word-ngrams and character n-grams into text files
+
+
+```python
+import os
+working_dir = os.path.join(data_dir, 'outputs')  
+if not os.path.exists(working_dir):
+    os.makedirs(working_dir)
+
+# you can save the trained model as a folder or a zip file
+model_file = os.path.join(working_dir, 'sk_model.zip')    
+text_classifier.save(model_file)
+# %azureml upload outputs/models/sk_model.zip
+
+```
+
+    BaseTextModel::save ==> start
+    TatkPipeline::save ==> start
+    Time taken: 0.03 mins
+    TatkPipeline::save ==> end
+    Time taken: 0.04 mins
+    BaseTextModel::save ==> end
+    
+
+
+```python
+# for debugging, you can save the word n-grams vocabulary to a text file
+word_vocab_file_path = os.path.join(working_dir, 'word_ngrams_vocabulary.tsv')
+text_classifier.get_step_by_name("text_word_ngrams").save_vocabulary(word_vocab_file_path) 
+# %azureml upload outputs/dictionaries/word_ngrams_vocabulary.pkl
+
+# for debugging, you can save the character n-grams vocabulary to a text file
+char_vocab_file_path = os.path.join(working_dir, 'char_ngrams_vocabulary.tsv')
+text_classifier.get_step_by_name("text_char_ngrams").save_vocabulary(char_vocab_file_path) 
+# %azureml upload outputs/dictionaries/char_ngrams_vocabulary.pkl
+```
+
+    save_vocabulary ==> start
+    saving 12839 n-grams ...
+    Time taken: 0.0 mins
+    save_vocabulary ==> end
+    save_vocabulary ==> start
+    saving 14635 n-grams ...
+    Time taken: 0.0 mins
+    save_vocabulary ==> end
+    
+
+## Load the pipeline
+Load the classification pipeline and the word-ngrams and character n-grams
+
+
+```python
+# in order to deploy the trained model, you have to load the zip file of the classifier pipeline
+loaded_text_classifier = TextClassifier.load(model_file)
+
+from tatk.feature_extraction import NGramsVectorizer
+word_ngram_vocab = NGramsVectorizer.load_vocabulary(word_vocab_file_path)
+char_ngram_vocab = NGramsVectorizer.load_vocabulary(char_vocab_file_path)
+```
+
+    BaseTextModel::load ==> start
+    TatkPipeline::load ==> start
+    Time taken: 0.01 mins
+    TatkPipeline::load ==> end
+    Time taken: 0.02 mins
+    BaseTextModel::load ==> end
+    loading 12839 n-grams ...
+    loading 14635 n-grams ...
+    
+
+## Test the pipeline
+Apply the loaded text classification pipeline
+
+
+```python
+loaded_text_classifier.evaluate(df_test)
+```
+
+    TextClassifier::evaluate ==> start
+    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 col=prediction:TX:3 header+
+    NltkPreprocessor::tatk_transform ==> start
+    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
+    
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
+    VectorAssembler::transform ==> start, num of input records=3809
+    (3809, 12839)
+    (3809, 14635)
+    all_features::
+    (3809, 27474)
+    Time taken: 0.0 mins
+    VectorAssembler::transform ==> end
+    LogisticRegression::tatk_predict ==> start
+    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
+    [[ 188  338   75]
+     [  34 1443  161]
+     [  44  594  932]]
+    macro_f1 = 0.6112103240853114
+    Time taken: 0.02 mins
+    TextClassifier::evaluate ==> end
+    
+
+
+
+
+    (array([[ 188,  338,   75],
+            [  34, 1443,  161],
+            [  44,  594,  932]], dtype=int64), 0.6112103240853114)
+
+
+
+## Deploy the model
+
+Now, you can deploy the text classification model as an Azure web service.
+
+Go to Command Prompt and run the following command to log in your Azure Subscription:
+```
+$ az login
+```
+
+Download the deployment config file from Blob storage and save it locally
+
+
+```python
+# Download the deployment config file from Blob storage `url` and save it locally under `file_name`:
+deployment_config_file_url = 'https://aztatksa.blob.core.windows.net/dailyrelease/tatk_deploy_config.yaml'
+deployment_config_file_path=os.path.join(resources_dir, 'tatk_deploy_config.yaml')
+import urllib.request
+urllib.request.urlretrieve(deployment_config_file_url, deployment_config_file_path)
+```
+
+
+Update the downloaded deployment config file with your resources
+
+
+```python
+web_service_name = 'please type your web service name'
+working_directory= os.path.join(resources_dir, 'deployment') 
+
+web_service = text_classifier.deploy(web_service_name= web_service_name, 
+                       config_file_path=deployment_config_file_path,
+                       working_directory= working_directory)  
+```
+
+  
+
+Given that the trained model is deployed successfully. Let us invoke the scoring web service on new dataset with the web service information
+
+```python
+print("Service URL: {}".format(web_service._service_url))
+print("Service URL: {}".format(web_service._api_key))
+print("Service Id: {}".format(web_service._id))
+
+```
+
+Load the web service at any time using the web service name
+
+```python
+from tatk.operationalization.csi.csi_web_service import CsiWebService
+tatk_web_service = CsiWebService(web_service_name)
+```
+
+Test the web service with sample sentiment data:
+```python
+# input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into 1st round\"}]}"
+import json
+dict1 ={}
+dict1["recordId"] = "a1" 
+dict1["data"]= {}
+dict1["data"]["text"] = "a good college player who had a great week"
+
+dict2 ={}
+dict2["recordId"] = "b2"
+dict2["data"] ={}
+dict2["data"]["text"] = "a bad college player who had a awful week"
+dict_list =[dict1, dict2]
+data ={}
+data["values"] = dict_list
+input_data_json_str = json.dumps(data)
+print (input_data_json_str)
+prediction = tatk_web_service.score(input_data_json_str)
+prediction
+```
+
+    {"values": [{"data": {"text": "a good college player who had a great week"}, "recordId": "a1"}, {"data": {"text": "a bad college player who had a awful week"}, "recordId": "b2"}]}
+    F1 2018-04-24 00:32:42,971 INFO Web service scored. 
+    
+
+
+
+
+    '{"values": [{"recordId": "b2", "data": {"class": "neutral", "text": "a bad college player who had a awful week"}}, {"recordId": "a1", "data": {"class": "positive", "text": "a good college player who had a great week"}}]}'
+
+
+
 
 
 ## Next steps
 
-For information about the Azure Machine Learning Package for Computer Vision:
+For information about the Azure Machine Learning Package for Text Analytics:
 
-+ Check out the reference documentation
++ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics)
 
-+ Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md)
++ Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics)
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md)

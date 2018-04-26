@@ -145,23 +145,23 @@
   - name: Python packages
     href: reference-python-package-overview.md
     items:    
-    - name: Computer Vision
+    - name: Computer vision
       items:
       - name: Package overview and install
         href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision
       - name: Build and deploy image classification models
         href: how-to-build-deploy-image-classification-models.md
-      - name: Improve model accuracy
+      - name: Model accuracy
         href: how-to-improve-accuracy-for-computer-vision-models.md
     - name: Forecasting
       items:
-      - name: Package overview and install
+      - name: Overview and install
         href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/forecasting
-    - name: FPGA hardware acceleration
+    - name: FPGA acceleration
       href: reference-fpga-package-overview.md
-    - name: Text Analytics
+    - name: Text analytics
       items:
-      - name: Package overview and install
+      - name: Overview and install
         href: https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/text-analytics
       - name: Build and deploy text classification models
         href: how-to-build-deploy-text-classification-models.md    
