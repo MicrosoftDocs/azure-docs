@@ -507,6 +507,8 @@
           href: service-fabric-cluster-creation-via-portal.md
         - name: Azure Resource Manager
           href: service-fabric-cluster-creation-via-arm.md
+        - name: Cluster using certificate common name
+          href: service-fabric-create-cluster-using-cert-cn.md
       - name: Scale
         items:
         - name: Manually
@@ -519,6 +521,10 @@
         href: service-fabric-cluster-security-roles.md      
       - name: Open a port in the load balancer
         href: create-load-balancer-rule.md
+      - name: Change cluster certificate to common name
+        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+      - name: Manually rollover cluster certs
+        href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
         href: service-fabric-cluster-security-update-certs-azure.md
       - name: Delete
