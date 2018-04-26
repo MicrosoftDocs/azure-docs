@@ -168,7 +168,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
    The updateAll method accepts the following parameters:
 
-   |**Parameter** |Description**** |
+   |**Parameter** |**Description** |
    |---------|---------|
    |maxConcurrencyPerPartitionRange   |  The maximum degree of concurrency per partition key range. The default value is 20.  |
  
