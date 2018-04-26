@@ -270,7 +270,7 @@ The pattern is a combination of regular expression matching and machine learning
 
 4. Select **Test** in the top panel. Enter `Who does Patti Owens report to?` in the text box. Select Enter. This is the same utterance tested in the previous section. The result should be higher for the `GetEmployeeOrgChart` intent. 
 
-    The score is now **0.99**, much better. LUIS learned the pattern relevant to the intent without providing many examples.
+    The score is now much better. LUIS learned the pattern relevant to the intent without providing many examples.
 
     ![Screenshot of Test panel with high score result](./media/luis-tutorial-pattern/high-score.png)
 
@@ -298,7 +298,7 @@ Create a new intent for any utterances that are about moving people or assets.
     ```
     ![Screenshot of example utterance for MoveAssetsOrPeople intent](./media/luis-tutorial-pattern/intent-moveasserts-example-utt.png)
 
-    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more example. Then train and test again. 
+    The purpose of the example utterances is to give enough examples. If, later in the test, the location entity isn't detected, and consequently the pattern isn't detected, come back to this step and add more examples. Then train and test again. 
 
 5. Mark the entities in the example utterances with the Employee entity by selecting the first name then the last name in an utterance, then selecting the Employee entity in the list.
 
@@ -316,6 +316,9 @@ Create a new intent for any utterances that are about moving people or assets.
 
     If you expect a wide variety of utterances, instead of a pattern, these would be the wrong example utterances. In that case, you would want widely varying utterances in term or word choice, utterance length, and entity placement. 
 
+<!--TBD: what guidance to move from hier entities to patterns with roles -->
+<!--    The [Hierarchical entity quickstart](luis-quickstart-intent-and-hier-entity.md) uses the  same idea of location but uses child entities to find origin and destination locations. 
+-->
 ### Add role to location entity 
 Roles can only be used for patterns. Add the roles of Origin and Destination to the Location entity. 
 
@@ -331,7 +334,9 @@ Roles can only be used for patterns. Add the roles of Origin and Destination to 
 Add template utterances that use the new entity.
 
 1. Select **Patterns** from the left navigation.
+
 2. Select the **MoveAssetsOrPeople** intent.
+
 3. Enter a new template utterance using the new entity `Move {Employee} from {Location:Origin} to {Location:Destination}`. The syntax for an entity and role inside a template utterance is `{entity:role}`.
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/pattern-moveassets.png)
@@ -358,24 +363,38 @@ This HumanResources app also helps employees find company forms. Many of the for
 Create a new intent for utterances that are looking for forms.
 
 1. Select **Intents** from left navigation.
+
 2. Select **Create new intent**.
+
 3. Name the new intent `FindForm`.
-4. Add example utterances `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`. The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand the entity of the utterance. 
+
+4. Add an example utterance.
+
+    ```
+    `Where is the form What to do when a fire breaks out in the Lab and who needs to sign it after I read it?`
+    ```
 
     ![Screenshot of new entity with roles](./media/luis-tutorial-pattern/intent-findform.png)
+
+    The form title is `What to do when a fire breaks out in the Lab`. The utterance is asking for the location of the form and is also asking who needs to sign it validating the employee read it. Without a Pattern.any entity, it would be difficult to understand where the form title ends and extract the form title as an entity of the utterance.
 
 ### Create a Pattern.any entity for the form title
 The Pattern.any entity allows for entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. 
 
 1. Select **Entities** in the left navigation.
+
 2. Select **Create new entity**. 
+
 3. Name the entity `FormName` with type **Pattern.any**. For this specific tutorial, you do not need to add any roles to the entity.
 
+    ![Image of dialog box for entity name and entity type](./media/luis-tutorial-pattern/create-entity-pattern-any.png)
+
 ### Add a pattern that uses the Pattern.any
-Add patterns that use the new entity.
 
 1. Select **Patterns** from the left navigation.
+
 2. Select the **FindForm** intent.
+
 3. Enter a template utterance using the new entity `Where is the form {FormName} and who needs to sign it after I read it?`
 
     ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/pattern.any-template-utterance.png)
@@ -383,8 +402,10 @@ Add patterns that use the new entity.
 4. Train the app for the new intent, entity, and pattern.
 
 ### Test the new pattern for free-form data extraction
-1. Open the test panel. 
+1. Select **Test** from the top bar to open the test panel. 
+
 2. Enter the utterance `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`.
+
 3. Select **Inspect** under the result to see the test results for entity and intent.
 
     ![Screenshot of template utterance using pattern.any entity](./media/luis-tutorial-pattern/test-pattern.any-results.png)
