@@ -10,6 +10,7 @@ ms.component: luis
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the simple entity.  
 --- 
 
 # Quickstart: App with intents and a simple entity

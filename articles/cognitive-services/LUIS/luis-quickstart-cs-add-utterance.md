@@ -9,6 +9,7 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 02/20/2018
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using C#. 
 ---
 
 # Quickstart: Add utterances to a LUIS app using C# 

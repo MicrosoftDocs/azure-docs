@@ -10,6 +10,8 @@ ms.component: luis
 ms.topic: quickstart
 ms.date: 03/27/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
+
 --- 
 
 # Quickstart: App with intents and a hierarchical entity

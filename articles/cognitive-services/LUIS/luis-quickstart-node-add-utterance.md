@@ -9,6 +9,7 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Node.js. 
 ---
 
 # Quickstart: Add utterances app using Node.js 

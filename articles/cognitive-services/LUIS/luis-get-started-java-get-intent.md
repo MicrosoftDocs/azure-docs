@@ -9,6 +9,8 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Java. 
+
 ---
 
 # Quickstart: Call a LUIS app using Java

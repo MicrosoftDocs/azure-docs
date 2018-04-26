@@ -9,6 +9,7 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to only use intents and no entities in the app. 
 ---
 
 # Quickstart: Simple app with intents

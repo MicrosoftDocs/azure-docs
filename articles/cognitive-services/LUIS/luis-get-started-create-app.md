@@ -9,6 +9,7 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
 
 # Quickstart: App with prebuilt domain intents and entities
