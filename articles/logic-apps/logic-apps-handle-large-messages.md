@@ -52,16 +52,16 @@ So, an action that handles large messages must *either*:
 * Natively support chunking when that action belongs to a connector.
 * Have chunking support enabled in that action's runtime configuration.
 
-Otherwise, you get a runtime error when you try and access large content output.
+Otherwise, you get a runtime error when you try to access large content output.
 To enable chunking, see [Set up chunking support](#set-up-chunking).
 
 ### Chunked message handling for connectors
 
 Services that communicate with Logic Apps can have their own message size limits.
 These limits are often smaller than the Logic Apps limit. For example, assuming that
-a connector supports chunking, a connector might consider a 30 MB message as large, while Logic Apps does not.
+a connector supports chunking, a connector might consider a 30-MB message as large, while Logic Apps does not.
 To comply with this connector's limit, Logic Apps splits any message
-larger than 30 MB into smaller chunks.
+larger than 30-MB into smaller chunks.
 
 For connectors that support chunking, the underlying chunking protocol is invisible to end users.
 However, not all connectors support chunking, so these connectors generate runtime
