@@ -1,0 +1,76 @@
+- name: Traffic Manager Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Traffic Manager
+    href: traffic-manager-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Traffic Manager Profile - Portal
+    href: traffic-manager-create-profile.md
+- name: Tutorials
+  items:
+  - name: Route traffic
+        items:
+        - name: ROute traffic within the same geographic location as the user request
+          href: traffic-manager-configure-geographic-routing-method.md
+        - name: Route traffic to a prioritized endpoint
+          href: traffic-manager-configure-priority-routing-method.md
+        - name: Route traffic for low latency
+          href: traffic-manager-configure-performance-routing-method
+        - name: Distribute traffic accross endpoints
+          href: traffic-manager-configure-weighted-routing-method 
+  - name: Send Real User Measurements
+        items:
+        - name: Using Visual Studio SDK
+          href: traffic-manager-create-rum-visual-studio.md
+        - name: Using web pages
+          href: traffic-manager-create-rum-web-pages.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+
+- name: Concepts
+  items:
+  - name: Routing methods
+    href: traffic-manager-routing-methods.md
+  - name: Routing methods
+    href: traffic-manager-routing-methods.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network/traffic-manager
+  - name: Azure PowerShell
+    href: /powershell/resourcemanager/azurerm.trafficmanager/v2.5.0/azurerm.trafficmanager
+  - name: .NET
+    href: /java/api/com.microsoft.azure.management.trafficmanager
+  - name: Java
+    href: /java/api/
+  - name: Node.js
+    href: http://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
+  - name: Python
+    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
+  - name: REST
+    href: /rest/api/trafficmanager/
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=traffic-manager
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Networking blog
+    href: http://azure.microsoft.com/blog/topics/networking
+  - name: Networking forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/virtual-network
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: traffic-manager-faq.md
