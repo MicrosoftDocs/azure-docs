@@ -570,7 +570,7 @@
     - name: Monitor clusters
       items:
       - name: Query EventStore APIs
-        href: service-fabric-diagnostics-eventstore.md      
+        href: service-fabric-diagnostics-eventstore-query.md      
       - name: Windows Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics

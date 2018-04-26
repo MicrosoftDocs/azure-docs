@@ -23,6 +23,8 @@ ms.author: dekapur
 >[!NOTE]
 >As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
+## Overview
+
 Introduced in version 6.2, the EventStore service is a monitoring option in Service Fabric, which provides a way for you to understand the state of your cluster or workloads at a given point in time. 
 The EventStore service exposes Service Fabric events through APIs that you can make calls. These EventStore APIs allow you to query the cluster directly to get diagnostics data on any entity in your cluster and should be used to help:
 * Diagnose issues in development or testing, or where you might be using a monitoring pipeline
