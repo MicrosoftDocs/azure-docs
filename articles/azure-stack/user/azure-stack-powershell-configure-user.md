@@ -13,8 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 4/26/2017
 ms.author: mabrigg
+ms.reviewer: Balsu.G
 
 ---
 
@@ -62,7 +63,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Connect-AzureRmAccount `
+  Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
    ```
@@ -97,7 +98,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -EnvironmentName "AzureStackUser"
 
   # Sign in to your environment
-  Connect-AzureRmAccount `
+  Login-AzureRmAccount `
     -EnvironmentName "AzureStackUser" `
     -TenantId $TenantID 
   ```
