@@ -171,6 +171,12 @@ items:
           href: multi-region-writers.md
       - name: How To Guides
         items:
+        - name: BulkExecutor overview
+          href: bulk-executor-overview.md
+        - name: BulkExecutor - .NET
+          href: bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: bulk-executor-java.md
         - name: Query
           items:
           - name: Perform SQL queries
@@ -247,6 +253,10 @@ items:
           href: sql-api-sdk-node.md
         - name: Python
           href: sql-api-sdk-python.md
+        - name: BulkExecutor - .NET
+          href: sql-api-sdk-bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: sql-api-sdk-bulk-executor-java.md
         - name: REST
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
