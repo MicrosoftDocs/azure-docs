@@ -19046,7 +19046,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
-            "redirect_url": "/articles/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_url": "/azure/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
             "redirect_document_id": false
         }
     ]
