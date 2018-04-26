@@ -60,6 +60,8 @@
   items:
   - name: Code samples
     href: https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs
+  - name: PowerShell
+    href: samples-powershell.md
 - name: Concepts
   items: 
   - name: Enterprise push architecture guidance
