@@ -55,6 +55,6 @@ Start-AzureRmVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ```
 
-## Next steps
+**Next steps**
 
 To create a copy of a disk, see [Snapshot a disk](snapshot-copy-managed-disk.md).
