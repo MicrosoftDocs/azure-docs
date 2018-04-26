@@ -1,4 +1,4 @@
-# [Stream Analytics Documentation](index.md)
+# [Stream Analytics Documentation](index.yml)
 
 # Overview
 ## [What is Stream Analytics?](stream-analytics-introduction.md)
