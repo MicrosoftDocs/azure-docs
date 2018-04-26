@@ -72,14 +72,25 @@ This article and its companion articles provide details for using the Visual Stu
           this.configuration = configuration;
       }
    ```
+
+1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Face API page](https://azure.microsoft.com/en-us/services/cognitive-services/face/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project.
+
+1. Right-click on the image file, choose Properties, and then choose **Copy if newer**.
+
+   ![Copy if newer](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Replace the Configure method with the following code to access the Face API and test an image.
+1. Replace the Configure method with the following code to access the Face API and test an image. Change the imagePath string to the correct path and filename for your face image.
 
    ```csharp
-       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // TODO: Change this to your image's path on your site.
+            string imagePath = @"images/face1.png";
+
+            // Enable static files such as image files.
+            app.UseStaticFiles();
+
             string faceApiKey = this.configuration["FaceAPI_ServiceKey"];
             string faceApiEndPoint = this.configuration["FaceAPI_ServiceEndPoint"];
 
@@ -94,8 +105,9 @@ This article and its companion articles provide details for using the Visual Stu
             // Assemble the URI for the REST API Call.
             string uri = faceApiEndPoint + "/detect?" + requestParameters;
 
-            // Request body. Posts a locally stored JPEG image.
-            var byteData = GetImageAsByteArray(@"<specify a path to a photo on your local drive that contains a face>");
+            // Request body. Posts an image you've added to your site's images folder.
+            var fileInfo = env.WebRootFileProvider.GetFileInfo(imagePath);
+            var byteData = GetImageAsByteArray(fileInfo.PhysicalPath);
 
             string contentStringFace = string.Empty;
             using (ByteArrayContent content = new ByteArrayContent(byteData))
@@ -118,6 +130,8 @@ This article and its companion articles provide details for using the Visual Stu
 
             app.Run(async (context) =>
             {
+                await context.Response.WriteAsync($"<p><b>Face Image:</b></p>");
+                await context.Response.WriteAsync($"<div><img src=\"" + imagePath + "\" /></div>");
                 await context.Response.WriteAsync($"<p><b>Face detection API results:</b></p>");
                 await context.Response.WriteAsync("<p>");
                 await context.Response.WriteAsync(JsonPrettyPrint(contentStringFace));
@@ -125,7 +139,7 @@ This article and its companion articles provide details for using the Visual Stu
             });
         }
    ```
-    The code here constructs a HTTP request with URI and the image as binary content for a call to the Face REST API.
+    The code in this step constructs a HTTP request with a call to the Face REST API, using the key you added when you added the connected service.
 
 1. Add the helper functions GetImageAsByteArray and JsonPrettyPrint.
 
@@ -209,9 +223,9 @@ This article and its companion articles provide details for using the Visual Stu
         }
    ```
 
-1. Find a photo of a face on your local hard drive, and insert that path at the call to GetImageAsByteArray.
-
-1. Run the web application and see what Face API found in your image.
+1. Run the web application and see what Face API found in the image.
+ 
+   ![Face API image and formatted results](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## Clean up resources
 
