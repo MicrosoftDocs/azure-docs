@@ -8,7 +8,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 # Language Understanding FAQ
@@ -159,6 +159,19 @@ LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](lu
 ## Why do I keep getting "Your sign in has expired" error?
  
 See [Website sign in time period](luis-boundaries.md#website-sign-in-time-period).
+
+## Where did the tutorials go? 
+The articles that were previously in the Tutorial section are now in the How-to section of the documents. 
+
+|Tutorial|
+|--|
+|Integrate LUIS with a bot with [C#](luis-csharp-tutorial-build-bot-framework-sample.md) and [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
+|Add Application Insights to a Bot with [C#](luis-tutorial-bot-csharp-appinsights) and [Node.js](luis-tutorial-function-appinsights)|
+|Build a LUIS app programmatically using [Node.js](luis-tutorial-node-import-utterances-csv.md)|
+|Use [composite entity](luis-tutorial-composite-entity.md) to extract grouped data|
+|Add [list entity](luis-tutorial-list-entity.md) for increased entity detection using Node.js|
+|Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
+|[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
 ## Next steps
 
