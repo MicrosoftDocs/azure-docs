@@ -47,7 +47,7 @@ When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure 
 
 **Virtual network**: The VNet into which you want to deploy the cluster. If you want to create a new VNet for your cluster, select *Create New* and follow the steps in the *Create new virtual network* page.
 
-**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new** and follow the steps in the *Create new subnet* page.
+**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create new subnet* page.
 
 **Service CIDR address range**: The IP address range for the Kubernetes cluster service IPs. This range must not be within the VNet IP address range of your cluster.
 
@@ -65,9 +65,9 @@ Clusters configured with Advanced networking require additional planning. The si
 
 Each VNet provisioned for use with the Azure CNI plugin is limited to 4096 IP addresses.
 
-IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node.
+IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
-Each node can host a maximum of 30 pods. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
+Each node in a cluster configured for Advanced networking can host a maximum of 30 pods.
 
 ## Frequently asked questions
 
