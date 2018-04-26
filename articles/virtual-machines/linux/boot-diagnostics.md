@@ -40,7 +40,7 @@ Both of these features are supported for Azure Virtual Machines in all regions. 
 - [FSTAB errors](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## Enable diagnostics on a new virtual machine
-1. When creating a new virtual machine from the Azure Portal, select the **Azure Resource Manager** from the deployment model dropdown:
+1. When creating a new virtual machine from the Azure portal, select the **Azure Resource Manager** from the deployment model dropdown:
  
     ![Resource Manager](./media/boot-diagnostics/screenshot3.jpg)
 
@@ -83,7 +83,7 @@ To enable Boot diagnostics on an existing virtual machine, follow these steps:
 
 1. Log in to the [Azure portal](https://portal.azure.com), and then select the virtual machine.
 2. In **Support + troubleshooting**, select **Boot diagnostics** > **Settings**, change the status to **On**, and then select a storage account. 
-4. Make sure that the Boot diagnostics option is select and then save the change.
+4. Make sure that the Boot diagnostics option is selected and then save the change.
 
     ![Update Existing VM](./media/boot-diagnostics/enable-for-existing-vm.png)
 

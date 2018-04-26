@@ -38,7 +38,7 @@ Both of these features are supported for Azure virtual machines in all regions. 
     ![Create VM](./media/virtual-machines-common-boot-diagnostics/create-storage-account.png)
 
     > [!NOTE]
-    > The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM. 
+    > The Boot diagnostics feature does not support premium storage account. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.
     >
     > 
 
@@ -72,7 +72,7 @@ To enable Boot diagnostics on an existing virtual machine, follow these steps:
 
 1. Log in to the [Azure portal](https://portal.azure.com), and then select the virtual machine.
 2. In **Support + troubleshooting**, select **Boot diagnostics** > **Settings**, change the status to **On**, and then select a storage account. 
-4. Make sure that the Boot diagnostics option is select and then save the change.
+4. Make sure that the Boot diagnostics option is selected and then save the change.
 
     ![Update Existing VM](./media/virtual-machines-common-boot-diagnostics/enable-for-existing-vm.png)
 
