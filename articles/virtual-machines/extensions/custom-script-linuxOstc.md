@@ -1,6 +1,6 @@
 ---
 title: Run custom scripts on Linux VMs in Azure | Microsoft Docs
-description: Automate Linux VM configuration tasks by using the Custom Script Extension v2
+description: Automate Linux VM configuration tasks by using the Custom Script Extension v1
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -8,7 +8,7 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: cf17ab2b-8d7e-4078-b6df-955c6d5071c2
+ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -18,8 +18,8 @@ ms.date: 04/25/2018
 ms.author: danis
 
 ---
-# Use the Azure Custom Script Extension Version 2 with Linux virtual machines
-The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
+# Use the Azure Custom Script Extension Version 1 with Linux virtual machines
+The Custom Script Extension Version 1 downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
 
 The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, the Azure portal, or the Azure Virtual Machines REST API.
 
@@ -30,12 +30,21 @@ There are two Linux Custom Script Extensions:
 * Version 1 - Microsoft.OSTCExtensions.CustomScriptForLinux
 * Version 2 - Microsoft.Azure.Extensions.CustomScript
 
-Please switch new and existing deployments to use the new version 2 instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
+Please switch new and existing deployments to use the new version ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)) instead. The new version is intended to be a drop-in replacement. Therefore, the migration is as easy as changing the name and version, you do not need to change your extension configuration.
 
+ 
 
 ### Operating System
+Supported Linux Distributions:
 
-The Custom Script Extension for Linux will run on the extension supported extension OS's, for more information, see this [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+- CentOS 6.5 and higher
+- Debian 8 and higher
+    - Debian 8.7 does not ship with Python2 in the latest images, which breaks CustomScriptForLinux.
+- FreeBSD
+- OpenSUSE 13.1 and higher
+- Oracle Linux 6.4 and higher
+- SUSE Linux Enterprise Server 11 SP3 and higher
+- Ubuntu 12.04 and higher
 
 ### Script Location
 
@@ -82,20 +91,20 @@ These items should be treated as sensitive data and specified in the extensions 
     "displayName": "config-app"
   },
   "properties": {
-    "publisher": "Microsoft.Azure.Extensions",
-    "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "CustomScriptForLinux",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
-      "skipDos2Unix":false,
-      "timestamp":"123456789",          
+      "fileUris": [
+        "<url>"
+      ],
+      "enableInternalDNSCheck": true
     },
     "protectedSettings": {
-       "commandToExecute": "<command-to-execute>",
-       "script": "<base64-script-to-execute>",
-       "storageAccountName": "<storage-account-name>",
-       "storageAccountKey": "<storage-account-key>",
-       "fileUris": ["https://.."]  
+      "storageAccountName": "<storage-account-name>",
+      "storageAccountKey": "<storage-account-key>",
+      "commandToExecute": "<command>"
     }
   }
 }
@@ -106,103 +115,32 @@ These items should be treated as sensitive data and specified in the extensions 
 | Name | Value / Example | Data Type | 
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute.Extensions | string |
-| type | CustomScript | string |
-| typeHandlerVersion | 2.0 | int |
+| publisher | Microsoft.OSTCExtensions | string |
+| type | CustomScriptForLinux | string |
+| typeHandlerVersion | 1.5 | int |
 | fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute (e.g) | python MyPythonScript.py <my-param1> | string |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
-| skipDos2Unix  (e.g) | false | boolean |
-| timestamp  (e.g) | 123456789 | 32-bit integer |
+| enableInternalDNSCheck | true | boolean |
 | storageAccountName (e.g) | examplestorageacct | string |
 | storageAccountKey (e.g) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### Property value details
-* `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
-* `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
-  script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
- * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
-  this field instead if your command contains secrets such as passwords.
-* `script`: (**required** if commandToExecute not set, string)a base64 encoded (and optionally gzip'ed) script executed by /bin/sh.
-* `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
-* `storageAccountName`: (optional, string) the name of storage account. If you
-  specify storage credentials, all `fileUris` must be URLs for Azure Blobs.
+* `fileUris`: (optional, string array) the uri list of the scripts
+* `enableInternalDNSCheck`: (optional, bool) default is True, set to False to disable DNS check.
+* `commandToExecute`: (optional, string) the entrypoint script to execute
+* `storageAccountName`: (optional, string) the name of storage account
 * `storageAccountKey`: (optional, string) the access key of storage account
 
-
-The following values can be set in either public or protected settings, the extension will reject any configuration where the values below are set in both public and protected settings.
+The following values can be set in either public or protected settings, you must not have these values below set in both public and protected settings.
 * `commandToExecute`
-* `script`
-* `fileUris`
 
 Using public settings maybe useful for debugging, but it is strongly recommended that you use protected settings.
 
 Public settings are sent in clear text to the VM where the script will be executed.  Protected settings are encrypted using a key known only to the Azure and the VM. The settings are saved to the VM as they were sent, i.e. if the settings were encrypted they are saved encrypted on the VM. The certificate used to decrypt the encrypted values is stored on the VM, and used to decrypt settings (if necessary) at runtime.
 
-#### Property: skipDos2Unix
-
-The default value is false, which means dos2unix conversion **is** executed.
-
-The previous version of CustomScript, Microsoft.OSTCExtensions.CustomScriptForLinux, would automatically convert DOS files to UNIX files by translating `\r\n` to `\n`. This translation still exists, and is on by default. This conversion is applied to all files downloaded from fileUris or the script setting based on any of the following criteria.
-
-* If the extension is one of `.sh`, `.txt`, `.py`, or `.pl` it will be converted. The script setting will always match this criteria because it is assumed to be a script executed with /bin/sh, and is saved as script.sh on the VM.
-* If the file starts with `#!`.
-
-The dos2unix conversion can be skipped by setting the skipDos2Unix to true.
-
-```json
-{
-  "fileUris": ["<url>"],
-  "commandToExecute": "<command-to-execute>"
-  "skipDos2Unix": true
-}
-```
-
-####  Property: script
-
-CustomScript supports execution of a user-defined script. The script settings to combine commandToExecute and fileUris into a single setting. Instead of the having to setup a file for download from Azure storage or GitHub gist, you can simply encode the script as a
-setting. Script can be used to replaced commandToExecute and fileUris.
-
-The script **must** be base64 encoded.  The script can **optionally** be gzip'ed. The script setting can be used in public or protected settings. The maximum size of the script parameter's data is 256 KB. If the script exceeds this size it will not be executed.
-
-For example, given the following script saved to the file /script.sh/.
-
-```sh
-#!/bin/sh
-echo "Updating packages ..."
-apt update
-apt upgrade -y
-```
-
-The correct CustomScript script setting would be constructed by taking the output of the following command.
-
-```sh
-cat script.sh | base64 -w0
-```
-
-```json
-{
-  "script": "IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo="
-}
-```
-
-The script can optionally be gzip'ed to further reduce size (in most cases). (CustomScript auto-detects the use of gzip compression.)
-
-```sh
-cat script | gzip -9 | base64 -w 0
-```
-
-CustomScript uses the following algorithm to execute a script.
-
- 1. assert the length of the script's value does not exceed 256 KB.
- 1. base64 decode the script's value
- 1. _attempt_ to gunzip the base64 decoded value
- 1. write the decoded (and optionally decompressed) value to disk (/var/lib/waagent/custom-script/#/script.sh)
- 1. execute the script using _/bin/sh -c /var/lib/waagent/custom-script/#/script.sh.
-
 
 ## Template deployment
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. 
 
 
 ```json
@@ -218,16 +156,17 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
     "displayName": "config-app"
   },
   "properties": {
-    "publisher": "Microsoft.Azure.Extensions",
-    "type": "CustomScript",
-    "typeHandlerVersion": "2.0",
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "CustomScriptForLinux",
+    "typeHandlerVersion": "1.5",
     "autoUpgradeMinorVersion": true,
     "settings": {
-      },
+      "fileUris": ["http://MyAccount.blob.core.windows.net/vhds/MyShellScript.sh"]
+    },
     "protectedSettings": {
-      "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/MyPythonScript.py"
-      ]  
+      "storageAccountName": "MyAccount",
+      "storageAccountKey": "<storage-account-key>",
+      "commandToExecute": "sh MyShellScript.sh"
     }
   }
 }
@@ -241,16 +180,20 @@ When you're using Azure CLI to run the Custom Script Extension, create a configu
 
 ```azurecli
 az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
+
+az vm extension set -n VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.4 \
+                            --vm-name MyVm --resource-group MyResourceGroup \
+                            --protected-settings '{"username":"user1", "ssh_key":"ssh_rsa ..."}'
 ```
 
 Optionally, you can specify the settings in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
 
 ```azurecli
-az vm extension set '
+az vm extension set `
   --resource-group exttest `
   --vm-name exttest `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
+  --name CustomScriptForLinux `
+  --publisher Microsoft.OSTCExtensions `
   --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
@@ -314,15 +257,71 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
 
-```bash
-/var/lib/waagent/custom-script/download/0/
-```
-
-The Azure Script Extension produces a log, which you can find here:
+To troubleshoot, first check the Linux Agent Log, ensure the extension ran:
 
 ```bash
-/var/log/azure/custom-script/handler.log
+ cat /var/log/waagent.log 
 ```
+
+You should look for the extension execution, it will look something like:
+```text
+2018/04/26 15:29:44.835067 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Target handler state: enabled
+2018/04/26 15:29:44.867625 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] [Enable] current handler state is: notinstalled
+2018/04/26 15:29:44.959605 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Download, message=Download succeeded, duration=59
+2018/04/26 15:29:44.993269 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Initialize extension directory
+2018/04/26 15:29:45.022972 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Update settings file: 0.settings
+2018/04/26 15:29:45.051763 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Install extension [customscript.py -install]
+2018/04/26 15:29:45 CustomScriptForLinux started to handle.
+2018/04/26 15:29:45 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] cwd is /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2
+2018/04/26 15:29:45 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Change log file to /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
+2018/04/26 15:29:46.088212 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Install, message=Launch command succeeded: customscript.py -install, duration=1005
+2018/04/26 15:29:46.133367 INFO [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable extension [customscript.py -enable]
+2018/04/26 15:29:46 CustomScriptForLinux started to handle.
+..
+2018/04/26 15:29:47.178163 INFO Event: name=Microsoft.OSTCExtensions.CustomScriptForLinux, op=Enable, message=Launch command succeeded: customscript.py -enable, duration=1012
+```
+Some points to note:
+1. Enable is when the command starts running.
+2. You can also see which log file it is writing out to, '/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
+'.
+
+Next step is to go an check the log file, this is the format:
+```bash
+/var/log/azure/<extension-name>/<version>/extension.log file.
+```
+
+You should look for the induvidual execution, it will look something like:
+```text
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Enable,transitioning,0,Launching the script...
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] sequence number is 0
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] setting file path is/var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/config/0.settings
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] JSON config: {"runtimeSettings": [{"handlerSettings": {"protectedSettings": "MIIB0AYJKoZIhvcNAQcDoIIBwTCCAb0CAQAxggF+hnEXRtFKTTuKiFC8gTfHKupUSs7qI0zFYRya", "publicSettings": {"fileUris": ["https://dannytesting.blob.core.windows.net/demo/myBash.sh"]}, "protectedSettingsCertThumbprint": "4385AB21617C2452FF6998C0A37F71A0A01C8368"}}]}
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Config decoded correctly.
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Will try to download files, number of retries = 10, wait SECONDS between retrievals = 20s
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Downloading,transitioning,0,Downloading files...
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] No azure storage account and key specified in protected settings. Downloading scripts from external links...
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Converting /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/download/0/myBash.sh from DOS to Unix formats: Done
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Removing BOM of /var/lib/waagent/Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2/download/0/myBash.sh: Done
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Succeeded to download files, retry count = 0
+2018/04/26 15:29:46 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Internal DNS is ready, retry count = 0
+2018/04/26 15:29:47 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Command is finished.
+2018/04/26 15:29:47 ---stdout---
+2018/04/26 15:29:47 
+2018/04/26 15:29:47 ---errout---
+2018/04/26 15:29:47 
+2018/04/26 15:29:47 
+2018/04/26 15:29:47 [Microsoft.OSTCExtensions.CustomScriptForLinux-1.5.2.2] Daemon,success,0,Command is finished.
+2018/04/26 15:29:47 ---stdout---
+2018/04/26 15:29:47 
+2018/04/26 15:29:47 ---errout---
+2018/04/26 15:29:47 
+2018/04/26 15:29:47 
+```
+Here you can see:
+* The Enable command starting is this log
+* The settings passed to the extension
+* The extension downloading file and the result of that.
+* The command being run and the result.
 
 You can also retrieve the execution state of the Custom Script Extension by using Azure CLI:
 
@@ -333,15 +332,11 @@ az vm extension list -g myResourceGroup --vm-name myVM
 The output looks like the following text:
 
 ```azurecli
-info:    Executing command vm extension get
-+ Looking up the VM "scripttst001"
-data:    Publisher                   Name                                      Version  State
-data:    --------------------------  ----------------------------------------  -------  ---------
-data:    Microsoft.Azure.Extensions  CustomScript                              2.0      Succeeded
-data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2.3      Succeeded
-info:    vm extension get command OK
+Name                  ProvisioningState    Publisher                   Version  AutoUpgradeMinorVersion
+--------------------  -------------------  ------------------------  ---------  -------------------------
+CustomScriptForLinux  Succeeded            Microsoft.OSTCExtensions        1.5  True
 ```
 
 ## Next steps
-To see the code, current issues and versions, see [custom-script-extension-linux repo](https://github.com/Azure/custom-script-extension-linux).
+To see the code, current issues and versions, see [CustomScript Extension repo](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript).
 
