@@ -17,8 +17,9 @@ Language Understanding (LUIS) allows your application to understand what a perso
 
 Several Microsoft technologies work with LUIS:
 
-* [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
 * [Bing Spell Check API][bing-spell-check-api] provides text correction before prediction. 
+* [Bot Framework][bot-framework] allows a chat bot to talk with a user via text input. Select [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK for a complete bot experience.
+* [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
 * [Speech][speech] converts spoken language requests into text. Once converted to text, LUIS processes the requests.
 * [Text Analytics][text-analytics] provides sentiment analysis and key phrase data extraction. 
 
@@ -106,3 +107,4 @@ Create a [new LUIS app](LUIS-get-started-create-app.md).
 [text-analytics]:https://azure.microsoft.com/services/cognitive-services/text-analytics/
 [patterns]:luis-concept-patterns.md
 [bing-spell-check-api]:https://azure.microsoft.com/services/cognitive-services/spell-check/
+[qnamaker]:https://qnamaker.ai/
