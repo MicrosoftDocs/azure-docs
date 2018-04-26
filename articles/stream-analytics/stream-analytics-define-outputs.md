@@ -1,5 +1,5 @@
 ---
-title: Types of outputs from Azure Stream Analytics jobs
+title: Understand outputs from Azure Stream Analytics
 description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
 services: stream-analytics
 author: jasonwhowell
@@ -10,11 +10,13 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/26/2018
 ---
-# Stream Analytics outputs: Options for storage and analysis
-This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. Using the output data, you can do further business analytics and data warehousing of your data. You design your Stream Analytics query to refer to the name of an output in the query language [INTO clause](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need.
 
-You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job),  [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job outputs.
+# Understand outputs from Azure Stream Analytics
+This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. Using the output data, you can do further business analytics and data warehousing of your data. 
 
+When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
+
+To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md).
 
 ## Azure Data Lake Store
 Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access the Data Lake Store.
