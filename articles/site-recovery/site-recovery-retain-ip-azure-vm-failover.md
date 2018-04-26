@@ -38,13 +38,13 @@ Here’s what the network architecture looks like before failover:
 - **Recovery VNet** is not connected with any other virtual network.
 - **Company A** assigns/verifies target IP address for replicated items. For this example, target IP is the same as source IP for each VM.
 
-![Azure-to-Azure connectivity before failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover.png)
+![Azure-to-Azure connectivity before failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
 
 ### Full region failover
 
 In the event of a regional outage, **Company A** can recover its entire deployment quickly and easily using Azure Site Recovery’s powerful [recovery plans](site-recovery-create-recovery-plans.md). Having already set the target IP address for each VM prior to failover, **Company A** can orchestrate failover and automate connection establishment between Recovery VNet and Azure Vnet as shown in the below diagram.
 
-![Azure-to-Azure connectivity full region failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover.png)
+![Azure-to-Azure connectivity full region failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 
 Depending on application requirements, connections between the two VNets on the target region can be established before, during (as an intermediate step) or after failover. Use [recovery plans](site-recovery-create-recovery-plans.md) to add scripts and define the failover order.
 
@@ -68,14 +68,14 @@ The pre-failover configuration then looks as follows:
 - **Recovery VNet1** and **Recovery VNet2** are not connected with any other virtual network.
 - To reduce recovery time objective (RTO), VPN gateways are configured on **Recovery VNet1** and **Recovery VNet2** prior to failover.
 
-![Azure-to-Azure connectivity isolated application before failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover.png)
+![Azure-to-Azure connectivity isolated application before failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
 
 In the event of a disaster situation that affects only one application (in this example housed in Source VNet2), Company A can recover the affected application as follows:
 - VPN connections between **Source VNet1** and **Source VNet2**, and between **Source VNet2** and **Azure VNet** are disconnected.
 - VPN connections are established between **Source VNet1** and **Recovery VNet2**, and between **Recovery VNet2** and **Azure VNet**.
 - VMs from **Source VNet2** are failed over to **Recovery VNet2**.
 
-![Azure-to-Azure connectivity isolated application after failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover.png)
+![Azure-to-Azure connectivity isolated application after failover](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
 
 The above isolated failover example can be expanded to include more applications and network connections. The recommendation is to follow a like-like connection model, as far as possible, when failing over from source to target.
 
@@ -95,7 +95,7 @@ Here’s what the network architecture looks like before failover:
 - To reduce recovery time objective (RTO), Company B provisions gateways on Recovery VNet in Azure Southeast Asia prior to failover.
 - **Company B** assigns/verifies target IP address for replicated items. For this example, target IP is the same as source IP for each VM
 
-![On-premises-to-Azure connectivity before failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover.png)
+![On-premises-to-Azure connectivity before failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
 ### Full region failover
 
@@ -103,7 +103,7 @@ In the event of a regional outage, **Company B** can recover its entire deployme
 
 The original connection between Azure East Asia and the on-premises datacenter should be disconnected before establishing the connection between Azure Southeast Asia and on-premises datacenter. The on-premises routing is also reconfigured to point to the target region and gateways post failover.
 
-![On-premises-to-Azure connectivity after failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover.png)
+![On-premises-to-Azure connectivity after failover](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
 ### Subnet failover
 

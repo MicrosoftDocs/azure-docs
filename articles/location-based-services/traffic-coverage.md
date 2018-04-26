@@ -29,6 +29,7 @@ Azure Location Based Services (LBS) provides rich traffic information in the for
 |Bahrain     |         |✓         |
 |Belgium     |✓         |✓         |
 |Brazil     |✓         |✓         |
+|Bulgaria     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colombia      |         |✓         |

@@ -59,7 +59,7 @@ You can use any method to send a message to your Service Bus topic. The sample c
 
 Before you work through the entire scenario, set up at least a small test function, which you can use to debug and observe what events are flowing.
 
-1. In the Azure portal, create a new Azure Functions application. To learn the basics of Azure Functions, see [Azure Functions documentation](https://docs.microsoft.com/en-us/azure/azure-functions/).
+1. In the Azure portal, create a new Azure Functions application. To learn the basics of Azure Functions, see [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/).
 
 2. In your newly created function, select the plus sign (+) to add an HTTP trigger function:
 

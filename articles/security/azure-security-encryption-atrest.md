@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Azure Data Encryption-at-Rest | Microsoft Docs
 description: This article provides an overview of Microsoft Azure data  encryption at-rest, the overall capabilities, and general considerations.
 services: security
@@ -272,7 +272,7 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | Power BI                         |                | Yes                 | -                            | -                            | -      |
 | **IoT Services**                     |                |                     |                              |                              |        |
 | IoT Hub                          |                | -                   | -                            | -                            | Yes    |
-| Service Bus                      |                | Yes (Premium tier)              | -                            | -                            | Yes    |
+| Service Bus                      |                | Yes              | -                            | -                            | Yes    |
 | Event Hubs                       |                | Yes             | -                            | -                            | -      |
 
 

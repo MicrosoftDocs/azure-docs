@@ -194,7 +194,7 @@ For more information on creating retraining web services in AzureML, see [Retrai
 For more information about automating the model training process using Azure Data Factory, see [Updating Azure Machine Learning models using Update Resource Activity](https://docs.microsoft.com/azure//data-factory/v1/data-factory-azure-ml-update-resource-activity).
 
 ## Existing documentation
-[Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/en-us/marketplace/programs/certified/)
+[Microsoft Azure Certified to grow your cloud business](https://azure.microsoft.com/marketplace/programs/certified/)
 
-[Microsoft Azure Certified for Cortana Intellignece](https://azure.microsoft.com/en-us/marketplace/programs/certified/cortana/)
+[Microsoft Azure Certified for Cortana Intellignece](https://azure.microsoft.com/marketplace/programs/certified/cortana/)
 

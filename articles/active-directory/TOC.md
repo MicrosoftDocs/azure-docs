@@ -283,6 +283,7 @@
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
@@ -348,7 +349,7 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
