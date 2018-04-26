@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Android Getting Started | Microsoft Docs
 description: How to build an Android application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth2.0.
 services: active-directory
@@ -25,7 +25,7 @@ If you're developing a desktop application, Azure Active Directory (Azure AD) ma
 
 For Android clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library (ADAL). The sole purpose of ADAL is to make it easy for your app to get access tokens. To demonstrate how easy it is, we’ll build an Android To-Do List application that:
 
-* Gets access tokens for calling a To-Do List API using [OAuth 2.0 authentication protocol](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
+* Gets access tokens for calling a To-Do List API using [OAuth 2.0 authentication protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
 * Gets a user's to-do list.
 * Signs out users.
 
@@ -271,7 +271,7 @@ Note that correlation IDs are central to the diagnostics in the library. You can
 #### Errors & Exceptions
 Exceptions are the first diagnostic. We try to provide helpful error messages. If you find one that is not helpful, please file an issue and let us know. Include device information such as model and SDK number.
 
-To learn more about what errors your app should handle, checkout the [Error handling best practices](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
+To learn more about what errors your app should handle, checkout the [Error handling best practices](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-adal-error-handling). 
 
 #### Logs
 You can configure the library to generate log messages that you can use to help diagnose issues. You configure logging by making the following call to configure a callback that ADAL will use to hand off each log message as it's generated.

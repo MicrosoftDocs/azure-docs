@@ -26,16 +26,16 @@ For B2C tenants, there are two primary modes of communicating with the Graph API
 * For interactive, run-once tasks, you should act as an administrator account in the B2C tenant when you perform the tasks. This mode requires an administrator to sign in with credentials before that admin can perform any calls to the Graph API.
 * For automated, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an **Application ID** that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). In this case, the application acts as itself, not as a user, to call the Graph API.
 
-In this article, we'll discuss how to perform the automated-use case. To demonstrate, we'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a noninteractive, automated fashion.
+In this article, you learn how to perform the automated-use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a noninteractive, automated fashion.
 
 ## Get an Azure AD B2C tenant
-Before you can create applications or users, or interact with Azure AD at all, you will need an Azure AD B2C tenant and a global administrator account in the tenant. If you don't have a tenant already, [get started with Azure AD B2C](active-directory-b2c-get-started.md).
+Before you can create applications or users, you need an Azure AD B2C tenant. If you don't have a tenant already, [get started with Azure AD B2C](active-directory-b2c-get-started.md).
 
 ## Register your application in your tenant
-After you have a B2C tenant, you need to register your application via the [Azure Portal](https://portal.azure.com).
+After you have a B2C tenant, you need to register your application using the [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> To use the Graph API with your B2C tenant, you will need to register a dedicated application by using the generic *App Registrations* menu in the Azure Portal, **NOT** Azure AD B2C's *Applications* menu. You can't reuse the already-existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
+> To use the Graph API with your B2C tenant, you need to register an application using the *App Registrations* service in the Azure portal, **NOT** Azure AD B2C's *Applications* menu. The following instructions lead you to the appropropriate menu. You can't reuse existing B2C applications that you registered in the Azure AD B2C's *Applications* menu.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.
@@ -44,7 +44,8 @@ After you have a B2C tenant, you need to register your application via the [Azur
     1. Select **Web App / API** as the Application Type.    
     2. Provide **any Sign-on URL** (e.g. https://B2CGraphAPI) as it's not relevant for this example.  
 5. The application will now show up in the list of applications, click on it to obtain the **Application ID** (also known as Client ID). Copy it as you'll need it in a later section.
-6. In the Settings menu, click on **Keys** and add a new key (also known as client secret). Also copy it for use in a later section.
+6. In the Settings menu, click **Keys**.
+7. In the **Passwords** section, enter the key description and select a duration, and then click **Save**. Copy the key value (also known as Client Secret) for use in a later section.
 
 ## Configure create, read and update permissions for your application
 Now you need to configure your application to get all the required permissions to create, read, update and delete users.
