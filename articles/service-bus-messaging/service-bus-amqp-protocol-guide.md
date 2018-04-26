@@ -249,7 +249,8 @@ There are few other service bus message properties which are not part of AMQP me
 
 ### Transaction capability
 
-Transactional messaging allows for the coordinated outcome of otherwise independent transfers. Multiple transfers are grouped together by an identifier `txn-id`.
+A transaction groups two or more operations together into an execution scope. By nature, such a transaction must ensure that all operations belonging to a given group of operations either succeed or fail jointly.
+The operations are grouped by an identifier `txn-id`.
 
 For transactional interaction, the client acts a `transaction controller` which controls the operations that should be grouped together. Service Bus Service acts as a `transactional resource` and performs work as requested by the `transaction controller`.
 
