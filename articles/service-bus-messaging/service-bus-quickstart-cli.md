@@ -71,7 +71,8 @@ After the namespace and queue are provisioned, and you have the necessary creden
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
-   ```shell
+
+   ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
