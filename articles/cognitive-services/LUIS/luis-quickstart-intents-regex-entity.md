@@ -12,7 +12,7 @@ ms.date: 05/07/2018
 ms.author: v-geberr
 --- 
 
-# Simple app with intents and a regular expression entity
+# Quickstart: Simple app with intents and a regular expression entity
 This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
 
 ## App intents

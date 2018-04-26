@@ -12,7 +12,7 @@ ms.date: 03/27/2018
 ms.author: v-geberr
 --- 
 
-# Simple app with intents and a hierarchical entity
+# Quickstart: Simple app with intents and a hierarchical entity
 This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
 
 ## App intents

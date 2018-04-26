@@ -11,7 +11,7 @@ ms.date: 05/07/2018
 ms.author: v-geberr
 ---
 
-# Simple app with intents
+# Quickstart: Simple app with intents
 This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
 
 Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 

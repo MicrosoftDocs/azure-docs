@@ -12,7 +12,7 @@ ms.date: 05/07/2018
 ms.author: v-geberr
 --- 
 
-# Simple app with intents and a list entity
+# Quickstart: Simple app with intents and a list entity
 This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types.md). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
 
 ## App intents

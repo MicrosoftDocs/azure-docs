@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 12/18/2017
 ms.author: v-geberr
 ---
-# Add utterances to a LUIS app using JavaScript
+# Quickstart: Add utterances to a LUIS app using JavaScript
 Programmatically add labeled utterances to your LUIS app and train it. 
 
 For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
