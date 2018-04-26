@@ -9,14 +9,12 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 04/26/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
 ---
 # Azure Stack diagnostics tools
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
- 
 Azure Stack is a large collection of components working together and interacting with each other. All these components  generate their own unique logs. This can make diagnosing issues a challenging task, especially for errors coming from multiple, interacting Azure Stack components. 
 
 Our diagnostics tools help ensure the log collection mechanism is easy and efficient. The following diagram shows how log collection tools in Azure Stack work:
@@ -93,7 +91,7 @@ $s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Cred
 $fromDate = (Get-Date).AddHours(-8)
 $toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
  
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
 
 if($s)
 {
@@ -101,8 +99,7 @@ if($s)
 }
 ```
 
-- When you collect logs from the PEP, specify the **OutputPath** parameter to be a location on the Hardware Lifecycle Host (HLH) machine. Also ensure that the location is encrypted.
-- The parameters **OutputSharePath** and **OutputShareCredential** are optional and are used when you upload logs to an external shared folder. Use these parameters *in addition* to **OutputPath**. If **OutputPath** is not specified, the log collection tool uses the system drive of the PEP VM for storage. This might cause the script to fail because  the drive space is limited.
+- The parameters **OutputSharePath** and **OutputShareCredential** are to upload logs to an external shared folder.
 - As shown in the previous example, the **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system.
 
 ### Parameter considerations for both ASDK and integrated systems
@@ -114,23 +111,32 @@ if($s)
 
    |   |   |   |
    | - | - | - |
-   | ACSMigrationService     | ACSMonitoringService   | ACSSettingsService |
-   | ACS                     | ACSFabric              | ACSFrontEnd        |
-   | ACSTableMaster          | ACSTableServer         | ACSWac             |
-   | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | CPI                |
-   | CRP                     | DeploymentMachine      | DHCP               |
-   | Domain                  | ECE                    | ECESeedRing        | 
-   | FabricRing              | FabricRingServices     | FRP                |
-   | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
-   | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
-   | NonPrivilegedAppGateway | NRP                    | SeedRing           |
-   | SeedRingServices        | SLB                    | SQL                |   
-   | SRP                     | Storage                | StorageController  |
-   | URP                     | UsageBridge            | VirtualMachines    |  
-   | WAS                     | WASPUBLIC              | WDS                |
-
+   | ACS                    | DeploymentMachine                | NC                         |
+   | ACSBlob                | DiskRP                           | Network                    |
+   | ACSFabric              | Domain                           | NonPrivilegedAppGateway    |
+   | ACSFrontEnd            | ECE                              | NRP                        |
+   | ACSMetrics             | ExternalDNS                      | OEM                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
+   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
+   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
+   | ACSTableMaster         | FRP                              | SLB                        |   
+   | ACSTableServer         | Gallery                          | SlbVips                    |
+   | ACSWac                 | Gateway                          | SQL                        |   
+   | ADFS                   | HealthMonitoring                 | SRP                        |
+   | ASAppGateway           | HRP                              | Storage                    |   
+   | NCAzureBridge          | IBC                              | StorageAccounts            |    
+   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
+   | AzureStackBitlocker    | iDns                             | Tenant                     |
+   | BareMetal              | InfraServiceController           | TraceCollector             |
+   | BRP                    | Infrastructure                   | URP                        |
+   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
+   | Cloud                  | KeyVaultControlPlane             | VirtualMachines            |
+   | Cluster                | KeyVaultDataPlane                | WAS                        |
+   | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
+   | CPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
+   | CRP                    | KeyVaultNamingService            |                            |
+   | DatacenterIntegration  | MonitoringAgent                  |                            |
+   |                        |                                  |                            |
 
 ### <a name="bkmk_gui"></a>Collect logs using a graphical user interface
 Rather than providing the required parameters for the Get-AzureStackLog cmdlet to retrieve Azure Stack logs, you can also leverage the available open source Azure Stack tools located in the main Azure Stack tools GitHub tools repository at http://aka.ms/AzureStackTools.
@@ -142,7 +148,7 @@ To learn more about the ERCS_AzureStackLogs.ps1 PowerShell script, you can watch
 ### Additional considerations
 
 * The command takes some time to run based on which role(s) the logs are collecting. Contributing factors also include the time duration specified for log collection, and the numbers of nodes in the Azure Stack environment.
-* After log collection completes, check the new folder created in the **OutputPath** parameter specified in the command.
+* As log collection runs, check the new folder created in the **OutputSharePath** parameter specified in the command.
 * Each role has its logs inside individual zip files. Depending on the size of the collected logs, a role may have its logs split in to multiple zip files. For such a role, if you want to have all the log files unzipped in to a single folder, use a tool that can  unzip in bulk (such as 7zip). Select all the zipped files for the role, and select **extract here**. This unzips all the log files for that role in a single merged folder.
 * A file called **Get-AzureStackLog_Output.log** is also created in the folder that contains the zipped log files. This file is a log of the command output, which can be used for troubleshooting problems during log collection.
 * To investigate a specific failure, logs may be needed from more than one component.
