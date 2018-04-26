@@ -131,7 +131,7 @@
       href: Add-entities.md
     - name: Use composite entity to extract grouped data
       href: luis-tutorial-composite-entity.md
-    - name: Add list entity for increased entity detection using Node.js
+    - name: Use list entity to match exact text using Node.js
       href: luis-tutorial-list-entity.md
   - name: Integrate 
     items: 
@@ -139,28 +139,34 @@
       href: luis-tutorial-bing-spellcheck.md
     - name: With a bot
       items:
-      - name: Node.js
-        href: luis-nodejs-tutorial-build-bot-framework-sample.md
-      - name: C#
-        href: luis-csharp-tutorial-build-bot-framework-sample.md
-    - name: Application Insights with a bot 
-      items: 
-      - name: Node.js
-        href: luis-tutorial-function-appinsights.md
-      - name: C#
-        href: luis-tutorial-bot-csharp-appinsights.md
+        - name: Web app bot
+          items:
+          - name: Node.js
+            href: luis-nodejs-tutorial-build-bot-framework-sample.md
+          - name: C#
+            href: luis-csharp-tutorial-build-bot-framework-sample.md
+        - name: Application Insights 
+          items: 
+          - name: Node.js
+            href: luis-tutorial-function-appinsights.md
+          - name: C#
+            href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy 
     items: 
     - name: Review endpoint utterances
       href: Label-Suggested-Utterances.md
     - name: Add Phrase list
-      href: Add-Features.md
+      items: 
+      - name: How to add
+        href: Add-Features.md
+      - name: How to use
+        href: luis-tutorial-interchangeable-phrase-list.md
     - name: Add Patterns
-      href: luis-how-to-model-intent-pattern.md
-    - name: Learn synonyms with a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
-    - name: Use patterns to improve prediction scores
-      href: luis-tutorial-pattern.md
+      items: 
+      - name: How to add      
+        href: luis-how-to-model-intent-pattern.md
+      - name: How to use
+        href: luis-tutorial-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
