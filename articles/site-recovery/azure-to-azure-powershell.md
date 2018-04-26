@@ -12,7 +12,7 @@ ms.author: bsiva
 
 
 ---
-# Setup disaster recovery for Azure virtual machines using Azure PowerShell
+# Set up disaster recovery for Azure virtual machines using Azure PowerShell
 
 In this article, you see how to setup and test disaster recovery for Azure virtual machines using Azure PowerShell. 
 
@@ -53,7 +53,7 @@ Select your Azure subscription. Use the Get-AzureRmSubscription cmdlet to get th
 Select-AzureRmSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## Get details of the virtual machine(s) to be replicated.
+## Get details of the virtual machine(s) to be replicated
 
 In the example in this article, a virtual machine in the East US region will be replicated to and recovered in the West US 2 region. The virtual machine being replicated is a virtual machine with an OS disk and a single data disk. The name of the virtual machine used in the example is AzureDemoVM.
 
@@ -156,7 +156,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 ## Prepare the vault to start replicating Azure virtual machines
 
-####1. Create a Site Recovery fabric object to represent the primary(source) region. 
+####1. Create a Site Recovery fabric object to represent the primary(source) region
 
 The fabric object in the vault represents an Azure region. The primary fabric object, is the fabric object created to represent the Azure region that virtual machines being protected to the vault belong to. In the example in this article, the virtual machine being protected is in the East US region.
 
@@ -181,7 +181,7 @@ $PrimaryFabric = Get-AsrFabric -Name "A2Ademo-EastUS"
 ```
 If virtual machines from multiple Azure regions are being protected to the same vault, create one fabric object for each source Azure region.
 
-####2. Create a Site Recovery fabric object to represent the recovery region.  
+####2. Create a Site Recovery fabric object to represent the recovery region
 
 The recovery fabric object represents the recovery Azure location. Virtual machines will be replicated to and recovered to (in the event of a failover) the recovery region represented by the recovery fabric. The recovery Azure region used in this example is West US 2.
 
@@ -202,7 +202,7 @@ $RecoveryFabric = Get-AsrFabric -Name "A2Ademo-WestUS"
 
 ```
 
-####3. Create a Site Recovery protection container in the primary fabric.
+####3. Create a Site Recovery protection container in the primary fabric
 
 The protection container is a container used to group replicated items within a fabric.
 
@@ -220,7 +220,7 @@ Write-Output $TempASRJob.State
 
 $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 ```
-####4. Create a Site Recovery protection container in the recovery fabric.
+####4. Create a Site Recovery protection container in the recovery fabric
 
 ```azurepowershell
 #Create a Protection container in the recovery Azure region (within the Recovery fabric)
@@ -239,7 +239,7 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
-####5. Create a replication policy.
+####5. Create a replication policy
 
 ```azurepowershell
 #Create replication policy
@@ -294,7 +294,7 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-## Create cache storage account(s) and target storage account(s).
+## Create cache storage account(s) and target storage account(s)
 
 A cache storage account is a standard storage account in the same Azure region as the virtual machine being replicated. The cache storage account is used to hold replication changes temporarily, before the changes are moved to the recovery Azure region. You can choose to (but need not) specify different cache storage accounts for the different disks of a virtual machine.
 
@@ -372,8 +372,7 @@ A network mapping maps virtual networks in the primary region to virtual network
             sleep 10; 
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-    
-    
+        
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
