@@ -66,10 +66,11 @@ To ensure each query has enough resources to execute efficiently, SQL Data Wareh
 
 Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
-### Optimized for Compute
+### Gen2
 The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Unlike Gen1, dynamic resource classes on Gen2 truly dynamic.  Gen2 follows a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes. 
 
 **Dynamic resource classes**
+
 | Performance Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
@@ -102,8 +103,8 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-### Optimized for Elasticity
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Elasticity performance tier.
+### Gen1
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to Gen1.
 
 **Dynamic resource classes**
 
@@ -123,7 +124,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
 
 **Static resource classes**
-The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  These apply to the Optimized for Elasticity performance tier.
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  These apply to Gen1.
 
 | Service level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
