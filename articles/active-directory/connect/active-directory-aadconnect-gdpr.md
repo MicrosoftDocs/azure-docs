@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect and General Data Protection Regulation | Microsoft Docs'
+title: 'Azure AD Connect and user privacy | Microsoft Docs'
 description: This document describes how to obtain GDPR compliancy with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 04/26/2018
 ms.author: billmath
 ---
 
-# GDPR compliance and Azure AD Connect 
+# User privacy and Azure AD Connect 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 >[!NOTE] 
->This article deals with Azure AD Connect and GDPR compliance.  For information on Azure AD Connect Health and GDPR compliance see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
+>This article deals with Azure AD Connect and user privacy.  For information on Azure AD Connect Health and user privacy see the article [here](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
 User privacy compliance for Azure AD Connect installations can be reached in two ways:
 
