@@ -67,21 +67,18 @@ ms.author: maquaran
 
 ### Pre-release builds
 
-### <a name="2.0.1-beta"/>2.0.1-beta
-* Minor changes to nuget package metadata.
-
-### <a name="2.0.0-beta"/>2.0.0-beta
+### <a name="2.0.1-prerelease"/>2.0.1-prerelease
 * New v2 API:
-  * Builder pattern for flexible contruction of the processor: the ChangeFeedProcessorBuilder class.
+  * Builder pattern for flexible construction of the processor: the ChangeFeedProcessorBuilder class.
     * Can take any combination of parameters.
     * Can take DocumentClient instance for monitoring and/or lease collection (not available in v1).
   * IChangeFeedObserver.ProcessChangesAsync now takes CancellationToken.
   * IRemainingWorkEstimator - the remaining work estimator can be used separately from the processor.
   * New extensibility points:
-    * IParitionLoadBalancingStrategy - for custom load-balancing of partitions by instances of the processor.
+    * IParitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
     * ILease, ILeaseManager - for custom lease management.
     * IPartitionProcessor - for custom processing changes on a partition.
-* Logging - uses <a href="https://github.com/damianh/LibLog">LibLog</a> library.
+* Logging - uses [LibLog](https://github.com/damianh/LibLog) library.
 * 100% backward compatible with v1 API.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21.1 and above.
 
