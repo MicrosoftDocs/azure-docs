@@ -19,7 +19,7 @@ ms.author: rithorn
 # Create management groups for resource organization and management
 Management groups are containers that help you manage access, policy, and compliance across multiple subscriptions. Create these containers to build an effective and efficient hierarchy that can be used with [Azure Policy](../azure-policy/azure-policy-introduction.md) and [Azure Role Based Access Controls](../role-based-access-control/overview.md). For more information on management groups, see [Organize your resources with Azure management groups ](management-groups-overview.md). 
 
-The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to create management groups.   
+The management group feature is available in a public preview. To start using management groups, login to the [Azure portal](https://portal.azure.com) or you can use [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), or the [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) to create management groups.   
 
 The first management group created in the directory could take up to 15 minutes to complete. There are processes that run the first time to set up the management groups service within Azure for your directory. You receive a notification when the process is complete.  
 
@@ -71,4 +71,4 @@ To Learn more about management groups, see:
 - [How to change, delete, or manage your management groups](management-groups-manage.md)
 - [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
-- [Install the Azure CLI Extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
+- [Install the Azure CLI Extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)
