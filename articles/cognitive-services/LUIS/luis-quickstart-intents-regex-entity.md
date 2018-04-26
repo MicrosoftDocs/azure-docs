@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Quickstart: App with intents and a regular expression entity
+# Quickstart: Create app with intents and a regular expression entity
 This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.

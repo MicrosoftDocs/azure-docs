@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 --- 
 
-# Quickstart: App with intents and a hierarchical entity
+# Quickstart: Create app with intents and a hierarchical entity
 This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.

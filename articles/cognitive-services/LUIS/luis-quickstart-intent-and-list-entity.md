@@ -13,7 +13,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Quickstart: App with intents and a list entity
+# Quickstart: Create app with intents and a list entity
 This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types.md). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
