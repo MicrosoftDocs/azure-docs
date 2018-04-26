@@ -430,7 +430,7 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 ## Accessing the enriched document
 
-*For the private preview*, we added a mechanism that allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
+We added a mechanism that allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
 
 To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
