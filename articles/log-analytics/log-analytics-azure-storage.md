@@ -141,7 +141,7 @@ Learn more about the [Application Insights connector](https://blogs.technet.micr
 
 For Azure services that do not provide a direct way to send logs and metrics to Log Analytics you can use an Azure Automation script to collect the log and metrics. The script can then send the data to Log Analytics using the [data collector API](log-analytics-data-collector-api.md)
 
-The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/en-us/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
+The Azure template gallery has [examples of using Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) to collect data from services and sending it to Log Analytics.
 
 ## Next steps
 
