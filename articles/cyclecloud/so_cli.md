@@ -97,7 +97,7 @@ command), you'll need:
 
 * The username of the Service Account that CycleServer can use to monitor SGE on the cluster.
 
-  - In CycleCloud clusters, this is generally the `cycle_server` user.
+    - In CycleCloud clusters, this is generally the `cycle_server` user.
 
 * A private key which can be used by CycleServer to SSH in to the remote cluster as the
   Service Account user (the corresponding public key should be in the user's authorized keys).

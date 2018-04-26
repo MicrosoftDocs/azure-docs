@@ -37,7 +37,7 @@
     - name: Available Commands
       href: so_commands.md
     - name: Appendicies
-      href: so_appendicies.md
+      href: so_appendix.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
