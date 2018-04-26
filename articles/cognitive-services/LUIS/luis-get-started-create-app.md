@@ -15,11 +15,12 @@ ms.author: v-geberr
 
 This article shows you how to create a LUIS app that uses the `HomeAutomation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## Prerequisites
 > [!div class="checklist"]
 > * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-> * For this article, you also need a [LUIS.][LUIS] account in order to author your LUIS application.
 
 ## Create a new app
 You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 

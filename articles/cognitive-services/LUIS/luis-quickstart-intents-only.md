@@ -16,6 +16,8 @@ This simple app has two intentions. The first intent's purpose is to identify wh
 
 Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log in to the region where you need the LUIS endpoints published.
 

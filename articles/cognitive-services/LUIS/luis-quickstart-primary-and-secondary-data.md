@@ -17,6 +17,8 @@ This simple app has two intents and one entity . This app demonstrates how to pu
 
 When the intent and entities of the utterance are identified, LUIS is done. The calling application or chat bot takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the region where you need the LUIS endpoints published.
 

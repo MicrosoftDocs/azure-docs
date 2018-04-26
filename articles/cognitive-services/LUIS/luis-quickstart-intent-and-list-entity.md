@@ -15,6 +15,8 @@ ms.author: v-geberr
 # Quickstart: Simple app with intents and a list entity
 This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types.md). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## App intents
 The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 

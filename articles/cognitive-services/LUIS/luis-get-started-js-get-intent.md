@@ -11,8 +11,10 @@ ms.date: 12/13/2017
 ms.author: v-geberr
 ---
 
-# Call a LUIS app using JavaScript
+# Quickstart: Call a LUIS app using JavaScript
 Pass utterances to a LUIS endpoint and get intent and entities back.
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 

@@ -15,6 +15,8 @@ ms.author: v-geberr
 # Quickstart: Simple app with intents and a regular expression entity
 This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## App intents
 The intents are categories of what the user wants. This app has two intents: FindArticle and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
 
