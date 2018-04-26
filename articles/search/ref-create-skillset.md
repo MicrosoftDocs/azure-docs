@@ -25,7 +25,7 @@ A skillset is expressed in Azure Search through an HTTP PUT or POST request. For
 A skillset must have at least one skill. There is no theoretical limit on maximum number of skills, but three to five is a common configuration.  
 
 ```  
-PUT http://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```  
@@ -67,7 +67,7 @@ Content-Type: application/json
  The following example creates a skillset used for enriching a collection of financial documents.
 
 ```http
-PUT http://[servicename].search.windows.net/skillsets/financedocenricher?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/financedocenricher?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```

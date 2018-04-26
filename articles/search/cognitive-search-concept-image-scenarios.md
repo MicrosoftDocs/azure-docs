@@ -4,24 +4,25 @@ description: Dealing with Images in Cognitive Search
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
 
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: heidist
+ms.author: luisca
 ---
-# Dealing with images for cognitive search scenarios
+# Extract text and text representations from images in cognitive search scenarios
 
-Cognitive Search has several capabilities that allow you to work with images and image files.
+Cognitive Search has several capabilities for working with images and image files. You can use the *imageAction* parameter during document cracking to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Another option is the Image Analysis skill that provides a text representation of an image, such as "dandelion" for a photo of a dandelion.
 
-## Getting normalized images
+This article covers both skills, as well as guidance for working with images all-up.
 
-As part of the "document cracking" step, there is a new set of indexer configuration parameters. These parameters allow you to specify what an indexer should do when it encounters image files or images that are embedded in files; for instance, a .PDF that contains several images inside it.
+<a name="get-normalized-images></a>
+
+## Get normalized images
+
+As part of document cracking, there is a new set of indexer configuration parameters for handling image files or images embedded in files.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
@@ -76,36 +77,31 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
 ]
 ```
 
-## Skills to deal with images
+## Image-related skills
 
-Currently there are two built-in cognitive skills that take images as an input, the OCR skill and the analyze image skill. 
+There are two built-in cognitive skills that take images as an input: [OCR](cognitive-search-skill-ocr.md) and [Image Analysis](cognitive-search-skill-image-analysis.md). 
 
-At this point, the *Image Analysis skill* and the *OCR skill* only work with images generated from the document cracking step. So the only supported input is "\document\normalized_images".
+Currently, these skills only work with images generated from the document cracking step. As such, the only supported input is `"\document\normalized_images"`.
 
 ## Image Analysis skill
 
-The Image Analysis skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
-
-Learn more about it [here](cognitive-search-skill-image-analysis.md).
+The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
 
 ## OCR skill
 
-This skill extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
+The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
 
-The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another on for handwritten text.
+The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
 
-Learn more about it [here](cognitive-search-skill-ocr.md).
+## Common scenario: Handle files containing embedded images
 
+In this scenario, create a single string containing all file contents, both text and image-origin text, by performing the following steps:  
 
-## Common scenario: Dealing with files that contain embedded images
+1. [Extract normalized_images](#get-normalized-images)
+1. Run the OCR skill using `"\document\normalized_images"` as input
+1. Merge the text representation of those images with the raw text extracted from the file. You can use the [Text Merge](cognitive-search-skill-textmerger.md) skill to consolidate both text chunks into a single large string.
 
-If you need to create a single string that includes all the content of the file, you need to perform the following steps:  
-
-1. Extract normalized_images. (as described earlier in this document)
-1. OCR those images
-1. Merge the text representation of those images with the text content extracted. You can use the [Text Merge](cognitive-search-skill-textmerger.md) skill to do that.
-
-The following example skillset creates a *merged_text* field to contain the textual content of your document. It also includes the OCRed text from each of the embedded images. 
+The following example skillset creates a *merged_text* field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
 
 #### Request body syntax
 ```json
@@ -159,15 +155,16 @@ The following example skillset creates a *merged_text* field to contain the text
 }
 ```
 
-Now that you have a merged_text field, you could map that as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable!
+Now that you have a merged_text field, you could map it as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable.
 
-## Common scenario: Visualizing bounding boxes of extracted text
+## Common scenario: Visualize bounding boxes of extracted text
 
-Sometimes you need to visualize search results layout information. For instance, you may want to highlight where a piece of text is found in an image as part of your search results.
+Sometimes you need to visualize search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
 
-Since the OCR step is taking place on the normalized images, the layout coordinates will be in the normalized image space. If you display the normalized image that would not be a problem, but there will be situations where you may want to display the original image. In that case convert each of coordinate points in the layout to the original image coordinate system. 
+Since the OCR step is performed on the normalized images, the layout coordinates are in the normalized image space. When displaying the normalized image, the presence of coordinates is generally not a problem, but in some situations you might want to display the original image. In this case, convert each of coordinate points in the layout to the original image coordinate system. 
 
 As a helper, if you need to transform normalized coordinates to the original coordinate space, you could use the following algorithm:
+
 ```csharp
         /// <summary>
         ///  Converts a point in the normalized coordinate space to the original coordinate space.

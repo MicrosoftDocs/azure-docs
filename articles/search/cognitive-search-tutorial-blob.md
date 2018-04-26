@@ -12,7 +12,7 @@ ms.author: luisca
 ---
 # Tutorial: Learn how to call Cognitive Search APIs (Preview)
 
-Learn the programming steps for enriching data through *cognitive skills* in an Azure Search indexing pipeline. Cognitive skills are natural language processing (NLP) and image analysis operations, based on the same AI algorithms behind Cognitive Services. Adding skills to indexing allows you to pull text from images, detect and extract entitites, language, key phrases, or integrate any custom classifiers and processing you require.
+Learn the programming steps for enriching data through *cognitive skills* in an Azure Search indexing pipeline. Cognitive skills are natural language processing (NLP) and image analysis operations, based on the same AI algorithms behind Cognitive Services. Adding skills to indexing allows you to pull text from images, get a text interpretation of an image, detect and extract entities, language, key phrases, or integrate any custom classifiers and processing you require.
 
 In this tutorial, call the REST API to perform the following tasks:
 
@@ -26,7 +26,7 @@ In this tutorial, call the REST API to perform the following tasks:
 Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
 > [!Note]
-> New to cognitive search? Read [this article](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for an introduction to important concepts.
+> New to cognitive search? Read [What is cognitive search?](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for an introduction to important concepts.
 >
 > If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,15 +36,15 @@ To make REST calls to Azure Search, use PowerShell or a web test tool like Teler
 
 Use the [Azure portal](https://portal.azure.com/) to create services used in an end-to-end workflow. 
 
- ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
-
 ### Set up Azure Search
 
 First, sign up for the Azure Search service. 
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in by using your Azure account.
 
-1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create a service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
+1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
+
+  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
 
 1. For Resource group, create a resource group to contain all the resources you create today to make cleanup easier.
 
@@ -52,41 +52,43 @@ First, sign up for the Azure Search service.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16-MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+  A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
-1. After the service is created, collect the following information once the search service is created: "endpoint", "api-key" (either primary or secondary).
+1. After the service is created, collect the following information once the search service is created: "URL" from the Overview page, and "api-key" (either primary or secondary) from the Keys page.
 
   ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a [supported data source type](https://docs.microsoft.com/azure/search/search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a very small file set of different types. 
 
-1. [Sign up for Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) and upload sample files. Create a storage account, log in to Storage Explorer, create a collection, and upload the sample files.
+1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. This [Quickstart](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) covers all the steps.
+
+1. Still in Storage Explorer, in the `basicdemo` container you just created, click **Upload** to upload the sample files.
 
 1. Collect the following information from the portal:
 
-  + The container name you created when uploading the files. The sample script used to create the data source in a later step assumes you named it `basicdemo`.
+  + The container name you created when uploading the files. The sample script used to create the data source in a later step assumes `basicdemo`.
 
   + The connection string for your storage account from  **Settings** > **Access keys**. The connection string should be a URL similar to the following example:
 
   ```http
-  DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y5NIlE4wFVBIyrCi392GzZl+JO4TEGdqOerqfbT79C8zrn28Te8DsWlxvKKnjh69P/HM5k50ztz2shOt8vqlbg==;EndpointSuffix=core.windows.net
+  DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIyrCi562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
   ```
 
-There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage).
+There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
 ## Create a data source
 
 Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.
 
-For this tutorial, use REST API and tool like Postman or Fiddler to formulate and submit HTTP requests. In the request header, provide the service name and api-key generated for your search service. In the request body, specify the blob container name and connection string.
+For this tutorial, use the REST API and a tool that can formulate and send HTTP requests, such as PowerShell, Postman, or Fiddler. In the request header, provide the service name and api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
 ### Sample Request
 ```http
@@ -120,15 +122,15 @@ If you got a 403 or 404 error, check the request construction: `api-version=2017
 
 ## Create a skillset
 
-In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [predefined cognitive skills](cognitive-search-predefined-skills.md) for data transforms:
+In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [predefined cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
-+ [Named entity recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
++ [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Language detection](cognitive-search-skill-language-detection.md) to identify the content's language.
++ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 5,000 characters or less.
 
-+ [Key phrase extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases. 
++ [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
-+ [Text Split skill](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 5,000 characters or less.
++ [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases. 
 
 ### Sample Request
 Before you make this REST call, remember to replace the service name and the admin key in the request below if your tool does not preserve the request header between calls. 
@@ -233,7 +235,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ## Create an index
 
-In the next request, define the index schma. Specify which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
+In the next request, define the index schema. Specify which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
 
 This exercise uses the following fields and field types:
 
@@ -335,7 +337,8 @@ Content-Type: application/json
         {
           "sourceFieldName" : "metadata_storage_path",
           "targetFieldName" : "id",
-          "mappingFunction" : { "name" : "base64Encode" }
+          "mappingFunction" : 
+            { "name" : "base64Encode" }
         },
         {
           "sourceFieldName" : "content",
@@ -398,11 +401,11 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-The response tells you whether the indexer is running. After indexing is finished, GET STATUS reports any errors and warnings that occurred during enrichment.  
+The response tells you whether the indexer is running. After indexing is finished, another HTTP GET to the STATUS endpoint (as above) reports any any errors and warnings that occurred during enrichment.  
  
 ## Verify content
 
-After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the defaults work fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
+After indexing is finished, run queries that return the contents of individual fields. By default, Azure Search returns the top 50 results. The sample data is small so the default works fine. However, when working with larger data sets, you might need to include parameters in the query string to return more results. For instructions, see [How to page results in Azure Search](search-pagination-page-layout.md).
 
 As a verification step, query the index for all of the fields.
 
@@ -430,11 +433,11 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 *For the private preview*, we added a mechanism that allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
 
-To capture an enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into it a string representation of all the enrichments for that document.
+To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
-The enriched field will contain a string that is a logical representation of the in-memory enriched document in json.  The field value is a valid json document, however, quotes are escaped so you'll need to replace \" with " in order to view the document as formatted json.  The enriched field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against.
+The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you'll need to replace `\"` with `"` in order to view the document as formatted JSON.  
 
-This implementation is temporary, likely to be replaced by public preview or general release. For now, it can be a useful tool to understand what's going on and help you debug your skillset.
+The ```enriched``` field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against. This implementation is temporary, likely to be replaced with an alternative implementation by general release. For now, it can be a useful tool to understand what's going on and help you debug your skillset.
 
 Repeat the previous exercise, including an `enriched` field to capture the contents of an enriched document:
 
@@ -520,7 +523,7 @@ Finally, you learned how to test results and reset the system for further iterat
 
 ## Clean up resources
 
-The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
+The fastest way to clean up after a tutorial is by deleting the resource group containing the Azure Search service and Azure Blob service. Assuming you put both services in the same group, delete the resource group now to permanently delete everything in it, including the services and any stored content that you created for this tutorial. In the portal, the resource group name is on the Overview page of each service.
 
 ## Next steps
 
