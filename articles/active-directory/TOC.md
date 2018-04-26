@@ -208,6 +208,8 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
+
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
@@ -326,13 +328,6 @@
 
 ## [Integrate other services with Azure AD]()
 ### [Enable LinkedIn integration](linkedin-integration.md)
-
-## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
-### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
-### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
-
-
 
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
