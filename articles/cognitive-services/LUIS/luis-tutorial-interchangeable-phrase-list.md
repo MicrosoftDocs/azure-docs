@@ -7,7 +7,7 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
