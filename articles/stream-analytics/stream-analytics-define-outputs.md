@@ -372,7 +372,7 @@ Azure Stream Analytics uses variable size batches to process events and write to
 
 The following table explains some of the considerations to output batching:
 
-| Output type |	Max throughput | Batch size optimization |
+| Output type |	Max message size | Batch size optimization |
 | :--- | :--- | :--- | 
 | Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
 | SQL Database | 10,000 Max rows per single bulk insert</br>100 Min rows per single bulk insert </br>See also [Azure SQL limits](../sql-database/sql-database-resource-limits.md) |  Every batch is initially bulk inserted with Max batch size and may split batch into half (until Min batch size) based on retryable errors from SQL. |
