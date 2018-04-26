@@ -1,21 +1,22 @@
 ---
-title: Synonyms preview tutorial in Azure Search | Microsoft Docs
-description: Add the synonyms preview feature to an index in Azure Search.
+title: Synonyms tutorial in Azure Search | Microsoft Docs
+description: Add the synonyms feature to an index in Azure Search.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 03/31/2017
+ms.date: 04/20/2018
 ms.author: heidist
 ---
-# Synonym (preview) C# tutorial for Azure Search
+# Synonym C# tutorial for Azure Search
 
 Synonyms expand a query by matching on terms considered semantically equivalent to the input term. For example, you might want "car" to match documents containing the terms "automobile" or "vehicle".
 
 In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules* that associate equivalent terms. You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> The synonyms feature is currently in preview and only supported in the latest preview API and SDK versions (api-version=2016-09-01-Preview, SDK version 4.x-preview). There is no Azure portal support at this time. Preview APIs are not under SLA and preview features may change, so we do not recommend using them in production applications.
+> The synonyms feature is supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). There is no Azure portal support at this time. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## Prerequisites
 
@@ -23,7 +24,7 @@ Tutorial requirements include the following:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Search service](search-create-service-portal.md)
-* [Preview version of Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk-preview)
+* [Microsoft.Azure.Search .NET library](https://aka.ms/search-sdk)
 * [How to use Azure Search from a .NET Application](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 ## Overview

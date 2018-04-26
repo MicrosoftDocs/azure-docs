@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Stack 1803 Update | Microsoft Docs
 description: Learn about what's in the 1803 update for Azure Stack integrated systems, the known issues, and where to download the update.
 services: azure-stack
@@ -168,7 +168,7 @@ The following are post-installation known issues for build  **20180323.2**.
     - *Allow:*
  
       ```powershell    
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -198,7 +198,7 @@ The following are post-installation known issues for build  **20180323.2**.
 
         ```powershell
         
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

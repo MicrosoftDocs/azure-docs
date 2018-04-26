@@ -4,9 +4,8 @@ description: Build a classifier to discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: anroth
@@ -14,7 +13,7 @@ ms.author: anroth
 
 # Limits and quotas
 
-There are three tiers of keys for Custom Vision Service. F0 and S0 resources are obtained via the Azure Portal. Details on pricing and transactions definitions are on the [pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/).  F0 projects can be upgraded to S0 projects.
+There are three tiers of keys for Custom Vision Service. F0 and S0 resources are obtained via the Azure Portal. Details on pricing and transactions definitions are on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).  F0 projects can be upgraded to S0 projects.
 
 Limited Trial project resources are attached to your Custom Vision login (ie an AAD account or MSA account.) They are intended to be used for short trials of the service.  Accounts created during early free preview, prior to the introduction of Azure previews (March 1, 2018) will retain their previous quotas for Limited Trials. 
 

@@ -4,9 +4,8 @@ description: Learn how to get subscription keys for calls to the Computer Vision
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre

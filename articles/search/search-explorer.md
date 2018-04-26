@@ -3,7 +3,7 @@ title: "Query an index (portal - Azure Search) | Microsoft Docs"
 description: Issue a search query in the Azure Portal's Search Explorer.
 manager: cgronlun
 author: HeidiSteen
-
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 07/10/2017

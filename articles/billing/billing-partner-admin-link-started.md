@@ -1,4 +1,4 @@
----
+﻿---
 title: Link Azure account to partner ID | Microsoft Docs
 description: Track engagements with Azure customers by linking partner ID to the user account that you use to manage the customer's resources. 
 services: billing
@@ -33,10 +33,10 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 
 1. Install the [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell Module.
 
-2. Sign in to the customer's tenant either with the user account or service principal, For more information, see [Login with Powershell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
+2. Sign in to the customer's tenant either with the user account or service principal, For more information, see [Login with Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  
    ```azurepowershell-interactive
-    C:\> Login-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
 
 

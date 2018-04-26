@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Best practices for securing administrative access in Azure AD | Microsoft Docs
 description: Ensure that your organization’s administrative access and admin accounts are secure. For system architects and IT pros who configure Azure AD, Azure, and Microsoft Online Services. 
@@ -117,7 +117,7 @@ Evaluate the accounts that are assigned or eligible for the global admin role. I
 
 #### Turn on multi-factor authentication and register all other highly-privileged single-user non-federated admin accounts 
 
-Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Require Azure Multi-Factor Authentication (MFA) at sign-in for all individual users who are permanently assigned to one or more of the Azure AD admin roles: Global administrator, Privileged Role administrator, Exchange Online administrator, and SharePoint Online administrator. Use the guide to enable [Multi-factor Authentication (MFA) for your admin accounts](authentication/howto-mfa-userstates.md) and ensure that all those users have registered at [https://aka.ms/mfasetup](https://aka.ms/mfasetup). More information can be found under step 2 and step 3 of the guide [Protect access to data and services in Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## Stage 2: Mitigate the most frequently used attack techniques
 
@@ -163,8 +163,8 @@ Azure AD recommends that you require multi-factor authentication (MFA) for all y
 
 Turn on:
 
-* [MFA for high-exposure accounts](../multi-factor-authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
-* [MFA for every admin account associated with an individual user](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) for other connected SaaS apps 
+* [MFA for high-exposure accounts](authentication/multi-factor-authentication-security-best-practices.md) such as accounts for executive officers in an organization 
+* [MFA for every admin account associated with an individual user](authentication/howto-mfa-userstates.md) for other connected SaaS apps 
 * MFA for all admins for Microsoft SaaS apps, including administrators in roles managed in Exchange Online and the Office portal
 
 If you use Windows Hello for Business, the MFA requirement can be met using the Windows Hello sign in experience. For more information, see [Windows Hello](https://docs.microsoft.com/windows/uwp/security/microsoft-passport). 
@@ -239,7 +239,7 @@ Require C-suite executives, high-level managers, critical IT and security person
 
 #### Use dedicated workstations for administration for Azure AD
 
-Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/en-us/windows-server/identity/securing-privileged-access/privileged-access-workstations).
+Attackers may attempt to target privileged accounts to gain access to an organization’s data and systems so they can disrupt the integrity and authenticity of data, through malicious code that alters the program logic or snoops the admin entering a credential. Privileged Access Workstations (PAWs) provide a dedicated operating system for sensitive tasks that is protected from Internet attacks and threat vectors. Separating these sensitive tasks and accounts from the daily use workstations and devices provides very strong protection from phishing attacks, application and OS vulnerabilities, various impersonation attacks, and credential theft attacks such as keystroke logging, Pass-the-Hash, and Pass-The-Ticket. By deploying privileged access workstations, you can reduce the risk that admins enter admin credentials except on a desktop environment that has been hardened. For more information, see [Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
 #### Review National Institute of Standards and Technology recommendations for handling incidents 
 

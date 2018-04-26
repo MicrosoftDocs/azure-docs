@@ -35,7 +35,7 @@ Azure multi-factor authentication provides a second layer of security to user au
 
 We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+For more details, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## Unmanaged cloud apps
 This vulnerability helps you identify unmanaged cloud apps in your organization.

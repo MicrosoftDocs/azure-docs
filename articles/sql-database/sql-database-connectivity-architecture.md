@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database connectivity architecture | Microsoft Docs
 description: This document explains the Azure SQLDB connectivity architecture from within Azure or from outside of Azure.
 services: sql-database
@@ -100,7 +100,7 @@ To change the Azure SQL Database connection policy for an Azure SQL Database ser
 The following PowerShell script shows how to change the connection policy.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName <Subscription Name>
 
 # Azure Active Directory ID

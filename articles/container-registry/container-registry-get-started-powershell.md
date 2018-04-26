@@ -1,4 +1,4 @@
----
+﻿---
 title: Quickstart - Create a private Docker registry in Azure with PowerShell
 description: Quickly learn to create a private Docker container registry with PowerShell.
 services: container-registry
@@ -22,10 +22,10 @@ You must also have Docker installed locally. Docker provides packages that easil
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create resource group

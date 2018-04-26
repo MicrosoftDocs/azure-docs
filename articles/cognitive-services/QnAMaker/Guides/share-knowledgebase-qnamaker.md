@@ -4,9 +4,8 @@ description: Add other users to your knowledge base, so they can contribute to i
 services: cognitive-services
 author: pchoudhari
 manager: rsrikan
-
 ms.service: cognitive-services
-ms.technology: qnamaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: pchoudh

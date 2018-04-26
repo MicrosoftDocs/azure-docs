@@ -50,11 +50,12 @@
 ### [Multiple domain support for federating](active-directory-aadconnect-multiple-domains.md)
 ### [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Use a SAML 2.0 Identity Provider (IdP) for Single Sign On](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Synchronizing guest users user accounts that use email for sign-in](active-directory-aadconnect-guest-sync.md)
 
 
 ## Manage Azure AD Connect Sync
 ### [GDPR compliance and Azure AD Connect](active-directory-aadconnect-gdpr.md)
+### [Preferred data location for O365 resources](active-directory-aadconnectsync-feature-preferreddatalocation.md)
 ### [Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 ### [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD service account](active-directory-aadconnectsync-howto-azureadaccount.md)
@@ -91,7 +92,7 @@
 ### [How to recover from LocalDB 10-GB limit](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Identity synchronization and duplicate attribute resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Hybrid Identity Required Ports and Protocols](active-directory-aadconnect-ports.md)
 ## [Features in preview](active-directory-aadconnect-feature-preview.md)

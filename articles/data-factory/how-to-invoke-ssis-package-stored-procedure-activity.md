@@ -82,7 +82,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
 4. In the **New Linked Service** window, do the following steps: 
 
     1. Select **Azure SQL Database** for **Type**.
-    2. Select the **Default** Azure-SSIS Integration Runtime to connect to the Azure SQL Database that hosts the `SSISDB` database.
+    2. Select the **Default** Azure Integration Runtime to connect to the Azure SQL Database that hosts the `SSISDB` database.
     3. Select the Azure SQL Database that hosts the SSISDB database for the **Server name** field.
     4. Select **SSISDB** for **Database name**.
     5. For **User name**, enter the name of user who has access to the database.

@@ -1,4 +1,4 @@
----
+﻿---
 title: How to schedule Azure SSIS integration runtime | Microsoft Docs
 description: This article describes how to schedule starting and stopping of an Azure SSIS integration runtime by using Azure Automation and Data Factory.
 services: data-factory
@@ -120,7 +120,7 @@ The following procedure provides steps for creating a PowerShell runbook. The sc
         $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
     
         "Logging in to Azure..."
-        Add-AzureRmAccount `
+        Connect-AzureRmAccount `
             -ServicePrincipal `
             -TenantId $servicePrincipalConnection.TenantId `
             -ApplicationId $servicePrincipalConnection.ApplicationId `

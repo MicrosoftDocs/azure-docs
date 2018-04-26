@@ -142,9 +142,10 @@ Run the Node.js web API:
 3. Run the following commands:
     ```
     npm install && npm update
+    ```
+    ```
     node index.js
     ```
-
 Run the desktop app:
 
 1. Press **F5** to run the desktop app.

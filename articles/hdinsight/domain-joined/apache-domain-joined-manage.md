@@ -1,24 +1,88 @@
 ---
-title: Manage Domain-joined HDInsight clusters - Azure | Microsoft Docs
+title: Manage Domain-joined HDInsight clusters - Azure
 description: Learn how to manage Domain-joined HDInsight clusters
 services: hdinsight
-documentationcenter: ''
-author: bprakash
+author: omidm1
 manager: jhubbard
 editor: cgronlun
-tags: ''
 
 ms.assetid: 6ebc4d2f-2f6a-4e1e-ab6d-af4db6b4c87c
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
-ms.author: bhanupr
+ms.date: 04/17/2018
+ms.author: omidm
 
 ---
 # Manage Domain-joined HDInsight clusters
 Learn the users and the roles in Domain-joined HDInsight, and how to manage domain-joined HDInsight clusters.
+
+## Use VSCode to link to domain joined cluster
+
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
+
+   ![link cluster command](./media/apache-domain-joined-manage/link-cluster-command.png)
+
+2. Enter HDInsight cluster URL -> input Username -> input Password -> select cluster type -> it shows success info if verification passed.
+   
+   ![link cluster dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   > [!NOTE]
+   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
+   
+3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
+
+   ![linked cluster](./media/apache-domain-joined-manage/linked-cluster.png)
+
+4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
+
+## Use IntelliJ to link to domain joined cluster
+
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com). 
+1. Click **Link a cluster** from **Azure Explorer**.
+
+   ![link cluster context menu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Enter **Cluster Name**, **User Name** and **Password**. You need to check the username and password if got the authentication failure. Optionally, add Storage Account, Storage Key, then select a container from Storage Container. Storage information is for storage explorer in the left tree
+   
+   ![link cluster dialog](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   > [!NOTE]
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > ![storage explorer in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+
+   
+3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
+
+   ![linked cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. You also can unlink a cluster from **Azure Explorer**.
+   
+   ![unlinked cluster](./media/apache-domain-joined-manage/unlink.png)
+
+## Use Eclipse to link to domain joined cluster
+
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
+1. Click **Link a cluster** from **Azure Explorer**.
+
+   ![link cluster context menu](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
+
+2. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
+   
+   ![link cluster dialog](./media/apache-domain-joined-manage/link-cluster-dialog.png)
+   
+   > [!NOTE]
+   > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
+   > ![storage explorer in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+
+3. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
+
+   ![linked cluster](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+
+4. You also can unlink a cluster from **Azure Explorer**.
+   
+   ![unlinked cluster](./media/apache-domain-joined-manage/unlink.png)
 
 ## Access the clusters with Enterprise Security Package.
 

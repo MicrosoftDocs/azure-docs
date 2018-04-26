@@ -1,6 +1,6 @@
----
+﻿---
 title: "Quickstart: Scale out compute in Azure SQL Data Warehouse - PowerShell | Microsoft Docs"
-description: Scale compute in Azure SQL Data Warehouse in PowerShell. Scale out compute for better performance, or scale back compute to save costs.  
+description: Scale compute in Azure SQL Data Warehouse in PowerShell. Scale out compute for better performance, or scale back compute to save costs.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
@@ -14,23 +14,23 @@ ms.reviewer: igorstan
 
 
 # Quickstart: Scale compute in Azure SQL Data Warehouse in PowerShell
- 
-Scale compute in Azure SQL Data Warehouse in PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs. 
+
+Scale compute in Azure SQL Data Warehouse in PowerShell. [Scale out compute](sql-data-warehouse-manage-compute-overview.md) for better performance, or scale back compute to save costs.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-This tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md). 
+This tutorial requires Azure PowerShell module version 5.1.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the version you have currently. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps.md).
 
 ## Before you begin
 
-This quickstart assumes you already have a SQL data warehouse that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**. 
+This quickstart assumes you already have a SQL data warehouse that you can scale. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
-Log in to your Azure subscription using the [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) command and follow the on-screen directions.
+Log in to your Azure subscription using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command and follow the on-screen directions.
 
 ```powershell
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 To see which subscription you are using, run [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
@@ -47,13 +47,13 @@ Select-AzureRmSubscription -SubscriptionName "MySubscription"
 
 ## Look up data warehouse information
 
-Locate the database name, server name, and resource group for the data warehouse you plan to pause and resume. 
+Locate the database name, server name, and resource group for the data warehouse you plan to pause and resume.
 
 Follow these steps to find location information for your data warehouse.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **SQL databases** in the left page of the Azure portal.
-3. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
+3. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse.
 
     ![Server name and resource group](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
@@ -81,7 +81,7 @@ $database
 
 Which will result in something like this:
 
-```powershell	
+```powershell
 ResourceGroupName             : myResourceGroup
 ServerName                    : mynewserver-20171113
 DatabaseName                  : mySampleDataWarehouse
@@ -107,7 +107,7 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-You can see the **Status** of the database in the output. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused. 
+You can see the **Status** of the database in the output. In this case, you can see that this database is online.  When you run this command, you should receive a Status value of Online, Pausing, Resuming, Scaling, or Paused.
 
 To see the status by itself, use the following command:
 

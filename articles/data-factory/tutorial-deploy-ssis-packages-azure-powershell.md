@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Deploy SSIS packages to Azure with PowerShell | Microsoft Docs'
 description: 'This article explains how to deploy SSIS packages to Azure and create an Azure-SSIS integration runtime by using PowerShell.'
 services: data-factory
@@ -130,7 +130,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName -ServerNa
 Add the following code to the script to log in and select your Azure subscription: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 ```
 
@@ -273,7 +273,7 @@ Catch [System.Data.SqlClient.SqlException]
     } 
 }
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $SubscriptionName
 
 Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `

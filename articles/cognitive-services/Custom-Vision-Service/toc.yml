@@ -1,6 +1,5 @@
 
 - name: Custom Vision Documentation
-  href: ../index.md
 - name: Overview
   href: home.md
 - name: Quickstarts

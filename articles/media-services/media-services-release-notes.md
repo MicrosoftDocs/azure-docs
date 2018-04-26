@@ -44,7 +44,7 @@ For information about the Media Services REST API version history, see the [Azur
 
 ## October 2017 release
 > [!IMPORTANT] 
-> Media Services is deprecating support for Azure Access Control Service authentication keys. On June 1, 2018, you can no longer authenticate with the Media Services back end via code by using Access Control Service keys. You must update your code to use Azure Active Directory (Azure AD) per [Azure AD-based authentication](media-services-use-aad-auth-to-access-ams-api.md). Watch for warnings about this change in the Azure portal.
+> Media Services is deprecating support for Azure Access Control Service authentication keys. On June 22, 2018, you can no longer authenticate with the Media Services back end via code by using Access Control Service keys. You must update your code to use Azure Active Directory (Azure AD) per [Azure AD-based authentication](media-services-use-aad-auth-to-access-ams-api.md). Watch for warnings about this change in the Azure portal.
 
 ### Updates for October 2017
 #### SDKs

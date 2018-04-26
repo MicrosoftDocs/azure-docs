@@ -66,7 +66,7 @@ User can either [sign in to Azure subscription](#Sign-in-to-your-Azure-subscript
    
    ![Expanding a cluster name to see resources](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-## Link a cluster
+<h2 id="linkcluster">Link a cluster</h2>
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com).
 1. Click **Link a cluster** from **Azure Explorer**.
 

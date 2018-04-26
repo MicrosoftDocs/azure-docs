@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/17/2018
+ms.date: 04/20/2018
 ms.author: barclayn
 
 ---
@@ -157,7 +157,7 @@ Customers should ensure that DDoS Protection Standard is enabled on the virtual 
 
 #### DDoS attacks orchestration
 
-It’s a good practice to test your assumptions about how your services respond to an attack, even before it happens by conducting periodic simulations. During testing, validate that continue to function as expected and there’s no disruption to the end-user experience. Identify gaps from both a technology & process standpoint and incorporate in the DDoS response strategy. A general recommendation is to perform such tests in staging environments or during non-peak hours to minimize impact to production environment.
+It’s a good practice to test your assumptions about how your services respond to an attack, even before it happens by conducting periodic simulations. During testing, validate that your services or applications continue to function as expected and there’s no disruption to the end-user experience. Identify gaps from both a technology & process standpoint and incorporate in the DDoS response strategy. A general recommendation is to perform such tests in staging environments or during non-peak hours to minimize impact to production environment.
 
 We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) to build an interface where Azure customers can generate traffic against DDoS Protection enabled public endpoints for simulations. [BreakPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud) simulation will allow you to:
 
@@ -169,7 +169,7 @@ We have partnered with [BreakingPoint Cloud](https://www.ixiacom.com/products/br
 
 - Train your network security teams
 
-Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering tstate-of-the-artstomers with an effective solution to mitigate increasingly complex DDoS attacks.
+Cybersecurity is a relentless battle requiring constant innovation in defense. Azure’s DDoS Standard protection is a state of the art offering state of the art offering for customers with an effective solution to mitigate increasingly complex DDoS attacks.
 
 ## Components of a DDoS response strategy
 
@@ -292,6 +292,6 @@ List of additional services that are deployed in a Virtual Network and can be co
 
 * [Azure DDoS Protection Product page](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection Blog](https://azure.microsoft.com/blog/azure-ddos-protection-service-preview/)
+* [Azure DDoS Protection Blog](http://aka.ms/ddosblog)
 
 * [Azure DDoS Protection documentation ](../virtual-network/ddos-protection-overview.md)
