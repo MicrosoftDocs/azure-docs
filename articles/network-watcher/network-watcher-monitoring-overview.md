@@ -1,6 +1,6 @@
 ---
 title: Azure Network Watcher | Microsoft Docs
-description: Learn about Azure Network Watcher's diagnostic and monitoring capabilities for resources in an Azure Virtual Network.
+description: Learn about Azure Network Watcher's monitoring, diagnostics, metrics, and logging capabilities for resources in a virtual network.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -19,48 +19,77 @@ ms.author: jdial
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides tools for monitoring, diagnosing, and configuring and viewing metrics and logs for resources in an Azure [Virtual Network](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Azure Network Watcher provides tools for monitoring, diagnosing, and configuring and viewing metrics and logs for resources in an Azure virtual network.
 
 ## Monitoring
 
-* **<a name = "connection-monitor"></a>Monitor communication between a virtual machine (VM) and an endpoint**: Endpoints can be another VM, a fully qualified domain name (FQDN), a uniform resource identifier (URI), or IPv4 address. The *connection monitor* capability monitors communication at a regular interval and informs you of reachability, latency, and network topology changes between the VM and the endpoint. For example, you might have a web server virtual machine (VM) that communicates with a database server VM. Someone in your organization may, unknown to you, apply a custom route or network security rule to the web server or database server VM or subnet. 
+### <a name = "connection-monitor"></a>Monitor communication between a virtual machine (VM) and an endpoint
 
-    If an endpoint becomes unreachable, connection troubleshoot informs you of the reason. Potential reasons are a DNS name resolution problem, the CPU, memory, or firewall within the operating system of a VM, or the hop type or security rule for the VM or subnet of the outbound connection. Learn more about [security rules](..virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) and [hop types](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
+Endpoints can be another VM, a fully qualified domain name (FQDN), a uniform resource identifier (URI), or IPv4 address. The *connection monitor* capability monitors communication at a regular interval and informs you of reachability, latency, and network topology changes between the VM and the endpoint. For example, you might have a web server virtual machine (VM) that communicates with a database server VM. Someone in your organization may, unknown to you, apply a custom route or network security rule to the web server or database server VM or subnet.
 
-    Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#relative-latencies-between-Azure-regions-and-internet-service-providers). Learn more about how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather learn the same information at a point in time, rather than over time, like you do with connection monitor, you can use the [connection troubleshoot](#connection-troubleshoot) capability.
-* **View resources in a virtual network and the relationships between resources**: As resources are added to a virtual network, it can become difficult to understand what resources are in a virtual network and how they relate to each other. The *topology* capability enables you to generate a visual diagram of the resource in a virtual network, and the relationships between the resources. The following picture shows an example topology diagram for a virtual network that has two VMs, network interfaces, public IP addresses, network security groups, route tables, and the relationships between the resources:
+If an endpoint becomes unreachable, connection troubleshoot informs you of the reason. Potential reasons are a DNS name resolution problem, the CPU, memory, or firewall within the operating system of a VM, or the hop type or security rule for the VM or subnet of the outbound connection. Learn more about [security rules](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) and [hop types](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
-    [Topology view](./media/network-watcher-monitoring-overview/topology.png)
+Connection monitor also provides the minimum, average, and maximum latency observed over time. After learning the latency for a connection, you may find that you're able to decrease the latency by moving your Azure resources to different Azure regions. Learn more about determining [relative latencies between Azure regions and internet service providers](#relative-latencies-between-Azure-regions-and-internet-service-providers) and how to monitor communication between a VM and an endpoint with [connection monitor](connection-monitor.md). If you'd rather test a connection at a point in time, rather than monitor the connection over time, like you do with connection monitor, use the [connection troubleshoot](#connection-troubleshoot) capability.
 
-    You can download the picture in svg format, and edit it, if desired. Learn more about [topology view](network-watcher-topology-overview.md).
+### View resources in a virtual network and their relationships
+
+As resources are added to a virtual network, it can become difficult to understand what resources are in a virtual network and how they relate to each other. The *topology* capability enables you to generate a visual diagram of the resource in a virtual network, and the relationships between the resources. The following picture shows an example topology diagram for a virtual network that has three subnets, two VMs, network interfaces, public IP addresses, network security groups, route tables, and the relationships between the resources:
+
+![Topology view](./media/network-watcher-monitoring-overview/topology.png)
+
+You can download an editable version of the picture in svg format. Learn more about [topology view](network-watcher-topology-overview.md).
 
 ## Diagnostics
 
-* **Diagnose network filtering problems to or from a VM**: When you deploy a VM, Azure applies several default security rules to a VM that allow or deny traffic to or from the VM. You might override Azure's default rules, or create additional rules. You may find that a VM can no longer communicate with other resources because of a security rule.  The *IP flow verify* capability enables you to specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify then tests the communication and informs you if the connection succeeds or fails. If the connection fails, IP flow verify tells you which security rule allowed or denied the communication, so that you can resolve the problem. Learn more about [IP flow verify](network-watcher-ip-flow-verify-overview.md).
-* **Diagnose network routing problems from a VM**: When you create a virtual network, Azure creates several default outbound routes for network traffic. The outbound traffic from all resources, such as VMs, deployed in a virtual network, are routed based on Azure's default routes. You might override Azure's default routes, or create additional routes. You may find that a VM can no longer communicate with other resources because of a specific route. The *next hop* capability enables you to specify a source and destination IPv4 address. Next hop then tests the communication and informs you what type of next hop is used to route the traffic. You can then remove, change, or add a route, to resolve a routing problem. Learn more about the [next hop](network-watcher-next-hop-overview.md?) capability.
-* **<a name="connection-troubleshoot"></a>"Diagnose outbound connections from a VM**: The *connection troubleshoot* capability enables you to test a connection between a VM and another VM, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but runs the test at a point in time, rather than over time, as connection monitor does. Learn more about how to troubleshoot connections using [connection-troubleshoot](network-watcher-connectivity-overview.md).
-* **Diagnose problems with an Azure Virtual network gateway and connections**: Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication is not broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs whether a gateway and connection is available. If the connection is not available, VPN diagnostics tells you why, so you can resolve it. Learn more about [VPN diagnostics](network-watcher-troubleshoot-overview.md).
-* **[Variable packet capture](network-watcher-packet-capture-overview.md)** - Captures data packets to and from a VM. Advanced filtering options and fine-tuned controls, such as being able to set time and size limitations, provide versatility. The capture can be stored in Azure Storage, on the VM's disk, or both. You can then analyze the capture file using a variety of tools. Learn more about [packet capture](network-watcher-packet-capture-overview.md).
-* **Determine relative latencies between Azure regions and internet service providers**: Query Network Watcher for latency information between Azure regions and across internet service providers. When you know latencies between Azure regions and across Internet service providers, you can deploy Azure resources to optimize network response time. Learn more about [relative latencies](view-relative-latencies.md).
-* **View security rules for a network interface**: The effective security rules for a network interface are a combination of all security rules applied to the network interface, and the subnet the network interface is in.  The *security group view* capability shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. With an understanding of which rules are applied to a network interface, you can add, remove, or change rules, if they're allowing or denying traffic that you want to change. Learn more about [security group view](network-watcher-security-group-view-overview.md).
+### Diagnose network traffic filtering problems to or from a VM
+
+When you deploy a VM, Azure applies several default security rules to a VM that allow or deny traffic to or from the VM. You might override Azure's default rules, or create additional rules. You may find that a VM can no longer communicate with other resources because of a security rule.  The *IP flow verify* capability enables you to specify a source and destination IPv4 address, port, protocol (TCP or UDP), and traffic direction (inbound or outbound). IP flow verify then tests the communication and informs you if the connection succeeds or fails. If the connection fails, IP flow verify tells you which security rule allowed or denied the communication, so that you can resolve the problem. Learn more about [IP flow verify](network-watcher-ip-flow-verify-overview.md).
+
+### Diagnose network routing problems from a VM
+
+When you create a virtual network, Azure creates several default outbound routes for network traffic. The outbound traffic from all resources, such as VMs, deployed in a virtual network, are routed based on Azure's default routes. You might override Azure's default routes, or create additional routes. You may find that a VM can no longer communicate with other resources because of a specific route. The *next hop* capability enables you to specify a source and destination IPv4 address. Next hop then tests the communication and informs you what type of next hop is used to route the traffic. You can then remove, change, or add a route, to resolve a routing problem. Learn more about the [next hop](network-watcher-next-hop-overview.md?) capability.
+
+### <a name="connection-troubleshoot"></a>Diagnose outbound connections from a VM
+
+The *connection troubleshoot* capability enables you to test a connection between a VM and another VM, an FQDN, a URI, or an IPv4 address. The test returns similar information returned when using the [connection monitor](#connection-monitor) capability, but tests the connection at a point in time, rather than monitoring it over time, as connection monitor does. Learn more about how to troubleshoot connections using [connection-troubleshoot](network-watcher-connectivity-overview.md).
+
+### Capture packets to and from a VM
+
+Advanced filtering options and fine-tuned controls, such as the ability to set time and size limitations, provide versatility. The capture can be stored in Azure Storage, on the VM's disk, or both. You can then analyze the capture file using a variety of standard network capture analysis tools. Learn more about [packet capture](network-watcher-packet-capture-overview.md).
+
+### Diagnose problems with an Azure Virtual network gateway and connections
+
+Virtual network gateways provide connectivity between on-premises resources and Azure virtual networks. Monitoring gateways and their connections are critical to ensuring communication is not broken. The *VPN diagnostics* capability provides the ability to diagnose gateways and connections. VPN diagnostics diagnoses the health of the gateway, or gateway connection, and informs you whether a gateway and gateway connections, are available. If the gateway or connection is not available, VPN diagnostics tells you why, so you can resolve the problem. Learn more about [VPN diagnostics](network-watcher-troubleshoot-overview.md).
+
+### Determine relative latencies between Azure regions and internet service providers
+
+You can query Network Watcher for latency information between Azure regions and across internet service providers. When you know latencies between Azure regions and across Internet service providers, you can deploy Azure resources to optimize network response time. Learn more about [relative latencies](view-relative-latencies.md).
+
+### View security rules for a network interface
+
+The effective security rules for a network interface are a combination of all security rules applied to the network interface, and the subnet the network interface is in.  The *security group view* capability shows you all security rules applied to the network interface, the subnet the network interface is in, and the aggregate of both. With an understanding of which rules are applied to a network interface, you can add, remove, or change rules, if they're allowing or denying traffic that you want to change. Learn more about [security group view](network-watcher-security-group-view-overview.md).
 
 ## Metrics
 
-There are [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *network subscription limit* capability provides you a summary of how many of each network resource you have deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for the network resources deployed in the East US region for an example subscription:
+There are [limits](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) to the number of network resources that you can create within an Azure subscription and region. If you meet the limits, you're unable to create more resources within the subscription or region. The *network subscription limit* capability provides a summary of how many of each network resource you have deployed in a subscription and region, and what the limit is for the resource. The following picture shows the partial output for network resources deployed in the East US region for an example subscription:
 
-[Subscription limits](./media/network-watcher-monitoring-overview/subscription-limit.png)
+![Subscription limits](./media/network-watcher-monitoring-overview/subscription-limit.png)
 
 The information is helpful when planning future resource deployments.
 
 ## Logs
 
-* **Analyze traffic to or from a network security group**: Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools. The *traffic analytics* capability provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
+### Analyze traffic to or from a network security group
 
-    [Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
+Network security groups (NSG) allow or deny inbound or outbound traffic to a network interface in a VM. The *NSG flow log* capability allows you to log the source and destination IP address, port, protocol, and whether traffic was allowed or denied by an NSG. You can analyze logs using a variety of tools, such as PowerBI and the *traffic analytics* capability. Traffic analytics provides rich visualizations of data written to NSG flow logs. The following picture shows some of the information and visualizations that traffic analytics presents from NSG flow log data:
 
-    Learn more about [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](traffic-analytics.md).
+![Traffic analytics](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-* **View diagnostic logs for network resources**: You can enable diagnostic logging for Azure networking resources such as network security groups, public IP addresses, load balancers, virtual network gateways, and application gateways. The *Diagnostic logs* capability provides a single interface to enable and disable network resource diagnostic logs for any existing network resource that generates a diagnostic log. You can view diagnostic logs using tools such as Microsoft Power BI and Azure Log Analytics. To learn more about analyzing Azure network diagnostic logs, see [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Learn more about [NSG flow logs](network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](traffic-analytics.md).
+
+### View diagnostic logs for network resources
+
+You can enable diagnostic logging for Azure networking resources such as network security groups, public IP addresses, load balancers, virtual network gateways, and application gateways. The *Diagnostic logs* capability provides a single interface to enable and disable network resource diagnostic logs for any existing network resource that generates a diagnostic log. You can view diagnostic logs using tools such as Microsoft Power BI and Azure Log Analytics. To learn more about analyzing Azure network diagnostic logs, see [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## Next steps
 
