@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 
 # Build and deploy forecasting models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Forecasting** to build and deploy a forecasting model. Consult the [full package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for the full list of transformers and models as well as detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Forecasting** to build and deploy a forecasting model. 
 
 The model building and deployment workflow is as follows:
 
@@ -25,6 +25,9 @@ The model building and deployment workflow is as follows:
 
 4. **Deploy Model**: Deploy the trained model pipeline as a web service via Azure Machine Learning Workbench so it can be consumed by others.
 
+
+Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
+
 ## Prerequisites 
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -34,7 +37,7 @@ The model building and deployment workflow is as follows:
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If these accounts and Workbench are not yet installed, follow the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article. 
+   If these three are not yet created or installed, follow the [Quickstart: Install and start](../service/quickstart-installation.md) article. 
 
 1. The Azure Machine Learning Package for Forecasting must be [installed](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
