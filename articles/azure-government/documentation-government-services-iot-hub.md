@@ -22,7 +22,7 @@ ms.author: gsacavdm
 
 Azure IoT Hub is generally available in Azure Government.
 
-For more information, see [Azure IoT Hub commercial documentation](../iot-hub/index.md).
+For more information, see [Azure IoT Hub commercial documentation](../iot-hub/index.yml).
 
 ### Variations
 
