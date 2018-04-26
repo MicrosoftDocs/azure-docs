@@ -57,6 +57,8 @@
       href: azure-files-dynamic-pv.md
   - name: Configure networking
     items:
+    - name: Networking overview
+      href: networking-overview.md
     - name: Static IP address
       href: static-ip.md
     - name: Internal load balancer
