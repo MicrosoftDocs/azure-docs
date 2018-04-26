@@ -95,19 +95,19 @@ the cluster.
 In order to use the `add_cluster` command (or to set up your home cluster from the `initialize`
 command), you'll need:
 
-    * The username of the Service Account that CycleServer can use to monitor SGE on the cluster.
+* The username of the Service Account that CycleServer can use to monitor SGE on the cluster.
 
-      - In CycleCloud clusters, this is generally the `cycle_server` user.
+  - In CycleCloud clusters, this is generally the `cycle_server` user.
 
-    * A private key which can be used by CycleServer to SSH in to the remote cluster as the
-      Service Account user (the corresponding public key should be in the user's authorized keys).
+* A private key which can be used by CycleServer to SSH in to the remote cluster as the
+  Service Account user (the corresponding public key should be in the user's authorized keys).
 
-    * A shared directory owned by the Service Account with identical paths on **ALL** clusters for
-      SO_HOME.
+* A shared directory owned by the Service Account with identical paths on **ALL** clusters for
+  SO_HOME.
 
-        - By default, SO_HOME is set to `/shared/ss`
+    - By default, SO_HOME is set to `/shared/ss`
 
-        - If a different SO_HOME will be used, it should be created on **ALL** clusters.
+    - If a different SO_HOME will be used, it should be created on **ALL** clusters.
 
-    * A count of the total core count of the cluster for static clusters or the max core count for
-      autoscaling clusters.
+* A count of the total core count of the cluster for static clusters or the max core count for
+  autoscaling clusters.

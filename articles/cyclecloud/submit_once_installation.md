@@ -132,8 +132,7 @@ For each cluster, configure a recurring sync. Click the "Data > Recurring Syncs"
 | Source Path      | $SO_HOME/tickets/        | An absolute path to look for ticket files on the remote host.                                                                                                            |
 | Destination Path | $SO_HOME/tickets/        | An absolute path to look for ticket files on the local host.                                                                                                             |
 | Recursive        | checked                  | Recurse into subdirectories when performing file transfer.                                                                                                               |
-| rsync options    | -delete                  | Additional options passed to the rsync command. In this case, the –delete flag will remove files that exist in the destination directory but not the
-source directory.   |
+| rsync options    | -delete                  | Additional options passed to the rsync command. In this case, the –delete flag will remove files that exist in the destination directory but not the source directory.   |
 
 ## Configure QMasters
 

@@ -2,11 +2,11 @@
 
 Before a user can interact with SubmitOnce via the command-line tools, they need 3 things:
 
-    1. The CycleServer command-line tools on the bin path.
+1. The CycleServer command-line tools on the bin path.
 
-    2. A valid CycleServer username and password, as well as access to the CycleServer web server.
+2. A valid CycleServer username and password, as well as access to the CycleServer web server.
 
-    3. A user account matching the CycleServer username in the managed clusters.
+3. A user account matching the CycleServer username in the managed clusters.
 
 
 ## Create a CycleServer Account for Each User
