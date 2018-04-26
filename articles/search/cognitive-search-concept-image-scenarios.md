@@ -12,17 +12,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-# Extract text and text representations from images in cognitive search scenarios
+#  Process and extract information from images in cognitive search scenarios
 
-Cognitive Search has several capabilities for working with images and image files. You can use the *imageAction* parameter during document cracking to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Another option is the Image Analysis skill that provides a text representation of an image, such as "dandelion" for a photo of a dandelion.
+Cognitive search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. 
 
-This article covers both skills, as well as guidance for working with images all-up.
+Other scenarios include generating text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+
+This article covers image processing in more detail and provides guidance for working with images in a cognitive search pipeline.
 
 <a name="get-normalized-images></a>
 
 ## Get normalized images
 
-As part of document cracking, there is a new set of indexer configuration parameters for handling image files or images embedded in files.
+As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
+
+You cannot turn off image normalization. Skills that iterate over images expect normalized images.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
@@ -31,7 +35,7 @@ As part of document cracking, there is a new set of indexer configuration parame
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000.|
 
 
-The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). 
+The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). If you increase the maximum limits, processing could fail on the larger images.
 
 
 You specify the imageAction in your [indexer definition](ref-create-indexer.md) as follows:
