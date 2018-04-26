@@ -25,15 +25,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/network-watcher/media/index/portal.svg
+        src: ./media/index/portal.svg
       text: Azure portal
       href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem
     - image: 
-        src: https://docs.microsoft.com/azure/network-watcher/media/index/powershell.svg
+        src: ./media/index/powershell.svg
       text: Azure PowerShell
       href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
     - image: 
-        src: https://docs.microsoft.com/azure/network-watcher/media/index/cli.svg
+        src: ./media/index/cli.svg
       text: Azure CLI
       href: /azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
 - title: Step-by-Step Tutorials

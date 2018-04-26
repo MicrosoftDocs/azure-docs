@@ -19,7 +19,7 @@ ms.author: jdial
 
 # What is Azure Network Watcher?
 
-Azure Network Watcher provides tools for monitoring, diagnosing, and configuring and viewing metrics and logs for resources in an Azure virtual network.
+Azure Network Watcher provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
 
 ## Monitoring
 
@@ -55,7 +55,7 @@ The *connection troubleshoot* capability enables you to test a connection betwee
 
 ### Capture packets to and from a VM
 
-Advanced filtering options and fine-tuned controls, such as the ability to set time and size limitations, provide versatility. The capture can be stored in Azure Storage, on the VM's disk, or both. You can then analyze the capture file using a variety of standard network capture analysis tools. Learn more about [packet capture](network-watcher-packet-capture-overview.md).
+Advanced filtering options and fine-tuned controls, such as the ability to set time and size limitations, provide versatility. The capture can be stored in Azure Storage, on the VM's disk, or both. You can then analyze the capture file using several standard network capture analysis tools. Learn more about [packet capture](network-watcher-packet-capture-overview.md).
 
 ### Diagnose problems with an Azure Virtual network gateway and connections
 
