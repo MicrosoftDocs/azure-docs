@@ -29,6 +29,7 @@ Azure Maps provides rich traffic information in the form of flow and incidents t
 |Bahrain     |         |✓         |
 |Belgium     |✓         |✓         |
 |Brazil     |✓         |✓         |
+|Bulgaria     |✓         |✓         |
 |Canada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colombia      |         |✓         |

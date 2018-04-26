@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Migrate AD FS on-premises apps to Azure. | Microsoft Docs'
 description: This article is intended to help organizations understand how to migrate on-premises applications to Azure AD, with a focus on federated SaaS applications.
 services: active-directory
@@ -226,7 +226,7 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## Next steps
 
