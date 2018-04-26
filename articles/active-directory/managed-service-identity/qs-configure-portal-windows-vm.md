@@ -1,4 +1,4 @@
----
+﻿---
 title: How to configure MSI on an Azure VM using the Azure portal
 description: Step by step instructions for configuring a Managed Service Identity (MSI) on an Azure VM, using the Azure portal.
 services: active-directory
@@ -30,7 +30,7 @@ In this article, you will learn how to enable and disable the system assigned id
 ## Prerequisites
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md).
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 ## Managed Service Identity during creation of an Azure VM
 
