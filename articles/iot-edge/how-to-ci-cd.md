@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 4/24/2018
+ms.date: 4/26/2018
 ms.topic: article
 ms.service: iot-edge
 ---
