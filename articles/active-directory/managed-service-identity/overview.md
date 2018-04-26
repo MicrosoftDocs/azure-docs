@@ -39,8 +39,8 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
 1. Azure Resource Manager receives a request to enable the system assigned identity on a VM.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the identity of the VM. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
 3. Azure Resource Manager configures the identity on the VM:
-    a. Updates the Azure Instance Metadata Service identity endpoint with the Service Principal client ID and certificate.
-    b. Provisions the MSI VM extension and adds the Service Principal client ID and certificate. (to be deprecated)
+    - Updates the Azure Instance Metadata Service identity endpoint with the Service Principal client ID and certificate.
+    - Provisions the MSI VM extension and adds the Service Principal client ID and certificate. (to be deprecated)
 4. Now that the VM has an identity, we use its Service Principal information to grant the VM access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the VM’s Service Principal the appropriate role using Role-Based Access Control (RBAC) in Azure AD. If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault.
 5. Your code running on the VM can request a token from two endpoints that are only accessible from within the VM:
 
@@ -58,17 +58,17 @@ Using the same diagram, here's an example of how a user-assigned MSI works with 
 1. Azure Resource Manager receives a request to create a user assigned identity.
 2. Azure Resource Manager creates a Service Principal in Azure AD to represent the user assigned identity. The Service Principal is created in the Azure AD tenant that is trusted by this subscription.
 3. Azure Resource Manager receives a request to configure the user assigned identity on a VM:
-    a. Updates the Azure Instance Metadata Service identity endpoint with the user assigned identity Service Principal client ID and certificate.
-    b. Provisioning the MSI VM extension and adds the user assigned identity Service Principal client ID and certificate (to be deprecated).
+    - Updates the Azure Instance Metadata Service identity endpoint with the user assigned identity Service Principal client ID and certificate.
+    - Provisioning the MSI VM extension and adds the user assigned identity Service Principal client ID and certificate (to be deprecated).
 4. Now that the user assigned identity has been created, we use its Service Principal information to grant it access to Azure resources. For example, if your code needs to call Azure Resource Manager, then you would assign the Service Principal of the user assigned identity, the appropriate role using Role-Based Access Control (RBAC) in Azure AD. If your code needs to call Key Vault, then you would grant your code access to the specific secret or key in Key Vault. Note: This step can be performed before step #3 as well.
 5. Your code running on the VM can request a token from two endpoints that are only accessible from within the VM:
 
-    a. Azure Instance Metadata Service (IMDS) identity endpoint: http://169.254.169.254/metadata/identity/oauth2/token (recommended)
+    - Azure Instance Metadata Service (IMDS) identity endpoint: http://169.254.169.254/metadata/identity/oauth2/token (recommended)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
         - Client ID parameter specifies the identity for which the token is requested. This is required to disambiguate when more than one user assigned identities are on a single VM.
         - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
 
-    b. MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
+    - MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
         - Client ID parameter specifies the identity for which the token is requested. This is required to disambiguate when more than one user assigned identities are on a single VM.
 6. Call is made to Azure AD requesting an access token as specified in step #5, using the client ID and certificate configured in step #3. Azure AD returns a JSON Web Token (JWT) access token.
