@@ -21,7 +21,7 @@ ms.author: saysa
 Jenkins is a popular tool for continuous integration and deployment of your apps. Here's how to build and deploy your Azure Service Fabric application by using Jenkins.
 
 1. First follow the steps to [Set up Jenkins inside a Service Fabric cluster](#set-up-jenkins-inside-a-service-fabric-cluster), [Set up Jenkins outside a Service Fabric cluster](#set-up-jenkins-outside-a-service-fabric-cluster), or [Install the Service Fabric plugin in an existing Jenkins environment](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-2. After you have set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
+2. After you've set up Jenkins, follow the steps in [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job) to set up GitHub to trigger Jenkins when changes are made to your application and to configure your Jenkins job pipeline through the build step to pull the changes from GitHub and build your application. 
 3. Finally, configure the Jenkins job post-build step to deploy your application to your Service Fabric cluster. There are two ways to configure Jenkins to deploy your application to a cluster: 
    
    * For development and test environments, [Configure deployment using cluster management endpoint](#configure-deployment-using-cluster-management-endpoint). This is the simplest deployment method to set up.
@@ -30,12 +30,12 @@ Jenkins is a popular tool for continuous integration and deployment of your apps
 
 ## Prerequisites
 
-- Make sure Git is installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads) based on your operating system. If you are new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
+- Make sure Git is installed locally. You can install the appropriate Git version from [the Git downloads page](https://git-scm.com/downloads) based on your operating system. If you're new to Git, learn more about it from the [Git documentation](https://git-scm.com/docs).
 - This article uses the *Service Fabric Getting Started Sample* on GitHub: [https://github.com/Azure-Samples/service-fabric-java-getting-started](https://github.com/Azure-Samples/service-fabric-java-getting-started) for the application to build and deploy. You can fork this repository to follow along, or, with some modification to the instructions, use your own GitHub project.
 
 
 ## Install Service Fabric plugin in an existing Jenkins environment
-If you are adding the Service Fabric plugin to an existing Jenkins environment, you need the following:
+If you're adding the Service Fabric plugin to an existing Jenkins environment, you need the following:
 
 - The [Service Fabric CLI](service-fabric-cli.md) (sfctl).
 
@@ -44,9 +44,9 @@ If you are adding the Service Fabric plugin to an existing Jenkins environment, 
    >
 
 - To deploy Java applications, install both [Gradle and Open JDK 8.0](service-fabric-get-started-linux.md#set-up-java-development). 
-- To deploy .NetCore 2.0 applications, install the [.NET Core 2.0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development). 
+- To deploy .NET Core 2.0 applications, install the [.NET Core 2.0 SDK](service-fabric-get-started-linux.md#set-up-net-core-20-development). 
 
-After you have installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
+After you've installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
 
 
 ## Set up Jenkins inside a Service Fabric cluster
@@ -54,7 +54,7 @@ After you have installed the prerequisites needed for your environment, you can 
 You can set up Jenkins either inside or outside a Service Fabric cluster. The following sections show how to set it up inside a cluster while using an Azure storage account to save the state of the container instance.
 
 ### Prerequisites
-- Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster running in Azure already has Docker installed. If you are running the cluster locally (OneBox dev environment), check if Docker is installed on your machine with the  `docker info` command. If it is not installed, install it by using the following commands:
+- Have a Service Fabric Linux cluster with Docker installed. A Service Fabric cluster running in Azure already has Docker installed. If you're running the cluster locally (OneBox dev environment), check if Docker is installed on your machine with the  `docker info` command. If it is not installed, install it by using the following commands:
 
    ```sh
    sudo apt-get install wget
@@ -62,7 +62,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ``` 
 
    > [!NOTE]
-   > Ensure that the 8081 port is specified as a custom endpoint on the cluster.
+   > Make sure that the 8081 port is specified as a custom endpoint on the cluster.
    >
 
 ### Steps
@@ -92,7 +92,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    * Replace `[REMOTE_FILE_SHARE_LOCATION]` with the value `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` from the output of the connect in step 3 above.
    * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 3 above.
 
-5. **Secure Cluster Only:** In order to configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. On Linux clusters, the certificates(PEM) are simply copied over from the store specified by X509StoreName onto the container. In the ApplicationManifest under ContainerHostPolicies add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certificate that is located on the node.
+5. **Secure Cluster Only:** In order to configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. On Linux clusters, the certificates (PEM) are copied over from the store specified by X509StoreName onto the container. In the ApplicationManifest under ContainerHostPolicies add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certificate that is located on the node.
    ```xml
    <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
    ```
@@ -126,13 +126,13 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ssh user@PublicIPorFQDN -p [port]
    ``` 
 3. Get the container instance ID by using `docker ps -a`.
-4. Secure Shell (SSH) sign in to the container, and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, run the following:
+4. Secure Shell (SSH) sign in to the container and paste the path you were shown on the Jenkins portal. For example, if in the portal it shows the path `PATH_TO_INITIAL_ADMIN_PASSWORD`, run the following commands:
 
    ```sh
    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
    ```
    ```sh
-   cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
+   cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
 5. On the Jenkins Getting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
 6. Create a user or select to continue as an admin.
@@ -178,12 +178,12 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
       docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
       ```
 
-Ensure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
+Make sure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP. This enables the Jenkins instance to receive notifications from GitHub.
 
 
 ## Create and configure a Jenkins job
 
-The steps in this section show you how to configure a Jenkins job to respond to changes in a GitHub repo, fetch the changes, and build them. At the end of this section, you are directed to the final steps to configure the job to deploy your application based on whether you are deploying to a development/test environment or to a production environment. 
+The steps in this section show you how to configure a Jenkins job to respond to changes in a GitHub repo, fetch the changes, and build them. At the end of this section, you're directed to the final steps to configure the job to deploy your application based on whether you're deploying to a development/test environment or to a production environment. 
 
 1. On the Jenkins dashboard, click  **New Item**.
 2. Enter an item name (for example, **MyJob**). Select **free-style project**, and click **OK**.
@@ -203,13 +203,13 @@ The steps in this section show you how to configure a Jenkins job to respond to 
    d. A test event is sent to your Jenkins instance. You should see a green check by the webhook in GitHub, and your project will build.
 
 7. On the **Build Triggers** tab in Jenkins, select which build option you want. For this example, you want to trigger a build whenever a push to the repository happens, so select **GitHub hook trigger for GITScm polling**. (Previously, this option was called **Build when a change is pushed to GitHub**.)
-8. On the **Build** tab, do one of the following depending on whether you are building a Java application or a .NET Core application:
+8. On the **Build** tab, do one of the following depending on whether you're building a Java application or a .NET Core application:
 
    * **For Java Applications:** From the **Add build step** drop-down, select **Invoke Gradle Script**. Click **Advanced**. In the advanced menu, specify the path to **Root build script** for your application. It picks up build.gradle from the path specified and works accordingly. For the [ActorCounter application](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), this is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
      ![Service Fabric Jenkins Build action][build-step]
 
-   * **For .NET Core Applications:** From the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed the build.sh script can be run and will build the application.
+   * **For .NET Core Applications:** From the **Add build step** drop-down, select **Execute Shell**. In the command box that appears, the directory first needs to be changed to the path where the build.sh file is located. Once the directory has been changed, the build.sh script can be run and will build the application.
 
       ```sh
       cd /var/jenkins_home/workspace/[Job Name]/[Path to build.sh]  # change directory to location of build.sh file
@@ -254,7 +254,7 @@ You're almost finished! Keep the Jenkins job open. The only remaining task is to
 * To deploy to a production environment, follow the steps in [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials).
 
 ## Configure deployment using cluster management endpoint
-For development and test environments, you can use the cluster management endpoint to deploy your application. Configuring the post-build action with the cluster management endpoint to deploy your application requires the least amount of set-up. If you are deploying to a production environment, skip ahead to [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials) to configure an Azure Active Directory service principal to use during deployment.    
+For development and test environments, you can use the cluster management endpoint to deploy your application. Configuring the post-build action with the cluster management endpoint to deploy your application requires the least amount of set-up. If you're deploying to a production environment, skip ahead to [Configure deployment using Azure credentials](#configure-deployment-using-azure-credentials) to configure an Azure Active Directory service principal to use during deployment.    
 
 1. In the Jenkins job, click the **Post-build Actions** tab. 
 2. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
@@ -263,7 +263,7 @@ For development and test environments, you can use the cluster management endpoi
 5. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container; for example `/var/jenkins_home/clustercert.pem`. (You copied the location of the certificate the last step of [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).)
 6. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
 
-   ![Service Fabric Jenkins Post-Build action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
+   ![Service Fabric Jenkins Post-Build Action configure management endpoint](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
 7. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Skip ahead to [Next steps](#next-steps) to test your deployment.
 
@@ -283,21 +283,21 @@ For development and test environments, you can configure either Azure credential
 3. From the **Post-Build Actions** drop-down, select **Deploy Service Fabric Project**. 
 4. Under **Service Fabric Cluster Configuration**, Select the **Select the Service Fabric Cluster** radio button. Click **Add** next to **Azure Credentials**. Click **Jenkins** to select the Jenkins Credentials Provider.
 5. In the Jenkins Credentials Provider, select **Microsoft Azure Service Principal** from the **Kind** drop-down.
-6. From the values you saved when setting up your service principal in **Prerequisites**, enter the following:
+6. Use the values you saved when setting up your service principal in Step 1 to set the following fields:
 
-   * **Client ID** : *Application ID*
-   * **Client Secret** : *Application key*
-   * **Tenant ID** : *Directory ID*
-   * **Subscription ID** : *Subscription ID*
+   * **Client ID**: *Application ID*
+   * **Client Secret**: *Application key*
+   * **Tenant ID**: *Directory ID*
+   * **Subscription ID**: *Subscription ID*
 6. Enter a descriptive **ID** that you use to select the credential in Jenkins and a brief **Description**. Then click **Verify Service Principal**. If the verification succeeds, click **Add**.
 
    ![Service Fabric Jenkins enter Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
-7. Back under **Service Fabric Cluster Configuration**, ensure that your new credential is selected for **Azure Credentials**. 
-8. From the **Resource Group** drop-down select the resource group of the cluster you want to deploy the application to.
-9. From the **Service Fabric** drop-down select the cluster that you want to deploy the application to.
+7. Back under **Service Fabric Cluster Configuration**, make sure that your new credential is selected for **Azure Credentials**. 
+8. From the **Resource Group** drop-down, select the resource group of the cluster you want to deploy the application to.
+9. From the **Service Fabric** drop-down, select the cluster that you want to deploy the application to.
 10. For **Client Key** and **Client Cert**, enter the location of the PEM file in your Jenkins container. For example `/var/jenkins_home/clustercert.pem`. 
 11. Under **Application Configuration**, configure the **Application Name**, **Application Type**, and the (relative) **Path to Application Manifest** fields.
-    ![Service Fabric Jenkins Post-Build action configure Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
+    ![Service Fabric Jenkins Post-Build Action configure Azure credentials](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Click **Verify Configuration**. On successful verification, click **Save**. Your Jenkins job pipeline is now fully configured. Continue on to [Next steps](#next-steps) to test your deployment.
 
 ## Next steps
