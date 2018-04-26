@@ -18,6 +18,9 @@ When you design your Stream Analytics query, refer to the name of the output usi
 
 To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md).
 
+Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput.
+
+
 ## Azure Data Lake Store
 Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access the Data Lake Store.
 
@@ -356,7 +359,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
 | Azure SQL Database | No | None | Not applicable. | 
 | Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
-| Azure Event Hub | Yes | Yes | Same as output Event Hub partitions. |
+| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHub’s [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. | 
 | Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
 | Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
@@ -382,17 +385,9 @@ The following table explains some of the considerations to output batching:
 | Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4MB per write operation	</br> Stream Analytics batch events together up to 4MB to minimize the number of transactions. When the frequency of incoming events is low, smaller batches are used to ensure low latency|
 | Azure Functions	| | Default batch size is 246 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
 
-
-## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
-
 ## Next steps
-You've been introduced to Stream Analytics, a managed service for streaming analytics on data from the Internet of Things. To learn more about this service, see:
-
-* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+> [!div class="nextstepaction"]
+> [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
