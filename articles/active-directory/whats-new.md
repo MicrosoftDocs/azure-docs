@@ -78,7 +78,7 @@ For more information, see:
 
 **Type:** New feature  
 **Service category:** Terms of Use  
-**Product capability:** Governance
+**Product capability:** Compliance
  
 
 Administrators can now select a given ToU and see all the users that have consented to that ToU and what date/time it took place.
@@ -131,7 +131,7 @@ For more information, see [Configuring single sign-on to applications that are n
 
 **Type:** New feature  
 **Service category:** Terms of Use  
-**Product capability:** Governance
+**Product capability:** Compliance
  
 
 Azure AD Terms of Use has moved from public preview to generally available.
@@ -729,7 +729,7 @@ For more information, see:
 
 **Type:** Changed feature  
 **Service category:** Terms of Use  
-**Product capability:** Governance
+**Product capability:** Compliance
  
 
 When the terms of use are displayed, you can now click **Having trouble viewing? Click here**. Clicking this link opens the terms of use natively on your device. Regardless of the font size in the document or the screen size of device, you can zoom and read the document as needed. 
@@ -864,7 +864,7 @@ For more information, see:
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/Compliance
+**Product capability:** Compliance
  
 You now can go to the Access Panel and view the terms of use that you previously accepted.
 
@@ -915,7 +915,7 @@ For more information, see [Fewer sign-in prompts: The new "keep me signed in" ex
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/Compliance
+**Product capability:** Compliance
  
 An option for administrators requires their users to expand the terms of use prior to accepting the terms.
 
@@ -1073,7 +1073,7 @@ For more information, see:
 
 **Type:** New feature    
 **Service category:** Terms of use  
-**Product capability:** Governance/Compliance
+**Product capability:** Compliance
 
 
 
@@ -1363,7 +1363,7 @@ For more information, see [Reference for MFA reporting in the Azure portal](http
 
 **Type:** New feature  
 **Service category:** Terms of use  
-**Product capability:** Governance/Compliance  
+**Product capability:** Compliance  
 
 
 
@@ -1406,7 +1406,7 @@ For more information, see [Privileged Identity Management for Azure resources](h
 
 **Type:** New feature  
 **Service category:** Access reviews  
-**Product capability:** Governance/Compliance  
+**Product capability:** Compliance  
 
 
 
