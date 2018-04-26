@@ -93,7 +93,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
 
-[Password writeback](../active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
+[Password writeback](../authentication/quickstart-sspr.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
 [Device writeback](active-directory-aadconnect-feature-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
 
@@ -106,7 +106,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 | --- | --- |
 |Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)|
 |Password hash synchronization | [Azure AD Connect sync: Implement password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Password writeback | [Getting started with password management](../active-directory-passwords-getting-started.md)|
+|Password writeback | [Getting started with password management](../authentication/quickstart-sspr.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|

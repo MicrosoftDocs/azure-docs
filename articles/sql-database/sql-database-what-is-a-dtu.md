@@ -13,7 +13,7 @@ ms.author: carlrab
 
 ---
 # Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs)
-This article explains Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs) and what happens when you hit the maximum DTUs or eDTUs.  
+This article explains Database Transaction Units (DTUs) and elastic Database Transaction Units (eDTUs) and what happens when you hit the maximum DTUs or eDTUs. For specific pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## What are Database Transaction Units (DTUs)?
 For a single Azure SQL database at a specific performance level within a [service tier](sql-database-single-database-resources.md), Microsoft guarantees a certain level of resources for that database (independent of any other database in the Azure cloud) and providing a predictable level of performance. This amount of resources is calculated as a number of Database Transaction Units or DTUs, and is a bundled measure of compute, storage, and IO resources. The ratio amongst these resources was originally determined by an [OLTP benchmark workload](sql-database-benchmark-overview.md) designed to be typical of real-world OLTP workloads. When your workload exceeds the amount of any of these resources, your throughput is throttled - resulting in slower performance and timeouts. The resources used by your workload do not impact the resources available to other SQL databases in the Azure cloud, and the resource used by other workloads do not impact the resources available to your SQL database.

@@ -4,9 +4,8 @@ description: The Custom Speech Service is a cloud-based service that enables use
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper

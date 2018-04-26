@@ -154,7 +154,7 @@ The following responses are examples of a typical degraded response returned whe
       "recommendedActions": [
         {
           "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN Gateway"
         },
         {
@@ -171,7 +171,7 @@ The following responses are examples of a typical degraded response returned whe
       "recommendedActions": [
         {
           "actionText": "If you are still experience problems with the VPN gateway, please try resetting the VPN gateway.",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting VPN gateway"
         },
         {
@@ -288,7 +288,7 @@ is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
           "actionText": "If the condition persists, please try resetting your Azure VPN gateway",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting the VPN gateway"
         },
         {
@@ -305,7 +305,7 @@ is a transient state while the Azure platform is being updated.",
       "recommendedActions": [
         {
           "actionText": "If you are still experience problems with the VPN gateway, please try resetting the VPN gateway.",
-          "actionUri": "https://azure.microsoft.com/en-us/documentation/articles/vpn-gateway-resetgw-classic/",
+          "actionUri": "https://azure.microsoft.com/documentation/articles/vpn-gateway-resetgw-classic/",
           "actionUriText": "resetting VPN gateway"
         },
         {

@@ -1,4 +1,4 @@
----
+﻿---
 title: Enable Backup for Azure Stack with PowerShell | Microsoft Docs
 description: Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
 services: azure-stack
@@ -76,7 +76,7 @@ In the same PowerShell session, Edit the following PowerShell script by adding t
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## Generate a new encryption key

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'App Service on Azure Stack: Fault Domain Update | Microsoft Docs'
 description: How to redistribute Azure App Service on Azure Stack across fault domains
 services: azure-stack
@@ -53,7 +53,7 @@ In order to redistribute the scale sets deployed for the App Service resource pr
     a. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
     b. Use this example to scale out the scale set:
         ```powershell
-                Login-AzureRMAccount -EnvironmentName AzureStackAdmin 
+                Connect-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
                 # Get current scale set
                 $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"

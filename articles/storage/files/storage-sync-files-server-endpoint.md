@@ -46,7 +46,7 @@ The following information is required under **Add server endpoint**:
 Select **Create** to add the server endpoint. The files within a namespace of a sync group will now be kept in sync. 
 
 ## Remove a server endpoint
-When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, if a server endpoint is removed with tiered files still locally on the server, those files will become unaccessible. Therefore, if continued file access is desired, you must recall all tiered files from Azure Files before continuing with deregistration. 
+When enabled for a server endpoint, cloud tiering will *tier* files to your Azure File shares. This enables on-premises file shares to act as a cache, rather than a complete copy of the dataset, to make efficient use of the space on the file server. However, **if a server endpoint is removed with tiered files still locally on the server, those files will become inaccessible**. Therefore, if continued file access is desired on on-premises file shares, you must recall all tiered files from Azure Files before continuing with deleting the server endpoint. 
 
 This can be done with the PowerShell cmdlet as shown below:
 

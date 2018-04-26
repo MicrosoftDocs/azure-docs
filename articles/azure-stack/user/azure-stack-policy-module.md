@@ -1,4 +1,4 @@
----
+﻿---
 title: Use the Azure Stack Policy Module| Microsoft Docs
 description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
 services: azure-stack
@@ -38,7 +38,7 @@ The Azure Stack Policy module allows you to configure an Azure subscription with
 The following command can be used to apply a default Azure Stack policy against your Azure subscription. Before running, replace *Azure Subscription Name* with your Azure subscription.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
@@ -50,7 +50,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 You may want to apply policies in a more granular method.  As an example, you may have other resources running in the same subscription.  You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running, replace *Azure Subscription Name* with your Azure subscription name.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)

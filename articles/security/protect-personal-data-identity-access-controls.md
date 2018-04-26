@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect personal data with Azure identity and access controls | Microsoft Docs
 description: Azure identity and access controls help you protect personal data and may be helpful complying with General Data Protection Regulation (GDPR)
 services: security
@@ -129,7 +129,7 @@ If your users have licenses that include Azure Multi-Factor Authentication, you 
 
 ![MFA enabled users](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-If you currently don't have licenses you need to go through the process of determining the most suitable deployment type for your scenario. You can start by looking at the article titled [Choose the Azure Multi-Factor Autehntication solution for you](../multi-factor-authentication/multi-factor-authentication-get-started.md). If you decide that you need to create a Multi-Factor Authentication server. You can start by following these steps:
+If you currently don't have licenses you need to go through the process of determining the most suitable deployment type for your scenario. You can start by looking at the article titled [Choose the Azure Multi-Factor Autehntication solution for you](../active-directory/authentication/concept-mfa-whichversion.md). If you decide that you need to create a Multi-Factor Authentication server. You can start by following these steps:
 
 1. Select **Active Directory** in the Azure portal (logged on as an administrator).
 
@@ -141,7 +141,7 @@ If you currently don't have licenses you need to go through the process of deter
 
 4. Click **Save**
 
-In this window you also have the option to Download the MFA Server. You can get additional details for how to size and plan your deployment by reviewing the article [Getting started with the Azure Multi-factor Authentication server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+In this window you also have the option to Download the MFA Server. You can get additional details for how to size and plan your deployment by reviewing the article [Getting started with the Azure Multi-factor Authentication server](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 For more instructions on how to manage your Multi-Factor Auth Provider, see [Getting Started with an Azure Multi-Factor Auth
 Provider.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)

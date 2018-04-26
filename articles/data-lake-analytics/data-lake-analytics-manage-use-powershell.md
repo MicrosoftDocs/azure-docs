@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
@@ -47,16 +47,16 @@ $location = "<Location>"
 Log in using a subscription id.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Log in using a subscription name.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Login-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -603,7 +603,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

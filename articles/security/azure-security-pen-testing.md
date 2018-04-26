@@ -31,7 +31,7 @@ What to do?
 As of June 15, 2017, Microsoft no longer requires pre-approval to conduct a penetration tests against Azure resources. Customers who wish to formally document upcoming penetration testing engagements against Microsoft Azure are encouraged to fill out the [Azure Service Penetration Testing Notification form](https://portal.msrc.microsoft.com/en-us/engage/pentest). This process is only related to Microsoft Azure, and not applicable to any other Microsoft Cloud Service. 
 
 >[!IMPORTANT] 
->While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/en-us/mt784683). 
+>While notifying Microsoft of pen testing activities is no longer required customers must still comply with the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://technet.microsoft.com/mt784683). 
 
 Standard tests you can perform include:
 

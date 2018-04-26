@@ -1,12 +1,13 @@
 - name: Bing News Search Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
-    - name: Search the web for news
+    - name: About Bing News Search
       href: search-the-web.md
     - name: News Search endpoints
       href: endpoint-news.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -29,7 +30,7 @@
     href: tutorial-bing-news-search-single-page-app.md
   - name: Single-page News app (source code)
     href: tutorial-bing-news-search-single-page-app-source.md
-- name: How to
+- name: How-to guides
   items:
   - name: Use and display requirements
     href: UseAndDisplayRequirements.md
@@ -44,7 +45,7 @@
 - name: Reference
   expanded: true
   items:
-  - name: REST v7
+  - name: Bing News Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
   - name: SDK
     items:
@@ -58,7 +59,7 @@
       href: news-sdk-python-quickstart.md
     - name: News Search SDK Java quickstart (preview)  
       href: news-sdk-java-quickstart.md
-  - name: REST v5 
+  - name: Bing News Search API v5 
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
 - name: Resources
   items:
@@ -68,5 +69,5 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Supported countries and markets
+  - name: Regional availability
     href: supported-countries-markets.md

@@ -232,5 +232,9 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: https://go.microsoft.com/fwlink/p/?linkid=862452

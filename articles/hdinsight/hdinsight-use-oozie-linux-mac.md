@@ -13,7 +13,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ---
@@ -103,6 +103,9 @@ Because this workflow uses Sqoop to export data to the SQL database, you must pr
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
+
+> [!NOTE]
+> You may receive a message that the file already exists.
 
 If your workflow used other resources, such as a jar that contains a MapReduce application, you need to add those resources as well.
 
@@ -766,7 +769,7 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/en-us/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 

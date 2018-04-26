@@ -36,6 +36,8 @@ If you used a template to create your virtual machines, ensure that each virtual
 
     ![Ports for failover and failback](./media/vmware-azure-reprotect/failover-failback.png)
 
+- You can read all the pre-requisites on ports and URL whitelisting [here](vmware-azure-deploy-configuration-server.md#prerequisites)
+
 ## Deploy a process server in Azure
 
 You might need a process server in Azure before you fail back to your on-premises site:

@@ -50,16 +50,18 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | West US 2 |  | X |
 | Canada Central | X | X |
 | Canada East | X | X |
-| Brazil South | X |  |
+| Brazil South | X | X |
 | North Europe | X | X |
 | West Europe | X | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X |  |
-| Southeast Asia | X |  |
+| Southeast Asia | X | X |
 | Australia East |  | X |
+| Australia Southeast |  | X |
 | Central India | X |  |
 | West India | X |  |
+| South India |  | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea South |  | X |

@@ -9,7 +9,8 @@ ms.service: "sql-database"
 ms.custom: "scale out apps"
 ms.topic: "article"
 ms.date: 04/01/2018
-ms.author: "anjangsh; billgib; genemi"
+ms.author: anjangsh
+ms.reviewer: billgib, genemi
 ---
 # Cross-tenant analytics using extracted data
 

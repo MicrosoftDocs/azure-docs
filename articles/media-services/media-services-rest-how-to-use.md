@@ -39,7 +39,7 @@ The following considerations apply when using REST.
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
         x-ms-version: 2.17
-        Authorization: Bearer <token> 
+        Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
         {

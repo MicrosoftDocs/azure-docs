@@ -109,6 +109,7 @@ Sample JSON document.
 ```json
 {
     "id": "1",
+    "pk": "1234",
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",

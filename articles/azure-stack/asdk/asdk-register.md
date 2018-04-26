@@ -1,4 +1,4 @@
----
+﻿---
 title: Register the ASDK with Azure | Microsoft Docs
 description: Describes how to register Azure Stack with Azure to enable marketplace syndication and usage reporting.
 services: azure-stack
@@ -36,7 +36,7 @@ Before using these steps to register the ASDK with Azure, ensure that you have i
 
     ```PowerShell
     # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
-    Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    Connect-AzureRmAccount -EnvironmentName "AzureCloud"
 
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack

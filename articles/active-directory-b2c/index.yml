@@ -17,7 +17,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
+      src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/active-directory-b2c-video.PNG
       width: 250  
     title: Business-to-Consumer Identity Management with Azure Active Directory B2C (12:56)
     href: https://azure.microsoft.com/resources/videos/build-2016-business-to-consumer-identity-management-with-azure-active-directory-b2c/
@@ -31,15 +31,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
       text: .NET
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
       text: Desktop
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
     - image: 
-        src: https://review.docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
+        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
       text: Single-page
       href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
 - title: Step-by-Step Tutorials
