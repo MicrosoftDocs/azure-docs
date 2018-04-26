@@ -93,7 +93,7 @@ While we're working on an improved experience, today, you are responsible for th
 ### Can I encrypt attached data disks in a cluster node type (virtual machine scale set)?
 Yes.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), and [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster ?
+### What are the directories and processes that I need to exclude when running an anti-virus program in my cluster?
 
 | **Antivirus Excluded directories** |
 | --- |
