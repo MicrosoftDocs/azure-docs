@@ -29,7 +29,7 @@ When building and deploying this text classification model, follow these steps:
 7. Test the pipeline
 8. Deploy the model as a web service
 
-Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for the detailed reference for each module and class.
+Consult the [package reference documentation](https://aka.ms/aml-packages/text) for the detailed reference for each module and class.
 
 
 ## Prerequisites 
@@ -43,19 +43,25 @@ Consult the [package reference documentation](https://docs.microsoft.com/python/
 
    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
 
-1. The Azure Machine Learning Package for Text Analytics must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics).
+1. The Azure Machine Learning Package for Text Analytics must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/text).
 
-## Sample dataset and Jupyter notebook
+
+## Sample data and notebook
+
+### Get the notebook
+
+Try it out yourself. Download the notebook and run it yourself.
+
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
+
+### Explore the sample data
 
 The following example uses a [sentiment dataset](http://qwone.com/~jason/20Newsgroups/) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and SKlearn. 
 
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
-
-
 ## Load the training dataset
 
-Define and get your data. This downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. 
+Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. 
 Input dataset is a *.tsv file with the following [ID, Text, Label] format. 
 
 
@@ -769,8 +775,8 @@ prediction
 
 For information about the Azure Machine Learning Package for Text Analytics:
 
-+ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics).
++ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/text).
 
-+ Explore the [reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for this package.
++ Explore the [reference documentation](https://aka.ms/aml-packages/text) for this package.
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
