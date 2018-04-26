@@ -47,7 +47,8 @@ Here's an example of how System Assigned Identities work with Azure Virtual Mach
     a. Azure Instance Metadata Service (IMDS) identity endpoint: http://169.254.169.254/metadata/identity/oauth2/token (recommended)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
         - API version parameter specifies the IMDS version, use api-version=2018-02-01 or greater.
-    b. MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
+
+b. MSI VM extension endpoint: http://localhost:50342/oauth2/token (to be deprecated)
         - Resource parameter specifies the service to which the token is sent. For example, if you want your code to authenticate to Azure Resource Manager, you would use resource=https://management.azure.com/.
 
 6. Call is made to Azure AD requesting an access token as specified in step #5, using the client ID and certificate configured in step #3. Azure AD returns a JSON Web Token (JWT) access token.
