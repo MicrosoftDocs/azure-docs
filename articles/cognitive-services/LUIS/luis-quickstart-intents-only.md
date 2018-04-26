@@ -13,6 +13,8 @@ ms.author: v-geberr
 ---
 
 # Quickstart: Create app with intents
+In this quickstart, you create an app that demonstrates how to use intents to determine the user's intention based on the utterance they submit to the app.
+
 This simple app has two intentions. The first intent's purpose is to identify when a user wants store information such as hours, and location. The second intent's purpose is to identify every other type of utterance. 
 
 Once the type of utterance is identified, LUIS is done. The calling application or chat bot then takes that identification and fulfills the request -- in whatever way the app or chat bot is designed to do. 
@@ -107,6 +109,9 @@ LUIS is done with this request. The calling application, such as a chat bot, can
 
 ## What about entities? 
 This LUIS app is so simple that it doesn't need entities yet. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

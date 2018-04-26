@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Javascript. 
 ---
 
-# Quickstart: Call a LUIS app using JavaScript
+# Quickstart: Call a LUIS endpoint using JavaScript
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.

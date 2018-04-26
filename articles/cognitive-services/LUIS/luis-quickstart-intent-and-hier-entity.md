@@ -15,6 +15,8 @@ ms.author: v-geberr
 --- 
 
 # Quickstart: Create app with intents and a hierarchical entity
+In this quickstart, you create an app that demonstrates how to use the parent-child entity named **Hierarchical** entity to extract information out of utterances.
+
 This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
@@ -195,6 +197,9 @@ Your chat bot now has enough information to determine the primary action, `BookF
 
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

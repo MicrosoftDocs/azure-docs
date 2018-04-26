@@ -13,7 +13,7 @@ ms.author: v-geberr
 
 ---
 
-# Quickstart: Call a LUIS app using Java
+# Quickstart: Call a LUIS endpoint using Java
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.

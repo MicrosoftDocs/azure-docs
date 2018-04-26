@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using C#. 
 ---
 
-# Quickstart: Call a LUIS app using C#
+# Quickstart: Call a LUIS endpoint using C#
 
 Pass utterances to a LUIS endpoint and get intent and entities back.
 

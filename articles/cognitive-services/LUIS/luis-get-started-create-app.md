@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 # Quickstart: Create app with prebuilt domain intents and entities
 
-This article shows you how to create a LUIS app that uses the `HomeAutomation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
+In this quickstart, you create a LUIS app that uses the prebuilt domain `HomeAutomation` with intents and entities already created for you . The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -108,6 +108,8 @@ You can test your published endpoint in a browser using the generated URL. Open 
 
 [![](media/luis-quickstart-new-app/turn-off-living-room.png "Screenshot of browser with JSON result detects the intent TurnOff")](media/luis-quickstart-new-app/turn-off-living-room.png)
 
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
