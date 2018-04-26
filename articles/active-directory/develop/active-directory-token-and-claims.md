@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 04/22/2018
 ms.author: hirsin
 ms.custom: aaddev
 
 ---
 # Azure AD token reference
-Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory (Azure AD) emits several types of security tokens in the processing of each authentication flow. This document describes the format, security characteristics, and contents of each type of token. 
 
 ## Types of tokens
 Azure AD supports the [OAuth 2.0 authorization protocol](active-directory-protocols-oauth-code.md), which makes use of both access_tokens and refresh_tokens.  It also supports authentication and sign-in via [OpenID Connect](active-directory-protocols-openid-connect-code.md), which introduces a third type of token, the id_token.  Each of these tokens is represented as a "bearer token".
@@ -160,7 +160,7 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
   * Security Breach: In the event of a security breach (e.g. the on-premises store of passwords is breached) the admin can revoke all of the refresh tokens currently issued.  This will force all users to re-authenticate. 
 
 > [!NOTE]
-> If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
+>If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
 
 ## Sample Tokens
 

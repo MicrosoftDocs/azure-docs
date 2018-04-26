@@ -3,11 +3,10 @@ title: Policy template samples | Microsoft Docs
 description: JSON samples for Azure Policy
 services: azure-policy
 documentationcenter:
-author: bandersmsft
+author: DCtheGeek
 manager: carmonm
 editor:
 tags:
-
 ms.assetid:
 ms.service: azure-policy
 ms.devlang: na
@@ -15,7 +14,7 @@ ms.topic: samples
 ms.tgt_pltfrm:
 ms.workload:
 ms.date: 01/17/2018
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
 
 ---
