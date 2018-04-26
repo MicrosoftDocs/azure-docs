@@ -376,7 +376,7 @@ The following table explains some of the considerations to output batching:
 | :--- | :--- | :--- | 
 | Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
 | SQL Database | 10,000 Max rows per single bulk insert</br>100 Min rows per single bulk insert </br>See also [Azure SQL limits](../sql-database/sql-database-resource-limits.md) |  Every batch is initially bulk inserted with Max batch size and may split batch into half (until Min batch size) based on retryable errors from SQL. |
-| Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size id 4 MB</br>Maximum Blob bock count is 50000 |
+| Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size is 4 MB</br>Maximum Blob bock count is 50000 |
 | Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | 100 entities per single transaction |
 | Service Bus queue	| 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
