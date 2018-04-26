@@ -157,7 +157,7 @@
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
-    - name: Images and cognitive search
+    - name: Process and extract information from images
       href: cognitive-search-concept-image-scenarios.md
     - name: Integrate custom skills
       href: cognitive-search-custom-skill-interface.md

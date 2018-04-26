@@ -1,5 +1,5 @@
 ---
-title: Interface definition for custom skills in an augmentation pipeline (Azure Search) | Microsoft Docs
+title: Interface definition for custom skills in a cognitive search pipeline (Azure Search) | Microsoft Docs
 description: Explanation of interface between custom web-api custom skill and Azure Search.
 manager: pablocas
 author: luiscabrer
@@ -10,9 +10,9 @@ ms.date: 05/01/2018
 ms.author: luisca
 ---
 
-# How to add a custom skill to an enrichment pipline
+# How to add a custom skill to a cognitive search pipeline
 
-An [enriched indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you create and add to the pipeline.
+A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you personally create and add to the pipeline.
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever augmentation or enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
