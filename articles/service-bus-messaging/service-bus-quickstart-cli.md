@@ -258,7 +258,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about sending and receiving messages, continue to the tutorial for Service Bus:
+In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the following tutorial for Service Bus:
 
 > [!div class="nextstepaction"]
 > [Update inventory using CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
