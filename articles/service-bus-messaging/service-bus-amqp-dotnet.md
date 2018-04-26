@@ -1,5 +1,5 @@
 ---
-title: Service Bus with .NET and AMQP 1.0 | Microsoft Docs
+title: Azure Service Bus with .NET and AMQP 1.0 | Microsoft Docs
 description: Using Azure Service Bus from .NET with AMQP
 services: service-bus-messaging
 documentationcenter: na
