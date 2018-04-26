@@ -568,7 +568,9 @@
       - name: Monitor containers
         href: service-fabric-diagnostics-oms-containers.md
     - name: Monitor clusters
-      items:      
+      items:
+      - name: Query EventStore APIs
+        href: service-fabric-diagnostics-eventstore.md      
       - name: Windows Azure Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Azure Diagnostics

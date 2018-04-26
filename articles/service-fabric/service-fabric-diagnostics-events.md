@@ -17,7 +17,7 @@ ms.date: 04/25/2018
 ms.author: dekapur
 ---
 
-# Service Fabric Events 
+# Service Fabric events 
 
 The Service Fabric platform writes several structured events for key operational activities happening inside your cluster. These range from cluster upgrades to replica placement decisions. Each event that Service Fabric exposes maps to one of the following entities in the cluster:
 * Cluster
@@ -42,6 +42,8 @@ Here are some examples of important scenarios that you should see events for in 
 
 There are a few different ways through which Service Fabric events can be accessed:
 * via the operational channel. These can be collected through the Azure Diagnostics extension and sent to a Storage table for consumption or ingestion into a tool like OMS Log Analytics. When "Diagnostics" is enabled for a cluster, the Azure Diagnostics agent is deployed on your cluster, and is by default configured to read in logs from the operational channel. Read more about configuring the [Azure Diagnostics agent](service-fabric-diagnostics-event-aggregation-wad.md) to modify the diagnostics configuration of your cluster to pick up more logs or performance counters. 
-* through the EventStore Rest APIs that allow you to query the cluster directly, or through the Service Fabric Client Library. See [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
+* through the EventStore service's Rest APIs that allow you to query the cluster directly, or through the Service Fabric Client Library. See [Query EventStore APIs for cluster events](service-fabric-diagnostics-eventstore-query.md).
 
-
+## Next steps
+* More information on monitoring your cluster - [Monitoring the cluster and platform](service-fabric-diagnostics-event-generation-infra.md).
+* Learn more about the EventStore service - [EventStore service overview](service-fabric-diagnostics-eventstore.md)
