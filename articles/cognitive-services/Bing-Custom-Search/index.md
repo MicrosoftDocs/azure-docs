@@ -17,7 +17,7 @@ ms.author: cgronlun
     <div class="intro" style="min-width: 200px">
         <p>Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results that are tailored to the content they care about instead of having to page through general search results that may contain irrelevant content.  Learn how to use the Bing Custom Search portal to create custom search instances with our quickstarts, and reference.</p>
     </div>
-<h2 style="margin-top: 18px; margin-bottom: 0px;">Quickstarts</h2>
+<h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Search your custom view of the web using:</p>
 <div class="ico48Case">
     <div class="ico48Link">
@@ -34,8 +34,8 @@ ms.author: cgronlun
     </div>
     <div class="ico48Link">
         <a href="/azure/cognitive-services/bing-custom-search/call-endpoint-nodejs">
-            <img src="media/logo_js.svg" alt="JavaScript logo">
-            <span>JavaScript</span>
+            <img src="media/logo_nodejs.svg" alt="Node.js logo">
+            <span>Node.js</span>
         </a>
     </div>
     <div class="ico48Link">
@@ -54,7 +54,7 @@ ms.author: cgronlun
                 <div class="card">
                     <div class="cardText">
                         <h3>APIs</h3>
-                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">API Reference</a></p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p>
                     </div>
                 </div>
             </div>
