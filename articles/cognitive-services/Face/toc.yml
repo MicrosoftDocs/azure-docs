@@ -49,10 +49,10 @@
     items:
     - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/faceapi?view=azure-python
     - name: Node.js
       href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/faceapi?view=azure-python
     - name: Android
       href: https://github.com/Microsoft/Cognitive-Face-Android
     - name: iOS
