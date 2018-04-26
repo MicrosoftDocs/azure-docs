@@ -2,13 +2,13 @@
 title: Azure Kubernetes Service (AKS) quotas and region availability
 description: The default quotas and region availability of the Azure Kubernetes Service (AKS).
 services: container-service
-author: david-stanford
+author: neilpeterson
 manager: timlt
 
 ms.service: container-service
 ms.topic: overview
-ms.date: 01/16/2018
-ms.author: dastanfo
+ms.date: 04/26/2018
+ms.author: nepeters
 ---
 # Quotas and region availability for Azure Kubernetes Service (AKS)
 
