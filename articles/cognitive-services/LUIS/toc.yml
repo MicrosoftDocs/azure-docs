@@ -55,36 +55,6 @@
       href: luis-quickstart-php-add-utterance.md
     - name: Ruby
       href: luis-quickstart-ruby-add-utterance.md
-- name: Tutorials
-  items: 
-  - name: Integrate LUIS with a bot
-    items: 
-    - name: Node.js
-      href: luis-nodejs-tutorial-build-bot-framework-sample.md
-    - name: C#
-      href: luis-csharp-tutorial-build-bot-framework-sample.md
-  - name: Gain Application Insights with a bot 
-    items: 
-    - name: Node.js
-      href: luis-tutorial-function-appinsights.md
-    - name: C#
-      href: luis-tutorial-bot-csharp-appinsights.md
-  - name: Build a LUIS app programmatically using Node.js
-    href: luis-tutorial-node-import-utterances-csv.md
-  - name: Use composite entity to extract grouped data
-    href: luis-tutorial-composite-entity.md
-  - name: Add list entity for increased entity detection using Node.js
-    href: luis-tutorial-list-entity.md
-  - name: Improve prediction accuracy
-    items:
-    - name: Learn synonyms with a phrase list
-      href: luis-tutorial-interchangeable-phrase-list.md
-    - name: Use patterns to improve prediction scores
-      href: luis-tutorial-pattern.md
-    - name: Improve accuracy with batch testing
-      href: luis-tutorial-batch-testing.md
-  - name: Correct spelling with Bing Spell Check API v7
-    href: luis-tutorial-bing-spellcheck.md
 - name: Samples
   items:
   - name: Code samples
@@ -159,14 +129,44 @@
       href: Add-example-utterances.md
     - name: Add entities
       href: Add-entities.md
+    - name: Use composite entity to extract grouped data
+      href: luis-tutorial-composite-entity.md
+    - name: Use list entity to match exact text using Node.js
+      href: luis-tutorial-list-entity.md
+  - name: Integrate 
+    items: 
+    - name: Correct spelling with Bing Spell Check API v7
+      href: luis-tutorial-bing-spellcheck.md
+    - name: With a bot
+      items:
+        - name: Web app bot
+          items:
+          - name: Node.js
+            href: luis-nodejs-tutorial-build-bot-framework-sample.md
+          - name: C#
+            href: luis-csharp-tutorial-build-bot-framework-sample.md
+        - name: Application Insights 
+          items: 
+          - name: Node.js
+            href: luis-tutorial-function-appinsights.md
+          - name: C#
+            href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy 
     items: 
     - name: Review endpoint utterances
       href: Label-Suggested-Utterances.md
-    - name: Phrase list
-      href: Add-Features.md
-    - name: Patterns
-      href: luis-how-to-model-intent-pattern.md
+    - name: Add Phrase list
+      items: 
+      - name: How to add
+        href: Add-Features.md
+      - name: How to use
+        href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Add Patterns
+      items: 
+      - name: How to add      
+        href: luis-how-to-model-intent-pattern.md
+      - name: How to use
+        href: luis-tutorial-pattern.md
   - name: Train
     href: luis-how-to-train.md
   - name: Test
@@ -175,6 +175,8 @@
       href: Train-Test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
+    - name: Improve accuracy with batch testing
+      href: luis-tutorial-batch-testing.md
   - name: Publish your app
     href: PublishApp.md
   - name: Use prebuilt models
@@ -201,6 +203,8 @@
     href: luis-how-to-account-settings.md   
   - name: Migrate to V2 API
     href: migration-v1-to-v2.md
+  - name: Build app programmatically using Node.js
+    href: luis-tutorial-node-import-utterances-csv.md
 - name: Reference
   items: 
   - name: GDPR
