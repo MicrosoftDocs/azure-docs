@@ -40,7 +40,7 @@ Azure Media Services REST v3 API enables you to analyze audio and video content.
 
 ##  insights.json elements
 
-One of the main outputs of the job is insights.json file. The json may contain the following elements:
+The output includes a JSON file (insights.json) with all the insights that were found in the video or audio. The json may contain the following elements:
 
 ### Transcript
 
