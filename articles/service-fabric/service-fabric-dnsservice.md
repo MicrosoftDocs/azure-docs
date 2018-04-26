@@ -24,7 +24,9 @@ Many services, especially containerized services, can have an existing URL name,
 
 The DNS service maps DNS names to service names, which in turn are resolved by the Naming Service to return the service endpoint. The DNS name for the service is provided at the time of creation. 
 
-![service endpoints][0]
+![service endpoints](./media/service-fabric-dnsservice/dns.png)
+
+You can use the DNS service to resolve stateless services exposed on well-known, static ports. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md). The DNS service supports A and SRV records. SRV records include the port exposed by the service endpoints; however, the SRV record information is only reliable if the port is the same across service instances.
 
 ## Enabling the DNS service
 First you need to enable the DNS service in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)  or create a Resource Manager template. You can enable the DNS service with the following steps:
