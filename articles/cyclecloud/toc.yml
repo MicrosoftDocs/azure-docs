@@ -28,6 +28,8 @@
     items:
     - name: Overview
       href: submit_once.md
+    - name: Installation and Configuration
+      href: submit_once_installation.md
     - name: User Management
       href:
     - name: CLI
