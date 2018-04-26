@@ -176,43 +176,28 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 >These property names are case-sensitive. To avoid deployment problems, use the names as shown here.
 
 ## Azure CLI
-When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, configuration files contain the file URI and the script execution command.
+When you're using Azure CLI to run the Custom Script Extension, create a configuration file or files. At a minimum, you must have an execution command.
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
-
-az vm extension set -n VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.4 \
-                            --vm-name MyVm --resource-group MyResourceGroup \
-                            --protected-settings '{"username":"user1", "ssh_key":"ssh_rsa ..."}'
+az vm extension set -n VMAccessForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 1.5 \
+  --vm-name MyVm --resource-group MyResourceGroup \
+  --protected-settings '{"commandToExecute": "echo hello"}'
 ```
 
 Optionally, you can specify the settings in the command as a JSON formatted string. This allows the configuration to be specified during execution and without a separate configuration file.
 
 ```azurecli
-az vm extension set `
-  --resource-group exttest `
-  --vm-name exttest `
-  --name CustomScriptForLinux `
-  --publisher Microsoft.OSTCExtensions `
+az vm extension set \
+  --resource-group exttest \
+  --vm-name exttest \
+  --name CustomScriptForLinux \
+  --publisher Microsoft.OSTCExtensions \
   --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
 ```
 
 ### Azure CLI examples
-
-#### Public configuration with script file
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],
-  "commandToExecute": "./config-music.sh"
-}
-```
-
-Azure CLI command:
-
-```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
-```
 
 #### Public configuration with no script file
 
@@ -225,7 +210,7 @@ az vm extension set --resource-group myResourceGroup --vm-name myVM --name custo
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name CustomScriptForLinux --publisher Microsoft.OSTCExtensions --settings ./script-config.json
 ```
 
 #### Public and protected configuration files
@@ -236,7 +221,7 @@ Public configuration file:
 
 ```json
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"]
+  "fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"]
 }
 ```
 
@@ -244,18 +229,18 @@ Protected configuration file:
 
 ```json
 {
-  "commandToExecute": "./hello.sh <password>"
+  "commandToExecute": "./config-music.sh <param1>"
 }
 ```
 
 Azure CLI command:
 
 ```azurecli
-az vm extension set --resource-group myResourceGroup --vm-name myVM --name customScript --publisher Microsoft.Azure.Extensions --settings ./script-config.json --protected-settings ./protected-config.json
+az vm extension set --resource-group myResourceGroup --vm-name myVM --name CustomScriptForLinux --publisher Microsoft.OSTCExtensions--settings ./script-config.json --protected-settings ./protected-config.json
 ```
 
 ## Troubleshooting
-When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
+When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files. <<<<CHECK>>>>
 
 To troubleshoot, first check the Linux Agent Log, ensure the extension ran:
 
