@@ -58,9 +58,9 @@ Whether you want more information after running a [health checkup](#health-check
 
 ## Investigating application code issues
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights does have to be enabled. 
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://azure.microsoft.com/en-us/services/application-insights/) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights does have to be enabled separately. 
 
-To view Application Insights exceptions, select the **Web App Down** or **Web App Slow** tile shortcuts. 
+To view Application Insights exceptions and dependencies, select the **Web App Down** or **Web App Slow** tile shortcuts. 
 
 ![Application insights](./media/app-service-diagnostics/AppInsights6.png)
 
