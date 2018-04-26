@@ -63,13 +63,13 @@ To configure the integration of Jostle into Azure AD, you need to add Jostle fro
 
 	![Applications][2]
 	
-3. To add new application, click **New application** button on the top of dialog.
+3. Click **Add** at the top of the window.
 
-	![Applications][3]
+	![Add03](https://github.com/JostleVince/hello-world/blob/master/Add03.png?raw=true)
 
-4. In the search box, type **Jostle**.
+4. In the search box under **Add an application**, type **Jostle**.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_search.png)
+	![Add04](https://github.com/JostleVince/hello-world/blob/master/Add04.png?raw=true)
 
 5. In the results panel, select **Jostle**, and then click **Add** button to add the application.
 
@@ -106,26 +106,29 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 3. On the **Jostle Domain and URLs** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_url.png)
+	![url01](https://github.com/JostleVince/hello-world/blob/master/url01.png?raw=true)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tanent name>.jostle.us/jostle-prod/`
+    a. In the **Sign-on URL** textbox, enter: `https://login-prod.jostle.us`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tanent name>.jostle.us`
+	b. In the **Identifier** textbox, enter: `https://jostle.us`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Jostle support team](mailto:support@jostle.me) to get these values. 
+	c. Check the box next to **Show advanced URL settings**
  
+	d. Inthe **Reply URL** textbox, enter: `https://login-prod.jostle.us/saml/SSO/alias/newjostle.us`
 
+4. On the **User Attributes** section, for the **User Identifier** field, enter: `user.userprincipalname`
 
-4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	![url02](https://github.com/JostleVince/hello-world/blob/master/url02.png?raw=true) 
 
-	![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_jostle_certificate.png) 
-
-5. Click **Save** button.
+5. Click **Save** at the top of the window.
 
 	![Configure Single Sign-On](./media/active-directory-saas-jostle-tutorial/tutorial_general_400.png)
+	
+6. Go down to **SAML Signing Certificate**, verify that the Status is **Active** and then click **Metadata XML** to download the metadata file.
 
-7. To configure single sign-on on Jostle side, you need to send the downloaded metadata XML to [Jostle support team](mailto:support@jostle.me). They set this setting to have the SAML SSO connection set properly on both sides. 
+	![url04](https://github.com/JostleVince/hello-world/blob/master/url4.png?raw=true)
+
+7. To configure single sign-on on Jostle's side, you need to send the downloaded metadata XML to [Jostle support team](mailto:support@jostle.me). They set this setting to have the SAML SSO connection set properly on both sides. 
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
