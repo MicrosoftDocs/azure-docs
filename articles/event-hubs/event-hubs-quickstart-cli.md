@@ -2,19 +2,15 @@
 title: Azure Quickstart - Process event streams using Azure CLI | Microsoft Docs
 description: Quickly learn to process event streams using Azure CLI
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
 editor: ''
 
-ms.assetid: ''
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/26/2018
 ms.author: sethm
 
 ---
@@ -78,12 +74,12 @@ Copy and paste the connection string to a temporary location, such as Notepad, t
 The next step is to download the sample code that streams events to an event hub, and receives those events using the Event Processor Host. First, send the messages:
 
 1. Clone the [Event Hubs GitHub repo](https://github.com/Azure/azure-event-hubs).
-2. Navigate to the **Send** folder: `\azure-event-hubs\samples\Java\Basic\Send\src\main\java\com\microsoft\azure\eventhubs\samples\send`.
-2. In the Send.java file, replace the `----EventHubsNamespaceName-----` value with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
-2. Replace `----EventHubName-----` with the name of the event hub you created within that namespace.
-3. Replace `-----SharedAccessSignatureKeyName-----` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
-4. Replace `---SharedAccessSignatureKey----` with the value of the SAS key for the policy in the previous step.
-5. To build the application, navigate to the `\azure-event-hubs\samples\Java\Basic\Send` folder, and issue the following command:
+2. Navigate to the **SimpleSend** folder: `\azure-event-hubs\samples\Java\Basic\SimpleSend\src\main\java\com\microsoft\azure\eventhubs\samples\SimpleSend`.
+2. In the SimpleSend.java file, replace the `"Your Event Hubs namaspace name"` string with the Event Hubs namespace you obtained in the "Create an Event Hubs namespace" section of this article.
+2. Replace `"Your event hub"` with the name of the event hub you created within that namespace.
+3. Replace `"Your policy name"` with the name of the Shared access policy for the namespace. Unless you created a new policy, the default is **RootManageSharedAccessKey**.
+4. Replace `"Your primary SAS key"` with the value of the SAS key for the policy in the previous step.
+5. To build the application, navigate back to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following command:
 
    ```shell
    mvn clean package -DskipTests
@@ -111,10 +107,10 @@ Now download the Event Processor Host sample, which receives the messages you ju
 
 If the builds completed successfully, you are ready to send and receive events. 
 
-1. Run the **Send** application and observe events being sent. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\Send` folder, and issue the following command:
+1. Run the **SimpleSend** application and observe events being sent. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\SimpleSend` folder, and issue the following command:
 
    ```shell
-   java -jar ./target/send-1.0.0-jar-with-dependencies.jar
+   java -jar ./target/simplesend-1.0.0-jar-with-dependencies.jar
    ```
 2. Run the **EventProcessorSample** app, and observe the events being received. To run the program, navigate to the `\azure-event-hubs\samples\Java\Basic\EventProcessorSample` folder, and issue the following command:
    
@@ -132,14 +128,14 @@ This section contains more details about what the sample code does.
 
 ### Send
 
-In the Send.java file, most of the work is done in the main() method. First, the code uses a `ConnectionStringBuilder` instance to construct the connection string using the user-defined values for the namespace name, event hub name, SAS key name, and the SAS key itself:
+In the SimpleSend.java file, most of the work is done in the main() method. First, the code uses a `ConnectionStringBuilder` instance to construct the connection string using the user-defined values for the namespace name, event hub name, SAS key name, and the SAS key itself:
 
 ```java
 final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-           .setNamespaceName("----NamespaceName-----")// to target National clouds - use .setEndpoint(URI)
-           .setEventHubName("----EventHubName-----")
-           .setSasKeyName("-----SharedAccessSignatureKeyName-----")
-           .setSasKey("---SharedAccessSignatureKey---");
+        .setNamespaceName("Your Event Hubs namespace name")
+        .setEventHubName("Your event hub")
+        .setSasKeyName("Your policy name")
+        .setSasKey("Your primary SAS key");
 ```
 
 The Java object containing the event payload is then converted to Json:
@@ -149,7 +145,7 @@ final Gson gson = new GsonBuilder().create();
 
 final PayloadEvent payload = new PayloadEvent(1);
 byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
-final EventData sendEvent = EventData.create(payloadBytes);  
+EventData sendEvent = EventData.create(payloadBytes);  
 ```
 
 The Event Hubs client is created in this line of code:
@@ -158,36 +154,27 @@ The Event Hubs client is created in this line of code:
 final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 ```
 
-The try/finally block send 3 events: one event is sent round robin to a non-specified partition, one event is sent to the partition specified by a partition key, and the third event is sent to a specific partition:
+The try/finally block sends one event round robin to a non-specified partition:
 
 ```java
 try {
-    // Type-1 - Send - not tied to any partition
-    ehClient.send(sendEvent).get();
+    for (int i = 0; i < 100; i++) {
 
-    // Type-2 - Send using PartitionKey - all events with same partitionKey will land on the same partition
-    final String partitionKey = "partitionTheStream";
-    ehClient.sendSync(sendEvent, partitionKey);
+        String payload = "Message " + Integer.toString(i);
+        //PayloadEvent payload = new PayloadEvent(i);
+        byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+        EventData sendEvent = EventData.create(payloadBytes);
 
-    // Type-3 - Send to a specific partition
-    sender = ehClient.createPartitionSenderSync("0");
-    sender.sendSync(sendEvent);
+        // Send - not tied to any partition
+        // Event Hubs service will round-robin the events across all EventHubs partitions.
+        // This is the recommended & most reliable way to send to EventHubs.
+        ehClient.sendSync(sendEvent);
+    }
 
     System.out.println(Instant.now() + ": Send Complete...");
     System.in.read();
 } finally {
-    if (sender != null) {
-        sender.close()
-                .thenComposeAsync(aVoid -> ehClient.close(), executorService)
-                .whenCompleteAsync((aVoid1, throwable) -> {
-                    if (throwable != null) {
-                        System.out.println(String.format("closing failed with error: %s", throwable.toString()));
-                    }
-                }, executorService).get();
-    } else {
-        ehClient.closeSync();
-    }
-
+    ehClient.closeSync();
     executorService.shutdown();
 }
 ```
@@ -207,7 +194,7 @@ String storageContainerName = "----StorageContainerName----";
 String hostNamePrefix = "----HostNamePrefix----";
 ```
 
-Similar to the Send program, the code then creates a ConnectionStringBuilder instance to construct the connection string:
+Similar to the SimpleSend program, the code then creates a ConnectionStringBuilder instance to construct the connection string:
 
 ```java
 ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder()
