@@ -356,15 +356,15 @@ The following table summarizes the partition support and the number of output wr
 
 | Output type | Partitioning support | Partition key  | Number of output writers | 
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully paralyzed queries](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | No | None | Not applicable. | 
-| Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
+| Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Follows the input partitioning for [fully paralyzed queries](stream-analytics-scale-jobs.md). | 
 | Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. | 
-| Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
+| Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully paralyzed queries](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
 | Azure Service Bus Queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output. |
-| Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
+| Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully paralyzed queries](stream-analytics-scale-jobs.md). |
 | Azure Functions | No | None | Not applicable. | 
 
 ## Output batch size
@@ -374,15 +374,15 @@ The following table explains some of the considerations to output batching:
 
 | Output type |	Max message size | Batch size optimization |
 | :--- | :--- | :--- | 
-| Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
+| Azure Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4 MB per write operation |
 | SQL Database | 10,000 Max rows per single bulk insert</br>100 Min rows per single bulk insert </br>See also [Azure SQL limits](../sql-database/sql-database-resource-limits.md) |  Every batch is initially bulk inserted with Max batch size and may split batch into half (until Min batch size) based on retryable errors from SQL. |
 | Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size is 4 MB</br>Maximum Blob bock count is 50000 |
+| Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
+| Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx) |
 | Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | 100 entities per single transaction |
 | Service Bus queue	| 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
-| Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
-| Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx) |
-| Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4 MB per write operation	</br> Stream Analytics batch events together up to 4 MB to minimize the number of transactions. When the frequency of incoming events is low, smaller batches are used to ensure low latency|
+| Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
 | Azure Functions	| | Default batch size is 246 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
 
 ## Next steps
