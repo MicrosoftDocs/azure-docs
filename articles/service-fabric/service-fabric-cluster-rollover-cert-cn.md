@@ -75,8 +75,7 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
-
-## Next steps
+To learn more, read the following:
 * Learn about [cluster security](service-fabric-cluster-security.md).
 * [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
 
