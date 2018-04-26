@@ -126,12 +126,17 @@ Press **Save and run** at the top of the window.
 
 ## Register for the Event Grid subscription 
 
-You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from  Azure Function webhook you created as the endpoint for event notification. Replace `event_subscription_name` with a unique name for your event subscription. Replace the Media Services resource id with the resource path of your Media Services account. Replace `<endpoint_URL>` with the value from the preceding section. 
+You subscribe to an article to tell Event Grid which events you want to track. The following example subscribes to the Media Services account you created, and passes the URL from  Azure Function webhook you created as the endpoint for event notification. 
 
-By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. For the `--endpoint` option paste your endpoint URL. Remove *&clientID=default* from the URL.
+Replace `<event_subscription_name>` with a unique name for your event subscription. For `<resource_group_name>` and `<ams_account_name>`, use the values you created earlier.  For the `<endpoint_URL>` paste your endpoint URL. Remove *&clientID=default* from the URL. By specifying an endpoint when subscribing, Event Grid handles the routing of events to that endpoint. 
 
 ```cli
-az eventgrid event-subscription create --name event_subscription_name --resource-id "/subscriptions/<subscription id>/resourceGroups/ams_rg/providers/Microsoft.Media/mediaservices/amsaccountname" --included-event-types "Microsoft.Media.JobStateChange" --endpoint "https://amsv3funcapp.azurewebsites.net/api/GenericWebhookCSharp1?code=LR2eB41IOAqzSqdmUSp/uwSpGt/1YYLSOBDrb9d0sW/sidhtiuQPCA=="
+amsid=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
+
+az eventgrid event-subscription create \
+  --resource-id $amsid \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL>
 ```
 
 ## Test the events
