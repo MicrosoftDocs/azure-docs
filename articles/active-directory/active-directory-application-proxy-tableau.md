@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory application proxy and Tableau | Microsoft Docs
-description: Learn how to use Azure Active Directory (Azure AD) application proxy to provide remote access for your Tableau deployment.  .
+title: Azure Active Directory Application Proxy and Tableau | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) Application Proxy to provide remote access for your Tableau deployment.  .
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 04/26/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,9 +20,9 @@ ms.custom: it-pro
 ---
 
 
-# Azure Active Directory application proxy and Tableau 
+# Azure Active Directory Application Proxy and Tableau 
 
-Azure Active Directory Application Proxy and Tableau have partnered to ensure you are easily able to use application proxy to provide remote access for your Tableau deployment. This article explains how to configure this scenario.  
+Azure Active Directory Application Proxy and Tableau have partnered to ensure you are easily able to use Application Proxy to provide remote access for your Tableau deployment. This article explains how to configure this scenario.  
 
 ## Prerequisites 
 
@@ -30,17 +30,20 @@ The scenario in this article assumes that you have:
 
 - [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#reverse-proxy-server) configured. 
 
-- An [application proxy connector](active-directory-application-proxy-enable.md) installed. 
+- An [Application Proxy connector](active-directory-application-proxy-enable.md) installed. 
 
  
 
-## Enabling Your Tenant 
+## Enabling Application Proxy for Tableau 
 
-Using application proxy for Tableau requires one service side change. To be enabled for this scenario, send email to [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com) with your tenantId and this scenario as subject. 
+If you want to use Application Proxy for Tableau, you need to send an email to [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com) to get this scenario enabled.
+In your email:
 
-You get a confirmation when you are ready to use the application.
-Typically, this takes about a week.
-However, you can finish the configurations while waiting for the confirmation.  
+-	Use Enable Application Proxy for Tableau as subject
+-	Include your tenant ID in the body    
+
+You get a confirmation when you are ready to use the application. Typically, this takes about a week. However, you can finish the configurations while waiting for the confirmation.
+
 
  
 
@@ -88,5 +91,5 @@ Your application is now ready to test. Access the external URL you used to publi
 
 ## Next steps
 
-For more information about Azure AD application proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
 
