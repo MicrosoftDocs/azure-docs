@@ -52,6 +52,12 @@ ms.custom: H1Hack27Feb2017
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
 
+### <a name="1.10.0"/>1.10.0
+
+* Added ConsistencyLevel Property to FeedOptions.
+* Added JsonSerializerSettings to RequestOptions and FeedOptions.
+* Added EnableReadRequestsFallback to ConnectionPolicy.
+
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.

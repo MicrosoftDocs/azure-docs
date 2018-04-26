@@ -130,5 +130,5 @@ For every API you will find four overloads of implementation. If there are optio
 	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
 
 ## Next steps
-* Learn about [Service Fabric REST APIs](https://docs.microsoft.com/en-us/rest/api/servicefabric/)
+* Learn about [Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)
 

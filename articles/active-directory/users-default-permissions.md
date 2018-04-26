@@ -1,4 +1,4 @@
----
+﻿---
 title: Compare default user permissions in Azure Active Directory | Microsoft Docs
 description: Compare member, guest, app owner, and group owner permissions
 services: active-directory
@@ -20,7 +20,7 @@ ms.reviewer: vincesm
 # Default user permissions in Azure Active Directory
 
 In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists the type of user, their [role
-memberships](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
+memberships](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
 
 ## Member and guest users
 The set of default permissions received depends on if the user is a native member of the tenant (member user) or if the user is a B2B collaboration guest (guest user). For more information about B2B collaboration, see [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md) for more information about guest users). 
