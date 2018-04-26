@@ -61,7 +61,7 @@ Now that you have an overview of the basics, read the sections below to understa
 
 ## Claims in Azure AD security tokens
 
-Security tokens issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated. These claims can be used by the application for various tasks. For example, applications can use claims to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on. The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration. A brief description of each type of claim emitted by Azure AD is provided in the table below. For more information, refer to [Supported token and claim types](active-directory-token-and-claims.md).
+Security tokens (access and id tokens) issued by Azure AD contain claims, or assertions of information about the subject that has been authenticated. These claims can be used by the application for various tasks. For example, applications can use claims to validate the token, identify the subject's directory tenant, display user information, determine the subject's authorization, and so on. The claims present in any given security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration. A brief description of each type of claim emitted by Azure AD is provided in the table below. For more information, refer to [Supported token and claim types](active-directory-token-and-claims.md).
 
 | Claim | Description |
 | --- | --- |
