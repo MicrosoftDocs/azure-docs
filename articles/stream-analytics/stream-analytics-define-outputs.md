@@ -22,7 +22,7 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access the Data Lake Store.
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics has to be authorized to access the Data Lake Store.
 
 ### Authorize an Azure Data Lake Store account
 
@@ -82,7 +82,7 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 </table>
 
 ### Renew Data Lake Store Authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job will not output results and an error indicating the need for reauthorization is logged in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
+You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job does not produce output results and shows an error indicating the need for reauthorization in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
 
 To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating **Redirecting to authorization...**. The page automatically closes and if successful, indicates **Authorization has been successfully renewed**. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
 
@@ -253,7 +253,7 @@ Datetime | String | String |  Datetime | String
 
 
 ### Renew Power BI Authorization
-If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate the Stream Analytics. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
+If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate the Stream Analytics. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant, you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
   ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
@@ -274,7 +274,7 @@ The table below lists the property names and their description for creating a ta
 | Table Name |The name of the table. The table gets created if it does not exist. |
 | Partition Key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
 | Row Key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
-| Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs, refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
+| Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs. Refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
  
 ## Service Bus Queues
 [Service Bus Queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
@@ -330,7 +330,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Account key | The shared access key for the Cosmos DB account. |
 | Database | The Cosmos DB database name. |
 | Collection name pattern | The collection name or their pattern for the collections to be used. <br/>The collection name format can be constructed using the optional {partition} token, where partitions start from 0. Two examples:  <br/>1. _MyCollection_ – One collection named "MyCollection" must exist.  <br/>2. _MyCollection{partition}_ – Based on the partitioning column. <br/>The partitioning column collections must exist– "MyCollection0", "MyCollection1", "MyCollection2" and so on. |
-| Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern.<br/> The partition key is the name of the field in output events used to specify the key for partitioning output across collections.<br/> For single collection output, any arbitrary output column can be used for example, PartitionId. |
+| Partition Key | Optional. This is only needed if you are using a {partition} token in your collection name pattern.<br/> The partition key is the name of the field in output events used to specify the key for partitioning output across collections.<br/> For single collection output, any arbitrary output column can be used. For example, PartitionId. |
 | Document ID |Optional. The name of the field in output events used to specify the primary key on which insert or update operations are based.  
 
 ## Azure Functions
@@ -346,7 +346,7 @@ Azure Stream Analytics invokes Azure Functions via HTTP triggers. The new Azure 
 | Max Batch Count  |As the name indicates, this property lets you specify the maximum number of events in each batch that gets sent to Azure Functions. The default max batch count value is 100 |
 | Key |If you want to use an Azure Function from another subscription, you can do so by providing the key to access your function |
 
-Note that when Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
+When Azure Stream Analytics receives 413 (http Request Entity Too Large) exception from Azure function, it reduces the size of the batches it sends to Azure Functions. In your Azure function code, use this exception to make sure that Azure Stream Analytics doesn’t send oversized batches. Also, make sure that the max batch count and size values used in the function are consistent with the values entered in the Stream Analytics portal. 
 
 Also, in a situation where there is no event landing in a time window, no output is generated. As a result, computeResult function is not called. This behavior is consistent with the built-in windowed aggregate functions.
 
@@ -359,7 +359,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Data Lake Store | Yes | Use {date} and {time} tokens in the Path prefix pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
 | Azure SQL Database | No | None | Not applicable. | 
 | Azure Blob storage | Yes | Use {date} and {time} tokens in the Path pattern. Choose the Date format, such as YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH is used for the Time format. | Same as input. | 
-| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHub’s [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
+| Azure Event Hub | Yes | Yes | Varies depending on partition alignment.</br> When the output Event Hub partition key is equally aligned with upstream (previous) query step, the number of writers is the same the number of output Event Hub partitions. Each writer uses EventHub’s [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. </br> When the output Event Hub partition key is not aligned with upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses EventHubClient [SendBatchAsync class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) to send events to all the output partitions. |
 | Power BI | No | None | Not applicable. | 
 | Azure Table storage | Yes | Any output column.  | Same as input or previous step. | 
 | Azure Service Bus Topic | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.| Same as output.  |
@@ -374,7 +374,7 @@ The following table explains some of the considerations to output batching:
 
 | Output type |	Max throughput | Batch size optimization |
 | :--- | :--- | :--- | 
-| Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
+| Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
 | SQL Database | 10,000 Max rows per single bulk insert</br>100 Min rows per single bulk insert </br>See also [Azure SQL limits](../sql-database/sql-database-resource-limits.md) |  Every batch is initially bulk inserted with Max batch size and may split batch into half (until Min batch size) based on retryable errors from SQL. |
 | Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size id 4 MB</br>Maximum Blob bock count is 50000 |
 | Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | 100 entities per single transaction |
@@ -382,7 +382,7 @@ The following table explains some of the considerations to output batching:
 | Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx) |
-| Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4MB per write operation	</br> Stream Analytics batch events together up to 4MB to minimize the number of transactions. When the frequency of incoming events is low, smaller batches are used to ensure low latency|
+| Data Lake Store | See [Data Lake Storage limits](../azure-subscription-service-limits.md#data-lake-store-limits) | Up to 4 MB per write operation	</br> Stream Analytics batch events together up to 4 MB to minimize the number of transactions. When the frequency of incoming events is low, smaller batches are used to ensure low latency|
 | Azure Functions	| | Default batch size is 246 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
 
 ## Next steps
