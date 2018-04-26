@@ -127,9 +127,7 @@ In Visual Studio, press **Shift+F5** to stop debugging.
 
 ## Prepare to deploy to Azure
 
-It's easy to deploy your Service Fabric Mesh project to Azure. But first, some tweaking needs to happen. Currently Service Fabric Mesh is using port **8080** in the container hosting the website. This port is routed to port **80** on the development cluster network adapter. However, Azure cannot use this port currently and you must change any reference to port **8080** to **80**, before publishing.
-
-There are two files you need to edit and change the port to **80**, the **service.yaml** and **network.yaml**. By making this change, you will break the ability to use Visual Studio to debug and deploy locally. Revert these changes after deploying to Azure if you wish to continue to work locally.
+It's easy to deploy your Service Fabric Mesh project to Azure. But first, some tweaking needs to happen. Currently, Service Fabric Mesh is using port **8080** in the container hosting your project. This port is routed to port **80** on the development cluster's network adapter. However, Azure cannot use this port currently and you must change any reference of port **8080** to **80**, before publishing. There are two files you need to edit, **service.yaml** and **network.yaml**. 
 
 The **service.yaml** file is located in Visual Studio at **[.NET Core Project Name]** > **Service Resources** > **service.yaml**. You can see in this example that the **endpoints** definition has **port** set to **8080**, change that value to **80**.
 
@@ -175,9 +173,11 @@ network:
         endpointName: breeze1Listener
 ```
 
+By changing the port to **80** in these two files, Visual Studio reacts badly and will no longer debug and deploy to the local cluster. Revert these changes after you deploy to Azure if you want to continue to work locally.
+
 ## Create an ACR
 
-Service Fabric Mesh services are hosted in containers that can be stored in the public Docker Registry, or in an Azure Container Registry (ACR). Currently, Service Fabric Mesh with Visual Studio only supports using ACR. For the purposes of this tutorial, create a new ACR in the **East US** location.
+Service Fabric Mesh services are hosted in containers. The Service Fabric Mesh tools will automatically build and deploy a container image containing your services. This image can be stored in the public Docker Registry, or in an Azure Container Registry (ACR). Currently, Service Fabric Mesh with Visual Studio only supports using ACR, while the command line tools allow you to use the Docker Registry. For the purposes of this tutorial, create a new ACR in the **East US** location.
 
 Sign in to the Azure portal at https://portal.azure.com. Select **Create a resource** > **Containers** > **Azure Container Registry**.
 
@@ -189,11 +189,11 @@ Set **Location** to `East US` and **SKU** to `Basic`. Under **Admin user**, sele
 
 ![Creating a container registry in the Azure portal](media/service-fabric-mesh-tutorial-deploy-dotnetcore/qs-portal-03.png)
 
-Now that you have an Azure container registry, you can continue on and deploy your Service Fabric Mesh project.
+The Azure portal will display a **Deployment succeeded** status message when the ACR has been created. After it is created, you can continue on and deploy your Service Fabric Mesh project.
 
 ## Deploy to Azure
 
-To deploy your Service Fabric Mesh project to Azure, right-click on the Service Fabric Mesh project in Visual studio and select **Publish...**
+To deploy your Service Fabric Mesh project to Azure, right-click on the **Service Fabric Mesh project** in Visual studio and select **Publish...**
 
 ![Visual studio right-click Service Fabric Mesh project](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-right-click-publish.png)
 
@@ -201,9 +201,9 @@ You will be presented with a **Publish SeaBreeze Application** dialog.
 
 ![Visual studio Service Fabric Mesh publish dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Provide your Azure account and subscription. The **Location** must be set to **eastus**. Unselect **New resource group** and then choose the same resource group you previously created, `sfmeshTutorial1RG`. Press **Publish** to start the deployment.
+Provide your Azure account and subscription. The **Location** must be set to **eastus**. Unselect **New resource group** and then choose the same resource group you previously created, `sfmeshTutorial1RG`. Select the Azure Container Registry you created in the previous section. Press **Publish** to start the deployment.
 
-The first time you publish to Azure can take 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the Service Fabric Mesh tools by selecting the **SeaBreeze Tools** item in the Visual Studio **Output** pane. Once the deployment has finished, the **SeaBreeze Tools** output will display the network information of the hosting container for Service Fabric Mesh.
+When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the Service Fabric Mesh tools by selecting the **SeaBreeze Tools** item in the Visual Studio **Output** pane. Once the deployment has finished, the **SeaBreeze Tools** output will display the network information of the hosting container for Service Fabric Mesh.
 
 ```json
 Network Information:
@@ -237,7 +237,7 @@ Open a web browser and navigate to the IP address in the **publicIPAddress** fie
 
 ## Clean up resources
 
-When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service, you can safely delete this resource group.
+When no longer needed, delete all of the resources you created. Since you created a new resource group to host both the ACR and Service Fabric Mesh service resources, you can safely delete this resource group.
 
 ```cli
 az group delete --resource-group sfmeshTutorial1RG
