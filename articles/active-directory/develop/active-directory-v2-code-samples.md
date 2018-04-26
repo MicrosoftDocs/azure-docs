@@ -52,7 +52,7 @@ Mobile (Android)   | Android / Java | Interactive |   [android-native-v2](https:
 
 The following samples illustrate Web Applications signing in users, calling Microsoft Graph, or a Web API with the user's identity
 
- Platform | Only signs in users | Sings in users and Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
+ Platform | Only signs in users | Signing in users and Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------------------- | -------------------------
 ASP.NET 4.x | [appmodelv2-webapp-openIDConnect-dotNet](https://GitHub.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) <p/> [dotnet-webapp-openidconnect-v2](https://GitHub.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |              [aspnet-connect-rest-sample](https://github.com/microsoftgraph/aspnet-connect-rest-sample)   |
 ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) |              [aspnetcore-connect-sample](https://github.com/microsoftgraph/aspnetcore-connect-sample)   | *none yet*
@@ -61,7 +61,7 @@ Ruby      |                   | [ruby-connect-rest-sample](https://github.com/mi
 
 ## Daemon applications
 
-The following samples show desktop or web applications that access the Microsoft Graph or a Web API with no user (with the application identity)
+The following samples show desktop or web applications that access the Microsoft Graph or a Web API with the application identity (no user)
 
 Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an ASP.NET or ASP.NET Core 2.0 Web API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
