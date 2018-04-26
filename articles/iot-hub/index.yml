@@ -23,13 +23,13 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_nodejs.svg
+          src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
       - image:
-          src: media/index/logo_net.svg
+          src: https://docs.microsoft.com/media/logos/logo_NET.svg
       - image:
-          src: media/index/logo_java.svg
+          src: https://docs.microsoft.com/media/logos/logo_java.svg
       - image:
-          src: media/index/logo_python.svg
+          src: https://docs.microsoft.com/media/logos/logo_python.svg
     rows:
       - title: Send telemetry
         values: 
