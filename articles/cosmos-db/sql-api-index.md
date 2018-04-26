@@ -30,7 +30,6 @@ These are must read topics and resources to start learning about the SQL API for
 - [Database resource model](sql-api-resources.md)
 - Web site: [Query playground](https://www.documentdb.com/sql/demo)
 - Cheat sheet: [SQL grammar](query-cheat-sheet.md)
-- [BulkExecutor overview](bulk-executor-overview.md)
 
 ## Quickstarts
 
@@ -68,8 +67,6 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 ### Work with data
 
 - [Import data](import-data.md)
-- [BulkExecutor - .NET](bulk-executor-dot-net.md)
-- [BulkExecutor - Java](bulk-executor-java.md)
 - [Query](tutorial-query-sql-api.md)
 - [Distribute data globally](tutorial-global-distribution-sql-api.md)
 
@@ -99,8 +96,6 @@ Azure Cosmos DB provides a number of SDKs to enable client-side application deve
 - [.NET Core](sql-api-sdk-dotnet-core.md)
 - [Node.js](sql-api-sdk-node.md)
 - [Python](sql-api-sdk-python.md)
-- [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-- [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 ## Reference
 

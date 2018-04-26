@@ -89,6 +89,13 @@ items:
       items:
       - name: SQL
         href: import-data.md
+      - name: BulkExecutor overview
+        href: bulk-executor-overview.md
+      - name: BulkExecutor - .NET
+        href: bulk-executor-dot-net.md
+      - name: BulkExecutor - Java
+        href: bulk-executor-java.md
+
       - name: MongoDB
         href: mongodb-migrate.md
       - name: Table
@@ -420,6 +427,10 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: SQL
         href: sql-api-sql-query-reference.md
+      - name: BulkExecutor - .NET
+        href: sql-api-sdk-bulk-executor-dot-net.md
+      - name: BulkExecutor - Java
+        href: sql-api-sdk-bulk-executor-java.md
     - name: Table APIs
       items:
       - name: .NET
