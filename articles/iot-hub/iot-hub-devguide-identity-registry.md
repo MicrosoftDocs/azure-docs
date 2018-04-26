@@ -20,16 +20,16 @@ ms.custom: H1Hack27Feb2017
 ---
 # Understand the identity registry in your IoT hub
 
-Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to the IoT hub. Before a device or module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device/module must also authenticate with the IoT hub based on credentials stored in the identity registry.
+Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to the IoT hub. Before a device or module can connect to an IoT hub, there must be an entry for that device or module in the IoT hub's identity registry. A device or module must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
-The device/module ID stored in the identity registry is case-sensitive.
+The device or module ID stored in the identity registry is case-sensitive.
 
-At a high level, the identity registry is a REST-capable collection of device/module identity resources. When you add an entry in the identity registry, IoT Hub creates a set of per-device resources such as the queue that contains in-flight cloud-to-device messages.
+At a high level, the identity registry is a REST-capable collection of device or module identity resources. When you add an entry in the identity registry, IoT Hub creates a set of per-device resources such as the queue that contains in-flight cloud-to-device messages.
 
 Use the identity registry when you need to:
 
 * Provision devices or modules that connect to your IoT hub.
-* Control per-device/per-module access to your hub's device/module-facing endpoints.
+* Control per-device/per-module access to your hub's device or module-facing endpoints.
 
 > [!NOTE]
 > The identity registry does not contain any application-specific metadata.
@@ -38,10 +38,10 @@ Use the identity registry when you need to:
 
 The IoT Hub identity registry exposes the following operations:
 
-* Create device/module identity
-* Update device/module identity
-* Retrieve device/module identity by ID
-* Delete device/module identity
+* Create device or module identity
+* Update device or module identity
+* Retrieve device or module identity by ID
+* Delete device or module identity
 * List up to 1000 identities
 > Module identity and module twin is in public preview. Below feature will be supported on module identity when it's general available.
 * Export device identities to Azure blob storage

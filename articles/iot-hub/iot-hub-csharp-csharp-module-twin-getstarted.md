@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure IoT Hub (.NET) | Microsoft Docs
+title: Get started with Azure IoT Hub module identity and module twin (.NET) | Microsoft Docs
 description: Learn how to create module identity and update module twin using IoT SDKs for .NET.
 services: iot-hub
 documentationcenter: .net
@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 At the end of this tutorial, you have two .NET console apps:
 
 * **CreateIdentities**, which creates a device and a module identity and associated security key to connect your device and module app.
-* **UpdateModuleTwinReportedProperties**, which updates the module twin reported properties by your IoT Hub.
+* **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
@@ -41,7 +41,7 @@ You have now created your IoT hub, and you have the host name and IoT Hub connec
 [!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
 
 <a id="D2C_csharp"></a>
-## Update the module twin reported properties using .NET device SDK
+## Update the module twin using .NET device SDK
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
@@ -53,7 +53,7 @@ In this section, you create a .NET console app on your simulated device that upd
 
     ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-001][14]
 
-3. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you will see myFirstModule is successfuly created. Copy the module connection string. It will be needed in the next step.
+3. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
     ![Azure portal module detail][15]
 
@@ -72,7 +72,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
     private static DeviceClient Client = null;
     ```
 
-    Add the following OnDesiredPropertyChanged() to the **Program** class:
+    Add the following method **OnDesiredPropertyChanged** to the **Program** class:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
@@ -126,7 +126,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
     This code sample shows you how to retrieve the module twin and update reported properties with AMQP protocol. In public preview, we only support AMQP for module twin operations.
 
-5. In addtion to the above Main() method, you can add below code block to send event to IoT Hub from your module:
+5. In addtion to the above **Main** method, you can add below code block to send event to IoT Hub from your module:
     ```csharp
     Byte[] bytes = new Byte[2];
     bytes[0] = 0;
@@ -138,9 +138,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
 ## Run the apps
 
-You are now ready to run the apps.
-
-1. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the console apps. And then press F5 to start both apps running. 
+You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the console apps. And then press F5 to start both apps running. 
 
 ## Next steps
 

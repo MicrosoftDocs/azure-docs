@@ -1,3 +1,16 @@
+---
+title: Create a module identity
+description: Create a .NET console app that creates a device identity and a module identity in the identity registry in your IoT hub
+services: iot-hub
+author: chrissie926
+manager: timlt
+
+ms.service: iot-hub
+ms.topic: article
+ms.date: 04/26/2018
+ms.author: menchi
+---
+
 ## Create a module identity
 
 In this section, you create a .NET console app that creates a device identity and a module identity in the identity registry in your IoT hub. A device or module cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify itself when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
