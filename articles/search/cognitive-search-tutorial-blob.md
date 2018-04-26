@@ -12,9 +12,9 @@ ms.author: luisca
 ---
 # Tutorial: Learn how to call cognitive search APIs (Preview)
 
-Learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, and detect language, entities, key phrases, and more. The end result is additional rich searchable content in an Azure Search index. 
+Learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline. 
 
-In this tutorial, make REST API calls to perfrom following tasks:
+In this tutorial, make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
 > * Create an indexing pipeline that enriches source data in route to an index
@@ -400,7 +400,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-The response tells you whether the indexer is running. After indexing is finished, another HTTP GET to the STATUS endpoint (as above) reports any any errors and warnings that occurred during enrichment.  
+The response tells you whether the indexer is running. After indexing is finished, another HTTP GET to the STATUS endpoint (as above) reports any errors and warnings that occurred during enrichment.  
  
 ## Verify content
 
