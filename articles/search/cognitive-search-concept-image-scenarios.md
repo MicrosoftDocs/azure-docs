@@ -83,7 +83,7 @@ When the *imageAction* is set to "generateNormalizedImages", the new *normalized
 
 There are two built-in cognitive skills that take images as an input: [OCR](cognitive-search-skill-ocr.md) and [Image Analysis](cognitive-search-skill-image-analysis.md). 
 
-Currently, these skills only work with images generated from the document cracking step. As such, the only supported input is `"\document\normalized_images"`.
+Currently, these skills only work with images generated from the document cracking step. As such, the only supported input is `"/document/normalized_images"`.
 
 ## Image Analysis skill
 

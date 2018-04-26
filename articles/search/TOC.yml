@@ -163,6 +163,8 @@
       href: cognitive-search-custom-skill-interface.md
     - name: Example - custom skills
       href: cognitive-search-create-custom-skill-example.md
+    - name: Troubleshooting guide
+      href: cognitive-search-concept-troubleshooting.md
   - name: Full text search
     items:
     - name: Basic query construction
