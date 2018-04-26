@@ -36,7 +36,7 @@ To understand the basic scenario for each sample type, see [App types for the Az
 
 Contribute to the samples on GitHub: [Microsoft Azure Active Directory Samples and Documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 
-## Desktop and mobile public client applications calling Microsoft Graph or a Web API
+## Desktop and mobile public client apps
 
 The following samples show public client applications (desktop/mobile applications) which access the Microsoft Graph or a Web API in the name of a user.
 
@@ -50,7 +50,7 @@ Mobile (Android)   | Android / Java | Interactive |   [android-native-v2](https:
 
 ## Web Applications
 
-### Web Applications signing in users, calling Microsoft Graph, or a Web API with the user's identity
+The following samples illustrate Web Applications signing in users, calling Microsoft Graph, or a Web API with the user's identity
 
  Platform | Only signs in users | Sings in users and Calls Microsoft Graph | Calls another ASP.NET or ASP.NET Core 2.0 Web API
  -------- | ------------------- | --------------------------------- | -------------------------
@@ -59,7 +59,7 @@ ASP.NET Core 2.0 | [aspnetcore-webapp-openidconnect-v2](https://github.com/Azure
 Node.js      |                   | [AppModelv2-WebApp-OpenIDConnect-nodejs](https://github.com/azureadquickstarts/appmodelv2-webapp-openidconnect-nodejs)     |
 Ruby      |                   | [ruby-connect-rest-sample](https://github.com/microsoftgraph/ruby-connect-rest-sample)     |
 
-## Daemon applications (accessing Web APIs with the application's identity)
+## Daemon applications
 
 The following samples show desktop or web applications that access the Microsoft Graph or a Web API with no user (with the application identity)
 
@@ -67,7 +67,7 @@ Client application | Platform | Flow/Grant | Calls Microsoft Graph | Calls an AS
 ------------------ | -------- | ---------- | -------------------- | -------------------------
 Web app | .NET/C#  | Client Credentials | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
-## Single page applications
+## Single page applications (SPA)
 
 This sample shows how to write a single page application secured with Azure AD
 
