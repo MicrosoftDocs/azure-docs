@@ -362,7 +362,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Cosmos DB | Yes | Use {partition} token in the Collection name pattern. {partition} value is based on the PARTITION BY clause in the query. | Same as input. |
 | Azure Functions | No | None | Not applicable. | 
 
-## Output batch sizes 
+## Output batch size
 Azure Stream Analytics uses variable size batches to process events and write to outputs. Typically the Stream Analytics engine does not write one message at a time, and uses batches for efficiency. When both the incoming and the outgoing events rate is high, it uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low. 
 
 The following table explains some of the considerations to output batching:
