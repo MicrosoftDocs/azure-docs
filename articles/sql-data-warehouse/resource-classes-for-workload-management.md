@@ -33,8 +33,8 @@ The performance capacity of a query is determined by the user's resource class. 
 
 There are two types of resource classes:
 
-- [Static resources classes](#Static resources classes), which are well suited for increased concurrency on a data set size that is fixed.
-- [Dynamic resource classes](#Dynamic resource classes), which are well suited for data sets that are growing in size and increasing performance as the service level is scaled up.   
+- Static resources classes, which are well suited for increased concurrency on a data set size that is fixed.
+- Dynamic resource classes, which are well suited for data sets that are growing in size and increasing performance as the service level is scaled up.   
 
 Resource classes use concurrency slots to measure resource consumption.  [Concurrency slots](#concurrency-slots) are explained later in this article. 
 
