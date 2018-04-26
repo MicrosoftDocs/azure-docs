@@ -1,6 +1,6 @@
 ---
-title: Using Bulk Executor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
-description: Use Azure Cosmos DB’s Bulk Executor .NET library to bulk import and update documents to Azure Cosmos DB collections.
+title: Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB | Microsoft Docs
+description: Use Azure Cosmos DB’s BulkExecutor .NET library to bulk import and update documents to Azure Cosmos DB collections.
 keywords: .Net bulk executor
 services: cosmos-db
 author: tknandu
@@ -14,19 +14,19 @@ ms.author: ramkris
 
 ---
 
-# Using Bulk Executor .NET library to perform bulk operations in Azure Cosmos DB
+# Using BulkExecutor .NET library to perform bulk operations in Azure Cosmos DB
 
-This tutorial provides instructions on using the Azure Cosmos DB’s Bulk Executor .NET library to import and update documents to Azure Cosmos DB collections. This tutorial will walk you through a sample .NET application which bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
+This tutorial provides instructions on using the Azure Cosmos DB’s BulkExecutor .NET library to import and update documents to Azure Cosmos DB collections. This tutorial will walk you through a sample .NET application which bulk imports randomly generated documents into an Azure Cosmos DB collection. After importing, it shows you how you can bulk update the imported data by specifying patches as operations to perform on specific document fields.
 
 ## Prerequisites
 
-* If you don’t already have Visual Studio 2017 installed, you can download and use the [Visual Studio 2017 Community Edition](). Make sure that you enable Azure development during the Visual Studio setup.
+* If you don’t already have Visual Studio 2017 installed, you can download and use the [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable Azure development during the Visual Studio setup.
 
-* If you don't have an Azure subscription, create a [free account]() before you begin. 
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* You can [Try Azure Cosmos DB for free]() without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator]() with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests]().
+* You can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. Or, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/azure/cosmos-db/local-emulator) with  the `https://localhost:8081` URI. The Primary Key is provided in [Authenticating requests](local-emulator.md#authenticating-requests).
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in [create database account]() section of the .NET quickstart article. 
+* Create an Azure Cosmos DB SQL API account by using the steps described in [create database account](create-sql-api-dotnet.md) section of the .NET quickstart article. 
 
 ## Clone the sample application
 
@@ -83,7 +83,7 @@ The “BulkImportSample” application generates random documents and bulk impor
    client.ConnectionPolicy.RetryOptions.MaxRetryAttemptsOnThrottledRequests = 0;
    ```
 
-5. The application invokes the BulkImportAsync API. The .NET library provides two overloads of the bulk import API - one that accepts a list of serialized JSON documents and the other accepts a list of deserialized POCO documents. To learn about the definitions of each of these overloaded methods, refer to [API documentation]().
+5. The application invokes the BulkImportAsync API. The .NET library provides two overloads of the bulk import API - one that accepts a list of serialized JSON documents and the other accepts a list of deserialized POCO documents. To learn about the definitions of each of these overloaded methods, refer to [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkimportasync?view=azure-dotnet).
 
    ```csharp
    BulkImportResponse bulkImportResponse = await bulkExecutor.BulkImportAsync(
@@ -116,11 +116,11 @@ The “BulkImportSample” application generates random documents and bulk impor
 
 ## Bulk update data in Azure Cosmos DB
 
-You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, refer to [API documentation](). 
+You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, refer to [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
 
 1. Navigate to the “BulkUpdateSample” folder and open the “BulkUpdateSample.sln” file.  
 
-2. Define the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation]().
+2. Define the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -137,7 +137,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    }
    ```
 
-3. The application invokes the BulkUpdateAsync API. To learn about the definition of the BulkUpdateAsync method, refer to [API documentation]().  
+3. The application invokes the BulkUpdateAsync API. To learn about the definition of the BulkUpdateAsync method, refer to [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.ibulkexecutor.bulkupdateasync?view=azure-dotnet).  
 
    ```csharp
    BulkUpdateResponse bulkUpdateResponse = await bulkExecutor.BulkUpdateAsync(
@@ -195,4 +195,4 @@ Consider the following points for better performance when using BulkExecutor lib
 ```
 
 ## Next steps
-* To learn about Nuget package details and release notes of BulkExecutor .Net library, see[Bulk Executor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
+* To learn about Nuget package details and release notes of BulkExecutor .Net library, see[BulkExecutor SDK details](sql-api-sdk-bulk-executor-dot-net.md). 
