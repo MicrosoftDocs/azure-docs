@@ -23,7 +23,8 @@ Azure Cosmos DB is a fast, flexible, and globally distributed database service t
 
 The BulkExecutor library helps you leverage this massive throughput and storage, The BulkExecutor library allows you to perform bulk operations in Azure Cosmos DB through bulk import and bulk update APIs. You can read more about the features of BulkExecutor library in the following sections. 
 
-> [!Note] Currently, Bulkxecutor library supports import and update operations, support for other operations will be addeed in future releases. Currently this library is supported by Azure Cosmos DB SQL API accounts only, support for remaining multi-model APIs will be added in future releases. 
+> [!NOTE] 
+> Currently, Bulkxecutor library supports import and update operations, support for other operations will be addeed in future releases. Currently this library is supported by Azure Cosmos DB SQL API accounts only, support for remaining multi-model APIs will be added in future releases. 
  
 ## Key features of the BulkExecutor Library  
  
