@@ -47,18 +47,17 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### Restrict sign-in access to your application
-By default, personal accounts like outlook.com, live.com, and others can sign in to your application. Work or school accounts in organizations that are integrated with Azure AD can also sign in by default.
 
-To restrict user sign-in access for your application, several options are available.
+By following the steps in this guide, Work or school accounts in organizations that are integrated with Azure AD, as well as personal accounts like outlook.com, live.com can sign in to your application. You can restrict sign-in access for your application to only user accounts that belong to a single Azure AD directory - including *guest accounts* of that directory, or to a controlled list of organizations by following the steps below:
 
-#### Restrict access to a single organization
-You can restrict sign-in access for your application to only user accounts that are in a single Azure AD organization:
+#### Restrict sign-in access to a single organization (single-tenant)
+You can restrict sign-in access for your application to only user accounts that belong to a single Azure AD directory, including *guest accounts* of this directory:
 1. In the **web.config** file, change the value for the **Tenant** parameter. Change the value from **Common** to the tenant name of the organization, such as **contoso.onmicrosoft.com**.
 2. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
 
 #### Restrict access to a list of organizations
-You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in the list of allowed organizations:
-1. In the **web.config** file, in your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
+You can restrict sign-in access to only user accounts that are in an Azure AD organization that is in a list of allowed organizations:
+1. In your **OWIN Startup** class, set the **ValidateIssuer** argument to **true**.
 2. Set the value of the **ValidIssuers** parameter to the list of allowed organizations.
 
 #### Use a custom method to validate issuers
