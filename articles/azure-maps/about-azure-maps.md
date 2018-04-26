@@ -22,7 +22,7 @@ The following video introduces Azure Maps:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-Azure Maps consists of five primary services to bolster Azure applications requiring geographic context. Each of the services is explained in detail below.
+Azure Maps consists of five primary services to bolster Azure applications requiring geographic context. Each of the services is explained in detail.
 
 The **Render service** is designed for developers to create web and mobile applications around mapping. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
 
@@ -77,17 +77,17 @@ The Azure Maps API is currently unavailable in some countries. Check your curren
 * South Korea
 
 ## Relationship With Bing Maps
-The maps described in this document are distinct from those provided by Bing Maps.  Although they share much of the same functionality, the two services are different and not related.  This Azure service does not impact the Bing Maps product offering or roadmap.
+The maps described in this document are distinct from those provided by Bing Maps. Although they share much of the same functionality, the two services are different and not related. This Azure service does not impact the Bing Maps product offering or roadmap.
 
-Microsoft’s goal is to provide choice to the developer community in terms of location service offerings.  The following table contains guidance for developers who are deciding which service to use: 
+Microsoft’s goal is to provide choice to the developer community in terms of location service offerings. The following table contains guidance for developers who are deciding which service to use: 
 
 | Scenario | Use Azure Maps when… | Use Bing Maps when… |
 | ------------- | ------------- | ------------- |
-| Development environment | Building in or leveraging other Azure services | Using a third-party cloud or other developer environment |
+| Development environment | Building in or coordinating with other Azure services | Using a third-party cloud or other developer environment |
 | Development stage  | Because Azure Maps is currently in Public Preview, it is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
 | Pricing options | Preliminary developer pricing options suffice | Customized enterprise grade pricing is required |
 | Use case environment | In-vehicle usage is required | In-vehicle usage is not required |
-| Geographic coverage | India, China, Japan and South Korea are not required | India, China, Japan and South Korean map coverage are required |
+| Geographic coverage | India, China, Japan, and South Korea are not required | India, China, Japan, and South Korean map coverage are required |
 | Mapping content | Standard surface maps are sufficient | Satellite, aerial, and street side imagery are required |
 | Underlying map source | TomTom mapping data is preferred | HERE mapping data is preferred |
 
