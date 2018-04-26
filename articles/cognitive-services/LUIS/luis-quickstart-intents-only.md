@@ -1,12 +1,12 @@
 ---
 title: Create a simple app with two intents - Azure | Microsoft Docs
-description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances.
+description: Learn how to create a simple LUIS app using two intents and no entities to identify user utterances in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-geberr
 ---

@@ -1,12 +1,12 @@
 ---
 title: Call a Language Understanding (LUIS) app using Python | Microsoft Docs
-description: Learn to call a LUIS app using Python.
+description: Learn to call a LUIS app using Python in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
 ---

@@ -1,13 +1,13 @@
 ---
 title: Create a LUIS app to get exact text match listed data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and list entities to extract data. 
+description: Learn how to create a simple LUIS app using intents and list entities to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-geberr
 --- 
