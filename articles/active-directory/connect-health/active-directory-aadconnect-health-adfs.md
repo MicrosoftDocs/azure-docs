@@ -201,6 +201,9 @@ For AD FS 2016 + 1803.C+ QFE, you can block the IP address directly at AD FS.
    - Failed sign-in activities are not exceeding the threshold settings. 
    - Ensure no “Health service is not up to date” alert active in your AD FS server list.  Read more about [how to troubleshoot this alert](active-directory-aadconnect-health-data-freshness.md).
    - Audits is not enabled in AD FS farms.
+ 
+5. Why am I seeing no access to the report?  <br />
+Global Admin or [Security Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) permission is required. Please contact your global admin to get access.
 
 
 ## Related links
