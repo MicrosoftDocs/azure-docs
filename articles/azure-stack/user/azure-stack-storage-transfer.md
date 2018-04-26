@@ -53,9 +53,9 @@ AzCopy is a command-line utility designed to copy data to and from Microsoft Azu
 There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Linux.
 
  - **AzCopy on Windows**  
-    - Download the supported version of AzCopy for Azure Stack. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
-    - For the 1802 update or newer versions, [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
-    - For previous version, [download AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+    - Download the supported version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+        - For the 1802 update, or newer versions, [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
+        - For previous versions, [download AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
 
  - **AzCopy on Linux**  
 
@@ -69,13 +69,13 @@ The following examples follow typical scenarios for copying data to and from Azu
 
 **Windows**
 
-````AzCopy
+````AzCopy  
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ````
 
 **Linux**
 
-````
+````AzCopy  
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
