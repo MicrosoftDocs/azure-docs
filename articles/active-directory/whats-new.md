@@ -174,11 +174,11 @@ In April 2018 we have added following 13 new apps in our App gallery with Federa
 
 
 
-Criterion HCM, FiscalNote, Secret Server (On-Premises), Dynamic Signal, mindWireless, OrgChart Now, Ziflow, AppNeta Performance Monitor, Elium , Fluxx Labs, Cisco Cloud, Shelf, SafetyNet
+Criterion HCM, [FiscalNote](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-fiscalnote-tutorial), [Secret Server (On-Premises)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-secretserver-on-premises-tutorial), [Dynamic Signal](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-dynamicsignal-tutorial), [mindWireless](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-mindwireless-tutorial), [OrgChart Now](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-orgchartnow-tutorial), [Ziflow](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ziflow-tutorial), [AppNeta Performance Monitor](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-appneta-tutorial), [Elium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-elium-tutorial) , [Fluxx Labs](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-fluxxlabs-tutorial), [Cisco Cloud](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-ciscocloud-tutorial), Shelf, [SafetyNet](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-safetynet-tutorial)
 
 
 
- You can also find the documentation of all the applications here: [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
+ You can find the list of the available tutorials here: [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
 
 For more information, see [List your application in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
