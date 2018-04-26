@@ -37,7 +37,12 @@ If you don’t have an Azure subscription, [create a free account](https://azure
 
 ## Prerequisites
 
-Before you get started, make sure that you've set up your development environment. This process includes installing the Service Fabric Mesh SDK and Visual Studio 2017 or 2015. For more information on installing the prerequisites, see [Set up your developer machine]().
+Before you get started, make sure that you've set up your development environment. This process includes installing the Service Fabric Mesh SDK and Visual Studio 2017. 
+
+<!--
+For more information on installing the prerequisites, see [Set up your developer machine]().
+-->
+
 
 ## Create a Service Fabric Mesh project
 
@@ -249,6 +254,8 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
 
+<!--
 ## Next steps
 
 Explore the [samples](xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx) for Service Fabric Mesh.
+-->
