@@ -35,8 +35,7 @@ for handling messages that exceed the limit.
 ## What makes messages "large"?
 
 Messages are "large" based on the service handling those messages.
-The exact size limit defining large messages is not the same
-across connectors and Logic Apps.
+The exact size limit on large messages differs across Logic Apps and connectors.
 Both Logic Apps and connectors can't directly consume large messages,
 which must be chunked. For the Logic Apps message size limit,
 see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md).
@@ -47,18 +46,20 @@ For each connector's message size limit, see the
 
 Logic Apps can't directly use outputs from chunked
 messages that exceed the Logic Apps message size limit.
-Only actions that support chunking can access the message contents of these outputs.
-This means that an action using large content must natively chunk if it's a connector, or
-have chunking support enabled in the action's runtime configuration.
-Otherwise, you get a runtime error when you try and access large content outputs.
+Only actions that support chunking can access the message content in these outputs.
+So, an action that handles large messages must *either*:
+
+* Natively support chunking when that action belongs to a connector.
+* Have chunking support enabled in that action's runtime configuration.
+
+Otherwise, you get a runtime error when you try and access large content output.
 To enable chunking, see [Set up chunking support](#set-up-chunking).
 
 ### Chunked message handling for connectors
 
 Services that communicate with Logic Apps can have their own message size limits.
-These limits are often smaller than the Logic Apps limit. Consider an example assuming
-the connector supports chunking:
-A connector might consider a 30-MB message as large, while Logic Apps does not.
+These limits are often smaller than the Logic Apps limit. For example, assuming that
+a connector supports chunking, a connector might consider a 30 MB message as large, while Logic Apps does not.
 To comply with this connector's limit, Logic Apps splits any message
 larger than 30 MB into smaller chunks.
 
@@ -125,17 +126,13 @@ chunked content from an endpoint to your logic app:
 
 2. The endpoint responds with the "206" status code and an HTTP message body.
 
-   The message body contains a chunk of requested content
-   based on your specified range or some default chunk size. The details of the content in
-   this chunk are specified in the `Content-Range` header of this response. The `Content-Range`
-   allows Logic Apps to determine the start and end of this content, as well as
-   the total size of the entire non-chunked content.
+    Details about the content in this chunk appear in the response's `Content-Range` header,
+    including information that helps Logic Apps determine the start and end for the chunk,
+    plus the total size of the entire content before chunking.
 
 3. Your logic app automatically sends follow-up HTTP GET requests.
 
-   To get the remaining content in the correct order,
-   the GET requests specify the next ranges of content
-   in sequence. Follow up GET requests are sent until Logic Apps receives the entire content.
+    Your logic app sends follow-up GET requests until the entire content is retrieved.
 
 For example, this action definition shows an HTTP GET request
 that sets the `Range` header, *suggesting* that the endpoint
@@ -181,7 +178,7 @@ includes this information about the content that your logic app wants to upload 
 
    | Logic Apps request header field | Value | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | String | Indicates that content will be uploaded in chunks |
+   | **x-ms-transfer-mode** | chunked | String | Indicates that the content is uploaded in chunks |
    | **x-ms-content-length** | <*content-length*> | Integer | The entire content size in bytes before chunking |
    ||||
 
@@ -202,7 +199,7 @@ includes this information about the content that your logic app wants to upload 
 
      | Logic Apps request header field | Value | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | The byte range for the current content chunk, including the starting value, ending value, and the total content size, for example: "bytes=0-1023/10100 |
+     | **Content-Range** | <*range*> | String | The byte range for the current content chunk, including the starting value, ending value, and the total content size, for example: "bytes=0-1023/10100" |
      | **Content-Type** | <*content-type*> | String | The type of chunked content |
      | **Content-Length** | <*content-length*> | String | The length of size in bytes of the current chunk |
      |||||
