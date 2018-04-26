@@ -246,7 +246,7 @@ When we run the program, the job produces thumbnails for each face that it finds
 
 ## Examine the output
 
-The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find details about elements in this file in the [Video Indexer documentation](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-output-json) article.
+The output file of analyzing videos is called insights.json. This file contains insights about your video. You can find description of  elements found in the json file in the [Media intelligence](intelligence-concept.md) article.
 
 ## Clean up resources
 
