@@ -21,7 +21,7 @@
     href: ../aks/tutorial-kubernetes-prepare-app.md
   - name: Service Fabric
     href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-  - name: Build container images (Preview)
+  - name: Build container images (preview)
     items:
     - name: 1 - Build images in Azure
       href: container-registry-tutorial-quick-build.md

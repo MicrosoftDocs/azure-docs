@@ -46,7 +46,7 @@ When using Azure Active Directory with geo-replication, the Azure Active Directo
 
 Your Managed Instance needs permissions to read Azure AD to successfully accomplish tasks such as authentication of users through security group membership or creation of new users. For this to work, you need to grant permissions to Managed Instance to read Azure AD. There are two ways to do it: from Portal and PowerShell. The following steps both methods.
 
-1. In the Azure portal, in the upper-right corner, click your connection to drop down a list of possible Active Directories. 
+1. In the Azure portal, in the upper-right corner, select your connection to drop down a list of possible Active Directories. 
 2. Choose the correct Active Directory as the default Azure AD. 
 
    This step links the subscription associated with Active Directory with Managed Instance making sure that the same subscription is used for both Azure AD and the Managed Instance.
@@ -54,7 +54,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4.	Click on banner on top of Active Directory admin page. If you are logged in as Global/Company administrator in Azure AD, you can do it from Azure portal or using PowerShell.
+4.	Select on banner on top of Active Directory admin page. If you are logged in as Global/Company administrator in Azure AD, you can do it from Azure portal or using PowerShell.
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -66,17 +66,17 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ![success](./media/sql-database-aad-authentication/success.png)
 
-6.	Now you can choose your Azure AD admin for your Managed Instance. For that, on the Active Directory admin page, click **Set admin** command.
+6.	Now you can choose your Azure AD admin for your Managed Instance. For that, on the Active Directory admin page, select **Set admin** command.
 
     ![set-admin](./media/sql-database-aad-authentication/set-admin.png)
 
-7. In the Add admin page, search for a user, select the user or group to be an administrator, and then click **Select**. 
+7. In the Add admin page, search for a user, select the user or group to be an administrator, and then select **Select**. 
 
    The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. See the list of supported admins in [Azure AD Features and Limitations](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Role-based access control (RBAC) applies only to the Azure portal and is not propagated to SQL Server.
 
     ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
 
-8. At the top of the Active Directory admin page, click **Save**.
+8. At the top of the Active Directory admin page, select **Save**.
 
     ![save](./media/sql-database-aad-authentication/save.png)
 
@@ -86,7 +86,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 > When setting up the Azure AD admin, the new admin name (user or group) cannot already be present in the virtual master database as a SQL Server authentication user. If present, the Azure AD admin setup will fail and rolling back its creation, indicating that such an admin (name) already exists. Since such a SQL Server authentication user is not part of the Azure AD, any effort to connect to the server using Azure AD authentication fails.
 
 > [!TIP]
-> To later remove an Admin, at the top of the Active Directory admin page, click **Remove admin**, and then click **Save**.
+> To later remove an Admin, at the top of the Active Directory admin page, select **Remove admin**, and then select **Save**.
  
 ## Provision an Azure Active Directory administrator for your Azure SQL Database server
 
@@ -96,17 +96,24 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 The following two procedures show you how to provision an Azure Active Directory administrator for your Azure SQL server in the Azure portal and by using PowerShell.
 
 ### Azure portal
-1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, click your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)   
+1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with Azure SQL server making sure that the same subscription is used for both Azure AD and SQL Server. (The Azure SQL server can be hosting either Azure SQL Database or Azure SQL Data Warehouse.)   
     ![choose-ad][8]   
     
-2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** page, click **Active Directory admin**.   
-3. In the **Active Directory admin** page, click **Set admin**.   
+2. In the left banner select **All services**, and in the filter type in **SQL server**. Select **Sql Servers**. 
+
+    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)    
+
+    >[!NOTE]
+    > On this page, before you select **SQL servers**, you can select the **star** next to the name to *favorite* the category and add **SQL servers** to the left navigation bar. 
+
+1. On **SQL Server** page, select **Active Directory admin**.   
+2. In the **Active Directory admin** page, select **Set admin**.   
     ![select active directory](./media/sql-database-aad-authentication/select-active-directory.png)  
     
-4. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
+4. In the **Add admin** page, search for a user, select the user or group to be an administrator, and then select **Select**. (The Active Directory admin page shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in the **Azure AD Features and Limitations** section of [Use Azure Active Directory Authentication for authentication with SQL Database or SQL Data Warehouse](sql-database-aad-authentication.md).) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.   
     ![select admin](./media/sql-database-aad-authentication/select-admin.png)  
     
-5. At the top of the **Active Directory admin** page, click **SAVE**.   
+5. At the top of the **Active Directory admin** page, select **SAVE**.   
     ![save admin](./media/sql-database-aad-authentication/save-admin.png)   
 
 The process of changing the administrator may take several minutes. Then the new administrator appears in the **Active Directory admin** box.
@@ -116,7 +123,7 @@ The process of changing the administrator may take several minutes. Then the new
    > 
 
 
-To later remove an Admin, at the top of the **Active Directory admin** page, click **Remove admin**, and then click **Save**.
+To later remove an Admin, at the top of the **Active Directory admin** page, select **Remove admin**, and then select **Save**.
 
 ### PowerShell
 To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
@@ -272,7 +279,7 @@ Use this method if you are logged in to Windows using your Azure Active Director
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Integrated**. No password is needed or can be entered because your existing credentials will be presented for the connection.   
 
     ![Select AD Integrated Authentication][11]
-2. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (The **AD domain name or tenant ID**” option is only supported for **Universal with MFA connection** options, otherwise it is greyed out.)  
+2. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (The **AD domain name or tenant ID**” option is only supported for **Universal with MFA connection** options, otherwise it is greyed out.)  
 
     ![Select the database name][13]
 
@@ -288,7 +295,7 @@ A native user is one explicitly created in Azure AD and being authenticated usin
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
 
     ![Select AD Password Authentication][12]
-4. Click the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (See the graphic in the previous option.)
+4. Select the **Options** button, and on the **Connection Properties** page, in the **Connect to database** box, type the name of the user database you want to connect to. (See the graphic in the previous option.)
 
 ## Using an Azure AD identity to connect from a client application
 

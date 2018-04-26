@@ -85,9 +85,7 @@ GIT_USER=gituser             # Your GitHub user account name
 GIT_PAT=personalaccesstoken  # The PAT you generated in the previous section
 ```
 
-Now, create the build task by executing following [az acr build-task create][az-acr-build-task-create] command.
-
-This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of `{{.Build.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
+Now, create the build task by executing following [az acr build-task create][az-acr-build-task-create] command:
 
 ```azurecli-interactive
 az acr build-task create \
@@ -98,6 +96,8 @@ az acr build-task create \
     --branch master \
     --git-access-token $GIT_PAT
 ```
+
+This build task specifies that any time code is committed to the *master* branch in the repository specified by `--context`, ACR Build will build the container image from the code in that branch. The `--image` argument specifies a parameterized value of `{{.Build.ID}}` for the version portion of the image's tag, ensuring the built image correlates to a specific build, and is tagged uniquely.
 
 Output from a successful [az acr build-task create][az-acr-build-task-create] command is similar to the following:
 

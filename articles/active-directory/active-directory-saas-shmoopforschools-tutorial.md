@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 04/23/2018
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ For more information about SaaS app integration with Azure AD, see [What is appl
 To configure Azure AD integration with Shmoop For Schools, you need the following items:
 
 - An Azure AD subscription
-- A Shmoop For Schools single sign-on-enabled subscription
+- A Shmoop For Schools single sign-on enabled subscription
 
 > [!NOTE]
 > We don't recommend using a production environment to test the steps in this tutorial.
@@ -76,8 +76,6 @@ To configure the integration of Shmoop For Schools into Azure AD, you need to ad
 In this section, you configure and test Azure AD single sign-on with Shmoop For Schools based on a test user called "Britta Simon."
 
 For single sign-on to work, Azure AD needs to know who the counterpart user in Shmoop For Schools is to a user in Azure AD. In other words, you need to establish a link between an Azure AD user and the related user in Shmoop For Schools.
-
-In Shmoop For Schools, give the **Username** value the same value of the **user name** in Azure AD. Now you have established the link relationship.
 
 To configure and test Azure AD single sign-on with Shmoop For Schools, complete the following building blocks:
 
@@ -143,31 +141,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_general_400.png)
 
-7. To generate the **Metadata** URL, take the following steps:
+7. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
 
-    a. Select **App registrations**.
-    
-    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appregistrations.png)
-   
-    b. To open the **Endpoints** dialog box, select **Endpoints**.  
-    
-    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpointicon.png)
+	![The Certificate download link](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_certificate.png)
 
-    c. Select the copy button to copy the **FEDERATION METADATA DOCUMENT** URL and paste it into Notepad.
-    
-    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_endpoint.png)
-     
-    d. Go to the property page of **Shmoop For Schools**. Then copy the **Application ID** by using the **Copy** button. Paste it into Notepad.
- 
-    ![Configure single sign-on](./media/active-directory-saas-shmoopforschools-tutorial/tutorial_shmoopforschools_appid.png)
-
-    e. Generate the **Metadata URL** by using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.	
-
-8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **Metadata URL** to the [Shmoop For Schools support team](mailto:support@shmoop.com).
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com) while you are setting up the app. After you add this app from the **Active Directory** > **Enterprise Applications** section, select the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature at [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+8. To configure single sign-on on the **Shmoop For Schools** side, you need to send the **App Federation Metadata Url** to the [Shmoop For Schools support team](mailto:support@shmoop.com).
 
 ### Create an Azure AD test user
 

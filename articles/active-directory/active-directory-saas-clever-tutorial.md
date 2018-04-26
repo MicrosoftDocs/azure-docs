@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 04/27/2018
 ms.author: jeedes
 
 ---
@@ -108,12 +108,12 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://clever.com/in/<companyname>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://clever.com/<companyname>`
+	b. In the **Identifier** textbox, type the URL: `https://clever.com/oauth/saml/metadata.xml`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Clever Client support team](https://clever.com/about/contact/) to get these values.
+	> Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Clever Client support team](https://clever.com/about/contact/) to get this value.
 
-4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+4. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
     
     ![Configure Single Sign-On](./media/active-directory-saas-clever-tutorial/tutorial_metadataurl.png)
 
@@ -127,7 +127,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| Attribute Name  | Attribute Value |
 	| --------------- | -------------------- |
-	| clever.student.credentials.district\_username  | user.userprincipalname |
+	| clever.teacher.credentials.district_username|user.userprincipalname|
+	| clever.student.credentials.district_username| user.userprincipalname |
 	| Firstname  | user.givenname |
 	| Lastname  | user.surname |
 
@@ -155,19 +156,22 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Instant Login](./media/active-directory-saas-clever-tutorial/ic798984.png "Instant Login")
 
+	> [!NOTE]
+	> Before you can Test single sign-on, You have to contact [Clever Client support team](https://clever.com/about/contact/) to enable Office 365 SSO in the back end.
+
 10. On the **Instant Login** page, perform the following steps:
-      
+    
 	  ![Instant Login](./media/active-directory-saas-clever-tutorial/ic798985.png "Instant Login")
-	  
+	
 	  a. Type the **Login URL**.
-	  
+	
 	  >[!NOTE]
 	  >The **Login URL** is a custom value. Contact [Clever Client support team](https://clever.com/about/contact/) to get this value.
-	  
+	
 	  b. As **Identity System**, select **ADFS**.
 
 	  c. In the **Metadata URL** textbox, paste **App Federation Metadata Url** value which you have copied from the Azure portal.
-	  
+	
 	  d. Click **Save**.
 
 ### Create an Azure AD test user
