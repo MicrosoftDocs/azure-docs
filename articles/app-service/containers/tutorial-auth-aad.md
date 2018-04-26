@@ -1,5 +1,5 @@
 ---
-title: Authenticate and authorize users end-to-end in Azure App Service for Linux | Microsoft Docs 
+title: Authenticate and authorize users end-to-end in Azure App Service on Linux | Microsoft Docs 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
 services: app-service\web
@@ -17,7 +17,7 @@ ms.date: 04/26/2018
 ms.author: cephalin
 ---
 
-# Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux
+# Tutorial: Authenticate and authorize users end-to-end in Azure App Service on Linux
 
 [App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. In addition, App Service has built-in support for [user authentication and authorization](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json). This tutorial shows how to secure your apps with App Service authentication and authorization. It uses an ASP.NET Core app with an Angular.js front end, but it is only for an example. App Service authentication and authorization support all language runtimes, and you can learn how to apply it to your preferred language by following the tutorial.
 
@@ -96,7 +96,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### Configure CORS
 
-This step is not related to authentication and authorization. However, you need it later to [call the back-end API from the front-end browser code](#call-api-securely-from-browser-code), so that your browser allows the cross-domain API calls from your Angular.js app. App Service for Linux doesn't have built-in CORS functionality like [its Windows counterpart does](../app-service-web-tutorial-rest-api.md#add-cors-functionality), so you need to add it manually for the back-end app.
+This step is not related to authentication and authorization. However, you need it later to [call the back-end API from the front-end browser code](#call-api-securely-from-browser-code), so that your browser allows the cross-domain API calls from your Angular.js app. App Service on Linux doesn't have built-in CORS functionality like [its Windows counterpart does](../app-service-web-tutorial-rest-api.md#add-cors-functionality), so you need to add it manually for the back-end app.
 
 In the local repository, open the _Startup.cs_ file. In the `ConfigureServices(IServiceCollection services)` method, add the following line of code:
 
