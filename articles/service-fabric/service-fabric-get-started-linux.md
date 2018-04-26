@@ -51,9 +51,9 @@ These operating system versions are supported for development:
 
 ### Script installation (Ubuntu)
 
-For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Run the manual installation steps in the next section. You see what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed.
+For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Run the manual installation steps in the next section. You see what is being installed and the associated licenses. Running the script assumes you agree to the licenses for all the software that is being installed.
 
-After the script executes successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
+After the script runs successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
 ```bash
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
@@ -62,7 +62,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 ### Manual installation
 For manual installation of the Service Fabric runtime and common SDK, follow the rest of this guide.
 
-## Update your APT sources or Yum Repositories
+## Update your APT sources or Yum repositories
 To install the SDK and associated runtime package via the apt-get command-line tool, you must first update your Advanced Packaging Tool (APT) sources.
 
 ### Ubuntu
@@ -180,11 +180,11 @@ Start a local cluster after the installation finishes.
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system's ready, wait a few minutes and try again.
+2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up. If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-    Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. Build new services by using the Java or .NET Core SDKs with the optional setup steps in the following sections.
+    Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
 
 
 > [!NOTE]
@@ -192,7 +192,7 @@ Start a local cluster after the installation finishes.
 
 
 > [!TIP]
-> If you have an SSD disk available, it's recommended to pass an SSD folder path by using `--clusterdataroot` with devclustersetup.sh for superior performance.
+> If you have an SSD disk available, we recommend to pass an SSD folder path by using `--clusterdataroot` with devclustersetup.sh for superior performance.
 
 ## Set up the Service Fabric CLI
 
@@ -245,6 +245,7 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
     sudo apt-get install gradle
     ```
 
+
     Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
     ```bash
     sudo yum install java-1.8.0-openjdk-devel
@@ -254,12 +255,12 @@ To build Service Fabric services using Java, install JDK 1.8 and Gradle to run b
  
 ## Install the Eclipse plug-in (optional)
 
-You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable and container applications, and Service Fabric Java applications.
+You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
 
 > [!IMPORTANT]
-> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. Either remove it before running the installer, or install the newer version in a different directory.
+> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). We recommend that you do not install on top of (overwrite) an existing installation of Eclipse. Either remove it before running the installer, or install the newer version in a different directory.
 > 
-> On Ubuntu, we recommend that you install direct from the Eclipse site instead of by using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. You can install the Eclipse IDE for Java Developers or for Java EE Developers.
+> On Ubuntu, we recommend installing directly from the Eclipse site rather than using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. You can install the Eclipse IDE for Java Developers or for Java EE Developers.
 
 1. In Eclipse, make sure that you have installed Eclipse Neon or later and Buildship version 2.2.1 or later. Check the versions of installed components by selecting **Help** > **About Eclipse** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
 
@@ -287,7 +288,7 @@ To update to the latest version of the SDK and runtime, run the following comman
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, refer to any ``build.gradle`` file in the Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).
+To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, refer to any ``build.gradle`` file in the [Service Fabric getting-started samples](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions in this article.
