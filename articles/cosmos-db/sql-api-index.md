@@ -30,6 +30,7 @@ These are must read topics and resources to start learning about the SQL API for
 - [Database resource model](sql-api-resources.md)
 - Web site: [Query playground](https://www.documentdb.com/sql/demo)
 - Cheat sheet: [SQL grammar](query-cheat-sheet.md)
+- [BulkExecutor overview](bulk-executor-overview.md)
 
 ## Quickstarts
 
