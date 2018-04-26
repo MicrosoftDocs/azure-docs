@@ -81,7 +81,7 @@ In this step, you deploy the project to two App Service apps. One is the front-e
 
 ### Create Azure resources
 
-In the Cloud Shell, run the following commands to create two web apps. Replace _&lt;front\_end\_app\_name>_ and _&lt;back\_end\_app\_name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [RESTful API with CORS in Azure App Service](../app-service-web-tutorial-rest-api.md).
+In the Cloud Shell, run the following commands to create two web apps. Replace _&lt;front\_end\_app\_name>_ and _&lt;back\_end\_app\_name>_ with two globally unique app names (valid characters are `a-z`, `0-9`, and `-`). For more information on each command, see [Create a .NET Core web app in App Service on Linux](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
