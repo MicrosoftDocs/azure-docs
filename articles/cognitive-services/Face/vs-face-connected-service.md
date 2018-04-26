@@ -1,7 +1,7 @@
 ---
 title: Face API C# tutorial | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Create a simple Windows app that uses the Cognitive Services Emotion API to detect faces in an image by framing the faces.
+description: Create a simple Windows app that uses the Cognitive Services Face API to detect features of faces in an image.
 services: cognitive-services
 author: ghogen
 manager: douge
@@ -21,12 +21,12 @@ This article and its companion articles provide details for using the Visual Stu
 
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload).
-- An ASP.NET Core web project open.
-- The Cognitive Services VSIX extension installed. [Install it now](broken-link-placeholder.md).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](./includes/vs-install-cognitive-services-vsix.md)]
 
-## Add support to your project for Cognitive Services Face API
+## Create a project and add support for Cognitive Services Face API
+
+1. Create a new ASP.NET Core web project. Use the Empty project template. 
 
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
@@ -50,13 +50,176 @@ This article and its companion articles provide details for using the Visual Stu
 1. Choose Add to add supported for the Connected Service.
    Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Face API.
 
+## Use the Face API to detect attributes of faces in an image
+
+1. Add the following using statements in Startup.cs.
+ 
+   ```csharp
+   using System.IO;
+   using System.Text;
+   using Microsoft.Extensions.Configuration;
+   using System.Net.Http;
+   using System.Net.Http.Headers;
+   ```
+ 
+1. Add a configuration field, and add a constructor that initializes the configuration field in Startup class to enable Configuration in your program.
+
+   ```csharp
+      private IConfiguration configuration;
+
+      public Startup(IConfiguration configuration)
+      {
+          this.configuration = configuration;
+      }
+   ```
+ 
+1. Replace the Configure method with the following code to access the Face API and test an image.
+
+   ```csharp
+       // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            string faceApiKey = this.configuration["FaceAPI_ServiceKey"];
+            string faceApiEndPoint = this.configuration["FaceAPI_ServiceEndPoint"];
+
+            HttpClient client = new HttpClient();
+
+            // Request headers.
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", faceApiKey);
+
+            // Request parameters. A third optional parameter is "details".
+            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+
+            // Assemble the URI for the REST API Call.
+            string uri = faceApiEndPoint + "/detect?" + requestParameters;
+
+            // Request body. Posts a locally stored JPEG image.
+            var byteData = GetImageAsByteArray(@"<specify a path to a photo on your local drive that contains a face>");
+
+            string contentStringFace = string.Empty;
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json" and "multipart/form-data".
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+
+                // Execute the REST API call.
+                var response = client.PostAsync(uri, content).Result;
+
+                // Get the JSON response.
+                contentStringFace = response.Content.ReadAsStringAsync().Result;
+            }
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.Run(async (context) =>
+            {
+                await context.Response.WriteAsync($"<p><b>Face detection API results:</b></p>");
+                await context.Response.WriteAsync("<p>");
+                await context.Response.WriteAsync(JsonPrettyPrint(contentStringFace));
+                await context.Response.WriteAsync("<p>");
+            });
+        }
+   ```
+    The code here constructs a HTTP request with URI and the image as binary content for a call to the Face REST API.
+
+1. Add the helper functions GetImageAsByteArray and JsonPrettyPrint.
+
+   ```csharp
+        /// <summary>
+        /// Returns the contents of the specified file as a byte array.
+        /// </summary>
+        /// <param name="imageFilePath">The image file to read.</param>
+        /// <returns>The byte array of the image data.</returns>
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+            BinaryReader binaryReader = new BinaryReader(fileStream);
+            return binaryReader.ReadBytes((int)fileStream.Length);
+        }
+
+        /// <summary>
+        /// Formats the given JSON string by adding line breaks and indents.
+        /// </summary>
+        /// <param name="json">The raw JSON string to format.</param>
+        /// <returns>The formatted JSON string.</returns>
+        static string JsonPrettyPrint(string json)
+        {
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
+
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+            string INDENT_STRING = "    ";
+            var indent = 0;
+            var quoted = false;
+            var sb = new StringBuilder();
+            for (var i = 0; i < json.Length; i++)
+            {
+                var ch = json[i];
+                switch (ch)
+                {
+                    case '{':
+                    case '[':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                        }
+                        break;
+                    case '}':
+                    case ']':
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                        }
+                        sb.Append(ch);
+                        break;
+                    case '"':
+                        sb.Append(ch);
+                        bool escaped = false;
+                        var index = i;
+                        while (index > 0 && json[--index] == '\\')
+                            escaped = !escaped;
+                        if (!escaped)
+                            quoted = !quoted;
+                        break;
+                    case ',':
+                        sb.Append(ch);
+                        if (!quoted)
+                        {
+                            sb.AppendLine();
+                        }
+                        break;
+                    case ':':
+                        sb.Append(ch);
+                        if (!quoted)
+                            sb.Append(" ");
+                        break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
+            }
+            return sb.ToString();
+        }
+   ```
+
+1. Find a photo of a face on your local hard drive, and insert that path at the call to GetImageAsByteArray.
+
+1. Run the web application and see what Face API found in your image.
+
 ## Clean up resources
 
 When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
 1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
-2. Select **Delete resource group**.
-3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
+1. Select **Delete resource group**.
+1. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 
 ## Next steps
 
