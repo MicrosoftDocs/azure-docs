@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Media intelligence
 
-Azure Media Services REST v3 API enables you to analyze audio and video content. To analyze your content you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. 
+Azure Media Services REST v3 API enables you to analyze audio and video content. To analyze your content, you create a **Transform** and submit a **Job** that uses one of these presets: **AudioAnalyzerPreset** or **VideoAnalyzerPreset**. 
 
 ## AudioAnalyzerPreset
 
@@ -40,7 +40,7 @@ Azure Media Services REST v3 API enables you to analyze audio and video content.
 
 ##  insights.json elements
 
-One of the the main ouputs of the job is insights.json file. The json may contain the following elements:
+One of the main outputs of the job is insights.json file. The json may contain the following elements:
 
 ### Transcript
 
@@ -49,7 +49,7 @@ One of the the main ouputs of the job is insights.json file. The json may contai
 |id|The line ID.|
 |text|The transcript itself.|
 |language|The transcript language. Intended to support transcript where each line can have a different language.|
-|instances|A list of time ranges where this line appeared. In case of transcript, it will have only 1 instance.|
+|instances|A list of time ranges where this line appeared. If the instance is a transcript, it will have only 1 instance.|
 
 Example:
 
@@ -178,13 +178,13 @@ Example:
 |id|The face id.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
+|description|If the face is of a celebrity, its description ("Satya Nadella was born at..."). |
 |thumbnalId|The id of the thumbnail of that face (in VI).|
-|knownPersonId|In case of a known person, its internal id.|
-|referenceId|In case of a Bing celebrity, its Bing id.|
+|knownPersonId|If the faces is a of a known person, its internal id.|
+|referenceId|If the face is ofa Bing celebrity, its Bing id.|
 |referenceType|Currently just Bing.|
-|title|In case of a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|In case of a celebrity, its image url.|
+|title|If the face is of a celebrity, its title (for example "Microsoft's CEO").|
+|imageUrl|If the face is of a celebrity, its image url.|
 |instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
 
 ```json
