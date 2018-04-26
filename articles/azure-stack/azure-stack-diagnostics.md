@@ -99,7 +99,7 @@ if($s)
 }
 ```
 
-- The parameters **OutputSharePath** and **OutputShareCredential** are to upload logs to an external shared folder.
+- The parameters **OutputSharePath** and **OutputShareCredential** are used to upload logs to an external shared folder.
 - As shown in the previous example, the **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. This can come in handy for scenarios like collecting logs after applying an update package on an integrated system.
 
 ### Parameter considerations for both ASDK and integrated systems
