@@ -17,7 +17,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: hhttps://sec.ch9.ms/sessions/connect/T157.png
+      src: https://sec.ch9.ms/sessions/connect/T157.png
       width: 250  
     title: Real-time analytics on IoT Edge with Azure Stream Analytics. (8:51)
     href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-real-time-analytics-on-iot-edge-with-azure-stream-analytics/
