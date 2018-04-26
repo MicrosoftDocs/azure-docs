@@ -14,8 +14,6 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
 ms.author: jgao
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Resource Manager template and run a Hive job
