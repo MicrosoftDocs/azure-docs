@@ -19,10 +19,9 @@ For more information, see the technical documentation for the [add utterance](ht
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Prerequisites
-> [!div class="checklist"]
-> * Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
-> * Your existing LUIS **application ID** and **version ID**. 
-> * A new file named `add-utterances.html` project in VSCode.
+* Your LUIS [**authoring key**](luis-concept-keys.md#authoring-key). 
+* Your existing LUIS **application ID** and **version ID**. 
+* A new file named `add-utterances.html` project in VSCode.
 
 > [!NOTE] 
 > The complete `add-utterances.html` file is available from the [**LUIS-Samples** Github repository](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html).

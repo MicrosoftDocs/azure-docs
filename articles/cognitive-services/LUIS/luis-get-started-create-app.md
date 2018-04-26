@@ -19,9 +19,8 @@ In this quickstart, you create a LUIS app that uses the prebuilt domain `HomeAut
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Prerequisites
-> [!div class="checklist"]
-> * To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
-> * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* To use Microsoft Cognitive Service APIs, you first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a new app
 You can create and manage your applications on **My Apps** page of [LUIS][LUIS]. 
