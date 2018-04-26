@@ -31,13 +31,13 @@
     - name: Installation and Configuration
       href: submit_once_installation.md
     - name: User Management
-      href:
+      href: so_user_management.md
     - name: CLI
-      href:
+      href: so_cli.md
     - name: Available Commands
-      href:
+      href: so_commands.md
     - name: Appendicies
-      href:
+      href: so_appendicies.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
