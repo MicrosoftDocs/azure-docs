@@ -38,7 +38,7 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
 * Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
 * Broadcast public meetings and events such as town halls, city council meetings, and legislative bodies.
-* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. If these are surveillance videos, clients can utilize motion detection and face detection to make the process of reviewing videos fast and accurate.  
+* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
 * Add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language). 
@@ -53,7 +53,7 @@ v3 is based on a unified API surface which exposes both management and operation
 * **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. 
 * **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notivications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
 * **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
-* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Content Keys, Channels, and more.
+* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
 * **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
 
 ## How can I get started with v3?
