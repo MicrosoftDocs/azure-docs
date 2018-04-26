@@ -61,7 +61,7 @@ Azure AD B2C interacts with identity providers, users, other systems, and with t
 
 ### Identity Experience Framework
 
-A fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities (broadly Claims Providers) in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones (for example REST API-based system-to-system claims exchanges). The I2E creates user-friendly, whitelabelled experiences that support HTML, CSS, and javascript.  Today, the Identity Experience Framework is available only in the context of the Azure AD B2C service and prioritized for tasks related to CIAM.
+A fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities (broadly Claims Providers) in standard protocol formats such as OpenIDConnect, OAuth, SAML, WSFed, and a few non-standard ones (for example REST API-based system-to-system claims exchanges). The I2E creates user-friendly, white-labeled experiences that support HTML, CSS, and javascript.  Today, the Identity Experience Framework is available only in the context of the Azure AD B2C service and prioritized for tasks related to CIAM.
 
 ### Built-in policies
 
