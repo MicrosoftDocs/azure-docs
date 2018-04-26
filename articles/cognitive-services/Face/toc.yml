@@ -1,14 +1,16 @@
 - name: Face API Documentation
   href: index.md
 - name: Overview
-  href: Overview.md
+  items:
+  - name: About Face API
+    href: Overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: cURL
-    href: QuickStarts/curl.md
   - name: C#
     href: QuickStarts/CSharp.md
+  - name: cURL
+    href: QuickStarts/curl.md
   - name: Java
     href: QuickStarts/Java.md
   - name: JavaScript
@@ -41,27 +43,37 @@
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
 - name: Reference
   items:
-  - name: Face API reference
+  - name: Face API
     href: APIReference.md
   - name: SDKs
     items:
+    - name: Java
+      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/faceapi?view=azure-python
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
     - name: Android
       href: https://github.com/Microsoft/Cognitive-Face-Android
     - name: iOS
       href: https://github.com/Microsoft/Cognitive-Face-iOS
-    - name: Python
-      href: https://github.com/Microsoft/Cognitive-Face-Python
     - name: Windows
       href: https://github.com/Microsoft/Cognitive-Face-Windows
 - name: Resources
   items:
+  - name: FAQ
+    href: FAQ.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430315-face-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=cognitive-services&query=Face
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face
   - name: Glossary
     href: Glossary.md
-  - name: FAQ
-    href: FAQ.md
   - name: Release notes
     href: ReleaseNotes.md

@@ -15,7 +15,7 @@ ms.author: sbowles
 <div class="content">
     <h1>Face API Documentation</h1>
     <div class="intro" style="min-width: 200px">
-        <p>The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.</p>
+        <p>The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Detect and identify faces using:</p>
@@ -80,7 +80,7 @@ ms.author: sbowles
                 <div class="card">
                     <div class="cardText">
                         <h3>APIs</h3>
-                        <p><a href="/azure/cognitive-services/Face/APIReference">API Reference</a></p>
+                        <p><a href="/azure/cognitive-services/Face/APIReference">Face API</a></p>
                     </div>
                 </div>
             </div>
@@ -92,9 +92,11 @@ ms.author: sbowles
                 <div class="card">
                     <div class="cardText">
                         <h3>SDKs</h3>
+                        <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/faceapi?view=azure-python">Python</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
-                        <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p>
                         <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p>
                     </div>
                 </div>
