@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2017
+ms.date: 04/25/2017
 ms.author: jingwang
 ---
 
@@ -32,7 +32,7 @@ This feature relies on the data factory service identity. Learn how it works fro
 
 To reference a credential stored in Azure Key Vault, you need to:
 
-1. **[Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity)** by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory.
+1. **Retrieve data factory service identity** by copying the value of "SERVICE IDENTITY APPLICATION ID" generated along with your factory. If you use ADF authoring UI, the service identity ID will be shown on the Azure Key Vault linked service creation window; you can also retrieve it from Azure portal, refer to [Retrieve data factory service identity](data-factory-service-identity.md#retrieve-service-identity).
 2. **Grant the service identity access to your Azure Key Vault.** In your key vault -> Access policies -> Add new -> search this service identity application ID to grant **Get** permission in Secret permissions dropdown. It allows this designated factory to access secret in key vault.
 3. **Create a linked service pointing to your Azure Key Vault.** Refer to [Azure Key Vault linked service](#azure-key-vault-linked-service).
 4. **Create data store linked service, inside which reference the corresponding secret stored in key vault.** Refer to [reference secret stored in key vault](#reference-secret-stored-in-key-vault).
@@ -46,7 +46,17 @@ The following properties are supported for Azure Key Vault linked service:
 | type | The type property must be set to: **AzureKeyVault**. | Yes |
 | baseUrl | Specify the Azure Key Vault URL. | Yes |
 
-**Example:**
+**Using authoring UI:**
+
+Click **Connections** -> **Linked Services** -> **+New** -> search for "Azure Key Vault":
+
+![Search AKV](media/store-credentials-in-key-vault/search-akv.png)
+
+Select the provisioned Azure Key Vault where your credentials are stored. You can do **Test Connection** to make sure your AKV connection is valid. 
+
+![Configure AKV](media/store-credentials-in-key-vault/configure-akv.png)
+
+**JSON example:**
 
 ```json
 {
@@ -71,7 +81,13 @@ The following properties are supported when you configure a field in linked serv
 | secretVersion | The version of secret in azure key vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
 | store | Refers to an Azure Key Vault linked service that you use to store the credential. | Yes |
 
-**Example: (see the "password" section)**
+**Using authoring UI:**
+
+Select **Azure Key Vault** for secret fields while creating the connection to your data store/compute. Select the provisioned Azure Key Vault Linked Service and provide the **Secret name**. You can optionally provide a secret version as well. 
+
+![Configure AKV secret](media/store-credentials-in-key-vault/configure-akv-secret.png)
+
+**JSON example: (see the "password" section)**
 
 ```json
 {
