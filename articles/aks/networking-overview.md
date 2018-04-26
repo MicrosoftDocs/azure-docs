@@ -45,9 +45,9 @@ Advanced networking provides the following benefits:
 
 When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
 
-**Virtual network**: The VNet into which you want to deploy the cluster. If you want to create a new VNet for your cluster, select **Create New** and follow the steps in the **Create new virtual network** page.
+**Virtual network**: The VNet into which you want to deploy the cluster. If you want to create a new VNet for your cluster, select *Create New* and follow the steps in the *Create new virtual network* page.
 
-**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select **Create new** and follow the steps in the **Create new subnet** page.
+**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new** and follow the steps in the *Create new subnet* page.
 
 **Service CIDR address range**: The IP address range for the Kubernetes cluster service IPs. This range must not be within the VNet IP address range of your cluster.
 
@@ -71,23 +71,23 @@ Each node can host a maximum of 30 pods. When you scale out your cluster, each n
 
 ## Frequently asked questions
 
-The following questions and answers apply to the Advanced networking configuration.
+The following questions and answers apply to the **Advanced** networking configuration.
 
-1. Can I deploy VMs in my cluster subnet?
+* *Can I deploy VMs in my cluster subnet?*
 
-   Yes, you can. However, ensure you have a sufficient number of IP addresses in the subnet for the VMs.
+  * Yes, you can. However, ensure you have a sufficient number of IP addresses in the subnet for the VMs.
 
-1. Are there any scenarios in which Network Security Groups, user-defined routes, and other network policies will not work for pods?
+* *Are there any scenarios in which Network Security Groups, user-defined routes, and other network policies will not work for pods?*
 
-   Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictable, and they may not be functional. As such, their usage is discouraged.
+  * Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictable, and they may not be functional. As such, their usage is discouraged.
 
-1. Is the maximum number of pods deployable to a node configurable?
+* *Is the maximum number of pods deployable to a node configurable?*
 
-   Each node can host a maximum of 30 pods. This number is not currently configurable.
+  * Each node can host a maximum of 30 pods. This number is not currently configurable.
 
-1. How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.
+* *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
 
-   The complete list of properties for the VNet and subnets that you create during AKS cluster creation can be configured in the standard VNet configuration page in the Azure portal.
+  * The complete list of properties for the VNet and subnets that you create during AKS cluster creation can be configured in the standard VNet configuration page in the Azure portal.
 
 ## Next steps
 
