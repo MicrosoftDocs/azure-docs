@@ -11,7 +11,7 @@ ms.date: 03/29/2018
 ms.author: v-geberr
 ---
 
-# Quickstart: Create your first LUIS app
+# Quickstart: App with prebuilt domain intents and entities
 
 This article shows you how to create a LUIS app that uses the `HomeAutomation` prebuilt domain. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
