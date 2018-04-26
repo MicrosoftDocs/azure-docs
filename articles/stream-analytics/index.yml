@@ -37,7 +37,7 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
-      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal
+      href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
