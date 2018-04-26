@@ -131,7 +131,7 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 ## View the new response status
 Finish up by redeploying a local instance of the Remote Monitoring solution and viewing the new status response in Postman.
 
-1. Go back to you terminal and change to the following directory: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
+1. Go back to your terminal and change to the following directory: "..azure-iot-pcs-remote-monitoring-dotnet/scripts/local".
 2. Start your local instance of the Remote Monitoring solution by typing the following command into the terminal:
 
     ```cmd/sh
