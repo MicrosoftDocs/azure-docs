@@ -4,8 +4,8 @@ description: Azure PowerShell Script Sample - Route traffic for high availabilit
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: georgewallace
+manager: jeconnoc
+editor: 
 tags: azure-infrastructure
 
 ms.assetid:
@@ -14,8 +14,8 @@ ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 05/16/2017
-ms.author: gwallace
+ms.date: 04/26/2018
+ms.author: kumud
 ---
 
 # Route traffic for high availability of applications

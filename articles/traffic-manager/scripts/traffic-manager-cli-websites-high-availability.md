@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Route traffic for high availability of ap
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-infrastructure
 
@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
-ms.date: 07/07/2017
+ms.date: 04/26/2018
 ms.author: kumud
 ---
 

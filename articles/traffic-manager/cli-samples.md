@@ -4,7 +4,7 @@ description: Azure CLI Samples
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags:
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/25/2017
+ms.date: 04/25/2018
 ms.author: kumud
 
 ---
@@ -23,7 +23,7 @@ The following table includes links to bash scripts for Traffic Manager built usi
 
 |Title  |Description |
 |---------|---------|
-|[Direct traffic across multiple regions for high application availability](./scripts/traffic-manager-cli-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json)   |    Creates two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints.     |
+|[Direct traffic across multiple regions for high application availability](./scripts/traffic-manager-cli-websites-high-availability.md)   |    Creates two app service plans, two web apps, a traffic manager profile, and two traffic manager endpoints.     |
 |    |         |
 
 

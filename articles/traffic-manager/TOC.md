@@ -4,7 +4,7 @@
 ## [What is Traffic Manager?](traffic-manager-overview.md)
 
 # Quickstart
-## [Direct traffic to a priority endpoint - ](traffic-manager-create-profile.md)
+## [Create a Traffic Manager profile](traffic-manager-create-profile.md)
 
 #Samples
 ## [Azure Cl](cli-samples.md)
@@ -12,10 +12,9 @@
 
 # Tutorials
 ## [Direct traffic to specific endpoints based on its location](traffic-manager-configure-geographic-routing-method.md)
-## [Direct traffic to nearest latency](traffic-manager-configure-performance-routing-method.md)
+## [Direct traffic for low latency](traffic-manager-configure-performance-routing-method.md)
 ## [Distribute traffic to a set of endpoints](traffic-manager-configure-weighted-routing-method.md)
 ## [Direct traffic to a priority endpoint](traffic-manager-configure-priority-routing-method.md)
-
 
 # Concepts
 ## [Routing methods](traffic-manager-routing-methods.md)
@@ -29,10 +28,6 @@
 
 # How To
 
-## [Configure geographic routing method](traffic-manager-configure-geographic-routing-method.md)
-## [Configure priority routing method](traffic-manager-configure-priority-routing-method.md)
-## [Configure weighted routing method](traffic-manager-configure-weighted-routing-method.md)
-## [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
 ## Send Real User Measurements to Traffic Manager 
 ### [Using Visual Studio SDK](traffic-manager-create-rum-visual-studio.md)
 ### [Using web pages](traffic-manager-create-rum-web-pages.md)
@@ -43,6 +38,7 @@
 ## [Measure Traffic Manager performance](traffic-manager-performance-considerations.md)
 ## [Use Azure PowerShell to manage Traffic Manager](traffic-manager-powershell-arm.md)
 ## [Point your Internet domain to Traffic Manager](traffic-manager-point-internet-domain.md)
+
 ## Troubleshoot
 ### [Troubleshoot degraded state on Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 
