@@ -158,9 +158,14 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Domains</h3>
+                        <h3>Reference</h3>
                         <p>
-                        <a href="/azure/active-directory-domain-services/">Domain services</a>
+                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
+                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
+                        <a href="/cli/azure/ad">Azure CLI</a><br/>
+                        <a href="https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview">Microsoft Graph</a><br/>
+                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
+                        <a href="/java/api/overview/azure/activedirectory">Java</a>
                         </p>
                     </div>
                 </div>
@@ -204,13 +209,9 @@ Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory and i
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Reference</h3>
+                        <h3>Domains</h3>
                         <p>
-                        <a href="/powershell/module/azurerm.resources#active_directory">Azure RM PowerShell</a><br/>
-                        <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>
-                        <a href="/cli/azure/ad">Azure CLI</a><br/>
-                        <a href="/dotnet/api/overview/azure/activedirectory">.NET</a><br/>
-                        <a href="/java/api/overview/azure/activedirectory">Java</a>
+                        <a href="/azure/active-directory-domain-services/">Domain services</a>
                         </p>
                     </div>
                 </div>
