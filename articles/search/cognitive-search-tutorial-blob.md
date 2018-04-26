@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-New to cognitive search? Read [What is cognitive search?](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a brief introduction to important concepts.
+New to cognitive search? Read [What is cognitive search](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a brief introduction to important concepts.
 
 To make REST calls to Azure Search, use PowerShell or a web test tool like Telerik Fiddler or Postman to formulate HTTP requests. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md).
 
