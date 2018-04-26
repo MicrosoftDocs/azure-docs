@@ -32,7 +32,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
 
 2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
-3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Replace the entire file with below content. For more information about this code snippet, you can refer to [Create an IoT Edge C# module project](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
+3. Now your sample IoT Edge solution is ready. The default C# module acts as a pipe message module. In the `deployment.template.json`, you will see this solution contains two modules. The message will be generated from the `tempSensor` module, and will be directly piped via `FilterModule`, then sent to your IoT hub. Replace the entire **Program.cs** file with below content. For more information about this code snippet, you can refer to [Create an IoT Edge C# module project](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
     ```csharp
     namespace FilterModule
@@ -153,9 +153,10 @@ In this section, you will create a sample IoT Edge solution containing unit test
                 // Read TemperatureThreshold from Module Twin Desired Properties
                 var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
                 var moduleTwinCollection = moduleTwin.Properties.Desired;
-                if (moduleTwinCollection["TemperatureThreshold"] != null)
-                {
+                try {
                     temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
+                } catch(ArgumentOutOfRangeException e) {
+                    Console.WriteLine("Proerty TemperatureThreshold not exist");
                 }
 
                 // Attach callback for Twin desired properties updates
