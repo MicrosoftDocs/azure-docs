@@ -18794,6 +18794,26 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-deploying-ws-ad-guidelines.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-install-replica-active-directory-domain-controller.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-new-forest-virtual-machine.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/active-directory/active-directory-passwords-data.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-authenticationdata",
             "redirect_document_id": true
