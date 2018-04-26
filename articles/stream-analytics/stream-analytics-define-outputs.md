@@ -274,7 +274,7 @@ The table below lists the property names and their description for creating a ta
 | Table Name |The name of the table. The table gets created if it does not exist. |
 | Partition Key |The name of the output column containing the partition key. The partition key is a unique identifier for the partition within a given table that forms the first part of an entity's primary key. It is a string value that may be up to 1 KB in size. |
 | Row Key |The name of the output column containing the row key. The row key is a unique identifier for an entity within a given partition. It forms the second part of an entity’s primary key. The row key is a string value that may be up to 1 KB in size. |
-| Batch Size |The number of records for a batch operation. Typically the default is sufficient for most jobs. Refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
+| Batch Size |The number of records for a batch operation. Typically the default (100) is sufficient for most jobs. Refer to the [Table Batch Operation spec](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) for more details on modifying this setting. |
  
 ## Service Bus Queues
 [Service Bus Queues](https://msdn.microsoft.com/library/azure/hh367516.aspx) offer a First In, First Out (FIFO) message delivery to one or more competing consumers. Typically, messages are expected to be received and processed by the receivers in the temporal order in which they were added to the queue, and each message is received and processed by only one message consumer.
@@ -379,7 +379,7 @@ The following table explains some of the considerations to output batching:
 | Azure Blob storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Maximum Blob block size is 4 MB</br>Maximum Blob bock count is 50000 |
 | Azure Event Hub	| 256 KB per message </br>See also [Event Hubs limits](../event-hubs/event-hubs-quotas.md) |	When Input Output partitioning doesn’t align, each event is packed individually in an EventData and sent in a batch of up to the max message size (1 MB for Premium SKU). </br></br>  When Input-Output partitioning is aligned, multiple events are packed into a single EventData up to max message size and sent.	|
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx) |
-| Azure Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | 100 entities per single transaction |
+| Azure Table storage | See [Azure Storage limits](../azure-subscription-service-limits.md#storage-limits) | Default is 100 entities per single transaction, and can be configured to a smaller value as needed. |
 | Azure Service Bus queue	| 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
