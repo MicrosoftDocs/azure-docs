@@ -179,3 +179,4 @@ Call the app with the `-status` argument to check the training status and write 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
 
 
+[LUIS]: luis-reference-regions.md#luis-website

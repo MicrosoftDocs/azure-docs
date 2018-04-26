@@ -179,4 +179,4 @@ Call the sample with the `-status` argument to check the training status and wri
 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
 
-
+[LUIS]: luis-reference-regions.md#luis-website

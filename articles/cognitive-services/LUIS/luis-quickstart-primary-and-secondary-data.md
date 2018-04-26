@@ -200,4 +200,4 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website

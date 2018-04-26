@@ -258,4 +258,4 @@ Requested training status.
 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
 
-
+[LUIS]: luis-reference-regions.md#luis-website
