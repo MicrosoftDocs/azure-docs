@@ -208,6 +208,8 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
+
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
