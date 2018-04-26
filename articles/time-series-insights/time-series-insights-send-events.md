@@ -1,4 +1,4 @@
----
+﻿---
 title: How to send events to an Azure Time Series Insights environment | Microsoft Docs
 description: This tutorial explains how to create and configure event hub and run a sample application to push events to be shown in Azure Time Series Insights.
 services: time-series-insights
@@ -54,7 +54,7 @@ Ensure that you have reference data in place when you bulk upload historical dat
 
 To manage reference data, there is the web-based user interface in the TSI Explorer, and there is a programmatic C# API. TSI Explorer has a visual user experience to upload files or paste-in existing reference data sets as JSON or CSV format. With the API, you can build a custom app when needed.
 
-For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## Create Time Series Insights event source
 1. If you haven't created an event source, follow [these instructions](time-series-insights-how-to-add-an-event-source-eventhub.md) to create an event source.
@@ -309,7 +309,7 @@ chId  Measure               Unit
 24    Engine Oil Pressure   PSI
 25    CALC Pump Rate        bbl/min
 
-For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-add-reference-data-set).
+For more information on managing reference data in Time Series Insights, see the [reference data article](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 Another problem with the first payload is that timestamp is in milliseconds. TSI accepts only ISO formatted timestamps. One solution is to leave the default timestamp behavior in TSI, which is to use enqueued timestamp.
 
