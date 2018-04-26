@@ -61,7 +61,7 @@ Services that communicate with Logic Apps can have their own message size limits
 These limits are often smaller than the Logic Apps limit. For example, assuming that
 a connector supports chunking, a connector might consider a 30-MB message as large, while Logic Apps does not.
 To comply with this connector's limit, Logic Apps splits any message
-larger than 30-MB into smaller chunks.
+larger than 30 MB into smaller chunks.
 
 For connectors that support chunking, the underlying chunking protocol is invisible to end users.
 However, not all connectors support chunking, so these connectors generate runtime
