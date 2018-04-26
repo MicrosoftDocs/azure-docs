@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 04/25/2018
 ms.topic: article
 manager: carmonm
 ---
@@ -21,7 +21,7 @@ This functionality is illustrated in the following image:
 
 Each Hybrid Runbook Worker is a member of a Hybrid Runbook Worker group that you specify when you install the agent. A group can include a single agent, but you can install multiple agents in a group for high availability.
 
-When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. The members of the group determine which worker services the request. You cannot specify a particular worker.
+When you start a runbook on a Hybrid Runbook Worker, you specify the group that it runs on. Each worker in the group polls Azure Automation to see if any jobs are available. If there is a job available then the first worker to get the job takes it. You cannot specify a particular worker.
 
 ## Relationship to Service Management Automation
 
