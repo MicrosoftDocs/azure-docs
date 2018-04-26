@@ -35,7 +35,7 @@ When building and deploying this model, you go through the following steps:
 
 [CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
-Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for the detailed reference for each module and class.
+Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
 
 ## Prerequisites
 
@@ -48,21 +48,27 @@ Consult the [package reference documentation](https://docs.microsoft.com/python/
 
    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
 
-1. The Azure Machine Learning Package for Computer Vision must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision).
+1. The Azure Machine Learning Package for Computer Vision must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/vision).
 
-## Sample dataset and Jupyter notebook
+## Sample data and notebook
+
+### Get the notebook
+
+Try it out yourself. Download the notebook and run it yourself.
+
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
+
+### Load the sample data
 
 The following example uses a dataset consisting of 63 tableware images, each labeled as belonging to one of four different classes (bowl, cup, cutlery, plate). The number of images in this example is small so that this tutorial can be executed quickly; in practice at least 100 images per class should be provided. All images are located at *"../sample_data/imgs_recycling/"*, in subdirectories called "bowl", "cup", "cutlery", and "plate".
 
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
-
                              
 ## Storage context
 
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information abotu this see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, we are setting the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
+The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information about this, see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, set the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
 
 
 ```python
@@ -668,7 +674,7 @@ For information about the Azure Machine Learning Package for Computer Vision:
 
 + Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision).
++ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/vision).
 
 + Explore the [reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for this package.
 

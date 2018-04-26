@@ -22,7 +22,7 @@ The model building and deployment workflow for forecasting models is as follows:
 3. Train and select the best model
 4. Deploy  the model and consume the web service
 
-Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
+Consult the [package reference documentation](https://aka.ms/aml-packages/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Consult the [package reference documentation](https://docs.microsoft.com/python/
 
    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
 
-1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
+1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/forecasting).
 
 ## Sample data and notebook
 
@@ -55,7 +55,7 @@ The example follows the workflow:
 Try it out yourself. Download the notebook and run it yourself.
 
 > [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
 
 ### Explore the sample data
 
@@ -2608,8 +2608,8 @@ webservice_fcst_errors
 
 Learn more about the Azure Machine Learning Package for Forecasting:
 
-+ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
++ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/forecasting).
 
-+ Explore the [reference docs](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for Azure Machine Learning Package for Forecasting.
++ Explore the [reference docs](https://aka.ms/aml-packages/forecasting) for Azure Machine Learning Package for Forecasting.
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
