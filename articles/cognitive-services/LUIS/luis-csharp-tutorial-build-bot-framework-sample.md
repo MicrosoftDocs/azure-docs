@@ -17,8 +17,7 @@ Build a chat bot with integrated language understanding.
 
 ## Prerequisite
 
-> [!div class="checklist"]
-> * [HomeAutomation LUIS app](luis-get-started-create-app.md). The intents from this LUIS app map to the bot's dialog handlers. 
+* [HomeAutomation LUIS app](luis-get-started-create-app.md). The intents from this LUIS app map to the bot's dialog handlers. 
 
 ## LUIS HomeAutomation Intents
 

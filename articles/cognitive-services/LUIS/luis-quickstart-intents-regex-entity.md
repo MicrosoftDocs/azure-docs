@@ -1,19 +1,24 @@
 ---
 title: Create a LUIS app to get regular-expression matched data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a regular expression entity to extract data. 
+description: Learn how to create a simple LUIS app using intents and a regular expression entity to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
 --- 
 
-# Simple app with intents and a regular expression entity
+# Quickstart: Use regular expression entity
+In this quickstart, you create an app that demonstrates how to extract consistently formatted data from an utterance using the **Regular Expression** entity.
+
 This simple app has two [intents](luis-concept-intent.md) and one regular expression [entity](luis-concept-entity-types.md). Its purpose is to pull out Knowledge Base (KB) article numbers from an utterance. 
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: FindArticle and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
@@ -182,6 +187,9 @@ Your chat bot now has enough information to determine the primary action, `FindK
 
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the kb article numbers and search a third-party API. LUIS doesn't do that work. LUIS only determines what the user's intention is and extracts data about that intention. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 

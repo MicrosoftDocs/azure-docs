@@ -1,25 +1,33 @@
 ---
 title: Call a Language Understanding (LUIS) app using C# | Microsoft Docs
-description: Learn to call a LUIS app using C#.
+description: Learn to call a LUIS app using C# in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using C#. 
 ---
 
-# Call a LUIS app using C#
+# Quickstart: Call a LUIS endpoint using C#
 
 Pass utterances to a LUIS endpoint and get intent and entities back.
 
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
 ## Before you begin
-  1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  2. Log in to the Azure portal at https://portal.azure.com. 
-  3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to the [LUIS](luis-reference-regions.md) website. Log in using your Azure account. 
+1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+2. Log in to the Azure portal at https://portal.azure.com. 
+
+3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+
+4. Go back to the [LUIS](luis-reference-regions.md) website. Log in using your Azure account. 
+
+    [![](media/luis-get-started-cs-get-intent/app-list.png "Screenshot of app list")](media/luis-get-started-cs-get-intent/app-list.png)
 
 ## Understand what LUIS returns
 
@@ -52,3 +60,5 @@ You can use C# to access the same results you saw in the browser window in the p
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-quickstart-cs-add-utterance.md)
+
+[LUIS]: luis-reference-regions.md#luis-website

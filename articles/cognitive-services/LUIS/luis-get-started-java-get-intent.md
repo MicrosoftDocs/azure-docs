@@ -1,26 +1,36 @@
 ---
 title: Call a Language Understanding (LUIS) app using Java | Microsoft Docs
-description: Learn to call a LUIS app using Java.
+description: Learn to call a LUIS app using Java in this quickstart.
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Java. 
+
 ---
 
-# Call a LUIS app using Java
+# Quickstart: Call a LUIS endpoint using Java
 Pass utterances to a LUIS endpoint and get intent and entities back.
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Before you begin
 You need a Cognitive Services API key to make calls to the sample LUIS app we use in this walkthrough. 
+
 To get an API key follow these steps: 
-  1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-  2. Log in to the Azure portal at https://portal.azure.com. 
-  3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
-  4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
+1. You first need to create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+2. Log in to the Azure portal at https://portal.azure.com. 
+
+3. Follow the steps in [Creating Subscription Keys using Azure](./AzureIbizaSubscription.md) to get a key.
+
+4. Go back to the [LUIS](luis-reference-regions.md) website and log in using your Azure account. 
+
+    [![](media/luis-get-started-java-get-intent/app-list.png "Screenshot of App list")](media/luis-get-started-java-get-intent/app-list.png)
 
 ## Understand what LUIS returns
 
@@ -52,3 +62,5 @@ You can use Java to access the same results you saw in the browser window in the
 ## Next steps
 > [!div class="nextstepaction"]
 > [Add utterances](luis-quickstart-java-add-utterance.md)
+
+[LUIS]: luis-reference-regions.md#luis-website

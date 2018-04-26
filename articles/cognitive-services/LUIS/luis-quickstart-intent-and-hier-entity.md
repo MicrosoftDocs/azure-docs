@@ -1,19 +1,25 @@
 ---
 title: Create a LUIS app to get location data - Azure | Microsoft Docs 
-description: Learn how to create a simple LUIS app using intents and a hierarchical entity to extract data. 
+description: Learn how to create a simple LUIS app using intents and a hierarchical entity to extract data in this quickstart. 
 services: cognitive-services
 author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
+ms.topic: quickstart
 ms.date: 03/27/2018
 ms.author: v-geberr
+#Customer intent: As a new user, I want to understand how and why to use the hierarchical entity. 
+
 --- 
 
-# Simple app with intents and a hierarchical entity
+# Quickstart: Create app with intents and a hierarchical entity
+In this quickstart, you create an app that demonstrates how to use the parent-child entity named **Hierarchical** entity to extract information out of utterances.
+
 This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: BookFlight and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  
@@ -191,6 +197,9 @@ Your chat bot now has enough information to determine the primary action, `BookF
 
 ## Where is this LUIS data used? 
 LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+
+## Clean up resources
+When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
 
 ## Next steps
 
