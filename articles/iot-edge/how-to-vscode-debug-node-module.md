@@ -19,13 +19,13 @@ This article provides detailed instructions for using [Visual Studio Code](https
 ## Prerequisites
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
 
-Before following the guidance in this article, complete the steps in  [Develop and deploy a Python IoT Edge module to your simulated device](tutorial-node-module.md). After that, you should have the following items ready:
+Before following the guidance in this article, complete the steps in  [Develop and deploy a Node.js IoT Edge module to your simulated device](tutorial-node-module.md). After that, you should have the following items ready:
 - An IoT Edge solution project workspace with a Node.js module subfolder in it.
 - The `app.js` file, with the latest module code.
 - An Edge runtime running on your development machine.
 
 ## Configure the deployment manifest 
-1. Replace the module's createOptions in **deployment.template.json** with below content and save this file: 
+1. Replace the FilterModule's createOptions in **deployment.template.json** with below content and save this file: 
     ```json
     "createOptions": "{\"Env\":[\"DEBUG_OPTION=--inspect=0.0.0.0:9229\"],\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}" 
     ```
@@ -36,7 +36,7 @@ Before following the guidance in this article, complete the steps in  [Develop a
 
 4. Choose **deployment.json** under **config** folder 
 
-5. Restart Edge runtime by entering **Edge: Restart Edge** in command palette.
+5. Restart Edge runtime by entering **Azure IoT Edge: Restart Edge** in command palette.
 
 ## Start debugging Node.js module in VS Code
 1. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace. This `launch.json` file has been generated when creating a new IoT Edge solution. And it will be updated each time you add a new module that support debugging. Navigate to the debug view and select the corresponding debug configuration file.

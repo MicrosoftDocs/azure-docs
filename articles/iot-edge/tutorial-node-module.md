@@ -61,7 +61,7 @@ You can use any Docker-compatible registry for this tutorial. Two popular Docker
 The following steps show you how to create an IoT Edge solution with a Node.js module using Visual Studio Code and the Azure IoT Edge extension.
 1. In Visual Studio Code, select **View** > **Command Palette...** (or press **Command + Shift + P**) to open the VS Code Command Palette.
 
-2. Create a project for the new IoT Edge soltuion. Type and run the command **Edge: New IoT Edge solution** in the Command Palette. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**). Then select **Node.js Module** as your first module in this solution. Then provide the module name, **FilterModule**  The following command creates the project folder, **FilterModule**. You also need to specify the Docker image repository for your first module. it should be in the form of `<your container registry name>.azurecr.io/filtermodule` if you are using Azure container registry.
+2. Create a project for the new IoT Edge solution. Type and run the command **Azure IoT Edge: New IoT Edge solution** in the Command Palette. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**). Then select **Node.js Module** as your first module in this solution. Then provide the module name, **FilterModule**  The following command creates the project folder, **FilterModule**. You also need to specify the Docker image repository for your first module. it should be in the form of `<your container registry name>.azurecr.io/filtermodule` if you are using Azure container registry.
  
 3. The VS Code window will load your IoT Edge solution workspace. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. You can see debug configurations in `.vscode` folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
@@ -97,25 +97,25 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 7. Replace the function name `pipeMessage` with `filterMessage` in `client.on()` function.
 
     ```javascript
-        client.on('inputMessage', function (inputName, msg) {
-          filterMessage(inputName, msg);
-        });
+    client.on('inputMessage', function (inputName, msg) {
+        filterMessage(inputName, msg);
+    });
     ```
 
-8. Add a new function under `client.on()`. This function will be invoked when the desired properties are updated.
+8. Copy following code snippet into `client.open()` function callback (below `client.on()`). This function will be invoked when the desired properties are updated.
 
     ```javascript
-        client.getTwin(function(err, twin) {
-          if (err) {
-            console.error('Error getting twin: ' + err.message);
-          } else {
-            twin.on('properties.desired', function(delta) {
-              if (delta.TemperatureThreshold) {
-                temperatureThreshold = delta.TemperatureThreshold;
-              }
-            });
-          }
+    client.getTwin(function(err, twin) {
+        if (err) {
+        console.error('Error getting twin: ' + err.message);
+        } else {
+        twin.on('properties.desired', function(delta) {
+            if (delta.TemperatureThreshold) {
+            temperatureThreshold = delta.TemperatureThreshold;
+            }
         });
+        }
+    });
     ```
 9. Save this file.
 
@@ -134,7 +134,19 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
         },
     ```
 
-3. Save this file.
+3.  After the `$edgeHub` section, specify the **FilterModule** module twin with the following JSON
+
+    ```json
+    "FilterModule": {
+      "properties.desired": {
+        "TemperatureThreshold": 25
+      }
+    }
+    ```
+
+    ![Update module twin](./media/tutorial-node-module/update-twin.png)
+
+4. Save this file.
 
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
