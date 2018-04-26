@@ -55,8 +55,6 @@ The static resource classes are implemented with these pre-defined database role
 - staticrc70
 - staticrc80
 
-These resource classes are best suited to solutions which increase resource class to get additional compute resources.
-
 ### Dynamic resource classes
 Dynamic Resource Classes allocate a variable amount of memory depending on the current service level. While static resource classes are beneficial for higher concurrency and static data volumes, dynamic resource classes are better suited for a growing or variable amount of data.  When you scale up to a larger service level, your queries automatically get more memory.  
 
@@ -67,16 +65,14 @@ The dynamic resource classes are implemented with these pre-defined database rol
 - largerc
 - xlargerc 
 
-These resource classes are best suited to solutions which increase compute scale to get additional resources. 
-
 ### Gen2 dynamic resource classes are truly dynamic
-When digging into the details of dynamic resource classes on Gen1, there are a few details that add additional complexity to understanding their behavior.
+When digging into the details of dynamic resource classes on Gen1, there are a few details that add additional complexity to understanding their behavior:
 
-- Smallrc resources classes operate within a fixed memory model like a static resource class.
-- As service levels change, even at higher service levels, the concurrency inconsistently changes between service levels.
+- The smallrc resources class operates with a fixed memory model like a static resource class.  Smallrc queries do not dynamically get more memory as the service level is increased.
+- As service levels change, the available query concurrency can go up or down.
 - Scaling services levels does not provide a proportional change the memory allocated to the same resource classes.
 
-On ***Gen2*** only, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, regardless of service level.  The below table has the consolidated details on memory allocation percentages and the minimum number concurrent queries that run, regardless of the service level.
+On ***Gen2 only***, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, regardless of service level.  The below table has the consolidated details of memory allocation percentages and the minimum number concurrent queries that run, regardless of the service level.
 
 | Resource Class | Percentage Memory | Min Concurrent Queries |
 |:--------------:|:-----------------:|:----------------------:|
