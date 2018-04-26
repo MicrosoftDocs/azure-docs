@@ -154,9 +154,9 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 2. Call the updateAll API that generates random documents to be then bulk imported into an Azure Cosmos DB collection. You can configure the command-line configurations to be passed in CmdLineConfiguration.java file.
 
-```java
+   ```java
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
-```
+   ```
 
    The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more details, see the [API documentation]():
 

@@ -68,6 +68,7 @@ These tutorials are a level deeper than the Quickstarts. In the tutorials, you b
 
 - [Import data](import-data.md)
 - [BulkExecutor - .NET](bulk-executor-dot-net.md)
+- [BulkExecutor - Java](bulk-executor-java.md)
 - [Query](tutorial-query-sql-api.md)
 - [Distribute data globally](tutorial-global-distribution-sql-api.md)
 
