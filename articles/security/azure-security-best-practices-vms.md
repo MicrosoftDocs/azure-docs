@@ -3,7 +3,7 @@ title: Azure virtual machine security best practices
 description: This article provides a variety of security best practices to be used in virtual machines located in Azure.
 services: security
 documentationcenter: na
-author: YuriDio
+author: barclayn
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
-ms.author: yurid
+ms.date: 04/26/2018
+ms.author: barclayn
 
 ---
 # Best practices for Azure VM security
