@@ -18,7 +18,7 @@ ms.author: carlrab
 [Azure SQL Database](sql-database-technical-overview.md) offers two purchasing models for compute, storage, and IO resources: a DTU-based purchasing model and a vCore-based purchasing model (preview). The following table and chart compare and contrast these two purchasing models.
 
 > [!IMPORTANT]
-> For vCore-based purchasing model limits (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
+> For vCore-based purchasing model (preview), see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)
 
 
 |**Purchasing model**|**Description**|**Best for**|
