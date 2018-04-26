@@ -29,11 +29,12 @@ You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https
    The Data Connection Wizard opens.
 3. In the **Connect to Database Server** dialog box, type the SQL Database **Server name** you want to connect to in the form <*servername*>**.database.windows.net**. For example, **msftestserver.database.windows.net**. Optionally, enter in the name of your database. Select **OK** to open the credentials window. 
 
-    ![server-name.png](media/sql-database-connect-excel/server-name.png)
+   ![server-name.png](media/sql-database-connect-excel/server-name.png)
+
 1. In the **SQL Server Database** dialog box, select **Database** on the left side, and then enter in your **User Name** and **Password** for the SQL database server  you want to connect to. Select **Connect** to open the **Navigator**. 
 
    
-     ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
+    ![Type the server name and login credentials](./media/sql-database-connect-excel/connect-to-server.png)
    
     > [!TIP]
     > Depending on your network environment, you may not be able to connect or you may lose the connection if the SQL Database server doesn't allow traffic from your client IP address. Go to the [Azure portal](https://portal.azure.com/), click SQL servers, click your server, click firewall under settings and add your client IP address. See [How to configure firewall settings](sql-database-configure-firewall-settings.md) for details.
