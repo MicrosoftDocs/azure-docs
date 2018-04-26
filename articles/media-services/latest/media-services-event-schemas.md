@@ -35,7 +35,7 @@ A Media Services **Job** emits the following event types:
 The following example shows the schema of a finished Job state event: 
 
 ```json
-event: [
+[
   {
     "topic": "/subscriptions/{subscription id}/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount",
     "subject": "transforms/VideoAnalyzerTransform/jobs/{job id}",
@@ -63,7 +63,7 @@ An event has the following top-level data:
 | eventType | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
 | eventTime | string | The time the event is generated based on the provider's UTC time. |
 | id | string | Unique identifier for the event. |
-| data | object |  |
+| data | object | Media Services event data. |
 | dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
 | metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
