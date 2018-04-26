@@ -1,13 +1,12 @@
 ---
 title: Publish your LUIS app | Microsoft Docs
-description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure. 
+description: After you build and test your app by using Language Understanding (LUIS), publish it as a web service on Azure.
 services: cognitive-services
 titleSuffix: Azure
 author: cahann
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: cahann;v-geberr;

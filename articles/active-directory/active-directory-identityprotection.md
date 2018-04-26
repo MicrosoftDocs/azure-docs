@@ -365,7 +365,7 @@ We recommend that you require Azure multi-factor authentication for user sign-in
 
 ![User ridk policy](./media/active-directory-identityprotection/1019.png "User ridk policy")
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+For more details, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication registration by configuring a policy that enables you to:
 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 04/17/2018
 ms.author: jeedes
 
 ---
@@ -117,37 +117,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE] 
 	> These values are not real. You'll need to update these values from actual Sign-on URL and Identifier which is explained later in the tutorial.
 
-4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+4. On the **SAML Signing Certificate** section, perform the following steps: 
 
-	![The Certificate download link](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+
+	a. Click the copy button to copy **App Federation Metadata Url** and paste it into notepad, as this App Federation Metadata Url will be used later in the tutorial.
+
+	b. Click **Certificate(Base64)** and then save the certificate file on your computer.
 
 5. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-servicenow-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata** url, perform the following steps:
+6. Sign on to your ServiceNow application as an administrator.
 
-	a. Click **App registrations**.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/appregistrations.png)
-
-	b. Click **Endpoints** to open **Endpoints** dialog box.
-	
-	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/endpointicon.png)
-	
-	c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-
-	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/endpoint.png)
-
-	d. Now go to **ServiceNow** properties and copy the **Application ID** using **Copy** button and paste it into notepad.
-
-	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/appid.png)
-
-	e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`.  Copy the generated value in notepad as this metadata URL will be used later in the tutorial.
-
-7. Sign on to your ServiceNow application as an administrator.
-
-8. Activate the **Integration - Multiple Provider Single Sign-On Installer** plugin by following the next steps:
+7. Activate the **Integration - Multiple Provider Single Sign-On Installer** plugin by following the next steps:
 
 	a. In the navigation pane on the left side, search **System Definition** section from the search bar and then click **Plugins**.
 
@@ -161,9 +145,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click the **Activate** button.
 
-9. There are two ways in which **ServiceNow** can be configured automatic and manual.
+8. There are two ways in which **ServiceNow** can be configured automatic and manual.
 
-10. For configuring **ServiceNow** automatically follow the below steps
+9. For configuring **ServiceNow** automatically follow the below steps
 
 	a. Return to the **ServiceNow** Signle-Sign on page in the Azure portal.
 
@@ -199,15 +183,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	* Click on **Activate** at the top right corner of the page.
 
-11. For configuring **ServiceNow** manually follow the below steps
+10. For configuring **ServiceNow** manually follow the below steps
 
-12. Sign on to your ServiceNow application as an administrator.
+11. Sign on to your ServiceNow application as an administrator.
 
-13. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
+12. In the navigation pane on the left side, search **Multi-Provider SSO** section from the search bar and then click **Properties**.
 
 	![Configure app URL](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_06.png "Configure app URL")
 
-14. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
+13. On the **Multiple Provider SSO Properties** dialog, perform the following steps:
 
 	![Configure app URL](./media/active-directory-saas-servicenow-tutorial/ic7694981.png "Configure app URL")
 
@@ -263,7 +247,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	a. Select **URL** option in **Import Identity Provider Metadata** dialogue box.
 
-	b. Enter the **Metadata URL** generated from Azure portal.
+	b. Enter the **App Federation Metadata Url** which you have copied from Azure portal.
 
 	c. Click **Import**.
 
@@ -356,7 +340,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificate.png)
+	![Configure Single Sign-On](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_certificates.png)
 
 5. Click **Save** button.
 
@@ -457,11 +441,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
 
 	f. Click **Save**.
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app! After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
+ 
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.

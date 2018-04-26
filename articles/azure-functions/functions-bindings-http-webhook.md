@@ -136,7 +136,6 @@ public static string Run(CustomObject req, TraceWriter log)
 public class CustomObject {
      public String name {get; set;}
 }
-}
 ```
 
 ### Trigger - F# example

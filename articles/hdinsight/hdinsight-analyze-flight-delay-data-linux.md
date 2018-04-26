@@ -10,11 +10,9 @@ tags: azure-portal
 
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+ms.topic: conceptual
+ms.date: 04/23/2018
 ms.author: larryfr
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
@@ -33,6 +31,8 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 * **Azure SQL Database**. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. If you haven't installed the Azure CLI, see [Install the Azure CLI 1.0](../cli-install-nodejs.md) for more steps.
+
+* **An SSH client**. For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Download the flight data
 
@@ -53,24 +53,21 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 1. Use the following command to upload the .zip file to the HDInsight cluster head node:
 
-    ```
-    scp FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
+    ```bash
+    scp FILENAME.zip sshuser@clustername-ssh.azurehdinsight.net:
     ```
 
-    Replace *FILENAME* with the name of the .zip file. Replace *USERNAME* with the SSH login for the HDInsight cluster. Replace *CLUSTERNAME* with the name of the HDInsight cluster.
-
-   > [!NOTE]
-   > If you use a password to authenticate your SSH login, you're prompted for the password. If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
+    Replace `FILENAME` with the name of the .zip file. Replace `sshuser` with the SSH login for the HDInsight cluster. Replace `clustername` with the name of the HDInsight cluster.
 
 2. After the upload has finished, connect to the cluster by using SSH:
 
-    ```ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net```
-
-    For more information, see [Connect to HDInsight (Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
 3. Use the following command to unzip the .zip file:
 
-    ```
+    ```bash
     unzip FILENAME.zip
     ```
 
@@ -78,7 +75,7 @@ Learn how to analyze flight delay data by using Hive on Linux-based HDInsight, a
 
 4. Use the following command to create a directory on HDInsight storage, and then copy the file to the directory:
 
-    ```
+    ```bash
     hdfs dfs -mkdir -p /tutorials/flightdelays/data
     hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
     ```
@@ -89,7 +86,7 @@ Use the following steps to import data from the .csv file into a Hive table name
 
 1. Use the following command to create and edit a new file named **flightdelays.hql**:
 
-    ```
+    ```bash
     nano flightdelays.hql
     ```
 
@@ -159,13 +156,13 @@ Use the following steps to import data from the .csv file into a Hive table name
 
 3. To start Hive and run the **flightdelays.hql** file, use the following command:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
 4. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
-    ```
+    ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
@@ -199,13 +196,13 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
 1. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 3. After the installation finishes, use the following command to connect to the SQL Database server. Replace **serverName** with the SQL Database server name. Replace **adminLogin** and **adminPassword** with the login for SQL Database. Replace **databaseName** with the database name.
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
     ```
 
@@ -223,7 +220,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
 4. At the `1>` prompt, enter the following lines:
 
-    ```
+    ```hiveql
     CREATE TABLE [dbo].[delays](
     [origin_city_name] [nvarchar](50) NOT NULL,
     [weather_delay] float,
@@ -236,7 +233,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
     Use the following query to verify that the table has been created:
 
-    ```
+    ```hiveql
     SELECT * FROM information_schema.tables
     GO
     ```
@@ -254,7 +251,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
 1. Use the following command to verify that Sqoop can see your SQL database:
 
-    ```
+    ```bash
     sqoop list-databases --connect jdbc:sqlserver://<serverName>.database.windows.net:1433 --username <adminLogin> --password <adminPassword>
     ```
 
@@ -262,7 +259,7 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
 2. Use the following command to export data from hivesampletable to the delays table:
 
-    ```
+    ```bash
     sqoop export --connect 'jdbc:sqlserver://<serverName>.database.windows.net:1433;database=<databaseName>' --username <adminLogin> --password <adminPassword> --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
@@ -270,13 +267,13 @@ If you don't already have a SQL database, use the information in [Create an Azur
 
 3. After the sqoop command finishes, use the tsql utility to connect to the database:
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D <databaseName>
     ```
 
     Use the following statements to verify that the data was exported to the delays table:
 
-    ```
+    ```sql
     SELECT * FROM delays
     GO
     ```

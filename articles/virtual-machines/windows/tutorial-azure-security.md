@@ -3,7 +3,7 @@ title: Azure Security Center and Windows virtual machines in Azure | Microsoft D
 description: Learn about security for your Azure Windows virtual machine with Azure Security Center.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/01/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
 ---
 # Monitor virtual machine security by using Azure Security Center

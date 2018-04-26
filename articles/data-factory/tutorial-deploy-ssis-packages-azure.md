@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang:
 ms.topic: hero-article
-ms.date: 01/29/2018
+ms.date: 04/13/2018
 ms.author: douglasl
 ---
 
@@ -38,7 +38,7 @@ In this tutorial, you complete the following steps:
 
 > [!NOTE]
 > - You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
-> - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, North Europe, West Europe, and Australia East. 
+> - You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East. 
 
 ## Create a data factory
 
@@ -125,7 +125,7 @@ In this tutorial, you complete the following steps:
    >
    > The Data Factory service connects to your Azure SQL database to prepare the SSIS Catalog (SSISDB database). The script also configures permissions and settings for your virtual network, if specified. And it joins the new instance of the Azure-SSIS integration runtime to the virtual network.
    > 
-   > When you provision an instance of an Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can't install third-party components for SSIS at this time. (This restriction includes third-party components from Microsoft, such as the Oracle and Teradata components by Attunity and the SAP BI components).
+   > When you provision an instance of an Azure-SSIS IR, the Azure Feature Pack for SSIS and the Access Redistributable are also installed. These components provide connectivity to Excel and Access files and to various Azure data sources, in addition to the data sources supported by the built-in components. You can also install additional components. For more info, see [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 7. On the **Connections** tab, switch to **Integration Runtimes** if needed. Select **Refresh** to refresh the status. 
 

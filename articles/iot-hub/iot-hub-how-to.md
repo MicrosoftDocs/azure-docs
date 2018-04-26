@@ -49,7 +49,7 @@ If you prefer to learn about specific IoT Hub features by working through hands-
 
 - [Use desired properties to configure devices][lnk-properties-tutorial]. This tutorial shows you how to use the device twin's desired and reported properties, to remotely configure your device.
 
-- [Use device jobs to initiate a device firmware update][lnk-jobs-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods. You learn how to use these features to remotely update your device's firmware.
+- [Use device management to update device firmware][lnk-jobs-tutorial]. This tutorial shows you how to use key device management features such as twins and direct methods. You learn how to use these features to remotely update your device's firmware.
 
 - [Schedule and broadcast jobs][lnk-schedule-tutorial]. This tutorial shows you how to use desired properties and direct methods to interact with multiple devices at a scheduled time.
 

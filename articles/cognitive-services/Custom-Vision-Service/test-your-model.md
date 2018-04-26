@@ -4,9 +4,8 @@ description: How to quickly test an image and then add it to the model and retra
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 04/28/2017
 ms.author: anroth

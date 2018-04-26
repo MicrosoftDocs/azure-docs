@@ -1,19 +1,17 @@
 ---
 title: Azure Storage solutions for R Server on HDInsight - Azure | Microsoft Docs
 description: Learn about the different storage options available with R Server on HDInsight
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: nitinme
 

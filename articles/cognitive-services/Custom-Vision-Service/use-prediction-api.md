@@ -4,9 +4,8 @@ description: How to use the API to programmatically test images.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 04/28/2017
 ms.author: anroth

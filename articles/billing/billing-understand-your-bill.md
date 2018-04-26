@@ -1,4 +1,4 @@
----
+﻿---
 title: Understand your bill for Azure
 description: Learn how to read and understand your usage and bill for your Azure subscription
 services: ''
@@ -105,7 +105,7 @@ If you [pay by invoicing](billing-how-to-pay-by-invoice.md), send your payment t
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
 ## Tips for cost management
-- Estimate costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and get the [detailed pricing information for each service](https://azure.microsoft.com/en-us/pricing/).
+- Estimate costs by using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator), and get the [detailed pricing information for each service](https://azure.microsoft.com/pricing/).
 - [Set up billing alerts](billing-set-up-alerts.md).
 - [Review your usage and costs regularly in the Azure portal](billing-getting-started.md#costs).
 

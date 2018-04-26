@@ -4,9 +4,8 @@ description: Explore a basic Windows app that uses the Custom Vision API in Micr
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: anroth

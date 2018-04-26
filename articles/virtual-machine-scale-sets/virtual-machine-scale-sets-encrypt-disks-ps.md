@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure virtual machine scale sets disk encryption | Microsoft Docs
 description: Learn how to use Azure PowerShell to encrypt VM instances and attached disks in virtual machine scale sets
 services: virtual-machine-scale-sets
@@ -38,7 +38,7 @@ This article requires the Azure PowerShell module version 5.3.0 or later. Run `G
 Register your Azure subsription for the preview of disk encryption for virtual machine scale sets with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature): 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

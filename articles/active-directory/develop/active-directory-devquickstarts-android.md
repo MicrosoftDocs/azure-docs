@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Android Getting Started | Microsoft Docs
 description: How to build an Android application that integrates with Azure AD for sign-in and calls Azure AD protected APIs using OAuth2.0.
 services: active-directory
@@ -124,8 +124,6 @@ All the configuration for this code sample can be found in the ***src/main/java/
 2. In Native scenarios, the app will use an embedded Webview and will not leave the app. The `Redirect URI` can be arbitrary. 
 3. Find any problems or have requests? Feel free to create an issue or post on Stackoverflow with 
 tag `azure-active-directory`. 
-
-## Additional Features
 
 ### Cross-app SSO
 Learn [how to enable cross-app SSO on Android by using ADAL](active-directory-sso-android.md).  

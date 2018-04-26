@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: carlrab
 
 ---
@@ -23,7 +23,6 @@ Azure SQL Database is a relational database-as-a service (DBaaS) in the Microsof
 > * Create tables with SSMS
 > * Bulk load data with BCP
 > * Query that data with SSMS
-> * Restore the database to a previous [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) in the Azure portal
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -45,7 +44,7 @@ Follow these steps to create a blank SQL database.
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. Select **Databases** from the **New** page and select **Create** under **SQL Database** on the **New** page.
+2. On the **New** page, select **Databases** in the Azure Marketplace section, and then click **SQL Database** in the **Featured** section.
 
    ![create empty-database](./media/sql-database-design-first-database/create-empty-database.png)
 
@@ -105,7 +104,7 @@ The SQL Database service creates a firewall at the server-level that prevents ex
 
 1. After the deployment completes, click **SQL databases** from the left-hand menu and then click **mySampleDatabase** on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20170824.database.windows.net**) and provides options for further configuration. 
 
-2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstart tutorials. 
+2. Copy this fully qualified server name for use to connect to your server and its databases in subsequent quickstarts. 
 
    ![server name](./media/sql-database-get-started-portal/server-name.png) 
 
@@ -144,7 +143,7 @@ Use [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-serve
 
    | Setting       | Suggested value | Description | 
    | ------------ | ------------------ | ------------------------------------------------- | 
-   | Server type | Database engine | This value is required |
+   | Server type | Database engine | This value is required. |
    | Server name | The fully qualified server name | The name should be something like this: **mynewserver20170824.database.windows.net**. |
    | Authentication | SQL Server Authentication | SQL Authentication is the only authentication type that we have configured in this tutorial. |
    | Login | The server admin account | This is the account that you specified when you created the server. |
@@ -294,26 +293,6 @@ Execute the following queries to retrieve information from the database tables. 
    AND person.LastName = 'Coleman'
    ```
 
-## Restore a database to a previous point in time
-
-Imagine you have accidentally deleted a table. This is something you cannot easily recover from. Azure SQL Database allows you to go back to any point in time in the last up to 35 days and restore this point in time to a new database. You can you this database to recover your deleted data. The following steps restore the sample database to a point before the tables were added.
-
-1. On the SQL Database page for your database, click **Restore** on the toolbar. The **Restore** page opens.
-
-   ![restore](./media/sql-database-design-first-database/restore.png)
-
-2. Fill out the **Restore** form with the required information:
-	* Database name: Provide a database name 
-	* Point-in-time: Select the **Point-in-time** tab on the Restore form 
-	* Restore point: Select a time that occurs before the database was changed
-	* Target server: You cannot change this value when restoring a database 
-	* Elastic database pool: Select **None**  
-	* Pricing tier: Select **20 DTUs** and **40 GB** of storage.
-
-   ![restore-point](./media/sql-database-design-first-database/restore-point.png)
-
-3. Click **OK** to restore the database to [restore to a point in time](sql-database-recovery-using-backups.md#point-in-time-restore) before the tables were added. Restoring a database to a different point in time creates a duplicate database in the same server as the original database as of the point in time you specify, as long as it is within the retention period for your [service tier](sql-database-service-tiers.md).
-
 ## Next steps 
 In this tutorial, you learned basic database tasks such as create a database and tables, load and query data, and restore the database to a previous point in time. You learned how to:
 > [!div class="checklist"]
@@ -323,7 +302,6 @@ In this tutorial, you learned basic database tasks such as create a database and
 > * Create tables
 > * Bulk load data
 > * Query that data
-> * Restore the database to a previous point in time using SQL Database [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore) capabilities
 
 Advance to the next tutorial to learn about designing a database using Visual Studio and C#.
 

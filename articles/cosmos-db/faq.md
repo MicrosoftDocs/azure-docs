@@ -111,7 +111,7 @@ The PreferredLocations value can be set to any of the Azure regions in which Cos
 ### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
-When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a sovereign region, you cannot replicate out of that sovereign region. Similarly, you cannot enable replication into other sovereign locations from an outside account. 
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
 ## Develop against the SQL API
 
@@ -166,6 +166,9 @@ Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable 
 
 ### Is a local instance of SQL API available?
 Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity emulation of the Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
+
+### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
+This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253 – 1 (i.e., 9007199254740991) only.
 
 ## Develop against the API for MongoDB
 ### What is the Azure Cosmos DB API for MongoDB?

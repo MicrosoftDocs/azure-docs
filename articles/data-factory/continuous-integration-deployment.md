@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: douglasl
 ---
 # Continuous integration and deployment in Azure Data Factory
@@ -59,6 +59,8 @@ that you can use after you enable VSTS GIT integration in the Data Factory UI:
 
 Here are the steps to set up a VSTS Release so you can automate the deployment of a data factory to multiple environments.
 
+![Diagram of continuous integration with VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+
 ### Requirements
 
 -   An Azure subscription linked to Team Foundation Server or VSTS using the [*Azure Resource Manager service endpoint*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
@@ -87,34 +89,34 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
     a.  Add the secrets to parameters file:
 
-        -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
+       -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
 
         ```json
         {
 	        "parameters": {
 		        "azureSqlReportingDbPassword": {
-			        "reference": {
-				        "keyVault": {
+	    		    "reference": {
+    				    "keyVault": {
 					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-				        },
-				        "secretName": " &lt secret - name &gt "
-			        }
-        		}        
-        	}
+			        	},
+        				"secretName": " < secret - name > "
+		        	}
+		        }
+	        }
         }
         ```
 
-        -   When you use this method, the secret is pulled from the key vault automatically.
+       -   When you use this method, the secret is pulled from the key vault automatically.
 
-        -   The parameters file needs to be in the publish branch as well.
+       -   The parameters file needs to be in the publish branch as well.
 
     b.  Add an [Azure Key Vault task](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
 
-        -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
+       -   Select the **Tasks** tab, create a new task, search for **Azure Key Vault** and add it.
 
-        -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
+       -   In the Key Vault task, choose the subscription in which you created the key vault, provide credentials if necessary, and then choose the key vault.
 
-            ![](media/continuous-integration-deployment/continuous-integration-image8.png)
+       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Add an Azure Resource Manager Deployment task:
 

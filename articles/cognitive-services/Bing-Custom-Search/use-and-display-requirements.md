@@ -4,9 +4,8 @@ description: Use data from the Bing Web Search APIs to improve results from sear
 services: cognitive-services
 author: brapel
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-custom-search
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: v-brapel

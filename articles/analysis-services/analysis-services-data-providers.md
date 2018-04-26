@@ -1,21 +1,13 @@
 ---
 title: Client libraries required for connecting to Azure Analysis Services | Microsoft Docs
 description: Describes client libraries required for client applications and tools to connect Azure Analysis Services
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 

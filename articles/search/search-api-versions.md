@@ -1,18 +1,13 @@
 ---
 title: API versions of Azure Search | Microsoft Docs
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
-services: search
-documentationcenter: ''
 author: brjohnstmsft
-manager: pablocas
-editor: ''
-
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: dotnet
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 01/15/2018
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: brjohnst
 ---
 
@@ -31,16 +26,16 @@ Below is a snapshot of the current versions of all programming interfaces to Azu
 
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://aka.ms/search-sdk) |3.0 |Generally Available, released November 2016 |
+| [.NET SDK](https://aka.ms/search-sdk) |5.0 |Generally Available, released April 2018 |
 | [.NET SDK Preview](https://aka.ms/search-sdk-preview) |4.0.1-preview |Preview, released May 2017 |
-| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Generally Available |
+| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2017-11-11 |Generally Available |
 | [Service REST API Preview](search-api-2016-09-01-preview.md) |2016-09-01-Preview |Preview |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2.0 |Generally Available |
 | [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Generally Available |
 
 For the REST APIs, including the `api-version` on each call is required. This makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
 
-    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2016-09-01
+    GET https://adventure-works.search.windows.net/indexes/bikes?api-version=2017-11-11
 
 > [!NOTE]
 > Although each request has an `api-version`, we recommend that you use the same version for all API requests. This is especially true when new API versions introduce attributes or operations that are not recognized by previous versions. Mixing API versions can have unintended consequences and should be avoided.

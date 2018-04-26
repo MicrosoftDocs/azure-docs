@@ -1,5 +1,5 @@
 ---
-title: Upload, list, and delete blobs using JavaScript and HTML in the Browser
+title: Azure Quickstart - Create a blob in object storage using JavaScript and HTML in the browser
 description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html

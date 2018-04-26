@@ -5,14 +5,15 @@ services: machine-learning
 documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
+
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
 
@@ -20,7 +21,7 @@ ms.author: bradsev
 
 # Provision the Data Science Virtual Machine for Linux (Ubuntu)
 
-The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with deep learning on Azure. Deep learning tools include:
+The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine image that makes it easy to get started with machine learning, including deep learning, on Azure. Deep learning tools include:
 
   * [Caffe](http://caffe.berkeleyvision.org/): A deep learning framework built for speed, expressivity, and modularity
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
@@ -29,6 +30,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
   * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
+  * [PyTorch](http://pytorch.org/): A high-level Python library with support for dynamic networks
   * [TensorFlow](https://www.tensorflow.org/): An open-source library for machine intelligence from Google
   * [Theano](http://deeplearning.net/software/theano/): A Python library for defining, optimizing, and efficiently evaluating mathematical expressions involving multi-dimensional arrays
   * [Torch](http://torch.ch/): A scientific computing framework with wide support for machine learning algorithms
@@ -111,6 +113,14 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 The provisioning should take about 5-10 minutes. The status of the provisioning is displayed on the Azure portal.
 
 ## How to access the Data Science Virtual Machine for Linux
+
+You can access the Ubuntu DSVM using three methods:
+1. SSH for terminal sessions
+2. X2Go for graphical sessions
+3. JupyterHub and JupyterLab for Jupyter notebooks
+
+### SSH
+
 After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 > [!NOTE]
@@ -118,7 +128,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 > 
 > 
 
-## Installing and configuring X2Go client
+### X2Go
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, complete the following procedure on your client:
 
 1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -132,6 +142,14 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
    * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
 After you sign in to the VM by using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
+
+### JupyterHub and JupyterLab
+
+The Ubuntu DSVM runs [JupyterHub](https://github.com/jupyterhub/jupyterhub), a multi-user Jupyter server. To connect, browse to https://your-vm-ip:8000 on your laptop or desktop, enter the username and password that you used to create the VM, and log in. Many sample notebooks are available for you to browse and try out.
+
+JupyterLab, the next generation of Jupyter notebooks and JupyterHub, is also available. To access it, log in to JupyterHub, then browse to the URL https://your-vm-ip:8000/lab. You can set JupyterLab as the default notebook server by adding this line to /etc/jupyterhub/jupyterhub_config.py:
+
+    c.Spawner.default_url = '/lab'
 
 ## Tools installed on the Data Science Virtual Machine for Linux
 ### Deep Learning Libraries
@@ -192,30 +210,32 @@ To launch R console, you just type **R** in the shell. This takes you to an inte
 There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
 
 ### Python
-For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
+Anaconda Python is installed with Python 2.7 and 3.5 environments. The 2.7 environment is called _root_, and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. 
 
-Since we have both Python 2.7 and 3.5, you need to specifically activate the desired Python version (conda environment) you want to work on in the current session. The activation process sets the PATH variable to the desired version of Python.
+The py35 environment is the default. To activate the root (2.7) environment:
 
-To activate the Python 2.7 conda environment, run the following command from the shell:
+    source activate root
 
-    source /anaconda/bin/activate root
+To activate the py35 environment again:
 
-Python 2.7 is installed at */anaconda/bin*.
+    source activate py35
 
-To activate the Python 3.5 conda environment , run the following from the shell:
+To invoke a Python interactive session, just type **python** in the shell. 
 
-    source /anaconda/bin/activate py35
+Install additional Python libraries using ```conda``` or ````pip```` . For pip, activate the correct environment first if you do not want the default:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 is installed at */anaconda/envs/py35/bin*.
+Or specify the full path to pip:
 
-To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE.
+    /anaconda/bin/pip install <package>
+    
+For conda, you should always specify the environment name (_py35_ or _root_):
 
-To install additional Python libraries, you need to run ```conda``` or ````pip```` command under sudo and provide full path of the Python package manager (conda or pip) to install to the correct Python environment. For example:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+If you are on a graphical interface or have X11 forwarding set up, you can type **pycharm** to launch the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.s
 
 ### Jupyter notebook
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password.

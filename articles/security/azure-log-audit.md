@@ -99,7 +99,7 @@ Integration Scenarios
 
 -	Export the Activity Log with Log Profiles to [log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one emitting log. The user who configures the setting must have the appropriate [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) access to both subscriptions
+You can use a storage account or [event hub namespace](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) that is not in the same subscription as the one emitting log. The user who configures the setting must have the appropriate [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) access to both subscriptions
 ### Azure Diagnostic Logs
 Azure Diagnostic Logs are emitted by a resource that provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type (for example, [Windows event system logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)are one category of Diagnostic Log for VMs and [blob, table, and queue logs](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) are categories of Diagnostic Logs for storage accounts) and differ from the Activity Log, which provides insight into the operations that were performed on resources in your subscription.
 

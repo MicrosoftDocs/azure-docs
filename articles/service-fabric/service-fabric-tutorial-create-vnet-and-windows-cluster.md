@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a Windows Service Fabric cluster in Azure | Microsoft Docs
 description: In this tutorial, you learn how to deploy a Windows Service Fabric cluster into an Azure virtual network and network security group using PowerShell.
 services: service-fabric
@@ -151,7 +151,7 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 
@@ -181,7 +181,7 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 

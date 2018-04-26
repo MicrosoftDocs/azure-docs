@@ -32,7 +32,7 @@ This article assumes familiarity with Docker container concepts and how to creat
     * Batch Java SDK version 3.0
     * Batch Node.js SDK version 3.0
 
-* Accounts: On your Azure account, you need to create a Batch account and optionally a general-purpose Storage account.
+* Accounts: On your Azure account, you need to create a Batch account and optionally an Azure Storage account.
 
 * A supported VM image. Containers are only supported in pools created with the Virtual Machine Configuration from images detailed in the following section, "Supported virtual machine images."
 

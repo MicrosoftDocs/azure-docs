@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/23/2018
 ms.author: sashan
 
 ---
@@ -23,12 +23,14 @@ To use the Read Scale-Out feature with a particular database, you must explicitl
 
 After Read Scale-Out is enabled for a database, applications connecting to that database will be directed to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
+If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
+
 > [!NOTE]
 > During preview, Query Data Store and Extended Events are not supported on the read-only replicas.
 
 ## Data consistency
 
-One of the benefits of AlwasyON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
+One of the benefits of Always ON is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up to date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible. This is because the transaction log redo to the replicas is asynchronous.
 
 > [!NOTE]
 > Replication latencies within the region are low and this situation is rare.
@@ -50,6 +52,12 @@ Either of the following connection strings connects the client to a read-write r
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
+```
+
+You can verify whether you are connected to a read-only replica by running the following query. It will return READ_ONLY when connected to a read-only replica.
+
+```SQL
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 ## Enable and disable Read Scale-Out using Azure PowerShell

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government image gallery | Microsoft Docs
 description: This article provides an overview of the Azure Government image gallery and the images included
 services: azure-government
@@ -27,7 +27,7 @@ The following table shows a list of available images within the Azure Government
 The list of virtual machine images available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
 ```powershell
-Login-AzureRMAccount -Environment AzureUSGovernment
+Connect-AzureRmAccount -Environment AzureUSGovernment
 
 Get-AzureRmVMImagePublisher -Location USGovVirginia | `
 Get-AzureRmVMImageOffer | `

@@ -6,7 +6,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
+ms.date: 04/17/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
@@ -22,7 +22,7 @@ You use your Azure subscription to register with Azure Cost Management. Your reg
 
 - Log in to the Azure portal at http://portal.azure.com.
 
-## Create a trial registration
+## Register with Azure Cost Management
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  

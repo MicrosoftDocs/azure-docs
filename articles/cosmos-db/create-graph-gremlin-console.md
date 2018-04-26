@@ -46,7 +46,7 @@ You also need to install the [Gremlin Console](http://tinkerpop.apache.org/). Us
 
     Setting|Suggested value|Description
     ---|---|---
-    hosts|[***.gremlin.cosmosdb.azure.com] or [***.graphs.azure.com] for accounts created before December 20th, 2017|See screenshot below. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs pr gremlin.cosmosdb, and removing the trailing :443/.
+    hosts|[*account-name*.gremlin.cosmosdb.azure.com] or [*account-name*.graphs.azure.com] for accounts created before December 20th, 2017|See the following screenshot. This is the Gremlin URI value on the Overview page of the Azure portal, in square brackets, with the trailing :443/ removed.<br><br>This value can also be retrieved from the Keys tab, using the URI value by removing https://, changing documents to graphs pr gremlin.cosmosdb, and removing the trailing :443/.
     port|443|Set to 443.
     username|*Your username*|The resource of the form `/dbs/<db>/colls/<coll>` where `<db>` is your database name and `<coll>` is your collection name.
     password|*Your primary key*| See second screenshot below. This is your primary key, which you can retrieve from the Keys page of the Azure portal, in the Primary Key box. Use the copy button on the left side of the box to copy the value.
@@ -304,10 +304,7 @@ Congratulations! You've completed this Azure Cosmos DB: Graph API tutorial!
 
 ## Clean up resources
 
-If you're not going to continue to use this app, delete all resources created by this quickstart in the Azure portal with the following steps:  
-
-1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created. 
-2. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## Next steps
 

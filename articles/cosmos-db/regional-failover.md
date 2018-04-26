@@ -57,7 +57,7 @@ usConnectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope);
 
 DocumentClient usClient = new DocumentClient(
     new Uri("https://contosodb.documents.azure.com"),
-    "memf7qfF89n6KL9vcb7rIQl6tfgZsRt5gY5dh3BIjesarJanYIcg2Edn9uPOUIVwgkAugOb2zUdCR2h0PTtMrA==",
+    "<Fill your Cosmos DB account's AuthorizationKey>",
     usConnectionPolicy);
 ```
 

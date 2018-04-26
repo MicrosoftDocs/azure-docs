@@ -1,23 +1,17 @@
 ---
-title: How to use blob storage (object storage) from C++ | Microsoft Docs
-description: Store unstructured data in the cloud with Azure Blob storage (object storage).
+title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
+description: Store unstructured data in the cloud with Azure Blob (object) storage.
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
+manager: jeconnoc
 
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-
 ---
-# How to use Blob Storage from C++
+
+# How to use Blob storage from C++
 
 This guide demonstrates how to perform common scenarios using the Azure Blob storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include uploading, listing, downloading, and deleting blobs.  
 
@@ -42,7 +36,7 @@ To install the Azure Storage Client Library for C++, you can use the following m
   
      Install-Package wastorage
 
-## Configure your application to access Blob Storage
+## Configure your application to access Blob storage
 Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access blobs:  
 
 ```cpp
@@ -79,7 +73,7 @@ You can use the **cloud_storage_account** class to represent your Storage Accoun
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Next, get a reference to a **cloud_blob_client** class as it allows you to retrieve objects that represent containers and blobs stored within the Blob Storage Service. The following code creates a **cloud_blob_client** object using the storage account object we retrieved above:  
+Next, get a reference to a **cloud_blob_client** class as it allows you to retrieve objects that represent containers and blobs stored within Blob storage. The following code creates a **cloud_blob_client** object using the storage account object we retrieved above:  
 
 ```cpp
 // Create the blob client.
@@ -124,7 +118,7 @@ container.upload_permissions(permissions);
 Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate access key.  
 
 ## How to: Upload a blob into a container
-Azure Blob Storage supports block blobs and page blobs. In the majority of cases, block blob is the recommended type to use.  
+Azure Blob storage supports block blobs and page blobs. In the majority of cases, block blob is the recommended type to use.  
 
 To upload a file to a block blob, get a container reference and use it to get a block blob reference. Once you have a blob reference, you can upload any stream of data to it by calling the **upload_from_stream** method. This operation will create the blob if it didn't previously exist, or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.  
 

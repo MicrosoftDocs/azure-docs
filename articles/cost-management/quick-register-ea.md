@@ -22,7 +22,7 @@ You use your Azure Enterprise Agreement to register with Azure Cost Management. 
 
 - Log in to the Azure portal at http://portal.azure.com.
 
-## Create a trial registration
+## Register with Azure Cost Management
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
