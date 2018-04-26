@@ -1,5 +1,5 @@
 ---
-title: Tutorial for calling Cognitive Search APIs in Azure Search | Microsoft Docs
+title: Tutorial for calling cognitive search APIs in Azure Search | Microsoft Docs
 description: Learn how natural language processing and AI-powered algorithms can transform unsearchable or unstructured files into searchable content during indexing. 
 manager: pablocas
 author: luiscabrer
@@ -10,27 +10,26 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-# Tutorial: Learn how to call Cognitive Search APIs (Preview)
+# Tutorial: Learn how to call cognitive search APIs (Preview)
 
-Learn the programming steps for enriching data through *cognitive skills* in an Azure Search indexing pipeline. Cognitive skills are natural language processing (NLP) and image analysis operations, based on the same AI algorithms behind Cognitive Services. Adding skills to indexing allows you to pull text from images, get a text interpretation of an image, detect and extract entities, language, key phrases, or integrate any custom classifiers and processing you require.
+Learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, and detect language, entities, key phrases, and more. The end result is additional rich searchable content in an Azure Search index. 
 
-In this tutorial, call the REST API to perform the following tasks:
+In this tutorial, make REST API calls to perfrom following tasks:
 
 > [!div class="checklist"]
-> * Create an enriched indexing pipeline that transforms data in route to an index
-> * Use built-in entity recognition, language detection, pagination, and key phrase extraction skills on a sample data set
-> * Learn how to chain skills together by mapping inputs to outputs
+> * Create an indexing pipeline that enriches source data in route to an index
+> * Use built-in entity recognition, language detection, text manipulation, and key phrase extraction skills on a sample data set
+> * Learn how to chain skills together by mapping inputs to outputs in a skillset
 > * Execute requests and review results
 > * Reset the index and indexers for further development
 
 Output is a full text searchable index on Azure Search. You can enhance the index with other standard capabilities, such as [synonyms](search-synonyms.md), [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analyzers](search-analyzers.md), and [filters](search-filters.md).
 
-> [!Note]
-> New to cognitive search? Read [What is cognitive search?](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for an introduction to important concepts.
->
-> If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+New to cognitive search? Read [What is cognitive search?](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a brief introduction to important concepts.
 
 To make REST calls to Azure Search, use PowerShell or a web test tool like Telerik Fiddler or Postman to formulate HTTP requests. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md).
 
@@ -64,7 +63,7 @@ First, sign up for the Azure Search service.
 
 ### Set up Azure Blob service and load sample data
 
-The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview). For this exercise, we use blob storage to showcase multiple content types.
+The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a very small file set of different types. 
 
