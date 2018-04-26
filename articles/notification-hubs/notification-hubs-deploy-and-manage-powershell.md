@@ -29,7 +29,6 @@ If you also need to create a new service bus namespace for your notification hub
 Managing Notifications Hubs is not supported directly by the cmdlets included with Azure PowerShell. The best approach from PowerShell is to reference the Microsoft.Azure.NotificationHubs.dll assembly. The assembly is distributed with the [Microsoft Azure Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 ## Prerequisites
-Before you begin this article, you must have the following:
 
 * An Azure subscription. Azure is a subscription-based platform. For more
   information about obtaining a subscription, see [Purchase Options],
@@ -72,7 +71,7 @@ catch [System.Exception]
 ## Create the NamespaceManager class
 To provision Notification Hubs, create an instance of the [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.namespacemanager.aspx) class from the SDK. 
 
-You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. We store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We use `$NamespaceManager` to provision a notification hub.
+You can use the [Get-AzureSBAuthorizationRule] cmdlet included with Azure PowerShell to retrieve an authorization rule that's used to provide a connection string. A reference to the `NamespaceManager` instance is stored in the `$NamespaceManager` variable. `$NamespaceManager` is used to provision a notification hub.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -96,7 +95,7 @@ In this part of the script, you set up four local variables.
 These variables are used to connect to your namespace and create a new Notification Hub configured to handle Windows Notification Services (WNS) notifications with WNS credentials for a Windows App. For information on obtaining the package SID and secret key see, the [Getting Started with Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) tutorial. 
 
 * The script snippet uses the `NamespaceManager` object to check to see if the Notification Hub identified by `$Path` exists.
-* If it does not exist, the script creates an `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
+* If it does not exist, the script creates `NotificationHubDescription` with WNS credentials and pass that to the `NamespaceManager` class `CreateNotificationHub` method.
 
 ``` powershell
 

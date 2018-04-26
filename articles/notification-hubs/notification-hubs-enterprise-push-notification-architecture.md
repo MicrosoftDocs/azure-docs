@@ -22,7 +22,7 @@ Enterprises today are gradually moving towards creating mobile applications for 
 
 A frequent requirement is for sending push notification to the users through their mobile application when an event of interest occurs in the backend systems. for example, a bank customer who has the bank's banking app on an iPhone wants to be notified when a debit is made above a certain amount from the account or an intranet scenario where an employee from finance department who has a budget approval app on a Windows Phone wants to be notified when the approval request is received.
 
-The bank account or approval processing is likely to be done in some backend system, which must initiate a push to the user. There may be multiple such backend systems, which must all build the same kind of logic to implement push when an event triggers a notification. The complexity here lies in integrating several backend systems together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications, for example,  in the case of intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems. The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component, which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.
+The bank account or approval processing is likely to be done in some backend system, which must initiate a push to the user. There may be multiple such backend systems, which must all build the same kind of logic to push when an event triggers a notification. The complexity here lies in integrating several backend systems together with a single push system where the end users may have subscribed to different notifications and there may even be multiple mobile applications. For example,  intranet mobile apps where one mobile application may want to receive notifications from multiple such backend systems. The backend systems do not know or need to know of push semantics/technology so a common solution here traditionally has been to introduce a component, which polls the backend systems for any events of interest and is responsible for sending the push messages to the client.
 
 A better solution is to use Azure Service Bus - Topic/Subscription model, which reduces the complexity while making the solution scalable.
 
@@ -49,7 +49,7 @@ The key piece in this architectural diagram is Azure Service Bus, which provides
 
 ## Sample:
 ### Prerequisites
-You should complete the following tutorials to familiarize with the concepts as well as common creation & configuration steps:
+Complete the following tutorials to familiarize with the concepts as well as common creation & configuration steps:
 
 1. [Service Bus Pub/Sub programming] - This tutorial explains the details of working with Service Bus Topics/Subscriptions, how to create a namespace to contain topics/subscriptions, how to send & receive messages from them.
 2. [Notification Hubs - Windows Universal tutorial] - This tutorial explains how to set up a Windows Store app and use Notification Hubs to register and then receive notifications.
@@ -206,7 +206,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
    
     ![][2]
    
-    f. Select your publishing profile and create a new Azure WebSite if it does not exists already, which hosts this WebJob and once you have the WebSite then **Publish**.
+    f. Select your publishing profile and create a new Azure WebSite if it does not exist already, which hosts this WebJob and once you have the WebSite then **Publish**.
    
     ![][3]
    
@@ -238,7 +238,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
         }
 
 ### Running sample:
-1. Ensure that your WebJob is running successfully and scheduled to "Run Continuously".
+1. Ensure that your WebJob is running successfully and scheduled to run continuously.
 2. Run the **EnterprisePushMobileApp, which starts the Windows Store app.
 3. Run the **EnterprisePushBackendSystem** console application, which simulates the LoB backend and starts sending messages and you should see toast notifications appearing like the following image:
    
