@@ -223,7 +223,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
 
 The code sample below shows how to poll the service for the status of the Job. Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
-Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
+Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Rout events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
@@ -260,7 +260,9 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 
 ### Get a streaming locator
 
-In Media Services, a StreamingLocator provides an entry point to access the files contained in an Asset. It also defines the time period for which a viewer or client application has access to that Asset. One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy name can be passed.
+To publish the Asset for streaming or download you create a StreamingLocator. By default, the locator is valid immediately and lasts until deleted unless you configure the optional start and end times. 
+
+One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy name can be passed.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
