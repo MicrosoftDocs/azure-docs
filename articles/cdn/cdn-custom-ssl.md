@@ -1,4 +1,4 @@
----
+﻿---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
@@ -37,9 +37,9 @@ Some of the key attributes of the HTTPS feature are:
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> - Enable the HTTPS protocol on your custom domain
-> - Validate the domain
-> - Disable the HTTPS protocol on your custom domain
+> - Enable the HTTPS protocol on your custom domain.
+> - Validate the domain.
+> - Disable the HTTPS protocol on your custom domain.
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ Your CNAME record should be in the following format, where *Name* is your custom
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
-For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/en-us/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
+For more information about CNAME records, see [Create the CNAME DNS record](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records).
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
@@ -221,15 +221,15 @@ The following table shows the operation progress that occurs when you disable HT
 
 ## Next steps
 
-What you learned:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> - Enabled the HTTPS protocol on your custom domain
-> - Validated the domain
-> - Disabled the HTTPS protocol on your custom domain
+> - Enable the HTTPS protocol on your custom domain.
+> - Validate the domain.
+> - Disable the HTTPS protocol on your custom domain.
 
 Advance to the next tutorial to learn how to configure caching on your CDN endpoint.
 
 > [!div class="nextstepaction"]
-> [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md)
+> [Tutorial: Set Azure CDN caching rules](cdn-caching-rules-tutorial.md)
 

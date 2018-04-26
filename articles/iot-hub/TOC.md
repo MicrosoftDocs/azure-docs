@@ -1,3 +1,4 @@
+# [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
 # [IoT Hub Documentation](index.md)
 
 # Overview
@@ -259,6 +260,7 @@
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
 
 # Reference
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
@@ -273,6 +275,20 @@
 ## [REST (Device Twins)](https://docs.microsoft.com/rest/api/iothub/devicetwinapi)
 ## [REST (Device Messaging)](https://docs.microsoft.com/rest/api/iothub/httpruntime)
 ## [REST (Jobs)](https://docs.microsoft.com/rest/api/iothub/jobapi)
+
+# Related
+## Solutions 
+### [Iot Suite Preconfigured Solutions](/azure/iot-suite) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+## Platform Services 
+### [IoT Hub](/azure/iot-hub) 
+### [IoT Hub Device Provisioning Service](/azure/iot-dps)
+### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
+### [Location Based Services](/azure/location-based-services) 
+### [Time Series Insights](/azure/time-series-insights) 
+## Edge 
+### [IoT Edge](/azure/iot-edge) 
+### [IoT Device SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # Resources
 ## [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/)

@@ -110,6 +110,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: How to enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Troubleshoot attached VHDs
       href: troubleshoot-vhds.md            
   - name: Networking

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure identity & access security best practices | Microsoft Docs
 description: This article provides a set of best practices for identity management and access control using built in Azure capabilities.
 services: security
@@ -49,7 +49,7 @@ One important step towards securing your identity is to ensure that IT can manag
 To accomplish this [hybrid identity](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) scenario we recommend two options:
 
 * Synchronize your on-premises directory with your cloud directory using Azure AD Connect
-* Enable single sign-on with [password hash synchronization](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [pass-through authentication](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) or federate your on-premises identity with your cloud directory using [Active Directory Federation Services](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
+* Enable single sign-on with [password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) or federate your on-premises identity with your cloud directory using [Active Directory Federation Services](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 Organizations that fail to integrate their on-premises identity with their cloud identity experience increased administrative overhead in managing accounts, which increases the likelihood of mistakes and security breaches.
 
