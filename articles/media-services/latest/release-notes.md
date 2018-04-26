@@ -38,6 +38,12 @@ The following features are present in the .Net SDK:
 5. **Assets** to store and publish media content in Azure Storage. 
 6. **StreamingEndpoints** to configure and scale dynamic packaging, encryption, and streaming for both live and on-demand media content.
 
+### Known issues
+
+Known issue:
+
+When submitting a Job with a HTTPS URL (JobInputHttp) pointing to the source content, make sure that the HTTP server supports the ‘HEAD’ request. Otherwise, the Job will be rejected.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
