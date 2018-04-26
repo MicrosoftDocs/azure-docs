@@ -14,16 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2018
-ms.author: mbaldwin
+ms.author: jmprieur
 ms.custom: aaddev
 
 ---
-# Azure Active Directory Code Samples (for the Azure AD V1 endpoint)
+# Azure Active Directory Code Samples (V1 endpoint)
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 You can use Microsoft Azure Active Directory (Azure AD) to add authentication and authorization to your web applications and web APIs. This section links you to samples for the Azure AD V1 endpoint.
 These samples show you how it's done along with code snippets that you can use in your applications. On the code sample page, you'll find detailed read-me topics that help with requirements, installation, and set-up. And the code is commented to help you understand the critical sections.
+
+> [!NOTE]
+> This article links to Azure AD V1 samples. If you are interested in Azure AD V2 samples, see  [v2.0 code samples by scenario](active-directory-v2-code-samples.md).
+>
 
 To understand the basic scenario for each sample type, see [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md).
 
