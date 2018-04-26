@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/25/2018
 ms.author: tomfitz
 ---
 
@@ -30,86 +30,65 @@ The following example shows the schema of an image pushed event:
 
 ```json
 [{
-  "topic": "",
-  "subject": "",
-  "eventType": "Microsoft.ContainerRegistry.ImagePushed",
-  "eventTime": "2018-04-20T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "aci-helloworld:v1",
+  "eventType": "ImagePushed",
+  "eventTime": "2018-04-25T21:39:47.6549614Z",
   "data": {
-    "id": "",
-    "timestamp": "",
-    "action": "",
+    "id": "31c51664-e5bd-416a-a5df-e5206bc47ed0",
+    "timestamp": "2018-04-25T21:39:47.276585742Z",
+    "action": "push",
     "target": {
-      "mediaType": "",
-      "size": ,
-      "digest": "",
-      "length": ,
-      "repository": "",
-      "url": "",
-      "tag": ""
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "size": 3023,
+      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
+      "length": 3023,
+      "repository": "aci-helloworld",
+      "tag": "v1"
     },
     "request": {
-      "id": "",
-      "addr": "",
-      "host": "",
-      "method": "",
-      "useragent": ""
-    },
-    "actor": {
-      "name": ""
-    },
-    "source": {
-      "addr": "",
-      "instanceID": ""
-    },
+      "id": "7c66f28b-de19-40a4-821c-6f5f6c0003a4",
+      "host": "demo.azurecr.io",
+      "method": "PUT",
+      "useragent": "docker/18.03.0-ce go/go1.9.4 git-commit/0520e24 os/windows arch/amd64 UpstreamClient(Docker-Client/18.03.0-ce \\\\(windows\\\\))"
+    }
   },
-  "dataVersion": "",
+  "dataVersion": "1.0",
   "metadataVersion": "1"
 }]
 ```
 
-The schema for an image deleted event is similar: 
+The schema for an image deleted event is similar:
 
 ```json
 [{
-  "topic": "",
-  "subject": "",
-  "eventType": "Microsoft.ContainerRegistry.ImageDeleted",
-  "eventTime": "2018-04-20T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
+  "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<name>",
+  "subject": "aci-helloworld",
+  "eventType": "ImageDeleted",
+  "eventTime": "2018-04-26T17:56:01.8211268Z",
   "data": {
-    "id": "",
-    "timestamp": "",
-    "action": "",
+    "id": "f06e3921-301f-42ec-b368-212f7d5354bd",
+    "timestamp": "2018-04-26T17:56:00.996603117Z",
+    "action": "delete",
     "target": {
-      "mediaType": "",
-      "size": ,
-      "digest": "",
-      "length": ,
-      "repository": "",
-      "url": "",
-      "tag": ""
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "digest": "sha256:213bbc182920ab41e18edc2001e06abcca6735d87782d9cef68abd83941cf0e5",
+      "repository": "aci-helloworld"
     },
     "request": {
-      "id": "",
-      "addr": "",
-      "host": "",
-      "method": "",
-      "useragent": ""
-    },
-    "actor": {
-      "name": ""
-    },
-    "source": {
-      "addr": "",
-      "instanceID": ""
-    },
+      "id": "aeda5b99-4197-409f-b8a8-ff539edb7de2",
+      "host": "demo.azurecr.io",
+      "method": "DELETE",
+      "useragent": "python-requests/2.18.4"
+    }
   },
-  "dataVersion": "",
+  "dataVersion": "1.0",
   "metadataVersion": "1"
 }]
 ```
- 
+
 ## Event properties
 
 An event has the following top-level data:
