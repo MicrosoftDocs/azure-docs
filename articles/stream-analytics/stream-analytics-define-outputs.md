@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ---
 # Stream Analytics outputs: Options for storage and analysis
-When authoring a Stream Analytics job, consider how the resulting data is consumed. How can you view the results of the Stream Analytics job and where can you store it?
+This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. Using the output data, you can do further business analytics and data warehousing of your data. You design your Stream Analytics query to refer to the name of an output in the query language [INTO clause](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need.
 
-In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job doesn't create a storage account automatically. Create a storage account before the Stream Analytics job is started.
+You can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job),  [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md) to create, edit, and test Stream Analytics job outputs.
+
 
 ## Azure Data Lake Store
-Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Further, Stream Analytics needs to be authorized to access the Data Lake Store.
+Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access the Data Lake Store.
 
 ### Authorize an Azure Data Lake Store account
 
@@ -24,7 +25,7 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 
    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
-2. If you already have access to Data Lake Store, click “Authorize Now” and a page will pop up indicating “Redirecting to authorization”. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.  
+2. If you already have access to Data Lake Store, select **Authorize Now** and a page pops up indicating **Redirecting to authorization**. After authorization succeeds, you are presented with the page that allows you to configure the Data Lake Store output.
 
 3. Once you have the Data Lake Store account authenticated, you can configure the properties for your Data Lake Store output. The table below is the list of property names and their description to configure your Data Lake Store output.
 
@@ -76,9 +77,9 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 </table>
 
 ### Renew Data Lake Store Authorization
-You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job will not output results and an error indicating the need for re-authorization is logged in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
+You need to reauthenticate your Data Lake Store account if its password has changed since your job was created or last authenticated. If you don't reauthenticate, your job will not output results and an error indicating the need for reauthorization is logged in the Operation Logs. Currently, there is a limitation where the authentication token needs to be manually refreshed every 90 days for all jobs with Data Lake Store output. 
 
-To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating “Redirecting to authorization..”. The page will automatically close and if successful, will indicate “Authorization has been successfully renewed”. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
+To renew authorization, **Stop** your job > go to your Data Lake Store output > click the **Renew authorization** link, and for a brief time a page will pop up indicating **Redirecting to authorization...**. The page automatically closes and if successful, indicates **Authorization has been successfully renewed**. You then need to click **Save** at the bottom of the page, and can proceed by restarting your job from the **Last Stopped Time** to avoid data loss.
 
 ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 
@@ -159,7 +160,7 @@ The table below lists the property names and their description for creating a bl
 
 When using blob storage as output, a new file is created in the blob in the following cases:
 
-* If the file exceeds the maximum number of allowed blocks (Note that the maximum allowed number of blocks might be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.)  
+* If the file exceeds the maximum number of allowed blocks. The maximum allowed number of blocks may be reached without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
 * If there is a schema change in the output, and the output format requires fixed schema (CSV and Avro).  
 * If a job is restarted either externally or internal restart of a job.  
 * If the query is fully partitioned, new file is created for each output partition.  
@@ -191,9 +192,11 @@ There are a few parameters that are needed to configure Event Hub data streams a
 1. When Power BI is selected as an output in the Azure portal, you are prompted to authorize an existing Power BI User or to create a new Power BI account.  
    
    ![Authorize Power BI User](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
-2. Create a new account if you don’t yet have one, then click Authorize Now.  A screen like the following is presented.  
+
+2. Create a new account if you don’t yet have one, then click Authorize Now.  The following page is shown:
    
    ![Azure Account Power BI](./media/stream-analytics-define-outputs/02-stream-analytics-define-outputs.png)  
+
 3. In this step, provide the work or school account for authorizing the Power BI output. If you are not already signed up for Power BI, choose Sign up now. The work or school account you use for Power BI could be different from the Azure subscription account, which you are currently logged in with.
 
 ### Configure the Power BI output properties
@@ -206,7 +209,7 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Dataset Name |Provide a dataset name that it is desired for the Power BI output to use |
 | Table Name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
 
-For a walk-through of configuring a Power BI output and dashboard, please see the [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) article.
+For a walk-through of configuring a Power BI output and dashboard, see the [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) article.
 
 > [!NOTE]
 > Do not explicitly create the dataset and table in the Power BI dashboard. The dataset and table is automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t generate any results, the dataset, and table isn't created. Note that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
@@ -245,11 +248,11 @@ Datetime | String | String |  Datetime | String
 
 
 ### Renew Power BI Authorization
-You need to reauthenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
+If your Power BI account password changes after your Stream Analytics job was created or last authenticated, you need to reauthenticate the Stream Analytics. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you also need to renew Power BI authorization every two weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:
 
   ![Power BI refresh token error](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)  
 
-To resolve this issue, stop your running job and go to your Power BI output.  Click the “Renew authorization” link, and restart your job from the Last Stopped Time to avoid data loss.
+To resolve this issue, stop your running job and go to your Power BI output.  Select the **Renew authorization** link, and restart your job from the **Last Stopped Time** to avoid data loss.
 
   ![Power BI renews authorization](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
@@ -360,7 +363,7 @@ The following table summarizes the partition support and the number of output wr
 | Azure Functions | No | None | Not applicable. | 
 
 ## Output batch sizes 
-Stream Analytics uses a variable size batches to process events and write to outputs. Typically the Stream Analytics engine does not write one message at a time, and uses batches for efficiency. When both the incoming and the outgoing events rate is high, it can batching agressively. When the egress rate is low, it can use batches to keep latency low. 
+Azure Stream Analytics uses variable size batches to process events and write to outputs. Typically the Stream Analytics engine does not write one message at a time, and uses batches for efficiency. When both the incoming and the outgoing events rate is high, it uses larger batches. When the egress rate is low, it uses smaller batches to keep latency low. 
 
 The following table explains some of the considerations to output batching:
 
