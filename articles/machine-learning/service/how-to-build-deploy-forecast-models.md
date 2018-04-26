@@ -13,22 +13,18 @@ ms.date: 05/07/2018
 
 # Build and deploy forecasting models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Forecasting** to build and deploy a forecasting model. 
+In this article, learn how to use **Azure Machine Learning Package for Forecasting** (AMLPF) to build and deploy a forecasting model. 
 
-The model building and deployment workflow is as follows:
+The model building and deployment workflow for forecasting models is as follows:
 
-1. **Ingest Data**: Load the dataset and convert it into TimeSeriesDataFrame. This dataframe is a time series data structure provided by Azure Machine Learning Package for Forecasting, herein referred to as **AMLPF**.
-
-2. **Create Features**: Use various featurization transformers provided by AMLPF to create features.
-
-3. **Train and Select Best Model**: Compare the performance of various univariate time series models and machine learning models. 
-
-4. **Deploy Model**: Deploy the trained model pipeline as a web service via Azure Machine Learning Workbench so it can be consumed by others.
-
+1. Ingest data
+2. Create features
+3. Train and select the best model
+4. Deploy  the model and consume the web service
 
 Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
 
-## Prerequisites 
+## Prerequisites
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -37,11 +33,37 @@ Consult the [package reference documentation](https://docs.microsoft.com/python/
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If these three are not yet created or installed, follow the [Quickstart: Install and start](../service/quickstart-installation.md) article. 
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
 
-1. The Azure Machine Learning Package for Forecasting must be [installed](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
+1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
-1. The following dependencies should be imported or loaded.
+## Sample data and notebook
+
+### Sample workflow 
+The example follows the workflow:
+ 
+1. **Ingest Data**: Load the dataset and convert it into TimeSeriesDataFrame. This dataframe is a time series data structure provided by Azure Machine Learning Package for Forecasting, herein referred to as **AMLPF**.
+
+2. **Create Features**: Use various featurization transformers provided by AMLPF to create features.
+
+3. **Train and Select Best Model**: Compare the performance of various univariate time series models and machine learning models. 
+
+4. **Deploy Model**: Deploy the trained model pipeline as a web service via Azure Machine Learning Workbench so it can be consumed by others.
+
+### Get the notebook
+
+Try it out yourself. Download the notebook and run it yourself.
+
+> [!div class="nextstepaction"]
+> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
+
+### Explore the sample data
+
+This examples in this article show you how to perform machine learning sales forecasting using the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area. 
+
+### Import any dependencies for this sample
+
+The following dependencies should be imported for the example in the rest of the article.
 
     ```python
     ### Import dependencies for example ###
@@ -84,12 +106,6 @@ Consult the [package reference documentation](https://docs.microsoft.com/python/
     from ftk.data.weather.noaa_weather_data import get_a_year_of_daily_weather_data
     ```
 
-## Sample dataset and notebook
-
-This following sections show you how to perform machine learning sales forecasting using the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area. 
-
-> [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
  
 ## Load data and explore
 
