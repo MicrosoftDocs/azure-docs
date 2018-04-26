@@ -76,7 +76,7 @@ Create a resource group with [az group create](/cli/azure/group#az_group_create)
 az group create --name myResourceGroup --location centralus
 ```
 
-You must select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
+Select a supported Linux region listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview).
 
 Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* with one subnet:
 
@@ -139,7 +139,7 @@ az network nic create \
 ```
 
 ## Create a VM and attach the NIC
-When you create the VM, specify the NIC you created with `--nics`. You must select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
+When you create the VM, specify the NIC you created with `--nics`. Select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
 
