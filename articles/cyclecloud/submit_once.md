@@ -33,7 +33,6 @@ Before installing and configuring SubmitOnce, please verify that your HPC enviro
 7. *Either:*
 
    - A common directory on the shared filesystem of all clusters owned by the functional user
-     account (cycle_server by default) and world readable (see: $SO_HOME in the setup section below)
-**OR**
+     account (cycle_server by default) and world readable (see: $SO_HOME in Installation and Configuration), **OR**
    - At least one execute slot on the Submitter host and the "slot_type=master" complex
-     applied to that host
+     applied to that host.

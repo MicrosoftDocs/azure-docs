@@ -50,7 +50,7 @@ SubmitOnce will create additional directories for it's own use as needed.  After
 
 For CycleCloud clusters, it is strongly recommended to enable automatic cluster monitoring in the CycleCloud application settings. With automatic cluster monitoring enabled, new CycleCloud GridEngine clusters will automatically be configured for submitonce upon cluster startup. To configure SubmitOnce for existing (on-premise or other non-CycleCloud) clusters, setup the cluster using either the command line `add_cluster` command or by configuring a QMaster using the CycleServer UI.
 
-## Adding a Cluster via the Command Line Interface
+## Adding a Cluster via Command Line Interface
 
 This guide documents the complete setup process via the GUI and is a useful reference for making changes to the SubmitOnce data-structures after initial configuration.
 
@@ -86,7 +86,7 @@ SubmitOnce uses CycleServer's file transfer functionality to send data back and 
 
     - Add the following value to "RSync Options":
 
-    ={"--owner","--group","--numeric-ids"}
+      ={"--owner","--group","--numeric-ids"}
 
 3. Click the "Ok" button to close the advanced dialog box, then click "Save" to save your changes.
 
@@ -94,7 +94,7 @@ SubmitOnce uses CycleServer's file transfer functionality to send data back and 
 
 SubmitOnce uses the Data Management file transfer features to move job input & results to and from remote clusters. In order for these transfers to work, we must setup a file transfer endpoint in each cluster.
 
-Log into the CycleServer web interface as an administrator, navigate to the "Data Browser" and select "Endpoints" in the types table. This will bring up a list of configured endpoints. First, we will define the host which CycleServer is running on. Click the 'Create' link above the enpoints table and enter the following information:
+Log into the CycleServer web interface as an administrator, navigate to the "Data Browser" and select "Endpoints" in the types table. This will bring up a list of configured endpoints. First, we will define the host which CycleServer is running on. Click the 'Create' link above the endpoints table and enter the following information:
 
 | Attribute    | Example Value           | Description                                                        |
 | ------------ | ----------------------- | ------------------------------------------------------------------ |
@@ -111,8 +111,7 @@ For each cluster, configure a remote host which will handle file transfer. By co
 | Name         | my_cluster                             | The name of the cluster that this host is for.                                                    |
 | Address      | my_host.example.com                    | The fully-qualified hostname of the remote host.                                                  |
 | Username     | cycle_server                           | The user that will be initiating the rsync command (in this example, that user is cycle_server).  |
-| SshKeyPath   | ~cycle_server/.ssh/id_rsa_my_host      | Absolute path to an SSH key which the cycle_server user can use for
-passwordless SSH.             |
+| SshKeyPath   | ~cycle_server/.ssh/id_rsa_my_host      | Absolute path to an SSH key which the cycle_server user can use for passwordless SSH.             |
 | AllowedPaths | ={“/shared”, “/home”}                  | A list of paths on remote hosts under which transfers are allowed.                                |
 
 ## Configure Recurring Syncs
@@ -133,8 +132,7 @@ For each cluster, configure a recurring sync. Click the "Data > Recurring Syncs"
 | Source Path      | $SO_HOME/tickets/        | An absolute path to look for ticket files on the remote host.                                                                                                            |
 | Destination Path | $SO_HOME/tickets/        | An absolute path to look for ticket files on the local host.                                                                                                             |
 | Recursive        | checked                  | Recurse into subdirectories when performing file transfer.                                                                                                               |
-| rsync options    | -delete                  | Additional options passed to the rsync command. In this case, the –delete
-flag will remove files that exist in the destination directory but not the
+| rsync options    | -delete                  | Additional options passed to the rsync command. In this case, the –delete flag will remove files that exist in the destination directory but not the
 source directory.   |
 
 ## Configure QMasters
