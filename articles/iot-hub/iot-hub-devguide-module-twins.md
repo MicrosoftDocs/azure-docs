@@ -324,8 +324,7 @@ Versions are also useful when an observing agent (such as the module app observi
 ## Next steps
 To try out some of the concepts described in this article, see the following IoT Hub tutorials:
 
-* [How to use the device twin][lnk-twin-tutorial]
-* [How to use device twin properties][lnk-twin-properties]
+* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-module-twin-tutorial]
 
 <!-- links and images -->
 
@@ -343,8 +342,7 @@ To try out some of the concepts described in this article, see the following IoT
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232
 
-[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
-[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-module-twin-tutorial]: iot-hub-csharp-csharp-module-twin-getstarted.md
 [lnk-module-twin-metadata]: iot-hub-devguide-module-twins.md#module-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [img-module-twin]: media/iot-hub-devguide-device-twins/module-twin.jpg
