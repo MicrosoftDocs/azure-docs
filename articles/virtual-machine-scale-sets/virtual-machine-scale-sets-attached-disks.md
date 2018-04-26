@@ -89,7 +89,7 @@ To automatically prepare the data disk(s) in a Linux cluster, add the following:
 
 
 ## Adding pre-populated data disks to an existing scale set
-Data disks specified in the scale set model are always empty. However, you may attach an existing data disk to a specific VM in a scale set. This feature is in preview, with examples on [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). If you wish to propagate data across all VMs in the scale set, you may duplicate your data disk and attach it to each VM in the scale set you may create a custom image that contains the data and provision the scale set from this custom image, or you may use Azure Files or a similar data storage offering.
+Data disks specified in the scale set model are always empty. However, you may attach an existing data disk to a specific VM in a scale set. This feature is in preview, with examples on [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk). If you wish to propagate data across all VMs in the scale set, you may duplicate your data disk and attach it to each VM in the scale set, you may create a custom image that contains the data and provision the scale set from this custom image, or you may use Azure Files or a similar data storage offering.
 
 
 ## Additional notes
