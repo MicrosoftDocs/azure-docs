@@ -90,7 +90,7 @@ When processing content in Media Services, it is a common pattern to set up the 
 
 #### Transform
 
-When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used. This preset enables you to extract multiple audio and video insights from a video file. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from an audio or video file. 
+When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor. This preset enables you to extract multiple audio and video insights from a video file. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from an audio or video file. 
 
 When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
 
@@ -153,7 +153,7 @@ The job takes some time to complete and when it does you want to be notified. Th
 
 Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
-Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.
+Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events. See [Rout events to a custom web endpoint](job-state-events-cli-how-to.md).
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
