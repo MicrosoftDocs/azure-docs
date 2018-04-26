@@ -1,6 +1,6 @@
 ---
-title: Images in Cognitive Search in Azure Search | Microsoft Docs
-description: Dealing with Images in Cognitive Search
+title: Process and extract text from images in Azure Search | Microsoft Docs
+description: Process and extract text and other information from images in cognitive search pipelines in Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -12,15 +12,13 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-#  Process and extract information from images in cognitive search scenarios
+#  How to process and extract information from images in cognitive search scenarios
 
-Cognitive search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. 
-
-Other scenarios include generating text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+Cognitive search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
 This article covers image processing in more detail and provides guidance for working with images in a cognitive search pipeline.
 
-<a name="get-normalized-images></a>
+<a name="get-normalized-images"></a>
 
 ## Get normalized images
 
