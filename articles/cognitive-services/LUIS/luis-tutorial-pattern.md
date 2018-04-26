@@ -212,7 +212,7 @@ This tutorial imports a HumanResources app. The app has three intents: None, Get
 
 3. On the LUIS **Apps** page, select **Import new app**. 
 
-4. In the **Import new app** dialog, select the `HomeAutomation.json` file you created in step 1.
+4. In the **Import new app** dialog, select the `HumanResources.json` file you created in step 1.
 
 5. Select the **GetEmployeeOrgChart** intent, then change from **Entities view** to **Tokens view**. Several example utterances are listed. Each utterance contains a name, which is an Employee entity. Notice that each name is different and that the arrangement of the wording is different for each utterance. This diversity helps LUIS learn a wide range of utterances.
 
