@@ -1,7 +1,9 @@
-
-- name: Custom Vision Documentation
+- name: Custom Vision Service Documentation
+  href: index.md
 - name: Overview
-  href: home.md
+  items:
+  - name: About Custom Vision Service
+    href: home.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -23,17 +25,27 @@
     href: python-tutorial.md
 - name: Reference
   items:
-  - name: Custom Vision Prediction API Reference 
-    href: https://go.microsoft.com/fwlink/?linkid=865445
-  - name: Custom Vision Training API Reference  
+  - name: Custom Vision Training API  
     href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Custom Vision Prediction API 
+    href: https://go.microsoft.com/fwlink/?linkid=865445
   - name: Limits and quotas
     href: limits-and-quotas.md
   - name: Glossary
     href: glossary-of-terms.md
-  - name: SDK
-    href: http://github.com/Microsoft/Cognitive-CustomVision-Windows/
+  - name: SDKs
+    items:
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python
+    - name: Windows
+      href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
 - name: Resources
   items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
