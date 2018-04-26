@@ -2588,8 +2588,6 @@ webservice_fcst_errors
 
 For more information about the Azure Machine Learning Package for Forecasting:
 
-+ Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-forecasting-models.md).
-
 + Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
 + Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
