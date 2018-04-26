@@ -147,7 +147,7 @@ The following example shows a success response to a request for an access token 
 ```
 
 > [!NOTE]
-> Notice that the above access token a V1-formatted token.  This is because the token is provided based on the resource being accessed.  The Microsoft Graph requests V1 tokens, so Azure AD produces V1 access tokens when a client requests tokens for Microsoft Graph.  
+> Notice that the above access token is a V1-formatted token.  This is because the token is provided based on the resource being accessed.  The Microsoft Graph requests V1 tokens, so Azure AD produces V1 access tokens when a client requests tokens for Microsoft Graph.  Only applications should look at access tokens - clients should not need to inspect them. 
 
 
 ### Error response example
