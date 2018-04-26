@@ -13,7 +13,7 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. Consult the [full package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. 
 
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
@@ -29,18 +29,20 @@ When building and deploying this model, you go through the following steps:
 
 [CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
 
-## Prerequisites 
+Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for the detailed reference for each module and class.
+
+## Prerequisites
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You need to install the Azure Machine Learning Package for Computer Vision.
-
-1. You also need:
+1. The following accounts and application must be set up and installed:
    - An Azure Machine Learning Experimentation account 
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
+
+1. The Azure Machine Learning Package for Computer Vision must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision).
 
 ## Sample dataset and Jupyter notebook
 
@@ -658,10 +660,10 @@ print("Class label:", dnn_model.class_map[class_index])
 
 For information about the Azure Machine Learning Package for Computer Vision:
 
-+ Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md)
++ Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision)
++ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision).
 
-+ Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision)
++ Explore the [reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) for this package.
 
-+ Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md)
++ Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).

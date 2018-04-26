@@ -13,9 +13,11 @@ ms.date: 05/07/2018
 
 # Build and deploy text classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. Consult the [full package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for detailed reference for each class.
+In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. 
 
-There are broad applications of text classification: categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a basic traditional text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a web service using twitter sentiment dataset using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
+There are broad applications of text classification: categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
+
+The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a basic traditional text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a web service using twitter sentiment dataset using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
 
 When building and deploying this text classification model, follow these steps:
 1. Load the training dataset
@@ -27,18 +29,21 @@ When building and deploying this text classification model, follow these steps:
 7. Test the pipeline
 8. Deploy the model as a web service
 
+Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for the detailed reference for each module and class.
+
+
 ## Prerequisites 
 
 1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-1. You need to [install](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) the Azure Machine Learning Package for Text Analytics.
-
-1. You also need:
-   - An Azure Machine Learning Experimentation account 
+1. The following accounts and application must be set up and installed:
+   - Azure Machine Learning Experimentation account 
    - An Azure Machine Learning Model Management account
    - Azure Machine Learning Workbench installed
 
-   If you don't have these prerequisites already, follow the steps in the [Quickstart: Install and start](../service/quickstart-installation.md) article to set up your accounts and install the Azure Machine Learning Workbench application. 
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
+
+1. The Azure Machine Learning Package for Text Analytics must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics).
 
 ## Sample dataset and Jupyter notebook
 
@@ -764,8 +769,8 @@ prediction
 
 For information about the Azure Machine Learning Package for Text Analytics:
 
-+ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics)
++ Read the [package overview and learn how to install it](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics).
 
-+ Explore the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics)
++ Explore the [reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/text-analytics) for this package.
 
-+ Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md)
++ Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
