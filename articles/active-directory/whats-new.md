@@ -68,8 +68,8 @@ When configuring SAML based SSO applications you are able to test the integratio
 
 For more information, see:
 
-- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
-- [How to debug SAML-based single sign-on to applications in Azure Active Directory](active-directory-saml-debugging.md)
+- [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)
+- [How to debug SAML-based single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
 
 
 ---
@@ -121,7 +121,7 @@ On the Enterprise applications page, administrators can upload a SAML metadata f
 
 Additionally, you can use Azure AD application federation metadata URL to configure SSO with the targeted application.
 
-For more information, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md).
+For more information, see [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps).
  
 
 ---
