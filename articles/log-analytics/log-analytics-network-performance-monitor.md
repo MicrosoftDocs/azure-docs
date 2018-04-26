@@ -1,4 +1,4 @@
----
+﻿---
 title: Network Performance Monitor solution in Azure | Microsoft Docs
 description: Network Performance Monitor in Azure helps you monitor the performance of your networks, in near real time, to detect and locate network performance bottlenecks.
 services: log-analytics
@@ -248,9 +248,9 @@ All data that is exposed graphically through the Network Performance Monitor das
 
 ## Alerts
 
-Network Performance Monitor uses the alerting capabilities of [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-This means that all alerting is managed using [action groups](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+This means that all alerting is managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 If you are an NPM user creating an alert via OMS: 
 1. You will see a link that will redirect you to Azure Portal. Click it to access the portal.
@@ -261,7 +261,7 @@ If you are an NPM user creating an alert via OMS:
 If you are an NPM user creating an alert via Azure Portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
 2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
-3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 ##Pricing
