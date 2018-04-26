@@ -59,7 +59,7 @@ Now that you've established the connection, you have several different options w
 
 > [!TIP]
 > If you want to connect other Excel workbooks and worksheets to the database, select the **Data** tab, and select **Recent Sources** to launch the **Recent Sources** dialog box. From there, choose the connection you created from the list, and then click **Open**.
-> ![Open a connection from another workbook](./media/sql-database-connect-excel/open-from-another-workbook.png)
+> ![Recent Connections](media/sql-database-connect-excel/recent-connections.png)
  
 ## Create a permanent connection using .odc file
 To save the connection details permanently, you can create an .odc file and make this connection a selectable option within the **Existing Connections** dialog box. 
