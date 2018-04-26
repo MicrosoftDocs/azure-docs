@@ -147,7 +147,7 @@
       href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
     - name: Field mappings in indexers
       href: search-indexer-field-mappings.md
-    - name: Re-index existing indexes
+    - name: Reindexing and parallel indexing
       href: search-howto-reindex.md 
   - name: Cognitive search (Preview)
     items:
@@ -163,7 +163,7 @@
       href: cognitive-search-custom-skill-interface.md
     - name: Example - custom skills
       href: cognitive-search-create-custom-skill-example.md
-    - name: Troubleshooting guide
+    - name: Tips and troubleshooting
       href: cognitive-search-concept-troubleshooting.md
   - name: Full text search
     items:

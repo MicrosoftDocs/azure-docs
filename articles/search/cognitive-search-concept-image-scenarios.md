@@ -100,7 +100,7 @@ The OCR skill allows you to select the algorithm to use for detecting text in yo
 In this scenario, create a single string containing all file contents, both text and image-origin text, by performing the following steps:  
 
 1. [Extract normalized_images](#get-normalized-images)
-1. Run the OCR skill using `"\document\normalized_images"` as input
+1. Run the OCR skill using `"/document/normalized_images"` as input
 1. Merge the text representation of those images with the raw text extracted from the file. You can use the [Text Merge](cognitive-search-skill-textmerger.md) skill to consolidate both text chunks into a single large string.
 
 The following example skillset creates a *merged_text* field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 

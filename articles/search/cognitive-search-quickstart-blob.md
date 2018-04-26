@@ -1,6 +1,6 @@
 ---
-title: Quickstart cognitive search preview in Azure Search | Microsoft Docs
-description: Learn how to use natural language processing (NLP) and AI-powered pretrained models for transforming unstructured data into searchable content during indexing. Build a cognitive search solution in Azure Search. 
+title: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs
+description: Use the portal to enrich Azure Search indexing through cognitive skills, applied to source data during indexing. 
 manager: cgronlun
 author: HeidiSteen
 ms.service: search
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
 ---
-# Quickstart: Add pre-defined cognitive skills to indexing in a portal walkthrough
+# Quickstart: Create a cognitive search pipeline in the portal
 
 Cognitive search (preview) adds natural language processing (NLP) and image processing to an Azure Search indexing pipeline, making unsearchable, unstructured content both searchable, and structured. 
 

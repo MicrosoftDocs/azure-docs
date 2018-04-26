@@ -21,14 +21,16 @@ The following articles are the complete documentation for cognitive search.
 + [Cognitive search overview](cognitive-search-concept-intro.md)
 + [Quickstart: Try cognitive search (Portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial: Enriched indexing of Azure blobs](cognitive-search-tutorial-blob.md)
++ [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
 
 ## How-to guidance
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md)
 + [How to map fields](cognitive-search-output-field-mapping.md)
-+ [How to re-index an Azure Search index](search-howto-reindex.md)
++ [How to process and extract information from images](cognitive-search-concept-image-scenarios.md)
++ [How to reindex an Azure Search index](search-howto-reindex.md)
 + [How to define a custom skills interface](cognitive-search-custom-skill-interface.md)
-+ [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
++ [Tips and troubleshooting](cognitive-search-concept-troubleshooting.md)
 
 ## Reference
 
