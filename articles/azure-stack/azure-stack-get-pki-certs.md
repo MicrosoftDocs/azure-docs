@@ -65,10 +65,23 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     ````PowerShell  
     $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
     ````
+4.  Declare identify system
 
-4. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
+    Azure Active Directory
 
-    ```PowerShell  
+    ```PowerShell
+    $IdentitySystem = "AAD"
+    ````
+
+    Active Directory Federation Services
+
+    ```PowerShell
+    $IdentitySystem = "ADFS"
+    ````
+
+5. Declare **region name** and an **external FQDN** intended for the Azure Stack deployment.
+
+    ```PowerShell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ````
@@ -76,19 +89,23 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     > [!note]  
     > `<regionName>.<externalFQDN>` forms the basis on which all external DNS names in Azure Stack are created, in this example, the portal would be `portal.east.azurestack.contoso.com`.
 
-5. To generate a single certificate request with multiple Subject Alternative Names including those needed for PaaS services:
+6. To generate a single certificate request with multiple Subject Alternative Names:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-6. To generate individual certificate signing requests for each DNS name without PaaS services:
+    To include PaaS Services specify the switch ```-IncludePaaS```
+
+7. To generate individual certificate signing requests for each DNS name:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-7. Review the output:
+    To include PaaS Services specify the switch ```-IncludePaaS```
+
+8. Review the output:
 
     ````PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
@@ -106,9 +123,8 @@ Use these steps to prepare and validate the Azure Stack PKI certificates:
     AzsReadinessChecker Completed
     ````
 
-8.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
+9.  Submit the **.REQ** file generated to your CA (either internal or public).  The output directory of **Start-AzsReadinessChecker** contains the CSR(s) necessary to submit to a Certificate Authority.  It also contains a child directory containing the INF file(s) used during certificate request generation, as a reference. Be sure that your CA generates certificates using your generated request that meet the [Azure Stack PKI Requirements](azure-stack-pki-certs.md).
 
 ## Next steps
 
 [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md)
-
