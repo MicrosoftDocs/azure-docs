@@ -120,6 +120,8 @@ The result is a list of instance IDs and their current runtime status.
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
+#### C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -133,6 +135,22 @@ public static async Task Run(
     await ctx.CallActivityAsync("F3");
     log.Info("Done!");
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context){
+    context.log("Calling F1.");
+    yield context.df.callActivityAsync("F1");
+    context.log("Calling F2.");
+    yield context.df.callActivityAsync("F2");
+    context.log("Calling F3.");
+    yield context.df.callActivityAsync("F3");
+    context.log("Done!");
+});
 ```
 
 The resulting log data is going to look something like the following:
@@ -177,6 +195,9 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+> [!NOTE]
+> The `IsReplaying` property is not yet available in JavaScript.
 
 ## Debugging
 
