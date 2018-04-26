@@ -254,8 +254,6 @@ Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 
 Alternatively, you can delete the resource group [from the portal](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources).
 
-<!--
 ## Next steps
 
-Explore the [samples](xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx) for Service Fabric Mesh.
--->
+Explore the [samples](https://github.com/Azure/seabreeze-preview-pr/tree/master/samples) for Service Fabric Mesh.
