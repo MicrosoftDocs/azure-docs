@@ -40,7 +40,7 @@ Full database backups happen weekly, differential database backups generally hap
 The backup storage geo-replication occurs based on the Azure Storage replication schedule.
 
 ## How long do you keep my backups?
-Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing Model)](sql-database-service-tiers-vcore.md). 
+Each SQL Database backup has a retention period that is based on the service tier of the database, and differs between the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md). 
 
 
 ### Database Retention for DTU-based purchasing model
@@ -63,7 +63,7 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL Databases, all databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server.
 
-### Database Retention for the vCore-based purchasing model
+### Database Retention for the vCore-based purchasing model (preview)
 
 Storage for database backups is allocated to support the Point in Time Restore (PITR) and Long Term Retention (LTR) capabilities of SQL Database. This storage is allocated separately for each database and billed as two separate per-database charges. 
 
@@ -74,7 +74,7 @@ Storage for database backups is allocated to support the Point in Time Restore (
 
 If your application requires that the backups are available for longer period of time than the maximum PITR backup retention period, you can configure a Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from maximum 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-Once you add the LTR policy to a database using Azure portal or API, the weekly full database backups will be automatically copied to a separate RA-GRS storage container for long-term retention (LTR storage). If your database is encrypted with TDE the backups are automatically encrypted at rest. SQL Database will automatically delete your expired backups based on their timestamp and the LTR policy. After the policy is set up, you don't need to manage the backup schedule or worry about the cleanup of the old files. You can use the Azure portal or PowerShell to view, restore or delete these backups.
+Once you add the LTR policy to a database using Azure portal or API, the weekly full database backups will be automatically copied to a separate RA-GRS storage container for long-term retention (LTR storage). If your database is encrypted with TDE the backups are automatically encrypted at rest. SQL Database will automatically delete your expired backups based on their timestamp and the LTR policy. After the policy is set up, you don't need to manage the backup schedule or worry about the cleanup of the old files. You can use the Azure portal or PowerShell to view, restore, or delete these backups.
 
 ## Are backups encrypted?
 

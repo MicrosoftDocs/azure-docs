@@ -16,15 +16,15 @@ ms.author: carlrab
 Azure SQL Database provides [recommendations](sql-database-advisor.md) that you can use to improve performance of your database, or you can let Azure SQL Database [automatically adapt to your application](sql-database-automatic-tuning.md) and apply changes that will improve performance of your workload.
 
 In you don't have any applicable recommendations, and you still have performance issues, you might use the following methods to improve performances:
-1. Increase the service tiers in your [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or your [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview) to provide more resources to your database.
-2. Tune your application and apply some best practices that can improve performance. 
-3. Tune the database by changing indexes and queries to more efficiently work with data.
+- Increase the service tiers in your [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or your [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) to provide more resources to your database.
+- Tune your application and apply some best practices that can improve performance. 
+- Tune the database by changing indexes and queries to more efficiently work with data.
 
 These are manual methods because you need to decide what [DTU-based model resource limits](sql-database-dtu-resource-limits.md) and [vCore-based model resource limits (preview)](sql-database-vcore-resource-limits.md) meet your needs. Otherwise, you would need to rewrite the application or database code and deploy the changes.
 
 ## Increasing performance tier of your database
 
-Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
+Azure SQL Database offers two purchasing models, a [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and a [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) that you can choose from. Each service tier strictly isolates the resources that your SQL database can use, and guarantees predictable performance for that service level. In this article, we offer guidance that can help you choose the service tier for your application. We also discuss ways that you can tune your application to get the most from Azure SQL Database.
 
 > [!NOTE]
 > This article focuses on performance guidance for single databases in Azure SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, though, that you can apply many of the tuning recommendations in this article to databases in an elastic pool, and get similar performance benefits.
@@ -267,7 +267,7 @@ Some database applications have read-heavy workloads. Caching layers might reduc
 
 ## Next steps
 * For more information about DTU-based service tiers, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [DTU-based model resource limits](sql-database-dtu-resource-limits.md)
-* For more information about vCore-based service tiers, see [vCore-based purchasing model](sql-database-service-tiers-vcore.md)(preview) and [vCore-based purchasing model limits (preview)](sql-database-vcore-resource-limits.md)
+* For more information about vCore-based service tiers, see [vCore-based purchasing model (preview)](sql-database-service-tiers-vcore.md) and [vCore-based resource limits (preview)](sql-database-vcore-resource-limits.md)
 * For more information about elastic pools, see [What is an Azure elastic pool?](sql-database-elastic-pool.md)
 * For information about performance and elastic pools, see [When to consider an elastic pool](sql-database-elastic-pool-guidance.md)
 
