@@ -17,15 +17,6 @@ You can use these libraries and functions in combination with other open-source 
 
 The Azure Machine Learning packages are Python pip-installable extensions for Azure Machine Learning that enable data scientists and AI developers to quickly build and deploy highly accurate machine learning and deep learning models for various domains.
 
-## amlrealtimeai
-
-With Azure Machine Learning Hardware Acceleration package, data scientists and AI developers can featurize images with a quantized version of ResNet 50, train classifiers based on those features, and then deploy models to an FPGA on Azure for ultra-low latency inferencing.
-
-Try these next steps for this package:
-1. [Download](https://aka.ms/aml-packages/vision/download) the package
-1. Read the [install docs](reference-fpga-package-overview.md)
-1. [Deploy a model to an FPGA](how-to-deploy-fpga-web-service.md)
-
 ## Azure ML Package for Computer Vision
 
 With Azure ML Package for Computer Vision, you can build, fine-tune, and deploy deep learning models for image classification, object detection, and image similarity.
@@ -55,3 +46,13 @@ Try these next steps for this package:
 1. Read the [install docs](https://aka.ms/aml-packages/text)
 1. [Build and deploy a text classification model](how-to-build-deploy-text-classification-models.md) with a Jupyter notebook
 1. Explore the package [reference documentation](https://aka.ms/aml-packages/text)
+
+## amlrealtimeai (FPGA acceleration)
+
+With Azure Machine Learning Hardware Acceleration package, data scientists and AI developers can featurize images with a quantized version of ResNet 50, train classifiers based on those features, and then deploy models to an FPGA on Azure for ultra-low latency inferencing.
+
+Try these next steps for this package:
+1. [Download](https://aka.ms/aml-packages/vision/download) the package
+1. Read the [install docs](reference-fpga-package-overview.md)
+1. [Deploy a model to an FPGA](how-to-deploy-fpga-web-service.md)
+

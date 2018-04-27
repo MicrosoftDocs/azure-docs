@@ -18,7 +18,7 @@ In this article, learn about the new releases of [Azure Machine Learning](../ser
 ## 2018-05 (Sprint 5)
 
 With this release of Azure Machine Learning, you can:
-+ Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and deploy that model to an FPGA on Azure for ultra-low latency inferencing.
++ Featurize images with a quantized version of ResNet 50, train a classifier based on those features, and [deploy that model to an FPGA on Azure](../service/how-to-deploy-fpga-web-service.md) for ultra-low latency inferencing.
 
 + Quickly build and deploy highly-accurate machine learning and deep learning models using [custom Azure Machine Learning Packages](../service/reference-python-package-overview.md) for the following domains:
   + [Computer vision](../service/how-to-build-deploy-image-classification-models.md)
