@@ -157,12 +157,12 @@ You must teach LUIS that *want* and *require* mean the same thing in this app do
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Train the app, but don't publish it. Now you have two models. You can compare values in the two models.
+5. In the top navigation bar, select **Train** to train the app, but don't publish it. Now you have two models. You can compare values in the two models.
 
 ## Compare the phrase list model to the published model
 In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](Train-Test.md#interactive-testing). 
 
-1. Open the test pane, and enter the following utterance:
+1. Open the **Test** pane, and enter the following utterance:
 
     `I require a computer replacement`
 
