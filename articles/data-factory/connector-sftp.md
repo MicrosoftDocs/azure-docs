@@ -183,7 +183,7 @@ To copy data from SFTP, set the type property of the dataset to **FileShare**. T
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
 >[!TIP]
->- To copy all files under a folder, specify **folderPath** only.<br>- To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>- To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
+>To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
 
 >[!NOTE]
 >If you were using "fileFilter" property for file filter, it is still supported as-is, while you are suggested to use the new filter capability added to "fileName" going forward.

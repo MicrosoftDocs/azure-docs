@@ -98,7 +98,7 @@ To copy data from Amazon S3, set the type property of the dataset to **AmazonS3O
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
 >[!TIP]
->- To copy all files under a folder, specify **bucketName** for bucket and **prefix** for folder part.<br>- To copy a single file with a given name, specify **bucketName** for bucket and **key** for folder part plus file name.<br>- To copy a subset of files under a folder, specify **bucketName** for bucket and **key** for folder part plus wildcard filter.
+>To copy all files under a folder, specify **bucketName** for bucket and **prefix** for folder part.<br>To copy a single file with a given name, specify **bucketName** for bucket and **key** for folder part plus file name.<br>To copy a subset of files under a folder, specify **bucketName** for bucket and **key** for folder part plus wildcard filter.
 
 **Example: using prefix**
 
