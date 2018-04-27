@@ -85,7 +85,7 @@ As shown in the previous diagram, all VMs compete for messages on the work-item 
 
 The orchestration instances are distributed across all control queue instances. The distribution is done by hashing the instance ID of the orchestration. Instance IDs by default are random GUIDs, ensuring that instances are equally distributed across all control queues.
 
-Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput. Most of the heavy work is expected to be done in stateless activity functions, which can be scaled out infinitely.
+Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput. Most of the heavy work should be done in stateless activity functions, which can be scaled out infinitely.
 
 ## Auto-scale
 
