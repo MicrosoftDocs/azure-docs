@@ -1,6 +1,6 @@
 ---
-title: Create a custom lab using Azure Lab Services | Microsoft Docs
-description: In this quickstart, you create a self-managed custom lab by using Azure Lab Services (formerly DevTest Labs). 
+title: Create a lab using Azure DevTest Labs | Microsoft Docs
+description: In this quickstart, you create a lab by using Azure DevTest Labs. 
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -17,20 +17,20 @@ ms.date: 04/09/2018
 ms.author: spelluru
 
 ---
-# Tutorial: Set up a self-managed custom lab (formerly DevTest Labs) by using Azure Lab Services
-In this tutorial, you create a custom lab by using the Azure portal. A lab admin sets up a custom lab in an organization, creates VMs in the lab, and configures policies. Lab users (for example: developer and testers) claim VMs in the lab, connect to them, and use them. 
+# Tutorial: Set up a lab by using Azure DevTest Labs
+In this tutorial, you create a lab by using the Azure portal. A lab admin sets up a lab in an organization, creates VMs in the lab, and configures policies. Lab users (for example: developer and testers) claim VMs in the lab, connect to them, and use them. 
 
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
-> * Create a custom lab
-> * Add VMs to the custom lab
+> * Create a lab
+> * Add VMs to the lab
 > * Claim and connect to the VM
 > * Add a user to the Lab User role
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create a custom lab
+## Create a lab
 The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -38,16 +38,16 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 	![New DevTest Lab menu](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 3. In the **Create a DevTest Lab** window, do the following actions: 
     1. For **Lab name**, enter a name for the lab. 
-    2. For **Subscription**, select the subscription in which you want to create the custom lab. 
+    2. For **Subscription**, select the subscription in which you want to create the lab. 
     3. For **Resource group**, select **Create new**, and enter a name for the resource group. 
-    4. For **Location**, select the location/region in which you want the custom lab to be created. 
+    4. For **Location**, select the location/region in which you want the lab to be created. 
     5. Select **Create**. 
-    6. Select **Pin to dashboard**. After you create the custom lab, the lab shows up in the dashboard. 
+    6. Select **Pin to dashboard**. After you create the lab, the lab shows up in the dashboard. 
         ![Create a lab section of DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
 
-## Add a VM to the custom lab
+## Add a VM to the lab
 
-1. On the **Custom lab** page, select **+ Add** on the toolbar. 
+1. On the **DevTest Lab** page, select **+ Add** on the toolbar. 
 	![Add button](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
 2. On the **Choose a base** page, search with **Windows 10** keyword, and select **Windows 10 Pro**. 
 	![Choose a base](./media/tutorial-create-custom-lab/choose-a-base.png)
@@ -62,7 +62,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
     8. Select **Create**. 
 
         ![Choose a base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
-    9. You see the status of the VM in the list of **Claimable virtual machines** list. Creation of the virtual machine may take approximately 25 minutes. The VM is created in a separate Azure resource group, whose name starts with the name of the current resource group that has the custom lab. For example, if the custom lab is in `customlabrg`, the VM may be created in the resource group `customlabrg3988722144002`. 
+    9. You see the status of the VM in the list of **Claimable virtual machines** list. Creation of the virtual machine may take approximately 25 minutes. The VM is created in a separate Azure resource group, whose name starts with the name of the current resource group that has the lab. For example, if the lab is in `labrg`, the VM may be created in the resource group `labrg3988722144002`. 
         ![VM creation status](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. After the VM is created, you see it in the list of **Claimable virtual machines** in the list. 
 
@@ -84,13 +84,13 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 The next tutorial shows how a lab user can claim and connect to a VM in the lab. If you don't want to do that tutorial, and clean up the resources created as part of this tutorial, follow these steps: 
 
 1. In the Azure portal, select **Resource groups** in the menu. 
-2. Select your resource group in which you created the custom lab. 
-3. Select **Delete resource group** from the toolbar. Deleting a resource group deletes all the resources in the group including the custom lab. 
-4. Repeat these steps to delete the additional resource group created for you with the name `<your resource group name><randmo numbers>`. For example: `spcustomlab3988722144001`. The VMs are created in this resource group rather than in the resource group in which the custom lab exists. 
+2. Select your resource group in which you created the lab. 
+3. Select **Delete resource group** from the toolbar. Deleting a resource group deletes all the resources in the group including the lab. 
+4. Repeat these steps to delete the additional resource group created for you with the name `<your resource group name><random numbers>`. For example: `splab3988722144001`. The VMs are created in this resource group rather than in the resource group in which the lab exists. 
 
 ## Next steps
-In this tutorial, you created a custom lab with a VM and gave a user access to the lab. To learn about how to access the lab as a lab user, advance to the next tutorial:
+In this tutorial, you created a lab with a VM and gave a user access to the lab. To learn about how to access the lab as a lab user, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use the custom lab](tutorial-use-custom-lab.md)
+> [Tutorial: Access the lab](tutorial-use-custom-lab.md)
 
