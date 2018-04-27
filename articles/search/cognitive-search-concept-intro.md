@@ -32,7 +32,7 @@ Underneath it all, the engine driving the pipeline is an Azure Search *indexer*.
 
 ### Source data and document cracking phase
 
-At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage#supported-document-formats).
+At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### Cognitive skills and enrichment phase
 
