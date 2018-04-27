@@ -47,16 +47,16 @@ Follow these steps to set up your workstation for FPGA deployment.
 ## Create an Azure Machine Learning Model Management account
 
 1. Go to the Model Management Account creation page on the [Azure Portal](https://aka.ms/aml-create-mma).
-2. In the portal, create a Model Management Account  in the **East US 2** region.
+2. In the portal, create a Model Management Account  in the **East US** region.
 
-   If you have an existing Model Management Account in the Azure **East US 2** region, you may skip this step.
+   If you have an existing Model Management Account in the Azure **East US** region, you may skip this step.
 
    ![Create Model Management Account](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
 
 1. Give your Model Management Account a name, choose a subscription, and choose a resource group.
 
    >[!IMPORTANT]
-   >For Location, you MUST choose **East US 2** as the region.  No other regions are currently available.
+   >For Location, you MUST choose **East US** as the region.  No other regions are currently available.
 
 1. Choose a pricing tier (S1 is sufficient, but S2 and S3 also work).  The DevTest tier is not supported.  
 1. Click **Select** to confirm the pricing tier.
@@ -78,4 +78,4 @@ You need these items:
 
 Once your model is deployed, follow the instructions in the [sample notebooks](https://aka.ms/aml-real-time-ai) to consume the model.
 
-Important: To optimize latency and throughput, your client should ideally be in the same Azure region as the endpoint.  Currently the APIs are created in the East US 2 Azure region.
+Important: To optimize latency and throughput, your client should ideally be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
