@@ -43,7 +43,7 @@ You can use Azure Load Balancer to:
 
 ## What are load balancer resources?
 
-A load balancer resource can exist as either a public load balancer or an internal load balancer. The load balancer resource's functions are expressed as a front end, a rule, a health probe, and a back-end pool definition. You place virtual machiness into the back-end pool by specifying the back-end pool from the virtual machine.
+A load balancer resource can exist as either a public load balancer or an internal load balancer. The load balancer resource's functions are expressed as a front end, a rule, a health probe, and a back-end pool definition. You place VMs into the back-end pool by specifying the back-end pool from the VM.
 
 Load balancer resources are objects within which you can express how Azure should program its multi-tenant infrastructure to achieve the scenario that you want to create. There is no direct relationship between load balancer resources and actual infrastructure. Creating a load balancer doesn't create an instance, and capacity is always available. 
 
@@ -65,19 +65,19 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
 * **Port forwarding**
 
-    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific front-end IP address to a specific port of a specific back-end instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual virtual machine instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same front-end IP address. You can use them to remotely administer your virtual machines over the internet without the need for an additional jump box.
+    With Load Balancer, you can create an inbound NAT rule to port forward traffic from a specific port of a specific front-end IP address to a specific port of a specific back-end instance inside the virtual network. This is also accomplished by the same hash-based distribution as load balancing. Common scenarios for this capability are Remote Desktop Protocol (RDP) or Secure Shell (SSH) sessions to individual VM instances inside the Azure Virtual Network. You can map multiple internal endpoints to the various ports on the same front-end IP address. You can use them to remotely administer your VMs over the internet without the need for an additional jump box.
 
 * **Application agnostic and transparent**
 
-    Load Balancer does not directly interact with TCP or UDP or the application layer, and any TCP or UDP-based application scenario can be supported. For example, although Load Balancer does not terminate TLS itself, you can build and scale out TLS applications by using Load Balancer and then terminate the TLS connection on the virtual machine itself. Load Balancer does not terminate a flow, and protocol handshakes always occur directly between the client and the hash-selected back-end pool instance. For example, a TCP handshake always occurs between the client and the selected back-end virtual machine. A response to a request to a front end is a response that's generated from the back-end virtual machine. Load Balancer outbound network performance is limited only by the virtual machine SKU you choose, and flows remain alive for lengthy periods if the idle timeout is never reached.
+    Load Balancer does not directly interact with TCP or UDP or the application layer, and any TCP or UDP-based application scenario can be supported. For example, although Load Balancer does not terminate TLS itself, you can build and scale out TLS applications by using Load Balancer and then terminate the TLS connection on the VM itself. Load Balancer does not terminate a flow, and protocol handshakes always occur directly between the client and the hash-selected back-end pool instance. For example, a TCP handshake always occurs between the client and the selected back-end VM. A response to a request to a front end is a response that's generated from the back-end VM. Load Balancer outbound network performance is limited only by the VM SKU you choose, and flows remain alive for lengthy periods if the idle timeout is never reached.
 
 * **Automatic reconfiguration**
 
-    Load Balancer instantly reconfigures itself when you scale instances up or down. Adding or removing virtual machines from the back-end pool reconfigures the load balancer without additional operations on the load balancer resource.
+    Load Balancer instantly reconfigures itself when you scale instances up or down. Adding or removing VMs from the back-end pool reconfigures the load balancer without additional operations on the load balancer resource.
 
 * **Health probes**
 
-     To determine the health of instances in the back-end pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the virtual machine is shut down.
+     To determine the health of instances in the back-end pool, Load Balancer uses health probes that you define. When a probe fails to respond, the load balancer stops sending new connections to the unhealthy instances. Existing connections are not affected, and they continue until the application terminates the flow, an idle timeout occurs, or the VM is shut down.
 
     Three types of probes are supported:
 
@@ -85,7 +85,7 @@ Load Balancer provides the following fundamental capabilities for TCP and UDP ap
 
     - **TCP custom probe**: This probe relies on establishing a successful TCP session to a defined probe port. As long as the specified listener on the VM exists, this probe succeeds. If the connection is refused, the probe fails. This probe overrides the default guest agent probe.
 
-    - **Guest agent probe (on platform as a service [PaaS] virtual machines only)**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a last resort and should not be used when HTTP or TCP custom probe configurations are possible. 
+    - **Guest agent probe (on platform as a service [PaaS] VMs only)**: The load balancer can also utilize the guest agent inside the VM. The guest agent listens and responds with an HTTP 200 OK response only when the instance is in the ready state. If the agent fails to respond with an HTTP 200 OK, the load balancer marks the instance as unresponsive and stops sending traffic to that instance. The load balancer continues to attempt to reach the instance. If the guest agent responds with an HTTP 200, the load balancer sends traffic to that instance again. Guest agent probes are a last resort and should not be used when HTTP or TCP custom probe configurations are possible. 
     
 * **Outbound connections (source NAT)**
 
@@ -117,7 +117,7 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 | | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
 | --- | --- | --- |
 | Back-end pool size | Up to 1000 instances. | Up to 100 instances. |
-| Back-end pool endpoints | Any VM in a single virtual network, including a blend of VMs, availability sets, and VM scale sets. | Virtual machines in a single availability set or VM scale set. |
+| Back-end pool endpoints | Any VM in a single virtual network, including a blend of VMs, availability sets, and VM scale sets. | VMs in a single availability set or VM scale set. |
 | Azure Availability Zones | Zone-redundant and zonal front ends for inbound and outbound, outbound flow mappings survive zone failure, cross-zone load balancing. | / |
 | Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements. | Azure Log Analytics for public load balancer only, SNAT exhaustion alert, back-end pool health count. |
 | HA Ports | Internal load balancer. | / |
@@ -172,4 +172,4 @@ For information about the Standard Load Balancer SLA, go to the [Load Balancer S
 
 ## Next steps
 
-You now have an overview of Azure Load Balancer. To get started with using a load balancer, create one, create virtual machines with a custom IIS extension installed, and load-balance the web app between the virtual machines. To learn how, see the [Create a Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md) quickstart.
+You now have an overview of Azure Load Balancer. To get started with using a load balancer, create one, create VMs with a custom IIS extension installed, and load-balance the web app between the VMs. To learn how, see the [Create a Basic Load Balancer](quickstart-create-basic-load-balancer-portal.md) quickstart.
