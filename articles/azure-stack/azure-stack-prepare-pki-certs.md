@@ -25,27 +25,43 @@ The certificate files [obtained from your CA of choice](azure-stack-get-pki-cert
 ## Prepare certificates for deployment
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
+### Import the certificate
+
 1.	Copy the original certificate versions [obtained from your CA of choice](azure-stack-get-pki-certs.md) into a directory on the deployment host. 
   > [!WARNING]
   > Do not copy files that have already been imported, exported, or altered in any way from the files provided directly by the CA.
 
-2.	Import the certificates onto the Local Machine certificate store:
+2.	Right-click on the certificate and select **Install Certificate**.
 
-    a.	Right-click on the certificate and select **Install PFX**.
-
-    b.	In the **Certificate Import Wizard**, select **Local Machine** as the import location. Select **Next**.
+3. In the **Certificate Import Wizard**, select **Local Machine** as the import location. Select **Next**.
 
     ![Local machine import location](.\media\prepare-pki-certs\1.png)
 
-    c.	Select **Next** on the **Choose file to import** page.
-
-    d.	On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
-
-    ![Mark key as exportable](.\media\prepare-pki-certs\2.png)
-
-    e.	Choose **Place all certificate in the following store** and then select **Enterprise Trust** as the location. Click **OK** to close the certificate store selection dialog box and then **Next**.
+4.	Choose **Place all certificate in the following store** and then select **Enterprise Trust** as the location. Click **OK** to close the certificate store selection dialog box and then **Next**.
 
     ![Configure the certificate store](.\media\prepare-pki-certs\3.png)
+
+5. Click Finish to complete the import.
+
+### Export the certificate
+
+1. Open the Microsoft Management Console, in Windows 10 right click on Start Menu, then click Run. Type **mmc** click ok.
+
+2. Click File, Add/Remove Snap-In then select Certificates click Add.
+
+    ![Add Certificates Snap-in](.\media\prepare-pki-certs\mmc-2.png)
+ 
+3. Select Computer account, click next then select Local computer then finish. Click ok to close the Add/Remove Snap-In page.
+
+    ![Add Certificates Snap-in](.\media\prepare-pki-certs\mmc-3.png)
+
+4. Browse to the Enterprise Trust > Certificate location. Verify that you see your certificate on the right.
+
+5. Right click on your certificate, click All Tasks then Export, click next.
+
+4. On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
+
+    ![Mark key as exportable](.\media\prepare-pki-certs\2.png)
 
   f.	Click **Finish** to complete the Certificate Import Wizard.
 
