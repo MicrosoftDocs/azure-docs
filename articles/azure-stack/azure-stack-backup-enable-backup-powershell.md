@@ -76,7 +76,7 @@ In the same PowerShell session, Edit the following PowerShell script by adding t
       -EnvironmentName AzureStackAdmin
     
     # Sign-in to the operator's console.
-    Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
     
    ```
 ## Generate a new encryption key

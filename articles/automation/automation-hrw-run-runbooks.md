@@ -28,7 +28,7 @@ Start-AzureRmAutomationRunbook â€“AutomationAccountName "MyAutomationAccount" â€
 ```
 
 > [!NOTE]
-> The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell. You should [download the latest version](https://azure.microsoft.com/downloads/) if you have an earlier one installed. You only need to install this version on a workstation where you are starting the runbook from PowerShell. You do not need to install it on the worker computer unless you intend to start runbooks from that computer.
+> The **RunOn** parameter was added to the **Start-AzureAutomationRunbook** cmdlet in version 0.9.1 of Microsoft Azure PowerShell. You should [download the latest version](https://azure.microsoft.com/downloads/) if you have an earlier one installed. You only need to install this version on a workstation where you are starting the runbook from PowerShell. You do not need to install it on the worker computer unless you intend to start runbooks from that computer"
 
 ## Runbook permissions
 
