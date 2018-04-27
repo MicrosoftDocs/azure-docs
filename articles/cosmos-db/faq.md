@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Cosmos DB frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
@@ -111,7 +111,7 @@ The PreferredLocations value can be set to any of the Azure regions in which Cos
 ### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
-When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/en-us/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
 ## Develop against the SQL API
 
