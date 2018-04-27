@@ -40,11 +40,11 @@ Orchestrator functions and activity functions are both triggered by internal que
 
 ### The work-item queue
 
-There is one work-item queue per task hub in Durable Functions. This is a basic queue and behaves similarly to any other `queueTrigger` queue in Azure Functions. This queue is used to trigger stateless *activity functions* by dequeing a single message at a time. Each of these messages contain activity function inputs and additional metadata, such as which function to execute. When a Durable Functions application scales out to multiple VMs, these VMs all compete to acquire work from the work-item queue.
+There is one work-item queue per task hub in Durable Functions. This is a basic queue and behaves similarly to any other `queueTrigger` queue in Azure Functions. This queue is used to trigger stateless *activity functions* by dequeueing a single message at a time. Each of these messages contains activity function inputs and additional metadata, such as which function to execute. When a Durable Functions application scales out to multiple VMs, these VMs all compete to acquire work from the work-item queue.
 
 ### Control queue(s)
 
-The *control queue* is more sophisticated than the simpler work-item queue. It's used to trigger the stateful orchestrator functions. Because the orchestrator function instances are stateful singletons, it's not possible to use a competing consumer model to distribute load across VMs. Instead, orchestrator messages are load-balanced across multiple control queues. More details on this in subsequent sections.
+The *control queue* is more sophisticated than the simpler work-item queue. It's used to trigger the stateful orchestrator functions. Because the orchestrator function instances are stateful singletons, it's not possible to use a competing consumer model to distribute load across VMs. Instead, orchestrator messages are load-balanced across multiple control queues. More details on this behavior can be found in subsequent sections.
 
 Control queues contain a variety of orchestration lifecycle message types. Examples include [orchestrator control messages](durable-functions-instance-management.md), activity function *response* messages, and timer messages. As many as 32 messages will be dequeued from a control queue in a single poll. These messages contain payload data as well as metadata including which orchestration instance it is intended for. If multiple messages are dequeued and are intended for the same orchestration instance, they will be processed as a batch.
 
@@ -64,7 +64,7 @@ Configuring a non-default storage account can be useful if you want to maximize 
 
 ## Orchestrator scale-out
 
-Activity functions are stateless and scale out automatically by adding VMs. Orchestrator functions, on the other hand, are *partitioned* across one or more control queues. The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `partitionCount` property to `3`.
+Activity functions are stateless and scale out automatically by adding VMs. Orchestrator functions, on the other hand, are *partitioned* across one or more control queues. The number of control queues is defined in the **host.json** file. The following example host.json snippet sets the `durableTask/partitionCount` property to `3`.
 
 ```json
 {
@@ -79,13 +79,15 @@ When scaling out to multiple function host instances (typically on different VMs
 
 The following diagram illustrates how the Azure Functions host interacts with the storage entities in a scaled out environment.
 
+*TODO: Update this diagram to include the Instances table*
+
 ![Scale diagram](media/durable-functions-perf-and-scale/scale-diagram.png)
 
 As you can see, all VMs can compete for messages on the work-item queue. However, only three VMs can acquire messages from control queues, and each VM locks a single control queue.
 
 Orchestration instances are distributed across control queue instances by running an internal hash function against the orchestration's instance ID. Instance IDs are auto-generated and random by default that ensures that instances are balanced across all available control queues.
 
-In general, orchestrator functions are intended to be lightweight and should not need a lot of computing power. For this reason, it is not necessary to create a large number of control queue partitions to get great throughput. Rather, most of the heavy work is done in stateless activity functions, which can be scaled out infinitely.
+In general, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. For this reason, it is not necessary to create a large number of control queue partitions to get great throughput. Rather, most of the heavy work is done in stateless activity functions, which can be scaled out infinitely.
 
 ## Auto-scale
 
@@ -95,13 +97,13 @@ If the scale controller determines that control queue message latencies are too 
 
 ## Thread usage
 
-Orchestrator functions are executed on a single thread. This is required to ensure that orchestrator function execution is deterministic. With this in mind, it's important to never keep the orchestrator function thread unnecessarily busy with tasks such as I/O (which is forbidden for a variety of reasons), blocking, or spinning operations. Any work which may require I/O, blocking, or multiple threads should be moved into activity functions.
+Orchestrator functions are executed on a single thread. This is required to ensure that orchestrator function execution is deterministic. With this behavior in mind, it's important to never keep the orchestrator function thread busy with tasks such as I/O (which is forbidden for a variety of reasons), blocking, or spinning operations. Any work that may require I/O, blocking, or multiple threads should be moved into activity functions.
 
 Activity functions have all the same behaviors as regular queue-triggered functions. This means they can safely do I/O, execute CPU intensive operations, and use multiple threads. Because activity triggers are stateless, they can freely scale out to an unbounded number of VMs.
 
 ## Concurrency throttles
 
-Azure Functions supports executing multiple functions concurrently within a single app instance. This is useful for a variety of reasons, including increasing parallelism and minimizing the number of "cold starts" that a typical app will experience over time. However, each concurrent function invocation within a single app instance operates within the same memory space (1.5 GB in the consumption plan), so it is often useful to throttle the per-instance concurrency to avoid the possibility of running out of memory in high-load situations.
+Azure Functions supports executing multiple functions concurrently within a single app instance. This concurrency is useful for a variety of reasons, including increasing parallelism and minimizing the number of "cold starts" that a typical app will experience over time. However, each concurrent function invocation within a single app instance operates within the same memory space (1.5 GB in the consumption plan), so it is often useful to throttle the per-instance concurrency to avoid the possibility of running out of memory in high-load situations.
 
 Both activity function and orchestrator function concurrency limits can be configured in the **host.json** file. The relevant settings are `durableTask/maxConcurrentActivityFunctions` and `durableTask/maxConcurrentOrchestratorFunctions` respectively.
 
@@ -139,6 +141,33 @@ However, it is important to note that using this setting can increase memory usa
 
 > [!NOTE]
 > These settings should only be used after an orchestrator function has been fully developed and tested. The default aggressive replay behavior is useful for detecting idempotency errors in orchestrator functions at development time.
+
+## Performance Targets
+
+When planning to use Durable Functions for a production application, it is important to consider the performance requirements early in the planning process. In this section, we cover some basic usage scenarios and the expected maximum throughput numbers.
+
+* **Sequential activity execution**: This scenario describes an orchestrator function which runs a series of activity functions one after the other. This most closely resembles the [Function Chaining](durable-functions-sequence.md) sample.
+* **Parallel activity execution**: This scenario describes an orchestrator function which executes many activity functions in parallel using the [Fan-out, Fan-in](durable-functions-cloud-backup.md) pattern.
+* **Parallel response processing**: This scenario is the second-half of the [Fan-out, Fan-in](durable-functions-cloud-backup.md) pattern. It focuses on the performance of the "fan-in". It's important to note that unlike fan-out, fan-in is done by a single orchestrator function instance, and therefore can only run on a single VM.
+* **External event processing**: This scenario represents a single orchestrator function instance that waits on [external events](durable-functions-external-events.md), one at a time.
+
+> [!TIP]
+> Unlike fan-out, fan-in operations are limited to a single VM. If your application uses the fan-out, fan-in pattern and you are concerned about fan-in performance, consider sub-dividing the activity function fan-out across multiple [sub-orchestrations]
+
+The below table shows the expected *maximum* throughput numbers for the previously described scenarios. Note that "instance" refers to a single instance of an orchestrator function running on a single small ([A1](../virtual-machines/windows/sizes-general.md#a-series)) VM in Azure App Service. In all cases, **extended sessions** are assumed to be enabled. Actual results may vary depending on the CPU or I/O work performed by the function code.
+
+| Scenario | Maximum throughput |
+|-|-|
+| Sequential activity execution | 5 activities per second, per instance |
+| Parallel activity execution (fan-out) | 100 activities per second, per instance |
+| Parallel response processing (fan-in) | 150 responses per second, per instance |
+| External event processing | 50 events per second, per instance |
+
+> [!NOTE]
+> These numbers are current as of the v1.4.0 (GA) release of the Durable Functions extension. These numbers may change over time as the feature matures and as optimizations are made.
+
+If you are not seeing the throughput numbers you expect and your CPU and memory usage appears healthy, check to see whether the cause is related to [the health of your storage account](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance). The Durable Functions extension can potentially put a lot of load on
+an Azure Storage account and sufficiently high loads may result in storage account throttling.
 
 ## Next steps
 
