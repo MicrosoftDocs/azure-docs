@@ -213,7 +213,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
              {
                  Input = jobInput,
                  Outputs = jobOutputs,
-ou              });
+              });
 
      return job;
 }
