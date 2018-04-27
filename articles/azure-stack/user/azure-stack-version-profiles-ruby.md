@@ -1,4 +1,4 @@
----
+﻿---
 title: Using API version profiles with Ruby in Azure Stack | Microsoft Docs
 description: Learn about using API version profiles with Ruby in Azure Stack.
 services: azure-stack
@@ -45,9 +45,9 @@ An API profile is a combination of resource providers and service versions. You 
     - Install Dev kit during Ruby installation when prompted.
     - Next, install bundler using the following command:  
       `Gem install bundler`
- - If not available, create a subscription and save the Subscription ID to be used later. Instructions to create a subscription are [here](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
- - Create a service principal and save its ID and secret. Instructions to create a service principal for Azure Stack are [here](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals). 
- - Make sure your service principal has contributor/owner role on your subscription. Instructions on how to assign role to service principal are [here](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals).
+ - If not available, create a subscription and save the Subscription ID to be used later. Instructions to create a subscription are [here](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+ - Create a service principal and save its ID and secret. Instructions to create a service principal for Azure Stack are [here](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals). 
+ - Make sure your service principal has contributor/owner role on your subscription. Instructions on how to assign role to service principal are [here](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 ## Install the rubygem packages
 

@@ -59,8 +59,6 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Azure Resource Manager
-    href: ../azure-resource-manager/resource-group-overview.md
   - name: Web application firewall
     href: waf-overview.md
   - name: URL routing
@@ -121,6 +119,8 @@
     href: https://azure.microsoft.com/develop/python/
   - name: REST
     href: /rest/api/applicationgateway
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Resources
   items:
   - name: Author templates
