@@ -30,7 +30,7 @@
   - name: Visual Search mobile app
     href: computer-vision-web-search-tutorial.md
   - name: Visual Search mobile app (Visual Studio solution)
-    href: https://azure.microsoft.com/en-us/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
+    href: https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/
     maintainContext: true
 - name: How-to guides
   items:
@@ -81,7 +81,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+web+search
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Web Search endpoint

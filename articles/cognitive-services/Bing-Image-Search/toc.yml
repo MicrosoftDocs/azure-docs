@@ -76,7 +76,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Image Search endpoints      

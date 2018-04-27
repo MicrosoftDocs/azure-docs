@@ -44,7 +44,7 @@
   - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api
   - name: Try it!
-    href: https://azure.microsoft.com/en-us/services/cognitive-services/autosuggest/
+    href: https://azure.microsoft.com/services/cognitive-services/autosuggest/
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: UserVoice
@@ -52,7 +52,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+autosuggest
   - name: Regional availability
-    href: https://azure.microsoft.com/en-us/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Autosuggest endpoint
