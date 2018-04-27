@@ -82,11 +82,10 @@ This command returns the following results.
 
 | Name| StorageEndpointSuffix|
 |----|----|
-|AzureChinaCloud | core.chinacloudapi.cn|
+| AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
 | AzureGermanCloud | core.cloudapi.de|
-| AzureUSGovernment | core.usgov.cloudapi.net |
-
+| AzureUSGovernment | core.usgovcloudapi.net |
 
 To retrieve all of the properties for the specified environment, call **Get-AzureRmEnvironment** and specify the cloud name. This code snippet returns a list of properties; look for **StorageEndpointSuffix** in the list. The following example is for the German Cloud.
 

@@ -15,18 +15,18 @@ ms.date: 05/07/2018
 
 In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. 
 
-There are broad applications of text classification: categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
+There are broad applications of text classification for example categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
 
-The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a basic traditional text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a web service using twitter sentiment dataset using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
+The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a sentiment classification web service using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
 
-When building and deploying this text classification model, follow these steps:
-1. Load the training dataset
+The model building and deployment workflow for text analytics models is as follows:
+
+1. Load the data
 2. Train the model
 3. Apply the classifier 
 4. Evaluate performance
 5. Save the pipeline
-6. Load the pipeline
-7. Test the pipeline
+6. Test the pipeline
 8. Deploy the model as a web service
 
 Consult the [package reference documentation](https://aka.ms/aml-packages/text) for the detailed reference for each module and class.
@@ -56,12 +56,10 @@ Try it out yourself. Download the notebook and run it yourself.
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### Explore the sample data
+The following example uses the [sentiment analysis in twitter dataset](https://www.cs.york.ac.uk/semeval-2013/task2/index.html) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
 
-The following example uses a [sentiment dataset](http://qwone.com/~jason/20Newsgroups/) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and SKlearn. 
-
-## Load the training dataset
-
-Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. 
+## Load data and explore
+Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. <br />
 Input dataset is a *.tsv file with the following [ID, Text, Label] format. 
 
 
@@ -84,13 +82,13 @@ import pip
 pip.main(["show", "azureml-tatk"])
 ```
 
-Get data from blob storage training and test data sets. Set the below blob parameters to point to your blob or set the resource_dir path to read a file from a local directory.
+Get training and test data sets from Azure blob storage & update train data and test data paths to load your data.
+Set the blob parameters below to point to your blob or set the resource_dir path to read a file from a local directory.
 
-To use your own blob storage, update the following parameters: <br />
-- connection_string=None, (replace None with your connection string) <br />
-- container_name=None,    (replace None with your container name) <br />
-- blob_name=os.path.join("sentiment", "SemEval2013.Train.tsv") (replace the sub directory "sentiment" and the file name)
-
+To use your own blob storage update the following parameters: 
+   - connection_string - replace None with your connection string 
+   - container_name - replace None with your container name 
+   - blob_name - Replace the subdirectoy "sentiment" and the file name for training and test data, e.g. "SemEval2013.Train.tsv" and "SemEval2013.Test.tsv"
 
 ```python
 from tatk.utils import download_blob_from_storage, resources_dir, data_dir
@@ -106,9 +104,7 @@ download_blob_from_storage(download_dir=resources_dir,
 download_blob_from_storage(download_dir=resources_dir, 
                                blob_name=os.path.join("sentiment", "SemEval2013.Test.tsv"))
 ```
-Update train data and test data paths to load your data - 
-file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
-
+Specify local paths to training and test sets, and load into pandas dataframes
 
 ```python
 import pandas as pd
@@ -139,7 +135,8 @@ print(df_test.head())
     3   4  @TheScript_Danny @thescript - St Patricks Day ...  positive
     4   5  @DJT103 - You know what the holidays alright w...  positive
     
-
+The data consists of ID, Text and the lable Postive, Neutral or Negative. 
+To do a preliminary exploration plot histogram of the class frequency in training and test data sets. 
 
 ```python
 import numpy as np
@@ -175,7 +172,6 @@ plt.grid(True)
 plt.show()
 ```
 
-The dataset includes three classes Negative, Neutral, and Positive: 
 ```
     {'negative', 'neutral', 'positive'}
     
@@ -192,6 +188,7 @@ The dataset includes three classes Negative, Neutral, and Positive:
 ```
 
 ## Train the model
+### Specify scikitlearn algotirhm and define the text classifier
 This step involves training a Scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
 Full list of learners can be found here [Scikit Learners](http://scikit-learn.org/stable/supervised_learning)
 
@@ -226,14 +223,12 @@ text_classifier = TextClassifier(estimator=log_reg_learner,
     4	learner
     TextClassifier::create_pipeline ==> end
     
-
-Train the model using the default parameters of the package: By default, the text classifier will extract word unigrams and bigrams and character 4 grams.
-
+### Fit the model
+Use the default parameters of the package: By default, the text classifier will extract word unigrams and bigrams and character 4-grams.
 
 ```python
 text_classifier.fit(df_train)        
 ```
-
     TextClassifier::fit ==> start
     schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 header+
     NltkPreprocessor::tatk_fit_transform ==> start
@@ -253,18 +248,12 @@ text_classifier.fit(df_train)
     VectorAssembler::transform ==> end
     LogisticRegression::tatk_fit ==> start
     
-
     [Parallel(n_jobs=3)]: Done   3 out of   3 | elapsed:    2.1s finished
-    
-
+   
     LogisticRegression::tatk_fit ==> end 	 Time taken: 0.04 mins
     Time taken: 0.08 mins
     TextClassifier::fit ==> end
     
-
-
-
-
     TextClassifier(add_index_col=False, callable_proprocessors_list=None,
             cat_cols=None, char_hashing_original=False, col_prefix='tmp_00_',
             decompose_n_grams=False, detect_phrases=False,
@@ -282,13 +271,11 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-
-
-### Read the parameters in different pipelines
-
-get step param names by step index in the pipeline
-
-
+### Examine and set the paraneters of the different pipeline steps
+NOTE: Although we're fitting a scikit-learn model, preprocessing is being done prior to fitting using a pipeline of preprocessor and featurizer (transoformation) steps. Hence, we refer to a "pipeline" for training. During evaluation, the full pipeline (including preprocessing and scikit-learn model prediction) is applied to a testing data set.<br />
+***Example shown with text_word_ngrams***
+Typically, you set the parameters before you fit a model. Here we've shown you first how to train the model with default pipeline and model parameters. <br />
+For example, get parameter names of "text_word_ngrams". This shows parameters such as lowercase, input_col, output_col etc., which one can specify, if needed.
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
