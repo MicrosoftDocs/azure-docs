@@ -20,15 +20,81 @@ ms.author: azfuncdf
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API.
 
-## Use cases 
+## Sample use cases 
 
 ### Visualize progress
 
-Clients can poll the status end point and display a progress UI that visualizes the current execution stage.
+Clients can poll the status end point and display a progress UI that visualizes the current execution stage. The following sample demonstrates progress sharing:
+
+```csharp
+[FunctionName("E1_HelloSequence")]
+public static async Task<List<string>> Run(
+  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+{
+  var outputs = new List<string>();
+
+  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
+
+  context.SetCustomStatus(new { nextCities = new[] { "Seattle", "London" }, processedCities = new[] { "Tokyo" }});
+
+  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
+
+  context.SetCustomStatus(new { nextCities = new[] { "London" }, processedCities = new[] { "Tokyo", "Seattle" }});
+
+  outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+
+  context.SetCustomStatus(new { nextCities = new string[] {}, processedCities = new[] { "Tokyo", "Seattle", "London" }});
+
+  // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
+  return outputs;
+}
+
+[FunctionName("E1_SayHello")]
+public static string SayHello([ActivityTrigger] string name)
+{
+  return $"Hello {name}!";
+}
+```
 
 ### Output customization 
 
-Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side. 
+Another interesting scenario is segmenting users by returning customized output based on unique characteristics or interactions. With the help of custom orchestration status, the client-side code will stay generic. All main modifications will happen on the server side as shown in the following sample:
+
+```csharp
+[FunctionName("CityRecommender")]
+public static void Run(
+  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+{
+  int userChoice = context.GetInput<int>();
+
+  switch (userChoice)
+  {
+    case 1:
+    context.SetCustomStatus(new
+    {
+      recommendedCities = new[] {"Tokyo", "Seattle"},
+      recommendedSeasons = new[] {"Spring", "Summer"}
+     });
+      break;
+    case 2:
+      context.SetCustomStatus(new
+      {
+        recommendedCity = new[] {"Seattle, London"},
+        recommendedSeasons = new[] {"Summer"}
+      });
+        break;
+      case 3:
+      context.SetCustomStatus(new
+      {
+        recommendedCity = new[] {"Tokyo, London"},
+        recommendedSeasons = new[] {"Spring", "Summer"}
+      });
+        break;
+  }
+
+  // Wait for user selection and refine the recommendation
+} 
+```
 
 ### Instruction specification 
 
@@ -49,7 +115,6 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 
     // ...do more work...
 }
-
 ```
 
 While the orchestration is running, external clients can fetch this custom status:
