@@ -36,7 +36,6 @@ For single databases, the following tables show the resources available for a si
 |Target IOPS|320|640|1280|2560|5120|
 |IO latency (approximate)|5-7 ms (write)
 |Max concurrent workers (requests)|200|400|800|1600|3200|
-|Max concurrent logins|200|400|800|1600|3200|
 |Max allowed sessions|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
@@ -59,7 +58,6 @@ For single databases, the following tables show the resources available for a si
 |Target IOPS|5000|10000|20000|40000|80000|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|200|400|800|1600|3200|
-|Max concurrent logins|200|400|800|1600|3200|
 |Max allowed sessions|30000|30000|30000|30000|30000|
 |Number of replicas|3|3|3|3|3|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|
@@ -114,8 +112,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Target IOPS|320|640|1280|2560|5120|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|
-|Max concurrent logins|210|420|840|1680|3360|
-|Max allowed sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|30000|30000|30000|30000|30000|
 |Max pool density|100|200|500|500|500|
 |Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |Number of replicas|1|1|1|1|1|
@@ -139,8 +136,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Target IOPS|320|640|1280|2560|5120|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|
-|Max concurrent logins|210|420|840|1680|3360|
-|Max allowed sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|30000|30000|30000|30000|30000|
 |Max pool density|N/A|50|100|100|100|
 |Min/max elastic pool click-stops|0, 0.25, 0.5, 1|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|
