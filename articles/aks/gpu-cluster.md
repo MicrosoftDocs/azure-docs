@@ -181,7 +181,7 @@ samples-tf-mnist-demo   1         1            35s
 
 Determine the pod name to view the logs by showing completed pods.
 ```
-$ kubectl get pods --selector app=samples-tf-mnist-demo --show-all
+$ kubectl get pods --selector app=samples-tf-mnist-demo 
 NAME                          READY     STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-smnr6   0/1       Completed   0          4m
 ```
