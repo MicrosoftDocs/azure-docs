@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
-# About Face API
+# What is Face API?
 
 Welcome to the Microsoft Face API, a cloud-based service that provides the most advanced face algorithms. Face API has two main functions: face detection with attributes and face recognition.
 
@@ -25,7 +25,6 @@ Face rectangle (left, top, width, and height) indicating the face location in th
 ## Face Recognition
 
 Face recognition is widely used in many scenarios including security, natural user interface, image content analysis and management, mobile apps, and robotics. Four face recognition functions are provided: face verification, finding similar faces, face grouping, and person identification.
-
 
 ### Face Verification
 
