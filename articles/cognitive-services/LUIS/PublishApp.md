@@ -105,7 +105,7 @@ When your app is deleted or the Speech service is deleted, the model data is rem
 
 2. The first time you publish, the **Publish app** page shows your starter key. If you want to use a key other than the key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
 
-3. Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Publish to**. 
+3. Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Select slot**. 
 
 4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box.
 
