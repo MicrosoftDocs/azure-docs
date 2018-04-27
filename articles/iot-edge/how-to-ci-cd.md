@@ -24,11 +24,15 @@ In this tutorial, you will learn how to:
 
 It will take 30 minutes to complete this tutorial.
 
+![CI and CD](./media/how-to-ci-cd/cd.png)
+
 ## Create a sample Azure IoT Edge solution using Visual Studio Code
 
 In this section, you will create a sample IoT Edge solution containing unit tests that you can execute as part of the build process. Before following the guidance in this section, complete the steps in [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
 
 1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**FilterModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/filtermodule`). You need to change it to Azure Container Registry(`<your container registry address>/filtermodule`) or Docker Hub for further continuous integration.
+
+    ![Setup ACR](./media/how-to-ci-cd/acr.png)
 
 2. The VS Code window will load your IoT Edge solution workspace. You can optionally type and run **Edge: Add IoT Edge module** to add more modules. There is a `modules` folder, a `.vscode` folder, and a deployment manifest template file in the root folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
@@ -265,6 +269,8 @@ In this section, you will create a sample IoT Edge solution containing unit test
     dotnet add reference ../../modules/FilterModule/FilterModule.csproj
     ```
 
+    ![Folder Structure](./media/how-to-ci-cd/add-test-project.png)
+
 5. In the **FilterModuleTest** folder, update the file name of **UnitTest1.cs** to **FilterModuleTest.cs**. Select and open **FilterModuleTest.cs**, replace the entire code with below code snippet, which contains the unit tests against the FilterModule project.
 
     ```csharp
@@ -347,33 +353,53 @@ In this section, you will create a sample IoT Edge solution containing unit test
     dotnet test
     ```
 
+    ![Unit Test](./media/how-to-ci-cd/unit-test.png)
+
 7. Save these projects, then check it into your VSTS or TFS repository.
+    
 
 > [!NOTE]
 > For more information about using VSTS code repositories, see [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
 
 
-## Configure continuous integration and deployment
+## Configure continuous integration
 In this section, you will create a build definition that is configured to run automatically when you check in any changes to the sample IoT Edge solution, and it will automatically execute the unit tests it contains.
 
 1. Sign into your VSTS account (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
 
+    ![Check-in code](./media/how-to-ci-cd/init-project.png)
+
 1. Visit [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
+
+    ![Install extension](./media/how-to-ci-cd/install-extension.png)
 
 1. In your VSTS, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
 
+    ![New build](./media/how-to-ci-cd/add-new-build.png)
+
 1. If prompted, select the **VSTS Git** source type; then select the project, repository, and branch where your code is located. Choose **Continue**.
+
+    ![Select VSTS git](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. In **Select a template** window, choose **start with an Empty process**.
 
+    ![Start empty](./media/how-to-ci-cd/start-with-empty.png)
+
 1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **.Net Core**, and click **Add** to add this task to the phase.
+
+    ![Dotnet test](./media/how-to-ci-cd/add-dot-net-core.png)
 
 1. Update the **Display name** to **dotnet test**, and in the **Command** dropdown list, select **test**. Add below path to the **Path to project(s)**.
 
     ```
     tests/FilterModuleTest/*.csproj
     ```
+
+    ![Configure dotnet test](./media/how-to-ci-cd/dotnet-test.png)
+
 1. Click **+** on the right side of **Phase 1** to add a task to the phase. Then search and select **Azure IoT Edge**, and click **Add** button **twice** to add these tasks to the phase.
+
+    ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
 1. In the first Azure IoT Edge task, update the **Display name** to **Module Build and Push**, and in the **Action** dropdown list, select **Build and Push**. In the **Module.json File** textbox, add below path to it. Then choose **Container Registry Type**, make sure you configure and select the same registry in your code. This task will build and push all your modules in the solution and publish to the container registry you specified. 
 
@@ -381,18 +407,38 @@ In this section, you will create a build definition that is configured to run au
     **/module.json
     ```
 
+    ![Module Build and Push](./media/how-to-ci-cd/module-build-push.png)
+
 1. In the second Azure IoT Edge task, update the **Display name** to **Deploy to IoT Edge device**, and in the **Action** dropdown list, select **Deploy to IoT Edge device**. Select your Azure subscription and input your IoT Hub name. You can specify an IoT Edge deployment ID and the deployment priority. You can also choose to deploy to single or multiple devices. If you are deploying to multiple devices, you need to specify the device target condition. For example, if you want to use device Tags as the condition, you need to update your corresponding devices Tags before the deployment. 
+
+    ![Deploy to Edge](./media/how-to-ci-cd/deploy-to-edge.png)
 
 1. Click the **Process** and make sure your **Agent queue** is **Hosted Linux Preview**.
 
+    ![Configure](./media/how-to-ci-cd/configure-env.png)
+
 1. Open the **Triggers** tab and turn on the **Continuous integration** trigger. Make sure the branch containing your code is included.
 
-1. Save the new build definition and queue a new build.
+    ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Choose the link to the build in the message bar that appears.
+1. Save the new build definition and queue a new build. Click the **Save & queue** button.
+
+1. Choose the link to the build in the message bar that appears. Or go to build definition to see the latest queued build job.
+
+    ![Build](./media/how-to-ci-cd/build-def.png)
 
 1. After the build has finished, you see the summary for each task and the results in the live log file. 
+    
+    ![Complete](./media/how-to-ci-cd/complete.png)
 
+## Continuous Deployment to IoT Edge devices
+
+To enable continuous deployment, basically you need to setup CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commits should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
+
+So, when deploying to IoT Edge devices, there are three main environments.
+- On feature branch, you can use simulated IoT Edge device on your development machine or deploy to a physical IoT Edge device.
+- On develop branch, you should deploy to a physical IoT Edge devices.
+- On master branch, the target IoT Edge devices should be the production devices.
 
 ## Next steps
 
