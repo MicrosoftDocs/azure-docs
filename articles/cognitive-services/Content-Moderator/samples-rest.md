@@ -12,6 +12,8 @@ ms.author: nolachar
 ---
 # REST API samples in C#
 
+The following list includes links to code samples built using the Azure Content Moderator API.
+
 - [Image moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Text moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)
 - [Video moderation](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/VideoModeration)
