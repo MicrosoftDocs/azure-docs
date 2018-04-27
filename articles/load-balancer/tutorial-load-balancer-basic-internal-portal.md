@@ -1,6 +1,6 @@
 ---
-title: Create a public Basic Load Balancer - Azure portal | Microsoft Docs
-description: Learn how to create an internal Basic Load Balancer by using the Azure portal.
+title: Tutorial:Create a public Basic Load Balancer - Azure portal | Microsoft Docs
+description: This tutorial shows you how to create an internal Basic Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
@@ -11,10 +11,10 @@ tags: azure-resource-manager
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/24/2018
+ms.date: 04/27/2018
 ms.author: kumud
 ---
 
@@ -52,7 +52,7 @@ Create an internal Basic Load Balancer using the portal.
     - *myResourceGroupILB* - for the name of the new resource group that you create.
 3. Click **Create** to create the load balancer.
    
-    ![Create a load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
+    ![Create a load balancer](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 
 ## Create backend servers
@@ -91,7 +91,7 @@ In this section, you create two virtual machines for the backend pool of your Ba
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 5. Close the RDP connection with *myVM1*.
 6. Repeat steps 1-5 with *myVM2* to install IIS and customize the default web page.
@@ -113,7 +113,6 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *Allow HTTP* - for description
 4. Click **OK**.
  
- ![Create a virtual network](./media/load-balancer-get-started-internet-portal/8-load-balancer-nsg-rules.png)
 5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
     - *Service Tag* - for **Source**.
     - *Internet* - for **Source service tag**
@@ -124,7 +123,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
     - *myRDPRule* for name
     - *Allow RDP* - for description
 
-   ## Create Basic Load Balancer resources
+## Create Basic Load Balancer resources
 
 In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
 
@@ -142,7 +141,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
     - Click **OK**.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
+    ![Adding to the backend address pool - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
 
 3. Check to make sure your load balancer backend pool setting displays both the VMs **VM1** and **VM2**.
 
@@ -160,7 +159,7 @@ To allow the Basic Load Balancer to monitor the status of your app, you use a he
     - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
 4. Click **OK**.
 
-   ![Adding a probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
+   ![Adding a probe](./media/tutorial-load-balancer-basic-internal-portal/4-load-balancer-probes.png)
 
 ### Create a Load Balancer rule
 
@@ -177,7 +176,7 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
     - *myHealthProbe* - for the name of the health probe.
 4. Click **OK**.
     
-    ![Adding a load balancing rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+    ![Adding a load balancing rule](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## Create a virtual machine to test the load balancer
 In order to test the internal load balancer, you must create a virtual machine that is located in the same virtual network as the backend server VMs.
@@ -197,13 +196,13 @@ In order to test the internal load balancer, you must create a virtual machine t
     a. Click **All resources** in the left-hand menu, and then click **myLoadBalancer** from the resources list.
     b. In the **Overview** details page, copy the Private IP address (in this example, it is 10.1.0.7).
 
-2. Create a RDP connection to *myVMTest* as follows:
+2. Create a remote connection to *myVMTest* as follows:
     a. Click **All resources** in the left-hand menu, and then from the resources list click **myVMTest** that is located in the *myResourceGroupILB* resource group.
-2. On the **Overview** page, click **Connect** to RDP into the VM.
+2. On the **Overview** page, click **Connect** to start a remote session with the VM.
 3. Log into the *myVMTest*.
 3. Paste the Private IP address into the address bar of the browser in *myVMTest*. The default page of IIS Web server is displayed on the browser.
 
-      ![IIS Web server](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS Web server](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png)
 
 To see the load balancer distribute traffic across both VMs running your app, you can force-refresh your web browser.
 
