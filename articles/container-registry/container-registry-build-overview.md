@@ -13,7 +13,9 @@ ms.author: marsma
 
 # Automate OS and framework patching with ACR Build
 
-Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is patched. **ACR Build**, a suite of features within Azure Container Registry, provides not only native container image build capability, but also automates OS and framework patching of your application images.
+Containers provide new levels of virtualization, isolating application and developer dependencies from infrastructure and operational requirements. What remains, however, is the need to address how this application virtualization is patched.
+
+**ACR Build**, a suite of features within Azure Container Registry, provides not only native container image build capability, but also automates [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers.
 
 ## What is ACR Build?
 
@@ -39,15 +41,23 @@ Learn how to trigger builds on source code commit in the second ACR Build tutori
 
 ## Automate OS and framework patching
 
+The power of ACR Build to truly enhance your container build pipeline comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Build can automatically build any application images based on it.
+
+[DIAGRAM HERE?]
+
+Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and any application frameworks upon which your application is built.
+
+[EXPAND DESCRIPTION]
+
 ACR Build dynamically discovers base image dependencies when it builds a container image.
 
-While ACR Build is in preview, base images updates can trigger builds when both the base and application images reside the same registry.
+While ACR Build is in preview, base images updates trigger builds only when both the base and application images reside the same registry.
 
 Learn about OS and framework patching in the third ACR Build tutorial, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 ## Next steps
 
-When you're ready to start building your container images in the cloud, check out part one of the three-part ACR Build tutorial series.
+When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part ACR Build tutorial series.
 
 > [!div class="nextstepaction"]
 > [Build container images in the cloud with Azure Container Registry Build](container-registry-tutorial-quick-build.md)
