@@ -37,7 +37,7 @@ There are three alternative sampling methods:
 
 * **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Beginning with SDK v 2.0.0-beta3 this is the default sampling method. Adaptive sampling is currently only available for ASP.NET server-side telemetry. For Asp.NET Core applications targetting full Framework, adaptive sampling is available from version 1.0.0 of Microsoft.ApplicationInsights.AspNetCore SDK. For Asp.NET Core applications targetting NetCore, adaptive sampling is available from 2.2.0-beta1 of Microsoft.ApplicationInsights.AspNetCore SDK.
 
-* **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
+* **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 * **Ingestion sampling** 
 works in the Azure portal. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app, and it works uniformly for all servers and clients. 
 
