@@ -1,5 +1,14 @@
 ---
-ms.topic: "include"
+title: include file
+description: include file
+author: ghogen
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: include
+ms.date: 05/07/2018
+ms.author: ghogen
+ms.custom: include file
+manager: douge
 ---
 ## Install the Cognitive Services VSIX Extension
 

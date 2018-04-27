@@ -27,7 +27,7 @@
     href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
   - name: Python
     href: Tutorials/FaceAPIinPythonTutorial.md
-- name: How to
+- name: How to guides
   items:
   - name: Detect faces in image
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md

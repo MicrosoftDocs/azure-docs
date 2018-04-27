@@ -8,7 +8,7 @@ manager: douge
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: conceptual
-ms.date: 03/01/2018
+ms.date: 05/07/2018
 ms.author: ghogen
 ---
 # Connecting to Cognitive Services Face API by using Connected Services in Visual Studio
