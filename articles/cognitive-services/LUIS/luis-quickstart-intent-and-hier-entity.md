@@ -26,7 +26,7 @@ The intents are categories of what the user wants. This app has two intents: Boo
 
 ## Hierarchical entity is contextually learned 
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [hierarchical](luis-concept-entity-types.md) entity is learned based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
+A [hierarchical](luis-concept-entity-types.md) entity is parent-child entity based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
 
 For this Travel app, LUIS extracts the origin and destination locations in such as way that a standard reservation can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
 
