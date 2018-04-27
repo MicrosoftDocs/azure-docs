@@ -60,11 +60,11 @@ v3 is based on a unified API surface which exposes both management and operation
 
 As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
 
-* [.NET languages](stream-files-dotnet-quickstart.md)
+* [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
 * .NET Core 
 * Java
-* Node.js
-* Python
+* Node.js (- npm install azure-arm-mediaservices)
+* (Python)[https://pypi.org/project/azure-mgmt-media/1.0.0rc1/]
 * Go
 * Azure CLI 2.0
 
