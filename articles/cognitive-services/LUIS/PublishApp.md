@@ -19,19 +19,19 @@ When you finish building and testing your LUIS app, publish it. After the app is
 You can always [test](train-test.md) your app before publishing it. 
 
 ## Production and staging slots
-You can publish your app to the **Staging slot** or the **Production Slot**. Two publishing slots allows you to have two different versions with published endpoints or the same version on two different endpoints. 
+You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
 
 <!-- TBD: what is the technical difference? log files, endpoint quota? -->
 
 ## Configure settings then publish
 
-### Set Timezone
-Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
+### Set Timezone offset
+Part of the slot choice is the time zone selection. This timezone setting allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
 
 ### Include all predicted intent scores
-The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for for each intent. 
+The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
 
-This allows your chat bot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chat bot can choose to ask a follow up question that makes a definitive choice between the None intent and the other high-scoring intent. 
+This setting allows your chat bot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chat bot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
 
 The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
 
@@ -123,12 +123,28 @@ To see endpoints and keys associated with other regions, use the radio buttons t
 ## Endpoint URL construction
 The endpoint URL corresponds to the Azure region associated with the endpoint key.
 
-This table conveniently reflects your publishing configuration in the URL endpoint with route choices and query string values. If you are constructing your endpoint URLs for your LUIS-calling application, make sure the these same routes and query string values are set for the endpoint used -- if you want them set.
+This table conveniently reflects your publishing configuration in the URL endpoint with route choices and query string values. If you are constructing your endpoint URLs for your LUIS-calling application, make sure these same routes and query string values are set for the endpoint used -- if you want them set.
 
-The URL route is constructed with the region, and the app ID. If you are publish in other regions or with other apps, the endpoint URL can be constructed by changing the region and app ID values. 
+The URL route is constructed with the region, and the app ID. If you are publishing in other regions or with other apps, the endpoint URL can be constructed by changing the region and app ID values. 
+
+### Optional query string parameters
+The following query string parameters can be used with the endpoint URL:
+
+<!-- TBD: what about speech priming? -->
+
+|Query string|Type|Example value|Purpose|
+|--|--|--|--|
+|verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
+|sentiment|boolean|true|Include [sentiment](#enable-sentiment-analysis) score for utterance|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](#set-timezone) for [datetimeV2 prebuilt entities](#builtindatetimev2)|
+|spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
+|bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
+|staging|boolean|false|select staging or production endpoint|
+|log|boolean|true|add query and results to log|
+
 
 ## Test your published endpoint in a browser
-Test your published endpoint by selecting the URL in the **Endpoint** column. The default browser opens with the the generated URL. Set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
+Test your published endpoint by selecting the URL in the **Endpoint** column. The default browser opens with the generated URL. Set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
 ![JSON response from a published HTTP endpoint](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
 
