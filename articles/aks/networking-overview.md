@@ -47,13 +47,13 @@ Advanced networking provides the following benefits:
 
 When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
 
-**Virtual network**: The VNet into which you want to deploy the cluster. If you want to create a new VNet for your cluster, select *Create New* and follow the steps in the *Create new virtual network* page.
+**Virtual network**: The VNet into which you want to deploy the cluster. If you want to create a new VNet for your cluster, select *Create new* and follow the steps in the *Create virtual network* section.
 
-**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create new subnet* page.
+**Subnet**: The subnet within the VNet where you want to deploy the cluster. If you want to create a new subnet in the VNet for your cluster, select *Create new* and follow the steps in the *Create subnet* section.
 
-**Service CIDR address range**: The IP address range for the Kubernetes cluster service IPs. This range must not be within the VNet IP address range of your cluster.
+**Kubernetes service address range**: The IP address range for the Kubernetes cluster service IPs. This range must not be within the VNet IP address range of your cluster.
 
-**DNS service IP address**:  The IP address for the Kubernetes cluster DNS service. This address must be from within the *Service CIDR address range*.
+**Kubernetes DNS service IP address**:  The IP address for the Kubernetes cluster DNS service. This address must be from within the *Service CIDR address range*.
 
 **Docker Bridge IP address**: The IP address and netmask to assign to the Docker bridge. This IP address must not be within the VNet IP address range of your cluster.
 
