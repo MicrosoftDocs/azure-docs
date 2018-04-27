@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/26/2018
 ms.author: magoedte
 
 ---
@@ -30,7 +30,7 @@ The solution shows which containers are running, what container image they’re 
 - Service Fabric
 - Red Hat OpenShift
 
-If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on AKS (Azure Container Service), see [Monitor Azure Container Service](../monitoring/monitoring-container-performance.md).  The Container Monitoring solution does not include support to monitor that platform.  
+If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on AKS (Azure Container Service), see [Monitor Azure Container Service](../monitoring/monitoring-container-health.md).  The Container Monitoring solution does not include support to monitor that platform.  
 
 The following diagram shows the relationships between various container hosts and agents with Log Analytics.
 
