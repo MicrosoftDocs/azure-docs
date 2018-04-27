@@ -63,8 +63,8 @@ As a developer, you can use Media Services [REST API](https://docs.microsoft.com
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
 * .NET Core 
 * Java
-* Node.js (- npm install azure-arm-mediaservices)
-* (Python)[https://pypi.org/project/azure-mgmt-media/1.0.0rc1/]
+* Node.js (npm install azure-arm-mediaservices)
+* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
 * Go
 * Azure CLI 2.0
 
