@@ -40,7 +40,7 @@ By using Azure Stream Analytics, you can upload sample data and test queries in 
 
    ![Stream Analytics query editor sample output](media/stream-analytics-test-query/stream-analytics-test-query-editor-samples-output.png)
 
-   When you use multiple outputs in a query, you can see the results for each output separately and easily toggle between them.
+   When you use multiple outputs in a query, the results are shown on separate tabs, and you can easily toggle between them.
 
 8. After you verify the results shown in the browser, **Save** your query. Then **Start** the job, and let it process the incoming events.
 
