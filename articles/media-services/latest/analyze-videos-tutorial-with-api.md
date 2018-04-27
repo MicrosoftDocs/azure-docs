@@ -226,7 +226,7 @@ private static void DownloadResults(IAzureMediaServicesClient client, string res
 
 ### Clean up resource in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
