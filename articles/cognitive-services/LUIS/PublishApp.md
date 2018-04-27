@@ -112,7 +112,7 @@ Open your app by clicking its name on the **My Apps** page, and then click **Pub
  
 When your app is successfully published, a green success notification appears at the top of the browser. 
 
-3. Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Select slot**. 
+* Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Select slot**. 
 
 ## Assign key
 
@@ -127,7 +127,8 @@ This table conveniently reflects your publishing configuration in the URL endpoi
 
 The URL route is constructed with the region, and the app ID. If you are publishing in other regions or with other apps, the endpoint URL can be constructed by changing the region and app ID values. 
 
-6. Select the Production slot and the **Publish** button. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
+* Select the Production slot and the **Publish** button. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
+
 ### Optional query string parameters
 The following query string parameters can be used with the endpoint URL:
 
