@@ -24,7 +24,7 @@ The model building and deployment workflow for text analytics models is as follo
 1. Load the data
 2. Train the model
 3. Apply the classifier 
-4. Evaluate performance
+4. Evaluate model performance
 5. Save the pipeline
 6. Test the pipeline
 8. Deploy the model as a web service
@@ -271,18 +271,15 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### Examine and set the paraneters of the different pipeline steps
+### Examine and set the parameters of the different pipeline steps
 NOTE: Although we're fitting a scikit-learn model, preprocessing is being done prior to fitting using a pipeline of preprocessor and featurizer (transoformation) steps. Hence, we refer to a "pipeline" for training. During evaluation, the full pipeline (including preprocessing and scikit-learn model prediction) is applied to a testing data set.<br />
-***Example shown with text_word_ngrams***
+***Example shown with text_word_ngrams*** <br />
 Typically, you set the parameters before you fit a model. Here we've shown you first how to train the model with default pipeline and model parameters. <br />
 For example, get parameter names of "text_word_ngrams". This shows parameters such as lowercase, input_col, output_col etc., which one can specify, if needed.
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
 ```
-
-
-
 
     ['input',
      'max_features',
@@ -311,18 +308,11 @@ text_classifier.get_step_param_names_by_name("text_word_ngrams")
      'norm',
      'decode_error']
 
-
-
-get step params by step name in the pipeline
-
+Check the parameter values of "text_char_ngrams"
 
 ```python
 text_classifier.get_step_params_by_name("text_char_ngrams")        
 ```
-
-
-
-
     {'analyzer': 'char_wb',
      'binary': False,
      'decode_error': 'strict',
@@ -350,19 +340,12 @@ text_classifier.get_step_params_by_name("text_char_ngrams")
      'use_idf': True,
      'vocabulary': None}
 
-
-
-You can change the default parameters as follows: here we show how to change the range of extracted character n-grams from (4,4) to (3,4) to extract both character tri-grams and 4 grams  
-
+You can change the default parameters. For example, change the range of extracted character n-grams from (4,4) to (3,4) to extract both character tri-grams and 4-grams
 
 ```python
 text_classifier.set_step_params_by_name("text_char_ngrams", ngram_range =(3,4)) 
 text_classifier.get_step_params_by_name("text_char_ngrams")
 ```
-
-
-
-
     {'analyzer': 'char_wb',
      'binary': False,
      'decode_error': 'strict',
@@ -390,20 +373,16 @@ text_classifier.get_step_params_by_name("text_char_ngrams")
      'use_idf': True,
      'vocabulary': None}
 
-
-
 ### Export the parameters to a file
-
+If needed, you can re-run the model fitting step with the revised parameters to optimize performance of your model
 
 ```python
 import os
 params_file_path = os.path.join(data_dir, "params.tsv")
 text_classifier.export_params(params_file_path)
 ```
-
 ## Apply the classifier
-Apply the trained text classifier on the test dataset
-
+Apply the trained text classifier on the test dataset to generate class predictions
 
 ```python
  df_test = text_classifier.predict(df_test)
@@ -427,11 +406,9 @@ Apply the trained text classifier on the test dataset
     LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
     Time taken: 0.02 mins
     TextClassifier::predict ==> end
-    
 
 ## Evaluate model performance
-The Evaluation module evaluates the accuracy of the trained text classifier on the test dataset.
-
+The Evaluation module evaluates the accuracy of the trained text classifier on the test dataset. The evaluate function generates confusion matrix and provides a macro-F1 score.
 
 ```python
  text_classifier.evaluate(df_test)          
@@ -460,19 +437,12 @@ The Evaluation module evaluates the accuracy of the trained text classifier on t
     macro_f1 = 0.6112103240853114
     Time taken: 0.02 mins
     TextClassifier::evaluate ==> end
-    
-
-
-
-
+  
     (array([[ 188,  338,   75],
             [  34, 1443,  161],
             [  44,  594,  932]], dtype=int64), 0.6112103240853114)
 
-
-
-Create a confusion matrix
-
+Plot the confusion matrix for visualization
 
 ```python
 # Confusion Matrix UI 
@@ -516,11 +486,8 @@ def plot_confusion_matrix(cm, classes,
 class_labels = set(df_train['label'].values)
 print(class_labels)
 ```
-
     {'negative', 'neutral', 'positive'}
     
-
-
 ```python
 import numpy as np
 np.set_printoptions(precision=2)
@@ -549,19 +516,14 @@ plt.show()
     [[0.31 0.56 0.12]
      [0.02 0.88 0.1 ]
      [0.03 0.38 0.59]]
-    
-
-
+   
 ![png](./media/how-to-build-deploy-text-classification-models/output_28_1.png)
-
-
 
 ![png](./media/how-to-build-deploy-text-classification-models/output_28_2.png)
 
 
 ## Save the pipeline
 Save the classification pipeline into a zip file and the word-ngrams and character n-grams into text files
-
 
 ```python
 import os
@@ -575,7 +537,6 @@ text_classifier.save(model_file)
 # %azureml upload outputs/models/sk_model.zip
 
 ```
-
     BaseTextModel::save ==> start
     TatkPipeline::save ==> start
     Time taken: 0.03 mins
@@ -583,8 +544,6 @@ text_classifier.save(model_file)
     Time taken: 0.04 mins
     BaseTextModel::save ==> end
     
-
-
 ```python
 # for debugging, you can save the word n-grams vocabulary to a text file
 word_vocab_file_path = os.path.join(working_dir, 'word_ngrams_vocabulary.tsv')
@@ -605,11 +564,9 @@ text_classifier.get_step_by_name("text_char_ngrams").save_vocabulary(char_vocab_
     saving 14635 n-grams ...
     Time taken: 0.0 mins
     save_vocabulary ==> end
-    
-
+ 
 ## Load the pipeline
-Load the classification pipeline and the word-ngrams and character n-grams
-
+Load the classification pipeline and the word-ngrams and character n-grams for inferencing
 
 ```python
 # in order to deploy the trained model, you have to load the zip file of the classifier pipeline
@@ -631,13 +588,11 @@ char_ngram_vocab = NGramsVectorizer.load_vocabulary(char_vocab_file_path)
     
 
 ## Test the pipeline
-Apply the loaded text classification pipeline
-
+Apply the loaded text classification pipeline to evaluate a test dataset
 
 ```python
 loaded_text_classifier.evaluate(df_test)
 ```
-
     TextClassifier::evaluate ==> start
     schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 col=prediction:TX:3 header+
     NltkPreprocessor::tatk_transform ==> start
@@ -662,28 +617,20 @@ loaded_text_classifier.evaluate(df_test)
     Time taken: 0.02 mins
     TextClassifier::evaluate ==> end
     
-
-
-
-
     (array([[ 188,  338,   75],
             [  34, 1443,  161],
             [  44,  594,  932]], dtype=int64), 0.6112103240853114)
 
+## Operationalization: deploy and consume
+In this section, you deploy the  text classification pipeline as an Azure Machine Learning web service and consume it for training and scoring.
 
-
-## Deploy the model
-
-Now, you can deploy the text classification model as an Azure web service.
-
+### Set model deployment parameters
+Make sure your AML environment, model management account, and resource group are located in the same region.
 Go to Command Prompt and run the following command to log in your Azure Subscription:
 ```
 $ az login
 ```
-
 Download the deployment config file from Blob storage and save it locally
-
-
 ```python
 # Download the deployment config file from Blob storage `url` and save it locally under `file_name`:
 deployment_config_file_url = 'https://aztatksa.blob.core.windows.net/dailyrelease/tatk_deploy_config.yaml'
@@ -692,10 +639,7 @@ import urllib.request
 urllib.request.urlretrieve(deployment_config_file_url, deployment_config_file_path)
 ```
 
-
 Update the downloaded deployment config file with your resources
-
-
 ```python
 web_service_name = 'please type your web service name'
 working_directory= os.path.join(resources_dir, 'deployment') 
@@ -704,8 +648,6 @@ web_service = text_classifier.deploy(web_service_name= web_service_name,
                        config_file_path=deployment_config_file_path,
                        working_directory= working_directory)  
 ```
-
-  
 
 Given that the trained model is deployed successfully. Let us invoke the scoring web service on new dataset with the web service information
 
@@ -723,7 +665,10 @@ from tatk.operationalization.csi.csi_web_service import CsiWebService
 tatk_web_service = CsiWebService(web_service_name)
 ```
 
-Test the web service with sample sentiment data:
+Test the web service with sample sentiment data
+***Example intput data for scoring*** <br />
+input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into 1st round\"}]}"
+
 ```python
 # input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into 1st round\"}]}"
 import json
@@ -748,14 +693,7 @@ prediction
     {"values": [{"data": {"text": "a good college player who had a great week"}, "recordId": "a1"}, {"data": {"text": "a bad college player who had a awful week"}, "recordId": "b2"}]}
     F1 2018-04-24 00:32:42,971 INFO Web service scored. 
     
-
-
-
-
     '{"values": [{"recordId": "b2", "data": {"class": "neutral", "text": "a bad college player who had a awful week"}}, {"recordId": "a1", "data": {"class": "positive", "text": "a good college player who had a great week"}}]}'
-
-
-
 
 
 ## Next steps
