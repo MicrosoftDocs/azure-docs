@@ -235,7 +235,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ## Create an index
 
-In the next request, define the index schema. Specify which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using whatever field naming conventions make sense for your search application.
+In this section you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
 
 This exercise uses the following fields and field types:
 
@@ -308,7 +308,7 @@ To learn more about defining an index, see [Create Index (Azure Search REST API)
 
 ## Create an indexer, map fields, and execute transformations
 
-So far, you have created a data source, a skillset, and an index. All become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. That said, you need to add a bit of glue between these components before you can run it. In this step, you define field mappings, which are part of the indexer definition, and execute the transformations when you submit the request.
+So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these toghether in an indexer, you must define field mappings. Field mappings are part of the indexer definition and execute the transformations when you submit the request.
 
 For non-enriched indexing, the indexer definition provides an optional *fieldMappings* section if field names or data types do not precisely match, or if you want to use a function.
 
@@ -378,10 +378,10 @@ Send the request. The web test tool should return a status code of 204 confirmin
 
 Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are particularly long-running.
 
-> [!Tip]
-> This step, creating the indexer, invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
+> [!TIP]
+> Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
 
-### Explore the script
+### Explore the request body
 
 The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engine to ignore errors during data import. This is useful because there are so few documents in the demo data source. For a larger data source, you would set the value to greater than 0.
 
@@ -401,7 +401,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-The response tells you whether the indexer is running. After indexing is finished, another HTTP GET to the STATUS endpoint (as above) reports any errors and warnings that occurred during enrichment.  
+The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
  
 ## Verify content
 
@@ -431,17 +431,17 @@ You can use GET or POST, depending on query string complexity and length. For mo
 
 ## Accessing the enriched document
 
-We added a mechanism that allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
+Cognitive search allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
 
 To capture a snapshot of the enriched document created during indexing, add a field called ```enriched``` to your index. The indexer automatically dumps into the field a string representation of all the enrichments for that document.
 
 The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you'll need to replace `\"` with `"` in order to view the document as formatted JSON.  
 
-The ```enriched``` field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against. This implementation is temporary, likely to be replaced with an alternative implementation by general release. For now, it can be a useful tool to understand what's going on and help you debug your skillset.
+The ```enriched``` field is intended for debugging purposes, only to help you understand the logical shape of the content that expressions are being evaluated against. It can be a useful tool to understand and debug your skillset.
 
 Repeat the previous exercise, including an `enriched` field to capture the contents of an enriched document:
 
-#### Request Body Syntax
+### Request Body Syntax
 ```json
 {
   "fields": [
@@ -496,12 +496,11 @@ Repeat the previous exercise, including an `enriched` field to capture the conte
 }
 ```
 <a name="reset"></a>
-
 ## Reset and re-run
 
 In the early experimental stages of pipeline development, the most practical approach for evolving a solution is to delete the objects from Azure Search and allow your code to rebuild them at run time. Resource names are unique in the service so you must delete objects to recreate them using the same name.
 
-You can use the portal to delete data sources, indexes, and indexers. Skillsets are new and must be deleted using an HTTP command:
+You can use the portal to delete data sources, indexes, and indexers. Skillsets must be deleted using an HTTP command:
 
 ```http
 DELETE https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
