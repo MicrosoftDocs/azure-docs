@@ -87,11 +87,11 @@ This article and its companion articles provide details for using the Visual Stu
 
 1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Computer Vision API page](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer: 
   
-   ![images folder with image file](media/vs-face-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![images folder with image file](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Right-click on the image file, choose Properties, and then choose **Copy if newer**. 
 
-   ![Copy if newer](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG) 
+   ![Copy if newer](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Replace the Configure method with the following code to access the Computer Vision API and test an image.
 
