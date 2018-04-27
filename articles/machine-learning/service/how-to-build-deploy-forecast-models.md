@@ -55,7 +55,7 @@ The example follows the workflow:
 Try it out yourself. Download the notebook and run it yourself.
 
 > [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
 
 ### Explore the sample data
 
@@ -101,7 +101,7 @@ print('imports done')
     
 
 ## Load data and explore
-
+This example shows the typical process of starting with a raw data set. You start by loading the Dominick's Finer Foods data.  You can also use the convenience function ```load_dominicks_oj_data```.
 
 ```python
 # Load the data into a pandas DataFrame
