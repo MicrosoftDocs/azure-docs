@@ -23,7 +23,7 @@ Azure Active Directory provides single-sign on and enhanced application access s
 If your organization uses a third-party federation solution, you can configure single sign-on for your on-premises Active Directory users with Microsoft Online services, such as Office 365, provided the third-party federation solution is compatible with Azure Active Directory.  For questions regarding compatibility, please contact your identity provider.  If you would like to see a list of identity providers who have previously been tested for compatibility with Azure AD, by Microsoft, click [here](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
->Microsoft no longer provides validation testing to independent identity providers for compatibility with Azure Active Directory. Microsoft encourages identity providers to use the self-service [documents](https://www.microsoft.com/download/details.aspx?id=56843) to validate compatibility with Azure Active Directory. 
+>Microsoft no longer provides validation testing to independent identity providers for compatibility with Azure Active Directory. If you would like to test your product for interoperability please refer to these [guidelines](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 ## Next Steps
 
