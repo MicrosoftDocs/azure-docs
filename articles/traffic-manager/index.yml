@@ -34,7 +34,7 @@ sections:
   - type: paragraph
     text: Learn how to route traffic based on different routing methods available in Traffic Manager.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on endpoint priority</a>
