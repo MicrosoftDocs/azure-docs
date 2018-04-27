@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 04/27/2017
 ms.author: brandwe
 ms.custom: aaddev
 
@@ -59,7 +59,7 @@ These logins have the following benefits:
 
 These logins have the following drawbacks:
 
-* User cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that your application has configured.
+* If Workplace Joined, the user cannot experience single-sign on across all apps that use a Microsoft Identity, only across those Microsoft Identities that are known to your application.
 * Your application cannot be used with more advanced business features such as Conditional Access or use the InTune suite of products.
 * Your application can't support certificate-based authentication for business users.
 
@@ -98,7 +98,7 @@ If a compatible broker is installed on the device, like the Microsoft Authentica
 
 These logins have the following benefits:
 
-* User experiences SSO across all their applications no matter the vendor.
+* When the device is workplace joined, the user experiences SSO across all their applications no matter the vendor.
 * Your application can use more advanced business features such as Conditional Access or use the InTune suite of products.
 * Your application can support certificate-based authentication for business users.
 * Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encryption.
@@ -233,7 +233,6 @@ The steps to follow are:
 1. Enable broker mode in your application code's call to the MS SDK.
 2. Establish a new redirect URI and provide that to both the app and your app registration.
 3. Registering a URL Scheme.
-4. iOS9 Support: Add a permission to your info.plist file.
 
 #### Step 1: Enable broker mode in your application
 The ability for your application to use the broker is turned on when you create the "context" or initial setup of your Authentication object. You do this by setting your credentials type in your code:
@@ -288,10 +287,6 @@ To support cert based authentication a second "msauth"  needs to be registered i
 
 ex: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### Step 4: iOS9: Add a configuration parameter to your app
-ADAL uses –canOpenURL: to check if the broker is installed on the device. In iOS 9 Apple locked down what schemes an application can query for. You will need to add “msauth” to the LSApplicationQueriesSchemes section of your `info.plist file`.
-
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
 
 ### You've configured SSO!
 Now the Microsoft Identity SDK will automatically both share credentials across your applications and invoke the broker if it's present on their device.
