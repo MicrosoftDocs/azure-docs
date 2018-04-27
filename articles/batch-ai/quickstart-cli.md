@@ -40,7 +40,7 @@ command-line arguments.
 * Create an Azure Blob Container `data` to store training data;
 * Deploy the training script and the training data to the created file share and container;
 * Configure the job to mount the Azure File Share and Azure Blob Container on the cluster's node and make them available as regular
-file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`, where
+file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts`, and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`.
 `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI for the job.
 * Monitor the job execution by streaming its standard output;
 * After the job completion, inspect its output and generated models;
@@ -79,7 +79,7 @@ system image:
 az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i UbuntuDSVM -t 1 --generate-ssh-keys
 ```
 
-Ubuntu DSVM allows to run any training jobs in docker containers and to run most popular deep learning frameworks
+Ubuntu DSVM allows you to run any training jobs in docker containers and to run most popular deep learning frameworks
 directly on VM.
 
 `--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys if you have not them already. You
