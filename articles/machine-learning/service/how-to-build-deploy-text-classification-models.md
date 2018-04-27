@@ -13,9 +13,9 @@ ms.date: 05/07/2018
 
 # Build and deploy text classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. 
+In this article learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. 
 
-There are broad applications of text classification for example categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
+There are broad applications of text classification, for example, categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, analyzing customer feedback, and more. 
 
 The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a sentiment classification web service using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
 
@@ -56,7 +56,7 @@ Try it out yourself. Download the notebook and run it yourself.
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### Explore the sample data
-The following example uses the [sentiment analysis in twitter dataset](https://www.cs.york.ac.uk/semeval-2013/task2/index.html) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
+The following example uses a partial set of the [sentiment140](https://www.kaggle.com/kazanova/sentiment140/data) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
 
 ## Load data and explore
 Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. <br />
@@ -85,10 +85,10 @@ pip.main(["show", "azureml-tatk"])
 Get training and test data sets from Azure blob storage & update train data and test data paths to load your data.
 Set the blob parameters below to point to your blob or set the resource_dir path to read a file from a local directory.
 
-To use your own blob storage update the following parameters: 
+To use your own blob storage, update the following parameters: 
    - connection_string - replace None with your connection string 
    - container_name - replace None with your container name 
-   - blob_name - Replace the subdirectoy "sentiment" and the file name for training and test data, e.g. "SemEval2013.Train.tsv" and "SemEval2013.Test.tsv"
+   - blob_name - Replace the subdirectory "sentiment" and the file name for training and test data, for example "SemEval2013.Train.tsv" and "SemEval2013.Test.tsv"
 
 ```python
 from tatk.utils import download_blob_from_storage, resources_dir, data_dir
@@ -135,7 +135,7 @@ print(df_test.head())
     3   4  @TheScript_Danny @thescript - St Patricks Day ...  positive
     4   5  @DJT103 - You know what the holidays alright w...  positive
     
-The data consists of ID, Text and the lable Postive, Neutral or Negative. 
+The data consists of ID, text and the label Positive, Neutral or Negative. 
 To do a preliminary exploration plot histogram of the class frequency in training and test data sets. 
 
 ```python
@@ -188,7 +188,7 @@ plt.show()
 ```
 
 ## Train the model
-### Specify scikitlearn algotirhm and define the text classifier
+### Specify scikitlearn algorithm and define the text classifier
 This step involves training a Scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
 Full list of learners can be found here [Scikit Learners](http://scikit-learn.org/stable/supervised_learning)
 
@@ -224,7 +224,7 @@ text_classifier = TextClassifier(estimator=log_reg_learner,
     TextClassifier::create_pipeline ==> end
     
 ### Fit the model
-Use the default parameters of the package: By default, the text classifier will extract word unigrams and bigrams and character 4-grams.
+Use the default parameters of the package: By default, the text classifier will extract word unigrams and bigrams and character 4 grams.
 
 ```python
 text_classifier.fit(df_train)        
@@ -272,10 +272,10 @@ text_classifier.fit(df_train)
             weight_col=None)
 
 ### Examine and set the parameters of the different pipeline steps
-NOTE: Although we're fitting a scikit-learn model, preprocessing is being done prior to fitting using a pipeline of preprocessor and featurizer (transoformation) steps. Hence, we refer to a "pipeline" for training. During evaluation, the full pipeline (including preprocessing and scikit-learn model prediction) is applied to a testing data set.<br />
+NOTE: Although the fitting of a scikit-learn model, preprocessing is being done prior to fitting using a pipeline of preprocessor and featurizer (transformation) steps. Hence, the reference to a "pipeline" for training. During evaluation, the full pipeline (including preprocessing and scikit-learn model prediction) is applied to a testing data set.<br />
 ***Example shown with text_word_ngrams*** <br />
-Typically, you set the parameters before you fit a model. Here we've shown you first how to train the model with default pipeline and model parameters. <br />
-For example, get parameter names of "text_word_ngrams". This shows parameters such as lowercase, input_col, output_col etc., which one can specify, if needed.
+Typically, you set the parameters before you fit a model. This example shows you first how to train the model with default pipeline and model parameters. <br />
+For example, get parameter names of "text_word_ngrams." This shows parameters such as lowercase, input_col, output_col etc., which one can specify, if needed.
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -340,7 +340,7 @@ text_classifier.get_step_params_by_name("text_char_ngrams")
      'use_idf': True,
      'vocabulary': None}
 
-You can change the default parameters. For example, change the range of extracted character n-grams from (4,4) to (3,4) to extract both character tri-grams and 4-grams
+You can change the default parameters. For example, change the range of extracted character n-grams from (4,4) to (3,4) to extract both character tri-grams and 4 grams
 
 ```python
 text_classifier.set_step_params_by_name("text_char_ngrams", ngram_range =(3,4)) 
@@ -374,7 +374,7 @@ text_classifier.get_step_params_by_name("text_char_ngrams")
      'vocabulary': None}
 
 ### Export the parameters to a file
-If needed, you can re-run the model fitting step with the revised parameters to optimize performance of your model
+If needed, you can rerun the model fitting step with the revised parameters to optimize performance of your model
 
 ```python
 import os
@@ -649,7 +649,7 @@ web_service = text_classifier.deploy(web_service_name= web_service_name,
                        working_directory= working_directory)  
 ```
 
-Given that the trained model is deployed successfully. Let us invoke the scoring web service on new dataset with the web service information
+Given that the trained model is deployed successfully. Invoke the scoring web service on new dataset with the web service information
 
 ```python
 print("Service URL: {}".format(web_service._service_url))
@@ -666,11 +666,11 @@ tatk_web_service = CsiWebService(web_service_name)
 ```
 
 Test the web service with sample sentiment data
-***Example intput data for scoring*** <br />
+***Example input data for scoring*** <br />
 input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into 1st round\"}]}"
 
 ```python
-# input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into 1st round\"}]}"
+# input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into first round\"}]}"
 import json
 dict1 ={}
 dict1["recordId"] = "a1" 
