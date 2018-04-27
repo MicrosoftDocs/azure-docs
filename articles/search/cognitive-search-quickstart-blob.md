@@ -1,6 +1,6 @@
 ---
 title: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs
-description: Use the portal to enrich Azure Search indexing through cognitive skills, applied to source data during indexing. 
+description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
 ms.service: search

@@ -1,6 +1,6 @@
 ---
-title: Predefined skills for content enrichment (Azure Search) | Microsoft Docs
-description: Skills add semantics and structure to raw content.
+title: Predefined data extraction, natural language, image processing skills (Azure Search) | Microsoft Docs
+description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Seach pipeline.
 manager: pablocas
 author: luiscabrer
 ms.service: search
@@ -11,7 +11,7 @@ ms.author: luisca
 ---
 # Predefined skills for content enrichment (Azure Search)
 
-A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the augmentation pipeline. 
+A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 
 The following table enumerates and describes the skills provided by Microsoft. Several skills are flexible in what they consume or produce. In general, most skills are based on pre-trained models, which means you cannot train the model using your own training data. For guidance on creating a custom skill, see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
