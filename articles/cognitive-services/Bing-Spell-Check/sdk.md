@@ -1,5 +1,5 @@
 ---
-title: Bing Spell Check SDK Samples | Microsoft Docs
+title: Bing Spell Check SDK Samples - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
 description: Bing Spell Check SDK samples for applications that perform contextual grammar and spell checking.
 services: cognitive-services
