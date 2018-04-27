@@ -55,7 +55,7 @@ For single databases, the following tables show the resources available for a si
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
-|Max log size|307|307|461|614|922|1229|1229|1229|
+|Max log size|307|307|461|614|1229|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
 |Target IOPS|640|1280|2560|5120|7680|10240|15360|25600
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4800|8000|
@@ -91,7 +91,7 @@ For single databases, the following tables show the resources available for a si
 |||
 
 #### Generation 5 processor
-|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_64|BC_Gen5_80|
+|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|48|80|
