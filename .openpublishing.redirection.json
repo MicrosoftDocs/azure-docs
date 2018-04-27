@@ -7355,7 +7355,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-single-databases-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7420,7 +7420,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-on-the-fly.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7444,13 +7444,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-service-tiers.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
             "redirect_url": "/azure/sql-database/sql-database-servers-databases",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-service-tier-advisor.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -8294,6 +8299,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Face/index.md",
+            "redirect_url": "/azure/cognitive-services/Face/Overview",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -8814,9 +8824,9 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
-            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
-            "redirect_document_id": false
+          "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
@@ -19092,6 +19102,11 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_document_id": false
         }
     ]
 }
