@@ -1,5 +1,5 @@
 ---
-title: Tutorial for calling cognitive search APIs in Azure Search | Microsoft Docs
+title: 'Tutorial: Call cognitive search APIs in Azure Search | Microsoft Docs'
 description: Learn how natural language processing and AI-powered algorithms can transform unsearchable or unstructured files into searchable content during indexing. 
 manager: pablocas
 author: luiscabrer
@@ -10,11 +10,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
 ---
+
 # Tutorial: Learn how to call cognitive search APIs (Preview)
 
-Learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline. 
+In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Cognitive skills are natural language processing (NLP) and image analysis operations that extract text and text representations of an image, detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by a cognitive search indexing pipeline. 
 
-In this tutorial, make REST API calls to perform following tasks:
+In this tutorial, you make REST API calls to perform following tasks:
 
 > [!div class="checklist"]
 > * Create an indexing pipeline that enriches source data in route to an index
@@ -43,11 +44,11 @@ First, sign up for the Azure Search service.
 
 1. Click **Create a resource**, search for Azure Search, and click **Create**. See [Create an Azure Search service in the portal](search-create-service-portal.md) if you are setting up a search service for the first time.
 
-  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png)
+  ![Dashboard portal](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "Create Azure Search service in the portal")
 
-1. For Resource group, create a resource group to contain all the resources you create today to make cleanup easier.
+1. For Resource group, create a resource group to contain all the resources you create in this tutorial. This makes it easier to clean up the resources after you have finished the tutorial.
 
-1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in those regions.
+1. For Location, choose either **South Central US** or **West Europe**. Currently, the preview is available only in these regions.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
@@ -57,7 +58,7 @@ First, sign up for the Azure Search service.
 
   ![Service definition page in the portal](./media/cognitive-search-tutorial-blob/create-search-service.png)
 
-1. After the service is created, collect the following information once the search service is created: "URL" from the Overview page, and "api-key" (either primary or secondary) from the Keys page.
+1. After the service is created, collect the following information: **URL** from the Overview page, and **api-key** (either primary or secondary) from the Keys page.
 
   ![Endpoint and key information in the portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png)
 
@@ -67,9 +68,9 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a very small file set of different types. 
 
-1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. This [Quickstart](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) covers all the steps.
+1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
-1. Still in Storage Explorer, in the `basicdemo` container you just created, click **Upload** to upload the sample files.
+1. Using the Azure Storage Explorer, in the `basicdemo` container you just created, click **Upload** to upload the sample files.
 
 1. Collect the following information from the portal:
 
@@ -77,9 +78,9 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
   + The connection string for your storage account from  **Settings** > **Access keys**. The connection string should be a URL similar to the following example:
 
-  ```http
-  DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIyrCi562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
-  ```
+      ```http
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      ```
 
 There are other ways to specify the connection string, such as providing a shared access signature. To learn more about data source credentials, see [Indexing Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#Credentials).
 
@@ -87,7 +88,7 @@ There are other ways to specify the connection string, such as providing a share
 
 Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.
 
-For this tutorial, use the REST API and a tool that can formulate and send HTTP requests, such as PowerShell, Postman, or Fiddler. In the request header, provide the service name and api-key generated for your search service. In the request body, specify the blob container name and connection string.
+For this tutorial, use the REST API and a tool that can formulate and send HTTP requests, such as PowerShell, Postman, or Fiddler. In the request header, provide the service name you provided when creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
 ### Sample Request
 ```http
@@ -112,16 +113,16 @@ Send the request. The web test tool should return a status code of 201 confirmin
 
 Since this is your first request, check the Azure portal to confirm the data source was created in Azure Search. On the search service dashboard page, verify the Data Sources tile has a new item. You might need to wait a few minutes for the portal page to refresh. 
 
-  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png)
+  ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
 If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
 
-> [!Tip]
+> [!TIP]
 > Now, before you do a lot of work, is a good time to verify that the search service is running in one of the supported locations providing the preview feature: South Central US or West Europe.
 
 ## Create a skillset
 
-In this step, define a set of enrichment steps that you want to apply to your data. We call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [predefined cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
+In this step, you define a set of enrichment steps that you want to apply to your data. You call each enrichment step a *skill*, and the set of enrichment steps a *skillset*. This tutorial uses [predefined cognitive skills](cognitive-search-predefined-skills.md) for the skillset:
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
@@ -228,7 +229,7 @@ Each skill executes on the content of the document. During processing, Azure Sea
 
 A graphical representation of the skillset is shown below:
 
-![](media/cognitive-search-tutorial-blob/skillset.png)
+![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
