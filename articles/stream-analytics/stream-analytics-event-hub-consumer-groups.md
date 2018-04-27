@@ -8,15 +8,27 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
+ms.date: 04/27/2018
 ---
 
-# Debug Azure Stream Analytics with event hub receivers
+# Troubleshoot Azure Stream Analytics with Event Hub receivers
 
 You can use Azure Event Hubs in Azure Stream Analytics to ingest or output data from a job. A best practice for using Event Hubs is to use multiple consumer groups, to ensure job scalability. One reason is that the number of readers in the Stream Analytics job for a specific input affects the number of readers in a single consumer group. The precise number of receivers is based on internal implementation details for the scale-out topology logic. The number of receivers is not exposed externally. The number of readers can change either at the job start time or during job upgrades.
 
 > [!NOTE]
 > When the number of readers changes during a job upgrade, transient warnings are written to audit logs. Stream Analytics jobs automatically recover from these transient issues.
+
+## Add a consumer group in Event Hubs
+1. Sign the Azure portal
+2. Locate your Event Hubs
+3. Select **Event Hubs** under the **Entities** heading.
+4. Select the Event Hub by name.
+5. On the **Event Hubs Instance** page, under the **Entities** heading, select **Consumer groups**. A consumer group with name **$Default** is listed.
+6. Select **+ Consumer Group** to add a new consumer group. 
+
+When you hook up your input in the Stream Analytics job to point to the Event Hub, you specify the consumer group there. $Default is used when none is specified. 
+
+If your streaming query syntax references the same input Event Hub resource multiple times, it can use multiple readers per query from that same consumer group. If there are too many references to the same consumer group, the consumer group can exceed the limit of five. In those circumstances, you can further divide by using multiple inputs across multiple consumer groups using the solution described in the following section. 
 
 ## Number of readers per partition exceeds Event Hubs limit of five
 
@@ -69,12 +81,6 @@ FROM data
 For queries in which three or more inputs are connected to the same Event Hubs consumer group, create separate consumer groups. This requires the creation of additional Stream Analytics inputs.
 
 
-## Get help
-For additional assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 ## Next steps
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Stream Analytics management REST API reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
