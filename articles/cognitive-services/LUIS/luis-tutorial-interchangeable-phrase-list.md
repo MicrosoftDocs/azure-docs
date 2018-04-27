@@ -19,7 +19,7 @@ Improve the accuracy of intent scores and identify entities for words that have 
 
 2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train]() your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
+3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
 4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
