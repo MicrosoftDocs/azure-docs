@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/25/2018
+ms.date: 04/27/2018
 ---
 # Stream data as input into Stream Analytics
 
@@ -40,7 +40,7 @@ Azure Event Hubs provides highly scalable publish-subscribe event ingestors. An 
 The default timestamp of events coming from Event Hubs in Stream Analytics is the timestamp that the event arrived in the event hub, which is `EventEnqueuedUtcTime`. To process the data as a stream using a timestamp in the event payload, you must use the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword.
 
 ### Consumer groups
-You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There is also a limit of 20 consumer groups per event hub. For more information, see [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
+You should configure each Stream Analytics event hub input to have its own consumer group. When a job contains a self-join or when it has multiple inputs, some input might be read by more than one reader downstream. This situation impacts the number of readers in a single consumer group. To avoid exceeding the Event Hubs limit of five readers per consumer group per partition, it's a best practice to designate a consumer group for each Stream Analytics job. There is also a limit of 20 consumer groups per event hub. For more information, see [Troubleshoot Azure Stream Analytics with Event Hub receivers](stream-analytics-event-hub-consumer-groups.md).
 
 ### Stream data from Event Hubs
 The following table explains each property in the **New input** page in the Azure portal to stream data input from an Event Hub:
