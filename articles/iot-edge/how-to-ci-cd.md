@@ -153,7 +153,7 @@ In this section, you will create a sample IoT Edge solution containing unit test
                 var moduleTwinCollection = moduleTwin.Properties.Desired;
                 try {
                     temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-                } catch(ArgumentOutOfRangeException e) {
+                } catch(ArgumentOutOfRangeException) {
                     Console.WriteLine("Proerty TemperatureThreshold not exist");
                 }
 
@@ -358,7 +358,7 @@ In this section, you will create a build definition that is configured to run au
 
 1. Sign into your VSTS account (**https://**_your-account_**.visualstudio.com**) and open the project where you checked in the sample app.
 
-1. Visit [Azure IoT Edge For VSTS](Azure IoT Edge For VSTS) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
+1. Visit [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) on VSTS Marketplace. Click **Get it free** and follow the wizard to install this extension to your VSTS account or download to your TFS.
 
 1. In your VSTS, open the **Build &amp; Release** hub and, in the **Builds** tab, choose **+ New definition**. Or, if you already have build definitions, choose the **+ New** button. 
 
