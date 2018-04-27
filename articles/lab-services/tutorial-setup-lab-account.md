@@ -26,7 +26,6 @@ In this tutorial, you do the following actions:
 > * Create a lab account
 > * Add a user to the Lab Creator role
 
-## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a lab account
