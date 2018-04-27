@@ -38,11 +38,11 @@ Log in to the [Azure portal](https://portal.azure.com)
 
 From the left menu, select **Resource Groups**, select **myResourceGroup**, and then select your storage account in the resource list.
 
-Under **Diagnostics** set **Status** to **On**. Ensure **Blob aggregate metrics**, **Blob per API metrics**, and **Blob logs** are enabled.
+Under **Diagnostics** set **Status** to **On**. Ensure all of the options under **Blob properties** are enabled.
 
 When complete, click **Save**
 
-![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/figure1.png)
+![Diagnostics pane](media/storage-monitor-troubleshoot-storage-application/contoso.png)
 
 ## Enable alerts
 

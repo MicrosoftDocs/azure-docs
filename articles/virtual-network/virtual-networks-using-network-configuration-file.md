@@ -3,8 +3,8 @@ title: Configure an Azure Virtual Network (classic) - Network configuration file
 description: Learn how to create and modify virtual networks (classic) by exporting, changing, and importing a network configuration file.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: ''
 tags: azure-service-management
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/23/2017
-ms.author: jdial
+ms.author: genli
 ms.custom: 
 
 ---

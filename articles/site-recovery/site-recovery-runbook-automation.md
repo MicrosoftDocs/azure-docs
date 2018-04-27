@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Azure Automation runbooks to recovery plans in Azure Site Recovery | Microsoft Docs
 description: Learn how Azure Site Recovery can help you extend recovery plans by using Azure Automation. Learn how to complete complex tasks during recovery to Azure.
 services: site-recovery
@@ -197,7 +197,7 @@ In the following example, we use a new technique and create a [complex variable]
 1. In PowerShell, sign in to your Azure subscription:
 
 	```
-	login-azurermaccount
+	Connect-AzureRmAccount
 	$sub = Get-AzureRmSubscription -Name <SubscriptionName>
 	$sub | Select-AzureRmSubscription
 	```

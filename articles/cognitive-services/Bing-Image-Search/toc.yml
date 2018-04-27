@@ -48,11 +48,10 @@
   - name: Upgrade from v5 to v7
     href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Reference
+  expanded: true
   items:
   - name: REST v7 API
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
-  - name: REST v5 API (old version)
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
   - name: SDK
     items:
     - name: SDK samples overview 
@@ -65,6 +64,8 @@
       href: image-sdk-python-quickstart.md
     - name: Image Search SDK Java quickstart (preview)
       href: image-sdk-java-quickstart.md
+  - name: REST v5 API (old version)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
 - name: Resources
   items:
   - name: Frequently asked questions

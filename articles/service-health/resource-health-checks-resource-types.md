@@ -110,7 +110,7 @@ Below is a complete list of all the checks executed through resource health by r
 ## Microsoft.web/serverFarms
 |Executed Checks|
 |---|
-|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the Web Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
+|<ul><li>Is the host server up and running?</li><li>Is Internet Information Services running?</li><li>Is the Load balancer running?</li><li>Can the App Service Plan be reached from within the datacenter?</li><li>Is the storage account hosting the sites content for the serverFarm  available??</li></ul>|
 
 ## Microsoft.web/sites
 |Executed Checks|

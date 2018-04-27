@@ -10,7 +10,7 @@ ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 04/3/2018
 ms.author: jonor
 ---
 
@@ -94,7 +94,7 @@ An [**Azure Site-to-Site VPN**][VPN] is an interconnection service over the Inte
 Deploying ExpressRoute connections involves engaging with an ExpressRoute service provider. For customers that need to start quickly, it is common to initially use Site-to-Site VPN to establish connectivity between the vDC and on-premises resources, and then migrate to ExpressRoute connection.
 
 ##### *Connectivity within the cloud*
-[VNets][VNet] and [VNet Peering][VNetPeering] are the basic networking connectivity services inside a vDC. A VNet guarantees a natural boundary of isolation for vDC resources, and VNet peering allows intercommunication between different VNets within the same Azure region. Traffic control inside a VNet and between VNets need to match a set of security rules specified through Access Control Lists ([Network Security Group][NSG]), [Network Virtual Appliances][NVA], and custom routing tables ([UDR][UDR]).
+[VNets][VNet] and [VNet Peering][VNetPeering] are the basic networking connectivity services inside a vDC. A VNet guarantees a natural boundary of isolation for vDC resources, and VNet peering allows intercommunication between different VNets within the same Azure region or even across regions. Traffic control inside a VNet and between VNets need to match a set of security rules specified through Access Control Lists ([Network Security Group][NSG]), [Network Virtual Appliances][NVA], and custom routing tables ([UDR][UDR]).
 
 ## Virtual Data Center Overview
 
@@ -121,7 +121,7 @@ The role of each spoke can be to host different types of workloads. The spokes c
 ##### Subscription limits and multiple hubs
 In Azure, every component, whatever the type, is deployed in an Azure Subscription. The isolation of Azure components in different Azure subscriptions can satisfy the requirements of different LOBs, such as setting up differentiated levels of access and authorization.
 
-A single vDC can scale up to large number of spokes, although, as with every IT system, there are platforms limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits (for example, a max number of VNet peerings - see [Azure subscription and service limits, quotas, and constraints][Limits] for details). In cases where limits may be an issue, the architecture can scale up further by extending the model from a single hub-spokes to a cluster of hub and spokes. Multiple hubs in one or more Azure regions can be interconnected using Express Route or site-to-site VPN.
+A single vDC can scale up to large number of spokes, although, as with every IT system, there are platforms limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits (for example, a max number of VNet peerings - see [Azure subscription and service limits, quotas, and constraints][Limits] for details). In cases where limits may be an issue, the architecture can scale up further by extending the model from a single hub-spokes to a cluster of hub and spokes. Multiple hubs in one or more Azure regions can be interconnected using VNet Peering, ExpressRoute, or site-to-site VPN.
 
 [![2]][2]
 
@@ -188,10 +188,10 @@ Infrastructure components contain the following functionality:
 -   [**Virtual Network**][VPN]. Virtual Networks are one of main components of a vDC, and enable you to create a traffic isolation boundary on the Azure platform. A Virtual Network is composed of a single or multiple virtual network segments, each with a specific IP network prefix (a subnet). The Virtual Network defines an internal perimeter area where IaaS virtual machines and PaaS services can establish private communications. VMs (and PaaS services) in one virtual network cannot communicate directly to VMs (and PaaS services) in a different virtual network, even if both virtual networks are created by the same customer, under the same subscription. Isolation is a critical property that ensures customer VMs and communication remains private within a virtual network.
 -   [**UDR**][UDR]. Traffic in a Virtual Network is routed by default based on the system routing table. A User Define Route is a custom routing table that network administrators can associate to one or more subnets to overwrite the behavior of the system routing table and define a communication path within a virtual network. The presence of UDRs guarantees that egress traffic from the spoke transit through specific custom VMs and/or Network Virtual Appliances and load balancers present in the hub and in the spokes.
 -   [**NSG**][NSG]. A Network Security Group is a list of security rules that act as traffic filtering on IP Sources, IP Destination, Protocols, IP Source Ports, and IP Destination ports. The NSG can be applied to a subnet, a Virtual NIC card associated with an Azure VM, or both. The NSGs are essential to implement a correct flow control in the hub and in the spokes. The level of security afforded by the NSG is a function of which ports you open, and for what purpose. Customers should apply additional per-VM filters with host-based firewalls such as IPtables or the Windows Firewall.
--   **DNS**. The name resolution of resources in the VNets of a vDC is provided through DNS. The scope of name resolution of the default DNS is limited to the VNet. Usually, a custom DNS service needs to be deployed in the hub as part of common services, but the main consumers of DNS services reside in the spoke. If necessary, customers can create a hierarchical DNS structure with delegation of DNS zones to the spokes.
+-   [**DNS**][DNS]. The name resolution of resources in the VNets of a vDC is provided through DNS. Azure provides DNS services for both [Public][DNS] and [Private][PrivateDNS] name resolution. Private zones provide name resolution both within a virtual network and across virtual networks. You can have private zones not only span across virtual networks in the same region, but also across regions and subscriptions. For public resolution, Azure DNS provides a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 -   [**Subscription][SubMgmt] and [Resource Group Management][RGMgmt]**. A subscription defines a natural boundary to create multiple groups of resources in Azure. Resources in a subscription are assembled together in logical containers named Resource Groups. The Resource Group represents a logical group to organize the resources of a vDC.
 -   [**RBAC**][RBAC]. Through RBAC, it is possible to map organizational role along with rights to access specific Azure resources, allowing you to restrict users to only a certain subset of actions. With RBAC, you can grant access by assigning the appropriate role to users, groups, and applications within the relevant scope. The scope of a role assignment can be an Azure subscription, a resource group, or a single resource. RBAC allows inheritance of permissions. A role assigned at a parent scope also grants access to the children contained within it. Using RBAC, you can segregate duties and grant only the amount of access to users that they need to perform their jobs. For example, use RBAC to let one employee manage virtual machines in a subscription, while another can manage SQL DBs within the same subscription.
--   [**VNet Peering**][VNetPeering]. The fundamental feature used to create the infrastructure of a vDC is VNet Peering, a mechanism that connects two virtual networks (VNets) in the same region through the network of the Azure data center.
+-   [**VNet Peering**][VNetPeering]. The fundamental feature used to create the infrastructure of a vDC is VNet Peering, a mechanism that connects two virtual networks (VNets) in the same region through the Azure data center network, or using the Azure world-wide backbone across regions.
 
 #### Component Type: Perimeter Networks
 [Perimeter network][DMZ] components (also known as a DMZ network) allow you to provide network  connectivity with your on-premises or physical data center networks, along with any connectivity to and from the Internet. It's also where your network and security teams likely spend most of their time.
@@ -247,6 +247,8 @@ Monitoring components provide visibility and alerting from all the other compone
 
 Azure offers different types of logging and monitoring services to track the behavior of Azure hosted resources. Governance and control of workloads in Azure is based not just on collecting log data, but also the ability to trigger actions based on specific reported events.
 
+[**Azure Monitor**][Monitor] - Azure includes multiple services that individually perform a specific role or task in the monitoring space. Together, these services deliver a comprehensive solution for collecting, analyzing, and acting on telemetry from your application and the Azure resources that support them. They can also work to monitor critical on-premises resources in order to provide a hybrid monitoring environment. Understanding the tools and data that are available is the first step in developing a complete monitoring strategy for your application.
+
 There are two major types of logs in Azure:
 
 -   [**Activity Logs**][ActLog] (referred also as "Operational Log") provide insight into the operations that were performed on resources in the Azure subscription. These logs report the control-plane events for your subscriptions. Every Azure resource produces audit logs.
@@ -266,6 +268,8 @@ Large enterprises should already have acquired a standard framework for monitori
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights using integrated search and custom dashboards to analyze all the records across all your workloads in a vDC.
 
+The [Network Performance Monitor (NPM)][NPM] solution inside OMS can provide detailed network information end-to-end, including a single view of your Azure networks and on-premises networks. With specific monitors for ExpressRoute and public services.
+
 #### Component Type: Workloads
 Workload components are where your actual applications and services reside. It's also where your application development teams spend most of their time.
 
@@ -280,7 +284,7 @@ Line-of-business applications are computer applications critical to the ongoing 
 -   **Integrated**. LOB applications offer integration with other systems within or outside the organization.
 
 **Customer facing web sites (Internet or Internal facing)**
-Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a vDC. With the VNET integration, you don't need to expose an Internet endpoint for your applications but can use the resources private non-internet routable address from your private VNet instead.
+Most applications that interact with the Internet are web sites. Azure offers the capability to run a web site on an IaaS VM or from an [Azure Web Apps][WebApps] site (PaaS). Azure Web Apps support integration with VNets that allow the deployment of the Web Apps in the spoke of a vDC. When looking at internal facing web sites, with the VNET integration, you don't need to expose an Internet endpoint for your applications but can use the resources via private non-internet routable addresses from your private VNet instead.
 
 **Big Data/Analytics**
 When data needs to scale up to a very large volume, databases may not scale up properly. Hadoop technology offers a system to run distributed queries in parallel on large number of nodes. Customers have the option to run data workloads in IaaS VMs or PaaS ([HDInsight][HDI]). HDInsight supports deploying into a location-based VNet, can be deployed to a cluster in a spoke of the vDC.
@@ -313,11 +317,12 @@ The implementation of a disaster recovery plan is strongly related to the type o
 
 Synchronization or heartbeat monitoring of applications in different vDCs requires communication between them. Two vDCs in different regions can be connected through:
 
+-   VNet Peering - VNet Peering can connect hubs across regions
 -   ExpressRoute private peering when the vDC hubs are connected to the same ExpressRoute circuit
 -   multiple ExpressRoute circuits connected via your corporate backbone and your vDC mesh connected to the ExpressRoute circuits
 -   Site-to-Site VPN connections between your vDC hubs in each Azure Region
 
-Usually the ExpressRoute connection is the preferred mechanism due higher bandwidth and consistent latency when transiting through the Microsoft backbone.
+Usually VNet Peering or ExpressRoute connections are the preferred mechanism due higher bandwidth and consistent latency when transiting through the Microsoft backbone.
 
 There is no magic recipe to validate an application distributed between two (or more) different vDCs located in different regions. Customers should run network qualification tests to verify the latency and bandwidth of the connections and target whether synchronous or asynchronous data replication is appropriate and what the optimal recovery time objective (RTO) can be for your workloads.
 
@@ -335,9 +340,9 @@ The following features were discussed in this document. Click the links to learn
 | | | |
 |-|-|-|
 |Network Features|Load Balancing|Connectivity|
-|[Azure Virtual Networks][VNet]</br>[Network Security Groups][NSG]</br>[NSG Logs][NSGLog]</br>[User Defined Routing][UDR]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[ExpressRoute][ExR]
+|[Azure Virtual Networks][VNet]</br>[Network Security Groups][NSG]</br>[NSG Logs][NSGLog]</br>[User Defined Routing][UDR]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]</br>[DNS]|[Azure Load Balancer (L3) ][ALB]</br>[Application Gateway (L7) ][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][TM] |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[ExpressRoute][ExR]
 |Identity</br>|Monitoring</br>|Best Practices</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access Controls][RBAC]</br>[Default AAD Roles][Roles] |[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Role Base Access Controls][RBAC]</br>[Default AAD Roles][Roles] |[Azure Monitor][Monitor]</br>[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Network Performance Monitor][NPM]|[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][Limits] |
 |Other Azure Services|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -363,12 +368,14 @@ The following features were discussed in this document. Click the links to learn
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 [VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg 
+[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
+[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
 [VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
 [UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
@@ -381,10 +388,12 @@ The following features were discussed in this document. Click the links to learn
 [PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
 [AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
+[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

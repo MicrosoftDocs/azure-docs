@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government extensions | Microsoft Docs
 description: This article lists virtual machine extensions available in Azure Government
 services: azure-government
@@ -24,7 +24,7 @@ This document contains a list of available [virtual machine extensions](../virtu
 The list of virtual machine extensions available in Azure Government can be obtained by [connecting to Azure Government via PowerShell](documentation-government-get-started-connect-with-ps.md) and running the following commands:
 
 ```powershell
-Login-AzureRMAccount -Environment AzureUSGovernment
+Connect-AzureRmAccount -Environment AzureUSGovernment
 
 Get-AzureRmVmImagePublisher -Location USGovVirginia | `
 Get-AzureRmVMExtensionImageType | `

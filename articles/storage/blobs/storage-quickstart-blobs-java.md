@@ -1,6 +1,6 @@
----
-title: Azure Quickstart - Upload, download, and list blobs in Azure Storage using Java | Microsoft Docs
-description: In this quickstart, you create a storage account and a container. Then you use the storage client library for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+﻿---
+title: Azure Quickstart - Create a blob in object storage using Java | Microsoft Docs
+description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Java to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: roygara
 manager: jeconnoc
@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/15/2018
+ms.date: 04/09/2018
 ms.author: rogarana
 ---
 
@@ -211,7 +211,7 @@ See these additional resources for Java development with Blob storage:
 
 ### Client library reference and samples
 
-- See the [Java API reference](https://docs.microsoft.com/en-us/java/api/overview/azure/storage) for more information about the Java client library.
+- See the [Java API reference](https://docs.microsoft.com/java/api/overview/azure/storage) for more information about the Java client library.
 - Explore [Blob storage samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) written using the Java client library.
 
 ## Next steps

@@ -4,9 +4,8 @@ description: Build a classifier to discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: anroth
@@ -35,7 +34,7 @@ To build a classifier, you must first have:
 
 Custom Vision Service can be found on the [Custom Vision page](https://customvision.ai).
 
-After you sign in to Custom Vision Service, you are presented with a list of projects. Outside of two "limited trial" projects for testing, projects are associated with an Azure Resource. If you are an Azure user, you will see all the projects associated with [Azure Resources](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#grant-access-to-resources) to which you have access. 
+After you sign in to Custom Vision Service, you are presented with a list of projects. Outside of two "limited trial" projects for testing, projects are associated with an Azure Resource. If you are an Azure user, you will see all the projects associated with [Azure Resources](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#grant-access-to-resources) to which you have access. 
 
 1. To create your first project, select **New Project**.
 

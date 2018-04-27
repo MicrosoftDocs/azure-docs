@@ -13,44 +13,75 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 04/19/2018
 ms.author: seguler
 
 ---
 # Transfer data with AzCopy on Linux
 
-AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob, File, and Table storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
+AzCopy is a command-line utility designed for copying data to/from Microsoft Azure Blob and File storage, using simple commands designed for optimal performance. You can copy data between a file system and a storage account, or between storage accounts.  
 
-There are two versions of AzCopy that you can download. AzCopy on Linux is built with .NET Core Framework, which targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) is built with .NET Framework, and offers Windows style command-line options. This article covers AzCopy on Linux.
+There are two versions of AzCopy that you can download. AzCopy on Linux targets Linux platforms offering POSIX style command-line options. [AzCopy on Windows](../storage-use-azcopy.md) offers Windows style command-line options. This article covers AzCopy on Linux. 
+
+> [!NOTE]  
+> Starting in AzCopy 7.2 version, the .NET Core dependencies are packaged with the AzCopy package. If you use 7.2 version or later, you no longer need to install .NET Core as a pre-requisite.
 
 ## Download and install AzCopy
+
 ### Installation on Linux
 
-The article includes commands for various releases of Ubuntu.  Use the `lsb_release -a` command to confirm your distribution release and codename. 
+> [!NOTE]
+> You might need to install .NET Core 2.1 dependencies highlighted in this [.NET Core Pre-requisites article](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) depending on your distribution. For mainstream distributions like Ubuntu 16.04, and RHEL 7 this is usually not needed.
 
-AzCopy on Linux requires .NET Core framework (version 2.0) on the platform. See the installation instructions on the [.NET Core](https://www.microsoft.com/net/download/linux) page.
+Installing AzCopy on Linux (v7.2 or later) is as easy as extracting a tar package and running the install script. 
 
-As an example, let's install .NET Core on Ubuntu 16.04. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/download/linux) installation page.
-
-
+**RHEL 6 based distributions**: [download link](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.2
-```
-
-Once you have installed .NET Core, download and install AzCopy.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run AzCopy using the shell script 'azcopy' in the extracted folder. 
+**All other Linux distributions**: [download link](https://aka.ms/downloadazcopylinux64)
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
 
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively, if you do not have superuser privileges you can also run `azcopy` using the shell script azcopy in the extracted folder.
+
+### Alternative Installation on Ubuntu
+
+**Ubuntu 14.04**
+
+Add apt source for Microsoft Linux product repository and install AzCopy:
+
+```bash
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
+
+**Ubuntu 16.04**
+
+Add apt source for Microsoft Linux product repository and install AzCopy:
+
+```bash
+sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
+sudo cp ./azure.list /etc/apt/sources.list.d/
+apt-key adv --keyserver packages.microsoft.com --recv-keys B02C46DF417A0893
+```
+
+```bash
+sudo apt-get update
+sudo apt-get install azcopy
+```
 
 ## Writing your first AzCopy command
 The basic syntax for AzCopy commands is:
@@ -202,6 +233,14 @@ azcopy \
 ```
 
 If the specified virtual directory does not exist, AzCopy uploads the file to include the virtual directory in the blob name (*e.g.*, `vd/abc.txt` in the example above).
+
+### Redirect from stdin
+
+```azcopy
+gzip myarchive.tar -c | azcopy \
+	--destination https://myaccount.blob.core.windows.net/mycontainer/mydir/myarchive.tar.gz \
+	--dest-key <key>
+```
 
 ### Upload all files
 
@@ -598,10 +637,31 @@ Option `--parallel-level` specifies the number of concurrent copy operations. By
 >[!TIP]
 >To view the complete list of AzCopy parameters, check out 'azcopy --help' menu.
 
-## Known issues and best practices
-### Error: .NET SDK 2.0 is not found in the system.
-AzCopy depends on the .NET SDK 2.0 starting in the version AzCopy 7.0. Prior to this version AzCopy used .NET Core 1.1. If you encounter an error stating that .NET Core 2.0 is not installed in the system, you may need to install or upgrade using the [.NET Core installation instructions](https://www.microsoft.com/net/learn/get-started/linuxredhat).
+## Installation Steps for AzCopy 7.1 and earlier versions
 
+AzCopy on Linux (v7.1 and earlier only) requires the .NET Core framework. Installation instructions are available on the [.NET Core installation](https://www.microsoft.com/net/core#linuxubuntu) page.
+
+For example, begin by installing .NET Core on Ubuntu 16.10. For the latest installation guide, visit [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) installation page.
+
+
+```bash
+sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+sudo apt-get update
+sudo apt-get install dotnet-sdk-2.0.0
+```
+
+Once you have installed .NET Core, download and install AzCopy.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopyprlinux
+tar -xf azcopy.tar.gz
+sudo ./install.sh
+```
+
+You can remove the extracted files once AzCopy on Linux is installed. Alternatively if you do not have superuser privileges, you can also run `azcopy` using the shell script azcopy in the extracted folder.
+
+## Known issues and best practices
 ### Error Installing AzCopy
 If you encounter issues with AzCopy installation, you may try to run AzCopy using the bash script in the extracted `azcopy` folder.
 
@@ -615,8 +675,26 @@ When you copy blobs or files with AzCopy, keep in mind that another application 
 
 If you cannot prevent other applications from writing to blobs or files while they are being copied, then keep in mind that by the time the job finishes, the copied resources may no longer have full parity with the source resources.
 
-### Run one AzCopy instance on one machine.
-AzCopy is designed to maximize the utilization of your machine resource to accelerate the data transfer, we recommend you run only one AzCopy instance on one machine, and specify the option `--parallel-level` if you need more concurrent operations. For more details, type `AzCopy --help parallel-level` at the command line.
+### Running multiple AzCopy processes
+You may run multiple AzCopy processes on a single client providing that you use different journal folders. Using a single journal folder for multiple AzCopy processes is not supported.
+
+1st process:
+```azcopy
+azcopy \
+	--source /mnt/myfiles1 \
+	--destination https://myaccount.blob.core.windows.net/mycontainer/myfiles1 \
+	--dest-key <key> \
+	--resume "/mnt/myazcopyjournal1"
+```
+
+2nd process:
+```azcopy
+azcopy \
+	--source /mnt/myfiles2 \
+	--destination https://myaccount.blob.core.windows.net/mycontainer/myfiles2 \
+	--dest-key <key> \
+	--resume "/mnt/myazcopyjournal2"
+```
 
 ## Next steps
 For more information about Azure Storage and AzCopy, see the following resources:

@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
@@ -49,10 +49,16 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="1.22.0"/>1.22.0
+
+* Added ConsistencyLevel Property to FeedOptions.
+* Added JsonSerializerSettings to RequestOptions and FeedOptions.
+* Added EnableReadRequestsFallback to ConnectionPolicy.
+
 ### <a name="1.21.1"/>1.21.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.20.2"/>1.20.2
 
@@ -290,6 +296,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.22.0](#1.22.0) |April 19, 2018 |--- |
 | [1.21.1](#1.20.1) |March 09, 2018 |--- |
 | [1.20.2](#1.20.1) |February 21, 2018 |--- |
 | [1.20.1](#1.20.1) |February 05, 2018 |--- |
