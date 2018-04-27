@@ -1,19 +1,17 @@
----
+﻿---
 title: Resource provider API versions supported by profiles in Azure Stack | Microsoft Docs
 description: Learn about the Azure Resource Manager version supported by profiles in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 2E21C8DE-D540-4C1C-A0EF-1B7125DB7A6E
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/02/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -53,7 +51,7 @@ You use role-based access control to manage the actions users in your organizati
 
 ### Microsoft.Compute
 
-The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](https://docs.microsoft.com/en-us/rest/api/compute/).
+The Azure Compute APIs give you programmatic access to virtual machines and their supporting resources. For more information, see [Azure Compute](https://docs.microsoft.com/rest/api/compute/).
 
 | Resource Type | API Version |
 |---------------------------------------------------------------|-------------|

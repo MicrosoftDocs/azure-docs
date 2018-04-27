@@ -104,4 +104,4 @@ The Web Service SDK must be secured with an SSL certificate. A self-signed certi
 
 ## Next steps
 
-- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](../../multi-factor-authentication/multi-factor-authentication-advanced-vpn-configurations.md).
+- [Advanced scenarios with Azure Multi-Factor Authentication and third-party VPNs](howto-mfaserver-nps-vpn.md).

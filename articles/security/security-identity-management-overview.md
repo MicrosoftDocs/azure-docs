@@ -72,7 +72,7 @@ Azure Multi-factor authentication (MFA) is a method of authentication that requi
 Learn more:
 
 * [Multi-factor authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+* [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
 * [How Azure Multi-Factor Authentication works](../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## Security monitoring, alerts, and machine learning-based reports

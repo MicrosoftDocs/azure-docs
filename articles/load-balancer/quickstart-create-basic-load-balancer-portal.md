@@ -1,13 +1,13 @@
 ---
-title: Create a public Basic load balancer by using the Azure portal | Microsoft Docs
-description: Learn how to create a public Basic load balancer to load balance VMs by using the Azure portal.
+title: Quickstart: Create a public Basic load balancer by using the Azure portal | Microsoft Docs
+description: This quickstart shows how to create a public Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
 author: KumudD 
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-
+Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
@@ -16,9 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
+ms.custom: mvc
 ---
 
-# Create a public Basic load balancer by using the Azure portal
+# Quickstart: Create a public Basic load balancer by using the Azure portal
 
 Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines (VMs). You can use the Azure portal to create a load balancer that will load balance virtual machines. This quickstart shows you how to create network resources, back-end servers, and a load balancer at the Basic pricing tier.
 

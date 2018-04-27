@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor data factories using Azure Monitor | Microsoft Docs
 description: Learn how to use Azure Monitor to monitor Data Factory pipelines by enabling diagnostic logs with information from Azure Data Factory.
 services: data-factory
@@ -227,7 +227,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[More info here](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[More info here](https://msdn.microsoft.com/library/azure/dn931932.aspx)
 
 ## Schema of Logs & Events
 

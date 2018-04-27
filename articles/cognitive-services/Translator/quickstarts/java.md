@@ -13,7 +13,7 @@ ms.author: v-jansko
 # Quickstart for Microsoft Translator Text API with Java 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Translator-Text-API-Quickstarts/tree/master/Java).
+This article shows you how to use the [Translate](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Translate) method to translate text from one language to another. For information on how to use the other Translator Text APIs, see [this Github repository](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/tree/master/quickstarts/Java).
 
 ## Prerequisites
 
