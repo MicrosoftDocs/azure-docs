@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 04/27/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -22,7 +22,7 @@ Azure Event Grid has three types of authentication:
 
 Webhooks are one of many ways to receive events from Azure Event Grid. When a new event is ready, the Event Grid Webhook sends an HTTP request to the configured HTTP endpoint with the event in the body.
 
-When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation. If you can't programmatically echo the validation code, you can manually validate the subscription by using the validation URL. Either send a GET request to the URL, or simply paste the URL into your web browser.
+When you register your own WebHook endpoint with Event Grid, it sends you a POST request with a simple validation code to prove endpoint ownership. Your app needs to respond by echoing back the validation code. Event Grid doesn't deliver events to WebHook endpoints that haven't passed the validation. If you use a third-party API service (like Zapier or Postman), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL and send a GET request either through a REST client or your web browser.
 
 ### Validation details
 
@@ -59,7 +59,7 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
-Or, send a GET request to the validation URL.
+Or, manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 
 ### Event delivery security
 
