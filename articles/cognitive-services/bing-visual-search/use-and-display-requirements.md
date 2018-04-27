@@ -13,6 +13,4 @@ ms.date: 04/10/2018
 ms.author: scottwhi
 ---
 
-# Bing Visual Search API use and display requirements
-
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

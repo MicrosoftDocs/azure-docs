@@ -1,40 +1,49 @@
 ---
-title: Call and response - Java Quickstart for Azure Cognitive Services, Bing Image Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
+title: Java Quickstart for Bing Visual Search API | Microsoft Docs
+titleSuffix: Cognitive Services
+description: Shows how to quickly get started using the Visual Search API to get insights about an image.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: swhite-msft
+manager: rosh
 
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.technology: bing-visual-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-
+ms.date: 4/19/2018
+ms.author: scottwhi
 ---
-# Call and response: your first Bing Image Search query in Java
 
-The Bing Image Search API provides an experience similar to Bing.com/Images by letting you send a user search query to Bing and get back a list of relevant images.
+# Your first Bing Visual Search query in Java
 
-This article includes a simple console application that performs a Bing Image Search API query and displays the returned raw search results, which are in JSON format. While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+Bing Visual Search API lets you send a request to Bing to get insights about an image. To call the API, send an HTTP POST  request to https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch. The response contains JSON objects that you parse to get the insights.
+
+This article includes a simple console application that sends a Bing Visual Search API request and displays the JSON search results. While this application is written in Java, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 ## Prerequisites
 
 You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and Visual Search subscription key. For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
 ## Running the application
 
-To run this application, follow these steps.
+To run this application, follow these steps:
 
 1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
 2. Create a new Java project in your favorite IDE or editor.
 3. Add the provided code in a file named `BingImageSearch.java`.
-4. Replace the `subscriptionKey` value with an access key valid for your subscription.
+4. Replace the `subscriptionKey` value with your subscription key.
+4. Replace the `insightsToken` value with an insights token from an /images/search response.
 5. Run the program.
 
 ```java
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package visualsearch;
+
 import java.net.*;
 import java.util.*;
 import java.io.*;
@@ -54,35 +63,86 @@ import javax.net.ssl.HttpsURLConnection;
  * javac BingImageSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar BingImageSearch
  */
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.nio.charset.StandardCharsets;
 
-public class BingImageSearch {
-
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+/**
+ *
+ * @author scottwhi
+ */
+public class VisualSearch {
 
     // Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "enter key here";
+    static String subscriptionKey = "<YOUR-SUBSCRIPTION-KEY-GOES-HERE>";
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
+    // Verify the endpoint URI. At this writing, only one endpoint is used for Bing
+    // search APIs. In the future, regional endpoints may be available.  If you
     // encounter unexpected authorization errors, double-check this value against
     // the endpoint for your Bing Web search instance in your Azure dashboard.
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/images/search";
+    static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
 
-    static String searchTerm = "puppies";
+    static String insightsToken = "<YOUR-INSIGHTS-TOKEN-GOES-HERE>";
 
-    public static SearchResults SearchImages (String searchQuery) throws Exception {
+    static String boundary = "boundary_ABC123DEF456";
+
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        try {
+            System.out.println("Getting image insights for token: " + insightsToken);
+
+            String body = BuildBody(insightsToken, boundary);
+            SearchResults result = GetInsights(body, boundary);
+
+            System.out.println("\nRelevant HTTP Headers:\n");
+            for (String header : result.relevantHeaders.keySet())
+                System.out.println(header + ": " + result.relevantHeaders.get(header));
+
+            System.out.println("\nJSON Response:\n");
+            System.out.println(prettify(result.jsonResponse));
+        }
+        catch (Exception e) {
+            e.printStackTrace(System.out);
+            System.exit(1);
+        }
+    }
+
+    
+    public static String BuildBody(String token, String boundary) throws Exception {
+        final String startBoundary = "--" + boundary;
+        final String endBoundary = "--" + boundary + "--";
+        final String CRLF = "\r\n";
+        final String postBodyHeader = "Content-Disposition: form-data; name=\"knowledgeRequest\"" + CRLF + CRLF;
+
+        String requestBody = startBoundary + CRLF;
+        requestBody += postBodyHeader;
+        requestBody += "{\"imageInfo\":{\"imageInsightsToken\":\"" + token + "\"}}" + CRLF + CRLF;
+        requestBody += endBoundary + CRLF;
+        
+        return requestBody;
+    }
+
+    public static SearchResults GetInsights(String body, String boundary) throws Exception {
         // construct URL of search request (endpoint + query string)
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+        URL url = new URL(endpoint);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+        connection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
 
+        OutputStream os = connection.getOutputStream();
+        os.write(body.getBytes(StandardCharsets.UTF_8));
+        
+        
         // receive JSON body
         InputStream stream = connection.getInputStream();
         String response = new Scanner(stream).useDelimiter("\\A").next();
@@ -103,6 +163,7 @@ public class BingImageSearch {
         return results;
     }
 
+    
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -110,32 +171,9 @@ public class BingImageSearch {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
-
-    public static void main (String[] args) {
-        if (subscriptionKey.length() != 32) {
-            System.out.println("Invalid Bing Search API subscription key!");
-            System.out.println("Please paste yours into the source code.");
-            System.exit(1);
-        }
-
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchImages(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
-    }
+    
 }
+
 
 // Container class for search results encapsulates relevant headers and JSON data
 class SearchResults{
@@ -148,100 +186,12 @@ class SearchResults{
 }
 ```
 
-## JSON response
-
-A sample response follows. To limit the length of the JSON, only a single result is shown, and other parts of the response have been truncated. 
-
-```json
-{
-  "_type": "Images",
-  "instrumentation": {},
-  "readLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=puppies",
-  "webSearchUrl": "https://www.bing.com/images/search?q=puppies&FORM=OIIARP",
-  "totalEstimatedMatches": 955,
-  "nextOffset": 1,
-  "value": [
-    {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv2&FORM=OIIRPO&q=puppies&id=F68CC526226E163FD1EA659747ADCB8F9FA3CD96&simid=608055280844016271",
-      "name": "So cute - Puppies Wallpaper (14749028) - Fanpop",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t5e89jNfwEsDh&pid=Api",
-      "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.fanpop.com/image/photos/14700000/So-cute-puppies-14749028-1600-1200.jpg",
-      "hostPageUrl": "http://www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
-      "contentSize": "394455 B",
-      "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.fanpop.com/clubs/puppies/images/14749028/title/cute-wallpaper",
-      "width": 1600,
-      "height": 1200,
-      "thumbnail": {
-        "width": 300,
-        "height": 225
-      },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747ADCB8F9FA3CD96*simid_608055280844016271*thid_OIP.jHrihoDNkXGS1t5e89jNfwEsDh",
-      "insightsMetadata": {
-        "recipeSourcesCount": 0
-      },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA3CD96",
-      "accentColor": "8D613E"
-    }
-  ],
-  "queryExpansions": [
-    {
-      "text": "Shih Tzu Puppies",
-      "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih+Tzu+Puppies&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Shih+Tzu%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
-      }
-    }
-  ],
-  "pivotSuggestions": [
-    {
-      "pivot": "puppies",
-      "suggestions": [
-        {
-          "text": "Dog",
-          "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d&FORM=IRQBPS",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog&tq=%7b%22pq%22%3a%22puppies%22%2c%22qs%22%3a%5b%7b%22cv%22%3a%22puppies%22%2c%22pv%22%3a%22puppies%22%2c%22hps%22%3atrue%2c%22iqp%22%3afalse%7d%2c%7b%22cv%22%3a%22Dog%22%2c%22pv%22%3a%22%22%2c%22hps%22%3afalse%2c%22iqp%22%3atrue%7d%5d%7d",
-          "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US&adlt=moderate&t=1"
-          }
-        }
-      ]
-    }
-  ],
-  "similarTerms": [
-    {
-      "text": "cute",
-      "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=IDINTS",
-      "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US&adlt=moderate"
-      }
-    }
-  ],
-  "relatedSearches": [
-    {
-      "text": "Cute Puppies",
-      "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies&FORM=IRPATC",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Cute+Puppies",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=Api&mkt=en-US&adlt=moderate&t=1"
-      }
-    }
-  ]
-}
-```
-
-<!-->
+<!--
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
-<-->
+-->
 
 ## See also 
 
