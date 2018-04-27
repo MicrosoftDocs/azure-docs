@@ -29,6 +29,8 @@ Nodes in an AKS cluster configured for Advanced networking use the [Azure Contai
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
+The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
+
 ## Advanced networking features
 
 Advanced networking provides the following benefits:
@@ -57,7 +59,7 @@ When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure 
 
 The following screenshot from the Azure portal shows an example of configuring these settings during AKS cluster creation:
 
-![Advanced networking configuration in the Azure portal][portal-03-networking-advanced]
+![Advanced networking configuration in the Azure portal][portal-01-networking-advanced]
 
 ## Plan IP addressing for your cluster
 
@@ -101,13 +103,10 @@ Learn more about networking in AKS in the following articles:
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
-[portal-01-create]: ./media/networking-overview/portal-01-create.png
-[portal-02-networking]: ./media/networking-overview/portal-02-networking.png
-[portal-03-networking-advanced]: ./media/networking-overview/portal-03-networking-advanced.png
-[portal-04-create-vnet]: ./media/networking-overview/portal-04-create-vnet.png
-[portal-05-create-subnet]: ./media/networking-overview/portal-05-create-subnet.png
+[portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
+[acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
