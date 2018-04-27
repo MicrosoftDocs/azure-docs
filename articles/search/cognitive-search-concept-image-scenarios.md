@@ -85,22 +85,22 @@ There are two built-in cognitive skills that take images as an input: [OCR](cogn
 
 Currently, these skills only work with images generated from the document cracking step. As such, the only supported input is `"/document/normalized_images"`.
 
-## Image Analysis skill
+### Image Analysis skill
 
 The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
 
-## OCR skill
+### OCR skill
 
 The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
 
 The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
 
-## Common scenario: Handle files containing embedded images
+## Embedded image scenario
 
-In this scenario, create a single string containing all file contents, both text and image-origin text, by performing the following steps:  
+A common scenario involves creating a single string containing all file contents, both text and image-origin text, by performing the following steps:  
 
 1. [Extract normalized_images](#get-normalized-images)
-1. Run the OCR skill using `"\document\normalized_images"` as input
+1. Run the OCR skill using `"/document/normalized_images"` as input
 1. Merge the text representation of those images with the raw text extracted from the file. You can use the [Text Merge](cognitive-search-skill-textmerger.md) skill to consolidate both text chunks into a single large string.
 
 The following example skillset creates a *merged_text* field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
@@ -159,9 +159,9 @@ The following example skillset creates a *merged_text* field containing the text
 
 Now that you have a merged_text field, you could map it as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable.
 
-## Common scenario: Visualize bounding boxes of extracted text
+## Visualize bounding boxes of extracted text
 
-Sometimes you need to visualize search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
+Another common scenario is visualizing search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
 
 Since the OCR step is performed on the normalized images, the layout coordinates are in the normalized image space. When displaying the normalized image, the presence of coordinates is generally not a problem, but in some situations you might want to display the original image. In this case, convert each of coordinate points in the layout to the original image coordinate system. 
 

@@ -1,6 +1,6 @@
 ---
 title: Sentiment cognitive search skill (Azure Search) | Microsoft Docs
-description: Extract sentiment from text in an Azure Search augmentation pipeline.
+description: Extract sentiment from text in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer

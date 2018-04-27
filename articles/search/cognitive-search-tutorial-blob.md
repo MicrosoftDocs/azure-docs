@@ -1,6 +1,6 @@
 ---
 title: Tutorial for calling cognitive search APIs in Azure Search | Microsoft Docs
-description: Learn how natural language processing and AI-powered algorithms can transform unsearchable or unstructured files into searchable content during indexing. 
+description: Example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
 manager: pablocas
 author: luiscabrer
 services: search
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-New to cognitive search? Read [What is cognitive search?](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a brief introduction to important concepts.
+New to cognitive search? Read [What is cognitive search](cognitive-search-concept-intro.md) to get acquainted or try the [portal quickstart](cognitive-search-quickstart-blob.md) for a brief introduction to important concepts.
 
 To make REST calls to Azure Search, use PowerShell or a web test tool like Telerik Fiddler or Postman to formulate HTTP requests. If these tools are new to you, see [Explore Azure Search REST APIs using Fiddler or Postman](search-fiddler.md).
 
@@ -65,11 +65,11 @@ First, sign up for the Azure Search service.
 
 The enrichment pipeline pulls from Azure data sources. Source data must originate from a supported data source type of an [Azure Search indexer](search-indexer-overview.md). For this exercise, we use blob storage to showcase multiple content types.
 
-1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a very small file set of different types. 
+1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Sample data consists of a small file set of different types. 
 
 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. This [Quickstart](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer) covers all the steps.
 
-1. Still in Storage Explorer, in the `basicdemo` container you just created, click **Upload** to upload the sample files.
+1. Still in Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
 1. Collect the following information from the portal:
 
@@ -498,19 +498,25 @@ Repeat the previous exercise, including an `enriched` field to capture the conte
 
 ## Reset and re-run
 
-In the early experimental stages of pipeline development, the most practical approach for evolving a solution is to delete the objects from Azure Search and allow your code to rebuild them at run time. Resource names are unique in the service so you must delete objects to recreate them using the same name.
+In the early experimental stages of pipeline development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
-You can use the portal to delete data sources, indexes, and indexers. Skillsets are new and must be deleted using an HTTP command:
+To reindex your documents with the new definitions:
+
+1. Delete the index to remove persisted data. Delete the indexer to recreate it on your service.
+2. Modify a skillset and index definition.
+3. Recreate an indexer on the service to run the pipeline. 
+
+You can use the portal to delete indexes and indexers. Skillsets are new and can only be deleted through an HTTP command, should you decide to delete it.
 
 ```http
-DELETE https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
 
 Status code 204 is returned on successful deletion.
 
-As your code matures, this approach becomes impractical, especially if you want to preserve existing computations such as analyzed images. For more guidance, see [How to perform incremental indexing](search-howto-reindex.md).
+As your code matures, you might want to refine a rebuild strategy. For more information, see [How to rebuild an index](search-howto-reindex.md).
 
 ## Takeaways
 
