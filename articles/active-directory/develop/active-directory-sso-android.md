@@ -3,7 +3,7 @@ title: How to enable cross-app SSO on Android using ADAL | Microsoft Docs
 description: 'How to use the features of the ADAL SDK to enable Single Sign On across your applications. '
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
+author: brandwe
 manager: mtillman
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/07/2017
-ms.author: dadobali
+ms.date: 04/28/2017
+ms.author: brandwe
 ms.custom: aaddev
 
 ---
@@ -98,7 +98,7 @@ If a compatible broker is installed on the device, like the Microsoft Authentica
 
 These logins have the following benefits:
 
-* User experiences SSO across all their applications no matter the vendor.
+* If the device is Workplace Joined, the user experiences SSO across all their applications no matter the vendor.
 * Your application can use more advanced business features such as Conditional Access or use the InTune suite of products.
 * Your application can support certificate-based authentication for business users.
 * Much more secure sign-in experience as the identity of the application and the user are verified by the broker application with additional security algorithms and encryption.
