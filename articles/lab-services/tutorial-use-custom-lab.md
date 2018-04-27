@@ -1,6 +1,6 @@
 ---
-title: Access a custom lab in Azure Lab Services| Microsoft Docs
-description: In this tutorial, you access the custom lab that's created by using Azure Lab Services (formerly DevTest Labs), claim virtual machines, use them, and then unclaim them.
+title: Access a lab in Azure DevTest Labs | Microsoft Docs
+description: In this tutorial, you access the lab that's created by using Azure DevTest Labs, claim virtual machines, use them, and then unclaim them.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -18,8 +18,8 @@ ms.author: spelluru
 
 ---
 
-# Tutorial: Access a self-managed custom lab (formerly DevTest Labs) 
-In this tutorial, you use a custom lab that was created in the [Tutorial: Create a custom lab](tutorial-create-custom-lab.md) .
+# Tutorial: Access a lab in Azure DevTest Labs
+In this tutorial, you use a lab that was created in the [Tutorial: Create a lab](tutorial-create-custom-lab.md) .
 
 In this tutorial, you do the following actions:
 
@@ -30,12 +30,12 @@ In this tutorial, you do the following actions:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-## Access the custom lab
+## Access the lab
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** on the left menu. 
 3. Select **DevTest Labs** for resource type. 
-4. Select the custom lab. 
+4. Select the lab. 
     ![Claim virtual machine](./media/tutorial-use-custom-lab/search-for-select-custom-lab.png)
 
 
@@ -61,8 +61,8 @@ After you are done with using the VM, unclaim the VM by following these steps:
 4. After the unclaim operation is done, you see the VM in the list of **Claimable virtual machines** list at the bottom. 
     
 ## Next steps
-This tutorial showed you how to access a custom lab, claim a VM in the lab, connect to the VM, and unclaim the VM.
+This tutorial showed you how to access and use a lab that was created by using Azure DevTest Labs. For more information about accessing and using VMs in a lab, see 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a custom lab](tutorial-create-custom-lab.md)
+> [How to: Use VMs in a lab](devtest-lab-add-vm.md)
 
