@@ -38,12 +38,6 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
   - name: Bing Spell Check API v5 (Old version)
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
-#  - name: SDK
-#    items:
-#    - name: Bing Spell Check SDK samples overview
-#      href: sdk.md
-#    - name: Spell Check SDK C# quickstart
-#      href: sdk-quickstart-spell-check.md
 - name: Resources
   items:
   - name: FAQ
@@ -54,7 +48,7 @@
     href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-api
-  - name: Bing Spell Check SDK samples overview
+  - name: SDK samples overview
     href: sdk.md
   - name: Subscription key
     href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
