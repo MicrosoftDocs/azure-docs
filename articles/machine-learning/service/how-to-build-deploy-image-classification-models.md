@@ -15,12 +15,6 @@ ms.date: 04/23/2018
 
 In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. 
 
-![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_annotation.png)
-
-![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
-
-![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
-
 A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
 
 When building and deploying this model, you go through the following steps:
@@ -68,7 +62,7 @@ The following example uses a dataset consisting of 63 tableware images, each lab
                              
 ## Storage context
 
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information about this, see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, set the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
+The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information about the storage context, see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, set the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
 
 
 ```python
@@ -183,9 +177,7 @@ annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
 
-
-    Tab(children=(HBox(children=(VBox(children=(HBox(children=(VBox(children=(Button(button_style='primary', descr…
-
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_annotation.png)
 
 ## Augment images
 
@@ -225,7 +217,7 @@ else:
 
 Six different per-trained Deep Neural Network models are supported in the Computer Vision Package: AlexNet, Resnet-18, Resnet-34, and Resnet-50, Resnet-101, and Resnet-152. These DNNs can be used either as classifier, or as featurizer (see step 5). More information about the networks can be found [here](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), and a basic introduction to Transfer Learning is [here](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-The Computer Vision Package comes with deparametersametes (224x224 pixel resolution and Resnet-18 DNN) which were selected to work well on a wide variety of tasks. Accuracy can often be imply, for example, by, for example,  increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50), however this comes at a significant increase in training time. See the "How to improve accuracy" section in the Appendix for more detail, and why the minibatch-size and the learning rate need to be updated.
+The Computer Vision Package comes with default parameters (224x224 pixel resolution and Resnet-18 DNN) which were selected to work well on a wide variety of tasks. Accuracy can often be improved for example, by increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50), however this comes at a significant increase in training time. See the "How to improve accuracy" section in the Appendix for more detail, and why the minibatch-size and the learning rate need to be updated.
 
 
 ```python
@@ -388,9 +380,7 @@ results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred
 display(results_ui.ui)
 ```
 
-
-    Tab(children=(HBox(children=(VBox(children=(HBox(children=(Button(description='Image -1', layout=Layout(width=…
-
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/Image_Classification_Results.png)
 
 
 ```python
@@ -403,33 +393,26 @@ pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::
 display(pr_ui.ui) 
 ```
 
+![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
-    VBox(children=(Figure(axes=[Axis(label='Precision', orientation='vertical', scale=LinearScale(max=100.0, min=0…
-
-
-## Deploy web services
-
-
-<b>Introduction:</b></n>
-
-Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, we can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
-
+## Operationalization: deploy and consume
+Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, you can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
 
 <b>Prerequisite:</b> 
-   - You need an [Azure](https://azure.microsoft.com/) account with a valid subscription. You need to login to your account if you haven't done so. Change to your target subscription if you need.
+   - Azure account with a valid subscription [Azure](https://azure.microsoft.com/). You need to login to your account if you haven't done so and change to your target subscription.
    >Azure CLI command to login: 
    `az login` 
    
    >Azure CLI command to change subscription: 
    `az account set --subscription [your subscription name]` 
    
-   - You need an [Azure ML Model Management](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-overview) account. Set your model management account if you haven't done it before.  For more details, you can follow the instruction from this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
+   - [Azure ML Model Management](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-overview) account. Set your model management account if you haven't done it before.  For more details, you can follow the instruction from this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
    >Azure CLI command example to create and set model management account:
    ```
    az ml account modelmanagement create -l [Azure region, e.g. westcentralus] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
    az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
    ``` 
-   - You need a deployment environment. If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, please follow the following instruction in this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need.  
+   - Deployment environment - If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, follow the following instruction in this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need.  
    The local environment deployment is not supported for the Windows DSVM/DLVM today. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. You can use this CLI command to show your active deployment environment: az ml env show
    
    >Azure CLI command example to create and set deployment environment
@@ -442,7 +425,7 @@ Operationalization is the process of publishing models and code as web services 
     az ml env cluster
     ```
     
-   
+### Deploy 
 <b>Deployment API:</b>
 
 > **Examples:**
@@ -460,7 +443,7 @@ For more API details, refer to the API doc. For more advanced operations related
 
 <b>Deployment management with portal:</b>
 
-You can go to [Azure portal](https://ms.portal.azure.com/) to track and manage your deployments. From Azure portal, find your Machine Learning Model Management account page (You can search for your model management account name). Then go to: the model management account page->Model Management->Services.
+You can go to [Azure portal](https://ms.portal.azure.com/) to track and manage your deployments. From the Azure portal, find your Machine Learning Model Management account page (You can search for your model management account name). Then go to: the model management account page->Model Management->Services.
 
 
 ```python
@@ -515,7 +498,7 @@ deploy_obj.deploy()
 print("Deployment DONE")
 ```
 
-## Consume the web service 
+### Consume the web service 
 
 Once you created the webservice, you can score images with the deployed webservice. You have several options:
 
@@ -643,7 +626,7 @@ images = [test_set.images[0].storage_path, test_set.images[1].storage_path] # A 
 score_image_list_with_http(images, service_endpoint_url, service_key)
 ```
 
-## Parse serialized result from web service
+### Parse serialized result from web service
 The result from the webservice is in json string. You can parse it the with different DNN model classes
 
 
