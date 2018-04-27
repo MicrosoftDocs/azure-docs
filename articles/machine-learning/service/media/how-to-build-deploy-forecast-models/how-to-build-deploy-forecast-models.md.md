@@ -11,9 +11,10 @@ author: matthewconners
 ms.date: 05/07/2018
 ---
 
+
 # Build and deploy forecasting models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Forecasting** (AMLPF) to build and deploy a forecasting model. 
+In this article, learn how to use **Azure Machine Learning Package for Forecasting** to build and deploy a forecasting model. 
 
 The model building and deployment workflow for forecasting models is as follows:
 
@@ -22,7 +23,7 @@ The model building and deployment workflow for forecasting models is as follows:
 3. Train and select the best model
 4. Deploy  the model and consume the web service
 
-Consult the [package reference documentation](https://aka.ms/aml-packages/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
+Consult the [package reference documentation](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
 
 ## Prerequisites
 
@@ -35,7 +36,7 @@ Consult the [package reference documentation](https://aka.ms/aml-packages/foreca
 
    If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
 
-1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/forecasting).
+1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting).
 
 ## Sample data and notebook
 
@@ -55,13 +56,13 @@ The example follows the workflow:
 Try it out yourself. Download the notebook and run it yourself.
 
 > [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
+> [Get the Jupyter notebook](https://github.com/Microsoft/ML-Server-Python-Samples/blob/master/operationalize/Explore_Consume_Python_Web_Services.ipynb)
 
 ### Explore the sample data
 
-This examples in this article show you how to perform machine learning sales forecasting using the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area. 
+The example in this article shows you how to perform machine learning sales forecasting using the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area. 
 
-### Import any dependencies for this sample
+## Import any dependencies for this sample
 
 The following dependencies should be imported for the example in the rest of the article.
 
@@ -115,6 +116,23 @@ whole_df = pd.read_csv(csv_path, low_memory = False)
 whole_df.head()
 ```
 
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -241,7 +259,7 @@ whole_df.head()
     </tr>
   </tbody>
 </table>
-
+</div>
 
 
 
@@ -265,6 +283,23 @@ whole_df['WeekLastDay'] = whole_df['week'].apply(lambda n: weekZeroEnd + timedel
 whole_df[['store','brand','WeekLastDay','Quantity']].head()
 ```
 
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -313,6 +348,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
     </tr>
   </tbody>
 </table>
+</div>
 
 
 
@@ -345,6 +381,22 @@ whole_tsdf[['Quantity']].head()
 ```
 
 
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -393,7 +445,7 @@ whole_tsdf[['Quantity']].head()
     </tr>
   </tbody>
 </table>
-
+</div>
 
 
 
@@ -408,6 +460,23 @@ whole_tsdf.sort_index(inplace=True)
 whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 ```
 
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -480,6 +549,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
     </tr>
   </tbody>
 </table>
+</div>
 
 
 
@@ -625,31 +695,30 @@ whole_tsdf.ts_report()
     
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_1.png)
+![png](output_15_1.png)
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_2.png)
+![png](output_15_2.png)
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_3.png)
+![png](output_15_3.png)
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_4.png)
+![png](output_15_4.png)
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_5.png)
+![png](output_15_5.png)
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_15_6.png)
+![png](output_15_6.png)
 
 
-## Integrate with external data
-
+## Integrate External Data
 Sometimes it's useful to integrate external data as additional features for forecasting. Use weather data as an example to understand how to join TimeSeriesDataFrame with external data.
 
 
@@ -682,6 +751,23 @@ whole_tsdf = whole_tsdf.merge(weather_all, how='left', on='WeekLastDay')
 whole_tsdf.head()
 ```
 
+
+
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -863,10 +949,12 @@ whole_tsdf.head()
     </tr>
   </tbody>
 </table>
+<p>5 rows × 21 columns</p>
+</div>
 
 
 
-## Data preprocessing - impute missing values
+## Data Preprocessing - Impute Missing Values
 
 Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use the utility function, ```ftk.tsutils.last_n_periods_split```:
 
@@ -1087,7 +1175,7 @@ error_bygrain_univariate[['ModelName', 'MAPE']].groupby('ModelName').boxplot(sub
 
 
 
-![png](./media/how-to-build-deploy-forecast-models/output_41_1.png)
+![png](output_41_1.png)
 
 
 Overall, the Naive model seems to make the better forecasts despite some outliers that are less accurate. 
@@ -1299,6 +1387,21 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
 
 
 
+
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1349,6 +1452,7 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
     </tr>
   </tbody>
 </table>
+</div>
 
 
 
@@ -1357,8 +1461,7 @@ The machine learning model was able to take advantage of the added features and 
 **Cross Validation and Parameter Sweeping**    
 The package adapts some traditional machine learning functions to a forecasting application.  `RollingOriginValidator` does cross-validation temporally, respecting what would and 
 would not be known in a forecasting framework. About time series cross validation: in the figure below, each square represents data from one time point. The blue squares are used for training and orange squares are used for testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data will be leaked into training data and the model evaluation is no longer valid. 
-
-![png](./media/how-to-build-deploy-forecast-models/cv_figure.png)
+![image.png](attachment:image.png)
 
 
 ```python
@@ -1500,13 +1603,3 @@ To score a large dataset, use the parallel scoring mode to submit multiple web s
 ```python
 results = aml_web_service.score(score_context=score_context, method='parallel')
 ```
-
-## Next steps
-
-Learn more about the Azure Machine Learning Package for Forecasting:
-
-+ Read the [package overview and learn how to install it](https://aka.ms/aml-packages/forecasting).
-
-+ Explore the [reference docs](https://aka.ms/aml-packages/forecasting) for Azure Machine Learning Package for Forecasting.
-
-+ Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
