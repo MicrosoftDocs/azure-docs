@@ -13,7 +13,7 @@ ms.author: v-geberr
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
-## LUIS authoring questions
+## LUIS authoring
 
 ### What are the LUIS best practices? 
 Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [best practices](luis-concept-best-practices.md). 
@@ -40,10 +40,10 @@ To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/l
 ### Where is the Pattern feature that provided regular expression matching?
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**. 
 
-## How do I use an entity to pull out the correct data? 
+### How do I use an entity to pull out the correct data? 
 See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction.md).
 
-## LUIS endpoint questions
+## LUIS endpoint
 
 ### Why does LUIS add spaces to the query around or in the middle of words?
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-supported-languages.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
@@ -65,7 +65,7 @@ Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in
 ### How do I secure my LUIS endpoint? 
 See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).
 
-## Working within LUIS limits?
+## Working within LUIS limits
 
 ### What is the maximum number of intents and entities that a LUIS app can support?
 See the [boundaries](luis-boundaries.md) reference.
@@ -84,7 +84,7 @@ For the maximum length of a [phrase list](./luis-concept-feature.md), see the [b
 ### What are the limits on example utterances?
 See the [boundaries](luis-boundaries.md) reference.
 
-## Testing and training set questions
+## Testing and training
 
 ### I see some errors in the batch testing pane for some of the models in my app. How can I address this problem?
 
@@ -126,7 +126,7 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-## Language support and translation services
+## Language and translation support 
 
 ### I have an app in one language and want to create a parallel app in another language. What is the easiest way to do so?
 1. Export your app.
