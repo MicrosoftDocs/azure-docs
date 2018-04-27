@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workday Configuration](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
-
+<CS>
 8. In a different web browser window, log in to your Workday company site as an administrator.
 
 9. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
@@ -225,7 +225,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     d. Click **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
+<CE>
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
