@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 #### Enable CORS
 
-To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/en-us/aspnet/core/security/cors).
+To allow your single page app to call the ASP.NET Core web API, you need to enable [CORS](https://docs.microsoft.com/aspnet/core/security/cors).
 
 1. In **Startup.cs**, add CORS to the `ConfigureServices()` method.
 

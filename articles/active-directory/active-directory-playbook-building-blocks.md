@@ -410,7 +410,7 @@ Approximate time to Complete: 10 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Identify POC users that will use MFA  |  |
-| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### Steps
 
@@ -419,7 +419,7 @@ Approximate time to Complete: 10 minutes
 | Navigate to "Users and groups" blade in Azure AD Management Portal | [Azure AD Management Portal: Users and groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Choose "All users" blade |  |
 | In the top bar choose "Multi-Factor Authentication" button | Direct URL for Azure MFA portal: https://aka.ms/mfaportal |
-| In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Login as the PoC user, and walk through the proof-up process  |  |
 
 ### Considerations
