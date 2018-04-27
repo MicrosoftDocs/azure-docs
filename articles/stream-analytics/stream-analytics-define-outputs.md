@@ -100,7 +100,7 @@ When using blob storage as output, a new file is created in the blob in the foll
 * If the output is time partitioned by using the path prefix pattern, a new blob is used when the query moves to the next hour.
 
 ## Event Hub
-[Event Hubs](https://azure.microsoft.com/services/event-hubs/) is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an Event Hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
+The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an Event Hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
 
 There are a few parameters that are needed to configure Event Hub data streams as an output.
 
