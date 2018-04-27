@@ -78,7 +78,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Connect-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID
       ```
@@ -106,7 +106,7 @@ To add the image to the Azure Stack Marketplace, complete the following steps:
           -ADFS `
           -EnvironmentName AzureStackAdmin
 
-        Connect-AzureRmAccount `
+        Add-AzureRmAccount `
           -EnvironmentName "AzureStackAdmin" `
           -TenantId $TenantID
         ```

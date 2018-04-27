@@ -3,7 +3,7 @@ title: Deploy a Docker container cluster - Azure CLI
 description: Deploy a Kubernetes, DC/OS, or Docker Swarm solution in Azure Container Service by using Azure CLI 2.0
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
