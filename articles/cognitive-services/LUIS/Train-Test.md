@@ -77,7 +77,7 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ### LUIS endpoint
 If you have several LUIS endpoints, use the **Additional Settings** link on the Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
-### View Bing Spell Check corrections in test 
+### View Bing Spell Check corrections in test panel
 You can view the spelling corrections provided by [Bing Spell Check v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API in the JSON view of the **Published** panel. 
 
 To use this feature, you must have published the app, and have a Bing Spell Check [service key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). The service key is not stored and needs to be reset for each browser session. 
