@@ -80,7 +80,7 @@ Metrics provide summary counts of the various states that a device may report ba
 
 For example: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'`
+You can include a clause that the configuration was applied, for example: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
 
 
 ### Step 4: Target Devices
