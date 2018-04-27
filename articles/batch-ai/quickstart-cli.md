@@ -21,32 +21,29 @@ ms.author: Alexander.Yukhanov
 # Introduction
 
 Azure CLI 2.0 allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
-submit and monitor training jobs.
+and submit/terminate/delete/monitor training jobs.
 
-This quickstart shows how to create a GPU cluster, run and monitor training job using Microsoft Cognitive Toolkit.
+This quickstart shows how to create a GPU cluster and run a training job using Microsoft Cognitive Toolkit.
 
 The training script [ConvNet_MNIST.py](https://github.com/Azure/BatchAI/blob/master/recipes/CNTK/CNTK-GPU-Python/CNTK-GPU-Python.ipynb)
 is available at Batch AI GitHub page. This script trains convolutional neural network on MNIST database of handwritten
 digits.
 
-We modified the official CNTK example to accept location of the training dataset and the output directory location via
-command line arguments.
+The official CNTK example has been modified to accept location of the training dataset and the output directory location via
+command-line arguments.
 
-## The Workflow
-
-In this quickstart, we will:
+## Quickstart Overview
 
 * Create a single node GPU cluster (with `Standard_NC6` VM size) with name `nc6`;
 * Create a new storage account, Azure File Share with two folders `logs` and `scripts` to store jobs output and training scripts,
-and Azure Blob Contaier `data` to store training data;
+and Azure Blob Container `data` to store training data;
 * Deploy the training script and the training data to the created file share and container;
-* During the job submission we will instruct Batch AI to mount the Azure File Share and Azure Blob Container on the
-cluster's node and make them available as regular file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`,
-`$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`, where `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment
-variable set by Batch AI for the job.
-* We will monitor the job execution by streaming its standard output;
-* After the job completion, we will inspect its output and generated models;
-* At the end, we will cleanup all allocated resources.
+* Configure the job to mount the Azure File Share and Azure Blob Container on the cluster's node and make them available as regular
+file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`, where
+`AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI for the job.
+* Monitor the job execution by streaming its standard output;
+* After the job completion, inspect its output and generated models;
+* At the end, delete all allocated resources.
 
 # Prerequisites
 
@@ -82,10 +79,10 @@ az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i Ubuntu
 ```
 
 Ubuntu DSVM is a flexible choice because it allows you both to run any training jobs in docker containers and
-to run most popular deeplearing frameworks directly on VM.
+to run most popular deep learing frameworks directly on VM.
 
 `--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys if you have not them already, so
-you can ssh to cluster nodes using the ssh key and you current user name. Note. You need to backup ~/.ssh folder to
+you can ssh to cluster nodes using the ssh key and your current user name. Note. You need to back up ~/.ssh folder to
 some permanent storage if you are using Cloud Shell.
 
 Example output:
@@ -147,7 +144,7 @@ Example output:
 # Create a Storage Account
 
 The following command creates a new storage account in the same region as batchai.repices resource group. Please update the
-command with an unique storage account name.
+command with a unique storage account name.
 
 ```azurecli
 az storage account create -n <storage account name> --sku Standard_LRS -g batchai.quickstart
@@ -182,7 +179,7 @@ wget https://raw.githubusercontent.com/Azure/BatchAI/master/recipes/CNTK/CNTK-GP
 
 ## Create Azure File Share and Deploy the Training Script
 
-The following commands creates Azure File Shares `scripts` and `logs` and copies training script into `cntk`
+The following commands create Azure File Shares `scripts` and `logs` and copies training script into `cntk`
 folder inside of `scripts` share:
 
 ```azurecli
@@ -194,7 +191,7 @@ az storage file upload -s scripts --source ConvNet_MNIST.py --path cntk --accoun
 
 ## Create a Blob Container and Deploy Training Data
 
-The following commands creates Azure Blob Container `data` and copies training data into `mnist_cntk` folder:
+The following commands create Azure Blob Container `data` and copies training data into `mnist_cntk` folder:
 ```azurecli
 az storage container create -n data --account-name <storage account name>
 az storage blob upload-batch -s . --pattern '*28x28_cntk*' --destination data --destination-path mnist_cntk --account-name <storage account name>
@@ -245,7 +242,7 @@ Create a training job configuration file `job.json` with the following content:
 This configuration file specifies:
 
 * `nodeCount` - number of nodes required by the job (1 for this quickstart);
-* `cntkSettings` - tells that the current job needs CNTK and specifies path the training script and command line
+* `cntkSettings` - tells that the current job needs CNTK and specifies path the training script and command-line
 arguments - path to training data and path to where the generated model will be saved. `AZ_BATCHAI_OUTPUT_MODEL`
 is an environment variable set by Batch AI based on output directory configuration (see below);
 * `stdOutErrPathPrefix` - path where Batch AI will create directories containing job's output and logs;
@@ -421,8 +418,8 @@ The streaming is stopped when the job is completed (succeeded or failed).
 
 # Inspect Generated Model Files
 
-The job stores the generated model files in the output directory with id = `MODEL`, you can list model files and
-get download URLs using the following command:
+The job stores the generated model files in the output directory with `id` attribute equals to `MODEL`, you can list
+model files and get download URLs using the following command:
 
 ```azurecli
 az batchai job file list -n cntk_python_1 -g batchai.quickstart -d MODEL
@@ -452,7 +449,7 @@ Example output:
 ```
 
 Alternatively, you can use the Portal or Azure Storage Explorer to inspect the generated files. To distinguish output
-from the different jobs, Batch AI creates an unique folder structure for each of them. You can find the path to the
+from the different jobs, Batch AI creates a unique folder structure for each of them. You can find the path to the
 folder containing the output using `jobOutputDirectoryPathSegment` attribute of the submitted job:
 
 ```azurecli
@@ -464,7 +461,7 @@ Example output:
 "00000000-0000-0000-0000-000000000000/batchai.quickstart/jobs/cntk_python_1/<JOB's UUID>"
 ```
 
-# Cleanup Resources
+# Delete Resources
 
 Delete the resource group and all allocated resources with the following command:
 
