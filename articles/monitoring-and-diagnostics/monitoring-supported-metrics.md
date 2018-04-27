@@ -540,8 +540,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |c2d.commands.egress.complete.success|Commands completed|Count|Total|Number of cloud-to-device commands completed successfully by the device|No Dimensions|
 |c2d.commands.egress.abandon.success|Commands abandoned|Count|Total|Number of cloud-to-device commands abandoned by the device|No Dimensions|
 |c2d.commands.egress.reject.success|Commands rejected|Count|Total|Number of cloud-to-device commands rejected by the device|No Dimensions|
-|devices.totalDevices|Total devices (deprecated)|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
-|devices.connectedDevices.allProtocol|Connected devices (deprecated)|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
+|devices.totalDevices|Total devices|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
+|devices.connectedDevices.allProtocol|Connected devices|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
 |d2c.telemetry.egress.success|Telemetry messages delivered|Count|Total|Number of times messages were successfully written to endpoints (total)|No Dimensions|
 |d2c.telemetry.egress.dropped|Dropped messages|Count|Total|Number of messages dropped because the delivery endpoint was dead|No Dimensions|
 |d2c.telemetry.egress.orphaned|Orphaned messages|Count|Total|The count of messages not matching any routes including the fallback route|No Dimensions|
@@ -593,8 +593,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
 |deviceDataUsage|Total devicedata usage|Count|Total|Bytes transferred to and from any devices connected to IotHub|No Dimensions|
-|totalDeviceCount|Total devices (preview)|Count|Maximum|Number of devices registered to your IoT hub|No Dimensions|
-|connectedDeviceCount|Connected devices (preview)|Count|Maximum|Number of devices connected to your IoT hub|No Dimensions|
 
 ## Microsoft.Devices/provisioningServices
 
@@ -621,8 +619,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |c2d.commands.egress.complete.success|Commands completed|Count|Total|Number of cloud-to-device commands completed successfully by the device|No Dimensions|
 |c2d.commands.egress.abandon.success|Commands abandoned|Count|Total|Number of cloud-to-device commands abandoned by the device|No Dimensions|
 |c2d.commands.egress.reject.success|Commands rejected|Count|Total|Number of cloud-to-device commands rejected by the device|No Dimensions|
-|devices.totalDevices|Total devices (deprecated)|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
-|devices.connectedDevices.allProtocol|Connected devices (deprecated)|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
+|devices.totalDevices|Total devices|Count|Total|Number of devices registered to your IoT hub|No Dimensions|
+|devices.connectedDevices.allProtocol|Connected devices|Count|Total|Number of devices connected to your IoT hub|No Dimensions|
 |d2c.telemetry.egress.success|Telemetry messages delivered|Count|Total|Number of times messages were successfully written to endpoints (total)|No Dimensions|
 |d2c.telemetry.egress.dropped|Dropped messages|Count|Total|Number of messages dropped because the delivery endpoint was dead|No Dimensions|
 |d2c.telemetry.egress.orphaned|Orphaned messages|Count|Total|The count of messages not matching any routes including the fallback route|No Dimensions|
@@ -673,8 +671,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |jobs.failed|Failed jobs|Count|Total|The count of all failed jobs.|No Dimensions|
 |d2c.telemetry.ingress.sendThrottle|Number of throttling errors|Count|Total|Number of throttling errors due to device throughput throttles|No Dimensions|
 |dailyMessageQuotaUsed|Total number of messages used|Count|Average|Number of total messages used today. This is a cumulative value that is reset to zero at 00:00 UTC every day.|No Dimensions|
-|totalDeviceCount|Total devices (preview)|Count|Maximum|Number of devices registered to your IoT hub|No Dimensions|
-|connectedDeviceCount|Connected devices (preview)|Count|Maximum|Number of devices connected to your IoT hub|No Dimensions|
 
 ## Microsoft.DocumentDB/databaseAccounts
 
