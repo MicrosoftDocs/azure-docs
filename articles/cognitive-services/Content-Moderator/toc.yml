@@ -1,79 +1,80 @@
 - name: Content Moderator Documentation
-  href: index.md
 - name: Overview
-  href: overview.md
-- name: Quickstarts
   items: 
-  - name: Review tool
-    href: quick-start.md
-  - name: Moderation APIs
-    items:
-    - name: Helper library - .NET
-      href: content-moderator-helper-quickstart-dotnet.md
-    - name: Images - API console
-      href: try-image-api.md
-    - name: Images - .NET
-      href: image-moderation-quickstart-dotnet.md
-    - name: Custom images - API console
-      href: try-image-list-api.md
-    - name: Custom images - .NET
-      href: image-lists-quickstart-dotnet.md
-    - name: Text - API console
-      href: try-text-api.md
-    - name: Text - .NET
-      href: text-moderation-quickstart-dotnet.md
-    - name: Custom terms - API console
-      href: try-terms-list-api.md
-    - name: Custom terms - .NET
-      href: term-lists-quickstart-dotnet.md 
-    - name: Videos - .NET
-      href: video-moderation-api.md
-  - name: Review APIs
-    items: 
-    - name: Jobs - API console
-      href: try-review-api-job.md
-    - name: Jobs - .NET
-      href: moderation-jobs-quickstart-dotnet.md
-    - name: Reviews - API console
-      href: try-review-api-review.md
-    - name: Reviews - .NET
-      href: moderation-reviews-quickstart-dotnet.md
-    - name: Video reviews - .NET
-      href: video-reviews-quickstart-dotnet.md
-    - name: Video transcript reviews - .NET
-      href: video-transcript-reviews-quickstart-dotnet.md
-    - name: Workflows - API console
-      href: try-review-api-workflow.md
-- name: Tutorials
-  items:
-  - name: Facebook content moderation
-    href: facebook-post-moderation.md
-  - name: eCommerce image moderation
-    href: ecommerce-retail-catalog-moderation.md
-  - name: Video and trancript moderation
-    href: video-transcript-moderation-review-tutorial-dotnet.md
-- name: Samples
-  items: 
-  - name: .NET SDK samples
-    href: samples-dotnet.md
-  - name: REST API samples in C#
-    href: samples-rest.md
-- name: Concepts
-  items: 
-  - name: Image moderation
-    href: image-moderation-api.md
-  - name: Text moderation
-    href: text-moderation-api.md
-  - name: Text moderation - languages
-    href: Text-Moderation-API-Languages.md
-  - name: Video moderation
-    href: video-moderation-human-review.md
-  - name: Jobs and reviews
-    href: review-api.md
-  - name: Workflows
-    href: workflow-api.md
+  - name: What is Content Moderator
+    href: overview.md
 - name: How-to guides
   items:
+  - name: Try Content Moderator
+    items:
+    - name: Review tool
+      href: quick-start.md
+    - name: Moderation APIs
+      items:
+      - name: Helper library - .NET
+        href: content-moderator-helper-quickstart-dotnet.md
+      - name: Images - API console
+        href: try-image-api.md
+      - name: Images - .NET
+        href: image-moderation-quickstart-dotnet.md
+      - name: Custom images - API console
+        href: try-image-list-api.md
+      - name: Custom images - .NET
+        href: image-lists-quickstart-dotnet.md
+      - name: Text - API console
+        href: try-text-api.md
+      - name: Text - .NET
+        href: text-moderation-quickstart-dotnet.md
+      - name: Custom terms - API console
+        href: try-terms-list-api.md
+      - name: Custom terms - .NET
+        href: term-lists-quickstart-dotnet.md
+      - name: Videos - .NET
+        href: video-moderation-api.md
+    - name: Review APIs
+      items:
+      - name: Jobs - API console
+        href: try-review-api-job.md
+      - name: Jobs - .NET
+        href: moderation-jobs-quickstart-dotnet.md
+      - name: Reviews - API console
+        href: try-review-api-review.md
+      - name: Reviews - .NET
+        href: moderation-reviews-quickstart-dotnet.md
+      - name: Video reviews - .NET
+        href: video-reviews-quickstart-dotnet.md
+      - name: Video transcript reviews - .NET
+        href: video-transcript-reviews-quickstart-dotnet.md
+      - name: Workflows - API console
+        href: try-review-api-workflow.md
+  - name: First Content Moderator apps
+    items:
+    - name: Facebook content moderation
+      href: facebook-post-moderation.md
+    - name: eCommerce image moderation
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Video and trancript moderation
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+  - name: Samples
+    items:
+    - name: .NET SDK samples
+      href: samples-dotnet.md
+    - name: REST API samples in C#
+      href: samples-rest.md
+  - name: Concepts
+    items:
+    - name: Image moderation
+      href: image-moderation-api.md
+    - name: Text moderation
+      href: text-moderation-api.md
+    - name: Text moderation - languages
+      href: Text-Moderation-API-Languages.md
+    - name: Video moderation
+      href: video-moderation-human-review.md
+    - name: Jobs and reviews
+      href: review-api.md
+    - name: Workflows
+      href: workflow-api.md
   - name: Review tool
     items:
     - name: Human in the loop
