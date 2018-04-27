@@ -8300,6 +8300,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Face/index.md",
+            "redirect_url": "/azure/cognitive-services/Face/Overview",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -19043,6 +19048,11 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_document_id": false
         }
     ]
 }
