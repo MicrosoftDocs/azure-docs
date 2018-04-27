@@ -35,8 +35,9 @@ command-line arguments.
 ## Quickstart Overview
 
 * Create a single node GPU cluster (with `Standard_NC6` VM size) with name `nc6`;
-* Create a new storage account, Azure File Share with two folders `logs` and `scripts` to store jobs output and training scripts,
-and Azure Blob Container `data` to store training data;
+* Create a new storage account to store job input and output;
+* Create an Azure File Share with two folders `logs` and `scripts` to store jobs output and training scripts;
+* Create an Azure Blob Container `data` to store training data;
 * Deploy the training script and the training data to the created file share and container;
 * Configure the job to mount the Azure File Share and Azure Blob Container on the cluster's node and make them available as regular
 file system at `$AZ_BATCHAI_JOB_MOUNT_ROOT/logs`, `$AZ_BATCHAI_JOB_MOUNT_ROOT/scripts` and `$AZ_BATCHAI_JOB_MOUNT_ROOT/data`, where
@@ -54,7 +55,7 @@ or install it locally following [these instructions](https://docs.microsoft.com/
 
 # Cloud Shell Only
 
-If you are using Cloud Shell, please change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
+If you are using Cloud Shell, change the working directory to `/usr/$USER/clouddrive` because your home directory has no empty space:
 
 ```azurecli
 cd /usr/$USER/clouddrive
@@ -78,12 +79,13 @@ system image:
 az batchai cluster create -n nc6 -g batchai.quickstart -s Standard_NC6 -i UbuntuDSVM -t 1 --generate-ssh-keys
 ```
 
-Ubuntu DSVM is a flexible choice because it allows you both to run any training jobs in docker containers and
-to run most popular deep learing frameworks directly on VM.
+Ubuntu DSVM allows to run any training jobs in docker containers and to run most popular deep learning frameworks
+directly on VM.
 
-`--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys if you have not them already, so
-you can ssh to cluster nodes using the ssh key and your current user name. Note. You need to back up ~/.ssh folder to
-some permanent storage if you are using Cloud Shell.
+`--generate-ssh-keys` option tells Azure CLI to generate private and public ssh keys if you have not them already. You
+can access the cluster nodes using the current user name and generated ssh key.
+
+Note, if you use Cloud Shell, back up ~/.ssh folder to some permanent storage.
 
 Example output:
 ```json
@@ -143,7 +145,7 @@ Example output:
 
 # Create a Storage Account
 
-The following command creates a new storage account in the same region as batchai.repices resource group. Please update the
+The following command creates a new storage account in the same region as batchai.repices resource group. Update the
 command with a unique storage account name.
 
 ```azurecli
@@ -242,16 +244,15 @@ Create a training job configuration file `job.json` with the following content:
 This configuration file specifies:
 
 * `nodeCount` - number of nodes required by the job (1 for this quickstart);
-* `cntkSettings` - tells that the current job needs CNTK and specifies path the training script and command-line
-arguments - path to training data and path to where the generated model will be saved. `AZ_BATCHAI_OUTPUT_MODEL`
+* `cntkSettings` - specifies the path of the training script and command-line arguments. Command-line arguments include
+path to training data and the destination path for storing generated models. `AZ_BATCHAI_OUTPUT_MODEL`
 is an environment variable set by Batch AI based on output directory configuration (see below);
 * `stdOutErrPathPrefix` - path where Batch AI will create directories containing job's output and logs;
-* `outputDirectories` - collection of output directories which will be created by Batch AI. For each directory,
-Batch AI will create an environment variable with name `AZ_BATCHAI_OUTPUT_<id>`, where `<id>` is the directory
+* `outputDirectories` - collection of output directories to be created by Batch AI. For each directory,
+Batch AI creates an environment variable with name `AZ_BATCHAI_OUTPUT_<id>`, where `<id>` is the directory
 identifier;
-* `mountVolumes` - list of filesystems to be mounted during the job execution. In this case, we are mounting
-two Azure File Shares - `logs` and `scripts`, and Azure Blob Container 'data'. The filesystems are mounted under
-`AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`;
+* `mountVolumes` - list of filesystems to be mounted during the job execution. The filesystems are mounted under
+`AZ_BATCHAI_JOB_MOUNT_ROOT/<relativeMountPath>`. `AZ_BATCHAI_JOB_MOUNT_ROOT` is an environment variable set by Batch AI;
 * `<AZURE_BATCHAI_STORAGE_ACCOUNT>` tells that the storage account name will be specified during the job submission
 via --storage-account-name parameter or `AZURE_BATCHAI_STORAGE_ACCOUNT` environment variable on your computer.
 
