@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|||
 	|-|-|
 	| `https://app.knowledgeowl.com/sp`|
-	| `https://app.knowledgeowl.com/sp/id/(unique ID)`|
+	| `https://app.knowledgeowl.com/sp/id/<unique ID>`|
 	|||
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
@@ -138,9 +138,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|||
 	 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. You will update these values with the actual Identifier, Reply URL, and Sign-On URL, which are explained later in the tutorial.
+	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
-5. The KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+5. The KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page.
 
 	![Configure Single Sign-On](./media/active-directory-saas-knowledgeowl-tutorial/attribute.png)
 
@@ -159,8 +159,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Name** textbox, type the attribute name shown for that row.
 	
 	c. From the **Value** list, type the attribute value shown for that row.
+
+	d.From the **Namespace** list, enter the namespace value shown for that row.
 	
-	d. Click **Ok**.
+	e. Click **Ok**.
 
 7. On the **SAML Signing Certificate** section, click **Certificate (Raw)** and then save the certificate file on your computer.
 
@@ -180,7 +182,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![KnowledgeOwl Configuration](./media/active-directory-saas-knowledgeowl-tutorial/configure1.png)
 
-12. Scroll down upto the **SAML SSO INTEGRATION** and perform the following steps:
+12. Scroll down upto the **SAML SSO Integration** and perform the following steps:
 	
 	![KnowledgeOwl Configuration](./media/active-directory-saas-knowledgeowl-tutorial/configure2.png)
 
@@ -208,11 +210,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Enter `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` into the **Last Name** textbox.
 	* Click **Save**
 
-	i. Click **Save**.
+	i. Click **Save** at the bottom of the page.
 
 	![KnowledgeOwl Configuration](./media/active-directory-saas-knowledgeowl-tutorial/configure4.png)
-
-
 
 ### Create an Azure AD test user
 
