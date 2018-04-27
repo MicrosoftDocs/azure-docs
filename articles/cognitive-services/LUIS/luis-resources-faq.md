@@ -41,7 +41,7 @@ To edit your LUIS app programmatically, use the [Authoring API](https://aka.ms/l
 The previous **Pattern feature** is currently deprecated, replaced by **[Patterns](luis-concept-patterns.md)**. 
 
 ## How do I use an entity to pull out the correct data? 
-See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction).
+See [entities](luis-concept-entity-types.md) and [data extraction](luis-concept-data-extraction.md).
 
 ## LUIS endpoint questions
 
