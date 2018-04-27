@@ -26,7 +26,7 @@ The intents are categories of what the user wants. This app has two intents: Boo
 
 ## Hierarchical entity is contextually learned 
 The purpose of the entity is to find and categorize parts of the text in the utterance. 
-A [hierarchical](luis-concept-entity-types.md) entity is learned based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
+A [hierarchical](luis-concept-entity-types.md) entity is parent-child entity based on the context of the usage. A person can determine the origin and destination cities in an utterance based on the usage of `to` and `from`. These are an example of contextual usage.  
 
 For this Travel app, LUIS extracts the origin and destination locations in such as way that a standard reservation can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
 
@@ -148,7 +148,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Screenshot of Bookflight intent with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
 
-2. Select the **Publish to production slot**. 
+2. Select the Production slot and the **Publish** button.
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 

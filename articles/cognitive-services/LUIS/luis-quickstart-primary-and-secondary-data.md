@@ -136,7 +136,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-2. Select the **Publish to production slot**. 
+2. Select the Production slot and the **Publish** button.
 
     [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
 

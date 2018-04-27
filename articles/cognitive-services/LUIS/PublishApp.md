@@ -112,7 +112,7 @@ Open your app by clicking its name on the **My Apps** page, and then click **Pub
  
 When your app is successfully published, a green success notification appears at the top of the browser. 
 
-![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
+* Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Select slot**. 
 
 ## Assign key
 
@@ -126,6 +126,8 @@ The endpoint URL corresponds to the Azure region associated with the endpoint ke
 This table conveniently reflects your publishing configuration in the URL endpoint with route choices and query string values. If you are constructing your endpoint URLs for your LUIS-calling application, make sure these same routes and query string values are set for the endpoint used -- if you want them set.
 
 The URL route is constructed with the region, and the app ID. If you are publishing in other regions or with other apps, the endpoint URL can be constructed by changing the region and app ID values. 
+
+* Select the Production slot and the **Publish** button. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
 
 ### Optional query string parameters
 The following query string parameters can be used with the endpoint URL:

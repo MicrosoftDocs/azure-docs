@@ -143,7 +143,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     ![Screenshot of FindKnowledgeBase with top navigation Publish button highlighted](./media/luis-quickstart-intents-regex-entity/publish-button.png)
 
-2. Select the **Publish to production slot**. 
+2. Select the Production slot and the **Publish** button.
 
     ![Screenshot of Publish page with Publish to production slot button highlighted](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
 

@@ -96,8 +96,7 @@ If you don't have the LUIS app ID, log in to the [LUIS](luis-reference-regions.m
 
 3. If you haven't trained the app, select the **Train** button in the upper right to train your app.
 
-4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the **Publish to production slot** button. 
-
+4. If you haven't published the app, select **PUBLISH** in the top navigation bar to open the **Publish** page. Select the Production slot and the **Publish** button.
 
 ## Modify the bot code
 
