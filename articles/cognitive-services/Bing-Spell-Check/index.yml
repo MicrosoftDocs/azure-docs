@@ -53,7 +53,7 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Spell Check API:'
-- type: list
+  - type: list
     style: unordered
     items: 
     - html: <a href="tutorials/spellcheck.md">Single-page Web app</a>
