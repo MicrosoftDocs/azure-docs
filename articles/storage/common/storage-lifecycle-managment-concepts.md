@@ -1,6 +1,6 @@
 ---
 title: Managing the Azure Storage Lifecycle
-description: 
+description: Learn how to create lifecycle policy rules to transition againg data from hot to cool and archive tiers.
 services: storage
 author: yzheng-msft
 manager: jwillis
@@ -12,23 +12,24 @@ ms.date: 04/30/2018
 ms.author: yzheng
 ---
 
-# Managing the Azure Storage Lifecycle
+# Managing the Azure Storage Lifecycle (Preview)
 
-Data stored in the cloud often has special considerations in how  it is generated, processed, and accessed over time. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Further, some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle. 
+Data stored in the cloud often has special considerations on how is generated, processed, and accessed over time. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Further, some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle. 
 
 Lifecycle management policies include the following features:
 
 - Defined at the storage account level
 - Applies to all or a subset of blobs (using the blob name prefixes as filters)
-- Stores data lifecycle stages in different storage tiers ([Hot, Cool and Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)) to optimize for performance and cost
+- Transitions data to different storage tiers ([Hot, Cool and Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)) to optimize for performance and cost
+- Deletes data at the end of the lifecycle
 
 Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, *hot* storage is best during the early stages, *cool* storage is most appropriate for occasional access, and *archive* storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
 
 ## Storage accounts that support lifecycle management 
 
-Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose classic deployment model (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. See [Azure storage account options](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-options) to learn more.  
+Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. See [Azure storage account options](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-options) to learn more.  
 
-## Lifecycle management pricing 
+## Pricing 
 
 During preview, lifecycle management is free. Customers are charged the regular transaction fee on listing and updating blob access tier.
 
@@ -57,17 +58,17 @@ A lifecycle management policy is a collection of rules in a JSON document:
 
 Within a policy, two parameters are required:
 
-| Parameter name | Parameter type           | Notes                                                                                                   |
-|----------------|--------------------------|---------------------------------------------------------------------------------------------------------|
-| version        | A number expressed as `x.x`             | The preview version number is 0.5                                                                       |
+| Parameter name | Parameter type | Notes |
+|----------------|----------------|-------|
+| version        | A number expressed as `x.x` | The preview version number is 0.5 |
 | rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 4 rules per policy. |
 
 Parameters required within a rule are:
 
-| Parameter name | Parameter type                             | Notes                                                                                                                                                                       |
-|----------------|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name           | String                                     | A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy. |
-| type           | An enum value                              | The valid value for preview is “lifecycle”                                                                                                                                  |
+| Parameter name | Parameter type | Notes |
+|----------------|----------------|-------|
+| Name           | String | A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy. |
+| type           | An enum value | The valid value for preview is `lifecycle` |
 | definition     | An object that defines the lifecycle rule | Each definition is made up with a filter set and an action set. |
 
 ## Construct a lifecycle management rule
@@ -76,8 +77,8 @@ Each rule definition includes a filter set and an action set. The following samp
 
 - Cool storage is used when the modified date is over 30 days 
 - Archive storage is used when the modified date is over 90 days
+- Blobs are deleted when modified data has aged over 2,555 days (7 years)
 - Blob snapshots are deleted after 90 days
-- Blobs are deleted after 2,555 days (7 years)
 
 ```json
 {
@@ -108,7 +109,7 @@ Each rule definition includes a filter set and an action set. The following samp
 
 ```
 
-## Rule filters
+## Rule actions
 
 Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical `AND` is performed on all filters.
 
@@ -116,7 +117,7 @@ During preview, valid filters include:
 
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
-| blobTypes   | An array of predefined enum values.           | For the preview release, only `blockBlob` is supported. | Yes |
+| blobTypes   | An array of predefined enum values. | For the preview release, only `blockBlob` is supported. | Yes |
 | prefixMatch | An array of strings for prefixes to be match. | If it isn’t defined, this rule applies to all blobs within the account. | No |
 
 ### Rule actions
@@ -133,9 +134,9 @@ In preview, lifecycle management supports tiering and deletion of blob and delet
 
 In preview, the action execution conditions are based on age. Base blob uses last modified time to track age and blob snapshots uses snapshot creation time to track age.
 
-| Action execution condition       | Condition value                        | Description                               |
-|----------------------------------|----------------------------------------|-------------------------------------------|
-| daysAfterLastModifiedGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions     |
+| Action execution condition | Condition value | Description |
+|----------------------------|-----------------|-------------|
+| daysAfterLastModifiedGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
 | daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions | 
 
 ## Policy examples
@@ -172,7 +173,7 @@ The following example demonstrates how to transition block blobs prefixed with `
 
 ### Archive data at ingest 
 
-Some data remains idle in the cloud and is rarely, if ever, accessed once stored. This data is best to be archived immediately once it is ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account with prefix of "archive" immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
+Some data remains idle in the cloud and is rarely, if ever, accessed once stored. This data is best to be archived immediately once it is ingested. The following lifecycle policy is configured to archive data at ingest. This example transitions block blobs in the storage account with prefix of `archive` immediately into an archive tier. The immediate transition is accomplished by acting on blobs 0 days after last modified time:
 
 ```json
 {
@@ -228,7 +229,7 @@ Some data is expected to expire days or months after creation to reduce costs or
 
 ### Delete old snapshots
 
-For data that is modified and accessed regularly throughout its lifetime, snapshots are often used to track older versions of the data. You can create a policy that deletes old snapshots based on snapshot age. The snapshot age is determined by evaluating the snapshot creation time. This policy rule deletes block blob snapshots with prefix "activeData" that are 90 days or older after snapshot creation.
+For data that is modified and accessed regularly throughout its lifetime, snapshots are often used to track older versions of the data. You can create a policy that deletes old snapshots based on snapshot age. The snapshot age is determined by evaluating the snapshot creation time. This policy rule deletes block blob snapshots with prefix `activeData` that are 90 days or older after snapshot creation.
 
 ```json
 {
