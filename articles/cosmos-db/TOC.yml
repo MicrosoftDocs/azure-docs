@@ -80,6 +80,8 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
@@ -171,8 +173,6 @@ items:
           href: multi-region-writers.md
       - name: How To Guides
         items:
-        - name: BulkExecutor overview
-          href: bulk-executor-overview.md
         - name: BulkExecutor - .NET
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
