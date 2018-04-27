@@ -85,11 +85,11 @@ As shown in the previous diagram, all VMs compete for messages on the work-item 
 
 The orchestration instances are distributed across all control queue instances. The distribution is done by hashing the instance ID of the orchestration. Instance IDs by default are random GUIDs, ensuring that instances are equally distributed across all control queues.
 
-Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. For this reason, it is not necessary to create a large number of control queue partitions to get great throughput. Rather, most of the heavy work is done in stateless activity functions, which can be scaled out infinitely.
+Generally speaking, orchestrator functions are intended to be lightweight and should not require large amounts of computing power. It is therefore not necessary to create a large number of control queue partitions to get great throughput. Most of the heavy work is expected to be done in stateless activity functions, which can be scaled out infinitely.
 
 ## Auto-scale
 
-As with all Azure Functions running in the Consumption plan, Durable Functions supports auto-scale via the [Azure Functions scale controller](functions-scale#runtime-scaling). The Scale Controller monitors the latency of all queues by periodically issuing _peek_ commands. Based on the latencies of the peeked messages, the Scale Controller will decide whether to add or remove VMs.
+As with all Azure Functions running in the Consumption plan, Durable Functions supports auto-scale via the [Azure Functions scale controller](functions-scale.md#runtime-scaling). The Scale Controller monitors the latency of all queues by periodically issuing _peek_ commands. Based on the latencies of the peeked messages, the Scale Controller will decide whether to add or remove VMs.
 
 If the Scale Controller determines that control queue message latencies are too high, it will add VM instances until either the message latency decreases to an acceptable level or it reaches the control queue partition count. Similarly, the Scale Controller will continually add VM instances if work-item queue latencies are high, regardless of the partition count.
 
