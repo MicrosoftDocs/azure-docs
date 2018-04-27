@@ -9,7 +9,7 @@
   items:
   - name: Get started
     href: quickstart.md
-  - name: C&#35;
+  - name: C#
     href: csharp.md
   - name: Java
     href: java.md

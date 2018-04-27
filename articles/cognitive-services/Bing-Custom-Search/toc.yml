@@ -9,7 +9,7 @@
   items:
     - name: Create first instance
       href: quick-start.md
-    - name: C&#35;
+    - name: C#
       href: call-endpoint-csharp.md
     - name: Java
       href: call-endpoint-java.md

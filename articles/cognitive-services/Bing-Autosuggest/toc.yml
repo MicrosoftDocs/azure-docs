@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: C&#35;
+  - name: C#
     href: quickstarts/csharp.md
   - name: Java
     href: quickstarts/java.md
