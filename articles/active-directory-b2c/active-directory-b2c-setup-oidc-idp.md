@@ -7,14 +7,18 @@ author: davidmu1
 manager: mtillman
 editor: parakhj
 
+ms.assetid: 357d193a-e33b-469c-8a93-0a8f45a60a9f
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Add a custom OpenID Connect identity provider in built-in policies
+
+>[!NOTE]
+> This feature is in public preview. Do not use the feature in production environments.
 
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as Azure AD, are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your built-in policies.
 
