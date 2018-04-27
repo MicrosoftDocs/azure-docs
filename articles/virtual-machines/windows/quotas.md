@@ -4,8 +4,8 @@ description: Learn about vCPU quotas for Azure.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
-author: Drewm3
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
-ms.author: drewm
+ms.author: cynthn
 
 ---
 

@@ -60,7 +60,7 @@ In this article, you learn about how to use the .NET SDK to do end-user authenti
    4. Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**
-7. Replease the using statements with the following lines:
+7. Replace the using statements with the following lines:
 
     ```csharp
     using System;

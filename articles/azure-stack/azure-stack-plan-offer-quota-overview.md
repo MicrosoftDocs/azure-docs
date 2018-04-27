@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/22/2017
+ms.date: 04/20/2018
 ms.author: brenduns
 ms.reviewer:
 
@@ -29,10 +29,10 @@ Offers contain one or more plans, and each plan includes one or more services. B
 - the amount of those resources that users can consume
 - which regions have access to the resources
 
-When you deliver a service, you'll follow these high-level steps:
+When you deliver a service, follow these high-level steps:
 
 1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
+2. Create a plan that contains one or more services. When creating a plan, select or create quotas that define the resource limits of each service in the plan.
 3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
 
 After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
@@ -49,13 +49,15 @@ To help you manage your cloud capacity, you select or create a quota for each se
 
 Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
 
+Learn more about [quota types in Azure Stack](azure-stack-quota-types.md). 
+
 ### Base plan
 
 When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
 
 ### Add-on plans
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+Add-on plans are optional plans you add to an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
 
 ## Offers
 

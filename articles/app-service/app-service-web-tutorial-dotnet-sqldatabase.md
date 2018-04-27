@@ -18,7 +18,7 @@ ms.author: cephalin
 ms.custom: mvc, devcenter
 ---
 
-# Build an ASP.NET app in Azure with SQL Database
+# Tutorial: Build an ASP.NET app in Azure with SQL Database
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET web app in Azure and connect it to [Azure SQL Database](../sql-database/sql-database-technical-overview.md). When you're finished, you have a ASP.NET app running in Azure and connected to SQL Database.
 
@@ -142,6 +142,9 @@ A unique server name is generated. This name is used as part of the default URL 
 Add an administrator username and password. For password complexity requirements, see [Password Policy](/sql/relational-databases/security/password-policy).
 
 Remember this username and password. You need them to manage the logical server instance later.
+
+> [!IMPORTANT]
+> Even though your password in the connection strings is masked (in Visual Studio and also in App Service), the fact that it's maintained somewhere adds to the attack surface of your app. App Service can use [managed service identities](app-service-managed-service-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration at all. For more information, see [Next steps](#next-steps).
 
 ![Create SQL Server instance](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
@@ -410,8 +413,6 @@ By default, the portal shows the **Overview** page. This page gives you a view o
 
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
-<a name="next"></a>
-
 ## Next steps
 
 In this tutorial, you learned how to:
@@ -424,7 +425,7 @@ In this tutorial, you learned how to:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to the web app.
+Advance to the next tutorial to learn how to easily improve the security of your connection Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Access SQL Database securely using managed service identity](app-service-web-tutorial-connect-msi.md)

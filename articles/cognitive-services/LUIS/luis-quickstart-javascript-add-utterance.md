@@ -1,12 +1,11 @@
 ---
-title: Add utterances to a LUIS app using JavaScript | Microsoft Docs 
-description: Learn to call a LUIS app using JavaScript. 
+title: Add utterances to a LUIS app using JavaScript | Microsoft Docs
+description: Learn to call a LUIS app using JavaScript.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: v-geberr

@@ -17,7 +17,7 @@ Azure SQL Database can emit metrics and diagnostics logs for easier monitoring. 
 
 * **Azure Storage**: Used for archiving vast amounts of telemetry for a small price.
 * **Azure Event Hubs**: Used for integrating SQL Database telemetry with your custom monitoring solution or hot pipelines.
-* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities.
+* **Azure Log Analytics**: Used for an out-of-the-box monitoring solution with reporting, alerting, and mitigating capabilities. This is a feature of the [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -187,11 +187,11 @@ The easiest way to configure where databases record their metrics is through the
 
 ### Install the SQL Analytics solution from the gallery
 
-1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the Operations Management Suite home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
+1. After you create the Log Analytics resource and your data is flowing into it, install the SQL Analytics solution. On the home page, on the side menu, select **Solutions Gallery**. In the gallery, select the **Azure SQL Analytics** solution, and select **Add**.
 
    ![Monitoring solution](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. On your Operations Management Suite home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
+2. On your home page, the **Azure SQL Analytics** tile appears. Select this tile to open the SQL Analytics dashboard.
 
 ### Use the SQL Analytics solution
 

@@ -61,12 +61,12 @@ For a dry run of downloading all the data in your Azure Storage blob container, 
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-To download only logs from January 1, 2018, and use `owerwrite_mode=4`, use the following code:
+To download only logs created since January 1, 2018 with `overwrite_mode=4`, use the following code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```
 
-To create a *gzip* file for all the downloaded files, use the following code:
+To create a *gzip* file merging all the downloaded files, use the following code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4 --create_gzip
 ```

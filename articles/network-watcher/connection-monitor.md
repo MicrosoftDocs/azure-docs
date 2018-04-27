@@ -66,4 +66,4 @@ The following steps enable connection monitoring to a destination VM over ports 
 ## Next steps
 
 - Learn how to automate packet captures with VM alerts by [Creating an alert-triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
-- Determine if certain traffic is allowed in or out of your VM by using [IP flow verify](network-watcher-check-ip-flow-verify-portal.md).
+- Determine if certain traffic is allowed in or out of your VM by using [IP flow verify](diagnose-vm-network-traffic-filtering-problem.md).

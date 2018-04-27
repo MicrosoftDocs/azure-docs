@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -196,4 +196,3 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 ## Next steps
 
 If you want to know more about sign-in activity error codes, see the [Sign-in activity report error codes in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins-errors.md).
-

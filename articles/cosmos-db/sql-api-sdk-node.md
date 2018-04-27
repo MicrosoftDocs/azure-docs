@@ -4,7 +4,7 @@ description: Learn all about the SQL Node.js API and SDK including release dates
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37

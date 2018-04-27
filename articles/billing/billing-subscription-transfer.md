@@ -25,7 +25,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
 > [!IMPORTANT]
 > 
-> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+> If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
 ## Transfer ownership of an Azure subscription
 
@@ -47,7 +47,7 @@ Transfer your subscription to another user in the Account Center to change the A
 
    > [!IMPORTANT]
    > 
-   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../active-directory/role-based-access-control-what-is.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
+   > If you transfer a subscription to a new Azure AD tenant, all role assignments in [role-based access control (RBAC)](../role-based-access-control/overview.md) are permanently deleted from the source tenant and are not migrated to the target tenant.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 
@@ -111,7 +111,7 @@ The Account Administrator is the person who signed up for or bought the Azure su
 
 ### Does everything transfer? Including resource groups, VMs, disks, and other running services?
 
-All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory//develop/active-directory-integrating-applications.md) and other tenant-specific services don't transfer along.
+All your resources like VMs, disks, and websites transfer to the new owner. However, any [administrator roles](billing-add-change-azure-subscription-administrator.md) and [Role-based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) policies you've set up do not transfer across different directories. Also, [app registrations](../active-directory//develop/active-directory-integrating-applications.md) and other tenant-specific services don't transfer along.
 
 ### <a id="no-button"></a> Why don't I see the "Transfer subscription" button?
 

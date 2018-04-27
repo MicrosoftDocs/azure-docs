@@ -4,7 +4,7 @@ description: The ExpressRoute FAQ contains information about Supported Azure Ser
 documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 04/09/2018
 ms.author: cherylmc
 
 ---
@@ -64,6 +64,10 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Virtual networks, including all virtual machines and cloud services
 
 ### Public peering
+
+>[!NOTE]
+>Microsoft peering is the preferred way to access all services hosted on Azure.
+>
 
 * Power BI
 * Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)

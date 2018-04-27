@@ -4,6 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store, query, and traverse
 services: cosmos-db
 author: LuisBosquez
 documentationcenter: ''
+manager: kfile
 
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db

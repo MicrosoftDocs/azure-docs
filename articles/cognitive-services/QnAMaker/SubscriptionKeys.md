@@ -4,9 +4,8 @@ description: Get authentication and subscription keys that are used to track you
 services: cognitive-services
 author: pchoudhari
 manager: rsrikan
-
 ms.service: cognitive-services
-ms.technology: qnamaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: pchoudh

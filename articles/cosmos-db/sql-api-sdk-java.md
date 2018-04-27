@@ -4,7 +4,7 @@ description: Learn all about the SQL Java API and SDK including release dates, r
 services: cosmos-db
 documentationcenter: java
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
