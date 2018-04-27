@@ -39,7 +39,7 @@ These operating system versions are supported for development:
 
 * Ubuntu 16.04 (`Xenial Xerus`)
 
-     Make sure that the `apt-transport-https` package is installed:
+     Make sure that the `apt-transport-https` package is installed.
          
     ```bash
     sudo apt-get install apt-transport-https
@@ -68,39 +68,39 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Ubuntu
 
 1. Open a terminal.
-2. Add the Service Fabric repo to your sources list:
+2. Add the Service Fabric repo to your sources list.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
-3. Add the `dotnet` repo to your sources list:
+3. Add the `dotnet` repo to your sources list.
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
-4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring:
+4. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
     sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
     ```
 
-5. Add the official Docker GPG key to your APT keyring:
+5. Add the official Docker GPG key to your APT keyring.
 
     ```bash
     sudo apt-get install curl
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-6. Set up the Docker repository:
+6. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Refresh your package lists based on the newly added repositories:
+7. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
@@ -110,32 +110,32 @@ To install the SDK and associated runtime package via the apt-get command-line t
 ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 1. Open a terminal.
-2. Download and install Extra Packages for Enterprise Linux (EPEL):
+2. Download and install Extra Packages for Enterprise Linux (EPEL).
 
     ```bash
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install epel-release-latest-7.noarch.rpm
     ```
-3. Add the EfficiOS RHEL7 package repository to your system:
+3. Add the EfficiOS RHEL7 package repository to your system.
 
     ```bash
     sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-4. Import the EfficiOS package signing key to the local GPG keyring:
+4. Import the EfficiOS package signing key to the local GPG keyring.
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
     ```
 
-5. Add the Microsoft RHEL repository to your system:
+5. Add the Microsoft RHEL repository to your system.
 
     ```bash
     curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. Install the .NET SDK:
+6. Install the .NET SDK.
 
     ```bash
     yum install rh-dotnet20 -y
@@ -174,7 +174,7 @@ RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 ## Set up a local cluster
 Start a local cluster after the installation finishes.
 
-1. Run the cluster setup script:
+1. Run the cluster setup script.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
@@ -203,25 +203,25 @@ including clusters and applications. To install the CLI, follow the instructions
 ## Set up Yeoman generators for containers and guest executables
 Service Fabric provides scaffolding tools that help you create Service Fabric applications from a terminal by using Yeoman template generators. Follow these steps to set up the Service Fabric Yeoman template generators:
 
-1. Install Node.js and npm on your machine:
+1. Install Node.js and npm on your machine.
 
-    Ubuntu
-    ```bash
-    sudo apt-get install npm
-    sudo apt install nodejs-legacy
-    ```
+    * Ubuntu
+        ```bash
+        sudo apt-get install npm
+        sudo apt install nodejs-legacy
+        ```
 
-    Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-    ```bash
-    sudo yum install nodejs
-    sudo yum install npm
-    ```
-2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine:
+    * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+        ```bash
+        sudo yum install nodejs
+        sudo yum install npm
+        ```
+2. Install the [Yeoman](http://yeoman.io/) template generator from npm on your machine.
 
     ```bash
     sudo npm install -g yo
     ```
-3. Install the Service Fabric Yeo container generator and guest executable generator from npm:
+3. Install the Service Fabric Yeo container generator and guest executable generator from npm.
 
     ```bash
     sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
@@ -239,14 +239,15 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
 
-    Ubuntu 
+### Ubuntu
+
     ```bash
     sudo apt-get install openjdk-8-jdk-headless
     sudo apt-get install gradle
     ```
 
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
-    Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
     ```bash
     sudo yum install java-1.8.0-openjdk-devel
     curl -s https://get.sdkman.io | bash
@@ -282,7 +283,7 @@ For more information, see [Service Fabric plug-in for Eclipse Java application d
 
 ## Update the SDK and runtime
 
-To update to the latest version of the SDK and runtime, run the following commands:
+To update to the latest version of the SDK and runtime, run the following commands.
 
 ```bash
 sudo apt-get update
