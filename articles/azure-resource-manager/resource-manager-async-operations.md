@@ -191,5 +191,4 @@ If the request is still running, you receive a status code 202. If the request h
 ## Next steps
 
 * For documentation about each REST operation, see [REST API documentation](/rest/api/).
-* For information about managing resources through the Resource Manager REST API, see [Using the Resource Manager REST API](resource-manager-rest-api.md).
 * for information about deploying templates through the Resource Manager REST API, see [Deploy resources with Resource Manager templates and Resource Manager REST API](resource-group-template-deploy-rest.md).

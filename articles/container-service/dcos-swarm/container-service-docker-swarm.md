@@ -1,25 +1,19 @@
 ---
-title: Manage Azure Swarm cluster with Docker API | Microsoft Docs
+title: Manage Azure Swarm cluster with Docker API
 description: Deploy containers to a Docker Swarm cluster in Azure Container Service
 services: container-service
-documentationcenter: ''
 author: rgardler
 manager: madhana
-editor: ''
-tags: acs, azure-container-service
-keywords: Docker, Containers, Micro-services, Mesos, Azure
 
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
-
 ---
+
 # Container management with Docker Swarm
+
 Docker Swarm provides an environment for deploying containerized workloads across a pooled set of Docker hosts. Docker Swarm uses the native Docker API. The workflow for managing containers on a Docker Swarm is almost identical to what it would be on a single container host. This document provides simple examples of deploying containerized workloads in an Azure Container Service instance of Docker Swarm. For more in-depth documentation on Docker Swarm, see [Docker Swarm on Docker.com](https://docs.docker.com/swarm/).
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]

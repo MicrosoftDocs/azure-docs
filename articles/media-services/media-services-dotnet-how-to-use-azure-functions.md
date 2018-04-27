@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
 
 ---
 # Develop Azure Functions with Media Services
 
-This topic shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this topic monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function. To review Azure functions, see  [Overview](../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
+This article shows you how to get started with creating Azure Functions that use Media Services. The Azure Function defined in this article monitors a storage account container named **input** for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function. To review Azure functions, see  [Overview](../azure-functions/functions-overview.md) and other topics in the **Azure functions** section.
 
 If you want to explore and deploy existing Azure Functions that use Azure Media Services, check out [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). This repository contains examples that use Media Services to show workflows related to ingesting content directly from blob storage, encoding, and writing content back to blob storage. It also includes examples of how to monitor job notifications via WebHooks and Azure Queues. You can also develop your Functions based on the examples in the [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) repository. To deploy the functions, press the **Deploy to Azure** button.
 
@@ -42,15 +42,15 @@ When developing Media Services functions, it is handy to add environment variabl
 
 The function, defined in this article, assumes you have the following environment variables in your app settings:
 
-**AMSAADTenantDomain** : Azure AD tenant endpoint. For more information about connecting to the AMS API, see [this](media-services-use-aad-auth-to-access-ams-api.md) article.
+**AMSAADTenantDomain**: Azure AD tenant endpoint. For more information about connecting to the AMS API, see [this](media-services-use-aad-auth-to-access-ams-api.md) article.
 
-**AMSRESTAPIEndpoint** :  URI that represents the REST API endpoint. 
+**AMSRESTAPIEndpoint**:  URI that represents the REST API endpoint. 
 
-**AMSClientId** : Azure AD application client ID.
+**AMSClientId**: Azure AD application client ID.
 
 **AMSClientSecret**: Azure AD application client secret.
 
-**StorageConnection** : storage connection of the account associated with the Media Services account. This value is used in the **function.json** file and **run.csx** file (described below).
+**StorageConnection**: storage connection of the account associated with the Media Services account. This value is used in the **function.json** file and **run.csx** file (described below).
 
 ## Create a function
 
@@ -58,11 +58,11 @@ Once your function app is deployed, you can find it among **App Services** Azure
 
 1. Select your function app and click **New Function**.
 2. Choose the **C#** language and **Data Processing** scenario.
-3. Choose **BlobTrigger** template. This function will be triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
+3. Choose **BlobTrigger** template. This function is triggered whenever a blob is uploaded into the **input** container. The **input** name is specified in the **Path**, in the next step.
 
 	![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Once you select **BlobTrigger**, some more controls will appear on the page.
+4. Once you select **BlobTrigger**, some more controls appear on the page.
 
 	![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
@@ -83,7 +83,7 @@ The function.json file defines the function bindings and other configuration set
 
 Replace the contents of the existing function.json file with the following code:
 
-```
+```json
 {
   "bindings": [
     {
@@ -100,11 +100,11 @@ Replace the contents of the existing function.json file with the following code:
 
 ### project.json
 
-The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from Nuget. Note that the version numbers will change with latest updates to the packages, so you should confirm the most recent versions. 
+The project.json file contains dependencies. Here is an example of **project.json** file that includes the required .NET Azure Media Services packages from Nuget. Note that the version numbers change with latest updates to the packages, so you should confirm the most recent versions. 
 
 Add the following definition to project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -122,7 +122,7 @@ Add the following definition to project.json.
 	
 ### run.csx
 
-This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger will execute the function.
+This is the C# code for your function.  The function defined below monitors a storage account container named **input** (that is what was specified in the path) for new MP4 files. Once a file is dropped into the storage container, the blob trigger executes the function.
 	
 The example defined in this section demonstrates 
 
@@ -131,9 +131,9 @@ The example defined in this section demonstrates
 
 In the real life scenario, you most likely want to track job progress and then publish your encoded asset. For more information, see [Use Azure WebHooks to monitor Media Services job notifications](media-services-dotnet-check-job-progress-with-webhooks.md). For more examples, see [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Replace the contents of the existing run.csx file with the following code. Once you are done defining your function click **Save and Run**.
+Replace the contents of the existing run.csx file with the following code: Once you are done defining your function click **Save and Run**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"
@@ -324,14 +324,14 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 }
 ```
 
-##Test your function
+## Test your function
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 
 1. Select the storage account that you specified in the **StorageConnection** environment variable.
 2. Click **Blobs**.
 3. Click **+ Container**. Name the container **input**.
-4. Press **Upload** and browse to an .mp4 file that you want to upload.
+4. Press **Upload** and browse to a .mp4 file that you want to upload.
 
 >[!NOTE]
 > When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).

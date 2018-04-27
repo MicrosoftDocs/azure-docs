@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
@@ -27,7 +27,7 @@ Integrating Absorb LMS with Azure AD provides you with the following benefits:
 - You can enable your users to automatically sign in to Absorb LMS (via single sign-on) with their Azure AD accounts.
 - You can manage your accounts in one central location, the Azure portal.
 
-If you want to know more about sofware as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+If you want to know more about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 

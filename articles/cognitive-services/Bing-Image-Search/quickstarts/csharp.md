@@ -3,14 +3,12 @@ title: Call and response - C# Quickstart for Azure Cognitive Services, Bing Imag
 description: Get information and code samples to help you quickly get started using the Bing Image Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
-
+author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-
 ---
 # Call and response: your first Bing Image Search query in C#
 
@@ -35,7 +33,7 @@ To run this application, follow these steps.
 2. Replace the `accessKey` value with an access key valid for your subscription.
 3. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

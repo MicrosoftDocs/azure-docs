@@ -64,7 +64,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ### Graphics and rendering
 
-* [Autodesk Maya, 3ds Max, and Arnold](../articles/batch/batch-rendering-service.md) on Azure Batch (preview)
+* [Autodesk Maya, 3ds Max, and Arnold](../articles/batch/batch-rendering-service.md) on Azure Batch 
 
 ### AI and deep learning
 
@@ -103,11 +103,12 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 
 Learn how to:
 
-* [Get started developing with Batch](../articles/batch/batch-dotnet-get-started.md)
+* [Get started developing with Batch](../articles/batch/quick-run-dotnet.md)
 * [Use Azure Batch code samples](https://github.com/Azure/azure-batch-samples)
 * [Use low-priority VMs with Batch](../articles/batch/batch-low-pri-vms.md)
 * [Run containerized HPC workloads with Batch Shipyard](https://github.com/Azure/batch-shipyard)
 * [Use the R language with Batch](https://github.com/Azure/doAzureParallel)
+* [Run the Azure Distributed Data Engineering Toolkit on Batch](https://github.com/Azure/aztk)
 
 ## Workload managers
 
@@ -127,6 +128,7 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 Learn more:
 
 * [Parallel file systems for HPC storage on Azure](https://blogs.msdn.microsoft.com/azurecat/2017/03/17/parallel-file-systems-for-hpc-storage-on-azure/)
+* High performance cloud storage solutions from [Avere](http://www.averesystems.com/about-us/about-avere) (now [joined with Microsoft](https://blogs.microsoft.com/blog/2018/01/03/microsoft-to-acquire-avere-systems-accelerating-high-performance-computing-innovation-for-media-and-entertainment-industry-and-beyond/))
 
 
 ## Related Azure services
@@ -139,11 +141,14 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 * [File storage](../articles/storage/storage-files-introduction.md)
 
 ### Data and analytics
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) for Hadoop clusters on Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
+
+### AI and cognitive services
+* [Batch AI](../articles/batch-ai/overview.md)
 
 ### Networking
 * [Virtual Network](../articles/virtual-network/virtual-networks-overview.md)
@@ -177,7 +182,7 @@ Here are examples of customers that have solved business problems with Azure HPC
  [engineering simulation](https://simulation.azure.com/), [rendering](https://simulation.azure.com/), [banking and capital markets](https://finance.azure.com/), and [genomics](https://enterprise.microsoft.com/en-us/industries/health/genomics/).
 * For the latest announcements, see the [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/) and the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 
-* Use the managed and scalable Azure [Batch](https://azure.microsoft.com/services/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/en-us/solutions/architecture/hpc-big-compute-saas/)
+* Use the managed and scalable Azure [Batch](https://azure.microsoft.com/services/batch/) service to run compute-intensive workloads, without managing underlying infrastructure [Learn more](https://azure.microsoft.com/solutions/architecture/hpc-big-compute-saas/)
 
 
 

@@ -4,7 +4,7 @@ description: Problems configuring or registering my application"
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity

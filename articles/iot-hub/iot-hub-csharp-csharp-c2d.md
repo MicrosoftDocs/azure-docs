@@ -23,6 +23,8 @@ ms.author: elioda
 ## Introduction
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and a solution back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a device app that sends device-to-cloud messages.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 * From your solution back end, send cloud-to-device messages to a single device through IoT Hub.
@@ -190,5 +192,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[Azure IoT Suite]: https://docs.microsoft.com/en-us/azure/iot-suite/
+[Azure IoT Suite]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT device SDKs]: iot-hub-devguide-sdks.md

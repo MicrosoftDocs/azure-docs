@@ -4,7 +4,7 @@ description: Problems configuring conditional access to one of my applications"
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
@@ -27,9 +27,9 @@ ms.author: asteen
 
 ## I'm having problems setting up conditional access
   The below documents can help you to resolve some of the most common issues in this category.
-  * [How and when do off corpnet rules take effect?](http://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [How and when do off corpnet rules take effect?](https://aka.ms/calocation/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [How to increase the number of devices that user is allowed to register in Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-setup/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-  * [How to set up Conditional Access for Exchange Online?](http://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [How to set up Conditional Access for Exchange Online?](https://aka.ms/csforexchange/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [How to set up Conditional Access for Windows 7 devices?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access#device-based-conditional-access/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Which applications are supported with conditional access?](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-supported-apps/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
 

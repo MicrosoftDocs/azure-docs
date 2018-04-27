@@ -66,7 +66,7 @@ Learn here how to [register your CA certificate](iot-hub-security-x509-get-start
 
 ## How to create a device on IoT Hub
 
-To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/en-us/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
+To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
 
 Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
 
@@ -82,4 +82,4 @@ Learn here how to [complete this device connection step](iot-hub-security-x509-g
 
 Learn about [the value of X.509 CA authentication](iot-hub-x509ca-concept.md) in IoT.
 
-Get started with IoT Hub [Device Provisioning Service](https://docs.microsoft.com/en-us/azure/iot-dps/).
+Get started with IoT Hub [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/).

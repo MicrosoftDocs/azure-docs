@@ -4,15 +4,15 @@ description: Learn about MySQL connector in Azure Data Factory that lets you cop
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 02/07/2018
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 > [!NOTE]
 > This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MySQL connector in V1](v1/data-factory-onprem-mysql-connector.md).
 
-## Supported scenarios
+## Supported capabilities
 
 You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -37,13 +37,14 @@ Specifically, this MySQL connector supports MySQL **version 5.1 and above**.
 To use this MySQL connector, you need to:
 
 - Set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
-- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine.
+- Install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version 6.6.5 or above on the Integration Runtime machine. This 32 bit driver is compatible with 64 bit IR.
 
 > [!TIP]
 > If you hit error on "Authentication failed because the remote party has closed the transport stream.", consider to upgrade the MySQL Connector/Net to higher version.
 
 ## Getting started
-You can create a pipeline with copy activity using .NET SDK, Python SDK, Azure PowerShell, REST API, or Azure Resource Manager template. See [Copy activity tutorial](quickstart-create-data-factory-dot-net.md) for step-by-step instructions to create a pipeline with a copy activity.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to MySQL connector.
 
@@ -58,7 +59,7 @@ The following properties are supported for MySQL linked service:
 | database | Name of the MySQL database. | Yes |
 | schema | Name of the schema in the database. | No |
 | username | Specify user name to connect to the MySQL database. | Yes |
-| password | Specify password for the user account you specified. Mark this field as SecureString. | Yes |
+| password | Specify password for the user account you specified. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
 
 **Example:**
@@ -206,4 +207,4 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).
+For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

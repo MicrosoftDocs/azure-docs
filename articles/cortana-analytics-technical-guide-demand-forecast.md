@@ -122,7 +122,7 @@ For the Demand Forecasting for Energy Solution Template, the Azure Stream Analyt
 
 The [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) query can be found by:
 
-* Logging in to the [Azure portal](https://manage.windowsazure.com/)
+* Logging in to the [Azure portal](https://portal.azure.com/)
 * Locating the stream analytics jobs ![](media/cortana-analytics-technical-guide-demand-forecast/icon-stream-analytics.png) that were
   generated when the solution was deployed. One is for pushing data to blob storage (for example, mytest1streaming432822asablob) and the other one is for pushing data to Power BI (for example, mytest1streaming432822asapbi).
 * Selecting
@@ -222,7 +222,7 @@ Once the Data Generator is launched, the pipeline begins to get hydrated and the
     One of the Stream Analytics jobs writes the raw incoming data to blob storage. If you click on **Azure Blob Storage** component of your solution from the screen you successfully deployed the solution and then click **Open** in the right panel, it takes you to the [Azure portal](https://portal.azure.com). Once there, click on **Blobs**. In the next panel, you see a list of Containers. Click on **"energysadata"**. In the next panel, you see the **"demandongoing"** folder. Inside the rawdata folder, you see folders with names such as date=2016-01-28 etc. If you see these folders, it indicates that the raw data is successfully being generated on your computer and stored in blob storage. You should see files that should have finite sizes in MB in those folders.
 2. Check the data from Azure SQL Database.
 
-    The last step of the pipeline is to write data (for example, predictions from machine learning) into SQL Database. You might have to wait a maximum oftwo hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure portal](https://manage.windowsazure.com/). On the left panel locate SQL DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png)  and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
+    The last step of the pipeline is to write data (for example, predictions from machine learning) into SQL Database. You might have to wait a maximum of two hours for the data to appear in SQL Database. One way to monitor how much data is available in your SQL Database is through [Azure portal](https://portal.azure.com/). On the left panel, locate SQL DATABASES![](media/cortana-analytics-technical-guide-demand-forecast/SQLicon2.png) and click it. Then locate your database (i.e. demo123456db) and click on it. On the next page under **"Connect to your database"** section, click **"Run Transact-SQL queries against your SQL database"**.
 
     Here, you can click on New Query and query for the number of rows (for example, "select count(*) from DemandRealHourly)" As your database grows, the number of rows in the table should increase.)
 3. Check the data from Power BI dashboard.
@@ -247,7 +247,7 @@ account, you can [create one](https://powerbi.microsoft.com/pricing).
    * You need to follow the instructions in
      [Azure Stream Analytics & Power BI: A real-time analytics dashboard for real-time visibility of streaming data](stream-analytics/stream-analytics-power-bi-dashboard.md)
      to set up the output of your Azure Stream Analytics job as your Power BI dashboard.
-   * Locate the stream analytics job in your [Azure portal](https://manage.windowsazure.com). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
+   * Locate the stream analytics job in your [Azure portal](https://portal.azure.com). The name of the job should be: YourSolutionName+"streamingjob"+random number+"asapbi" (i.e. demostreamingjob123456asapbi).
    * Add a PowerBI output for the ASA job. Set the **Output Alias** as **‘PBIoutput’**. Set your **Dataset Name** and **Table Name** as **‘EnergyStreamData’**. Once
      you have added the output, click **"Start"** at the bottom of the page to start the Stream
      Analytics job. You should get a confirmation message (for example,

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 02/06/2018
 ms.author: yurid
 
 ---
@@ -42,13 +42,14 @@ When you click **Compute** tile, you see three tabs:
 
 ![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue. 
+In each tab you can have multiple sections, and in each section, you can select an individual option to see more details about the recommended steps to address that particular issue.
 
 #### Monitoring recommendations
-This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. When you click this entry, the **VM Agent is missing or not responding** opens. 
+This section shows the total number of virtual machines and computers that were initialized for automatic provisioning and their current statuses. In this example there is one recommendation, **Monitoring agent health issues**.  Select this recommendation.
 
-![Missing system update by virtual machine](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Monitoring agent health issues](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+**Monitoring agent health issues** opens. VMs and computers that Security Center is unable to successfully monitor are listed. Select a VM or computer for detailed information. **MONITORING STATE** provides a reason why Security Center is unable to monitor. See the [Security Center troubleshooting guide](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) for a list of **MONITORING STATE** values, descriptions, and resolution steps.
 
 #### Recommendations
 This section has a set of [recommendations for each virtual machine and computer](security-center-virtual-machine-recommendations.md) that Azure Security Center monitors. The first column lists the recommendation. The second column shows the total number of virtual machines and computers that are affected by that recommendation. The third column shows the severity of the issue as illustrated in the following screenshot:
@@ -76,13 +77,20 @@ The **Missing system updates** have a summary of critical updates in a graph for
   * **Medium**: Non-critical or additional steps are required to complete a process or eliminate a vulnerability.
   * **Low**: A vulnerability should be addressed but does not require immediate attention. (By default, low recommendations are not presented, but you can filter on low recommendations if you want to view them.)
 
-To view the recommendation details, click the name of the missing update from the list. 
+To view the recommendation details, click the name of the missing update from the list.
 
 ![Missing system updates for a specific virtual machine](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
 > The security recommendations here are the same as those in the **Recommendations** option. See the [Implementing security recommendations in Azure Security Center](security-center-recommendations.md) article for more information about how to resolve recommendations. This is applicable not only for virtual machines and computers, but also for all resources that are available in the **Resource Health** tile.
 >
+
+#### Unmonitored VMs
+A VM is unmonitored by Security Center if the VM is not running the Microsoft Monitoring Agent extension. A VM may have a local agent already installed, for example the OMS direct agent or the SCOM agent. VMs with these agents are identified as unmonitored because these agents are not fully supported in Security Center. To fully benefit from all of Security Center’s capabilities, the Microsoft Monitoring Agent extension is required.
+
+You can install the extension on the unmonitored VM in addition to the already installed local agent. Configure both agents the same, connecting them to the same workspace. This enables Security Center to interact with the Microsoft Monitoring Agent extension and collect data.  See [Enable the VM extension](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) for instructions on how to install the Microsoft Monitoring Agent extension.
+
+See [Monitoring agent health issues](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) to learn more about the reasons Security Center is unable to successfully monitor VMs and computers initialized for automatic provisioning.
 
 #### VMs & computers section
 The virtual machines and computers section gives you an overview of all virtual machines and computer's recommendations. Each column represents one set of recommendations as shown in the following screenshot:
@@ -118,7 +126,7 @@ In a scenario where you do have recommendation (which is not the case for the pr
 
 ![Cloud service details](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column. 
+To see a more prescriptive explanation about this recommendation, click **Update OS version** under the **DESCRIPTION** column.
 
 ![Cloud services recommendations](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

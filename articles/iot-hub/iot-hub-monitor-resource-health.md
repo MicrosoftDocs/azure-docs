@@ -22,7 +22,7 @@ ms.author: kgremban
 
 Businesses that implement Azure IoT Hub expect reliable performance from their resources. To help you maintain a close watch on your operations, IoT Hub is fully integrated with [Azure Monitor][lnk-AM] and [Azure Resource Health][lnk-ARH]. These two services work in tandem to provide you with the data you need to keep your IoT solutions up and running in a healthy state. 
 
-Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the logs that Azure Monitor generates to OMS Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you real-time visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
+Azure Monitor is a single source of monitoring and logging for all your Azure services. You can send the logs that Azure Monitor generates to Log Analytics, Event Hubs, or Azure Storage for custom processing. Azure Monitor's metrics and diagnostics settings give you real-time visibility into the performance of your resources. Continue reading this article to learn how to [Use Azure Monitor](#use-azure-monitor) with your IoT hub. 
 
 Azure Resource Health helps you diagnose and get support when an Azure issues impacts your resources. A personalized dashboard provides current and past health status for your IoT Hubs. Continue reading this article to learn how to [Use Azure Resource Health](#use-azure-resource-health) with your IoT hub. 
 

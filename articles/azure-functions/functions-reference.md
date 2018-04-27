@@ -3,7 +3,7 @@ title: Guidance for developing Azure Functions | Microsoft Docs
 description: Learn the Azure Functions concepts and techniques that you need to develop functions in Azure, across all programming languages and bindings.
 services: functions
 documentationcenter: na
-author: christopheranderson
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -16,7 +16,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/12/2017
-ms.author: chrande
+ms.author: tdykstra
 
 ---
 # Azure Functions developers guide
@@ -78,11 +78,8 @@ The function editor built into the Azure portal lets you update the *function.js
 Function apps are built on App Service, so all the [deployment options available to standard web apps](../app-service/app-service-deploy-local-git.md) are also available for function apps. Here are some methods you can use to upload or update function app files. 
 
 #### To use App Service Editor
-1. In the Azure Functions portal, click **Function app settings**.
-2. In the **Advanced Settings** section, click **Go to App Service Settings**.
-3. Click **App Service Editor** in App Menu Nav under **DEVELOPMENT TOOLS**.
-4. click **Go**.
-   
+1. In the Azure Functions portal, click **Platform features**.
+2. In the **DEVELOPMENT TOOLS** section, click **App Service Editor**.   
    After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
 5. Open files to edit them, or drag and drop from your development machine to upload files.
 
@@ -102,7 +99,7 @@ When multiple triggering events occur faster than a single-threaded function run
 
 ## Functions runtime versioning
 
-You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](functions-versions.md).
+You can configure the version of the Functions runtime using the `FUNCTIONS_EXTENSION_VERSION` app setting. For example, the value "~1" indicates that your Function App will use 1 as its major version. Function Apps are upgraded to each new minor version as they are released. For more information, including how to view the exact version of your function app, see [How to target Azure Functions runtime versions](set-runtime-version.md).
 
 ## Repositories
 The code for Azure Functions is open source and stored in GitHub repositories:
@@ -117,6 +114,8 @@ The code for Azure Functions is open source and stored in GitHub repositories:
 Here is a table of all supported bindings.
 
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
+
+Having issues with errors coming from the bindings? Review the [Azure Functions Binding Error Codes](functions-bindings-error-pages.md) documentation.
 
 ## Reporting Issues
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

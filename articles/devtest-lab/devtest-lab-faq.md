@@ -1,9 +1,9 @@
----
+﻿---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Azure DevTest Labs FAQ
@@ -52,7 +52,7 @@ DevTest Labs is a free service. Creating labs and configuring policies, template
 
 **Security**
 ## What are the different security levels in DevTest Labs?
-Security access is determined by [Role-Based Access Control (RBAC)](../active-directory/role-based-access-built-in-roles.md). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by RBAC.
+Security access is determined by [Role-Based Access Control (RBAC)](../role-based-access-control/built-in-roles.md). To learn how access works, it helps to learn the differences between a permission, a role, and a scope, as defined by RBAC.
 
 * **Permission**: A permission is a defined access to a specific action. For example, a permission can be read access to all VMs.
 * **Role**: A role is a set of permissions that can be grouped and assigned to a user. For example, a user with a subscription owner role has access to all resources within a subscription.
@@ -125,9 +125,9 @@ Yes, you can attach multiple disks to your VMs.
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, you must do one of the following:
 
 - [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).
-- If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## How do I automate the process of uploading VHD files to create custom images?
 To automate uploading VHD files to create custom images, you have two options:
@@ -156,7 +156,7 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.
@@ -223,11 +223,11 @@ One possibility is that your virtual network name contains periods. If so, try r
 ## Why do I get a "Parent resource not found" error when I provision a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before you create the child resource. If the parent resource does not exist, you see a **ParentResourceNotFound** message. If you don't specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
 
 ## Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM blade (the blade appears after you select the VM from the **My virtual machines** list).
 
-Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-audit).
+Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

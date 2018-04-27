@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 8/30/2017
+ms.date: 3/27/2018
 ms.author: kydeeds
 
 ---
@@ -58,36 +58,23 @@ The DNS for the Cloud Services is different:
 | Batch | *.cloudapp.net | *.usgovcloudapp.net |
 
 ## Azure Functions
-The [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
+The [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) service is now available (General Availability) for the Azure Government environment, with some differences, which you can read about below. 
 
 ### Variations
 The following Functions features are not currently available in Azure Government:
 
-- Functions access through the Azure Government Portal
-- Consumption Plan
-    -   The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
-    .
+- The [App Service plan](../azure-functions/functions-scale.md#app-service-plan) is available in Azure Government. The Consumption plan is not available yet. To learn more about the two hosting plans, click [here](../azure-functions/functions-scale.md)
+- [Monitoring via Application Insights](../azure-functions/functions-monitoring.md) is not available yet.
 
-The URLs once the Function apps have been created are different:
+The URLs for Function are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
 | Functions | .azurewebsites.net | .azurewebsites.us|	
-	
-### Quickstarts
-The [Functions Quickstart for Government](documentation-government-functions.md) will guide you through creating your first Azure Function on Azure Government and contains other useful tutorials. 
-
-## Azure Container Service
-This service is available for Preview in Azure Government. 
-For details on this service and how to use it, see [Azure Container Service documentation](../container-service/index.yml). 
-
-### Variations
-Azure Container Service does not yet have Portal support in Azure Government. 
 
 ## Service Fabric
 For details on this service and how to use it, see [Azure Service Fabric documentation](../service-fabric/service-fabric-overview.md).
 
 ## Next Steps
-For supplemental information and updates, subscribe to the
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
 

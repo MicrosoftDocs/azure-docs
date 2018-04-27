@@ -3,8 +3,8 @@ title: Security considerations for Azure AD Application Proxy | Microsoft Docs
 description: Covers security considerations for using Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 
 ms.assetid:
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: kgremban
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -42,7 +42,7 @@ If you choose Passthrough as your preauthentication method, you don't get this b
 
 Apply richer policy controls before connections to your network are established.
 
-With [conditional access](active-directory-conditional-access-azuread-connected-apps.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
+With [conditional access](active-directory-conditional-access-azure-portal-get-started.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
 You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. 
 

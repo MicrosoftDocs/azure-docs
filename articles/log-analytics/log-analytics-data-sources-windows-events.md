@@ -1,6 +1,6 @@
 ---
-title: Collect and analyze Windows Event logs in OMS Log Analytics | Microsoft Docs
-description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the OMS repository.
+title: Collect and analyze Windows Event logs in Azure Log Analytics | Microsoft Docs
+description: Windows Event logs are one of the most common data sources used by Log Analytics.  This article describes how to configure collection of Windows Event logs and details of the records they create in the Log Analytics workspace.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/11/2017
 ms.author: bwren
 
 ---

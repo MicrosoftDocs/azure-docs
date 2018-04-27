@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/18/2017
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -30,6 +30,17 @@ When an endpoint resource is defined in the service manifest, Service Fabric ass
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+If there are multiple code packages in a single service package, then the code package also needs to be referenced in the **Endpoints** section.  For example, if **ServiceEndpoint2a** and **ServiceEndpoint2b** are endpoints from the same service package referencing different code packages, the code package corresponding to each endpoint is clarified as follows:
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -140,7 +151,7 @@ For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**
 
 ## Overriding Endpoints in ServiceManifest.xml
 
-In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section. In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest.
+In the ApplicationManifest add a ResourceOverrides section which will be a sibling to ConfigOverrides section. In this section you can specify the override for the Endpoints section in the resources section specified in the Service manifest. Overriding endpoints is supported in runtime 5.7.217/SDK 2.7.217 and higher.
 
 In order to override EndPoint in ServiceManifest using ApplicationParameters change the ApplicationManifest as following:
 

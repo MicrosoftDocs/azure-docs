@@ -4,7 +4,7 @@ description: Set up data science environments on Azure for use in the Team Data 
 services: machine-learning
 documentationcenter: ''
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 481cfa6a-7ea3-46ac-b0f9-2e3982c37153
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2017
+ms.date: 11/29/2017
 ms.author: bradsev
 
 ---

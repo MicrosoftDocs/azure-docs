@@ -209,7 +209,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
    
     ![][3]
    
-    g. Configure the job to be "Run Continuously" so that when you log in to the [Azure Classic Portal] you should see something like the following:
+    g. Configure the job to be "Run Continuously" so that when you log in to the [Azure portal] you should see something like the following:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -242,7 +242,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 3. Run the **EnterprisePushBackendSystem** console application which will simulate the LoB backend and will start sending messages and you should see toast notifications appearing like the following:
    
     ![][5]
-4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure Classic Portal] for your Web Job:
+4. The messages were originally sent to Service Bus topics which was being monitored by Service Bus subscriptions in your Web Job. Once a message was received, a notification was created and sent to the mobile app. You can look through the WebJob logs to confirm the processing when you go to the Logs link in [Azure portal] for your Web Job:
    
     ![][6]
 
@@ -261,4 +261,4 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 [Service Bus Pub/Sub programming]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
 [Notification Hubs - Windows Universal tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/

@@ -4,8 +4,8 @@ description: This topic recommends the use of AD Recycle Bin feature with Azure 
 services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor
 documentationcenter: ''
-author: cychua
-manager: femila
+author: billmath
+manager: mtillman
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory

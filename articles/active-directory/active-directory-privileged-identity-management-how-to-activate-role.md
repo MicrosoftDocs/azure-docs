@@ -4,7 +4,7 @@ description: Learn how to activate roles for privileged identities with the Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
@@ -29,7 +29,7 @@ Use the Azure AD Privileged Identity Management application in the [Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select your username in the upper right-hand corner of the Azure portal, and select the directory where you will you be operating.
-3. Select **More services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
+3. Select **All services** and use the Filter textbox to search for **Azure AD Privileged Identity Management**.
 4. Check **Pin to dashboard** and then click **Create**. The Privileged Identity Management application opens.
 
 ## Activate a role

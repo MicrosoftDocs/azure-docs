@@ -47,11 +47,11 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az acs scale](/cli/azure/acs#scale) | Scale an ACS cluster. |
+| [az acs scale](/cli/azure/acs#az_acs_scale) | Scale an ACS cluster. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
 Additional Azure Container Service CLI script samples can be found in the [Azure Container Service documentation](../cli-samples.md).
 

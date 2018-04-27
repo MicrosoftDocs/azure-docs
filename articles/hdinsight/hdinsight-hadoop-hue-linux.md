@@ -11,11 +11,9 @@ editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 12/11/2017
 ms.author: nitinme
 
 ---

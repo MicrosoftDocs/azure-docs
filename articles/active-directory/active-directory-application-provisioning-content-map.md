@@ -4,7 +4,7 @@ description: Problems configuring and provisioning users to an application"
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: kbrint
+manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
@@ -29,5 +29,6 @@ ms.author: asteen
   The following documents can help you to resolve some of the most common issues in this category.
   * [I don't know how to configure user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [I encountered a problem when configuring user provisioning to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
+  * [Problem saving administrator credentials while configuring user provisioning to an Azure Active Directory Gallery application](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-storage-limit/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [I've set up provisioning to my Azure AD Gallery application, but no users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Provisioning to my Azure AD Gallery application is working, but the wrong set of users are being provisioned](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)

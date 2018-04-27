@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
 
 ---
@@ -50,18 +50,9 @@ To create an IoT hub, you must name the IoT hub. This name must be unique across
 
 ### Choose the pricing tier
 
-You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
+You can choose from several tiers depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the IoT hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier. 
 
-**Standard S1**: Use the S1 edition for IoT solutions with a large number of devices that each generate small amounts of data. Each unit of the S1 edition allows up to 400,000 messages per day across all connected devices.
-
-**Standard S2**: Use the S2 edition for IoT solutions in which devices generate large amounts of data. Each unit of the S2 edition allows up to 6 million messages per day between all connected devices.
-
-**Standard S3**: Use the S3 edition for IoT solutions that generate large amounts of data. Each unit of the S3 edition allows up to 300 million messages per day between all connected devices.
-
-![][4]
-
-> [!NOTE]
-> IoT Hub only allows one free hub per Azure subscription.
+For details about the other tier options, see [Choosing the right IoT Hub tier](iot-hub-scaling.md).
 
 ### IoT hub units
 
@@ -151,17 +142,6 @@ You can add routes to your IoT hub by clicking **Add** at the top of the **Route
 
 ![][15]
 
-## Pricing and scale
-
-The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
-
-* In the current implementation, an IoT hub with a free SKU cannot change tiers to one of the paid SKUs, or vice versa.
-* There can only be one free tier IoT hub in the Azure subscription.
-
-![][12]
-
-You can move from a higher to lower tier only when the number of messages sent that day do exceed the quota for the lower tier. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed. However, if you change to the S1 tier then the IoT hub is throttled for that day.
-
 ## Delete the IoT hub
 
 You can browse to the IoT hub you want to delete by clicking **Browse**, and then choosing the appropriate hub to delete. To delete the IoT hub, click the **Delete** button below the IoT hub name.
@@ -177,7 +157,7 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide][lnk-devguide]
-* [Simulating a device with IoT Edge][lnk-iotedge]
+* [Deploying AI to edge devices with Azure IoT Edge][lnk-iotedge]
 * [Secure your IoT solution from the ground up][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png
@@ -195,6 +175,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
+[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-securing]: iot-hub-security-ground-up.md
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md

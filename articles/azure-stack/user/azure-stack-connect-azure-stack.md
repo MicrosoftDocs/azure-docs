@@ -3,8 +3,8 @@ title: Connect to Azure Stack | Microsoft Docs
 description: Learn how to connect Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 # Connect to Azure Stack
 
-To manage resources, you must connect to the Azure Stack Development Kit. This topic details the steps required to connect to the development kit. You can use either of the following connection options:
+To manage resources, you must connect to the Azure Stack Development Kit. This article details the steps required to connect to the development kit. You can use either of the following connection options:
 
 * [Remote Desktop](#connect-with-remote-desktop): lets a single concurrent user quickly connect from the development kit.
 * [Virtual Private Network (VPN)](#connect-with-vpn): lets multiple concurrent users connect from clients outside of the Azure Stack infrastructure (requires configuration).
@@ -48,7 +48,7 @@ You can establish a split tunnel Virtual Private Network (VPN) connection to an 
 
 ### Configure VPN connectivity
 
-To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the the IP address and password values for your environment):
+To create a VPN connection to the development kit, open an elevated PowerShell session from your local Windows-based computer and run the following script (make sure to update the IP address and password values for your environment):
 
 ```PowerShell 
 # Configure winrm if it's not already configured
@@ -79,7 +79,7 @@ Add-AzsVpnConnection `
 
 ```
 
-If the set up succeeds, you should see **azurestack** in your list of VPN connections.
+If the set-up succeeds, you should see **azurestack** in your list of VPN connections.
 
 ![Network connections](media/azure-stack-connect-azure-stack/image3.png)  
 

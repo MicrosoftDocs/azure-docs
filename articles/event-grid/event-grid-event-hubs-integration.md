@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 01/30/2018
 ms.author: tomfitz
 ---
 # Stream big data into a data warehouse
@@ -70,7 +70,7 @@ To complete this tutorial, you must have:
 
 ## Deploy the infrastructure
 
-To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). For the preview release, Event Grid supports **westus2** and **westcentralus** regions. Use one of these regions for the resource group location.
+To simplify this article, you deploy the required infrastructure with a Resource Manager template. To see the resources that are deployed, view the [template](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Use one of the [supported regions](overview.md) for the resource group location.
 
 For Azure CLI, use:
 
@@ -166,10 +166,14 @@ You can use either Azure CLI or the portal to subscribe to the event. This artic
 
 ### Azure CLI
 
-To subscribe to the event, run the following command:
+To subscribe to the event, run the following commands (which require version 2.0.24 or later of Azure CLI):
 
 ```azurecli-interactive
-az eventgrid resource event-subscription create -g rgDataMigrationSample --provider-namespace Microsoft.EventHub --resource-type namespaces --resource-name <your-EventHubs-namespace> --name captureEventSub --endpoint <your-function-endpoint>
+namespaceid=$(az resource show --namespace Microsoft.EventHub --resource-type namespaces --name <your-EventHubs-namespace> --resource-group rgDataMigrationSample --query id --output tsv)
+az eventgrid event-subscription create \
+  --resource-id $namespaceid \
+  --name captureEventSub \
+  --endpoint <your-function-endpoint>
 ```
 
 ## Run the app to generate data

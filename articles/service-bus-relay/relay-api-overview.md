@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/23/2018
 ms.author: sethm
 ---
 
@@ -34,9 +34,11 @@ The [additional information](#additional-information) section contains more info
 ### Additional information
 
 #### .NET
+
 The .NET ecosystem has multiple runtimes, hence there are multiple .NET libraries for Event Hubs. The .NET Standard library can be run using either .NET Core or the .NET Framework, while the .NET Framework library can only be run in a .NET Framework environment. For more information on .NET Frameworks, see [framework versions](/dotnet/articles/standard/frameworks#framework-versions).
 
 ## Next steps
+
 To learn more about Azure Relay, visit these links:
 * [What is Azure Relay?](relay-what-is-it.md)
 * [Relay FAQ](relay-faq.md)

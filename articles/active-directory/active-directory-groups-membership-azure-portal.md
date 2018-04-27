@@ -5,7 +5,7 @@ description: Groups can contain other groups in Azure Active Directory. Here's h
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: e785c2d0-7724-47d4-a56e-c58280c08a14

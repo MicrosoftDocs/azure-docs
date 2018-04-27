@@ -3,14 +3,12 @@ title: C# Quickstart for Azure Cognitive Services, Bing News Search API | Micros
 description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
-author: jerrykindall
-
+author: v-jerkin
 ms.service: cognitive-services
-ms.technology: bing-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-
 ---
 # Quickstart for Bing News Search API with C#
 
@@ -26,14 +24,14 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Bing News search
 
-The [Bing News Search API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News search results from the Bing search engine.
+The [Bing News Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) returns News search results from the Bing search engine.
 
 1. Create a new Console solution in Visual Studio (the Community Edition is fine).
 1. Replace Program.cs with the code provided below.
 1. Replace the `accessKey` value with an access key valid for your subscription.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using System.Text;
 using System.Net;

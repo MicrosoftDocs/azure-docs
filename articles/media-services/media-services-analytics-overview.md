@@ -47,6 +47,8 @@ Video summarization can help you create summaries of long videos by automaticall
 With Azure Media OCR (optical character recognition), you can convert text content in video files into editable, searchable digital text. You can then automate the extraction of meaningful metadata from the video signal of your media.
 ### Scalable face redaction
 Azure Media Redactor is a Media Analytics media processor that offers scalable face redaction in the cloud. By using face redaction, you can modify your video to blur faces of selected individuals. You might want to use the face redaction service in news media or when public safety is involved. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service, face redaction takes just a few simple steps. For more information, see the [Redact faces with Azure Media Analytics](media-services-face-redaction.md) article.
+### Content Moderation
+Azure Content Moderator enables you to use machine-assisted moderation for your videos. For example, you might want to detect possible adult and racy content in videos and review the flagged content by your human moderation teams. Manually moderating videos for undesirable content is a time consuming and expensive task. With this service and associated review tools, you combine machine-assisted moderation with human-in-the-loop capabilities for best results  efficiently and cost-effectively. To learn more, see the [Process your videos with Azure Content Moderator](media-services-content-moderation.md) article.
 
 ## Common scenarios
 Media Analytics can help organizations and enterprises glean new insights from video and more effectively manage large volumes of video content. Here are several scenarios:
@@ -66,6 +68,7 @@ This section lists the Media Analytics media processors and shows how to use .NE
 * Azure Media Motion Detector
 * Azure Media Video Thumbnails
 * Azure Media OCR
+* Azure Media Content Moderator
 
 ### .NET
 The following function takes one of the specified MP names and returns an MP object.
@@ -120,11 +123,6 @@ Response:
 ## Demos
 See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
-## Next steps
-Review Media Services learning paths.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
@@ -134,3 +132,8 @@ See [Media Services Analytics announcement](https://azure.microsoft.com/blog/int
 <!-- Images -->
 
 [overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
+
+## Next steps
+Review Media Services learning paths.
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

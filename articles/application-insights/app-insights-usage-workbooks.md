@@ -1,4 +1,4 @@
-﻿---
+---
 title: Investigate and share usage data with interactive Workbooks in Azure Application Insights | Microsoft docs
 description: Demographic analysis of users of your web app.
 services: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: bwren
+ms.author: mbullwin
 ---
 
 # Investigate and share usage data with interactive workbooks in Application Insights
@@ -114,7 +114,7 @@ To pin a link to a workbook to an Azure Dashboard:
 ## Next steps
 
 ## Next steps
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Users, Sessions, Events](app-insights-usage-segmentation.md)
     - [Funnels](usage-funnels.md)

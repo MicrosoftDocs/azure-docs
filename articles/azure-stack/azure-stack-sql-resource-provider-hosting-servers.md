@@ -3,8 +3,8 @@ title: SQL Hosting Servers on Azure Stack | Microsoft Docs
 description: How to add SQL instances for provisioning through the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: mattbriggs
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
-ms.author: JeffGo
+ms.date: 02/28/2018
+ms.author: mabrigg
 
 ---
 # Add hosting servers for use by the SQL adapter
@@ -25,11 +25,9 @@ You can use SQL instances on VMs inside of your [Azure Stack](azure-stack-poc.md
 * The SQL instance must be dedicated for use by the RP and user workloads. You cannot use a SQL instance that is being used by any other consumer, including App Services.
 * The RP adapter is not domain joined and can only connect using SQL authentication.
 * You must configure an account with appropriate privileges for use by the RP.
-* Network traffic from the RP to SQL uses port 1433, and cannot be changed.
 * The RP and users such as Web Apps use the user network, so connectivity to the SQL instance on this network is required. This requirement typically means the IP for your SQL instances must be on a public network.
 * Management of the SQL instances and their hosts is up to you; the RP does not perform patching, backup, credential rotation, etc.
 * SKUs can be used to create different classes of SQL abilities, such as performance, Always On, etc.
-
 
 
 A number of SQL IaaS virtual machine images are available through the Marketplace Management feature. Make sure you always download the latest version of the SQL IaaS Extension before you deploy a VM using a Marketplace item. The SQL images are the same as the SQL VMs that are available in Azure. For SQL VMs created from these images, the IaaS extension and corresponding portal enhancements provide features such as automatic patching and backup capabilities.
@@ -70,6 +68,8 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
   ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
+    You can optionally include an instance name, and a port number can be provided if the instance is not assigned to the default port of 1433.
+
   > [!NOTE]
   > As long as the SQL instance can be accessed by the user and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
 
@@ -83,10 +83,10 @@ To add a standalone hosting server that is already provisioned, follow these ste
 
 	An example:
 
-	![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is fully created.
+> SKUs can take up to an hour to be visible in the portal. Users cannot create a database until the SKU is fully created.
 
 ## Provide capacity using SQL Always On Availability Groups
 Configuring SQL Always On instances requires additional steps and involves at least three VMs (or physical machines).
@@ -123,7 +123,7 @@ To add SQL Always On hosting servers, follow these steps:
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 
-3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN or IPv4 address of the Always On Listener. Provide the account information for the account you configured with system admin privileges.
+3. Fill the form with the connection details of your SQL Server instance, being sure to use the FQDN or IPv4 address of the Always On Listener (and optional port number). Provide the account information for the account you configured with system admin privileges.
 
 4. Check this box to enable support for SQL Always On Availability Group instances.
 
@@ -134,7 +134,7 @@ To add SQL Always On hosting servers, follow these steps:
 
 ## Making SQL databases available to users
 
-Create plans and offers to make SQL databases available for users. Add the Microsoft.SqlAdapter service to the plan, and add an existing Quota, or create a new one. If you create a quota, you can specify the capacity to allow the user.
+Create plans and offers to make SQL databases available for users. Add the Microsoft.SqlAdapter service to the plan, and add either an existing Quota, or create a new one. If you create a quota, you specify the capacity to allow the user.
 
 ![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
 

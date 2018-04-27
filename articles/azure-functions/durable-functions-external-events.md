@@ -22,7 +22,7 @@ Orchestrator functions have the ability to wait and listen for external events. 
 
 ## Wait for events
 
-The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The caller declares the *name* of the event and the *shape of the data* it expects to receive.
+The [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) method allows an orchestrator function to asynchronously wait and listen for an external event. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -41,7 +41,7 @@ public static async Task Run(
 }
 ```
 
-The preceding example listens for a single event and takes action when it's received.
+The preceding example listens for a specific single event and takes action when it's received.
 
 You can listen for multiple events concurrently, like in the following example, which waits for one of three possible event notifications.
 
@@ -93,7 +93,7 @@ public static async Task Run(
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) waits indefinitely for some input.  The function app can be safely unloaded while waiting. If and when an event arrives for this orchestration instance, it is awakened automatically and immediately processes the event.
 
 > [!NOTE]
-> No billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent`, no matter how long it waits.
+> If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent`, no matter how long it waits.
 
 If the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
@@ -124,7 +124,7 @@ Internally, `RaiseEventAsync` enqueues a message that gets picked up by the wait
 > [Learn how to set up eternal orchestrations](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Run a sample that waits for external events](durable-functions-counter.md)
+> [Run a sample that waits for external events](durable-functions-phone-verification.md)
 
 > [!div class="nextstepaction"]
 > [Run a sample that waits for human interaction](durable-functions-phone-verification.md)

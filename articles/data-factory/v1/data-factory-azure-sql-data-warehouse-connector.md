@@ -4,8 +4,8 @@ description: Learn how to copy data to/from Azure SQL Data Warehouse using Azure
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 01/10/2018
 ms.author: jingwang
 
 robots: noindex
@@ -193,7 +193,7 @@ SQL Data Warehouse PolyBase directly support Azure Blob and Azure Data Lake Stor
 If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1. **Source linked service** is of type: **AzureStorage** or **AzureDataLakeStore with service principal authentication**.  
-2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, or **TextFormat** with the following configurations:
+2. The **input dataset** is of type: **AzureBlob** or **AzureDataLakeStore**, and the format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat** with the following configurations:
 
    1. `rowDelimiter` must be **\n**.
    2. `nullValue` is set to **empty string** (""), or `treatEmptyAsNull` is set to **true**.

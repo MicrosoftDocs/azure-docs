@@ -1,27 +1,25 @@
----
+﻿---
 title: Node.JS Quickstart for Azure Cognitive Services, Bing Spell Check API | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Bing Spell Check API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: spellcheck
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with Node.JS 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) with Node.JS. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Node.JS. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
 
 ## Prerequisites
 
 You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
 
 ## Get Spell Check results
 
@@ -36,33 +34,28 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 let https = require ('https');
 
 let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/spellcheck/';
+let path = '/bing/v7.0/spellcheck';
 
 /* NOTE: Replace this example key with a valid subscription key (see the Prequisites section above). Also note v5 and v7 require separate subscription keys. */
-let key = 'enter key here';
+let key = 'ENTER KEY HERE';
 
 // These values are used for optional headers (see below).
 // let CLIENT_ID = "<Client ID from Previous Response Goes Here>";
 // let CLIENT_IP = "999.999.999.999";
 // let CLIENT_LOCATION = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
 
-let params = {
-    "text" : "Hollo, wrld!",
-    "mode" : "proof",
-    "mkt" : "en-US",
-};
-
-var query_string = '?';
-for (let param in params) {
-    query_string += param + '=' + params[param] + '&';
-}
-query_string = encodeURI (query_string);
+let mkt = "en-US";
+let mode = "proof";
+let text = "Hollo, wrld!";
+let query_string = "?mkt=" + mkt + "&mode=" + mode;
 
 let request_params = {
     method : 'POST',
     hostname : host,
     path : path + query_string,
     headers : {
+		'Content-Type' : 'application/x-www-form-urlencoded',
+		'Content-Length' : text.length + 5,
         'Ocp-Apim-Subscription-Key' : key,
 //        'X-Search-Location' : CLIENT_LOCATION,
 //        'X-MSEdge-ClientID' : CLIENT_ID,
@@ -84,6 +77,7 @@ let response_handler = function (response) {
 };
 
 let req = https.request (request_params, response_handler);
+req.write ("text=" + text);
 req.end ();
 ```
 

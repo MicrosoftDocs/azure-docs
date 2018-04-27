@@ -3,18 +3,18 @@ title: Manage Key Vault in Azure Stack by using the portal | Microsoft Docs
 description: Learn how to manage Key Vault in Azure Stack by using the portal
 services: azure-stack
 documentationcenter: ''
-author: SnehaGunda
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: ''
 
-ms.assetid:
+ms.assetid: D4300668-461F-45F6-BF3B-33B502C39D17
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
-ms.author: sngun
+ms.author: mabrigg
 
 ---
 

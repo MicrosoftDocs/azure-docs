@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2017
+ms.date: 11/10/2017
 ms.author: dobett
 
 ---
@@ -71,7 +71,7 @@ Find out more about the Azure admin roles in the article [How to add or change A
 
 ### I'm a service administrator and I'd like to change the directory mapping between my subscription and a specific AAD tenant. How do I complete this task?
 
-See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
+See [To add an existing subscription to your Azure AD directory](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
 
 ### I want to change a Service Administrator or Co-Administrator when logged in with an organisational account
 

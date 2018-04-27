@@ -4,7 +4,7 @@ description: How to build an Angular JS Single Page app that signs in users with
 services: active-directory
 documentationcenter: ''
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: ''
 
 ms.assetid: d286aa33-8a94-452f-beb7-ddc6c6daa5c8

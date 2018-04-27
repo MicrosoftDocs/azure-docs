@@ -4,7 +4,7 @@ description: Learn about delegated and application permissions, how they are use
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

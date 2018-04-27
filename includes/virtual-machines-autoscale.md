@@ -44,7 +44,7 @@ You can [set up triggers](../articles/monitoring-and-diagnostics/insights-autosc
 
 You can add or remove VMs by changing the capacity of the scale set. In the Azure portal, you can decrease or increase the number of VMs (shown as **instance count**) in the scale set by sliding the Override condition bar on the Scaling screen left or right.
 
-Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) command.
+Using Azure PowerShell, you need to get the scale set object using [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). You then set the **sku.capacity** property to the number of VMs that you want and update the scale set with [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Using Azure CLI, you change the capacity with the **--new-capacity** parameter for the [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) command.
 
 ### Vertical
 

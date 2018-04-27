@@ -3,7 +3,7 @@ title: Create custom artifacts for your DevTest Labs virtual machine | Microsoft
 description: Learn how to author your own artifacts to use with Azure DevTest Labs.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Create custom artifacts for your DevTest Labs virtual machine

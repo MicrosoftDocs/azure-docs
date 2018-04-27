@@ -1,10 +1,10 @@
 ---
-title: Make web, mobile, and API apps available to your Azure Stack users | Microsoft Docs
-description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, mobile, and API apps.
+title: Make web, and API apps available to your Azure Stack users | Microsoft Docs
+description: Tutorial to install the App Service resource provider and create offers that give your Azure Stack users the ability to create web, and API apps.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: 
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: erikje
+ms.date: 03/22/2018
+ms.author: jeffgilb
+ms.reviewer: 
 ms.custom: mvc
 ---
-# Make web, mobile, and API apps available to your Azure Stack users
-
-As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, mobile, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
+# Make web, and API apps available to your Azure Stack users
+As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create Azure Functions and web, and API applications. By providing access to these on-demand, cloud-based apps to your users, you can save them time and resources. To set this up, you will:
 
 > [!div class="checklist"]
 > * Deploy the App Service resource provider
@@ -39,7 +39,7 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 As an example, you can create an offer that lets users create DNN web content management systems. It requires the SQL Server service which you already enabled by installing the SQL Server resource provider.
 
 1.	[Set a quota](azure-stack-setting-quotas.md) and name it *AppServiceQuota*. Select **Microsoft.Web** for the **Namespace** field.
-2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the the **Microsoft.SQL** service, and **AppService Quota** quota.
+2.	[Create a plan](azure-stack-create-plan.md). Name it *TestAppServicePlan*, select the **Microsoft.SQL** service, and **AppService Quota** quota.
 
     > [!NOTE]
     > To let users create other apps, other services might be required in the plan. For example, Azure Functions requires that the plan     include the **Microsoft.Storage** service, while Wordpress requires **Microsoft.MySQL**.

@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
@@ -226,7 +226,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
     c. The names and values for **Principal Attribute** shown in the screenshot depend on how the application is developed. It is possible that your application requires different mappings.
 
-###Assertion-based groups
+### Assertion-based groups
 
 As an optional step, you can configure assertion-based groups for your Azure Active Directory Identity Provider.
 

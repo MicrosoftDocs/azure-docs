@@ -1,5 +1,5 @@
 ---
-title: Persist files for Bash in Azure Cloud Shell (Preview) | Microsoft Docs
+title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
 description: Walkthrough of how Bash in Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 01/30/2018
 ms.author: juluk
 ---
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## How Cloud Shell storage works 
-Cloud Shell persists files through both of the following methods: 
+## How Bash in Cloud Shell storage works 
+Bash in Cloud Shell persists files through both of the following methods: 
 * Creating a disk image of your `$Home` directory to persist all contents within the directory. The disk image is saved in your specified file share as `acc_<User>.img` at `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, and it automatically syncs changes. 
 * Mounting your specified file share as `clouddrive` in your `$Home` directory for direct file-share interaction. `/Home/<User>/clouddrive` is mapped to `fileshare.storage.windows.net/fileshare`.
  
@@ -66,12 +66,12 @@ Your file share will continue to exist unless you delete it manually. Cloud Shel
 ![Running the `clouddrive unmount`command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell will erase your `$Home` directory disk image and any files in your file share. This action cannot be undone.
+> Although running this command will not delete any resources, manually deleting a resource group, storage account, or file share that's mapped to Cloud Shell erases your `$Home` directory disk image and any files in your file share. This action cannot be undone.
 
 ## List `clouddrive`
 To discover which file share is mounted as `clouddrive`, run the `df` command. 
 
-The file path to clouddrive will show your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
+The file path to clouddrive shows your storage account name and file share in the URL. For example, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -85,9 +85,9 @@ shm                                                    65536       0      65536 
 justin@Azure:~$
 ```
 
-[!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
+[!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## Next steps
-[Cloud Shell Quickstart](quickstart.md) <br>
-[Learn about Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Bash in Cloud Shell Quickstart](quickstart.md) <br>
+[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

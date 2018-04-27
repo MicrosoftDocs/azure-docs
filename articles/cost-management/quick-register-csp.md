@@ -1,32 +1,38 @@
 ---
 
 title: Register using CSP Partner information with Azure Cost Management | Microsoft Docs
-description: Use your CSP Partner information to register with Azure Cost Management by Cloudyn.
+description: Use your CSP Partner information to register with Azure Cost Management.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 04/26/2018
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: 
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ---
 
 
 # Register with the CSP Partner program and view cost data
 
-As a CSP partner, you can register with Azure Cost Management by Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
+As a CSP partner, you can register with Azure Cost Management. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
 
 >[!NOTE]
->To complete registration, you must be a partner program administrator with access to the Partner Center API. Configuration of the Partner Center API is required for authentication and data access. For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Additionally, indirect CSP users can only use Cloudyn when their direct CSP reseller registers with Cloudyn to provide access to their customers and subscriptions.
+
+>Only CSP Direct partners and CSP Indirect Providers can complete Cloudyn registration.
+>
+>Configuring the Partner Center API is required for authentication and data access. A Partner Center Global Administrator account is needed to provision API access.
+For more information, see [Connect to the Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Access to Cloudyn can be made available to CSP Indirect Resellers after their CSP Indirect Provider registers with Cloudyn. CSP Indirect Resellers can then provide Cloudyn access to Azure customers and subscriptions.
 
 ## Log in to Azure
 
 - Log in to the Azure portal at http://portal.azure.com.
 
-## Create a trial registration
+## Register with Azure Cost Management
 
 1. In the Azure portal, click **Cost Management + Billing** in the list of services.
 2. Under **Overview**, click **Cost Management**  
@@ -63,7 +69,7 @@ Indirect CSP partners sign in to the Cloudyn portal using the accounts that you 
 
 ## Next steps
 
-In this quickstart, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management by Cloudyn, continue to the tutorial for Cost Management.
+In this quickstart, you used your CSP information to register with Cost Management. You also signed into the Cloudyn portal and started viewing cost data. To learn more about Azure Cost Management, continue to the tutorial for Cost Management.
 
 > [!div class="nextstepaction"]
 > [Review usage and costs](./tutorial-review-usage.md)

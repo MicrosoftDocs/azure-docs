@@ -4,16 +4,16 @@ description: Retention policies on report data in your Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 12/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -37,8 +37,8 @@ This topic provides you with answers to the most common questions in conjunction
 
 **A:**
 
-- **Immediately** - If you have already been working with reports in the Azure classic portal
-- **Within 2 hours** - If you haven’t turned reporting on  in the Azure classic portal
+- **Immediately** - If you have already been working with reports in the Azure portal
+- **Within 2 hours** - If you haven’t turned reporting on in the Azure portal
 
 ---
 **Q: How can you get the collection of security signals started?**  
@@ -57,7 +57,7 @@ This topic provides you with answers to the most common questions in conjunction
 | :--                    | :--           | :--                 | :--                 |
 | Directory Audit        | 7 days        | 30 days             | 30 days             |
 | Sign-in Activity       | N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 90 days       | 90 days             | 90 days             |
+| Azure MFA Usage        | 30 days       | 30 days             | 30 days             |
 
 **Security Signals**
 

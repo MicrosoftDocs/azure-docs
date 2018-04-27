@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 10/17/2017
+ms.date: 12/04/2017
 ms.author: wgries
 ---
 

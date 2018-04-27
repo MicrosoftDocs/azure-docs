@@ -1,6 +1,6 @@
 ---
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
-description: Get a list of Azure Relay exceptions and suggested actions you can take to help resolve them.
+description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
 
 ---
@@ -62,7 +62,7 @@ For Relay, this exception wraps the [System.ServiceModel.QuotaExceededException]
 ## TimeoutException
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
-Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Hitting this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
+Check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) property. Reaching this limit also can cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 For Relay, you might receive timeout exceptions when you first open a relay sender connection. There are two common causes for this exception:
 

@@ -3,8 +3,8 @@ title: Understand your customers in Azure Application Insights | Microsoft Docs
 description: Tutorial on using Azure Application Insights to understand how customers are using your application.
 keywords:
 services: application-insights
-author: bwren
-ms.author: bwren
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2017
 ms.service: application-insights
 ms.custom: mvc
@@ -36,7 +36,7 @@ To complete this tutorial:
 - Download and install the [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md). 
 - [Send telemetry from your application](app-insights-usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
-- Send [user context](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-usage-send-user-context) to track what a user does over time and fully utilize the usage features.
+- Send [user context](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) to track what a user does over time and fully utilize the usage features.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 17/01/2018
 ms.author: dobett
 
 ---
@@ -27,6 +27,10 @@ Azure IoT Suite is a set of *preconfigured solutions* that:
 * You can customize to meet your specific requirements
 
 The *IoT Suite* preconfigured solutions are all designed according to the same principles and goals.
+
+The following video presents an overview of the remote monitoring preconfigured solution:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## Preconfigured solutions overview
 
@@ -55,7 +59,7 @@ The following table shows how the solutions map to specific IoT features:
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Remote monitoring](iot-suite-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
 | [Predictive maintenance](iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
-| [Connected factory](iot-suite-connected-factory-overview.md) |Yes |Yes |Yes |Yes |Yes |Yes |-   |
+| [Connected factory](iot-suite-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
 
 * *Data ingestion*: Ingress of data at scale to the cloud.
 * *Device identity*: Manage unique device identities and control device access to the solution.
@@ -73,21 +77,24 @@ When you deploy a preconfigured solution, the provisioning process configures a 
 
 |                      | Remote monitoring  | Predictive maintenance | Connected factory |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub              | Yes                |                        | Yes               |
+| IoT Hub              | Yes                | Yes                    | Yes               |
 | Event Hubs           |                    | Yes                    |                   |
 | Time Series Insights |                    |                        | Yes               |
-| Container Services   | Yes                |                        | Yes               |
+| Container Services   | Yes                |                        |                   |
 | Stream Analytics     |                    | Yes                    |                   |
 | Web Apps             | Yes                | Yes                    | Yes               |
-| Cosmos DB            | Yes                | Yes                    | Yes               |
-| Azure Tables         |                    | Yes                    | Yes               |
+| Cosmos DB            | Yes                | Yes                    |                    |
+| Azure Storage         |                    | Yes                    | Yes               |
+
+> [!NOTE]
+> For more information about the resources deployed in the remote monitoring preconfigured solution, see this [article](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) on GitHub.
 
 * [Azure IoT Hub](../iot-hub/index.md). This service provides the device-to-cloud and cloud-to-device messaging capabilities and acts as the gateway to the cloud and the other key IoT Suite services. The service enables you to receive messages from your devices at scale, and send commands to your devices. The service also enables you to [manage your devices](../iot-hub/iot-hub-device-management-overview.md). For example, you can configure, reboot, or perform a factory reset on one or more devices connected to the hub.
 * [Azure Event Hubs](../event-hubs/index.md). This service provides high-volume event ingestion to the cloud. See [Comparison of Azure IoT Hub and Azure Event Hubs](../iot-hub/iot-hub-compare-event-hubs.md).
-* [Azure Time Series Insights](../time-series-insights/index.md). The preconfigured solutions use this service to analyze and display the telemetry data from your devices.
+* [Azure Time Series Insights](../time-series-insights/index.yml). The preconfigured solutions use this service to analyze and display the telemetry data from your devices.
 * [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the preconfigured solutions.
 * [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.yml) for data storage.
-* [Azure Stream Analytics](../stream-analytics/index.md). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
+* [Azure Stream Analytics](../stream-analytics/index.yml). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
 * [Azure Web Apps](../app-service/index.yml) to host the custom application code in the preconfigured solutions.
 
 For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-suite-what-is-azure-iot.md).
@@ -121,7 +128,7 @@ This microservices architecture is a proven pattern for cloud solutions that:
 When you deploy the new version of remote monitoring, you must select one of the following deployment options:
 
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
-* **Enterprise:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
+* **Standard:** Expanded infrastructure deployment for developing a production deployment. The Azure Container Service deploys the microservices to multiple Azure virtual machines. Kubernetes orchestrates the Docker containers that host the individual microservices.
 
 ### Language choices: Java and .NET
 

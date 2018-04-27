@@ -4,7 +4,7 @@ description: How to use group policy to deploy the Internet Explorer add-on for 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: f56b3230-26fd-42ec-9e3d-2c12daf15479

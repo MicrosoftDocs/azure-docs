@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2017
+ms.date: 01/30/2018
 ms.author: sethm
 
 ---
@@ -64,7 +64,8 @@ Azure Event Hubs is available in all supported Azure regions. For a list, visit 
 ## Best practices
 
 ### How many partitions do I need?
-Please keep in mind that the partition count on an event hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
+
+Note that the partition count on an event hub cannot be modified after setup. With that in mind, it is important to think about how many partitions you need before getting started. 
 
 Event Hubs is designed to allow a single partition reader per consumer group. In most use cases, the default setting of four partitions is sufficient. If you are looking to scale your event processing, you may want to consider adding additional partitions. There is no specific throughput limit on a partition, however the aggregate throughput in your namespace is limited by the number of throughput units. As you increase the number of throughput units in your namespace, you may want additional partitions to allow concurrent readers to achieve their own maximum throughput.
 

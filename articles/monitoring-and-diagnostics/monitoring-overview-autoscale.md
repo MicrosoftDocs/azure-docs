@@ -107,7 +107,7 @@ You can set up autoscale via
 | Service | Schema & Docs |
 | --- | --- |
 | Web Apps |[Scaling Web Apps](insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
+| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
 | Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |

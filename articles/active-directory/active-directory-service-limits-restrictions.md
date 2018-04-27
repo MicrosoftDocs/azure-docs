@@ -4,7 +4,7 @@ description: Usage constraints and other service limits for the Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: e4166a30-eb45-43b8-a466-6254b664fd1a

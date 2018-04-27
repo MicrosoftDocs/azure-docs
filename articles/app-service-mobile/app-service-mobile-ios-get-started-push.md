@@ -3,9 +3,9 @@ title: Add Push Notifications to iOS App with Azure Mobile Apps
 description: Learn how to use Azure Mobile Apps to send push notifications to your iOS app.
 services: app-service\mobile
 documentationcenter: ios
-manager: syntaxc4
+manager: crdun
 editor: ''
-author: ggailey777
+author: conceptdev
 
 ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: glenga
+ms.author: crdun
 
 ---
 # Add Push Notifications to your iOS App
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
-In this tutorial, you add push notifications to the [iOS quick start] project so that a push notification is sent to the device every time a record is inserted.
+In this tutorial, you add push notifications to the [iOS quickstart] project so that a push notification is sent to the device every time a record is inserted.
 
-If you do not use the downloaded quick start server project, you will need the push notification extension package. See [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) for more information.
+If you do not use the downloaded quickstart server project, you will need the push notification extension package. For more information, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). You need a physical iOS device and an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
@@ -53,4 +53,4 @@ The [iOS simulator does not support push notifications](https://developer.apple.
 <!-- Images. -->
 
 <!-- URLs. -->
-[iOS quick start]: app-service-mobile-ios-get-started.md
+[iOS quickstart]: app-service-mobile-ios-get-started.md

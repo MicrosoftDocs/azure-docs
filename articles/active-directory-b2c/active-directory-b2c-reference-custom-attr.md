@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Custom attributes | Microsoft Docs'
 description: How to use custom attributes in Azure Active Directory B2C to collect information about your consumers
 services: active-directory-b2c
 documentationcenter: ''
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: davidmu1
+manager: mtillman
+editor: ''
 
-ms.assetid: 055ffb0a-197b-4716-8dad-1fd8a01e174f
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Use custom attributes to collect information about your consumers
@@ -32,7 +29,7 @@ Your Azure Active Directory (Azure AD) B2C directory comes with a built-in set o
 4. Provide a **Name** for the custom attribute (for example, "ShoeSize") and optionally, a **Description**. Click **Create**.
    
    > [!NOTE]
-   > Only the "String" **Data Type** is currently available.
+   > Only the "String", "Boolean" and "Int" **Data Types** are currently available.
    > 
    > 
 

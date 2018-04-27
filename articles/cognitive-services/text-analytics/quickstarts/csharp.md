@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: luisca
-
 ---
 
 # Quickstart for Text Analytics API with C# 
@@ -48,7 +46,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 1. Replace the location in `client.AzureRegion` (currently `AzureRegions.Westus`) to the region you signed up for.
 1. Run the program.
 
-```c#
+```csharp
 using System;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;

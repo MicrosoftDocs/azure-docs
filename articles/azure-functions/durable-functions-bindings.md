@@ -1,4 +1,4 @@
----
+﻿---
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functons extension for Azure Functions.
 services: functions
@@ -51,7 +51,7 @@ Internally this trigger binding polls a series of queues in the default storage 
 Here are some notes about the orchestration trigger:
 
 * **Single-threading** - A single dispatcher thread is used for all orchestrator function execution on a single host instance. For this reason, it is important to ensure that orchestrator function code is efficient and doesn't perform any I/O. It is also important to ensure that this thread does not do any async work except when awaiting on Durable Functions-specific task types.
-* **Poising-message handling** - There is no poison message support in orchestration triggers.
+* **Poison-message handling** - There is no poison message support in orchestration triggers.
 * **Message visibility** - Orchestration trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage. These return values can be queried by the orchestration client binding, described later.
 
@@ -62,7 +62,7 @@ Here are some notes about the orchestration trigger:
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
-* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization inputs directly in the function signature are not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
+* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
 * **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 
 > [!NOTE]
@@ -81,14 +81,14 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-Most orchestrator functions call other functions, so here is a "Hello World" example that demonstrates how to call a function:
+Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
 
 ```csharp
 [FunctionName("HelloWorld")]
 public static async Task<string> Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    string name = await context.GetInput<string>();
+    string name = context.GetInput<string>();
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
@@ -137,7 +137,7 @@ Here are some notes about the activity trigger:
 The activity trigger binding supports both inputs and outputs, just like the orchestration trigger. Here are some things to know about input and output handling:
 
 * **inputs** - Activity functions natively use [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter type. Alternatively, an activity function can be declared with any parameter type that is JSON-serializable. When you use `DurableActivityContext`, you can call [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) to fetch and deserialize the activity function input.
-* **outputs** - Activity triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
+* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 * **metadata** - Activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
 
 > [!NOTE]
@@ -166,9 +166,47 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
+### Passing multiple parameters 
+
+It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects.
+
+The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+
+```csharp
+[FunctionName("GetCourseRecommendations")]
+public static async Task<dynamic> RunOrchestrator(
+    [OrchestrationTrigger] DurableOrchestrationContext context)
+{
+    string major = "ComputerScience";
+    int universityYear = context.GetInput<int>();
+
+    dynamic courseRecommendations = await context.CallActivityAsync<dynamic>("CourseRecommendations", (major, universityYear));
+    return courseRecommendations;
+}
+
+[FunctionName("CourseRecommendations")]
+public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
+{
+    // parse input for student's major and year in university 
+    (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
+
+    // retrieve and return course recommendations by major and university year
+    return new {
+        major = studentInfo.Major,
+        universityYear = studentInfo.UniversityYear,
+        recommendedCourses = new []
+        {
+            "Introduction to .NET Programming",
+            "Introduction to Linux",
+            "Becoming an Entrepreneur"
+        }
+    };
+}
+```
+
 ## Orchestration client
 
-The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the followng ways:
+The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the following ways:
 * Start them.
 * Query their status.
 * Terminate them.
@@ -176,7 +214,7 @@ The orchestration client binding enables you to write functions which interact w
 
 If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute.
 
-If you're using scripting languages (e.g. *.csx* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of function.json:
+If you're using scripting languages (e.g. *.csx* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -189,7 +227,7 @@ If you're using scripting languages (e.g. *.csx* files) for development, the orc
 ```
 
 * `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target orchestrator functions.
-* `connectionName` - The name of an app setting that contains a storage connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default connection string for the function app is used.
+* `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target orchestrator functions. If not specified, the default storage account connection string for the function app is used.
 
 > [!NOTE]
 > In most cases, we recommend that you omit these properties and rely on the default behavior.
@@ -224,7 +262,7 @@ public static Task Run(
 
 ### Client sample (not Visual Studio)
 
-If you're not using Visual Studio for development, you can create the following function.json file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
+If you're not using Visual Studio for development, you can create the following *function.json* file. This example shows how to configure a queue-triggered function that uses the durable orchestration client binding:
 
 ```json
 {

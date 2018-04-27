@@ -1,23 +1,30 @@
 ---
-title: Forecast spending with Azure Cost Management | Microsoft Docs
-description: Forecast spending using historical usage and spending data.
+title: Tutorial - Forecast spending with Azure Cost Management | Microsoft Docs
+description: In this tutorial you learn how to forecast spending using historical usage and spending data.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: mvc
-manager: carmonm
+ms.custom: 
+manager: dougeby
 ---
 
-# Forecast future spending
+# Tutorial: Forecast future spending
 
-Azure Cost Management by Cloudyn helps you forecast future spending using historical usage and spending data. You use Cloudyn reports to view all cost projection data. The examples in this tutorial walk you through reviewing cost projections using the reports. In this tutorial, you learn how to:
+Azure Cost Management helps you forecast future spending using historical usage and spending data. You use Cloudyn reports to view all cost projection data. The examples in this tutorial walk you through reviewing cost projections using the reports. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Forecast future spending
+
+If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+- You must have an Azure account.
+- You must have either a trial registration or paid subscription for Azure Cost Management.
 
 ## Forecast future spending
 
@@ -53,7 +60,7 @@ In this tutorial, you learned how to:
 > * Forecast future spending
 
 
-Advance to the Cloudyn documentation to learn more about getting started with Cloudyn and using its features.
+Advance to the next tutorial to learn how to manage costs with cost allocation and showback reports.
 
 > [!div class="nextstepaction"]
-> [Cloudyn documentation](https://support.cloudyn.com/hc/)
+> [Manage costs with cost allocation and showback reports](tutorial-manage-costs.md)

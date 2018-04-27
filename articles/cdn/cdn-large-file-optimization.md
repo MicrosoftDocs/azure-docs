@@ -1,5 +1,5 @@
 ---
-title: Large file download optimization via the Azure Content Delivery Network
+title: Large file download optimization via Azure CDN
 description: Optimization of large file downloads explained in depth
 services: cdn
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ---
-# Large file download optimization via the Azure Content Delivery Network
+# Large file download optimization via Azure CDN
 
 File sizes of content delivered over the Internet continue to grow due to enhanced functionality, improved graphics, and rich media content. This growth is driven by many factors: broadband penetration, larger inexpensive storage devices, widespread increase of high-definition video, and Internet-connected devices (IoT). A fast and efficient delivery mechanism for large files is critical to ensure a smooth and enjoyable consumer experience.
 

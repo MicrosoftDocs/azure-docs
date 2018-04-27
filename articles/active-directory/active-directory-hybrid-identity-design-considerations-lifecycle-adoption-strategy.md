@@ -1,10 +1,10 @@
 ---
-title: Azure Active Directory hybrid identity design considerations - determine hybrid identity lifecycle adoption strategy | Microsoft Docs
+title: Hybrid identity design - lifecycle adoption strategy Azure | Microsoft Docs
 description: Helps define the hybrid identity management tasks according to the options available for each lifecycle phase.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-
+ms.custom: seohack1
 ---
 # Determine hybrid identity lifecycle adoption strategy
 In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

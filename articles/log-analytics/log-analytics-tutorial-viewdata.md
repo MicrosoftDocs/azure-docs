@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -21,7 +21,6 @@ ms.custom: mvc
 In Log Analytics you can leverage log searches by constructing queries to analyze the collected data, use pre-existing dashboards which you can customize with graphical views of your most valuable searches.  Now that you have defined collection of operational data from your Azure VMs and Activity Logs, in this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Upgrade your Azure Log Analytics resource to the new query language 
 > * Perform a simple search of event data and use features to modify and filter the results 
 > * Learn how to work with performance data
 
@@ -37,16 +36,8 @@ Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.co
 ## Open the Log Search portal 
 Start by opening the Log Search portal.   
 
-1. In the Azure portal, click **More services** found on the lower left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
-2. In the Log Analytics subscriptions pane, select a workspace and then select the **Log Search** tile.<br> ![Log Search button](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-You may have noticed the banner across the top of your Log Analytics resource page in the portal inviting you to upgrade.<br> ![Log Analytics upgrade notice in the Azure portal](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Log Analytics recently introduced a new query language to makes it easier to construct queries, correlate data from various sources, and analyze to quickly identify trends or issues.
-
-Upgrading is simple.  Start the process by clicking on the banner that says **Learn more and upgrade**.  Read through the additional information about the upgrade on the upgrade information page and then click **Upgrade Now**.
-
-The process will take a few minutes to complete and during this time, you can track its progress under **Notifications** from the menu. You can learn more about the [Benefits of the new query language](log-analytics-log-search-upgrade.md#why-the-new-language).
+1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. In the Log Analytics subscriptions pane, select a workspace and then select the **Log Search** tile.<br><br> ![Log Search button](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## Create a simple search
 The quickest way to retrieve some data to work with is a simple query that returns all records in table.  If you have any Windows or Linux clients connected to your workspace, then you'll have data in either the Event (Windows) or Syslog (Linux) table.

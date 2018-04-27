@@ -4,7 +4,7 @@ description: Learn how to use Windows PowerShell for StorSimple to manage your S
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 04/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
 
 ---
@@ -128,8 +128,8 @@ The display language is independent of the language that you set by using the **
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
-* [Connect remotely using HTTP](storsimple-remote-connect.md#connect-through-http)
-* [Connect remotely using HTTPS](storsimple-remote-connect.md#connect-through-https)
+* [Connect remotely using HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Connect remotely using HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
 ## Connection security considerations
 
@@ -187,5 +187,5 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 
 ## Next steps
 
-If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

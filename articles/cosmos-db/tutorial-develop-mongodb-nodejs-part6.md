@@ -3,8 +3,8 @@ title: "MongoDB, Angular, and Node tutorial for Azure - Part 6 | Microsoft Docs"
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: ''
 
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.service: cosmos-db
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: mimig
+ms.author: sngun
+ms.custom: mvc
 
 ---
 # Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app

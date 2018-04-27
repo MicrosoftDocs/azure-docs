@@ -2,11 +2,10 @@
 title: Bing Web Search single-page Web app | Microsoft Docs
 description: Shows how to use the Bing Web Search API in a single-page Web application.
 services: cognitive-services
-author: jerrykindall
+author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: v-jerkin
@@ -82,10 +81,11 @@ function getSubscriptionKey() {
 }
 ```
 
-The HTML `<body>` tag includes an `onload` attribute that calls `getSubscriptionKey()` when the page has finished loading. This call serves to immediately prompt the user for their key if they haven't yet entered one.
+The HTML `form` tag `onsubmit` calls the `bingWebSearch` function to return search results. `bingWebSearch` uses `getSubscriptionKey` to authenticate each query. As shown in the previous definition, `getSubscriptionKey` prompts the user for the key if the key hasn't been entered. The key is then stored for continuing use by the application.
 
 ```html
-<body onload="document.forms.bing.query.focus(); getSubscriptionKey();">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+    bingSearchOptions(this), getSubscriptionKey())">
 ```
 
 ## Selecting search options

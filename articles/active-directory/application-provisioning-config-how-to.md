@@ -4,7 +4,7 @@ description: How you can quickly configure rich user account provisioning and de
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -29,7 +29,7 @@ In the Azure portal, the **Provisioning** tab in the left navigation pane for an
 
 If Manual is the only mode shown for a given application, it means that no automatic Azure AD provisioning connector has been created for the app yet. Or it means the app does not support the pre-requisite user management API upon which to build an automated provisioning connector.
 
-If you would like to request support for automatic provisioning for a given app, you can fill out a request at <http://aka.ms/aadapprequest>.
+If you would like to request support for automatic provisioning for a given app, you can fill out a request using the [Azure Active Directory Application Requests](https://aka.ms/aadapprequest).
 
 ## Configuring an application for Automatic Provisioning
 

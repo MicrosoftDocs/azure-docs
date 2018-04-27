@@ -1,6 +1,6 @@
 ---
-title: Use the Service Map solution in Operations Management Suite | Microsoft Docs
-description: Service Map is an Operations Management Suite solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
+title: Using Service Map solution in Azure | Microsoft Docs
+description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
 services: operations-management-suite
 documentationcenter: ''
 author: daveirwin1
@@ -18,10 +18,10 @@ ms.author: daseidma;bwren;dairwin
 
 ---
 
-# Use the Service Map solution in Operations Management Suite
+# Using Service Map solution in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-This article describes the details of using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite](operations-management-suite-service-map-configure.md).
+This article describes the details of using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure](operations-management-suite-service-map-configure.md).
 
 
 ## Use cases: Make your IT processes dependency aware
@@ -30,7 +30,7 @@ This article describes the details of using Service Map. For information about c
 Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services. It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network, such as Active Directory. Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outage, and network issues.
 
 ### Incident management
-Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other. In addition to identifying failed connections, it helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients, such as developer machines talking to production systems. By using integrated workflows with Operations Management Suite Change Tracking, you can also see whether a change event on a back-end machine or service explains the root cause of an incident.
+Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other. In addition to identifying failed connections, it helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients, such as developer machines talking to production systems. By using integrated workflows with Change Tracking, you can also see whether a change event on a back-end machine or service explains the root cause of an incident.
 
 ### Migration assurance
 By using Service Map, you can effectively plan, accelerate, and validate Azure migrations, which helps ensure that nothing is left behind and surprise outages do not occur. You can discover all interdependent systems that need to migrate together, assess system configuration and capacity, and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration. After the move is complete, you can check on client load and identity to verify that test systems and customers are connecting. If your subnet planning and firewall definitions have issues, failed connections in Service Map maps point you to the systems that need connectivity.
@@ -39,7 +39,7 @@ By using Service Map, you can effectively plan, accelerate, and validate Azure m
 If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable. By choosing a critical server or group and viewing its clients, you can identify which front-end systems to recover after the server is restored and available. Conversely, by looking at critical serversâ€™ back-end dependencies, you can identify which systems to recover before your focus systems are restored.
 
 ### Patch management
-Service Map enhances your use of the Operations Management Suite System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management in Operations Management Suite by showing you whether your services are available and properly connected after they are patched and restarted.
+Service Map enhances your use of the System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take down your systems for patching. Service Map also enhances patch management by showing you whether your services are available and properly connected after they are patched and restarted.
 
 
 ## Mapping overview
@@ -47,16 +47,19 @@ Service Map agents gather information about all TCP-connected processes on the s
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
+Machines can be expanded in the map to show the running process groups and processes with active network connections during the selected time range. When a remote machine with a Service Map agent is expanded to show process details, only those processes that communicate with the focus machine are shown. The count of agentless front-end machines that connect into the focus machine is indicated on the left side of the processes they connect to. If the focus machine is making a connection to a back-end machine that has no agent, the back-end server is included in a Server Port Group, along with other connections to the same port number.
 
 By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
 ## Status badges and border coloring
-At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the Operations Management Suite solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Service Desk, Changes, Security, and Updates.
+At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Service Desk, Changes, Security, and Updates.
 
 Depending on the severity of the status badges, machine node borders can be colored red (critical), yellow (warning), or blue (informational). The color represents the most severe status of any of the status badges. A gray border indicates a node that has no status indicators.
 
 ![Status badges](media/oms-service-map/status-badges.png)
+
+## Process Groups
+Process Groups combine processes that are associated with a common product or service into a process group.  When a machine node is expanded it will display standalone processes along with process groups.  If any inbound and outbound connections to a process within a process group has failed then the connection is shown as failed for the entire process group.
 
 ## Machine Groups
 Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
@@ -164,12 +167,12 @@ Clicking **Load Server Map** takes you to a new map with the selected server as 
 Clicking **Show Self-Links** redraws the server node, including any self-links, which are TCP connections that start and end on processes within the server. If self-links are shown, the menu command changes to **Hide Self-Links**, so that you can turn them off.
 
 ## Computer summary
-The **Machine Summary** pane includes an overview of a server's operating system, dependency counts, and data from other Operations Management Suite solutions. Such data includes performance metrics, service desk tickets, change tracking, security, and updates.
+The **Machine Summary** pane includes an overview of a server's operating system, dependency counts, and data from other solutions. Such data includes performance metrics, service desk tickets, change tracking, security, and updates.
 
 ![Machine Summary pane](media/oms-service-map/machine-summary.png)
 
 ## Computer and process properties
-When you navigate a Service Map map, you can select machines and processes to gain additional context about their properties. Machines provide information about DNS name, IPv4 addresses, CPU and memory capacity, VM type, operating system and version, last reboot time, and the IDs of their Operations Management Suite and Service Map agents.
+When you navigate a Service Map map, you can select machines and processes to gain additional context about their properties. Machines provide information about DNS name, IPv4 addresses, CPU and memory capacity, VM type, operating system and version, last reboot time, and the IDs of their OMS and Service Map agents.
 
 ![Machine Properties pane](media/oms-service-map/machine-properties.png)
 
@@ -181,8 +184,8 @@ The **Process Summary** pane provides additional information about the processâ€
 
 ![Process Summary pane](media/oms-service-map/process-summary.png)
 
-## Operations Management Suite Alerts integration
-Service Map integrates with Operations Management Suite Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
+## Alerts integration
+Service Map integrates with Alerts in Log Analytics to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the **Machine Alerts** pane lists the alerts.
 
 ![Machine Alerts pane](media/oms-service-map/machine-alerts.png)
 
@@ -193,13 +196,13 @@ To enable Service Map to display relevant alerts, create an alert rule that fire
 ![Alert configuration](media/oms-service-map/alert-configuration.png)
 
 
-## Operations Management Suite log events integration
+## Log events integration
 Service Map integrates with Log Search to show a count of all available log events for the selected server during the selected time range. You can click any row in the list of event counts to jump to Log Search and see the individual log events.
 
 ![Machine Log Events pane](media/oms-service-map/log-events.png)
 
-## Operations Management Suite Service Desk integration
-Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Operations Management Suite workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
+## Service Desk integration
+Service Map integration with the IT Service Management Connector is automatic when both solutions are enabled and configured in your Log Analytics workspace. The integration in Service Map is labeled "Service Desk." For more information, see [Centrally manage ITSM work items using IT Service Management Connector](https://docs.microsoft.com/azure/log-analytics/log-analytics-itsmc-overview).
 
 The **Machine Service Desk** pane lists all IT Service Management events for the selected server in the selected time range. The server displays an icon if there are current items and the Machine Service Desk pane lists them.
 
@@ -210,8 +213,8 @@ To open the item in your connected ITSM solution, click **View Work Item**.
 To view the details of the item in Log Search, click **Show in Log Search**.
 
 
-## Operations Management Suite Change Tracking integration
-Service Map integration with Change Tracking is automatic when both solutions are enabled and configured in your Operations Management Suite workspace.
+## Change Tracking integration
+Service Map integration with Change Tracking is automatic when both solutions are enabled and configured in your Log Analytics workspace.
 
 The **Machine Change Tracking** pane lists all changes, with the most recent first, along with a link to drill down to Log Search for additional details.
 
@@ -222,24 +225,39 @@ The following image is a detailed view of a ConfigurationChange event that you m
 ![ConfigurationChange event](media/oms-service-map/configuration-change-event.png)
 
 
-## Operations Management Suite performance integration
-The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received. To get the network performance data, you must also have enabled the Wire Data 2.0 solution in Operations Management Suite.
+## Performance integration
+The **Machine Performance** pane displays standard performance metrics for the selected server. The metrics include CPU utilization, memory utilization, network bytes sent and received, and a list of the top processes by network bytes sent and received.
 
 ![Machine Performance pane](media/oms-service-map/machine-performance.png)
 
+To see performance data, you may need to [enable the appropriate Log Analytics performance counters](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  The counters you will want to enable:
 
-## Operations Management Suite Security integration
-Service Map integration with Security and Audit is automatic when both solutions are enabled and configured in your Operations Management Suite workspace.
+Windows:
+- Processor(*)\\% Processor Time
+- Memory\\% Committed Bytes In Use
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
 
-The **Machine Security** pane shows data from the Operations Management Suite Security and Audit solution for the selected server. The pane lists a summary of any outstanding security issues for the server during the selected time range. Clicking any of the security issues drills down into a Log Search for details about them.
+Linux:
+- Processor(*)\\% Processor Time
+- Memory(*)\\% Used Memory
+- Network Adapter(*)\\Bytes Sent/sec
+- Network Adapter(*)\\Bytes Received/sec
+
+To get the network performance data, you must also have enabled the Wire Data 2.0 solution in your workspace.
+ 
+## Security integration
+Service Map integration with Security and Audit is automatic when both solutions are enabled and configured in your Log Analytics workspace.
+
+The **Machine Security** pane shows data from the Security and Audit solution for the selected server. The pane lists a summary of any outstanding security issues for the server during the selected time range. Clicking any of the security issues drills down into a Log Search for details about them.
 
 ![Machine Security pane](media/oms-service-map/machine-security.png)
 
 
-## Operations Management Suite Updates integration
-Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Operations Management Suite workspace.
+## Updates integration
+Service Map integration with Update Management is automatic when both solutions are enabled and configured in your Log Anlaytics workspace.
 
-The **Machine Updates** pane displays data from the Operations Management Suite Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
+The **Machine Updates** pane displays data from the Update Management solution for the selected server. The pane lists a summary of any missing updates for the server during the selected time range.
 
 ![Machine Change Tracking pane](media/oms-service-map/machine-updates.png)
 
@@ -253,8 +271,8 @@ One record is generated per hour for each unique computer and process, in additi
 
 There are internally generated properties you can use to identify unique processes and computers:
 
-- Computer: Use ResourceId or ResourceName_s to uniquely identify a computer within an Operations Management Suite workspace.
-- Process: Use ResourceId to uniquely identify a process within an Operations Management Suite workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
+- Computer: Use ResourceId or ResourceName_s to uniquely identify a computer within a Log Analytics workspace.
+- Process: Use ResourceId to uniquely identify a process within a Log Analytics workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
 
 Because multiple records can exist for a specified process and computer in a specified time range, queries can return more than one record for the same computer or process. To include only the most recent record, add "| dedup ResourceId" to the query.
 
@@ -314,34 +332,34 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ## Sample log searches
 
 ### List all known machines
-Type=ServiceMapComputer_CL | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List the physical memory capacity of all managed computers.
-Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
 
 ### List computer name, DNS, IP, and OS.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
+ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
 
 ### Find all processes with "sql" in the command line
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
+ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by resource name
-Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### Find a machine (most recent record) by IP address
-Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all known processes on a specified machine
-Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
 
 ### List all computers running SQL
-Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
+ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
 
 ### List all unique product versions of curl in my datacenter
-Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
+ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
 
 ### Create a computer group of all computers running CentOS
-Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
+ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
 
 ## REST API

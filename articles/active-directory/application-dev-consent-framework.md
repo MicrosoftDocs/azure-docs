@@ -4,7 +4,7 @@ description: Learn more about how the Azure AD consent framework works to see ho
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

@@ -1,4 +1,4 @@
----
+﻿---
 title: Customize HDInsight Clusters using bootstrap - Azure | Microsoft Docs
 description: Learn how to customize HDInsight clusters using bootstrap.
 services: hdinsight
@@ -11,11 +11,9 @@ tags: azure-portal
 ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/21/2017
+ms.topic: conceptual
+ms.date: 01/03/2018
 ms.author: jgao
 
 ---
@@ -38,6 +36,7 @@ Sometimes, you want to configure the configuration files, which include:
 * tez-site.xml
 * webhcat-site.xml
 * yarn-site.xml
+* server.properties (kafka-broker configuration)
 
 There are three methods to use bootstrap:
 
@@ -72,7 +71,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -Config $config 
 ```
@@ -82,7 +81,7 @@ A complete working PowerShell script can be found in [Appendix](#appendix-powers
 **To verify the change:**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
-2. From the left menu, click **HDInsight clusters**. If you don't see it, click **More services** first.
+2. From the left menu, click **HDInsight clusters**. If you don't see it, click **All services** first.
 3. Click the cluster you just created using the PowerShell script.
 4. Click **Dashboard** from the top of the blade to open the Ambari UI.
 5. Click **Hive** from the left menu.
@@ -188,7 +187,7 @@ $ErrorActionPreference = "Stop"
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 #region - Create an HDInsight cluster
@@ -245,7 +244,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

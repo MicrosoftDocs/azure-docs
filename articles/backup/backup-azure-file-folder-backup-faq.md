@@ -23,6 +23,8 @@ ms.author: trinadhk;pullabhk;
 # Questions about the Azure Backup agent
 This article has answers to common questions to help you quickly understand the Azure Backup agent components. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
+[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
+
 ## Configure backup
 ### Where can I download the latest Azure Backup agent? <br/>
 You can download the latest agent for backing up Windows Server, System Center DPM, or Windows client, from [here](http://aka.ms/azurebackup_agent). If you want to back up a virtual machine, use the VM Agent (which automatically installs the proper extension). The VM Agent is already present on virtual machines created from the Azure gallery.

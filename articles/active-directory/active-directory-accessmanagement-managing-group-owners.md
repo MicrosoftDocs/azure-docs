@@ -4,7 +4,7 @@ description: Advanced How-to's for managing security groups and how to use these
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: femila
+manager: mtillman
 editor: ''
 
 ms.assetid: 44350a3c-8ea1-4da1-aaac-7fc53933dd21

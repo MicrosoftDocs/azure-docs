@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 03/30/2018
 ms.author: jeedes
 
 ---
@@ -42,6 +42,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+
+> [!NOTE]
+> Facebook has two products, Workplace Standard (free) and Workplace Premium (paid). Any Workplace Premium tenant can configure SCIM and SSO integration with no other implications to cost or licenses required. SSO and SCIM are not available in Workplace Standard instances.
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -111,10 +114,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<instancename>.facebook.com`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.facebook.com/company/<instancename>`
+	b. In the **Identifier** textbox, type a URL using the following pattern: `https://www.facebook.com/company/<instanceID>`
 
 	> [!NOTE] 
-	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. Contact [Workplace by Facebook Client support team](https://workplace.fb.com/faq/) to get these values. 
+	> These values are not the real. Update these values with the actual Sign-On URL and Identifier. See the Authentication page of the Workplace Company Dashboard for the correct values for your Workplace community. 
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -139,10 +142,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 10. Input the values copied from **Workplace by Facebook Configuration** section of the Azure portal into the corresponding fields:
 
-	*	In **SAML URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
-	*	In **SAML Issuer URL textbox**, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
-	*	In **SAML Logout Redirect** (Optional), paste the value of **Sign-Out URL**, which you have copied from Azure portal.
-	*	Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+	*	In **SAML URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	*	In **SAML Issuer URL textbox**, paste the value of **SAML Entity ID**, which you have copied from Azure portal.
+	*	In **SAML Logout Redirect** (Optional), paste the value of **Sign-Out URL**, which you have copied from Azure portal.
+	*	Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
 
 11. You may need to enter the Audience URL, Recipient URL, and ACS (Assertion Consumer Service) URL listed under the **SAML Configuration** section.
 
@@ -157,10 +160,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 15. **SAML Logout Redirect (optional)** - 
 
 	You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
-
-
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### Configuring Reauthentication Frequency
 
@@ -269,4 +268,3 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 [201]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workplacebyfacebook-tutorial/tutorial_general_203.png
-

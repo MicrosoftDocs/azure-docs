@@ -3,19 +3,20 @@ title: Azure Active Directory B2B collaboration code and PowerShell samples | Mi
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
-ms.assetid:
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/11/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: twooley
+ms.reviewer: sasubram
 
 ---
 
@@ -49,7 +50,7 @@ You can bulk-invite external users to an organization from email addresses that 
   ```
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
-  $messageInfo.customizedMessageBody = “Hey there! Check this out. I created an invitation through PowerShell”
+  $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
@@ -102,7 +103,7 @@ namespace SampleInviteApp
         /// <summary>
         /// Client secret of the application.
         /// </summary>
-        private static readonly string TestAppClientSecret = @"
+        private static readonly string TestAppClientSecret = @"";
  
         /// <summary>
         /// This is the email address of the user you want to invite.

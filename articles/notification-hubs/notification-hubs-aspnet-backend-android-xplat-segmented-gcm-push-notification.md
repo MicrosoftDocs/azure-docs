@@ -276,7 +276,7 @@ The app is now complete and can store a set of categories in the device local st
 2. Enable one or more categories toggles, then click **Subscribe**.
    
     The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The registered categories are returned and displayed in a toast notification.
-3. Send a new notification by running the .NET Console app.  Alternatively, you can send tagged template notifications using the debug tab of your notification hub in the [Azure Classic Portal].
+3. Send a new notification by running the .NET Console app.  Alternatively, you can send tagged template notifications using the debug tab of your notification hub in the [Azure portal].
    
     Notifications for the selected categories appear as toast notifications.
 
@@ -300,5 +300,5 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Azure Classic Portal]: https://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

@@ -1,4 +1,4 @@
----
+﻿---
 title: Use Azure templates to create HDInsight and Data Lake Store | Microsoft Docs
 description: Use Azure Resource Manager templates to create and use HDInsight clusters with Azure Data Lake Store
 services: data-lake-store,hdinsight
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: nitinme
 
 ---
@@ -56,7 +56,7 @@ The instructions at the link mentioned above require PowerShell. Before you star
 
 ```
 # Log in to your Azure account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List all the subscriptions associated to your account
 Get-AzureRmSubscription
@@ -136,3 +136,4 @@ You can also use the `hdfs dfs -put` command to upload some files to the Data La
 
 ## Next steps
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-wasb-distcp.md)
+* [Use Data Lake Store with Azure HDInsight clusters](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

@@ -4,7 +4,7 @@ description: Understand the common problems people face when configuring Passwor
 services: active-directory
 documentationcenter: ''
 author: ajamess
-manager: femila
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

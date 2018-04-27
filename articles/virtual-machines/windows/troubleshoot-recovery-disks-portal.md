@@ -5,15 +5,15 @@ description: Learn how to troubleshoot Windows virtual machine issues in Azure b
 services: virtual-machines-windows
 documentationCenter: ''
 authors: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/26/2017
+ms.date: 11/03/2017
 ms.author: genli
 
 ---

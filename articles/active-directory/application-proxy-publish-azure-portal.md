@@ -3,8 +3,8 @@ title: Publish apps with Azure AD Application Proxy | Microsoft Docs
 description: Publish on-premises applications to the cloud with Azure AD Application Proxy in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: kgremban
-manager: femila
+author: daveba
+manager: mtillman
 
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
 ms.service: active-directory
@@ -12,18 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
-ms.author: kgremban
+ms.date: 12/06/2017
+ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
 
 
 # Publish applications using Azure AD Application Proxy
-
-> [!div class="op_single_selector"]
-> * [Azure portal](application-proxy-publish-azure-portal.md)
-> * [Azure classic portal](active-directory-application-proxy-publish.md)
 
 Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. You can publish these applications through the Azure portal to provide secure remote access from outside your network.
 
@@ -63,6 +59,9 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
      - Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application. We recommend keeping this option as the default, so that you can take advantage of Azure AD security features like conditional access and Multi-Factor Authentication.
      - Passthrough: Users don't have to authenticate against Azure Active Directory to access the application. You can still set up authentication requirements on the backend.
    - **Connector Group**: Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose. If you don't have any connector groups created yet, your app is assigned to **Default**.
+
+>[!NOTE]
+>If your application uses websockets to connect, make sure that you have connector version 1.5.612.0 or higher with websocket support and the assigned Connector Group only uses these connectors.
 
    ![Configure your application](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. If necessary, configure additional settings. For most applications, you should keep these settings in their default states. 

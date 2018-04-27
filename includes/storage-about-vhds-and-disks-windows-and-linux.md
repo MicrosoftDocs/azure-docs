@@ -1,19 +1,30 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: "include"
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: "include file"
+---
 
 ## About VHDs
 
-The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/storage/common/storage-premium-storage.md).
+The VHDs used in Azure are .vhd files stored as page blobs in a standard or premium storage account in Azure. For details about page blobs, see [Understanding block blobs and page blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). For details about premium storage, see [High-performance premium storage and Azure VMs](../articles/virtual-machines/windows/premium-storage.md).
 
 Azure supports the fixed disk VHD format. The fixed format lays the logical disk out linearly within the file, so that disk offset X is stored at blob offset X. A small footer at the end of the blob describes the properties of the VHD. Often, the fixed format wastes space because most disks have large unused ranges in them. However, Azure stores .vhd files in a sparse format, so you receive the benefits of both the fixed and dynamic disks at the same time. For more details, see [Getting started with virtual hard disks](https://technet.microsoft.com/library/dd979539.aspx).
 
-All .vhd files in Azure that you want to use as a source to create disks or images are read-only. When you create a disk or image, Azure makes copies of the .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
+All .vhd files in Azure that you want to use as a source to create disks or images are read-only, except the .vhd files uploaded or copied to Azure storage by the user (which can be either read-write or read-only). When you create a disk or image, Azure makes copies of the source .vhd files. These copies can be read-only or read-and-write, depending on how you use the VHD.
 
 When you create a virtual machine from an image, Azure creates a disk for the virtual machine that is a copy of the source .vhd file. To protect against accidental deletion, Azure places a lease on any source .vhd file that’s used to create an image, an operating system disk, or a data disk.
 
 Before you can delete a source .vhd file, you’ll need to remove the lease by deleting the disk or image. To delete a .vhd file that is being used by a virtual machine as an operating system disk, you can delete the virtual machine, the operating system disk, and the source .vhd file all at once by deleting the virtual machine and deleting all associated disks. However, deleting a .vhd file that’s a source for a data disk requires several steps in a set order. First you detach the disk from the virtual machine, then delete the disk, and then delete the .vhd file.
-
 > [!WARNING]
 > If you delete a source .vhd file from storage, or delete your storage account, Microsoft can't recover that data for you.
 > 
+> Page blobs in Premium Storage are designed for use as VHDs only. Microsoft does not recommend storing other types of data in page blobs in Premium Storage, as the cost may be significantly greater. Use block blobs for storing data that is not in a VHD.
 
 ## Types of disks 
 
@@ -26,11 +37,11 @@ There are two performance tiers for storage that you can choose from when creati
 
 Standard Storage is backed by HDDs, and delivers cost-effective storage while still being performant. Standard storage can be replicated locally in one datacenter, or be geo-redundant with primary and secondary data centers. For more information about storage replication, please see [Azure Storage replication](../articles/storage/common/storage-redundancy.md). 
 
-For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/storage/common/storage-standard-storage.md).
+For more information about using Standard Storage with VM disks, please see [Standard Storage and Disks](../articles/virtual-machines/windows/standard-storage.md).
 
 ### Premium storage 
 
-Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. You can use Premium Storage with DS, DSv2, GS, Ls, or FS series Azure VMs. For more information, please see [Premium Storage](../articles/storage/common/storage-premium-storage.md).
+Premium Storage is backed by SSDs, and delivers high-performance, low-latency disk support for VMs running I/O-intensive workloads. Typically you can use Premium Storage with sizes that include an "s" in the series name. For example, there is the Dv3-Series and the Dsv3-series, the Dsv3-series can be used with Premium Storage.  For more information, please see [Premium Storage](../articles/virtual-machines/windows/premium-storage.md).
 
 ### Unmanaged disks
 
