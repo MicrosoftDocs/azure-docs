@@ -55,7 +55,7 @@ Each service directly deployed into virtual network has specific requirements fo
 - [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Application Gateway (internal)](../application-gateway/application-gateway-ilb-arm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Azure Container Service (AKS)](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Azure Container Service Engine](https://github.com/Azure/acs-engine/tree/master/examples/vnet).
+- [Azure Container Service Engine](https://github.com/Azure/acs-engine) with the Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)
 - [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json): Virtual network (classic) only
 - [Azure Batch](../batch/batch-api-basics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)
 - [Cloud services](https://msdn.microsoft.com/library/azure/jj156091): Virtual network (classic) only

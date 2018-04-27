@@ -22,7 +22,7 @@ ms.custom: mvc
 ---
 # What is Azure Virtual Network?
 
-Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM) and containers, to securely communicate with each other, the internet, and on-premises networks. Azure Virtual Network provides the following key capabilities:
+Azure Virtual Network enables many types of Azure resources, such as Azure Virtual Machines (VM), to securely communicate with each other, the internet, and on-premises networks. Azure Virtual Network provides the following key capabilities:
 
 ## Isolation and segmentation
 
