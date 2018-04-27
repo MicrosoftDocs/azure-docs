@@ -62,7 +62,8 @@ There are five steps to create a configuration. The following sections walk thro
 ### Step 2: Specify Settings
 
 This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path and Content to the following:
-![Set the Device Twin Path and Content](/media/iot-hub-ota-config/create-configuration-full-browser.png)
+
+![Set the Device Twin Path and Content](media/iot-hub-ota-config/create-configuration-full-browser.png)
 
 You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
 
