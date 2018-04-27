@@ -69,7 +69,7 @@ When logging in programmatically, use the ID for your application and an authent
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this as the **client id**.
+2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) use **client id** when referring to the **Application ID**.
 
      ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key, select **Keys**.
@@ -97,7 +97,7 @@ If you deployed Azure Stack using AD FS as the identity store, you can use Power
 
 ### Import the Identity PowerShell module
 
-After you download the tools, navigate to the download folder and import the Identity PowerShell module by using the following command:
+Navigate to the download folder for the Azure Stack tools and import the Identity PowerShell module by using the following command:
 
 ```PowerShell
 Import-Module .\Identity\AzureStack.Identity.psm1
