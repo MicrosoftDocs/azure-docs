@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 04/27/2017
 ms.author: jeedes
 
 ---
@@ -110,10 +110,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://quickhelp.com/<ROUTEURL>`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.quickhelp.com`
+	b. In the **Identifier** textbox, type a URL: `https://auth.quickhelp.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact your organization’s QuickHelp administrator or your BrainStorm Client Success Manager to get these values.
+	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact your organization’s QuickHelp administrator or your BrainStorm Client Success Manager to get the value.
  
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
