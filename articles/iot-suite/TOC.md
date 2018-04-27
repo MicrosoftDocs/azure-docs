@@ -65,6 +65,7 @@
 ### [Understand the device model behavior](iot-suite-remote-monitoring-device-behavior.md)
 ### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
+### [Customize and redeploy a microsoervice](iot-suite-microservices-example.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
 ### Connect a physical device
