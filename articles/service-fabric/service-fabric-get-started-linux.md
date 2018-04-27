@@ -37,14 +37,14 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
 
 These operating system versions are supported for development.
 
-### Ubuntu 16.04 (`Xenial Xerus`)
+* Ubuntu 16.04 (`Xenial Xerus`)
 
-Make sure that the `apt-transport-https` package is installed.
+    Make sure that the `apt-transport-https` package is installed.
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 
 ## Installation methods
@@ -239,14 +239,14 @@ Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#li
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
 
 
-### Ubuntu
+* Ubuntu
 
     ```bash
     sudo apt-get install openjdk-8-jdk-headless
     sudo apt-get install gradle
     ```
 
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
     ```bash
     sudo yum install java-1.8.0-openjdk-devel
@@ -297,7 +297,7 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 ## Remove the SDK
 To remove the Service Fabric SDKs, run the following commands.
 
-### Ubuntu
+* Ubuntu
 
 ```bash
 sudo apt-get remove servicefabric servicefabicsdkcommon
@@ -307,7 +307,7 @@ sudo apt-get install -f
 ```
 
 
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum remote servicefabric servicefabicsdkcommon
