@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
+ms.date: 04/27/2018
+ms.author: barclayn
 
 ---
 # Azure Disk Encryption FAQ
@@ -31,7 +31,7 @@ Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerS
 
 ## How much does Azure Disk Encryption cost?
 
-There is no charge for encrypting VM disks with Azure Disk Encryption.
+There is no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs refer to the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
