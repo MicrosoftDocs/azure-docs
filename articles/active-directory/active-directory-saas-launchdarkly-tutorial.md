@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![LaunchDarkly Domain and URLs single sign-on information](./media/active-directory-saas-launchdarkly-tutorial/tutorial_launchdarkly_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.launchdarkly.com`
+    In the **Sign-on URL** textbox, type the URL: `https://app.launchdarkly.com`
 
 5. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![LaunchDarkly Configuration](./media/active-directory-saas-launchdarkly-tutorial/configure4.png)
 
-	a. Copy the SAML consumer service URL for your instance and paste it in Reply URL textbox in **LaunchDarkly Domain and URLs** section on Azure portal.
+	a. Copy the **SAML consumer service URL** for your instance and paste it in Reply URL textbox in **LaunchDarkly Domain and URLs** section on Azure portal.
 
 	b. In the **Sign-on URL** textbox, paste the **Single Sign-On Service URL** value, which you have copied from the Azure portal.
 
