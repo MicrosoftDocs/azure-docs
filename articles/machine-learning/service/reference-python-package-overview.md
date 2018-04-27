@@ -34,7 +34,7 @@ With Azure ML Package for Forecasting, you can create and deploy time series for
 Try these next steps for this package:
 + [Download](https://aka.ms/aml-packages/forecasting/download) the package
 + Read the [install docs](https://aka.ms/aml-packages/forecasting)
-+ [Build and deploy a text classification model](how-to-build-deploy-forecast-models.md) with a Jupyter notebook
++ [Build and deploy a forecast model](how-to-build-deploy-forecast-models.md) with a Jupyter notebook
 + Explore the package [reference documentation](https://aka.ms/aml-packages/forecasting)
 
 ## Azure ML Package for Text Analytics
