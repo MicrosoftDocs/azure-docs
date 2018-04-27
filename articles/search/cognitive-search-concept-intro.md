@@ -119,11 +119,6 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 
 + [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
 + [Tutorial: Enriched indexing of Azure blob content](cognitive-search-tutorial-blob.md)
-<<<<<<< HEAD
 + [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
-+ [How to create a skillset or enricmhent pipeline](cognitive-search-defining-skillset.md)
-=======
-+ [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
-+ [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
->>>>>>> a84300bf23c4d7d53bc90458d6bdf5f6a4dd9aca
++ [How to create a skillset or enrichment pipeline](cognitive-search-defining-skillset.md)
 + [How to define a custom interface](cognitive-search-custom-skill-interface.md)
