@@ -11,15 +11,15 @@
   items:
   - name: Blob storage events - Azure CLI
     href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
-  - name: Blob storage events - Azure PowerShell
+  - name: Blob storage events - PowerShell
     href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Custom events - Azure CLI
     href: custom-event-quickstart.md
-  - name: Custom events - Azure PowerShell
+  - name: Custom events - PowerShell
     href: custom-event-quickstart-powershell.md
-  - name: Custom events - Azure portal
+  - name: Custom events - portal
     href: custom-event-quickstart-portal.md
-  - name: Send events to Queue Storage
+  - name: Send events to Queue storage
     href: custom-event-to-queue-storage.md
 - name: Tutorials
   items:
