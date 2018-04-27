@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Built-in policies | Microsoft Docs'
 description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types
 services: active-directory-b2c
 documentationcenter: ''
-author: sama
+author: davidmu1
 manager: mtillman
-editor: PatAltimore
+editor: ''
 
-ms.assetid: 0d453e72-7f70-4aa2-953d-938d2814d5a9
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
-ms.author: sama
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Built-in policies
@@ -60,11 +57,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-For more information about the policy framework, see [this blog post about Azure AD B2C on the Enterprise Mobility and Security Blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
-
 ## Create a sign-up or sign-in policy
 
-This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  It is recommened that you use this policy over a sign-up policy and sign-in policy.  
+This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the **sign-up or sign-in** policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  It is recommended that you use this policy over a **sign-up** policy or a **sign-in** policy.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -87,16 +82,16 @@ This policy handles both consumer sign-up & sign-in experiences with a single co
 ## Frequently asked questions
 
 ### How do I link a sign-up or sign-in policy with a password reset policy?
-When you create a sign-up or sign-in policy (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset policy. 
+When you create a **sign-up or sign-in** policy (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset policy. 
 
 Instead, the error code **`AADB2C90118`** is returned to your app. Your app needs to handle this error code by invoking a specific password reset policy. For more information, see a [sample that demonstrates the approach of linking policies](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### Should I use a sign-up or sign-in policy or a sign-up policy and a sign-in policy?
-We recommend that you use a sign-up or sign-in policy over a sign-up policy and a sign-in policy.  
+We recommend that you use a **sign-up or sign-in** policy over a **sign-up** policy and a **sign-in** policy.  
 
-The sign-up or sign-in policy has more capabilities than the sign-in policy. It also enables you to use page UI customization and has better support for localization. 
+The **sign-up or sign-in** policy has more capabilities than the **sign-in** policy. It also enables you to use page UI customization and has better support for localization. 
 
-The sign-in policy is recommended if you don't need to localize your policies, only need minor customization capabilities for branding, and want password reset built into it.
+The **sign-in** policy is recommended if you don't need to localize your policies, only need minor customization capabilities for branding, and want password reset built into it.
 
 ## Next steps
 * [Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md)

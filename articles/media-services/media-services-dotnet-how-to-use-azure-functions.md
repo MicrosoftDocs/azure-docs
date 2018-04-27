@@ -83,7 +83,7 @@ The function.json file defines the function bindings and other configuration set
 
 Replace the contents of the existing function.json file with the following code:
 
-```
+```json
 {
   "bindings": [
     {
@@ -104,7 +104,7 @@ The project.json file contains dependencies. Here is an example of **project.jso
 
 Add the following definition to project.json. 
 
-```
+```json
 {
   "frameworks": {
     "net46":{
@@ -133,7 +133,7 @@ In the real life scenario, you most likely want to track job progress and then p
 
 Replace the contents of the existing run.csx file with the following code: Once you are done defining your function click **Save and Run**.
 
-```
+```csharp
 #r "Microsoft.WindowsAzure.Storage"
 #r "Newtonsoft.Json"
 #r "System.Web"
@@ -324,7 +324,7 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 }
 ```
 
-##Test your function
+## Test your function
 
 To test your function, you need to upload an MP4 file into the **input** container of the storage account that you specified in the connection string.  
 

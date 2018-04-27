@@ -7,9 +7,8 @@ manager: johammer
 ms.custom: security
 ms.service: sql-database
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: mireks
-ms.workload: "Inactive"
 ---
 
 

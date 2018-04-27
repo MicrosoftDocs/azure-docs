@@ -51,7 +51,7 @@ After you sign up, the Office 365 subscription is added to the same Azure Active
 
 ## <a id="RoleInAzureAD"></a>Check my account permissions in Azure AD
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Click **More services**, and then search for **Active Directory**.
+2. Click **All services**, and then search for **Active Directory**.
 
     ![Screenshot of Active Directory in the Azure portal](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. Click **Users and groups** > **All users**.

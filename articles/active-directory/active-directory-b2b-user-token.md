@@ -3,7 +3,7 @@ title: Understand user tokens in Azure AD B2B collaboration | Microsoft Docs
 description: User token reference for Azure Active Directory B2B collaboration
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,14 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 
 
 # Understand user tokens in Azure AD B2B collaboration
 
-If you want to know what the token looks like for a B2B collaboration user, here are the bearer token details and token content for an Azure Active Directory (Azure AD) guest and a Microsoft account guest in the resource tenant (for tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). To see the JSON Web Token (JWT) contents, use [https://jwt.io/](https://jwt.io/) or [http://calebb.net](http://calebb.net/).
+If you want to know what the token looks like for a B2B collaboration user, here are the bearer token details and token content for an Azure Active Directory (Azure AD) guest and a Microsoft account guest in the resource tenant (for tenantid 04dcc6ab-388a-4559-b527-fbec656300ea). To see the JSON Web Token (JWT) contents, use [https://jwt.io/](https://jwt.io/) or [https://jwt.ms/](https://jwt.ms/).
 
 ## Azure AD guest token
 ```

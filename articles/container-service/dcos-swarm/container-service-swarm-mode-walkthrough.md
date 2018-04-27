@@ -7,14 +7,14 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom:
 ---
 
 # Deploy Docker CE cluster
 
-In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Docker CE cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 Docker CE on Azure Container Service is in preview and **should not be used for production workloads**.
 

@@ -4,10 +4,9 @@ description: Shows how to use the Bing Video Search API to search the web for vi
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 4A76718B-E32C-419F-98DF-19E877643378
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi

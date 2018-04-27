@@ -1,4 +1,4 @@
----
+﻿---
 title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft Docs
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 
 ---
@@ -30,9 +30,6 @@ This article is a condensed version of the steps that are described in the [Inst
 ## Set up PowerShell for Azure Active Directory-based deployments
 
 Sign in to your Azure Stack Development Kit, or a Windows-based external client if you are connected through VPN. Open an elevated PowerShell ISE session, and then run the following script. Make sure to update the **TenantName**, **ArmEndpoint**, and **GraphAudience** variables as necessary for your environment configuration:
-
-> [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the [migration guide](https://aka.ms/azspowershellmigration).
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -66,7 +63,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -82,10 +79,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
-
 # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -97,7 +90,7 @@ $KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Login-AzureRmAccount `
+  Connect-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID 
 ```
@@ -136,6 +129,7 @@ Install-Module `
 
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -151,9 +145,6 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-# For Azure Stack development kit, this value is adminvault.local.azurestack.external 
-$KeyvaultDnsSuffix = "<Keyvault DNS suffix for your environment>"
-
 # Register an AzureRM environment that targets your Azure Stack instance
 Add-AzureRMEnvironment `
     -Name "AzureStackAdmin" `
@@ -165,7 +156,7 @@ $TenantID = Get-AzsDirectoryTenantId `
     -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Login-AzureRmAccount `
+Connect-AzureRmAccount `
     -EnvironmentName "AzureStackAdmin" `
     -TenantId $TenantID
 ```
@@ -178,6 +169,9 @@ Now that you’ve configured PowerShell, you can test the configuration by creat
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> To specify a resource group, you will need to have a resource group in your subscription. For more information about subscriptions, see [Plan, offer, quota, and subscription overview](azure-stack-plan-offer-quota-overview.md)
+
 After the resource group is created, the **Provisioning state** property is set to **Succeeded**.
 
 ## Next steps
@@ -185,10 +179,3 @@ After the resource group is created, the **Provisioning state** property is set 
 * [Install and configure CLI](azure-stack-connect-cli.md)
 
 * [Develop templates](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

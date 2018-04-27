@@ -1,7 +1,7 @@
 ---
 
-title: FedRAMP Azure Blueprint Automation - Planning
-description: Web Applications for FedRAMP - Planning
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation - Planning
+description: FedRAMP Web Applications Automation - Planning
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---

@@ -1,4 +1,4 @@
----
+﻿---
 title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,visual-studio-online
@@ -63,7 +63,7 @@ There are a couple of rules to follow to organize your Azure Resource Manager te
 The following steps guide you through adding a repository to your lab using the Azure portal. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's **Overview** pane, select **Configuration and Policies**.
 
@@ -93,14 +93,14 @@ The next section will walk you through creating environments from an Azure Resou
 Once an Azure Resource Manager template repository has been configured in the lab, your lab users can create an environment using Azure portal with the following steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **More Services**, and then select **DevTest Labs** from the list.
+1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab.   
 1. On the lab's pane, select **Add+**.
 1. The **Choose a base** pane displays the base images you can use with the Azure Resource Manager templates listed first. Select the desired Azure Resource Manager template.
 
 	![Choose a base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
 	![Add pane](./media/devtest-lab-create-environment-from-arm/add.png)
 

@@ -3,9 +3,9 @@ title: Data Factory - .NET API Change Log | Microsoft Docs
 description: Describes breaking changes, feature additions, bug fixes etc... in a specific version of .NET API for the Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+editor: 
 
 ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---

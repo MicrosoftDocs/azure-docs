@@ -124,7 +124,46 @@ and select **Liquid - Transform JSON to JSON**.
 Post JSON input to your logic app from [Postman](https://www.getpostman.com/postman) or a similar tool. 
 The transformed JSON output from your logic app looks like this example:
   
-![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output.png)
+![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
+
+## More Liquid action examples
+Liquid is not limited to only JSON transformations. Here are other available transformation actions that use Liquid.
+
+* Transform JSON to text
+  
+  Here is the Liquid template used for this example:
+   
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+   Here are sample input and output:
+  
+   ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+* Transform XML to JSON
+  
+  Here is the Liquid template used for this example:
+   
+   ``` json
+   [{% JSONArrayFor item in content -%}
+        {{item}}
+    {% endJSONArrayFor -%}]
+   ```
+   Here are sample input and output:
+
+   ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+* Transform XML to text
+  
+  Here is the Liquid template used for this example:
+
+   ``` json
+   {{content.firstName | Append: ' ' | Append: content.lastName}}
+   ```
+
+   Here are sample input and output:
+
+   ![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## Next steps
 

@@ -1,6 +1,5 @@
 
 - name: Custom Vision Documentation
-  href: ../index.md
 - name: Overview
   href: home.md
 - name: Quickstarts
@@ -28,6 +27,8 @@
     href: https://go.microsoft.com/fwlink/?linkid=865445
   - name: Custom Vision Training API Reference  
     href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: Limits and quotas
+    href: limits-and-quotas.md
   - name: Glossary
     href: glossary-of-terms.md
   - name: SDK

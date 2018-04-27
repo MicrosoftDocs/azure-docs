@@ -8,12 +8,13 @@ manager: timlt
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
+
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/5/2018
+ms.date: 2/23/2018
 ms.author: subramar
 
 ---
@@ -25,18 +26,30 @@ ms.author: subramar
 >
 >  
 
-To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development.
+To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core development. 
+
+The steps in this article assume that you are installing natively on Linux or are using the Service Fabric OneBox container image, `microsoft/service-fabric-onebox`. 
+
+Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is not supported. However, the Azure Service Fabric command-line interface (CLI), which enables you to manage Service Fabric entities hosted elsewhere in the cloud or on-premises, is supported. For information about how to install the CLI, see [Set up the Service Fabric CLI](./service-fabric-cli.md).
+
 
 ## Prerequisites
 
-The following operating system versions are supported for development:
+* The following operating system versions are supported for development:
 
-* Ubuntu 16.04 (`Xenial Xerus`)
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+    * Ubuntu 16.04 (`Xenial Xerus`)
+
+      * Ensure that the `apt-transport-https` package is installed:
+         
+         ```bash
+         sudo apt-get install apt-transport-https
+         ```
+    * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+
 
 ## Installation Methods
 
-### 1. Script installation
+### 1. Script installation (Ubuntu)
 
 A script is provided for convenience for installing the Service Fabric runtime and the Service Fabric common SDK along with **sfctl** CLI. Run the manual installation steps in the next section to determine what is being installed and the licenses that are being agreed to. Running the script assumes you agree to the licenses for all the software that is being installed. 
 
@@ -103,23 +116,29 @@ To install the SDK and the associated runtime package via the apt-get command-li
     wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
     sudo yum install epel-release-latest-7.noarch.rpm
     ```
-
-3. Install restricted shell(rssh)
-
-    ```bash
-    sudo yum --enablerepo=epel-testing install rssh
-    ```
-
-4. Add EfficiOS RHEL7 package repository to your system.
+3. Add EfficiOS RHEL7 package repository to your system.
 
     ```bash
-    wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
+    sudo wget -P /etc/yum.repos.d/ https://packages.efficios.com/repo.files/EfficiOS-RHEL7-x86-64.repo
     ```
 
-5. Import the efficios package signing key to the local GPG keyring
+4. Import the efficios package signing key to the local GPG keyring.
 
     ```bash
     sudo rpmkeys --import https://packages.efficios.com/rhel/repo.key
+    ```
+
+5. Add Microsoft RHEL repository to your system.
+
+    ```bash
+    curl https://packages.microsoft.com/config/rhel/7.4/prod.repo > ./microsoft-prod.repo
+    sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
+    ```
+
+6. Install dotnet sdk.
+
+    ```bash
+    yum install rh-dotnet20 -y
     ```
 
 ## Install and set up the Service Fabric SDK for local cluster setup
@@ -139,12 +158,18 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
-
 ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 ```bash
 sudo yum install servicefabricsdkcommon
 ```
+
+The Service Fabric runtime which comes with the above installation includes the packages in the table below. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Implicit from npm | latest |
+RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
   Once the installation completes, you should be able to start a local cluster.
@@ -155,7 +180,7 @@ sudo yum install servicefabricsdkcommon
       sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
       ```
 
-  2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer). If the cluster has started, you should see the Service Fabric Explorer dashboard.
+  2. Open a web browser and go to [Service Fabric Explorer](http://localhost:19080/Explorer) (`http://localhost:19080/Explorer`). If the cluster has started, you should see the Service Fabric Explorer dashboard. It may take several minutes for the cluster to completely set up. If your browser fails to open the URL or if Service Fabric Explorer does not show the system ready, wait a few minutes and try again.
 
       ![Service Fabric Explorer on Linux][sfx-linux]
 
@@ -187,6 +212,7 @@ Ubuntu
   sudo apt-get install npm
   sudo apt install nodejs-legacy
   ```
+
 Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
   ```bash
   sudo yum install nodejs
@@ -208,11 +234,12 @@ After you have installed the generators, you should be able to create guest exec
 
 ## Set up .NET Core 2.0 development
 
-Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu)/[.NET Core 2.0 SDK for RedHat](https://www.microsoft.com/net/learn/get-started/linuxredhat) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
+Install the [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core 2.0 Service Fabric applications are hosted on NuGet.org, currently in preview.
 
 ## Set up Java development
 
 To build Service Fabric services using Java, install JDK 1.8 and Gradle to run build tasks. The following snippet installs Open JDK 1.8 along with Gradle. The Service Fabric Java libraries are pulled from Maven.
+
 
 Ubuntu 
  ```bash
@@ -226,12 +253,17 @@ Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
   curl -s https://get.sdkman.io | bash
   sdk install gradle
   ```
+ 
+## Install the Eclipse plug-in (optional)
 
-## Install the Eclipse Neon plug-in (optional)
+You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers or Java EE Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
 
-You can install the Eclipse plug-in for Service Fabric from within the Eclipse IDE for Java Developers. You can use Eclipse to create Service Fabric guest executable applications and container applications in addition to Service Fabric Java applications.
+> [!IMPORTANT]
+> The  Service Fabric plug-in requires Eclipse Neon or a later version. See the instructions that follow this note for how to check your version of Eclipse. If you have an earlier version of Eclipse installed, you can download more recent versions from the [Eclipse site](https://www.eclipse.org). It is not recommended that you install on top of (overwrite) an existing installation of Eclipse. You can either remove it before running the installer or install the newer version in a different directory. 
+> 
+> On Ubuntu, we recommend installing directly from the Eclipse site rather than using a package installer (`apt` or `apt-get`). Doing so ensures that you get the most current version of Eclipse. You can install the Eclipse IDE for Java Developers or for Java EE Developers.
 
-1. In Eclipse, ensure that you have latest Eclipse Neon and the latest Buildship version (1.0.17 or later) installed. You can check the versions of installed components by selecting **Help** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
+1. In Eclipse, make sure that you have installed Eclipse Neon or later and Buildship version 2.2.1 or later. You can check the versions of installed components by selecting **Help** > **About Eclipse** > **Installation Details**. You can update Buildship by using the instructions at [Eclipse Buildship: Eclipse Plug-ins for Gradle][buildship-update].
 
 2. To install the Service Fabric plug-in, select **Help** > **Install New Software**.
 
@@ -245,7 +277,7 @@ You can install the Eclipse plug-in for Service Fabric from within the Eclipse I
 
 6. Complete the installation steps, and then accept the end-user license agreement.
 
-If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version. You can check by selecting **Help** > **Installation Details** and then searching for Service Fabric in the list of installed plug-ins. If a newer version is available, select **Update**.
+If you already have the Service Fabric Eclipse plug-in installed, make sure that you have the latest version. You can check by selecting **Help** > **About Eclipse** > **Installation Details** and then searching for Service Fabric in the list of installed plug-ins. If a newer version is available, select **Update**.
 
 For more information, see [Service Fabric plug-in for Eclipse Java application development](service-fabric-get-started-eclipse.md).
 
@@ -253,20 +285,10 @@ For more information, see [Service Fabric plug-in for Eclipse Java application d
 
 To update to the latest version of the SDK and runtime, run the following commands:
 
-### Ubuntu
-
 ```bash
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-
-
-### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
-
-```bash
-sudo yum update servicefabric servicefabricsdkcommon
-```
-
 To update the Java SDK binaries from Maven, you need to update the version details of the corresponding binary in the ``build.gradle`` file to point to the latest version. To know exactly where you need to update the version, you can refer to any ``build.gradle`` file in Service Fabric getting-started samples [here](https://github.com/Azure-Samples/service-fabric-java-getting-started).
 
 > [!NOTE]
@@ -302,6 +324,7 @@ sudo npm uninstall generator-azuresfguest
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * [Use the Service Fabric CLI to manage your applications](service-fabric-application-lifecycle-sfctl.md)
 * [Service Fabric Windows/Linux differences](service-fabric-linux-windows-differences.md)
+* [Automate operating system patching on your Linux cluster](service-fabric-patch-orchestration-application-linux.md)
 * [Get started with Service Fabric CLI](service-fabric-cli.md)
 
 <!-- Links -->

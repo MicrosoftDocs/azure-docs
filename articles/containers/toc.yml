@@ -51,12 +51,12 @@
           href: https://docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview
         - name: How To
           items:
-            - name: Create Docker host
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/dockerextension
-            - name: Use Docker Machine
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/docker-machine
-            - name: Use Docker Compose
-              href: https://docs.microsoft.com/azure/virtual-machines/linux/docker-compose-quickstart
+            - name: Create a container application on Windows
+              href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers
+            - name: Create a container application on Linux
+              href: https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers-linux
+            - name: Containerize an existing .NET application
+              href: https://docs.microsoft.com/azure/service-fabric/service-fabric-host-app-in-a-container
     - name: Windows Containers
       href: https://docs.microsoft.com/azure/virtual-machines/windows/overview
       items:

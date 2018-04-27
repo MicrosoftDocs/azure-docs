@@ -1,11 +1,11 @@
----
+﻿---
 title: Copy data in Blob Storage using Azure Data Factory | Microsoft Docs
-description: Create an Azure data factory to copy data from one folder to another folder in an Azure Blob Storage to another location in the same Blob Storage.
+description: Create an Azure data factory to copy data from one location in Azure Blob storage to another location.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -39,7 +39,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 2. Run the following command, and enter the same Azure user name and password that you use to sign in to the Azure portal:
        
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```        
 3. Run the following command to view all the subscriptions for this account:
 

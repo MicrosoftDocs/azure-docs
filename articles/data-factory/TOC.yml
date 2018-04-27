@@ -28,9 +28,9 @@
   - name: 1 - Deploy SSIS packages to Azure
     items:
     - name: User interface (UI)
-      href: tutorial-create-azure-ssis-runtime-portal.md
+      href: tutorial-deploy-ssis-packages-azure.md
     - name: Azure PowerShell
-      href: tutorial-deploy-ssis-packages-azure.md    
+      href: tutorial-deploy-ssis-packages-azure-powershell.md    
   - name: 2 - Copy data in cloud
     items:
     - name: Copy Data tool
@@ -75,11 +75,17 @@
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
   - name: 6 - Transform data in cloud
-    items: 
-    - name: User interface (UI)
-      href: tutorial-transform-data-spark-portal.md   
-    - name: Azure PowerShell
-      href: tutorial-transform-data-spark-powershell.md
+    items:
+    - name: HDInsight Spark
+      items: 
+      - name: User interface (UI)
+        href: tutorial-transform-data-spark-portal.md   
+      - name: Azure PowerShell
+        href: tutorial-transform-data-spark-powershell.md
+    - name: Databricks Notebook
+      items:
+      - name: User interface (UI)
+        href: transform-data-using-databricks-notebook.md
   - name: 7 - Transform data in virtual network
     items: 
     - name: User interface (UI)
@@ -110,8 +116,14 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Visually author data factories
-    href: author-visually.md
+  - name: Author
+    items:
+    - name: Visually author data factories
+      href: author-visually.md
+    - name: Continuous integration and deployment
+      href: continuous-integration-deployment.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
   - name: Copy data
     items:
     - name: Copy data using Copy Activity
@@ -155,6 +167,8 @@
         href: connector-azure-table-storage.md
       - name: Cassandra
         href: connector-cassandra.md
+      - name: Common Data Service for Apps
+        href: connector-dynamics-crm-office-365.md
       - name: Concur
         href: connector-concur.md
       - name: Couchbase
@@ -205,6 +219,8 @@
         href: connector-mongodb.md
       - name: MySQL
         href: connector-mysql.md
+      - name: Netezza
+        href: connector-netezza.md
       - name: OData
         href: connector-odata.md
       - name: ODBC
@@ -231,6 +247,8 @@
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
         href: connector-sap-cloud-for-customer.md
+      - name: SAP ECC
+        href: connector-sap-ecc.md
       - name: SAP HANA
         href: connector-sap-hana.md
       - name: ServiceNow
@@ -249,6 +267,8 @@
         href: connector-sybase.md
       - name: Teradata
         href: connector-teradata.md
+      - name: Vertica
+        href: connector-vertica.md
       - name: Web Table
         href: connector-web-table.md
       - name: Xero
@@ -284,6 +304,8 @@
       href: transform-data-using-stored-procedure.md
     - name: Data Lake U-SQL Activity
       href: transform-data-using-data-lake-analytics.md
+    - name: Databricks Notebook Activity
+      href: transform-data-databricks-notebook.md
     - name: Custom activity
       href: transform-data-using-dotnet-custom-activity.md
     - name: Compute linked services
@@ -342,16 +364,24 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Custom setup for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Manage Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Configure performance settings of Azure-SSIS integration runtime
       href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Invoke SSIS packages using stored procedure activity
+    - name: Run SSIS packages using SSIS activity
+      href: how-to-invoke-ssis-package-ssis-activity.md
+    - name: Run SSIS packages using stored procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Develop licensed components for Azure-SSIS integration runtime
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

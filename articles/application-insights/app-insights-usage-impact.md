@@ -40,7 +40,7 @@ To begin answering questions with the Impact tool, choose an initial page view, 
 ![Impact tool](./media/app-insights-usage-impact/0002-dropdown.png)
 
 1. Select a page view from the **For the page view** dropdown.
-2. Leave the **analyze how its** dropdown on the default selection of **Duration**
+2. Leave the **analyze how its** dropdown on the default selection of **Duration** (In this context **Duration** is an alias for **Page Load Time**.)
 3. For the **impacts the usage of** dropdown, select a custom event. This event should correspond to a UI element on the page view you selected in step 1.
 
 ![Screenshot of results](./media/app-insights-usage-impact/0003-results.png)
@@ -63,7 +63,7 @@ In this case, the results no longer fit into a continuous x-axis model as they d
 
 ## How does the Impact tool calculate these conversion rates?
 
-Under the hood, the Impact tool relies on the [Pearson correlation coefficient] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a postive correlation.
+Under the hood, the Impact tool relies on the [Pearson correlation coefficient] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Results are computed between -1 and 1 with -1 representing zero correlation and 1 representing a positive correlation.
 
 The basic breakdown of how Impact Analysis works is as follows:
 

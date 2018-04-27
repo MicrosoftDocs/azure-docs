@@ -1,21 +1,13 @@
 ---
 title: Connect to Azure Analysis Services with Excel | Microsoft Docs
 description: Learn how to connect to an Azure Analysis Services server by using Excel.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 11/01/2017
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 # Connect with Excel
@@ -32,6 +24,9 @@ Connecting to a server in Excel is supported by using Get Data in Excel 2016. Co
 1. In Excel 2016, on the **Data** ribbon, click **Get External Data** > **From Other Sources** > **From Analysis Services**.
 
 2. In the Data Connection Wizard, in **Server name**, enter the server name including protocol and URI. Then, in **Logon credentials**, select **Use the following User Name and Password**, and then type the organizational user name, for example nancy@adventureworks.com, and password.
+
+    > [!NOTE]
+    > If you sign in with a Microsoft Account, Live ID, Yahoo, Gmail, etc., or you are required to sign in with multi-factor authentication, leave the password field blank. You are prompted for a password after clicking Next.
 
     ![Connect from Excel logon](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

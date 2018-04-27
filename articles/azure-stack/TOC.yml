@@ -6,16 +6,14 @@
     href: azure-stack-poc.md
   - name: Release notes
     items:
-    - name: Development kit release notes
-      href: azure-stack-asdk-release-notes.md
-    - name: Integrated systems release notes
-      items:
-      - name: 1712 update
-        href: azure-stack-update-1712.md
-      - name: 1711 update
-        href: azure-stack-update-1711.md
-      - name: 1710 update
-        href: azure-stack-update-1710.md
+    - name: 1803 update
+      href: azure-stack-update-1803.md
+    - name: 1802 update 
+      href: azure-stack-update-1802.md 
+    - name: 1712 update
+      href: azure-stack-update-1712.md
+    - name: 1711 update
+      href: azure-stack-update-1711.md
 - name: Quickstarts
   expanded: true
   items:
@@ -57,12 +55,14 @@
     - name: Azure Stack deployment PKI requirements
       href: azure-stack-pki-certs.md
       items:
-      - name: Get PKI certificates for Azure Stack deployment
+      - name: Generate PKI certificates
         href: azure-stack-get-pki-certs.md
+      - name: Prepare Azure Stack PKI certificates
+        href: azure-stack-prepare-pki-certs.md
+      - name: Validate PKI certificates
+        href: azure-stack-validate-pki-certs.md
     - name: Identity integration
       href: azure-stack-integrate-identity.md
-    - name: Register Azure Stack
-      href: azure-stack-registration.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -71,30 +71,14 @@
     href: azure-stack-servicing-policy.md
   - name: Key features and concepts
     href: azure-stack-key-features.md
-  - name: Development kit architecture
-    href: azure-stack-architecture.md
   - name: Administration basics
     href: azure-stack-manage-basics.md
 - name: How-to guides
   items:
-  - name: Deploy the ASDK
-    items:
-    - name: Prerequisites
-      href: azure-stack-deploy.md
-    - name: Telemetry
-      href: azure-stack-telemetry.md
-    - name: Deploy
-      href: azure-stack-run-powershell-script.md
-    - name: Install PowerShell
-      href: azure-stack-powershell-install.md
-    - name: Register
-      href: azure-stack-register.md
-    - name: Connect to Azure Stack
-      href: azure-stack-connect-azure-stack.md
-    - name: Add default image
-      href: azure-stack-add-default-image.md
-    - name: Create a test VM
-      href: azure-stack-provision-vm.md
+  - name: Configure telemetry collection
+    href: azure-stack-telemetry.md
+  - name: Register Azure Stack
+    href: azure-stack-registration.md
   - name: Manage
     items:
     - name: Region management
@@ -129,14 +113,18 @@
       href: azure-stack-monitor-health.md
     - name: Manage network resources
       href: azure-stack-viewing-public-ip-address-consumption.md
-    - name: Manage storage resources
-      href: azure-stack-manage-storage-accounts.md
-    - name: Manage storage capacity
-      href: azure-stack-manage-storage-shares.md
     - name: Manage Windows Azure Pack VMs
       href: azure-stack-manage-windows-azure-pack.md
-    - name: Start and stop Azure Stack 
+    - name: Start and stop Azure Stack
       href: azure-stack-start-and-stop.md
+    - name: Manage capacity
+      items:
+        - name: Manage storage resources
+          href: azure-stack-manage-storage-accounts.md
+        - name: Manage storage capacity
+          href: azure-stack-manage-storage-shares.md
+        - name: Manage physical storage capacity for Azure Stack
+          href: azure-stack-manage-storage-physical-memory-capacity.md
     - name: Replace hardware
       items:
       - name: Node actions
@@ -168,6 +156,10 @@
       href: azure-stack-security-foundations.md
     - name: Identity
       items:
+      - name: Identity overview
+        href: azure-stack-identity-overview.md
+      - name: Identity architecture 
+        href: azure-stack-identity-architecture.md
       - name: Manage RBAC
         href: azure-stack-manage-permissions.md
       - name: Add users for Azure AD
@@ -218,14 +210,22 @@
         href: azure-stack-app-service-capacity-planning.md
       - name: Before you get started
         href: azure-stack-app-service-before-you-get-started.md
+      - name: How to redistribute Azure App Service on Azure Stack across fault domains
+        href: azure-stack-app-service-fault-domain-update.md
       - name: Deploy App Service resource provider
         href: azure-stack-app-service-deploy.md
       - name: Deploy App Service offline
         href: azure-stack-app-service-deploy-offline.md
+      - name: Update App Service
+        href: azure-stack-app-service-update.md
+      - name: Update App Service Offline
+        href: azure-stack-app-service-update-offline.md
       - name: Add more web worker roles
         href: azure-stack-app-service-add-worker-roles.md
       - name: Configure deployment sources
         href: azure-stack-app-service-configure-deployment-sources.md
+      - name: App Service on Azure Stack update 1 release notes
+        href: azure-stack-app-service-release-notes-update-one.md
     - name: Populate the marketplace
       items:
       - name: Marketplace overview
@@ -238,7 +238,7 @@
         href: azure-stack-create-and-publish-marketplace-item.md
       - name: Use the marketplace publishing tool
         href: azure-stack-marketplace-publisher.md
-      - name: Supported guest operating systems for Azure Stack 
+      - name: Supported guest operating systems for Azure Stack
         href: azure-stack-supported-os.md
       - name: Add a custom virtual machine image
         href: azure-stack-add-vm-image.md
@@ -250,14 +250,24 @@
       items:
       - name: Overview
         href: azure-stack-billing-and-chargeback.md
-      - name: Usage data reporting
-        href: azure-stack-usage-reporting.md
-      - name: Provider usage API
-        href: azure-stack-provider-resource-api.md
-      - name: Tenant usage API
-        href: azure-stack-tenant-resource-usage-api.md
-      - name: Usage FAQ
-        href: azure-stack-usage-related-faq.md
+      - name: Manage usage and billing as a CSP
+        href: azure-stack-add-manage-billing-as-a-csp.md
+      - name: Add tenants for usage and billing 
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Manage tenant registration
+        href: azure-stack-csp-ref-operations.md
+      - name: Usage and billing reference
+        items:
+        - name: Usage data reporting
+          href: azure-stack-usage-reporting.md
+        - name: Usage reporting infrastructure for Cloud Service Providers
+          href: azure-stack-csp-ref-infrastructure.md
+        - name: Provider usage API
+          href: azure-stack-provider-resource-api.md
+        - name: Tenant usage API
+          href: azure-stack-tenant-resource-usage-api.md
+        - name: Usage FAQ
+          href: azure-stack-usage-related-faq.md
     - name: Connect to Azure
       items:
       - name: Connect using VPN
@@ -276,8 +286,6 @@
       href: azure-stack-diagnostics.md
     - name: Validation for Azure Stack
       href: azure-stack-diagnostic-test.md
-    - name: Redeploy Azure Stack Development Kit
-      href: azure-stack-redeploy.md
 - name: Reference
   items:
   - name: Azure Stack PowerShell
@@ -286,15 +294,19 @@
   items:
   - name: Azure Stack User Documentation
     href: /azure/azure-stack/user/
+  - name: ASDK Documentation
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStack
+  - name: Azure Stack roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Azure Stack Documentation feedback
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
   - name: Pricing information
     href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
-    href: azure-stack-train-and-cert.md
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert

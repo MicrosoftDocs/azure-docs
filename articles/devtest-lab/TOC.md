@@ -1,3 +1,5 @@
+# [Devtest Labs Documentation](index.md)
+
 # Overview
 ## [About Azure DevTest Labs](devtest-lab-overview.md)
 ## [Concepts](devtest-lab-concepts.md)
@@ -84,5 +86,5 @@
 
 
 # Resources
-## [Azure Roadmap](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=developer-tools)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)

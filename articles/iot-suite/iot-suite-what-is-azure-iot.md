@@ -27,5 +27,5 @@ Now that you have learned about the typical IoT Architecture, explore the differ
 To find out more about the individual Azure IoT services, see:
 
 * [What is Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
-* [What is Microsoft IoT Central?](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions)
+* [What is Microsoft IoT Central?](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [What is Azure IoT Hub?](../iot-hub/iot-hub-what-is-iot-hub.md)

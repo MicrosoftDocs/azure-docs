@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
+ms.author: bradsev
 
 ---
 # Scalable Data Science with Azure Data Lake: An end-to-end Walkthrough

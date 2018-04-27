@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Learn how to manage Data Lake Analytics accounts, data sources, jobs, and catalog items. '
 services: data-lake-analytics
@@ -47,16 +47,16 @@ $location = "<Location>"
 Log in using a subscription id.
 
 ```powershell
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 ```
 
 Log in using a subscription name.
 
 ```
-Login-AzureRmAccount -SubscriptionName $subname 
+Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-The `Login-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzureRmAccount` cmdlet  always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
@@ -96,13 +96,13 @@ Get details about an account.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Check the existence of a specific Data Lake Analytics account. The cmdlet returns either `True` or `False`.
+Check the existence of a specific Data Lake Analytics account. The cmdlet returns either `$true` or `$false`.
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-Check the existence of a specific Data Lake Store account. The cmdlet returns either `True` or `False`.
+Check the existence of a specific Data Lake Store account. The cmdlet returns either `$true` or `$false`.
 
 ```powershell
 Test-AdlStoreAccount -Name $adls
@@ -151,8 +151,6 @@ Remove a firewall rule.
 ```powershell
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
-
-
 
 Allow Azure IP addresses.
 
@@ -238,7 +236,6 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-
 ### Submit a file as a U-SQL script
 
 ```powershell
@@ -257,15 +254,13 @@ The output includes the currently running jobs and those jobs that have recently
 Get-AdlJob -Account $adla
 ```
 
+### List the top N jobs
 
-### List a specific number of jobs
-
-By default the list of jobs is sorted on submit time. So the most recently submitted jobs appear first. By default, The ADLA account remembers jobs for 180 days, but the Ge-AdlJob  cmdlet by default returns only the first 500. Use -Top parameter to list a specific number of jobs.
+By default the list of jobs is sorted on submit time. So the most recently submitted jobs appear first. By default, The ADLA account remembers jobs for 180 days, but the Get-AdlJob cmdlet by default returns only the first 500. Use -Top parameter to list a specific number of jobs.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
-
 
 ### List jobs based on the value of job property
 
@@ -307,7 +302,6 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-
 The `-Submitter` parameter helps you identify who submitted a job.
 
 ```powershell
@@ -337,7 +331,6 @@ Use the `Get-AdlJobPipeline` cmdlet to see the pipeline information previously s
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
-
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
@@ -610,7 +603,7 @@ $deploymentName = "MyDataLakeAnalyticsDeployment"
 $armTemplateFile = "<LocalFolderPath>\azuredeploy.json"  # update the JSON template path 
 
 # Log in to Azure
-Login-AzureRmAccount -SubscriptionId $subId
+Connect-AzureRmAccount -SubscriptionId $subId
 
 # Create the resource group
 New-AzureRmResourceGroup -Name $rg -Location $location

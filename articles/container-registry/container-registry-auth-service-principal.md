@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 04/23/2018
 ms.author: marsma
 ---
 
@@ -35,6 +35,13 @@ For individual access to a registry, such as when you manually pull a container 
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
+## Sample scripts
+
+You can find the preceding sample scripts for Azure CLI on GitHub, as well versions for Azure PowerShell:
+
+* [Azure CLI][acr-scripts-cli]
+* [Azure PowerShell][acr-scripts-psh]
+
 ## Next steps
 
 Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction.
@@ -45,6 +52,8 @@ While configuring individual applications to use service principal credentials i
 * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)
 
 <!-- LINKS - External -->
+[acr-scripts-cli]: https://github.com/Azure/azure-docs-cli-python-samples/tree/master/container-registry
+[acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az_acr_login

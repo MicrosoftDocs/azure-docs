@@ -1,17 +1,16 @@
 ---
-title: Create an application gateway with URL path-based routing rules - Azure portal | Microsoft Docs
+title: Create an application gateway with URL path-based routing rules - Azure portal
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
+ms.date: 3/26/2018
+ms.author: victorh
 
 ---
 # Create an application gateway with path-based routing rules using the Azure portal
@@ -118,7 +117,7 @@ In this example, you create three virtual machines to be used as backend servers
 ## Create backend pools with the virtual machines
 
 1. Click **All resources** and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add *myVM1* to appGatewayBackendPool.
 
     ![Add backend servers](./media/application-gateway-create-url-route-portal/application-gateway-backend.png)
@@ -156,7 +155,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+3. Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

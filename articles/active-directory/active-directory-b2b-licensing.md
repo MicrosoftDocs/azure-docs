@@ -3,7 +3,7 @@ title: Azure Active Directory B2B collaboration licensing guidance | Microsoft D
 description: Azure Active Directory B2B collaboration does not require paid Azure AD licenses, but you can also get paid features for B2B guest users
 services: active-directory
 documentationcenter: ''
-author: sasubram
+author: twooley
 manager: mtillman
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 08/09/2017
-ms.author: curtand
+ms.author: twooley
 ms.reviewer: sasubram
 ms.custom: it-pro
 

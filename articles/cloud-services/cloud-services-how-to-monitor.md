@@ -73,7 +73,7 @@ In the **ServiceDefinition.csdef** file, add a new setting named `Microsoft.Wind
 
 This defines a new setting that must be added to every **ServiceConfiguration.cscfg** file. 
 
-Most likely you have two **.cscfg** files, one named **ServiceConfiguration.cloud.cscfg** for deploying to Azure, and one named **ServiceConfiguration.local.cscfg** that is used for local deployments in the emulated environment. Open and change each **.cscfg** file. Add a setting named `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Set the value to either the **Primary connection string** of the classic storage account. If you want to use the local storage on your development machine, use `UseDevelopmentStorage=true`.
+Most likely you have two **.cscfg** files, one named **ServiceConfiguration.cloud.cscfg** for deploying to Azure, and one named **ServiceConfiguration.local.cscfg** that is used for local deployments in the emulated environment. Open and change each **.cscfg** file. Add a setting named `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`. Set the value to the **Primary connection string** of the classic storage account. If you want to use the local storage on your development machine, use `UseDevelopmentStorage=true`.
 
 ```xml
 <ServiceConfiguration serviceName="AnsurCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">

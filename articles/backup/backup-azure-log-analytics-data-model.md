@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 # Log Analytics data model for Azure Backup data
-This article describes the data model used for pushing reporting data to Log Analytics. Using this data model, you can create custom queries, dashboards, and utilize it in OMS. 
+This article describes the data model used for pushing reporting data to Log Analytics. Using this data model, you can create custom queries, dashboards, and utilize it in Log Analytics. 
 
 ## Using Azure Backup data model
 You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard as per your requirements.
@@ -283,4 +283,4 @@ This table provides details about vault-related fields.
 | ResourceType |Text |This field represents type of the resource for which data is being collected - Vaults |
 
 ## Next steps
-Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics and OMS.
+Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics.

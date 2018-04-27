@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
+ms.date: 02/09/2018
 ms.author: yurid
 
 ---
@@ -32,7 +32,7 @@ Follow these steps to create a new security playbook from Security Center:
 1.	Open **Security Center** dashboard.
 2.	Under **Automation & Orchestration** section in the left pane, click **Playbooks (Preview)**.
 
-	![Logic App](./media/security-center-playbooks/security-center-playbooks-fig1.png)
+	![Logic App](./media/security-center-playbooks/security-center-playbooks-fig17.png)
  
 3. In the **Security Center - Playbooks (Preview)** page, click **Add** button.
 
@@ -42,7 +42,7 @@ Follow these steps to create a new security playbook from Security Center:
 
 	![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
-5. The **Logic App Designer** appears. Click **Blank Logic App **to create a new playbook. You can also select **Security** under the categories and use one of the templates.
+5. The **Logic App Designer** appears. Click **Blank Logic App** to create a new playbook. You can also select **Security** under the categories and use one of the templates.
  	
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 

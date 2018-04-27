@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/09/2017
+ms.date: 02/12/2018
 ms.author: tdykstra
 ---
 
@@ -111,7 +111,7 @@ Specifies how many function invocations are aggregated when [calculating metrics
 }
 ```
 
-|Property  |Default | Description |
+|Property |Default  | Description |
 |---------|---------|---------| 
 |batchSize|1000|Maximum number of requests to aggregate.| 
 |flushTimeout|00:00:30|Maximum time period to aggregate.| 
@@ -135,7 +135,7 @@ Controls the [sampling feature in Application Insights](functions-monitoring.md#
 
 |Property  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|false|Enables or disables sampling.| 
+|isEnabled|true|Enables or disables sampling.| 
 |maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
 
 ## eventHub
@@ -198,6 +198,9 @@ Configuration settings for [http triggers and bindings](functions-bindings-http-
 
 The unique ID for a job host. Can be a lower case GUID with dashes removed. Required when running locally. When running in Azure Functions, an ID is generated automatically if `id` is omitted.
 
+If you share a Storage account across multiple function apps, make sure that each function app has a different `id`. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+
+
 ```json
 {
     "id": "9f4ea53c5136457d883d685e57164f08"
@@ -233,25 +236,7 @@ Controls filtering for logs written by an [ILogger object](functions-monitoring.
 
 Configuration settings for [Storage queue triggers and bindings](functions-bindings-storage-queue.md).
 
-```json
-{
-    "queues": {
-      "maxPollingInterval": 2000,
-      "visibilityTimeout" : "00:00:30",
-      "batchSize": 16,
-      "maxDequeueCount": 5,
-      "newBatchThreshold": 8
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|maxPollingInterval|60000|The maximum interval in milliseconds between queue polls.| 
-|visibilityTimeout|0|The time interval between retries when processing of a message fails.| 
-|batchSize|16|The number of queue messages to retrieve and process in parallel. The maximum is 32.| 
-|maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.| 
-|newBatchThreshold|batchSize/2|The threshold at which a new batch of messages are fetched.| 
+[!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## serviceBus
 
@@ -264,6 +249,7 @@ Configuration setting for [Service Bus triggers and bindings](functions-bindings
 Configuration settings for Singleton lock behavior. For more information, see [GitHub issue about singleton support](https://github.com/Azure/azure-webjobs-sdk-script/issues/912).
 
 ```json
+{
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",

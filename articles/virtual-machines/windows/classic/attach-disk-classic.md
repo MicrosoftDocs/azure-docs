@@ -4,7 +4,7 @@ description: Attach a data disk to a Windows virtual machine created with the cl
 services: virtual-machines-windows, storage
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

@@ -4,7 +4,7 @@ description: Create a Linux cluster of size H16r, H16mr, A8, or A9 VMs to use th
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

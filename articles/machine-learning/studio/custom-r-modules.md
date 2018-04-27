@@ -3,8 +3,9 @@ title: Author Custom R Modules in Azure Machine Learning | Microsoft Docs
 description: Quick start for authoring custom R modules in Azure Machine Learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
-manager: cgronlun
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
@@ -14,7 +15,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.author: bradsev;ankarlof;garye
 
 ---
 # Author custom R modules in Azure Machine Learning

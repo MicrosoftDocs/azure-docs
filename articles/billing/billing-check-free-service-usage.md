@@ -25,7 +25,7 @@ You are not charged for services included for free with Azure free account, unle
 
 1.	Log in to the [Azure portal]( http://portal.azure.com).
 
-2.	From bottom of left navigation, select **More services**.
+2.	From left navigation area, select **All services**.
 
 3.	Select **Subscriptions**.
 

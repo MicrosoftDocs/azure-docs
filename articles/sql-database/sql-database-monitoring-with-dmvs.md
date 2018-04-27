@@ -2,20 +2,12 @@
 title: Monitoring Azure SQL Database Using Dynamic Management Views | Microsoft Docs
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-tags: ''
-
-ms.assetid: d08f505f-3c62-47d4-bab7-35c9a834b79b
+manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---

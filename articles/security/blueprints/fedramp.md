@@ -1,7 +1,7 @@
 ---
 
-title: Azure Blueprint Automation - Web Applications for FedRAMP
-description: Azure Blueprint Automation - Web Applications for FedRAMP
+title: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation
+description: Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 02/08/2018
 ms.author: jomolesk
 
 ---
 
-# Azure Blueprint Automation - Web Applications for FedRAMP
+# Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation
 
 ## Overview
 
-The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov), is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Blueprint Automation - Web Applications for FedRAMP provides guidance for the deployment of a FedRAMP-compliant infrastructure as a Service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP High requirements and this solution, see [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md). ***Note: This solution deploys to Azure Government.***
+The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov), is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a FedRAMP-compliant infrastructure as a Service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP High requirements and this solution, see [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md). ***Note: This solution deploys to Azure Government.***
 
 This architecture is intended to serve as a foundation for customers to adjust to their specific requirements and should not be used as-is in a production environment. Deploying an application into this environment without modification is not sufficient to completely meet the requirements of the FedRAMP High baseline. Please note the following:
 - This architecture provides a baseline to help customers use Azure in a FedRAMP-compliant manner.
@@ -35,13 +35,13 @@ Click [here](https://aka.ms/fedrampblueprintrepo) for deployment instructions.
 
 ## Solution components
 
-This Azure Blueprint Automation automatically deploys an IaaS web application reference architecture with pre-configured security controls to help customers achieve compliance with FedRAMP requirements. The solution consists of Azure Resource Manager templates and PowerShell scripts that guide resource deployment and configuration. Accompanying Azure Blueprint [compliance documentation](#compliance-documentation) is provided, indicating security control inheritance from Azure and the deployed resources and configurations that align with NIST SP 800-53 security controls, thereby enabling organizations to fast-track compliance obligations.
+This Azure Security and Compliance Blueprint Automation automatically deploys an IaaS web application reference architecture with pre-configured security controls to help customers achieve compliance with FedRAMP requirements. The solution consists of Azure Resource Manager templates and PowerShell scripts that guide resource deployment and configuration. Accompanying [compliance documentation](#compliance-documentation) is provided, indicating security control inheritance from Azure and the deployed resources and configurations that align with NIST SP 800-53 security controls, thereby enabling organizations to fast-track compliance obligations.
 
 ## Architecture diagram
 
 This solution deploys a reference architecture for an IaaS web application with a database backend. The architecture includes a web tier, data tier, Active Directory infrastructure, application gateway, and load balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management jumpbox (bastion host) provides a secure connection for administrators to access deployed resources.
 
-![alt text](images/fedramp-architectural-diagram.png?raw=true "IaaS web application Blueprint automation for FedRAMP-compliant environments")
+![alt text](images/fedramp-architectural-diagram.png?raw=true "Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -75,10 +75,9 @@ This solution uses the following Azure services. Details of the deployment archi
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+	- (1) Log Analytics workspace
 * **Azure Automation**
 	- (1) Automation account
-* **Operations Management Suite**
-	- (1) OMS workspace
 
 ## Deployment architecture
 
@@ -135,7 +134,7 @@ Azure Disk Encryption is used to encrypted Windows IaaS virtual machine disks. [
 
 ### Logging and auditing
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) provides extensive logging of system and user activity as well as system health. 
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) provides extensive logging of system and user activity as well as system health. 
 
 - **Activity Logs:**  [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into the operations that were performed on resources in your subscription.
 - **Diagnostic Logs:**  [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are all logs emitted by every resource. These logs include Windows event system logs, Azure storage logs, Key Vault audit logs, and Application Gateway access and firewall logs.
@@ -153,7 +152,7 @@ The solution uses Azure Key Vault to manage keys and secrets.
 The following technologies provide identity management capabilities in the Azure environment.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is Microsoft's multi-tenant cloud-based directory and identity management service.
 - Authentication to a customer-deployed web application can be performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and access to resources can be limited based on user role.
+- [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and access to resources can be limited based on user role.
 - A deployed IaaS Active Directory instance provides identity management at the OS-level for deployed IaaS virtual machines.
    
 ### Compute resources
@@ -181,17 +180,17 @@ A management jumpbox (bastion host) provides a secure connection for administrat
 
 ### Patch management
 
-Windows virtual machines deployed by this Blueprint Automation are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the OMS Azure Automation solution through which Update Deployments can be created to deploy patches to Windows servers when needed.
+Windows virtual machines deployed by this Azure Security and Compliance Blueprint Automation are configured by default to receive automatic updates from Windows Update Service. This solution also deploys the Azure Automation solution through which Update Deployments can be created to deploy patches to Windows servers when needed.
 
 ### Operations management
 
 #### Log analytics
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service in Operations Management Suite (OMS) that enables collection and analysis of data generated by resources in Azure and on-premises environments.
+[Log Analytics](https://azure.microsoft.com/services/log-analytics/) is a service that enables collection and analysis of data generated by resources in Azure and on-premises environments.
 
-#### OMS solutions
+#### Management solutions
 
-The following OMS solutions are pre-installed as part of this solution:
+The following management solutions are pre-installed as part of this solution:
 - [AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)
@@ -210,11 +209,11 @@ The [customer responsibilities matrix](https://aka.ms/blueprinthighcrm) (Excel W
 
 ### Control implementation matrix
 
-The [control implementation matrix](https://aka.ms/blueprintwacim) (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the Blueprint Automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](fedramp-controls-overview.md).
+The [control implementation matrix](https://aka.ms/blueprintwacim) (Excel Workbook) lists all security controls required by the FedRAMP High baseline. The matrix denotes, for each control (or control subpart) that is designated a customer-responsibly in the customer responsibilities matrix, 1) if the blueprint automation implements the control, and 2) a description of how the implementation aligns with the control requirement(s). This content is also available [here](fedramp-controls-overview.md).
 
 ## Deploy the solution
 
-This Azure Blueprint solution is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo). ***Note: This solution deploys to Azure Government.***
+This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo). ***Note: This solution deploys to Azure Government.***
 
 #### Quickstart
 1. Clone or download [this](https://aka.ms/fedrampblueprintrepo) GitHub repository to your local workstation.

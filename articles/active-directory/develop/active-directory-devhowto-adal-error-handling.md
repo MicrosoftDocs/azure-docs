@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 02/27/2017
 ms.custom: 
 ---
 
@@ -475,6 +475,9 @@ We've built a [complete sample](https://github.com/Azure-Samples/active-director
 
 ## Error and logging reference
 
+### Logging Personal Identifiable Information (PII) & Organizational Identifiable Information (OII)
+By default, ADAL logging does not capture or log any PII or OII. The library allows app developers to turn this on through a setter in the Logger class. By turning on PII or OII, the app takes responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+
 ### .NET
 
 #### ADAL library errors
@@ -483,7 +486,7 @@ To explore specific ADAL errors, the source code in the [azure-activedirectory-l
 
 #### Guidance for error logging code
 
-ADAL .NET logging changes depending on the platform being worked on. Refer to the [logging documentation](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet#diagnostics) for code on how to enable logging.
+ADAL .NET logging changes depending on the platform being worked on. Refer to the [Logging wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) for code on how to enable logging.
 
 ### Android
 
@@ -493,14 +496,9 @@ To explore specific ADAL errors, the source code in the [azure-activedirectory-l
 
 #### Operating System errors
 
-Android OS errors are exposed through AuthenticationException in ADAL, are identifiable as "SERVER_INVALID_REQUEST", and can be further granular through the error descriptions. The two prominent messages an app may choose to show UI are:
+Android OS errors are exposed through AuthenticationException in ADAL, are identifiable as "SERVER_INVALID_REQUEST", and can be further granular through the error descriptions. 
 
-- SSL Errors 
-  - [End user is using Chrome 53](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue)
-  - [Cert Chain has a cert marked as extra download (user needs to contact IT Admin)](https://vkbexternal.partners.extranet.microsoft.com/VKBWebService/ViewContent.aspx?scid=KB;EN-US;3203929)
-  - Root CA is not trusted by the device. Contact IT Admin. 
-- Network Related Errors 
-  - [Network issue potentially related to SSL Cert Validation](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki/SSL-Certificate-Validation-Issue), can attempt a single retry
+For a full list of common errors and what steps to take when your app or end users encounter them, refer to the [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### Guidance for error logging code
 
@@ -517,6 +515,15 @@ Logger.getInstance().setExternalLogger(new ILogger() {
 
 // 2. Set the log level
 Logger.getInstance().setLogLevel(Logger.LogLevel.Verbose);
+
+// By default, the `Logger` does not capture any PII or OII
+
+// PII or OII will be logged
+Logger.getInstance().setEnablePII(true);
+
+// To STOP logging PII or OII, use the following setter
+Logger.getInstance().setEnablePII(false);
+
 
 // 3. Send logs to logcat.
 adb logcat > "C:\logmsg\logfile.txt";
