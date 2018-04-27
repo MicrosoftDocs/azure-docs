@@ -158,7 +158,7 @@ To copy data to/from Azure Data Lake Store, set the type property of the dataset
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
 >[!TIP]
->To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter. 
+>- To copy all files under a folder, specify **folderPath** only.<br>- To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>- To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter. 
 
 **Example:**
 

@@ -123,7 +123,7 @@ To copy data from FTP, set the type property of the dataset to **FileShare**. Th
 | useBinaryTransfer | Specify whether to use the binary transfer mode. The values are true for binary mode (default), and false for ASCII. |No |
 
 >[!TIP]
->To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
+>- To copy all files under a folder, specify **folderPath** only.<br>- To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>- To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
 
 >[!NOTE]
 >If you were using "fileFilter" property for file filter, it is still supported as-is, while you are suggested to use the new filter capability added to "fileName" going forward.

@@ -137,7 +137,7 @@ To copy data to and from Blob storage, set the type property of the dataset to *
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
->To copy all blobs under a folder, specify **folderPath** only.<br>To copy a single blob with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of blobs under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter. 
+>- To copy all blobs under a folder, specify **folderPath** only.<br>- To copy a single blob with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>- To copy a subset of blobs under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter. 
 
 **Example:**
 
