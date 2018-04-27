@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: anroth
 ---
-# About Custom Vision Service
+# What is Custom Vision Service?
 
 ## Custom Vision Service brings the power of machine learning to your apps
 

@@ -1,28 +1,28 @@
 - name: Custom Vision Service Documentation
-  href: index.md
 - name: Overview
   items:
-  - name: About Custom Vision Service
+  - name: What is Custom Vision Service
     href: home.md
-- name: Quickstarts
-  expanded: true
-  items: 
-  - name: Build a classifier
-    href: getting-started-build-a-classifier.md
-  - name: Improve your classifier
-    href: getting-started-improving-your-classifier.md
-  - name: Test your model
-    href: test-your-model.md
-  - name: Use the prediction API
-    href: use-prediction-api.md
-  - name: Export your model to mobile
-    href: export-your-model.md
-- name: Tutorials
+- name: How-to
   items:
-  - name: C# tutorial
-    href: csharp-tutorial.md
-  - name: Python tutorial
-    href: python-tutorial.md
+  - name: Start using Custom Vision Service
+    items:
+    - name: Build a classifier
+      href: getting-started-build-a-classifier.md
+    - name: Improve your classifier
+      href: getting-started-improving-your-classifier.md
+    - name: Test your model
+      href: test-your-model.md
+    - name: Use the prediction API
+      href: use-prediction-api.md
+    - name: Export your model to mobile
+      href: export-your-model.md
+  - name: Build apps
+    items:
+    - name: C# tutorial
+      href: csharp-tutorial.md
+    - name: Python tutorial
+      href: python-tutorial.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
