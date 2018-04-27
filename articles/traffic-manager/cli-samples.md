@@ -17,7 +17,7 @@ ms.date: 04/25/2018
 ms.author: kumud
 
 ---
-# Azure CLI Samples for Traffic Manager
+# Azure CLI samples for Traffic Manager
 
 The following table includes links to bash scripts for Traffic Manager built using the Azure CLI.
 

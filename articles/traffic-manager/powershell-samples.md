@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Samples | Microsoft Docs
-description: Azure PowerShell Samples
+title: Azure PowerShell samples for Traffic Manager| Microsoft Docs
+description: Azure PowerShell samples for Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
@@ -17,7 +17,7 @@ ms.date: 04/26/2018
 ms.author: kumud
 
 ---
-# Azure PowerShell Samples for Traffic Manager
+# Azure PowerShell samples for Traffic Manager
 
 The following table includes links to Traffic Manager scripts built using Azure PowerShell.
 
