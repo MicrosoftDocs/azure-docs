@@ -59,7 +59,7 @@ There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Li
 
  - **AzCopy on Linux**  
 
-    - AzCopy on Linux supports Azure Stack 1802 update or newer versions. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [AzCopy on Linux](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux).
+    - AzCopy on Linux supports Azure Stack 1802 update or newer versions. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
 
 ### AzCopy command examples for data transfer
 
