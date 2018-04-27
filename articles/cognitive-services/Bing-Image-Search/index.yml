@@ -62,3 +62,5 @@ sections:
     items:
     - title: APIs
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
+    - title: SDKs
+      html: <p><a href="sdk.md">Bing Search SDK</a></p>

@@ -61,3 +61,5 @@ sections:
     items:
     - title: APIs
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference">Bing Entity Search API v7</a></p>
+    - title: SDKs
+      html: <p><a href="sdk.md">Bing Search SDK</a></p>
