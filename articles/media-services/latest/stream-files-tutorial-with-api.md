@@ -213,7 +213,7 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
              {
                  Input = jobInput,
                  Outputs = jobOutputs,
-              });
+ou              });
 
      return job;
 }
@@ -258,11 +258,17 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
 }
 ```
 
-### Get a streaming locator
+### Get a StreamingLocator
 
-To publish the Asset for streaming or download you create a StreamingLocator. By default, the locator is valid immediately and lasts until deleted unless you configure the optional start and end times. 
+After the encode is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a **StreamingLocator**, and second, build the streaming URLs that clients can use. 
 
-One of the arguments that you need to pass is a **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy name can be passed.
+The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+
+When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedClearStreamingOnly**, can be used.
+
+Note that the code below assumes that you are calling it with a unique locatorName.
+
+Note that while the sample here discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
@@ -287,7 +293,9 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 
 ### Get streaming URLs
 
-Now that the StreamingLocator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the streaming endpoint's host name and the streaming locator path. In this sample, the *default* streaming endpoint is used. By default, a streaming endpoint is in the stopped state, so you need to call **Start**. 
+Now that a StreamingLocator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the **StreamingEndpoint** host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
+
+Note: in this method, you will need the locatorName that was used when creating the **StreamingLocator** for the output Asset
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -312,7 +320,7 @@ static IList<string> GetStreamingURLs(
 
     foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
     {
-        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
+        streamingURLs.Add("https://" + streamingUrlPrefx + path.Paths[0].ToString());
     }
 
     return streamingURLs;
@@ -321,7 +329,7 @@ static IList<string> GetStreamingURLs(
 
 ### Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (commonly, you want to reuse a Transform). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
 
 ```csharp
 static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
