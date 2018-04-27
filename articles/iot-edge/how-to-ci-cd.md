@@ -437,11 +437,11 @@ In this section, you will create a build definition that is configured to run au
 
 ## Continuous Deployment to IoT Edge devices
 
-To enable continuous deployment, basically you need to setup CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commits should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
+To enable continuous deployment, basically you need to set up CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commit should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
 
 So, when deploying to IoT Edge devices, there are three main environments.
 - On feature branch, you can use simulated IoT Edge device on your development machine or deploy to a physical IoT Edge device.
-- On develop branch, you should deploy to a physical IoT Edge devices.
+- On develop branch, you should deploy to a physical IoT Edge device.
 - On master branch, the target IoT Edge devices should be the production devices.
 
 ## Next steps
