@@ -1,9 +1,7 @@
-﻿---
-title: Create a Stream Analytics job by using Azure PowerShell | Microsoft Docs
+---
+title: Create a Stream Analytics job by using Azure PowerShell
 description: This quickstart details using the Azure PowerShell module to deploy and run an Azure Stream Analytics job.
 services: stream-analytics
-keywords: Stream analytics, Cloud jobs, Azure PowerShell, job input, job output, job transformation
-
 author: SnehaGunda
 ms.author: sngun
 ms.date: 03/16/2018
@@ -32,9 +30,11 @@ Log in to your Azure subscription with the `Connect-AzureRmAccount` command and 
 # Log in to your Azure account
 Connect-AzureRmAccount
 
-# Select the Azure subscription you want to use to create the resource group.
-Get-AzureRmSubscription `
-  -SubscriptionName “<your subscription>” | Select-AzureRmSubscription
+# List all available subscriptions.
+Get-AzureRmSubscription
+
+# Select the Azure subscription you want to use to create the resource group and resources.
+Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
 ```
 
 ## Create a resource group
@@ -51,7 +51,7 @@ New-AzureRMResourceGroup `
 
 ## Prepare the input data
 
-Before defining the Stream Analytics job, you should prepare the data which is configured as input to the job. Run the following steps to prepare the input data required by the job: 
+Before defining the Stream Analytics job, you should prepare the data that is configured as input to the job. Run the following steps to prepare the input data required by the job: 
 
 1. Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.  
 
@@ -257,7 +257,7 @@ Start-AzureRMStreamAnalyticsJob `
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and re-start it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by running the following cmdlet:
+When no longer needed, delete the resource group, the streaming job, and all related resources. Deleting the job avoids billing the streaming units consumed by the job. If you're planning to use the job in future, you can stop it and restart it later when you need. If you are not going to continue to use this job, delete all resources created by this quickstart by running the following cmdlet:
 
 ```powershell
 Remove-AzureRmResourceGroup `

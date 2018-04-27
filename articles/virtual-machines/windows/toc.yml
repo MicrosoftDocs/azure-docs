@@ -189,6 +189,8 @@
       href: move-vm.md
     - name: Change VM size
       href: resize-vm.md
+    - name: Swap the OS disk
+      href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM

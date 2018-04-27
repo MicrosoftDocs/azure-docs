@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # View activity logs for role-based access control changes
 
-Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the Administrative category. You can view the activity logs to see all the role-based access control changes for the past 90 days.
+Any time someone makes changes to role definitions or role assignments within your subscriptions, the changes get logged in [Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) in the Administrative category. You can view the activity logs to see all the role-based access control (RBAC) changes for the past 90 days.
 
 ## Operations that are logged
 
@@ -38,7 +38,7 @@ The easiest way to get started is to view the activity logs with the Azure porta
 
 ![Activity logs using the portal - screenshot](./media/change-history-report/activity-log-portal.png)
 
-For information more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+For more information, see [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## Azure PowerShell
 
@@ -62,7 +62,7 @@ This command lists all role assignment and role definition changes in a subscrip
 Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
 ```
 
-```Examples
+```Example
 Caller                  : alain@example.com
 EventTimestamp          : 4/20/2018 9:18:07 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
@@ -95,6 +95,6 @@ This command lists the activity logs for the Authorization resource provider sin
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## See also
+## Next steps
 * [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 * [Monitor Subscription Activity with the Azure Activity Log](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

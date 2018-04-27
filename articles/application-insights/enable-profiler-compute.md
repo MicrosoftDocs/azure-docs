@@ -37,7 +37,7 @@ To fully enable Profiler, you must change the configuration in three locations:
 
 ## Set up the Application Insights instance
 
-1. [Create a new Application Insights resource](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-create-new-resource), or select an existing one. 
+1. [Create a new Application Insights resource](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), or select an existing one. 
 
 2. Go to your Application Insights resource, and then copy the instrumentation key.
 
