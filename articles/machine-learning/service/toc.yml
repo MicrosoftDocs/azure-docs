@@ -29,6 +29,8 @@
   items: 
   - name: Key concepts
     href: ../desktop-workbench/overview-general-concepts.md
+  - name: FPGA accelerations
+    href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
   - name: Top CLI tasks
@@ -92,8 +94,10 @@
       href: ../desktop-workbench/how-to-read-write-files.md
     - name: Use MMLSpark library
       href: ../desktop-workbench/how-to-use-mmlspark.md
-  - name: Operationalize models
+  - name: Deploy and consume models
     items:
+    - name: Deploy models to FPGAs
+      href: how-to-deploy-fpga-web-service.md
     - name: Set up Model Management
       href: ../desktop-workbench/deployment-setup-configuration.md
     - name: Scale clusters and services

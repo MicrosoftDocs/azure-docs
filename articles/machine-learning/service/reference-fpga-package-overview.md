@@ -12,29 +12,134 @@ ms.date: 05/07/2018
 # Azure Machine Learning Hardware Acceleration package
 
 Azure Machine Learning Hardware Acceleration package is a Python pip-installable extension for Azure Machine Learning that enables data scientists and AI developers to quickly:
+
 + Featurize images with a quantized version of ResNet 50
+
 + Train classifiers based on those features
+
 + Deploy models to an FPGA on Azure for ultra-low latency inferencing
 
 ## Prerequisites
 
-Subscription
-Experimentation acct
-Model Mgmt acct
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+1. The following accounts and application must be set up and installed:
+   - Azure Machine Learning Experimentation account 
+   - An Azure Machine Learning Model Management account
+   - Azure Machine Learning Workbench installed
+
+   If these three are not yet created or installed, follow the [Azure Machine Learning Quickstart and Workbench installation](../service/quickstart-installation.md) article. 
+
+1. The package must be installed. 
 
  
 ## How to install the package
 
-...Content to come from Robert Outlaw.
+
+1. Download and install [Git](https://git-scm.com/downloads) 2.16 or later
+
+1. Open a Git prompt and clone this repo:
+
+   `git clone https://github.com/Azure/aml-real-time-ai`
+
+1. Install conda (Python 3.6):  https://conda.io/miniconda.html
+
+1. Open an Anaconda Prompt and run the rest of the commands in the prompt. On Windows the prompt will look like:
+
+   `(base) C:\>`
+
+1. Create the environment:
+
+   `conda env create -f aml-real-time-ai/environment.yml`
+
+1. Activate the environment:
+
+   `conda activate amlrealtimeai`
 
 ## Sample code
 
-...Content to come from Robert Outlaw.    
+This sample code walks you through using the SDK.
+
+1. Import the package
+   ```python
+   import amlrealtimeai
+   from amlrealtimeai import resnet50
+   ```
+
+1. Pre-process the image
+   ```python 
+   from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
+   model_path = os.path.expanduser('~/models')
+   model = LocalQuantizedResNet50(model_path)
+   print(model.version)
+   ```
+
+1. Featurize the images 
+   ```python 
+   from amlrealtimeai.resnet50.model import LocalQuantizedResNet50
+   model_path = os.path.expanduser('~/models')
+   model = LocalQuantizedResNet50(model_path)
+   print(model.version)
+   ```
+
+1. Create a classifier
+   ```python
+   model.import_graph_def(include_featurizer=False)
+   print(model.classifier_input)
+   print(model.classifier_output)
+   ```
+
+1. Create the service definition
+   ```python
+   from amlrealtimeai.pipeline import ServiceDefinition, TensorflowStage, BrainWaveStage
+   save_path = os.path.expanduser('~/models/save')
+   service_def_path = os.path.join(save_path, 'service_def.zip')
+
+   service_def = ServiceDefinition()
+   service_def.pipeline.append(TensorflowStage(tf.Session(), in_images, image_tensors))
+   service_def.pipeline.append(BrainWaveStage(model))
+   service_def.pipeline.append(TensorflowStage(tf.Session(), model.classifier_input, model.classifier_output))
+   service_def.save(service_def_path)
+   print(service_def_path)
+   ```
+ 
+1. Prepare the model to run on an FPGA
+   ```python
+   from amlrealtimeai import DeploymentClient
+
+   subscription_id = "<Your Azure Subscription ID>"
+   resource_group = "<Your Azure Resource Group Name>"
+   model_management_account = "<Your AzureML Model Management Account Name>"
+
+   model_name = "resnet50-model"
+   service_name = "quickstart-service"
+
+   deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account)
+   ```
+
+1. Deploy the model to run on an FPGA
+   ```python
+   service = deployment_client.get_service_by_name(service_name)
+   model_id = deployment_client.register_model(model_name, service_def_path)
+
+   if(service is None):
+      service = deployment_client.create_service(service_name, model_id)    
+   else:
+      service = deployment_client.update_service(service.id, model_id)
+   ```
+
+1. Create the client
+    ```python
+   from amlrealtimeai import PredictionClient
+   client = PredictionClient(service.ipAddress, service.port)  
+   ```
+
+1. Call the API
+   ```python
+   image_file = R'C:\path_to_file\image.jpg'
+   results = client.score_image(image_file)
+   ```
 
 ## Reporting issues
-Contact us at @microsoft.com if you encounter any issues with the Azure Machine Learning Package for Computer Vision.
 
-
-## Next steps
-
-For information about machine learning, see another article once it gets written.
+Contact us on our [forum](https://aka.ms/aml-forum) if you encounter any issues with the package.
