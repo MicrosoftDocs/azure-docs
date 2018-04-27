@@ -18,8 +18,9 @@ ms.custom:
 
 # Azure Maps traffic coverage
 
-Azure Maps provides rich traffic information in the form of flow and incidents that can be served as overlays atop of the Azure Maps map control or used in conjunction with the Azure Maps Route Service. The following table provides coverage information for Azure Maps traffic, so users have insight on where to expect (and not expect) traffic information.
+Azure Maps provides rich traffic information in the form of traffic **flow** and **incidents**. This data can be visualized on maps or used to generate smarter routes that factor in real driving conditions. 
 
+However, Maps does not have the same level of information and accuracy for all regions. The following table provides information about what kind of traffic information you can request from each region: 
 
 |Region  |Incidents  |Flow  |
 |---------|:---------:|:---------:|
@@ -95,3 +96,5 @@ Azure Maps provides rich traffic information in the form of flow and incidents t
 |Isle of Man     |✓         |✓         |
 |United States     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
+
+For more information about Azure Maps traffic data, see the [Traffic](https://docs.microsoft.com/rest/api/azure-maps/traffic) reference pages.
