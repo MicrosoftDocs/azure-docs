@@ -13,7 +13,7 @@ ms.date: 04/10/2018
 ms.author: scottwhi
 ---
 
-# About Visual Search
+# What is Bing Visual Search API?
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search you can upload a picture and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. Instead of uploading an image, you can also provide an insights token that you get from an image in the images search results (see [Bing Images API](../bing-image-search/overview.md)).
 
@@ -449,7 +449,7 @@ If the image contains a recognized entity such as a person, place, or thing, one
 
 ## Next steps
 
-To get started quickly with your first request, see [the C# quickstart](quickstarts/csharp.md).
+To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 Try out the API. Go to [Visual Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
 

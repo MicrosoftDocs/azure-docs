@@ -2,15 +2,9 @@
   href: index.yml
 - name: Overview
   items:
-    - name: About Bing Visual Search API
+    - name: What is Bing Visual Search API?
       href: overview.md
-    - name: Default image insights
-      href: default-insights-tag.md
-    - name: Bing insights usage 
-      href: bing-insights-usage.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: First query in C#
@@ -21,7 +15,21 @@
     href: quickstarts/nodejs.md
   - name: First query in Python
     href: quickstarts/python.md
-- name: How To Guides
+- name: Tutorials
+  items:
+  - name: Single-page Web app
+    href: tutorial-bing-visual-search-single-page-app.md
+  - name: Single-page Web app (source code)
+    href: tutorial-bing-visual-search-single-page-app-source.md
+- name: Concepts
+  items:
+    - name: Default image insights
+      href: default-insights-tag.md
+    - name: Bing insights usage 
+      href: bing-insights-usage.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
+- name: How-to guides
   items:
   - name: Use and display results
     href: use-and-display-requirements.md

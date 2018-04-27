@@ -39,3 +39,19 @@ sections:
         - href: quickstarts/java
         - href: quickstarts/nodejs
         - href: quickstarts/python
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to develop applications using the Bing Visual Search API:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Source code</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST v7 API
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference">API Reference</a></p>

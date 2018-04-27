@@ -186,12 +186,10 @@ class SearchResults{
 }
 ```
 
-<!--
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Image Search single-page app tutorial](../tutorial-bing-image-search-single-page-app.md)
--->
+> [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
 
 ## See also 
 

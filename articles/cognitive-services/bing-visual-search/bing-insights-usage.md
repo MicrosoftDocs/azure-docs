@@ -43,6 +43,12 @@ This section contains examples of how Bing might use and display insights on Bin
 
 
 
+## Next steps
+
+To check out the JSON behind these examples, see [Default insights](default-insights-tag.md) and [JSON response](overview.md#the-response).
+
+To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+
 
 
 
