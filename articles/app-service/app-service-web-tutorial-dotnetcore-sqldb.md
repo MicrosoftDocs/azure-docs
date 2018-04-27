@@ -135,7 +135,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### Create a database
 
-Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
+Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az_sql_db_create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Get started with U-SQL language | Microsoft Docs'
 description: Learn the basics of the U-SQL language.
 services: data-lake-analytics
