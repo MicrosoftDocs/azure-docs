@@ -13,13 +13,13 @@ ms.author: heidist
 ---
 # How to rebuild an Azure Search index
 
-Rebuilding an index changes its structure, altering the physical expression of the index in your Azure Search service. Conversely, refreshing an index is a content-only update to pick up the latest changes from a contributing external data source. 
+Rebuilding an index changes its structure, altering the physical expression of the index in your Azure Search service. Conversely, refreshing an index is a content-only update to pick up the latest changes from a contributing external data source. This article provides direction on how to update indexes both structurally and substantively.
 
-You can make REST or .NET API calls to rebuild or refresh an index. For indexes populated using source-specific indexers, a built-in scheduler updates contents as often as every 15 minutes, up to whatever interval and pattern you require. Faster refresh rates require pushing index updates manually, perhaps through a double-write on transactions to get concurrent updates in both the external data source and the Azure Search index.
+For indexes populated using source-specific [indexers](search-indexer-overview.md), a built-in scheduler updates contents as often as every 15 minutes, up to whatever interval and pattern you require. Faster refresh rates require pushing index updates manually, perhaps through a double-write on transactions to get concurrent updates in both the external data source and the Azure Search index.
 
 ## Full rebuilds
 
-A full rebuild refers to deletion of an index, both data and metadata, followed by repopulating the index from external data sources. Programmatically, [delete the index](https://docs.microsoft.com/rest/api/searchservice/delete-index), [create the index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [add documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (or .NET equivalent APIs) to rebuild the index. 
+For many types of updates, a full rebuild is required. A full rebuild refers to deletion of an index, both data and metadata, followed by repopulating the index from external data sources. Programmatically, [delete the index](https://docs.microsoft.com/rest/api/searchservice/delete-index), [create the index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [add documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (or .NET equivalent APIs) to rebuild the index. 
 
 Remember that if you have been testing query patterns and scoring profiles, you can expect variation in query results after full rebuilds because the content has changed.
 
