@@ -69,13 +69,13 @@ After a machine is marked as ready for Azure, Azure Migrate sizes the VM and its
 > [!NOTE]
 > Azure Migrate collects performance history of on-premises VMs from vCenter Server. To ensure accurate right-sizing, ensure that the statistics setting in vCenter Server is set to level 3 and wait for at least a day before kicking off discovery of the on-premises VMs. If the statistics setting in vCenter Server is below level 3, performance data for disk and network is not collected.
 
-If you do not want to consider the performance history and want to take the VM as-is to Azure, you can specify the sizing criterion as *as on-premises* and Azure Migrate will then size the VMs based on the on-premises configuration without considering the utilization data.
+If you do not want to consider the performance history for VM-sizing and want to take the VM as-is to Azure, you can specify the sizing criterion as *as on-premises* and Azure Migrate will then size the VMs based on the on-premises configuration without considering the utilization data. Disk sizing, in this case, will still be based on performance data.
 
 ### Performance-based sizing
 
 For performance-based sizing, Azure Migrate starts with the disks attached to the VM, followed by network adapters and then maps an Azure VM based on the compute requirements of the on-premises VM.
 
-- **Disks**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure.
+- **Storage**: Azure Migrate tries to map every disk attached to the machine to a disk in Azure.
 
     > [!NOTE]
     > Azure Migrate supports only managed disks for assessment.
@@ -86,22 +86,31 @@ For performance-based sizing, Azure Migrate starts with the disks attached to th
     - If there are multiple eligible disks, it selects the one with the lowest cost.
     - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
 
-- **Network adapters**: Azure Migrate tries to find an Azure VM that can support the number of network adapters attached to the on-premises machine and the performance required by these network adapters.
+- **Network**: Azure Migrate tries to find an Azure VM that can support the number of network adapters attached to the on-premises machine and the performance required by these network adapters.
     - To get the effective network performance of the on-premises VM, Azure Migrate aggregates the data transmitted per second (MBps) out of the machine (network out), across all network adapters, and applies the comfort factor. This number is used to find an Azure VM that can support the required network performance.
     - Along with network performance, it also considers if the Azure VM can support the required the number of network adapters.
     - If no network performance data is available, only the network adapters count is considered for VM sizing.
 
-- **VM Size**: After storage and network requirements are calculated, Azure Migrate considers CPU and memory requirements to find a suitable VM size in Azure.
+- **Compute**: After storage and network requirements are calculated, Azure Migrate considers CPU and memory requirements to find a suitable VM size in Azure.
     - Azure Migrate looks at the utilized cores and memory, and applies the comfort factor to get the effective cores and memory. Based on that number, it tries to find a suitable VM size in Azure.
     - If no suitable size is found, the machine is marked as unsuitable for Azure.
     - If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing tier settings, for the final VM size recommendation.
     - If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
 
 ### As on-premises sizing
-If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and allocates VMs and disks based on the size allocated on-premises.
-- **Storage**: For each disk, a standard disk in Azure is recommended with the same size as the on-premises disk.
+If the sizing criterion is *as on-premises sizing*, Azure Migrate does not consider the performance history of the VMs and allocates VMs based on the size allocated on-premises. However, for disk sizing, it does consider performance history of the disks to recommend Standard or Premium disks.  
+- **Storage**: Azure Migrate maps every disk attached to the machine to a disk in Azure.
+
+    > [!NOTE]
+    > Azure Migrate supports only managed disks for assessment.
+
+    - To get the effective disk I/O per second (IOPS) and throughput (MBps), Azure Migrate multiplies the disk IOPS and the throughput with the comfort factor. Based on the effective IOPS and throughput values, Azure Migrate identifies if the disk should be mapped to a standard or premium disk in Azure.
+    - If Azure Migrate can't find a disk with the required IOPS & throughput, it marks the machine as unsuitable for Azure. [Learn more](../azure-subscription-service-limits.md#storage-limits) about Azure limits per disk and VM.
+    - If it finds a set of suitable disks, Azure Migrate selects the ones that support the storage redundancy method, and the location specified in the assessment settings.
+    - If there are multiple eligible disks, it selects the one with the lowest cost.
+    - If performance data for disks in unavailable, all the disks are mapped to standard disks in Azure.
 - **Network**: For each network adapter, a network adapter in Azure is recommended.
-- **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
+- **Compute**: Azure Migrate looks at the number of cores and memory size of the on-premises VM and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended. Utilization data for CPU and memory is not considered for as on-premises sizing.
 
 ### Confidence rating
 
