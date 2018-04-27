@@ -12,12 +12,12 @@ ms.date: 03/05/2018
 ms.author: juliako
 
 ---
-# Examine the Video Indexer output
+# Examine the Video Indexer output produced by v1 API
 
 > [!Note]
 > The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
 > 
-> To develop with Video Indexer v2 APIs use one of these URLs: <br/>
+> To develop with Video Indexer v2 APIs, use one of these URLs: <br/>
 > [North Europe](https://viprod-ne-apim.portal.azure-api.net) <br/>
 > [WestUS2](https://viprod-wus2-apim.portal.azure-api.net) <br/>
 > [East Asia](https://viprod-ea-apim.portal.azure-api.net) <br/>
