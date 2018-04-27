@@ -64,6 +64,7 @@ az vm create \
     --resource-group myResourceGroup \
     --name myVM \
     --image UbuntuLTS \
+    --admin-username azureuser \
     --generate-ssh-keys
 ```
 
