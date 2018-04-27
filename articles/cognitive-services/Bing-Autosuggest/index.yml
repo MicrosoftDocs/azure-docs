@@ -3,7 +3,7 @@ documentType: LandingData
 title: Bing Autosuggest Documentation
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Autosuggest Documentation - Tutorials, API Reference  - Azure Cognitive Services
+  title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Autosuggest API to obtain suggested queries based on a partial query. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: v-jaswel
@@ -27,7 +27,7 @@ sections:
       - image:
           src: media/index/logo_csharp.svg
         href: quickstarts/csharp
-        text: "C#"
+        text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
         href: quickstarts/java
@@ -53,7 +53,7 @@ sections:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Autosuggest API:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Single-Page Web app</a> &#124; <a href="tutorials/autosuggest-source.md">Source code</a>
+    text: <a href="tutorials/autosuggest.md">Single-page web app</a> &#124; <a href="tutorials/autosuggest-source.md">Source code</a>
 - title: Reference
   items:
   - type: list

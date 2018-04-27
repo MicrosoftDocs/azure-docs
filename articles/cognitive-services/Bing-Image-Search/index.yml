@@ -3,7 +3,7 @@ documentType: LandingData
 title: Bing Image Search Documentation 
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Image Search Documentation - Tutorials, API Reference - Azure Cognitive Services
+  title: Bing Image Search Documentation - Tutorials, quickstarts, API references | Microsoft Docs
   description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: v-jerkin
@@ -27,7 +27,7 @@ sections:
       - image:
           src: media/index/logo_csharp.svg
         href: quickstarts/csharp
-        text: "C#"
+        text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
         href: quickstarts/java
@@ -52,8 +52,11 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Image Search API:'
-  - type: paragraph
-    text: <a href="tutorial-bing-image-search-single-page-app">Single-Page Web app</a> &#124; <a href="tutorial-bing-image-search-single-page-app-source">Source code</a>
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-image-search-single-page-app">Single-page web app</a> &#124; <a href="tutorial-bing-image-search-single-page-app-source">Source code</a>
+    - html: <a href="tutorial-image-post">Bing image upload for insights</a> &#124; <a href="tutorial-image-post-source">Source code</a>
 - title: Reference
   items:
   - type: list
