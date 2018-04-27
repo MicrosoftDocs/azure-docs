@@ -431,6 +431,10 @@ In this section, you will create a build definition that is configured to run au
     
     ![Complete](./media/how-to-ci-cd/complete.png)
 
+1. You can go back to VS Code and check the IoT Hub device explorer. The Edge device with the module should start running (Make sure you've added registry credentials to Edge runtime).
+
+    ![Edge running](./media/how-to-ci-cd/edge-running.png)
+
 ## Continuous Deployment to IoT Edge devices
 
 To enable continuous deployment, basically you need to setup CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commits should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
