@@ -90,7 +90,7 @@ This section shows the summary of the insights.
 |brands| May contain zero or more brands. For more information, see [brands](#brands).|
 |statistics | For more information, see [statistics](#statistics).|
 
-### Statistics
+### statistics
 
 |Name|Description|
 |---|---|
