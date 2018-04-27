@@ -46,7 +46,7 @@ $TenantID = Get-AzsDirectoryTenantId -AADTenantName "<mydirectorytenant>.onmicro
 
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 
@@ -61,7 +61,7 @@ $TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName AzureStackAdmin
 
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ````
 
 ## Test the connectivity
