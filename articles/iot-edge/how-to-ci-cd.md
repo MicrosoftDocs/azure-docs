@@ -124,8 +124,6 @@ In this section, you will create a sample IoT Edge solution containing unit test
                 Console.WriteLine("Added Cert: " + certPath);
                 store.Close();
             }
-
-
             /// <summary>
             /// Initializes the DeviceClient and sets up the callback to receive
             /// messages containing temperature information
