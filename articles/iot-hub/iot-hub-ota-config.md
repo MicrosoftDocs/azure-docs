@@ -1,5 +1,5 @@
 ---
-title: Configure and monitor IoT devices at scale | Microsoft Docs
+title: Configure and monitor IoT devices at scale with Azure IoT Hub | Microsoft Docs
 description: Use Azure IoT Hub over-the-air configuration to assign a configuration to multiple devices
 services: iot-hub
 documentationcenter: ''
