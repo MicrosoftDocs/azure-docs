@@ -25,8 +25,6 @@ IoT Hub supports communications both from the device to the cloud and from the c
 
 IoT Hub's capabilities help you build scalable, full-featured IoT solutions such as managing industrial equipment used in manufacturing, tracking valuable assets in healthcare, and monitoring office building usage.
 
-//![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
-
 ## Scale your solution
 
 IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. IoT Hub offers several tiers of service to best fit your scalability needs. [Learn more](https://azure.microsoft.com/pricing/details/iot-hub/).
@@ -112,5 +110,3 @@ Each Azure subscription has default quota limits in place to prevent service abu
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 * [Quickstart: Send telemetry from a device to an IoT hub](iot-hub-get-started.md)
-
-//[img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
