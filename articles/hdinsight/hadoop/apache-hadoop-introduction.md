@@ -15,10 +15,10 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: cgronlun
-
+#Customer intent: As a data analyst, I want understand what is Hadoop and how it is offered in Azure HDInsight so that I can decide on using HDInsight instead of on-prem clusters.
 ---
-# Introduction to Azure HDInsight and the Hadoop technology stack
-This article provides an introduction to Azure HDInsight. Azure HDInsight is a fully managed, full-spectrum, open-source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
+# What is Azure HDInsight and the Hadoop technology stack
+This article provides an introduction to Apache Hadoop on Azure HDInsight. Azure HDInsight is a fully managed, full-spectrum, open-source analytics service for enterprises. You can use open-source frameworks such as Hadoop, Spark, Hive, LLAP, Kafka, Storm, R, and more. 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -34,7 +34,7 @@ To see available Hadoop technology stack components on HDInsight, see [Component
 
 Big data is collected in escalating volumes, at higher velocities, and in a greater variety of formats than ever before. It can be historical (meaning stored) or real time (meaning streamed from the source). See [Scenarios for using HDInsight](#scenarios-for-using-hdinsight) to learn about the most common use cases for big data.
 
-## Why should I use HDInsight?
+## Why should I use Hadoop on HDInsight?
 
 This section lists the capabilities of Azure HDInsight.
 
@@ -134,16 +134,11 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## Next steps
 
-* [Get started with Hadoop in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
-* [Get started with Spark in HDInsight](../spark/apache-spark-jupyter-spark-sql.md)
-* [Get started with Kafka on HDInsight](../kafka/apache-kafka-get-started.md)
-* [Get started with Storm on HDInsight](../storm/apache-storm-tutorial-get-started-linux.md)
-* [Get started with HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
-* [Get started with Interactive Query (LLAP) on HDInsight](../interactive-query/apache-interactive-query-get-started.md)
-* [Get started with R Server on HDInsight](../r-server/r-server-get-started.md)
+In this article, you learned what is Azure HDInsight and how it provides Hadoop and other cluster types on Azure. Proceed to the next article to learn how to create an Apache Hadoop cluster in HDInsight.
 
 > [!div class="nextstepaction"]
-> [Try Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)
+> [Create Hadoop cluster in HDInsight](apache-hadoop-linux-tutorial-get-started.md)
+
 
 [component-versioning]: ../hdinsight-component-versioning.md
 [zookeeper]: http://zookeeper.apache.org/
