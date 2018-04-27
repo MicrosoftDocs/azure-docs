@@ -7,6 +7,7 @@ author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
 
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
@@ -16,17 +17,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
+ms.custom: mvc
 ---
 
-# Load balance internal traffic with Basic Load Balancer to VMs using the Azure portal
+# Tutorial: Load balance internal traffic with Basic Load Balancer to VMs using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to load balance internal traffic to virtual machines with a Basic Load Balancer. This quickstart shows you how to create network resources, backend servers, and an internal Basic Load Balancer.
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. You can use the Azure portal to load balance internal traffic to virtual machines with a Basic Load Balancer. This tutorial shows you how to create network resources, backend servers, and an internal Basic Load Balancer.
+
+If you prefer, you can complete this tutorial using the [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) or [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Sign in to the Azure portal
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a virtual network
 1. On the top left-hand side of the screen click **New** > **Networking** > **Virtual network** and enter these values for the virtual network:
@@ -35,10 +39,7 @@ Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com
     - *myBackendSubnet* - for the subnet name.
 2. Click **Create** to create the virtual network.
 
-## Create load balancer and its resources
-In this section, you create and internal load balancer, its health probe, and load balancing rules.
-
-# Create a Basic Load Balancer
+## Create a Basic Load Balancer
 Create an internal Basic Load Balancer using the portal.
 
 1. On the top left-hand side of the screen, click **Create a resource** > **Networking** > **Load Balancer**.
@@ -96,7 +97,7 @@ In this section, you create two virtual machines for the backend pool of your Ba
 5. Close the RDP connection with *myVM1*.
 6. Repeat steps 1-5 with *myVM2* to install IIS and customize the default web page.
 
-### Create NSG rules
+## Create NSG rules
 
 In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
 
@@ -212,4 +213,4 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 ## Next steps
 
-In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create a load balancer. To learn more about load balancers and their associated resources, continue to the tutorial articles.
+In this tutorial, you created a resource group, network resources, and backend servers. You then used those resources to create an internal load balancer to load balance internal traffic to VMs. Next, learn how to [load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
