@@ -275,14 +275,14 @@ The following screenshot shows the new version of the **Alarms** panel:
 
 ## Customize the telemetry chart
 
-The telemetry chart on the **Dashboard** page is defined by the files in the `src/components/pages/dashboard/panels/telemtry` folder. The UI retrieves the telemetry from the solution back end in the `src/services/telemetryService.js` file. The following steps show you how to change the time period displayed on the telemetry chart from 15 minutes to 24 hours:
+The telemetry chart on the **Dashboard** page is defined by the files in the `src/components/pages/dashboard/panels/telemtry` folder. The UI retrieves the telemetry from the solution back end in the `src/services/telemetryService.js` file. The following steps show you how to change the time period displayed on the telemetry chart from 15 minutes to 5 minutes:
 
 1. In the `src/services/telemetryService.js` file, locate the function called **getTelemetryByDeviceIdP15M**. Make a copy of this function and modify the copy as follows:
 
     ```nodejs
-    static getTelemetryByDeviceIdP1D(devices = []) {
+    static getTelemetryByDeviceIdP5M(devices = []) {
       return TelemetryService.getTelemetryByMessages({
-        from: 'NOW-P1D',
+        from: 'NOW-PT5M',
         to: 'NOW',
         order: 'desc',
         devices
@@ -293,15 +293,12 @@ The telemetry chart on the **Dashboard** page is defined by the files in the `sr
 1. To use this new function to populate the telemetry chart, open the `src/components/pages/dashboard/dashboard.js` file. Locate the line that initializes the telemetry stream and modify it as follows:
 
     ```node.js
-    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP1D(deviceIds)
+    const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-The telemetry chart now shows the last day of telemetry data:
+The telemetry chart now shows the five minutes of telemetry data:
 
 ![Telemetry chart showing one day](media/iot-suite-remote-monitoring-customize/telemetry-period.png)
-
-> [!NOTE]
-> In the previous screenshot, the solution has not been running for a full day so the chart isn't showing a full 24 hours.
 
 ## Add a new KPI
 
