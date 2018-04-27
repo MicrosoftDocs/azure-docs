@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 04/27/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -109,6 +109,17 @@ For a complete list of the supported device platforms, see [device platform cond
 
 
 A common use case for this condition is a policy that restricts access to your cloud apps to [trusted devices](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md).
+
+
+
+## Device state
+
+The device state condition allows Hybrid Azure AD joined and devices marked as compliant to be excluded from a conditional access policy. This is useful when a policy should only apply to unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
+
+
+![Conditions](./media/active-directory-conditional-access-conditions/112.png)
+
+If you want to block access for unmanaged devices, you should implement [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## Locations
