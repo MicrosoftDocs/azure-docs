@@ -139,6 +139,64 @@ The first step of OAuth flow is to prompt the user to login with a GitHub accoun
 
     This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to login through the *AuthController* in the web app.
 
+
+### Add an authentication controller
+
+The connection string contains sensitive access data and should only be used by server-side code to connect to the SignalR Service resource. You would not normally want to allow client-side code direct access to the service using the connection string. Code running as a client of the web app should authenticate with the web app in order to authorize access to SignalR functionality. 
+
+Azure SignalR Service gives you the flexibility to implement your own authentication. In this article, you aren't going to include real authentication. Instead you will simply issue the token when requested. You will implement real authentication in a later tutorial. 
+
+In this section, you will implement an API that issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
+
+1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
+
+2. Add the following code to the authentication controller:
+
+    ```csharp
+    namespace chattest
+    {
+        using System.Security.Claims;
+        using Microsoft.AspNetCore.Mvc;
+        using Microsoft.Azure.SignalR;
+        using Microsoft.Extensions.Configuration;
+
+        [Route("api/auth")]
+        public class AuthController : Controller
+        {
+            private readonly EndpointProvider _endpointProvider;
+            private readonly TokenProvider _tokenProvider;
+
+            public AuthController(IConfiguration config)
+            {
+                var connStr = config[Constants.AzureSignalRConnectionStringKey];
+                _endpointProvider = CloudSignalR.CreateEndpointProviderFromConnectionString(connStr);
+                _tokenProvider = CloudSignalR.CreateTokenProviderFromConnectionString(connStr);
+            }
+
+            [HttpGet("{hubName}")]
+            public IActionResult GenerateJwtBearer(string hubName, [FromQuery] string uid)
+            {
+                var serviceUrl = _endpointProvider.GetClientEndpoint(hubName);
+                var accessToken =_tokenProvider.GenerateClientAccessToken(hubName, new[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, uid)
+                });
+
+                return new OkObjectResult(new
+                {
+                    ServiceUrl = serviceUrl,
+                    AccessToken = accessToken
+                });
+            }
+        }
+    }
+    ```
+
+    The Azure SignalR SDK defines the `GenerateClientAccessToken()` method. This method is used to help issue the token based on the connection string, once you authenticate a client.
+
+    Along with a valid token, this API also returns the *serviceURL* in the response body. This token and *serviceURL* are used by the client to authenticate the connection used to push content updates to all clients.    
+
+
 ### Handle OAuth in the controller
 
 In this section, you will update the *AuthController* class to support OAuth authentication for the chat room application.

@@ -23,6 +23,9 @@ Azure SignalR Service is an Azure service that helps developers easily build web
 
 This article shows you how to get started with the Azure SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
+
+You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option avaialble on the Windows, macOS, and Linux platforms.
+
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Also, the creation of the Azure resources used in this quickstart can be accomplished with the [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
 ![Quickstart Complete local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
@@ -33,7 +36,7 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 ## Prerequisites
 
 * Install the [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
+* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository. 
 
 ## Create an Azure SignalR resource
 
@@ -50,60 +53,68 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
         dotnet new mvc
 
 
+## Add Secret Manager to the project
+
+In this section, you will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This helps prevent the accidential sharing of app secrets with source code.
+
+1. Open your *.csproj* file. Add a `DotNetCliToolReference` attribute for *Microsoft.Extensions.SecretManager.Tools* and a `UserSecretsId` attribute as shown below, and save the file.
+
+    *chattest.csproj:*
+
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <UserSecretsId>SignalRChatRoomEx</UserSecretsId>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    </ItemGroup>
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+        <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    </ItemGroup>
+    </Project>    
+    ```
 
 ## Add Azure SignalR to the web app
 
-
 1. Add a reference to the `Microsoft.Azure.SignalR` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10001
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
 
+2. Execute the following command to restore packages for your project.
 
-2. Add a new environment variable named *AzureSignalRConnectionStringKey*. This variable will contain the connection string to access your SignalR Service resource. Based on the example command below, paste in your connection string for the value:
+        dotnet restore
 
-    Windows:
+3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. This secret will contain the connection string to access your SignalR Service resource. Replace the value in the command below with the connection string for your SignalR Service resource.
 
-        set AzureSignalRConnectionStringKey=Endpoint=<your hostname>;AccessKey=<Your access key>;
+    This command must be executed in the same directory as the *.csproj* file.
 
-    Linux and MacOS (bash shell)        
-
-    ```bash
-    export AzureSignalRConnectionStringKey="Endpoint=<your hostname>;AccessKey=<Your access key>;"   
+    ```
+    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
     ```
 
-    This environment variable is only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
+    This will only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
 
-3. In your project directory, add a new code file named *Constants.cs*. This file will contain a constant for the connection string used to access your SignalR Service resource. Add the following code:
-
-    ```cscharp
-    namespace Microsoft.Azure.SignalR.Samples.ChatRoom
-    {
-        internal static class Constants
-        {
-            public const string AzureSignalRConnectionStringKey = "AzureSignalRConnectionString";
-        }
-    }
-    ```
-
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddAzureSignalR()` method:
+4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddMvc();
-        services.AddAzureSignalR();
+        services.AddSignalR().AddAzureSignalR();
     }
     ```
 
-5. Also in *Startup.cs*, update the `Configure` method by removing the call to `app.UseStaticFiles()` and adding the following code in its place:
+5. Also in *Startup.cs*, update the `Configure` method by replacing the call to `app.UseStaticFiles()` with the following code and save the file.
 
     ```csharp
-        app.UseFileServer();
-        app.UseAzureSignalR(Configuration[Constants.AzureSignalRConnectionStringKey],
-            builder => 
-            { 
-                builder.UseHub<Chat>(); 
-            });
+    app.UseFileServer();
+    app.UseAzureSignalR(routes =>
+    {
+        routes.MapHub<Chat>("/chat");
+    });
     ```            
 
 ## Add a hub class
@@ -115,31 +126,32 @@ In SignalR, a hub is a core concept that exposes a set of methods that can be ca
 
 Both methods use the `Clients` interface provided by the SignalR Core SDK. This interface gives you access to all connected clients enabling you to push content to your clients.
 
-1. Add a new file named *Chat.cs* in a new folder named *Hub*.
+1. In yout project directory, add a new folder named *Hub*. Add a new hub code file named *Chat.cs* to the new folder.
 
-2. Add the following code to *Chat.cs* to define you hub class:
+2. Add the following code to *Chat.cs* to define you hub class and save the file. 
+
+    Update the namespace for this class if you used a project name that differs from *chattest*.
 
     ```csharp
+    using Microsoft.AspNetCore.SignalR;
+
     namespace chattest
     {
-        using Microsoft.AspNetCore.SignalR;
 
         public class Chat : Hub
         {
-            public void broadcastMessage(string name, string message)
+            public void BroadcastMessage(string name, string message)
             {
                 Clients.All.SendAsync("broadcastMessage", name, message);
             }
 
-            public void echo(string name, string message)
+            public void Echo(string name, string message)
             {
                 Clients.Client(Context.ConnectionId).SendAsync("echo", name, message + " (echo from server)");
             }
         }
     }
     ```
-
-3. Save *Chat.cs*.
 
 ## Add an authentication controller
 
@@ -202,13 +214,55 @@ In this section, you will implement an API that issues a token to the client. Co
 
 The client user interface for this chat room app will be composed of HTML and JavaScript in a file named *index.html* in the *wwwroot* directory.
 
-1. Copy the *css* and *scripts* folders from the [sample repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoomLocal/wwwroot) into your *wwwroot* folder.
+Copy the *index.html* file, and the *css*, and *scripts* folders from the *wwwroot* folder of the [samples repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoomLocal/wwwroot) into your project's *wwwroot* folder.
 
-2. Copy *index.html* from the [sample repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoomLocal/wwwroot) into your *wwwroot* folder.
+The main code of *index.html*: 
 
-    In the code for *index.html*, the `getAccessToken` JavaScript function calls into *AuthController* on the server-side in order to authenticate and request an access token for the client. If successful, this token is returned in the body of the response along with the *serviceURL*. The token and *serviceURL* will be used by the `startConnection` JavaScript function to authenticate a connection to the Azure SignalR resource.
-    
-    If the connection is successfully authenticated, that connection is passed to the `onConnected` JavaScript function, which adds the button event handlers. These handlers use the connection to push content updates to all connected clients.
+```javascript
+var connection = new signalR.HubConnectionBuilder()
+                            .withUrl('/chat')
+                            .build();
+bindConnectionMessage(connection);
+connection.start()
+    .then(function () {
+        onConnected(connection);
+    })
+    .catch(function (error) {
+        console.error(error.message);
+    });
+```    
+
+The code in *index.html*, calls the `HubConnectionBuilder.build()` to make a HTTP connection to the Azure SignalR resource.
+
+If the connection is successful, that connection is passed to `bindConnectionMessage`, which adds event handlers for incoming content pushes to the client. 
+
+`HubConnection.start()` starts communication with the hub. Once communication is started `conConnected()` adds the button event handlers. These handlers use the connection to allow this client to push content updates to all connected clients.
+
+## Add a development runtime profile
+
+In this section, you will add a development runtime environment for ASP.NET Core. For more information on runtime environment for ASP.NET Core, see [Work with multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+
+1. Create a new folder in your project named *Properties*.
+
+2. Add a new file named *launchSettings.json* to the folder, with the following content and save the file.
+
+    ```json
+    {
+        "profiles" : 
+        {
+            "ChatRoom": 
+            {
+                "commandName": "Project",
+                "launchBrowser": true,
+                "environmentVariables": 
+                {
+                    "ASPNETCORE_ENVIRONMENT": "Development"
+                },
+                "applicationUrl": "http://localhost:5000/"
+            }
+        }
+    }
+    ```
 
 
 ## Build and Run the app locally
@@ -221,10 +275,10 @@ The client user interface for this chat room app will be composed of HTML and Ja
 
         dotnet run
 
-    By default, the app will be hosted locally on port 5000:
+    The app will be hosted locally on port 5000 as configured in our development runtime profile:
 
         E:\Testing\chattest>dotnet run
-        Hosting environment: Production
+        Hosting environment: Development
         Content root path: E:\Testing\chattest
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    

@@ -20,7 +20,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to develop your first web application using Azure SignalR for real-time communications:'
+    text: 'Learn how to develop your first web application using Azure SignalR Service for real-time communications:'
   - type: list
     style: icon48
     items: 
@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to build Azure SignalR applications
+    text: Learn how to build Azure SignalR Service applications
   - type: list
     style: ordered
     items:

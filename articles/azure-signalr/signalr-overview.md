@@ -46,7 +46,7 @@ If goal for your application includes: supporting the latest functionality for u
 
 ## Why not deploy SignalR myself?
 
-It is still a valid approach to deploy your own Azure web app supporting SignalR Core as a backend component to your overall web application.
+It is still a valid approach to deploy your own Azure web app supporting ASP.NET Core SignalR as a backend component to your overall web application.
 
 One of the key reasons to use the Azure SignalR Service is simplicity. With Azure SignalR Service, you don't need to handle problems like performance, scalability, availability. These issues are handled for you with a 99.9% service-level agreement.
 
@@ -56,9 +56,9 @@ Another reason may be you have no requirements to actually host a web applicatio
 
 There are three common patterns typically used to scale out with SignalR:
 
-* [SignalR Scaleout with SQL Server](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-sql-server)
-* [SignalR Scaleout with Azure Service Bus](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-windows-azure-service-bus)
-* [SignalR Scaleout with Redis Cache](https://docs.microsoft.com/aspnet/signalr/overview/performance/scaleout-with-redis)
+* SignalR Scaleout with SQL Server
+* SignalR Scaleout with Azure Service Bus
+* SignalR Scaleout with Redis Cache
 
 Azure SignalR Service, handles the scaling approach for you. The performance and cost is comparable to these approaches without the complexity of dealing with these other services. All you have to do is update the unit count for your service. Each service unit supports up to 1000 client connections.
 

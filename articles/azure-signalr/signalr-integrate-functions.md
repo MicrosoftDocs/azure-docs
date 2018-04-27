@@ -20,7 +20,7 @@ ms.author: wesmc
 
 # Tutorial: Integrate Azure Functions with Azure SignalR Service
 
-This tutorial builds on the chat room application created in previous tutorials. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), and [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md), complete those exercises first. 
+This tutorial builds on the chat room application created in previous tutorials. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), and [Azure SignalR Service authentication](./signalr-authenticate-oauth.md), complete those exercises first. 
 
 A common scenario with real-time applications is for content updates to originate from a server to be published to web clients. [Azure Functions](../azure-functions/functions-overview.md) is an excellent candidate for generating these content updates. A key benefit of using Azure functions is that you can run your code on-demand without worrying about the architecture of a whole application, or the infrastructure to run it. You also only pay for the time your code actually runs.  
 
@@ -123,7 +123,7 @@ The timer function sample is located in the */samples/Timer* directory of your d
 ```csharp
 var connectionString = Environment.GetEnvironmentVariable("AzureSignalRConnectionString");
 var proxy = CloudSignalR.CreateHubProxyFromConnectionString(connectionString, "chat");
-await proxy.Clients.All.SendAsync("broadcastMessage", new object[] { "_BROADCAST_", $"Current time is: {DateTime.Now}" });
+await proxy.Clients.All.SendAsync("broadcastMessage", "_BROADCAST_", $"Current time is: {DateTime.Now}" );
 ```
 
 This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, there's no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
