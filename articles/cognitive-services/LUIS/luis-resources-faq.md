@@ -3,6 +3,7 @@ title: Language Understanding Intelligent Services (LUIS) in Azure frequently as
 description: Get answers to frequently asked questions about Language Understanding Intelligent Services (LUIS)
 author: v-geberr
 manager: kaiqb
+services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
