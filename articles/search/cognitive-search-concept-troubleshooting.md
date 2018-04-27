@@ -88,7 +88,7 @@ For scheduled indexers, indexing resumes on schedule at the last known good docu
 ## See also
 + [Quickstart: Quickstart: Create a cognitive search pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn cognitive search REST APIs](cognitive-search-tutorial-blob.md)
-+ [Specifying data source credentials](search-howto-indexing-azure-blob-storage#ho.mdw-to-specify-credentials)
-+ [Indexing Large Datasets](search-howto-indexing-azure-blob-storage#indexing-large-datasets)
++ [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
++ [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to map enriched fields to an index](cognitive-search-output-field-mapping.md)
