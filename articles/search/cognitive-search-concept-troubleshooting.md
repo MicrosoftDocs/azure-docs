@@ -81,7 +81,7 @@ For more details on this approach, see [Indexing Large Datasets](search-howto-in
 
 ## Troubleshoot: Indexer hangs during image processing
 
-Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can be excessive. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
+Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
 For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
