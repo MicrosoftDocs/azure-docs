@@ -107,7 +107,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 To receive a stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and record the values that you need to complete this tutorial.
 
-1. From a web browser, go to [Twitter Application Management](http://twitter.com/app), and select **Create New App**.
+1. From a web browser, go to [Twitter Application Management](https://apps.twitter.com/), and select **Create New App**.
 
     ![Create Twitter application](./media/databricks-stream-from-eventhubs/databricks-create-twitter-app.png "Create Twitter application")
 

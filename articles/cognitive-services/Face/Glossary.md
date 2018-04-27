@@ -5,9 +5,8 @@ description: The glossary explains terms that you might encounter as you work wi
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles

@@ -1,12 +1,11 @@
 ---
-title: Call a Language Understanding (LUIS) app using Java | Microsoft Docs 
-description: Learn to call a LUIS app using Java. 
+title: Call a Language Understanding (LUIS) app using Java | Microsoft Docs
+description: Learn to call a LUIS app using Java.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr

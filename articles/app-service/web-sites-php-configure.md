@@ -1,11 +1,10 @@
----
-title: Configure PHP in Azure App Service Web Apps | Microsoft Docs
+﻿---
+title: Configure PHP in Azure App Service Web Apps
 description: Learn how to configure the default PHP installation or add a custom PHP installation for Web Apps in Azure App Service.
 services: app-service
 documentationcenter: php
-author: cephalin
+author: msangapu
 manager: cfowler
-editor: ''
 
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
@@ -13,8 +12,8 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: cephalin
+ms.date: 04/11/2018
+ms.author: msangapu
 
 ---
 # Configure PHP in Azure App Service Web Apps
@@ -47,7 +46,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 1. Open Azure PowerShell, and login to your account:
 
-        PS C:\> Login-AzureRmAccount
+        PS C:\> Connect-AzureRmAccount
 1. Set the PHP version for the web app.
 
         PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
@@ -57,7 +56,7 @@ PHP 7.0 and PHP 7.2 versions are also available, but not enabled by default. To 
 
 ### Azure CLI 2.0 (Linux, Mac, Windows)
 
-To use the Azure Command-Line Interface, you must [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
+To use the Azure Command-Line Interface, you must [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer.
 
 1. Open Terminal, and login to your account.
 

@@ -4,9 +4,8 @@ titleSuffix: "Microsoft Cognitive Services"
 description: The glossary explains terms that you might encounter as you work with the Face API Service.
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles

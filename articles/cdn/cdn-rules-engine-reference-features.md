@@ -3,7 +3,7 @@ title: Azure CDN rules engine features | Microsoft Docs
 description: Reference documentation for Azure CDN rules engine features.
 services: cdn
 documentationcenter: ''
-author: Lichard
+author: dksimpson
 manager: akucer
 editor: ''
 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2018
-ms.author: rli
+ms.author: v-deasim
 
 ---
 
 # Azure CDN rules engine features
 This article lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
-The third part of a rule is the feature. A feature defines the type of action that is applied to the request type identified by a set of match conditions.
+The third part of a rule is the feature. A feature defines the type of action that is applied to the request type that is identified by a set of match conditions.
 
 ## Access features
 
@@ -31,7 +31,7 @@ Name | Purpose
 -----|--------
 [Deny Access (403)](#deny-access-403) | Determines whether all requests are rejected with a 403 Forbidden response.
 [Token Auth](#token-auth) | Determines whether Token-Based Authentication is applied to a request.
-[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to Token-Based Authentication.
+[Token Auth Denial Code](#token-auth-denial-code) | Determines the type of response that is returned to a user when a request is denied due to token-based authentication.
 [Token Auth Ignore URL Case](#token-auth-ignore-url-case) | Determines whether URL comparisons made by Token-Based Authentication are case-sensitive.
 [Token Auth Parameter](#token-auth-parameter) | Determines whether the Token-Based Authentication query string parameter should be renamed.
 
@@ -513,16 +513,16 @@ Key information:
 
 ---
 ### Debug Cache Response Headers
-**Purpose:** Determines whether a response can include the X-EC-Debug response header, which provides information on the cache policy for the requested asset.
+**Purpose:** Determines whether a response can include [X-EC-Debug response headers](cdn-http-debug-headers.md), which provides information on the cache policy for the requested asset.
 
 Debug cache response headers will be included in the response when both of the following are true:
 
-- The Debug Cache Response Headers Feature has been enabled on the desired request.
-- The above request defines the set of debug cache response headers that will be included in the response.
+- The Debug Cache Response Headers feature has been enabled on the specified request.
+- The specified request defines the set of debug cache response headers that will be included in the response.
 
-Debug cache response headers may be requested by including the following header and the desired directives in the request:
+Debug cache response headers may be requested by including the following header and the specified directives in the request:
 
-X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
+`X-EC-Debug: _&lt;Directive1&gt;_,_&lt;Directive2&gt;_,_&lt;DirectiveN&gt;_`
 
 **Example:**
 
@@ -622,7 +622,7 @@ Remove| Ensures that an `Expires` header is not included with the header respo
 ### External Max-Age
 **Purpose:** Determines the max-age interval for browser to POP cache revalidation. In other words, the amount of time that will pass before a browser can check for a new version of an asset from a POP.
 
-Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the POPs and send them to the HTTP client. By default, these headers will overwrite those created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
+Enabling this feature will generate `Cache-Control: max-age` and `Expires` headers from the POPs and send them to the HTTP client. By default, these headers will overwrite those headers created by the origin server. However, the Cache-Control Header Treatment and the Expires Header Treatment features may be used to alter this behavior.
 
 Key information:
 
@@ -705,7 +705,7 @@ Due to the manner in which cache settings are tracked, this feature cannot be as
 Key information:
 
 - Define a space-delimited set of allowed H.264 filename extensions in the File Extensions option. The File Extensions option will override the default behavior. Maintain MP4 and F4V support by including those filename extensions when setting this option. 
-- Be sure to include a period when specifying each filename extension (for example, .mp4 .f4v).
+- Include a period when you specify each filename extension (for example, _.mp4_, _.f4v_).
 
 **Default Behavior:** HTTP Progressive Download supports MP4 and F4V media by default.
 
@@ -726,7 +726,7 @@ Disabled|Restores the default behavior. The default behavior is to prevent no-ca
 
 For all production traffic, it is highly recommended to leave this feature in its default disabled state. Otherwise, origin servers will not be shielded from end users who may inadvertently trigger many no-cache requests when refreshing web pages, or from the many popular media players that are coded to send a no-cache header with every video request. Nevertheless, this feature can be useful to apply to certain non-production staging or testing directories, in order to allow fresh content to be pulled on-demand from the origin server.
 
-The cache status that will be reported for a request that is allowed to be forwarded to an origin server due to this feature is TCP_Client_Refresh_Miss. The Cache Statuses report, which is available in the Core reporting module, provides statistical information by cache status. This allows you to track the number and percentage of requests that are being forwarded to an origin server due to this feature.
+The cache status that is reported for a request that can be forwarded to an origin server due to this feature is `TCP_Client_Refresh_Miss`. The Cache Statuses report, which is available in the Core reporting module, provides statistical information by cache status. This report allows you to track the number and percentage of requests that are being forwarded to an origin server due to this feature.
 
 **Default Behavior:** Disabled.
 
@@ -857,7 +857,7 @@ Disabled|Restores the default behavior. The default behavior is to ignore query 
 ### Maximum Keep-Alive Requests
 **Purpose:** Defines the maximum number of requests for a Keep-Alive connection before it is closed.
 
-Setting the maximum number of requests to a low value is strongly discouraged and may result in performance degradation.
+Setting the maximum number of requests to a low value is discouraged and may result in performance degradation.
 
 Key information:
 
@@ -989,12 +989,22 @@ Key information:
 
 ---
 ### Proxy Special Headers
-**Purpose:** Defines the set of CDN-specific request headers that will be forwarded from a POP to an origin server.
+**Purpose:** Defines the set of [Verizon-specific HTTP request headers](cdn-verizon-http-headers.md) that will be forwarded from a POP to an origin server.
 
 Key information:
 
-- Each CDN-specific request header defined in this feature will be forwarded to an origin server.
-- Prevent a CDN-specific request header from being forwarded to an origin server by removing it from this list.
+- Each CDN-specific request header defined in this feature is forwarded to an origin server. Excluded headers are not forwarded.
+- To prevent a CDN-specific request header from being forwarded, remove it from space-separated list in the header list field.
+
+The following HTTP headers are included in the default list:
+- Via
+- X-Forwarded-For
+- X-Forwarded-Proto
+- X-Host
+- X-Midgress
+- X-Gateway-List
+- X-EC-Name
+- Host
 
 **Default Behavior:** All CDN-specific request headers will be forwarded to the origin server.
 

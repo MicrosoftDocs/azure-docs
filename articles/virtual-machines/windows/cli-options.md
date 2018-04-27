@@ -3,7 +3,7 @@ title: Using the Azure CLI on Windows | Microsoft Docs
 description: Using the Azure CLI on Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
-ms.author: nepeters
+ms.author: cynthn
 ---
 
 # Using the Azure CLI on Windows
@@ -32,7 +32,7 @@ To use the Azure CLI in WSL, complete the following.
 
 |Task | Instructions |
 |---|---|
-| Enable WSL | [Install WSL documentation ](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide) |
+| Enable WSL | [Install WSL documentation ](https://msdn.microsoft.com/commandline/wsl/install_guide) |
 | Install the Azure CLI |[Install the CLI on WSL/Ubuntu 14.04](https://docs.microsoft.com/cli/azure/install-az-cli2#ubuntu)|
 
 ## PowerShell

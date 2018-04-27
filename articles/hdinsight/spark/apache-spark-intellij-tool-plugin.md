@@ -11,10 +11,8 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
 
@@ -70,7 +68,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
    
     ![An expanded cluster-name node](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-## Link a cluster
+<h2 id="linkcluster">Link a cluster</h2>
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: user1@contoso.com). 
 1. Click **Link a cluster** from **Azure Explorer**.
 

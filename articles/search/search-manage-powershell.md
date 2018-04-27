@@ -4,7 +4,7 @@ description: Manage your Azure Search service with PowerShell scripts. Create or
 author: HeidiSteen
 manager: cgronlun
 tags: azure-resource-manager
-
+services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
@@ -20,7 +20,7 @@ ms.author: heidist
 > 
 
 This topic describes the PowerShell commands to perform many of the management tasks for Azure Search services. We will walk through creating a search service, scaling it, and managing its API keys.
-These commands parallel the management options available in the [Azure Search Management REST API](http://msdn.microsoft.com/library/dn832684.aspx).
+These commands parallel the management options available in the [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## Prerequisites
 * You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/overview).
@@ -28,7 +28,7 @@ These commands parallel the management options available in the [Azure Search Ma
 
 First, you must login to Azure with this command:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
 Specify the email address of your Azure account and its password in the Microsoft Azure login dialog.
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Provisioning guide for SQL Server VMs with Azure PowerShell | Microsoft Docs
 description: Provides steps and PowerShell commands for creating an Azure VM with SQL Server virtual machine gallery images.
 services: virtual-machines-windows
@@ -27,10 +27,10 @@ This article requires the Azure PowerShell module version 3.6 or later. Run `Get
 
 ## Configure your subscription
 
-1. Open PowerShell and establish access to your Azure account by running the **Add-AzureRmAccount** command.
+1. Open PowerShell and establish access to your Azure account by running the **Connect-AzureRmAccount** command.
 
    ```PowerShell
-   Add-AzureRmAccount
+   Connect-AzureRmAccount
    ```
 
 1. You should see a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.
@@ -323,7 +323,7 @@ Stop-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
 You can also permanently delete all resources associated with the virtual machine with the **Remove-AzureRmResourceGroup** command. This permanently deletes the virtual machine as well, so use this command with care.
 
 ## Example script
-The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
+The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
 ```PowerShell
 # Variables

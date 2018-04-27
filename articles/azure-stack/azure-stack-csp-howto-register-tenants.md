@@ -1,4 +1,4 @@
----
+﻿---
 title: Add tenants for usage and billing to Azure Stack | Microsoft Docs
 description: The steps required add an end user to Azure Stack managed by a Cloud Service Provider.
 services: azure-stack
@@ -56,7 +56,7 @@ Update your registration with the new customer’s subscription. Azure reports t
 > To carry out this step, you must have [registered Azure Stack](azure-stack-register.md).
 
 1. Open Windows PowerShell with an elevated prompt, and run:  
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 2. Type your Azure credentials.
 3. In the PowerShell session, run:
 
