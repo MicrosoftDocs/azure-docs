@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a public Basic load balancer by using the Azure portal | Microsoft Docs
+title: 'Quickstart: Create a public Basic load balancer by using the Azure portal | Microsoft Docs'
 description: This quickstart shows how to create a public Basic load balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
