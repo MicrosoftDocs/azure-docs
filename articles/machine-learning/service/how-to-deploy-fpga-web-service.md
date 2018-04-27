@@ -60,7 +60,7 @@ To set up your workstation for FPGA deployment, use these steps:
 3. To download the Anaconda environment, use the following command from a Git prompt:
 
     ```
-    git clone https://github.com/Azure/azure-ml-fast-ai
+    git clone https://aka.ms/aml-real-time-ai
     ```
 
 4. To create the environment, open an **Anaconda Prompt** (not an Azure Machine Learning Workbench prompt) and run the following command:
@@ -69,7 +69,7 @@ To set up your workstation for FPGA deployment, use these steps:
     > The `environment.yml` file is in the git repository you cloned in the previous step. Change the path as needed to point to the file on your workstation.
 
     ```
-    conda env create -f azure-ml-fast-ai/environment.yml
+    conda env create -f environment.yml
     ```
 
 5. To activate the environment, use the following command:
@@ -100,7 +100,7 @@ To set up your workstation for FPGA deployment, use these steps:
 
 ## Deploy your model
 
-From the Jupyter Notebook, open the `00_QuickStart.ipynb` notebook from the `/azure-ml-fast-ai/notebooks/resnet50` directory. Follow the instructions in the notebook to:
+From the Jupyter Notebook, open the `00_QuickStart.ipynb` notebook from the `notebooks/resnet50` directory. Follow the instructions in the notebook to:
 
 * Define the service
 * Deploy the model
@@ -115,7 +115,7 @@ From the Jupyter Notebook, open the `00_QuickStart.ipynb` notebook from the `/az
 Azure Machine Learning provides SSL support and key-based authentication. This enables you to restrict access to your service and secure data submitted by clients.
 
 > [!NOTE]
-> The steps in this section only apply to Azure Machine Learning Real-Time AI (FPGA) models. For standard Azure Machine Learning services, see the [How to set up SSL on Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
+> The steps in this section only apply to Azure Machine Learning Hardware Accelerated Models. For standard Azure Machine Learning services, see the [How to set up SSL on Azure Machine Learning Compute](https://docs.microsoft.com/azure/machine-learning/preview/how-to-setup-ssl-on-mlc) document.
 
 > [!IMPORTANT]
 > Authentication is only enabled for services that have provided an SSL certificate and key. 

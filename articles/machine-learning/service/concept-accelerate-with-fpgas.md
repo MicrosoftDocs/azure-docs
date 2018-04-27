@@ -1,5 +1,5 @@
 ---
-title: Accelerating models with FPGAs 
+title: FPGA acceleration
 description: Learn how to accelerate models and deep neural networks with FPGAs. 
 services: machine-learning
 ms.service: machine-learning
@@ -20,7 +20,7 @@ This functionality is powered by Project Brainwave, which handles translating de
 
 ## Why use an FPGA?
 
-Scoring a model on an FPGA is more cost effective than other types of hardware, and faster than using a CPU. FPGAs are available in Azure, and Project Brainwave can parallelize pre-trained DNNs across these FPGAs to scale out your service.
+FPGAs provide ultra-low latency, and they are particularly effective for scoring data at batch size one (there is no requirement for a large batch size).  They are cost-effective and available in Azure.  Project Brainwave can parallelize pre-trained DNNs across these FPGAs to scale out your service.
 
 ## Next steps
 
