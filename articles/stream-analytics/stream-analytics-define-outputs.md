@@ -14,7 +14,7 @@ ms.date: 04/26/2018
 # Understand outputs from Azure Stream Analytics
 This article describes the different types of outputs available for an Azure Stream Analytics job. Outputs let you store and save the results of the Stream Analytics job. Using the output data, you can do further business analytics and data warehousing of your data. 
 
-When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
+When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
 
 To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-tools-for-visual-studio.md).
 
@@ -40,7 +40,7 @@ Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/se
 | --- | --- |
 | Output alias | A friendly name used in queries to direct the query output to this Data Lake Store. | 
 | Account name | The name of the Data Lake Storage account where you are sending your output. You are presented with a drop-down list of Data Lake Store accounts that are available in your subscription. |
-| Path prefix pattern | The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.</br>Example 1: folder1/logs/{date}/{time} </br>Example 2: folder1/logs/{date}</br>If the file path pattern does not contain a trailing "/", the last pattern in the file path is treated as a filename prefix. </br>New files are created in these circumstances:</br>1. Change in output schema </br>2. External or Internal restart of a job.</br> |
+| Path prefix pattern | The file path used to write your files within the specified Data Lake Store Account. You can specify one or more instances of the {date} and {time} variables.</br><ul><li>Example 1: folder1/logs/{date}/{time}</li><li>Example 2: folder1/logs/{date}</li></ul>.</br>If the file path pattern does not contain a trailing "/", the last pattern in the file path is treated as a filename prefix. </br>New files are created in these circumstances:<ul><li>Change in output schema</li><li>2. External or Internal restart of a job.</li></ul> |
 | Date format | Optional. If the date token is used in the prefix path, you can select the date format in which your files are organized. Example: YYYY/MM/DD |
 |Time format | Optional. If the time token is used in the prefix path, specify the time format in which your files are organized. Currently the only supported value is HH. |
 | Event serialization format | Serialization format for output data. JSON, CSV, and Avro are supported.| 
