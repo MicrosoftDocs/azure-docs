@@ -9,22 +9,19 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+# What is an FPGA and what can you do with it? What is an FPGA accelerator? What is it used for and how can you use it? Supported model types. Less expensive to score on FPGA than GPU and faster than GPU.
 ---
 
-# Accelerating deep neural networks models with FPGAs
+# What is a field programmable gate array?
 
-This article describes how deep neural networks (DNN) can be accelerated with FPGAs (field programmable gate arrays) and why FPGAs are advantageous in this fast-changing AI landscape.
+Field programmable gate arrays (FPGA) are integrated circuits that can be reconfigured as needed. You can change an FPGA as needed to implement new logic. Azure Machine Learning Hardware Accelerated Models allow you to deploy trained models to FPGAs in the Azure cloud.
 
-## Deep neural networks enable AI
+This functionality is powered by Project Brainwave, which handles translating deep neural networks (DNN) into an FPGA program. 
 
-Having a conversation with somebody who doesn't speak your language.  Analyzing medical images to detect cancer earlier.  Making the world accessible to everybody.  What used to be science fiction is becoming reality as DNNs have enabled major advances in artificial intelligence (AI).  Computer vision, language translation, speech recognition, language understanding, and other applications all rely on DNNs.
+## Why use an FPGA?
 
-The challenge is that DNNs are difficult to serve and deploy in large-scale online services.  DNNs are heavily constrained by latency, cost, and power.  The size and complexity of DNNs are outpacing the growth of commodity CPUs.
+Scoring a model on an FPGA is less expensive than using a GPU, and faster than using a CPU. Each Azure datacenter contains many FPGAs. Project Brainwave can parallelize pre-trained DNNs across these FPGAs to scale out your service.
 
-Processing DNNs can be done by "hard" DNN processing units such as GPUs or ASICs.  DNNs are inherently parallel and require lots of matrix operations, which are what GPUs were designed to process.  Other ASICs (application specific integrated circuits) have been designed to process DNNs efficiently.  When these chips are designed, they must commit to a specific set of operators and data types to optimize for.  The chip cannot change once it is designed and manufactured.
+## Next steps
 
-On the other hand, "soft" DNN processing units based on FPGAs (field programmable gate arrays) enable chip configuration and the flexibility to update the chip by software. 
-
-## Why FPGAs
-
-Azure Machine Learning Hardware Accelerated Models is powered by Project Brainwave.  Project Brainwave is a platform that does the programming of the FPGA so you don't have to.
+* [Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)

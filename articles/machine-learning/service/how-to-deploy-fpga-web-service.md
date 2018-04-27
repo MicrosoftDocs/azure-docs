@@ -13,69 +13,96 @@ ms.date: 05/07/2018
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning
 
-This article describes how to set up your workstation environment and deploy a model as a web service on an FPGA (field programmable gate array).  Running the model on FPGAs provide ultra-low latency inferencing even with single batch size.
+In this document, you learn how to set up your workstation environment and deploy a model as a web service. The web service uses Project Brainwave to run the model on field programmable gate arrays (FPGA).
 
-Azure Machine Learning Hardware Accelerated Models is powered by Project Brainwave running on Intel FPGAs.  Directly configuring the FPGA with the DNN (deep neural network) enable huge speed-ups in processing.
-
-## Set up your machine
-
-Follow these steps to set up your workstation for FPGA deployment.
-
-1. Download and install [Git](https://git-scm.com/downloads) 2.16 or later
-
-1. Open a Git prompt and clone this repo:
-
-   `git clone https://github.com/Azure/aml-brainwave`
-
-1. Install conda (Python 3.6) from https://conda.io/miniconda.html
-
-1. Open an **Anaconda Prompt** (not an Azure Machine Learning Workbench prompt) and run the rest of the commands in the prompt.  
-   Create the environment:
-
-   `conda env create -f aml-brainwave/environment.yml`
-
-1. Activate the environment:
-
-   `conda activate azureml_fpga`
-
-1. Launch the Jupyter notebook browser (if using Chrome, then copy and paste the URL with the notebook token into your browser).
-
-   `jupyter notebook` 
-
-1. In a browser, open the quickstart notebook from the [GitHub repo](https://aka.ms/aml-real-time-ai) in the notebooks/resnet50 folder.
+Using FPGAs provides ultra-low latency inferencing, even with a single batch.
 
 ## Create an Azure Machine Learning Model Management account
 
 1. Go to the Model Management Account creation page on the [Azure Portal](https://aka.ms/aml-create-mma).
-2. In the portal, create a Model Management Account  in the **East US** region.
 
-   If you have an existing Model Management Account in the Azure **East US** region, you may skip this step.
+2. In the portal, create a Model Management Account in the **East US** region.
 
-   ![Create Model Management Account](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
+   ![Image of the Create Model Management Account screen](media/how-to-deploy-fpga-web-service/azure-portal-create-mma.PNG)
 
-1. Give your Model Management Account a name, choose a subscription, and choose a resource group.
+3. Give your Model Management Account a name, choose a subscription, and choose a resource group.
 
    >[!IMPORTANT]
    >For Location, you MUST choose **East US** as the region.  No other regions are currently available.
 
-1. Choose a pricing tier (S1 is sufficient, but S2 and S3 also work).  The DevTest tier is not supported.  
-1. Click **Select** to confirm the pricing tier.
-1. Click **Create** on the ML Model Management on the left.
+4. Choose a pricing tier (S1 is sufficient, but S2 and S3 also work).  The DevTest tier is not supported.  
+
+5. Click **Select** to confirm the pricing tier.
+
+6. Click **Create** on the ML Model Management on the left.
 
 ## Get Model Management Account Information
 
-When you need information about your Model Management Account (MMA), click the Model Management Account on the Azure Portal.
+To get information about your Model Management Account (MMA), click the __Model Management Account__ on the Azure portal.
 
-You need these items:
-+ Model Management Account name (this is found on the upper left corner)
+Copy the values of the following items:
+
++ Model Management Account name (in on the upper left corner)
 + Resource group name
 + Subscription ID
-+ Location (use "eastus2") in your code
++ Location (use "eastus2")
 
 ![Model Management Account info](media/how-to-deploy-fpga-web-service/azure-portal-mma-info.PNG)
 
-## Consume your model
+## Set up your machine
 
-Once your model is deployed, follow the instructions in the [sample notebooks](https://aka.ms/aml-real-time-ai) to consume the model.
+To set up your workstation for FPGA deployment, use these steps:
 
-Important: To optimize latency and throughput, your client should ideally be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
+1. Download and install the latest version of [Git](https://git-scm.com/downloads).
+
+2. Install [Anaconda (Python 3.6)](https://conda.io/miniconda.html).
+
+3. To download the Anaconda environment, use the following command from a Git prompt:
+
+    ```
+    git clone https://github.com/Azure/azure-ml-fast-ai
+    ```
+
+4. To create the environment, open an **Anaconda Prompt** (not an Azure Machine Learning Workbench prompt) and run the following command:
+
+    > [!IMPORTANT]
+    > The `aml-brainwave/environment.yml` path points to a file in the git repository you cloned in the previous step. Change the path as needed to point to the file on your workstation.
+
+    ```
+    conda env create -f azure-ml-fast-ai/environment.yml
+    ```
+
+5. To activate the environment, use the following command:
+
+    ```
+    conda activate amlrealtimeai
+    ```
+
+6. To start the Jupyter Notebook server, use the following command:
+
+    ```
+    jupyter notebook
+    ```
+
+    The output of this command is similar to the following text:
+
+    ```text
+    Copy/paste this URL into your browser when you connect for the first time, to login with a token:
+        http://localhost:8888/?token=bb2ce89cc8ae931f5df50f96e3a6badfc826ff4100e78075
+    ```
+
+    If your browser does not automatically open to the Jupyter notebook, use the HTTP URL returned by the previous command to open the page.
+
+    ![Image of the Jupyter Notebook web page](./media/how-to-deploy-fpga-web-service/jupyter-notebook.png)
+
+## Deploy your model
+
+From the Jupyter Notebook, open the `00_QuickStart.ipynb` notebook from the `/azure-ml-fast-ai/notebooks/resnet50` directory. Follow the instructions in the notebook to:
+
+* Define the service
+* Deploy the model
+* Consume the deployed model
+* Delete deployed services
+
+> [!IMPORTANT]
+> To optimize latency and throughput, your workstation should be in the same Azure region as the endpoint.  Currently the APIs are created in the East US Azure region.
