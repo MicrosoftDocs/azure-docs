@@ -77,7 +77,7 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
     | Setting                  | Value               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(TCP-22) |
+    | Name                     | myVm1-myVm2(22) |
     | Source                   |                     |
     | Virtual machine          | myVm1               |
     | Destination              |                     |
@@ -95,7 +95,7 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
 2. Select the monitor with the name **myVm1-myVm2(22)**, to see details for the monitor, as shown in the following picture:
 
-    ![Graph view](./media/connection-monitor/vm-monitor.png)
+    ![Monitor details](./media/connection-monitor/vm-monitor.png)
 
     Note the following information:
 
@@ -108,15 +108,15 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
 # Create a network security group rule
 
-By default, Azure allows communication over all ports between VMs in the same virtual network. Over time, you, or someone in your organization, might override Azure's default rules, inadvertently causing a communication failure.
+By default, Azure allows communication over all ports between VMs in the same virtual network. Over time, you, or someone in your organization, might override Azure's default rules, inadvertently causing a communication failure. Complete the following steps which will cause a failure in connection monitoring:
 
 1. In the search box at the top of the portal, enter *myResourceGroup*. When the **myResourceGroup** resource group appears in the search results, select it.
 2. Select the **myVm2-nsg** network security group.
 3. Select **Inbound security rules**, and then select **Add**, as shown in the following picture:
 
-    ![Inbound security rule](./media/connection-monitor/inbound-security-rules.png)
+    ![Inbound security rules](./media/connection-monitor/inbound-security-rules.png)
 
-4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllownetInBound**. Create a rule with a higher priority that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **OK**:
+4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **OK**:
 
     |Setting|Value|
     |---|---|
@@ -124,6 +124,8 @@ By default, Azure allows communication over all ports between VMs in the same vi
     |Name| DenyAllPort22
 
 5. Since connection monitor probes at 60 second intervals, wait a few minutes and then complete steps 1 and 2 in [View a connection monitor](#view-a-connection-monitor) again. The results are different now, as shown in the following picture:
+
+    ![Monitor details fault](./media/connection-monitor/monitor-details-fault.png)
 
 ## Next steps
 
