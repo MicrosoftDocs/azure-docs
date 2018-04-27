@@ -30,7 +30,7 @@ When an utterance results in a low-confidence score, LUIS highlights that in the
 ## Top-scoring intent
 Every utterance prediction returns a top-scoring intent. This is a numerical comparison of prediction scores. The top two scores can have a very small difference between them. LUIS doesn't indicate this proximity other than returning scores.  
 
-If you are concerned about proximity of top scores, you should return the score for all intents. 
+If you are concerned about proximity of top scores, you should return the score for all intents. You can either add utterances to the two intents that indicate their differences with word choice and arrangement or you can have the LUIS-calling application, such as a chat bot, make programmatic choices about how to handle the two top intents. 
 
 ## Return prediction score for all intents
 A test or endpoint result can include all intents. This configuration is set on the [endpoint](https://aka.ms/v1-endpoint-api-docs) with the `verbose=true` query string name/value pair. 
