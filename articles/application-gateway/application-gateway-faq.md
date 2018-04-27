@@ -174,6 +174,10 @@ No, but Application Gateway has a throughput metric that can be used to alert yo
 
 There is no downtime, instances are distributed across upgrade domains and fault domains.
 
+**Q. Does changing backend pool members cause disruption?**
+
+You can configure connection draining to change members within a backend pool without disruption. This will allow existing connections to continue to be sent to their previous destination until either that connection is closed or a configurable timeout expires.
+
 **Q. Can I change instance size from medium to large without disruption?**
 
 Yes, Azure distributes instances across update and fault domains to ensure that all instances do not fail at the same time. Application Gateway supports scaling by adding multiple instances of the same gateway to share the load.
