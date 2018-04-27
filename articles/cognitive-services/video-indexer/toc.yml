@@ -14,7 +14,11 @@
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md   
   - name: Examine Video Indexer output
-    href: video-indexer-output-json.md
+    items:  
+    - name: Produced by v1 API
+      href: video-indexer-output-json.md
+    - name: Produced by v2 API
+      href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
   - name: View and edit Video Indexer insights
