@@ -22,7 +22,7 @@ New data extraction capabilities in cognitive search make content more searchabl
 
 At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, in route to a search index.
 
-![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png)
+![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
 ## Pipeline components
 
@@ -32,7 +32,7 @@ Underneath it all, the engine driving the pipeline is an Azure Search *indexer*.
 
 ### Source data and document cracking phase
 
-At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#supported-document-formats).
+At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
 ### Cognitive skills and enrichment phase
 
@@ -89,7 +89,7 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 
 | REST API | Description |
 |-----|-------------|
-| [Create Data Source](rhttps://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
+| [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
 | [Create Skillset (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
 | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | [Create Indexer (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search corpus based on the index schema, populated with source data, enriched through skillsets.  |
@@ -103,13 +103,13 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 
 1. Create a skillset with enrichment steps.
 
-1. Define the index schema. The Fields collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
+1. Define the index schema. The *Fields* collection includes fields from source data. You should also stub out additional fields to hold generated values for content created during enrichment.
 
 1. Define the indexer referencing the data source, skillset, and index.
 
 1. Within the indexer, add *outputFieldMappings*. This section maps output from the skillset (in step 3) to the inputs fields in the index schema (in step 4).
 
-1. Send Create Indexer (a POST request with an indexer definition in the request body) to create and run the indexer, invoking the pipeline.
+1. Send *Create Indexer* (a POST request with an indexer definition in the request body) to create and run the indexer, invoking the pipeline.
 
 1. Evaluate results and modify code to update skillsets, schema, or indexer configuration.
 
@@ -119,6 +119,11 @@ Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on 
 
 + [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
 + [Tutorial: Enriched indexing of Azure blob content](cognitive-search-tutorial-blob.md)
+<<<<<<< HEAD
 + [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md)
 + [How to create a skillset or enricmhent pipeline](cognitive-search-defining-skillset.md)
+=======
++ [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
++ [How to create a skillset or augmentation pipeline](cognitive-search-defining-skillset.md)
+>>>>>>> a84300bf23c4d7d53bc90458d6bdf5f6a4dd9aca
 + [How to define a custom interface](cognitive-search-custom-skill-interface.md)

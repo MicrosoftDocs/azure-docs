@@ -1,5 +1,5 @@
 ---
-title: Tips and troubleshooting for cognitive search in Azure Search | Microsoft Docs
+title: Troubleshooting tips for cognitive search in Azure Search | Microsoft Docs
 description: Tips and troubleshooting for setting up cognitive search pipelines in Azure Search.
 services: search
 manager: pablocas
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ---
-# Tips and troubleshooting for cognitive search
+# Troubleshooting tips for cognitive search
 
 This article contains a list of tips and tricks to keep you moving as you get started with cognitive search capabilities in Azure Search. 
 
@@ -73,17 +73,17 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
   ]
 }
 ```
-## Tip 5: Speed up indexing
-Complex or computationally-intensive processes can be time-consuming. Depending on the tier at which you provisioned the service and the number of [partitions and replicas you configured](search-capacity-planning.md), you might be able to run several indexers in parallel. 
 
-For parallel inexing, place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
-For more details on this approach, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
-
-## Troubleshoot: Indexer hangs during image processing
+## Tip 5: Extend processing beyond the 24-hour window
 
 Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
 For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+
+## Tip 6: Increase indexing throughput
+
+For [parallel indexing](search-howto-reindex.md#parallel-indexing), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
+For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
 + [Quickstart: Quickstart: Create a cognitive search pipeline in the portal](cognitive-search-quickstart-blob.md)

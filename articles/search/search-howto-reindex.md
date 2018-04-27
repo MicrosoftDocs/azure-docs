@@ -59,6 +59,8 @@ By design, scheduled indexing starts at specific intervals, with a job typically
 
 In practical terms, for index loads spanning several days, you can put the indexer on a 24-hour schedule. When indexing resumes for the next 24-hour stint, it restarts at the last known good document. In this way, an indexer can work its way through a document backlog over a series of days until all unprocessed documents are processed. For more information about this approach, see [Indexing large datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
+<a name="parallel-indexing"></a>
+
 ### Parallel indexing
 
 A second choice is to set up a parallel indexing strategy. For non-routine, computationally intensive indexing requirements, such as OCR on scanned documents in a cognitive search pipeline, a parallel indexing strategy might be the right choice for achieving that specific goal. In a cognitive search enrichment pipeline, image analysis and natural language processing are long running. Parallel indexing on a service that is not simultaneously handling query requests could be a viable option for working through a large body of slow-processing content. 
