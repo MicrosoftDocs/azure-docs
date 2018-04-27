@@ -73,34 +73,48 @@ private static IAzureMediaServicesClient CreateMediaServicesClient(ConfigWrapper
 
 ### Create an output asset to store the result of a job 
 
-The output asset stores the result of a job that analyzes your content. 
+The output asset stores the result of your job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
 
 ```csharp
 private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName)
 {
-    Asset input = new Asset();
+    // Check if an Asset already exists
+    Asset outputAsset = client.Assets.Get(resourceGroupName, accountName, assetName);
+    Asset asset = new Asset();
+    string outputAssetName = assetName;
 
-    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, input);
+    if (outputAsset != null)
+    {
+         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+         // Note that the returned Asset can have a different name than the one specified as an input parameter!
+         // You may want to update this part to throw an Exception instead, and handle name collisions differently
+         string uniqueness = @"-" + Guid.NewGuid().ToString();
+         outputAssetName += uniqueness;
+    }
+
+    return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
 }
 ```
-
 ### Create a transform and a job that analyzes videos
 
-When processing content in Media Services, it is a common pattern to set up the processing settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). In this tutorial, a recipe that analyzes videos is defined. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that analyzes the specified video. 
 
 #### Transform
 
 When creating a new **Transform** instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object, as shown in the code above. Each **TransformOutput** contains a **Preset**. **Preset** describes step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. In this example, the **VideoAnalyzerPreset** preset is used and the language ("en-US") is passed to its constructor. This preset enables you to extract multiple audio and video insights from a video file. You can use the **AudioAnalyzerPreset** preset if you need to extract multiple audio insights from an audio or video file. 
 
-When creating a **Transform**, you should first check if one already exists using the **Get** method., as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist.
+When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 ```csharp
 private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, Preset preset)
 {
+    // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
+    // also uses the same recipe or Preset for processing content.
     Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
 
     if (transform == null)
     {
+        // Start by defining the desired outputs    
         TransformOutput[] outputs = new TransformOutput[]
         {
             new TransformOutput(preset),
@@ -117,31 +131,41 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
 #### Job
 
-As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output. You can specify the location of your video using: HTTP(s) URLs, SAS URLs, or a path to files located locally or in Azure Blob storage. 
+As mentioned above, the **Transform** object is the recipe and a **Job** is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the input video is uploaded from a specified HTTP(s) URL.  
+In this example, the input video is uploaded from a specified HTTPS URL.  
 
 ```csharp
 private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, string outputAssetName)
 {
     JobInputHttp jobInput =
         new JobInputHttp(files: new[] { "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4" });
+            
+    string uniqueJobName = jobName;
+    Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
+
+    if (job != null)
+    {
+        // Job already exists with the same name, so let's append a GUID
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        uniqueJobName += uniqueness;
+    }
 
     JobOutput[] jobOutputs =
     {
-        new JobOutputAsset(outputAssetName), 
+        new JobOutputAsset(outputAssetName),
     };
 
-    Job job = client.Jobs.Create(
-        resourceGroupName, 
-        accountName,
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
+    job = client.Jobs.Create(
+                resourceGroupName,
+                accountName,
+                transformName,
+                uniqueJobName,
+                new Job
+                {
+                    Input = jobInput,
+                    Outputs = jobOutputs,
+                });
 
     return job;
 }
