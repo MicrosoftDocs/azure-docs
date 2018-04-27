@@ -148,7 +148,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Screenshot of Bookflight intent with Publish button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
 
-2. Select the **Publish to production slot**. 
+2. Select the Production slot and the **Publish** button.
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 

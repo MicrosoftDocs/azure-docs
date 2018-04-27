@@ -175,7 +175,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
     [![](media/luis-quickstart-intent-and-list-entity/publish.png "Screenshot of selecting publish button")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
 
-2. Select the **Publish to production slot**. 
+2. Select the Production slot and the **Publish** button. 
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "Screenshot of selecting Publish to production slot button")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
 

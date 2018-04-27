@@ -121,7 +121,7 @@ When your app is deleted or the Speech service is deleted, the model data is rem
 
     ![Verbose Mode](./media/luis-how-to-publish-app/luis-verbose.png)
 
-6. Click **Publish to production slot** if you have selected the **Production** option under **Publish to**. Click **Publish to staging slot** if you have selected **Staging**. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
+6. Select the Production slot and the **Publish** button. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
 
     >[!NOTE]
     >If the **Publish** button is disabled, then either your app does not have an assigned endpoint key, or you have not trained your app yet.

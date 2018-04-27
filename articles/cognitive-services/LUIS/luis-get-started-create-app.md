@@ -91,7 +91,7 @@ Select **Publish** from the top navigation.
 
 [![](media/luis-quickstart-new-app/publish.png "Screenshot of app with publish button highlighted")](media/luis-quickstart-new-app/publish.png)
 
-Click **Publish to production slot**.
+Select the Production slot and the **Publish** button.
 
 The green notification bar at the top indicates the app successfully published.
 
