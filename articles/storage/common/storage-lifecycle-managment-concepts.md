@@ -25,7 +25,7 @@ Lifecycle management policies include the following features:
 
 Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, *hot* storage is best during the early stages, *cool* storage is most appropriate for occasional access, and *archive* storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
 
-## Storage accounts that support lifecycle management 
+## Storage account support
 
 Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. See [Azure storage account options](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-options) to learn more.  
 
@@ -33,7 +33,7 @@ Lifecycle management policy is available with both General Purpose v2 (GPv2) acc
 
 During preview, lifecycle management is free. Customers are charged the regular transaction fee on listing and updating blob access tier.
 
-## Construct a lifecycle management policy 
+## Policies
 
 A lifecycle management policy is a collection of rules in a JSON document:
 
@@ -71,7 +71,7 @@ Parameters required within a rule are:
 | type           | An enum value | The valid value for preview is `lifecycle` |
 | definition     | An object that defines the lifecycle rule | Each definition is made up with a filter set and an action set. |
 
-## Construct a lifecycle management rule
+## Rules
 
 Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `foo`. In the rule, data is transitioned between tiers based on the following rules:
 
@@ -139,7 +139,7 @@ In preview, the action execution conditions are based on age. Base blob uses las
 | daysAfterLastModifiedGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
 | daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions | 
 
-## Policy examples
+## Examples
 The following examples demonstrate how to address common scenarios with lifecycle policy rules.
 
 ### Move aging data to a cooler tier
