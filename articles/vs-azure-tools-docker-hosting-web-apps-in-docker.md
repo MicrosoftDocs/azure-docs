@@ -36,7 +36,7 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## 2. Publish your containerized app to an Azure Container Registry
+## 2. Publish your container to an Azure Container Registry
 1. Right click your project in the **Solution Explorer** and choose **Publish**
 2. On the publish target dialog, select the **Container Registry** tab
 3. Choose **New Azure Container Registry** and click **Publish**
@@ -51,6 +51,6 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
     ![Visual Studio create Azure Container Registry dialog][0]
 5. Click **Create**
 
-You have now succesffully published your container to a container registry. You can now use the container in any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
+You have now successfully published your container to a container registry. You can now use the container in any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
 
 [0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png
