@@ -141,4 +141,5 @@ This sample code walks you through using the SDK.
    ```
 
 ## Reporting issues
-Contact us on our [forum](aka.ms/aml-forum) if you encounter any issues with the package.
+
+Contact us on our [forum](https://aka.ms/aml-forum) if you encounter any issues with the package.
