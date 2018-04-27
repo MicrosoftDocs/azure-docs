@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of the two debugging feature of Azure
 services: virtual-machines
@@ -144,7 +144,7 @@ If you accidentally attached using an invalid SAS URL and are unable to detach, 
 ## Linux Dependencies
 
 For Linux distros other than Ubuntu 16.04, you may need to manually install some dependencies. In general, the following packages are required:
-* [.NET Core 2.x](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.x](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libsecret`
 * `libgconf-2-4`
 * Up-to-date GCC
