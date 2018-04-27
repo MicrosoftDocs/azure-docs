@@ -17,7 +17,7 @@ ms.author: juliako
 > [!Note]
 > The Video Indexer API v1 is going to be deprecated on July 31, 2018. You should start using the Video Indexer API v2.
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights including (transcript, OCRs, people). The details include keywords (topics), faces, blocks. Each block includes time ranges, transcript lines, OCR lines, sentiments, faces, and block thumbnails.
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimensions appeared in the video.  
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video in the Video Indexer portal. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -46,7 +46,6 @@ This article examines the JSON content returned by the  **Get Video Index** API.
 |isBase|Whether the playlist is a base playlist (a video) or a playlist made of other videos (derived).|
 |durationInSeconds|The total duration of the playlist.|
 |summarizedInsights|Contains one [summarizedInsights](#summarizedInsights).
-|social|Social data such as likes, views and whether the current user liked this playlist.|
 |videos|A list of [videos](#videos) constructing the playlist.<br/>If this playlist of constructed of time ranges of other videos (derived), the videos in this list will contain only data from the included time ranges.|
 
 ```json
@@ -64,11 +63,7 @@ This article examines the JSON content returned by the  **Get Video Index** API.
   "isBase": false,
   "durationInSeconds": 120, 
   "summarizedInsights" : { . . . }
-  "videos": [{ . . . }],
-  "social": {
-    "likedByUser": false,
-    "likes": 0,
-    "views": 4 }
+  "videos": [{ . . . }]
 }
 ```
 
@@ -152,7 +147,7 @@ This section shows the summary of the insights.
 ```
 ### insights
 
-The insights are a set of dimensions (for example, transcript lines, faces, brands, etc.), where each dimension is a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list its instances, which are time ranges with additional optional metadata.
+The insights are a set of dimensions (for example, transcript lines, faces, brands, etc.), where each dimension is a list of unique elements (for example, face1, face2, face3), and each element has its own metadata and a list of its instances (which are time ranges with additional optional metadata).
 
 A face might  have an ID, a name, a thumbnail, other metadata, and a list of its temporal instances (for example: 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 and 00:41:21 – 00:41:49.) Each temporal instance can have additional metadata. For example, the face’s rectangle coordinates (20,230,60,60).
 
@@ -170,6 +165,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualContentModeration) dimension.|
+|textualConentModeration|The [textualConentModeration](#textualConentModeration) dimension.|
 
 Example:
 
@@ -187,11 +183,12 @@ Example:
   "brands": ...,
   "audioEffects": ...,
   "sentiments": ...,
-  "visualContentModeration": ...
+  "visualContentModeration": ...,
+  "textualConentModeration": ...
 }
 ```
 
-#### Transcript
+#### transcript
 
 |Name|Description|
 |---|---|
@@ -229,7 +226,7 @@ Example:
 ] 
 ```
 
-#### Ocr
+#### ocr
 
 |Name|Description|
 |---|---|
@@ -272,7 +269,7 @@ Example:
   ],
 ```
 
-#### Keywords
+#### keywords
 
 |Name|Description|
 |---|---|
@@ -320,7 +317,7 @@ Example:
 
 ```
 
-#### Faces
+#### faces
 
 |Name|Description|
 |---|---|
@@ -328,67 +325,52 @@ Example:
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
-|thumbnalId|The id of the thumbnail of that face (in VI).|
+|thumbnalId|The id of the thumbnail of that face.|
 |knownPersonId|In case of a known person, its internal id.|
 |referenceId|In case of a Bing celebrity, its Bing id.|
 |referenceType|Currently just Bing.|
 |title|In case of a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|In case of a celebrity, its image url.|
-|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
+|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times). Each instance also has a list of thumbnailsId. These are instances of the face in the given time range.|
 
 ```json
-"Faces": [
-    {
-      "id": 1002,
-      "name": "Satya Nadella",
-      "confidence": 0.911,
-
-      "description": "Satya Nadella is Microsoft...",
-      "thumbnailId": "12345678-0000-0000-0000-000000000000",
-      "knownPersonId": "00000000-0000-0000-0000-000000000000",
-      "bingId": 39835678 - 0000 - 0000 - 0000 - 000000000000,
-      "title": "Microsoft's CEO",
-      "imageUrl": "http://www.bing.com/images/...",
-      "instances": [
-        {
-          "start": "00: 00: 00",
-          "end": "00: 00: 26.8000000"
-        }
-      ]
-    },
-    {
-      "id": 2508,
-      "name": "My brother", 
-      "confidence": 0.881,
-      "description": null,
-      "thumbnailId": "87654321-0000-0000-0000-000000000000",
-      "knownPersonId": "11111122-0000-0000-0000-000000000000",
-      "referenceId": null,
-      "referenceType": null,
-      "title": null,
-      "imageUrl": "http://www.bing.com/images/...",
-      "instances": [
-        {
-          "start": "00: 00: 00",
-          "end": "00: 00: 14.6330000"
-        },
-        {
-          "start": "00: 01: 33.3670000",
-          "end": "00: 01: 38.3660000"
-        }
-      ]
-    }
-  ]
+"faces": [{
+	"id": 2002,
+	"name": "Xam 007",
+	"confidence": 0.93844,
+	"description": null,
+	"thumbnailId": "00000000-aee4-4be2-a4d5-d01817c07955",
+	"knownPersonId": "8340004b-5cf5-4611-9cc4-3b13cca10634",
+	"referenceId": null,
+	"title": null,
+	"imageUrl": null,
+	"instances": [{
+		"thumbnailsIds": ["00000000-9f68-4bb2-ab27-3b4d9f2d998e",
+		"cef03f24-b0c7-4145-94d4-a84f81bb588c"],
+		"adjustedStart": "00:00:07.2400000",
+		"adjustedEnd": "00:00:45.6780000",
+		"start": "00:00:07.2400000",
+		"end": "00:00:45.6780000"
+	},
+	{
+		"thumbnailsIds": ["00000000-51e5-4260-91a5-890fa05c68b0"],
+		"adjustedStart": "00:10:23.9570000",
+		"adjustedEnd": "00:10:39.2390000",
+		"start": "00:10:23.9570000",
+		"end": "00:10:39.2390000"
+	}]
+}]
 ```
 
-#### Labels
+#### labels
 
 |Name|Description|
 |---|---|
 |id|The label id.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
-|instances|A list of time ranges where this label appeared (a label can appear multiple times).|
+|instances|A list of time ranges where this label appeared (a label can appear multiple times). The instance has a confidence field. |
+
 
 ```json
 "labels": [
@@ -398,10 +380,12 @@ Example:
       "language": "en-US",
       "instances": [
         {
+          "confidence": 1.0,
           "start": "00: 00: 00.0000000",
           "end": "00: 00: 25.6000000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 01: 33.8670000",
           "end": "00: 01: 39.2000000"
         }
@@ -413,18 +397,22 @@ Example:
       "id": 1,
       "instances": [
         {
+          "confidence": 1.0,
           "start": "00: 00: 06.4000000",
           "end": "00: 00: 07.4670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 09.6000000",
           "end": "00: 00: 10.6670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 11.7330000",
           "end": "00: 00: 20.2670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 21.3330000",
           "end": "00: 00: 25.6000000"
         }
@@ -433,12 +421,12 @@ Example:
   ] 
 ```
 
-#### Shots
+#### shots
 
 |Name|Description|
 |---|---|
 |id|The shot id.|
-|keyFrames|A list of key frames within the shot (each has an Id and a list of instances time ranges).|
+|keyFrames|A list of key frames within the shot (each has an Id and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail id.|
 |instances|A list of time ranges of this shot (shots have only 1 instance).|
 
 ```json
@@ -450,6 +438,7 @@ Example:
           "id": 0,
           "instances": [
             {
+	      "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -458,6 +447,7 @@ Example:
       ],
       "instances": [
         {
+	   "thumbnailId": "00000000-0000-0000-0000-000000000000",	
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -470,6 +460,7 @@ Example:
           "id": 1,
           "instances": [
             {
+	      "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -478,6 +469,7 @@ Example:
       ],
       "instances": [
         {
+	  "thumbnailId": "00000000-0000-0000-0000-000000000000",
           "start": "00: 00: 05.2670000",
           "end": "00: 00: 10.3000000"
         }
@@ -486,20 +478,20 @@ Example:
   ]
 ```
 
-#### Brands
+#### brands
 
 Business and product brand names detected in the speech to text transcript and/or Video OCR. This does not include visual recognition of brands or logo detection.
 
 |Name|Description|
 |---|---|
 |id|The brand id.|
-|name|The brandss name.|
+|name|The brands name.|
 |wikiId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |wikiUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Indexer brand detector (0-1).|
-|instances|A list of time ranges of this brand. Each instance also details whether this brand appeared in the transcript or in OCR.|
+|instances|A list of time ranges of this brand. Each instance also had a brandType which indicates whether this brand appeared in the transcript or in OCR.|
 
 ```json
 "brands": [
@@ -547,7 +539,7 @@ Business and product brand names detected in the speech to text transcript and/o
 ]
 ```
 
-#### AudioEffects
+#### audioEffects
 
 |Name|Description|
 |---|---|
@@ -574,21 +566,21 @@ Business and product brand names detected in the speech to text transcript and/o
 ]
 ```
 
-#### Sentiments
+#### sentiments
 
- Sentiments are aggregated by their score (for example, 0-0.1, 0.1-0.2).
+Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative).
 
 |Name|Description|
 |---|---|
 |id|The sentiment ID.|
-|score|The sentiment score (0 = Negative, 1 = Positive).|
+|averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
 |instances|A list of time ranges where this sentiment appeared.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
-    "score": 0.87,
+    "averageScore": 0.87,
     "instances": [
     {
         "start": "00:00:23",
@@ -597,7 +589,7 @@ Business and product brand names detected in the speech to text transcript and/o
     ]
 }, {
     "id": 1,
-    "score": 0.11,
+    "averageScore": 0.11,
     "instances": [
     {
         "start": "00:00:13",
@@ -608,7 +600,7 @@ Business and product brand names detected in the speech to text transcript and/o
 ]
 ```
 
-#### VisualContentModeration
+#### visualContentModeration
 
 |Name|Description|
 |---|---|
@@ -643,6 +635,15 @@ Business and product brand names detected in the speech to text transcript and/o
 }
 ] 
 ```
+
+#### textualConentModeration 
+
+|Name|Description|
+|---|---|
+|id|The textual content moderation id.|
+|bannedWordsCount |The number of banned words.|
+|bannedWordsRatio |The ratio from total number of words.|
+
 
 ## Next steps
 
