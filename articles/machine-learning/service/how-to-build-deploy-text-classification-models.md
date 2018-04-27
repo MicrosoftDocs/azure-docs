@@ -15,18 +15,18 @@ ms.date: 05/07/2018
 
 In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train, test, and deploy a text classification model. 
 
-There are broad applications of text classification: categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
+There are broad applications of text classification for example categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
 
-The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a basic traditional text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a web service using twitter sentiment dataset using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
+The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. This article demonstrates how to build and deploy a text classifier and demonstrates how to do text processing, feature engineering, training a sentiment classification model, and publishing it as a sentiment classification web service using Azure Machine Learning Package for Text Analytics with a scikit-learn pipeline.
 
-When building and deploying this text classification model, follow these steps:
-1. Load the training dataset
+The model building and deployment workflow for text analytics models is as follows:
+
+1. Load the data
 2. Train the model
 3. Apply the classifier 
 4. Evaluate performance
 5. Save the pipeline
-6. Load the pipeline
-7. Test the pipeline
+6. Test the pipeline
 8. Deploy the model as a web service
 
 Consult the [package reference documentation](https://aka.ms/aml-packages/text) for the detailed reference for each module and class.
@@ -56,12 +56,10 @@ Try it out yourself. Download the notebook and run it yourself.
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### Explore the sample data
-
-The following example uses a [sentiment dataset](http://qwone.com/~jason/20Newsgroups/) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and SKlearn. 
+The following example uses the [sentiment analysis in twitter dataset](https://www.cs.york.ac.uk/semeval-2013/task2/index.html) to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
 
 ## Load the training dataset
-
-Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. 
+Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. <br />
 Input dataset is a *.tsv file with the following [ID, Text, Label] format. 
 
 
