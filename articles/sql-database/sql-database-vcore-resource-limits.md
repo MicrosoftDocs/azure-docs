@@ -37,7 +37,7 @@ For single databases, the following tables show the resources available for a si
 |IO latency (approximate)|5-7 ms (write)
 |Max concurrent workers (requests)|200|400|800|1600|3200|
 |Max concurrent logins|200|400|800|1600|3200|
-|Max allowed sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
@@ -60,7 +60,7 @@ For single databases, the following tables show the resources available for a si
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|200|400|800|1600|3200|
 |Max concurrent logins|200|400|800|1600|3200|
-|Max allowed sessions|3000|3000|3000|3000|3000|
+|Max allowed sessions|30000|30000|30000|30000|30000|
 |Number of replicas|3|3|3|3|3|
 |Multi-AZ|Yes|Yes|Yes|Yes|Yes|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|
@@ -125,7 +125,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |||
 
 ### Business Critical service tier
-|Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|
+|Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|
 |:--- | --: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|
 |vCores|1|2|4|8|16|

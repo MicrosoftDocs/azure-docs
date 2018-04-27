@@ -51,7 +51,7 @@ When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and 
 > 
 
 ## Geo-backups
-SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to the server in the geo-paired region. A geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
+SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL Data Warehouse is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the snapshots in your primary region.
 
 Geo-backups are on by default. If your data warehouse is optimized for elasticity, you can [opt out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) if you wish. You cannot opt out of geo-backups with the optimized for compute performance tier.
 
