@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 
 ## Create a device identity in the portal
 
-Now you have your IoT Hub. Open [portal](portal.azure.com) and navigate to your IoT Hub. Click on IoT Devices, and then click add to create a device identity. Name it **MyFirstDevice**. 
+Now you have your IoT Hub. Open [portal](https://portal.azure.com) and navigate to your IoT Hub. Click on IoT Devices, and then click add to create a device identity. Name it **MyFirstDevice**. 
 
 ![Create device identity][8]
 
