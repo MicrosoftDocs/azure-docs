@@ -20,14 +20,14 @@ ms.reviewer: ppacent
 
 # Azure Stack certificates signing request generation
 
-The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment. 
+The Azure Stack Readiness Checker tool described in this article is available [from the PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The tool creates Certificate Signing Requests (CSRs) suitable for an Azure Stack deployment. Certificates should be requested, generated, and validated with enough time to test before deployment.
 
 The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the following certificate requests:
 
  - **Standard Certificate Requests**  
-    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md). 
+    Request according to [Generate PKI Certificates for Azure Stack Deployment](azure-stack-get-pki-certs.md).
  - **Request Type**  
-    Request multiple wildcard SAN, multiple domain certificates, single wildcard certificate requests.
+    Specifies whether or not the Certificate Signing Request will be a single request, or multiple requests.
  - **Platform-as-a-Service**  
     Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -41,6 +41,9 @@ Your system should meet the following prerequisites before generating the CSR(s)
     - External fully qualified domain name (FQDN)
     - Subject
  - Windows 10 or Windows Server 2016
+ 
+  > [!NOTE]
+  > When you receive your certificates back from your certificate authority the steps in [Prepare Azure Stack PKI certificates](azure-stack-prepare-pki-certs.md) will need to be completed on the same system!
 
 ## Generate certificate signing request(s)
 
