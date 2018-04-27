@@ -3,7 +3,7 @@ title: Push Docker image to private Azure registry
 description: Push and pull Docker images to a private container registry in Azure using the Docker CLI
 services: container-registry
 author: stevelas
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article

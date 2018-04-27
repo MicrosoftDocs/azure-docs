@@ -166,7 +166,7 @@ The following are post-installation known issues for build  **20180323.2**.
     - *Allow:*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -196,7 +196,7 @@ The following are post-installation known issues for build  **20180323.2**.
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         
