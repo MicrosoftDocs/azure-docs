@@ -23,11 +23,11 @@
     href: review-api.md
   - name: Workflows
     href: workflow-api.md
-- name: How-to
+- name: How-to guides
   items:
   - name: Try Content Moderator
     items:
-    - name: Review tool
+    - name: Get started with Content Moderator
       href: quick-start.md
     - name: Moderation APIs
       items:
