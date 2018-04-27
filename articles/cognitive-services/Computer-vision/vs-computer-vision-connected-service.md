@@ -13,7 +13,7 @@ ms.author: ghogen
 ---
 # Connecting to Cognitive Services Computer Vision API by using Connected Services in Visual Studio
 
-By using the Cognitive Services Computer Vision API, you can detect, analyze, organize, and tag faces in photos.
+By using the Cognitive Services Computer Vision API, you can extract rich information to categorize and process visual data, and perform machine-assisted moderation of images to help curate your services.
 
 This article and its companion articles provide details for using the Visual Studio Connected Service feature for Cognitive Services Computer Vision API. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
@@ -41,7 +41,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    ![Select your subscription](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Face API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Select the subscription you want to use, and then choose a name for the Computer Vision API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
    ![Edit connected service details](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-2.PNG)
 
