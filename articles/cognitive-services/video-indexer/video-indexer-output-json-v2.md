@@ -17,7 +17,7 @@ ms.author: juliako
 > [!Note]
 > The Video Indexer API v1 is going to be deprecated on July 31, 2018. You should start using the Video Indexer API v2.
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimensions appeared in the video.  
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video in the Video Indexer portal. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -93,7 +93,7 @@ This section shows the summary of the insights.
 |WordCount|The number of words per speaker.|
 |SpeakerNumberOfFragments|The amount of fragments the speaker has in a video.|
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
-|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the 3rd decimal point.|
+|SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
 ## videos
 
@@ -426,7 +426,7 @@ Example:
 |Name|Description|
 |---|---|
 |id|The shot id.|
-|keyFrames|A list of key frames within the shot (each has an Id and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail id.|
+|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
 |instances|A list of time ranges of this shot (shots have only 1 instance).|
 
 ```json
@@ -484,14 +484,14 @@ Business and product brand names detected in the speech to text transcript and/o
 
 |Name|Description|
 |---|---|
-|id|The brand id.|
+|id|The brand ID.|
 |name|The brands name.|
 |wikiId | The suffix of the brand wikipedia url. For example, "Target_Corporation” is the suffix of [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |wikiUrl | The brand’s Wikipedia url, if exists. For example, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|The brands description.|
 |tags|A list of predefined tags that were associated with this brand.|
 |confidence|The confidence value of the Video Indexer brand detector (0-1).|
-|instances|A list of time ranges of this brand. Each instance also had a brandType which indicates whether this brand appeared in the transcript or in OCR.|
+|instances|A list of time ranges of this brand. Each instance has a brandType which indicates whether this brand appeared in the transcript or in OCR.|
 
 ```json
 "brands": [
@@ -604,7 +604,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 |Name|Description|
 |---|---|
-|id|The visual content moderation id.|
+|id|The visual content moderation ID.|
 |adultScore|The adult score (from content moderator).|
 |racyScore|The racy score (from content moderation).|
 |instances|A list of time ranges where this visual content moderation appeared.|
@@ -640,7 +640,7 @@ Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negativ
 
 |Name|Description|
 |---|---|
-|id|The textual content moderation id.|
+|id|The textual content moderation ID.|
 |bannedWordsCount |The number of banned words.|
 |bannedWordsRatio |The ratio from total number of words.|
 
