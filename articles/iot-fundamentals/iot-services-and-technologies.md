@@ -75,7 +75,7 @@ Azure IoT Edge is an Internet of Things (IoT) service. This service is meant for
 Take advantage of an array of Azure data and analytics PaaS offerings in your IoT solution, from bringing cloud intelligence to the edge with Azure Machine Learning, to storing IoT device data in a cost-effective way with Azure Data Lake, to visualizing huge amount of data from IoT devices with Azure Time Series Insights.
 
 ### Visualization and integration
-Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/en-us/).
+Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/).
 
 
 
