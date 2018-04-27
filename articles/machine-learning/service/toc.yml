@@ -29,6 +29,8 @@
   items: 
   - name: Key concepts
     href: ../desktop-workbench/overview-general-concepts.md
+  - name: FPGA accelerations
+    href: concept-accelerate-with-fpgas.md    
 - name: How-to guides
   items:  
   - name: Top CLI tasks

@@ -12,8 +12,11 @@ ms.date: 05/07/2018
 # Azure Machine Learning Hardware Acceleration package
 
 Azure Machine Learning Hardware Acceleration package is a Python pip-installable extension for Azure Machine Learning that enables data scientists and AI developers to quickly:
+
 + Featurize images with a quantized version of ResNet 50
+
 + Train classifiers based on those features
+
 + Deploy models to an FPGA on Azure for ultra-low latency inferencing
 
 ## Prerequisites
