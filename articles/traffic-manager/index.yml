@@ -8,6 +8,7 @@ metadata:
   services: traffic-manager
   author: KumudD
   manager: jeconnoc
+  layout: LandingPage
   ms.service: traffic-manager
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -20,7 +21,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to manage web traffic to your service endpoints using Traffic Manager.'
+    text: Learn how to manage web traffic to your service endpoints using Traffic Manager.
   - type: list
     style: icon48
     items: 
@@ -31,19 +32,15 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to route traffic based on different routing methods available in Trafiic Manager.
+    text: Learn how to route traffic based on different routing methods available in Traffic Manager.
   - type: list
     style: ordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
-    - html: <a href="/azure/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on endpoint priority</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on endpoint priority</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic accross endpoints</a>
-    - html: <a href="/azure/traffic-manager-configure-performance-routing-method">Route traffic based on endpoint proximity</a>
-    - text: 'Send Real User Measurements to Traffic Manager'
-          items:
-            - html: <a href="/azure/traffic-manager/traffic-manager-create-rum-visual-studio">Using Visual Studio SDK</a>
-            - html: <a href="/azure/traffic-manager/traffic-manager-create-rum-web-pages">Using web pages</a>
-  
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic based on endpoint proximity</a>
+    - html: Send Real User Measurements to Traffic Manager<ul><li><a href="/azure/traffic-manager/traffic-manager-create-rum-visual-studio">Using Visual Studio SDK</a></li><li><a href="/azure/traffic-manager/traffic-manager-create-rum-web-pages">Using web pages</a></li></ul>
 - title: Free Pluralsight Video Training
   items:
   - type: list
