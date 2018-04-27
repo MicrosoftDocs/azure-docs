@@ -121,7 +121,7 @@ Site slot swap is broken in this release. To restore functionality, complete the
 1. Modify the ControllersNSG Network Security Group to **Allow** remote desktop connections to the App Service controller instances. Replace AppService.local with the name of the resource group you deployed App Service in.
 
     ```powershell
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -172,7 +172,7 @@ Site slot swap is broken in this release. To restore functionality, complete the
 
     ```powershell
 
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Add-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
