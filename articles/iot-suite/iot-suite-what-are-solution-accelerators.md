@@ -147,7 +147,7 @@ The UI is built using the [React](https://facebook.github.io/react/) javascript 
 
 Now that you have an overview of the IoT solution accelerators, here are suggested next steps for each of the solution accelerators:
 
-* [Explore the Remote Monitoring solution Resource Manager deployment model](iot-suite-remote-monitoring-explore.md).
+* [Explore the Remote Monitoring solution](iot-suite-remote-monitoring-explore.md).
 * [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md).
 * [Get started with the Connected Factory solution accelerator](iot-suite-connected-factory-overview.md).
 
