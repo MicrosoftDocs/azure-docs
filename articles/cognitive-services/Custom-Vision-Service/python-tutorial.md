@@ -80,11 +80,11 @@ base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVi
 print ("Adding images...")
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ hemlock_tag.id ] ) ])
+    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ hemlock_tag.id ] ) ])
 
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ cherry_tag.id ] ) ])
+    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
 
 
 # Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
