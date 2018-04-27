@@ -14,15 +14,26 @@ ms.author: v-geberr;
 
 
 # Publish your trained app
-When you finish building and testing your LUIS app, you publish it on Azure. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chat bot, or backend application. 
+When you finish building and testing your LUIS app, publish it. After the app is published, the Publish page shows all associated HTTP [endpoints](luis-glossary.md#endpoint). These endpoints, per [region](luis-reference-regions.md) and per [key](Manage-Keys.md), are then integrated into any client, chat bot, or backend application. 
 
-You can optionally [test](train-test.md) your app before publishing it. 
+You can always [test](train-test.md) your app before publishing it. 
 
-## Product and staging slot
-You can publish your app to the **Staging slow** or the **Production Slot**. Part of the slot choice is the time zone selection. This allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
+## Production and staging slots
+You can publish your app to the **Staging slot** or the **Production Slot**. By using two publishing slots, this allows you to have two different versions with published endpoints or the same version on two different endpoints. 
 
-## Include all predicted intent scores
-In the **Endpoint url settings**, the **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each utterance for each intent. This allows your chat bot or LUIS-calling application to make a programming decision based on the scores of the returned intents. Generally the top two intents are the most interesting. The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
+<!-- TBD: what is the technical difference? log files, endpoint quota? -->
+
+## Configure settings then publish
+
+### Set Timezone offset
+Part of the slot choice is the time zone selection. This timezone setting allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
+
+### Include all predicted intent scores
+The **Include all predicted intent scores** checkbox allows the endpoint query response to include the prediction score for each intent. 
+
+This setting allows your chat bot or LUIS-calling application to make a programmatic decision based on the scores of the returned intents. Generally the top two intents are the most interesting. If the top score is the None intent, your chat bot can choose to ask a follow-up question that makes a definitive choice between the None intent and the other high-scoring intent. 
+
+The intents and their scores are also included the endpoint logs. You can [export](create-new-app.md#export-app) those logs and analyze the scores. 
 
 ```
 {
@@ -45,9 +56,7 @@ In the **Endpoint url settings**, the **Include all predicted intent scores** ch
 }
 ```
 
-The checkbox is useful if you are copying the endpoint URLs from the publish page. If you are constructing your own URLs for your LUIS-calling application, make sure the **verbose=true** parameter is added to the endpoint URL querystring. 
-
-## Enable Bing spell checker 
+### Enable Bing spell checker 
 In the **Endpoint url settings**, the **Enable Bing spell checker** checkbox allows LUIS to correct misspelled words before prediction. This requires you to create a **[Bing Spell Check key](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. Once the key is created, two querystring parameters are added to the endpoint URL on the publish page. 
 
 If you are constructing your own URLs for your LUIS-calling application, make sure the **spellCheck=true** querystring parameter and the **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. Replace the `{YOUR_BING_KEY_HERE}` with your Bing spell checker key.
@@ -64,7 +73,7 @@ If you are constructing your own URLs for your LUIS-calling application, make su
 }
 ```
 
-## Enable sentiment analysis
+### Enable sentiment analysis
 In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
@@ -86,56 +95,58 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 ]
 ```
 
-## Enable speech priming 
+### Enable speech priming 
 In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). In order to use this option, you need the LUIS subscription endpoint key, the LUIS app ID, and the LUIS endpoint URL. These are needed to configure speech priming. 
 
-Once this feature is enabled, when you publish your LUIS app, your own Speech service is sent your app model to prime the Speech service. 
+![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
+
+Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own services. 
 
 When your app is deleted or the Speech service is deleted, the model data is removed. 
 
 ## Publish your trained app to an HTTP endpoint
 
-1. Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. The following image shows the **Publish app** page before you publish your app.
+Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. 
 
-    ![Publish page-](./media/luis-how-to-publish-app/luis-first-publish.png)
+![Publish page-](./media/luis-how-to-publish-app/publish-to-production.png)
  
-    When you publish an app, this page looks like the following image: 
- 
-    ![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
+When your app is successfully published, a green success notification appears at the top of the browser. 
 
-2. The first time you publish, the **Publish app** page shows your starter key. If you want to use a key other than the key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
+![Publish page](./media/luis-how-to-publish-app/luis-republish.png)
 
-3. Choose whether to publish to **Production** or to **Staging** by selecting from the drop-down menu under **Publish to**. 
+## Assign key
 
-4. If you want to enable Bing Spell Check, click the **Enable Bing Spell Checker** check box.
+If you want to use a key other than the free Starter_Key shown, click the **Add Key** button. This action opens a dialog that allows you to select an existing endpoint key to assign to the app. For more information on how to create and add endpoint keys to your LUIS app, see [Manage your keys](Manage-Keys.md).
 
-    ![Bing Spell Checker](./media/luis-how-to-publish-app/luis-enable-bing-spell-checker.png)
+To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resources associated with your account and the endpoint keys associated with that resource.
 
-    This checkbox changes your endpoint URL to include the two name/value pairs associated with the Bing Spell Checker: **spellCheck=true** and **bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**. If you call the LUIS endpoint from a bot or other application, you need to change the endpoint URL there as well.
+## Endpoint URL construction
+The endpoint URL corresponds to the Azure region associated with the endpoint key.
 
-    |Endpoint Url with Bing Spell Check enabled|
-    |--|
-    |https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={LUISKey}&verbose=true&timezoneOffset=0&q={query}**&spellCheck=true&bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}**|
+This table conveniently reflects your publishing configuration in the URL endpoint with route choices and query string values. If you are constructing your endpoint URLs for your LUIS-calling application, make sure these same routes and query string values are set for the endpoint used -- if you want them set.
 
-5. If you want the JSON response of your published app to include all intents defined in your app and their prediction scores, click **Include all predicted intent scores** checkbox to append a `verbose=true` parameter to the end-point URL. Otherwise, it includes only the top scoring intent.
+The URL route is constructed with the region, and the app ID. If you are publishing in other regions or with other apps, the endpoint URL can be constructed by changing the region and app ID values. 
 
-    ![Verbose Mode](./media/luis-how-to-publish-app/luis-verbose.png)
+### Optional query string parameters
+The following query string parameters can be used with the endpoint URL:
 
-6. Click **Publish to production slot** if you have selected the **Production** option under **Publish to**. Click **Publish to staging slot** if you have selected **Staging**. When the publish succeeds, use the displayed endpoint URL to access your LUIS app. 
+<!-- TBD: what about speech priming? -->
 
-    >[!NOTE]
-    >If the **Publish** button is disabled, then either your app does not have an assigned endpoint key, or you have not trained your app yet.
-
-    ![Endpoint URL displayed in Publish page](./media/luis-how-to-publish-app/luis-publish-url.png)
-
-The endpoint URL corresponds to the Azure region associated with the endpoint key. To see endpoints and keys associated with other regions, use the radio buttons to switch regions. Each row in the **Resources and Keys** table lists Azure resources associated with your account and the endpoint keys associated with that resource.
+|Query string|Type|Example value|Purpose|
+|--|--|--|--|
+|verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
+|sentiment|boolean|true|Include [sentiment](#enable-sentiment-analysis) score for utterance|
+|timezoneOffset|number (unit is minutes)|60|Set [timezone offset](#set-timezone) for [datetimeV2 prebuilt entities](#builtindatetimev2)|
+|spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
+|bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
+|staging|boolean|false|select staging or production endpoint|
+|log|boolean|true|add query and results to log|
 
 
 ## Test your published endpoint in a browser
-You can test your published endpoint in a browser using the generated URL. To open this URL in your browser, set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
+Test your published endpoint by selecting the URL in the **Endpoint** column. The default browser opens with the generated URL. Set the URL parameter "&q" to your test query. For example, append `&q=Book me a flight to Boston on May 4` to your URL, and then press Enter. The browser displays the JSON response of your HTTP endpoint. 
 
 ![JSON response from a published HTTP endpoint](./media/luis-how-to-publish-app/luis-publish-app-json-response.png)
-
 
 ## Next steps
 
