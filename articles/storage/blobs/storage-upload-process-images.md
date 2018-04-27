@@ -19,7 +19,13 @@ ms.custom: mvc
 
 This tutorial is part one of a series. This tutorial shows you how to deploy a web application that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you have a web app storing and displaying images from Azure storage.
 
+# [\.NET](#tab/net)
 ![Images container view](media/storage-upload-process-images/figure2.png)
+
+# [Node.js](#tab/nodejs)
+![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 In part one of the series, you learn how to:
 
@@ -270,7 +276,13 @@ Choose a file using the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
+# [\.NET](#tab/net)
 ![Images container view](media/storage-upload-process-images/figure2.png)
+
+# [Node.js](#tab/nodejs)
+![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. In part two of the series, you are automating the creation of the thumbnail images, so this test image is not needed.
 
