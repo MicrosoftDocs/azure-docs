@@ -95,7 +95,7 @@ continue with the following sections.
 
 <a name="download-chunks"></a>
 
-### Download content in chunks
+## Download content in chunks
 
 Many endpoints automatically send large messages
 in chunks when downloaded through an HTTP GET request.
