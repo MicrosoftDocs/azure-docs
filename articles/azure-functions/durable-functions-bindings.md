@@ -1,4 +1,4 @@
----
+﻿---
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functons extension for Azure Functions.
 services: functions
@@ -168,9 +168,9 @@ public static string SayHello([ActivityTrigger] string name)
 
 ### Passing multiple parameters 
 
-It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples) objects.
+It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects.
 
-The following sample is using new features of [ValueTuples](https://docs.microsoft.com/en-us/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-7#tuples):
+The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
