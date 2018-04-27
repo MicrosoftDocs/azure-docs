@@ -119,7 +119,7 @@ In the previous example, a maximum of 10 orchestrator functions and 10 activity 
 > [!NOTE]
 > These settings are useful to help manage memory and CPU usage on a single VM. However, when scaled out across multiple VMs, each VM will have its own set set of limits. These settings cannot be used to control concurrency at a global level.
 
-## Orchestrator Function Replay
+## Orchestrator function replay
 As mentioned previously, orchestrator functions are replayed using the contents of the **History** table. By default, the orchestrator function code is replayed every time a batch of messages are dequeued from a control queue.
 
 This aggressive replay behavior can be disabled by enabling **extended sessions**. When extended sessions are enabled, orchestrator function instances are held in memory longer and new messages can be processed without a full replay. Extended sessions are enabled by setting `durableTask/extendedSessionsEnabled` to `true` in the **host.json** file. The `durableTask/extendedSessionIdleTimeoutInSeconds` setting is used to control how long an idle session will be held in memory:
@@ -145,7 +145,7 @@ As an example, if `durableTask/extendedSessionIdleTimeoutInSeconds` is set to 30
 > [!NOTE]
 > These settings should only be used after an orchestrator function has been fully developed and tested. The default aggressive replay behavior is useful for detecting idempotency errors in orchestrator functions at development time.
 
-## Performance Targets
+## Performance targets
 
 When planning to use Durable Functions for a production application, it is important to consider the performance requirements early in the planning process. This section covers some basic usage scenarios and the expected maximum throughput numbers.
 
