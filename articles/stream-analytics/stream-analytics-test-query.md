@@ -1,5 +1,5 @@
 ---
-title: Test a Azure Stream Analytics job with sample data
+title: Test an Azure Stream Analytics job with sample data
 description: How to test your queries in Stream Analytics jobs.
 keywords: This article describes how to use the Azure portal to test an Azure Stream Analytics job, sample input, and upload sample data.
 services: stream-analytics
@@ -20,7 +20,7 @@ By using Azure Stream Analytics, you can upload sample data and test queries in 
 
 1. Sign in to the Azure portal. 
 
-2. locate your existing Stream Analytics job and select it.
+2. Locate your existing Stream Analytics job and select it.
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
 
