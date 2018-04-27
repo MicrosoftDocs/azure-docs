@@ -34,7 +34,7 @@ If source content has changed since the first index build, the new index and sub
 Partial or incremental indexing preserves existing content while adding new documents, replacing changed documents, or deleting specific fields or documents. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or .NET equivalent.
 
 > [!Note]
-> When using indexers that crawl external data sources, change tracking mechanisms in source systems are leveraged for incremental indexing. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a lastModified field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), timestamp serves the same purpose. Similarly both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search/search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. For more information about indexers, see [Indexer overview](search-indexer-overview.md).
+> When using indexers that crawl external data sources, change tracking mechanisms in source systems are leveraged for incremental indexing. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a lastModified field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), timestamp serves the same purpose. Similarly both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. For more information about indexers, see [Indexer overview](search-indexer-overview.md).
 
 ## Parallel indexing
 
@@ -65,9 +65,11 @@ For indexers, processing capacity is based on one indexer subsystem for each ser
 
 2. In **Settings** > **Scale**, [increase replicas](search-capacity-planning.md) for parallel processing: one additional replica for each indexer workload. Leave a sufficient number for existing query volume. Sacrificing query workloads for indexing is not a good tradeoff.
 
-3. Create and schedule multiple indexers to run in parallel:
+3. Distribute data into multiple containers at a level that Azure Search indexers can reach. This could be multiple tables in Azure SQL Database, multiple containers in Azure Blob storage, or multiple collections.
 
-   + Assume a service with six replicas. Configure six indexers, each one mapped to a data source containing one-sixth of the data set.
+4. Create and schedule multiple indexers to run in parallel:
+
+   + Assume a service with six replicas. Configure six indexers, each one mapped to a data source containing one-sixth of the data set, assuming a 6-way split of the overall data.
     
    + For cognitive search, have each indexer reference the same skillset.
 
