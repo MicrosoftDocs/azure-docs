@@ -35,16 +35,16 @@ Installing the Service Fabric runtime and SDK on Windows Subsystem for Linux is 
 
 ## Prerequisites
 
-These operating system versions are supported for development:
+These operating system versions are supported for development.
 
-* Ubuntu 16.04 (`Xenial Xerus`)
+### Ubuntu 16.04 (`Xenial Xerus`)
 
-     Make sure that the `apt-transport-https` package is installed.
+Make sure that the `apt-transport-https` package is installed.
          
     ```bash
     sudo apt-get install apt-transport-https
     ```
-* Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
+### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 
 ## Installation methods
@@ -184,7 +184,7 @@ Start a local cluster after the installation finishes.
 
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-    Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in subsequent sections.
+    Now you can deploy prebuilt Service Fabric application packages or new ones based on guest containers or guest executables. To build new services by using the Java or .NET Core SDKs, follow the optional setup steps that are provided in the next sections.
 
 
 > [!NOTE]
@@ -295,7 +295,7 @@ To update the Java SDK binaries from Maven, you need to update the version detai
 > Updating the packages might cause your local development cluster to stop running. Restart your local cluster after an upgrade by following the instructions in this article.
 
 ## Remove the SDK
-To remove the Service Fabric SDKs, run the following commands:
+To remove the Service Fabric SDKs, run the following commands.
 
 ### Ubuntu
 
