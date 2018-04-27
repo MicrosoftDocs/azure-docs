@@ -8291,7 +8291,12 @@
         },
         {
             "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/overview",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
+            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
             "redirect_document_id": false
         },
         {
