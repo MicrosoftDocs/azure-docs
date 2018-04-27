@@ -8820,11 +8820,6 @@
             "redirect_document_id": false
         },
         {
-          "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
-          "redirect_url": "/azure/iot-hub/",
-          "redirect_document_id": false
-        },
-        {
           "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
           "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
           "redirect_document_id": false
