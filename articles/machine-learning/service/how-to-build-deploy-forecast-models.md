@@ -320,7 +320,7 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-The data contains ~250 different combinations of store and brand in this data frame, each one defining its own time series of sales. You can use the time series TimeSeriesDataFrame class to conveniently model multiple series in one data structure using the "grain." The grain is specified by the `store` and `brand` columns.
+The data contains approximately 250 different combinations of store and brand in this data frame, each one defining its own time series of sales. You can use the time series TimeSeriesDataFrame class to conveniently model multiple series in one data structure using the "grain." The grain is specified by the `store` and `brand` columns.
  
 The difference between `grain` and `group` is that `grain` is always physically meaningful in the real world, while `group` doesn't have to be. `group` is used by internal package functions to build a single model from multiple time series if the user believes this grouping helps improve model performance. By default, `group` is set to be equal to `grain`, and a single model is built for each `grain`. 
 
@@ -977,7 +977,7 @@ Now that you have cleaned up the data, you can begin modeling.  Start by creatin
 * The Naive forecasting algorithm uses the actual target variable value of the last period as the forecasted value of the current period.
 * The Seasonal Naive algorithm uses the actual target variable value of the same time point of the previous season as the forecasted value of the current time point. Some examples: use the actual value of the same month of last year to forecast months of the current year; use the same hour of yesterday to forecast hours today. 
 * The exponential smoothing (ETS) algorithm generates forecasts by computing the weighted averages of past observations, with the weights decaying exponentially as the observations get older. 
-* The AutoRegressive Integrated Moving Average(ARIMA) algorithm captures the autocorrelation in time series data. For more information about ARIMA, see [this link](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
+* The AutoRegressive Integrated Moving Average (ARIMA) algorithm captures the autocorrelation in time series data. For more information about ARIMA, see [this link](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
 Start by setting certain model parameters based on your data exploration. 
 
@@ -1038,12 +1038,12 @@ arima_prediction= arima_model_fitted.predict(test_tsdf)
 ```
 
 **Evaluate model performance**   
-Now you can calculate the forecast errors on the test set. You can use the mean absolute percentage error (MAPE) here. MAPE is the mean absolute error relative to the actual sales values. The ```calc_error``` function provides a few built-in functions for commonly used error metrics. You can also define your custom error function and pass it to the err_fun argument.
+Now you can calculate the forecast errors on the test set. You can use the mean absolute percentage error (MAPE) here. MAPE is the mean absolute error relative to the actual sales values. The ```calc_error``` function provides a few built-in functions for commonly used error metrics. You can also define your custom error function and pass it to the ```err_fun``` argument.
 
 
 ```python
 forecaster_union_error = forecaster_union_prediction.calc_error(err_name='MAPE', by='ModelName')
-arima_error = pd.DataFrame({'ModelName': 'arima','MAPE':arima_prediction.calc_error(err_name='MAPE')}, 
+arima_error = pd.DataFrame({'ModelName': 'arima','MAPE': arima_prediction.calc_error(err_name='MAPE')}, 
                            index=[len(forecaster_union_error)])
 
 all_model_errors = pd.concat([forecaster_union_error, arima_error])
@@ -1256,7 +1256,7 @@ print(train_feature_tsdf.head())
     
 
 **RegressionForecaster**   
-RegressionForecaster wraps sklearn regression estimators, so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are determined to be similar and can be pooled together, which may be useful to improve forecasts for short series by using data from longer series. Use the `Lasso` and `RandomFo` model directly from `scikit-learn`.  You can substitute these 
+RegressionForecaster wraps sklearn regression estimators, so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are determined to be similar and can be pooled together, which may be useful to improve forecasts for short series by using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these 
 models for any other models in the library that supports regression. 
 
 
@@ -1374,8 +1374,6 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     Best paramter: {'estimator__n_estimators': 100}
     
 
-The machine learning model was able to take advantage of the added features and the similarities between series to get better 
-forecast accuracy.
 
 **Build the final pipeline**   
 Now that the best model has been identified, you can build and fit your final pipeline with all the transformers and the best model. 
