@@ -5,7 +5,7 @@ metadata:
   title: Azure IoT Hub Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
   services: iot-hub
-  author: dobett
+  author: dominicbetts
   manager: timlt
   layout: LandingPage
   ms.service: iot-hub
