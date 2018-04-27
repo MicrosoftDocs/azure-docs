@@ -23,40 +23,40 @@ The following tables show the maximum capacity for the data warehouse at differe
 
 ### Gen1
 
-The service levels for the Gen1 performance tier range from DW100 to DW6000. 
+The service levels for Gen1 range from DW100 to DW6000. 
 
-| Performance level | Compute nodes | Distributions per Compute node | Max memory per distribution (MB) | Max memory per data warehouse (GB) |
-|:-------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
-| DW100         | 1             | 60                             | 400                              |  24                                |
-| DW200         | 2             | 30                             | 800                              |  48                                |
-| DW300         | 3             | 20                             | 1200                             |  72                                |
-| DW400         | 4             | 15                             | 1600                             |  96                                |
-| DW500         | 5             | 12                             | 2000                             | 120                                |
-| DW600         | 6             | 10                             | 2400                             | 144                                |
-| DW1000        | 10            | 6                              | 4000                             | 240                                |
-| DW1200        | 12            | 5                              | 4800                             | 288                                |
-| DW1500        | 15            | 4                              | 6000                             | 360                                |
-| DW2000        | 20            | 3                              | 8000                             | 480                                |
-| DW3000        | 30            | 2                              | 12000                            | 720                                |
-| DW6000        | 60            | 1                              | 24000                            | 1440                               |
+| Performance level | Compute nodes | Distributions per Compute node | Memory per data warehouse (GB) |
+|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW100             | 1             | 60                             |  24                            |
+| DW200             | 2             | 30                             |  48                            |
+| DW300             | 3             | 20                             |  72                            |
+| DW400             | 4             | 15                             |  96                            |
+| DW500             | 5             | 12                             | 120                            |
+| DW600             | 6             | 10                             | 144                            |
+| DW1000            | 10            | 6                              | 240                            |
+| DW1200            | 12            | 5                              | 288                            |
+| DW1500            | 15            | 4                              | 360                            |
+| DW2000            | 20            | 3                              | 480                            |
+| DW3000            | 30            | 2                              | 720                            |
+| DW6000            | 60            | 1                              | 1440                           |
 
 ### Gen2
 
 Gen2 provides 2.5x more memory per query than the Gen1. This extra memory helps the Gen2 deliver its fast performance.  The performance levels for the Gen2 range from DW1000c to DW30000c. 
 
-| Performance level | Compute nodes | Distributions per Compute node | Max memory per distribution (GB) | Max memory per data warehouse (GB) |
-|:-----------------:|:-------------:|:------------------------------:|:--------------------------------:|:----------------------------------:|
-| DW1000c           | 2             | 30                             |  10                              |   600                              |
-| DW1500c           | 3             | 20                             |  15                              |   900                              |
-| DW2000c           | 4             | 15                             |  20                              |  1200                              |
-| DW2500c           | 5             | 12                             |  25                              |  1500                              |
-| DW3000c           | 6             | 10                             |  30                              |  1800                              |
-| DW5000c           | 10            | 6                              |  50                              |  3000                              |
-| DW6000c           | 12            | 5                              |  60                              |  3600                              |
-| DW7500c           | 15            | 4                              |  75                              |  4500                              |
-| DW10000c          | 20            | 3                              | 100                              |  6000                              |
-| DW15000c          | 30            | 2                              | 150                              |  9000                              |
-| DW30000c          | 60            | 1                              | 300                              | 18000                              |
+| Performance level | Compute nodes | Distributions per Compute node | Memory per data warehouse (GB) |
+|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW1000c           | 2             | 30                             |   600                          |
+| DW1500c           | 3             | 20                             |   900                          |
+| DW2000c           | 4             | 15                             |  1200                          |
+| DW2500c           | 5             | 12                             |  1500                          |
+| DW3000c           | 6             | 10                             |  1800                          |
+| DW5000c           | 10            | 6                              |  3000                          |
+| DW6000c           | 12            | 5                              |  3600                          |
+| DW7500c           | 15            | 4                              |  4500                          |
+| DW10000c          | 20            | 3                              |  6000                          |
+| DW15000c          | 30            | 2                              |  9000                          |
+| DW30000c          | 60            | 1                              | 18000                          |
 
 The maximum Gen2 DWU is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
@@ -65,43 +65,6 @@ The maximum Gen2 DWU is DW30000c, which has 60 Compute nodes and one distributio
 To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks compute resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. 
 
 Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
-
-### Gen2
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Unlike Gen1, dynamic resource classes on Gen2 truly dynamic.  Gen2 follows a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes. 
-
-**Dynamic resource classes**
-
-| Performance Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
-|:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
-| DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
-| DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
-| DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
-| DW2500c       | 32                         |  100                        | 3                     | 10                     |  22                   |  70                    |
-| DW3000c       | 32                         |  120                        | 3                     | 12                     |  26                   |  84                    |
-| DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
-| DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
-| DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
-| DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
-| DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
-| DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
-
-**Static resource classes**
-
-The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
-
-| Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
-|:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW10000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
 ### Gen1
 The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to Gen1.
@@ -140,6 +103,43 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW2000        | 48                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
 | DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+
+### Gen2
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Unlike Gen1, dynamic resource classes on Gen2 are truly dynamic.  Gen2 follows a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes. 
+
+**Dynamic resource classes**
+
+| Performance Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
+|:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
+| DW1500c       | 32                         |   60                        | 1                     |  6                     |  13                   |  42                    |
+| DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |
+| DW2500c       | 32                         |  100                        | 3                     | 10                     |  22                   |  70                    |
+| DW3000c       | 32                         |  120                        | 3                     | 12                     |  26                   |  84                    |
+| DW5000c       | 32                         |  200                        | 6                     | 20                     |  44                   | 140                    |
+| DW6000c       | 32                         |  240                        | 7                     | 24                     |  52                   | 168                    |
+| DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
+| DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
+| DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
+| DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
+
+**Static resource classes**
+
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
+
+| Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+|:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
+| DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
+| DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW2500c       | 48                         |  100                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
+| DW3000c       | 64                         |  120                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW5000c       | 64                         |  200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW6000c       | 128                        |  240                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW10000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
 When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries. 
 

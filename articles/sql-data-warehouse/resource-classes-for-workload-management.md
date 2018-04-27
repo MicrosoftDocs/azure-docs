@@ -23,7 +23,7 @@ The performance capacity of a data warehouse is determined by the [data warehous
 - To view the memory and concurrency limits for all the performance profiles, see [Memory and concurrency limits](memory-and-concurrency-limits.md).
 - To adjust performance capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
 
-The performance capacity of a query is determined by query's resource class. This remainder of this article explains what resource classes are and how to adjust them.
+The performance capacity of a query is determined by the query's resource class. The remainder of this article explains what resource classes are and how to adjust them.
 
 ## What are resource classes?
 The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Data Warehouse that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and the compute-resources assigned to each query. There is a trade off between memory and concurrency.
@@ -72,7 +72,7 @@ When digging into the details of dynamic resource classes on Gen1, there are a f
 - As service levels change, the available query concurrency can go up or down.
 - Scaling services levels does not provide a proportional change the memory allocated to the same resource classes.
 
-On ***Gen2 only***, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, regardless of service level.  The below table has the consolidated details of memory allocation percentages and the minimum number concurrent queries that run, regardless of the service level.
+On **Gen2 only**, dynamic resource classes are truly dynamic addressing the points mentioned above.  The new rule is 3-10-22-70 for memory percentage allocations for small-medium-large-xlarge resource classes, **regardless of service level**.  The below table has the consolidated details of memory allocation percentages and the minimum number of concurrent queries that run, regardless of the service level.
 
 | Resource Class | Percentage Memory | Min Concurrent Queries |
 |:--------------:|:-----------------:|:----------------------:|
@@ -209,7 +209,7 @@ To tune performance, use different resource classes. The next section gives a st
 
 ## Example code for finding the best resource class
  
-You can use the following stored procedure to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
+You can use the following stored procedure on **Gen1 only** to figure out concurrency and memory grant per resource class at a given SLO and the closest best resource class for memory intensive CCI operations on non-partitioned CCI table at a given resource class:
 
 Here's the purpose of this stored procedure:  
 1. To see the concurrency and memory grant per resource class at a given SLO. User needs to provide NULL for both schema and tablename as shown in this example.  
@@ -240,6 +240,10 @@ EXEC dbo.prc_workload_management_by_DWU NULL, 'dbo', 'Table1';
 EXEC dbo.prc_workload_management_by_DWU 'DW6000', NULL, NULL;  
 EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;  
 ```
+> [!NOTE]
+> The values defined in this version of the stored procedure only apply to Gen1.
+>
+>
 
 The following statement creates Table1 that is used in the preceding examples.
 `CREATE TABLE Table1 (a int, b varchar(50), c decimal (18,10), d char(10), e varbinary(15), f float, g datetime, h date);`
@@ -306,7 +310,7 @@ AS
   UNION ALL
     SELECT 'DW400', 16, 16, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
-     SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
+    SELECT 'DW500', 20, 20, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
     SELECT 'DW600', 24, 24, 1, 4, 8, 16, 1, 2, 4, 8, 16, 16, 16, 16
   UNION ALL
@@ -318,7 +322,7 @@ AS
   UNION ALL
     SELECT 'DW2000', 32, 80, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
-   SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
+    SELECT 'DW3000', 32, 120, 1, 16, 32, 64, 1, 2, 4, 8, 16, 32, 64, 64
   UNION ALL
     SELECT 'DW6000', 32, 240, 1, 32, 64, 128, 1, 2, 4, 8, 16, 32, 64, 128
 )
