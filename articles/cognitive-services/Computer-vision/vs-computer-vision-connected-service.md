@@ -48,10 +48,21 @@ This article and its companion articles provide details for using the Visual Stu
    Follow the link for details on the pricing tiers.
 
 1. Choose Add to add supported for the Connected Service.
-   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Computer Vision API.
+   Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Computer Vision API. The Output shows the log of what is happening to your project. You should see something like the following:
 
-
-## Use the Face API to detect attributes of faces in an image
+   ```output
+   [4/26/2018 5:15:31.664 PM] Adding Computer Vision API to the project.
+   [4/26/2018 5:15:32.084 PM] Creating new ComputerVision...
+   [4/26/2018 5:15:32.153 PM] Creating new Resource Group...
+   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 1.0.2-preview.
+   [4/26/2018 5:15:44.117 PM] Retrieving keys...
+   [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=722974a03b064f61b3db3a2328590400
+   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v1.0
+   [4/26/2018 5:15:45.609 PM] Changing appsettings.json setting: ComputerVisionAPI_Name=WebApplication-Core-ComputerVision_ComputerVisionAPI
+   [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
+   ```
+ 
+## Use the Computer Vision API to detect attributes of an image
 
 1. Add the following using statements in Startup.cs.
  
@@ -73,13 +84,27 @@ This article and its companion articles provide details for using the Visual Stu
           this.configuration = configuration;
       }
    ```
+
+1. In the wwwroot folder in your project, add an images folder, and add an image file to your wwwroot folder. As an example, you can use one of the images on this [Computer Vision API page](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/). Right click on one of the images, save to your local hard drive, then in Solution Explorer, right-click on the images folder, and choosee **Add** > **Existing Item** to add it to your project. Your project should look something like this in Solution Explorer: 
+  
+   ![images folder with image file](media/vs-face-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+
+1. Right-click on the image file, choose Properties, and then choose **Copy if newer**. 
+
+   ![Copy if newer](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG) 
  
-1. Replace the Configure method with the following code to access the Face API and test an image.
+1. Replace the Configure method with the following code to access the Computer Vision API and test an image.
 
    ```csharp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            // TODO: Change this to your image's path on your site. 
+            string imagePath = @"images/subway.png";
+
+            // Enable static files such as image files. 
+            app.UseStaticFiles();
+
             string visionApiKey = this.configuration["ComputerVisionAPI_ServiceKey"];
             string visionApiEndPoint = this.configuration["ComputerVisionAPI_ServiceEndPoint"];
 
@@ -96,8 +121,10 @@ This article and its companion articles provide details for using the Visual Stu
 
             HttpResponseMessage response;
 
-            // Request body. Posts a locally stored JPEG image.
-            byte[] byteData = GetImageAsByteArray(@"<insert path to an image on your local drive");
+            // Request body. Posts an image you've added to your site's images folder. 
+            var fileInfo = env.WebRootFileProvider.GetFileInfo(imagePath);
+            byte[] byteData = GetImageAsByteArray(fileInfo.PhysicalPath);
+
             string contentString = string.Empty;
             using (ByteArrayContent content = new ByteArrayContent(byteData))
             {
@@ -120,6 +147,8 @@ This article and its companion articles provide details for using the Visual Stu
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("<h1>Cognitive Services Demo</h1>");
+                await context.Response.WriteAsync($"<p><b>Test Image:</b></p>");
+                await context.Response.WriteAsync($"<div><img src=\"" + imagePath + "\" /></div>");
                 await context.Response.WriteAsync($"<p><b>Computer Vision API results:</b></p>");
                 await context.Response.WriteAsync("<p>");
                 await context.Response.WriteAsync(JsonPrettyPrint(contentString));
@@ -212,10 +241,9 @@ This article and its companion articles provide details for using the Visual Stu
         }
    ```
 
-1. Find a photo on your local hard drive, and insert that path at the call to GetImageAsByteArray.
-
 1. Run the web application and see what Computer Vision API found in your image.
 
+   ![Computer Vision API image and formatted results](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
 
 ## Clean up resources
 
