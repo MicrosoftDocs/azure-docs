@@ -5,7 +5,7 @@ services: iot-hub
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 04/19/2018
+ms.date: 04/27/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
@@ -25,7 +25,7 @@ IoT Hub supports communications both from the device to the cloud and from the c
 
 IoT Hub's capabilities help you build scalable, full-featured IoT solutions such as managing industrial equipment used in manufacturing, tracking valuable assets in healthcare, and monitoring office building usage.
 
-![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
+//![Azure IoT Hub as cloud gateway in internet of things solution][img-architecture]
 
 ## Scale your solution
 
@@ -113,4 +113,4 @@ To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 * [Quickstart: Send telemetry from a device to an IoT hub](iot-hub-get-started.md)
 
-[img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
+//[img-architecture]: media/iot-hub-what-is-iot-hub/hubarchitecture.png
