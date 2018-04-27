@@ -436,11 +436,7 @@ To capture a snapshot of the enriched document created during indexing, add a fi
 
 The ```enriched``` field will contain a string that is a logical representation of the in-memory enriched document in JSON.  The field value is a valid JSON document, however. Quotes are escaped so you'll need to replace `\"` with `"` in order to view the document as formatted JSON.  
 
-<<<<<<< HEAD
 This is a tool to be used for debugging purposes, and you should not depending on this field for indexing purposes.
-=======
-The ```enriched``` field is intended for debugging purposes only to help you understand the logical shape of the content that expressions are being evaluated against. This implementation is temporary, likely to be replaced with an alternative implementation by general release. For now, it can be a useful tool to understand what's going on and help you debug your skillset.
->>>>>>> 33d30609a406760a8e37639d595323e77f555626
 
 Repeat the previous exercise, including an `enriched` field to capture the contents of an enriched document:
 
