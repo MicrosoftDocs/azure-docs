@@ -67,11 +67,6 @@ The following dependencies should be imported for the example in the rest of the
 
 
 ```python
-import warnings
-
-# Suppress warnings
-warnings.filterwarnings("ignore") 
-
 import pandas as pd
 import numpy as np
 import math
@@ -1354,11 +1349,11 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
 
 The machine learning model was able to take advantage of the added features and the similarities between series to get better forecast accuracy.
 
-**Cross Validation and Parameter Sweeping**    
+**Cross-Validation and Parameter Sweeping**    
 The package adapts some traditional machine learning functions to a forecasting application.  `RollingOriginValidator` does cross-validation temporally, respecting what would and 
-would not be known in a forecasting framework. About time series cross validation: in the figure below, each square represents data from one time point. The blue squares are used for training and orange squares are used for testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data will be leaked into training data and the model evaluation is no longer valid. 
+would not be known in a forecasting framework. About time series cross-validation: in the figure below, each square represents data from one time point. The blue squares are used for training and orange squares are used for testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data will be leaked into training data and the model evaluation is no longer valid. 
 
-![png](./media/how-to-build-deploy-forecast-models/cv_figure.png)
+![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 
 ```python
@@ -1467,7 +1462,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
 
 
 ```python
-# This step can take 5 to 20 minutes
+# This step can take 5 to 20 minutes if a new cluster needs to be provisioned
 aml_deployment.deploy()
 ```
 
