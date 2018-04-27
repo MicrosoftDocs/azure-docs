@@ -28,6 +28,9 @@ Currently, all activity types except custom activity support this feature. For c
 
 This feature relies on the data factory service identity. Learn how it works from [Data factory service identity](data-factory-service-identity.md) and make sure your data factory have an associated one.
 
+>[!TIP]
+>In Azure Key Vault, when you create a secret, **put the entire value of a secret property that ADF linked service asks for (e.g. connection string/password/service principal key/etc)**. For example, for Azure Storage linked service, put `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` as AKV secret, then reference in "connectionString" field from ADF; for Dynamics linked service, put `myPassword` as AKV secret, then reference in "paassword" field from ADF. Refer to each connector/compute article on supported property details.
+
 ## Steps
 
 To reference a credential stored in Azure Key Vault, you need to:
