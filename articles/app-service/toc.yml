@@ -55,6 +55,8 @@
     href: app-service-web-tutorial-content-delivery-network.md
   - name: Authenticate users
     href: app-service-web-tutorial-auth-aad.md
+  - name: Deploy apps to Azure App Service with VSTS and CI/CD 
+    href: https://docs.microsoft.com/learn/deploy-apps-to-azure/index
 - name: Samples
   items:
   - name: Azure CLI
