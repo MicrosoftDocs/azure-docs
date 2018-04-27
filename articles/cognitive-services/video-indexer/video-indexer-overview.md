@@ -15,7 +15,7 @@ ms.author: juliako;
 # Video Indexer (preview)
 
 > [!Note]
-> The Video Indexer API v1 is going to be deprecated on July 31, 2018. You should start using the Video Indexer API v2.
+> The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API.
 
 Video Indexer is a cloud application built using Azure Media Analytics, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, Custom Speech Service), and Azure Search. It enables you to extract the following insights from your videos using artificial intelligence technologies:
 
