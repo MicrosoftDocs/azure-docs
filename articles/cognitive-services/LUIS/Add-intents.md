@@ -38,7 +38,8 @@ The following procedure demonstrates how to add the "Bookflight" intent in the T
     ![Edit Intent](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
 
 ## Delete intent
- 
+When deleting an intent other than the None intent, you can choose to add all the utterances to the None intent. This is useful if you need to move the utterances instead of deleting them.   
+
 1. On the **Intent** page, click the **Delete Intent** button next to the right of the intent name. 
 
     ![Delete Intent Button](./media/luis-how-to-add-intents/DeleteIntent.png)
