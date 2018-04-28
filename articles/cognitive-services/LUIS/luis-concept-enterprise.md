@@ -28,8 +28,10 @@ If your app is meant to predict a wide variety of user utterances, consider impl
 
 Schedule a periodic [review of endpoint utterances](label-suggested-utterances.md) for active learning, such as every two weeks, then retrain and republish. 
 
-## When you need to combine several LUIS apps into a single app
-Use the [Dispatch command line tool][dispatcher-application] to combine multiple LUIS apps into a single app. **Dispatch** is a tool to create and evaluate LUIS model used to dispatch intent across multiple bot components such as LUIS model(s), [QnA knowledge base](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/)(s) and others.
+## When you need to combine several LUIS and QnA maker apps
+Use the [Dispatch][dispatcher-application] command line tool, found in  [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) to combine multiple LUIS and QnA Maker apps into a single LUIS app. 
+
+![Screenshot of LUIS apps list with LUIS app created by dispatch tool](./media/luis-concept-enterprise/dispatch.png)
 
 ## Next steps
 
