@@ -25,7 +25,8 @@ A skillset is expressed in Azure Search through an HTTP PUT or POST request. For
 A skillset must have at least one skill. There is no theoretical limit on maximum number of skills, but three to five is a common configuration.  
 
 
-> [!NOTE] Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+> [!NOTE]
+> Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
 
 ```  
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
