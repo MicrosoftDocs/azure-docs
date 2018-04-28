@@ -14,23 +14,23 @@ metadata:
   ms.date: 04/17/2018
   ms.author: patricka
 abstract:
-  description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to deploy Azure Blockchain Workbench and create and manage blockchain applications on Azure.
+  description: Learn how to create blockchain applications. Tutorials, API references, and other documentation show you how to deploy Azure Blockchain Workbench to create and use blockchain applications on Azure.
 sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, create, and manage blockchain applications on Azure.
+    text: Learn how to deploy, create, and use blockchain applications on Azure.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/blockchain-workbench/">Deploy Azure Blockchain Workbench</a>
-    - html: <a href="/azure/blockchain-workbench/">Create a blockchain app</a>
-    - html: <a href="/azure/blockchain-workbench/">Manage a blockchain app</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Deploy Azure Blockchain Workbench</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Create a blockchain app</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Use a blockchain app</a>
 - title: Reference
   items:
   - type: list
-    style: ordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/blockchain-workbench/">Blockchain application configuration reference</a>
-    - html: <a href="/azure/blockchain-workbench/">Azure Blockchain Workbench REST API</a>
-    - html: <a href="/azure/blockchain-workbench/">Azure Blockchain Workbench Messaging API reference</a>
+    - title: API
+      html: <p><a href="https://review.docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p><p><a href="/azure/blockchain-workbench/">Messages API</a></p>
