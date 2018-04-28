@@ -20,22 +20,14 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 ## Prepare for deployment
 
-Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and Azure AD app registrations.
+Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and application registrations.
 
-### Azure Active Directory tenant
+### Blockchain Workbench API app registration
 
-You need an Azure Active Directory (Azure AD) tenant to host Azure AD and Azure Key Vault apps. You can use an existing tenant or create a new tenant. For more information on Azure AD tenants, see[ How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md).
-
-### Azure AD permissions
-
-If you are using an existing Azure AD tenant, you need sufficient permissions to register applications within an Azure AD tenant. The user account needs to be an administrator in the same tenant you are deploying Blockchain Workbench.
-
-### Azure AD client app registration
-
-Blockchain Workbench deployment requires registration of an Azure AD application.
+Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications within an Azure AD tenant. The application registrations need to be in the subscription admin's tenant of the subscription where Workbench is deployed. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top right corner, and choose the desired Azure AD tenant. The application registration can be in any tenant in the same subscription as the Azure Blockchain Workbench deployment.
+2. Select your account in the top right corner, and switch to the desired Azure AD tenant.
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New application registration**.
 
     ![App registration](media/blockchain-workbench-deploy/app-registration.png)
@@ -46,18 +38,17 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
     |Setting  | Value  |
     |---------|---------|
-    |Name | `Blockchain client app` |
+    |Name | `Blockchain API` |
     |Application type |Web app / API|
-    |Sign-on URL | `https://blockchainclient.{tenant}` |
+    |Sign-on URL | `https://blockchainapi.{tenant}` |
 
-5. Select **Create** to register the Azure AD client application.
+5. Select **Create** to register the Azure AD application.
 
-### Modify client application manifest
+### Modify application manifest
 
 Next, you need to modify the application manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../active-directory/develop/active-directory-application-manifest.md).
 
-1. For the app you registered in the previous client app registration section, select **Manifest** in the registered app details pane.
-
+1. For the application you registered, select **Manifest** in the registered application details pane.
 2. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with:
 
     ``` json
@@ -81,14 +72,14 @@ Next, you need to modify the application manifest to use application roles withi
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
 
-3.  You will need to generate a GUID and replace the value for the **id** field in the manifest. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
+3.  You need to generate a GUID and replace the value for the **id** field in the manifest. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
 4.  Click **Save** to save the application manifest changes.
 
-### Add Graph API key to client application
+### Add Graph API key to application
 
-Blockchain Workbench uses Azure AD as the main identity management system for users interacting with blockchain applications. In order for Blockchain Workbench to access Azure AD and retrieve user information, such as names and emails, you need to add a key to your Azure AD client application.
+Blockchain Workbench uses Azure AD as the main identity management system for users interacting with blockchain applications. In order for Blockchain Workbench to access Azure AD and retrieve user information, such as names and emails, you need to add an access key. Blockchain Workbench uses the key to authentication with Azure AD.
 
-1. For the app you registered in the previous client app registration section, select **Settings** in the registered app details pane.
+1. For the application you registered, select **Settings** in the registered application details pane.
 2. Select **Keys**.
 3. Add a new key by specifying a key **description** and choosing **expires** duration value. 
 
@@ -97,7 +88,7 @@ Blockchain Workbench uses Azure AD as the main identity management system for us
     |Setting  | Value  |
     |---------|---------|
     | Description | `Service` |
-    | Expires | Never expires |
+    | Expires | Choose an expiration duration |
 
 4. Select **Save**. 
 5. Copy the value of the key and store it for later. You need it for deployment.
@@ -106,9 +97,9 @@ Blockchain Workbench uses Azure AD as the main identity management system for us
 
 ### Add Graph API required permissions
 
-The client app needs to request permission from the user to access the directory. Set the following required permission for the client app.
+The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
-1. In the Blockchain client app registration, select **Settings > Required permissions > Select an API > Microsoft Graph** .
+1. In the Blockchain API app registration, select **Settings > Required permissions > Select an API > Microsoft Graph** .
 
     ![Select an API](media/blockchain-workbench-deploy/client-app-select-api.png)
 
@@ -126,19 +117,18 @@ The client app needs to request permission from the user to access the directory
 
    Granting permission allows Blockchain Workbench to access users in the directory. The read permission is required to search and add members to Blockchain Workbench.
 
-### Get client app application ID and tenant
+### Get application ID
 
-The Azure AD client application ID and tenant information are required for deployment. You need to collect and store the information for use during deployment.
+The application ID and tenant information are required for deployment. Collect and store the information for use during deployment.
 
-1. For the app you registered in the client app registration section, select **Settings** > **Properties**.
+1. For the application you registered, select **Settings** > **Properties**.
 2.  In the **Properties** pane, copy and store the following values for later use during deployment.
 
-    ![Client app properties](media/blockchain-workbench-deploy/app-properties.png)
+    ![API app properties](media/blockchain-workbench-deploy/app-properties.png)
 
     | Setting to store  | Use in deployment |
     |------------------|-------------------|
     | Application ID | Active Directory Blockchain client app registration application ID |
-    | App ID URI (tenant name) | Active Directory tenant domain name. You only need to save the tenant name. For example, `contoso.com`. |
 
 ### Create an Azure AD Key Vault application
 
@@ -157,60 +147,30 @@ Blockchain Workbench deployment requires registration of an Azure AD Key Vault a
 
 5. Select **Create** to register the Azure AD Key Vault application.
 
-### Get Key Vault app application ID 
+### Get tenant domain name
 
-The Key Vault Azure AD application ID is required for deployment. Collect and make store the information for use during deployment.
+Collect and store the Active Directory tenant domain name where the applications are registered. 
 
-1. For the app you registered in the previous client app registration section, select **Settings** in the registered app details pane.
-2. Select **Properties** in the **Settings** pane.
-3.  Within Properties pane, copy and store the following values for later use during deployment.
+3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Custom domain names**. Copy and store the domain name.
 
-    ![Key Vault app properties](media/blockchain-workbench-deploy/key-vault-app-properties.png)
-
-    | Setting to store  | Use in deployment |
-    |------------------|-------------------|
-    | Application ID | Active Directory Blockchain Keyvault app registration application ID |
-
-### Get directory ID
-
-The Azure AD directory ID is required for deployment. Collect and make note of the information for use during deployment.
-
-1. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Properties**.
-2. Within **Properties** pane, copy and store the **Directory ID** for later use during deployment.
-
-    ![Directory properties](media/blockchain-workbench-deploy/directory-properties.png)
-
-    | Setting to store  | Use in deployment |
-    |------------------|-------------------|
-    | Directory ID | Active Directory Tenant Domain Name |
+    ![Domain name](media/blockchain-workbench-deploy/domain-name.png)
 
 ## Deploy Blockchain Workbench
 
 Once the prerequisite steps have been completed, you are ready to deploy the Blockchain Workbench. The following sections outline how to deploy the framework.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
-2.  In the left pane, select **Create a resource**. The Azure Marketplace is displayed in the portal.
-
-    ![New resource](media/blockchain-workbench-deploy/new-resource-marketplace.png)
-
-3.  Select the **Blockchain** category on the left and select **See all** to the upper
-    right of the featured Blockchain marketplace offerings.
-
-    ![All blockchain offerings](media/blockchain-workbench-deploy/all-blockchain-offerings.png)
-
-4.  Search for `Azure Blockchain Workbench` in the **Search the Marketplace** search bar. 
+2.  Select your account in the top right corner, and switch to the desired Azure AD tenant where you want to deploy Azure Blockchain Workbench.
+3.  In the left pane, select **Create a resource**. Search for `Azure Blockchain Workbench` in the **Search the Marketplace** search bar. 
 
     ![Marketplace search bar](media/blockchain-workbench-deploy/marketplace-search-bar.png)
 
-    > [!NOTE]
-    > If you see **No results were found** while typing in the search bar, be sure to press **Enter** after typing the search keywords.
-
-5.  Select **Azure Blockchain Workbench**.
+4.  Select **Azure Blockchain Workbench**.
 
     ![Marketplace search results](media/blockchain-workbench-deploy/marketplace-search-results.png)
 
-6.  Select **Create**.
-7.  Complete the basic settings.
+4.  Select **Create**.
+5.  Complete the basic settings.
 
     ![Create Azure Blockchain Workbench](media/blockchain-workbench-deploy/blockchain-workbench-settings-basic.png)
 
@@ -226,23 +186,21 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Resource groups | Create a new Resource group by selecting **Create new** and specify a unique resource group name. |
     | Location | Specify the region you wish to deploy the framework. |
 
-8.  Select **OK** to finish the basic setting configuration section.
+6.  Select **OK** to finish the basic setting configuration section.
 
-9.  Complete the **AAD Parameters** settings.
+7.  Complete the **AAD Parameters** settings.
 
     ![AAD Parameters](media/blockchain-workbench-deploy/blockchain-workbench-settings-aad.png)
 
     | Setting | Description  |
     |---------|--------------|
-    | Active Directory Blockchain Client App Registration Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get client app application ID and tenant](#get-client-app-application-id-and-tenant) prerequisite section. |
-    | Active Directory Blockchain Client App Registration Application Key | Use the Application key from the Blockchain client app registration collected in the [Add Graph API key to client application](#add-graph-api-key-to-client-application) prerequisite section. |
-    | Active Directory Tenant Domain Name | Use the Azure AD tenant collected in the [Get client app application ID and tenant](#get-client-app-application-id-and-tenant) prerequisite section. |
-    | Active Directory Keyvault App Registration Application ID | Use the Application ID from the Key Vault app registration collected in the [Get Key Vault app application ID](#get-key-vault-app-application-id) prerequisite section. |
-    | Active Directory Keyvault App Tenant Object ID | Use the Directory ID collected in the [Get directory ID](#get-directory-id) prerequisite section. |
+    | Active Directory Blockchain Client App Registration Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | Active Directory Blockchain Client App Registration Application Key | Use the Application key from the Blockchain client app registration collected in the [Add Graph API key to application](#add-graph-api-key-to-application) prerequisite section. |
+    | Active Directory Tenant Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
 
-10. Click **OK** to finish the Azure AD Parameters configuration section.
+8.  Click **OK** to finish the Azure AD Parameters configuration section.
 
-11. Complete the **Network size and performance** settings.
+9.  Complete the **Network size and performance** settings.
 
     ![Network and performance settings](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
 
@@ -252,9 +210,9 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Storage Performance | Choose the preferred VM storage performance for your blockchain network. |
     | Virtual Machine Size | Choose the preferred VM size for your blockchain network. |
 
-12. Click **OK** to finish the network size and performance section.
+10. Click **OK** to finish the network size and performance section.
 
-13. Complete the **Operations Management Suite (OMS)** settings.
+11. Complete the **Operations Management Suite (OMS)** settings.
 
     ![OMS settings](media/blockchain-workbench-deploy/blockchain-workbench-settings-oms.png)
 
@@ -264,15 +222,13 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Connect to existing OMS instance | Choose whether you want to use an existing OMS instance or create a new one. 
     | OMS Workspace Location | If creating a new OMS workspace, choose the l location to create the instance.
 
-14. Click **OK** to finish the OMS section.
+12. Click **OK** to finish the OMS section.
 
-15. Review the summary to make sure all your parameters are accurate.
+13. Review the summary to make sure all your parameters are accurate.
 
     ![Summary](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
 
-16. Select **Create** to agree to the terms and deploy your Azure Blockchain Workbench.
-
-    ![Terms of use](media/blockchain-workbench-deploy/terms-of-use.png)
+14. Select **Create** to agree to the terms and deploy your Azure Blockchain Workbench.
 
 The deployment can take up to 90 minutes. You can use the Azure portal to monitor progress. In the newly created resource group, select **Deployments > Overview** to see the status of the deployed artifacts.
 
