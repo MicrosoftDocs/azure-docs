@@ -26,27 +26,27 @@ sections:
     className: cardsA
     items:
 
-    - html: <a href="/azure/machine-learning/service/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
+    - html: <a href="/azure/media-services/latest/">
+            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v3"> (preview)
             <br><b>Azure Media Services v3 (preview)</b></a>
             <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
 
-    - html: <a href="/azure/machine-learning/studio/">
-            <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
+    - html: <a href="/azure/media-services/previous/">
+            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v2" (GA)>
             <br><b>Azure Media Services v2 (GA)</b></a>
             <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v2.</p>
 
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
+    text: 'Learn how to create a Media Services account, start encoding your videos, and use Azure Media Player to play them back:'
   - type: table
     style: dataMatrix
     columns:
       - image:
-          src: media/index/i_machine-learning.svg
+          src: 
       - image:
-          src: media/index/machine-learning-studio.svg
+          src:  
     rows:
       - title: Setup
         values:
