@@ -21,7 +21,7 @@ When building and deploying this model, you go through the following steps:
 1. Dataset Creation
 2. Image Visualization and annotation
 3. Image Augmentation
-4. DNN Model Definition
+4. Deep Neural Network (DNN) Model Definition
 5. Classifier Training
 6. Evaluation and Visualization
 7. Web service Deployment
@@ -396,7 +396,7 @@ display(pr_ui.ui)
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
 ## Operationalization: deploy and consume
-Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, you can deploy your trained model as a webservice for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a webservice. You can scale your webservice with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your webservice.
+Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, you can deploy your trained model as a web service for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a web service. You can scale your web service with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your web service.
 
 <b>Prerequisite:</b> 
    - Azure account with a valid subscription [Azure](https://azure.microsoft.com/). You need to login to your account if you haven't done so and change to your target subscription.
@@ -426,20 +426,24 @@ Operationalization is the process of publishing models and code as web services 
     ```
     
 ### Deploy 
-<b>Deployment API:</b>
 
-> **Examples:**
-- ```deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")``` # create deployment object
-- ```deploy_obj.deploy()``` # deploy web service
-- ```deploy_obj.score_image(local_image_path_or_image_url)``` # score an image
-- ```deploy_obj.delete()``` # delete the web service
-- ```deploy_obj.build_docker_image()``` # build docker image without creating webservice
-- ```AMLDeployment.list_deployment()``` # list existing deployment
-- ```AMLDeployment.delete_if_service_exist(deployment_name)``` # delete if the service exists with the deployment name
+#### Deployment API
 
-<b>API Documentation:</b>
+API examples for deployment include:
 
-For more API details, refer to the API doc. For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+|Task|API|
+|----|----|
+|Create deployment object|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
+|Deploy web service|`deploy_obj.deploy()`|
+|Score image|`deploy_obj.score_image(local_image_path_or_image_url)`|
+|Delete web service|`deploy_obj.delete()`|
+|Build docker image without web service|`deploy_obj.build_docker_image()`|
+|List existing deployment|`AMLDeployment.list_deployment()`|
+|Delete if the service exists with the deployment name|`AMLDeployment.delete_if_service_exist(deployment_name)`|
+
+Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
+
+For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
 <b>Deployment management with portal:</b>
 
@@ -459,7 +463,7 @@ You can go to [Azure portal](https://ms.portal.azure.com/) to track and manage y
 
 
 ```python
-# # Optional. Persist you model on disk and reuse it later for deployment. 
+# # Optional. Persist your model on disk and reuse it later for deployment. 
 # from cvtk import TFFasterRCNN, Context
 # import os
 # save_model_path = os.path.join(Context.get_global_context().storage.persistent_path, "saved_classifier.model")
@@ -492,7 +496,7 @@ deploy_obj = AMLDeployment(deployment_name=deployment_name, aml_env="cluster", a
 if deploy_obj.is_existing_service():
     AMLDeployment.delete_if_service_exist(deployment_name)
     
-# create the webservice
+# Create the web service
 print("Deploying to Azure cluster...")
 deploy_obj.deploy()
 print("Deployment DONE")
@@ -500,13 +504,16 @@ print("Deployment DONE")
 
 ### Consume the web service 
 
-Once you created the webservice, you can score images with the deployed webservice. You have several options:
+Once you deploy the model as a web service, you can score images with the web service using one of these methods:
 
-   - You can directly score the webservice with the deployment object with: deploy_obj.score_image(image_path_or_url) 
-   - Or, you can use the Service endpoint url and Service key (None for local deployment) with: AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)
-   - Form your http requests directly to score the webservice endpoint (For advanced users).
+- Score the web service directly with the deployment object using `deploy_obj.score_image(image_path_or_url)`
+
+- Use the Service endpoint URL and Service key (None for local deployment) with: `AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
+
+- Form your HTTP requests directly to score the web service endpoint. This option is for advanced users.
 
 ### Score with existing deployment object
+
 ```
 deploy_obj.score_image(image_path_or_url)
 ```
@@ -552,8 +559,8 @@ for img_index, img_obj in enumerate(test_set.images[:10]):
 ```
 
 ### Score with service endpoint url and service key
-`AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
+`AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)`
 
 ```python
 # Import related classes and functions
@@ -575,7 +582,8 @@ print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
 ### Score endpoint with http request directly
-Following is some example code to form the http request directly in Python. You can do it in other programming languages.
+
+The following example code forms the HTTP request directly in Python. However, you can do it in other programming languages.
 
 
 ```python
@@ -627,7 +635,8 @@ score_image_list_with_http(images, service_endpoint_url, service_key)
 ```
 
 ### Parse serialized result from web service
-The result from the webservice is in json string. You can parse it the with different DNN model classes
+
+The output from the web service is a JSON string. You can parse this JSON string with different DNN model classes.
 
 
 ```python
@@ -653,7 +662,7 @@ print("Class label:", dnn_model.class_map[class_index])
 
 ## Next steps
 
-For information about the Azure Machine Learning Package for Computer Vision:
+Learn more about Azure Machine Learning Package for Computer Vision in these articles:
 
 + Learn how to [improve the accuracy of this model](how-to-improve-accuracy-for-computer-vision-models.md).
 
