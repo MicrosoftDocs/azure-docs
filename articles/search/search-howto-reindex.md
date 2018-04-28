@@ -15,13 +15,15 @@ ms.author: heidist
 
 Rebuilding an index changes its structure, altering the physical expression of the index in your Azure Search service. Conversely, refreshing an index is a content-only update to pick up the latest changes from a contributing external data source. This article provides direction on how to update indexes both structurally and substantively.
 
-For indexes populated using source-specific [indexers](search-indexer-overview.md), a built-in scheduler updates contents as often as every 15 minutes, up to whatever interval and pattern you require. Faster refresh rates require pushing index updates manually, perhaps through a double-write on transactions to get concurrent updates in both the external data source and the Azure Search index.
+Read-write permissions at the service-level are required for index updates. Programmatically, you can call REST or .NET APIs for full rebuild or incremental indexing of content, with parameters specifying update options. 
+
+Generally, updates to an index are on-demand. However, for indexes populated using source-specific [indexers](search-indexer-overview.md), you can use a built-in scheduler. The scheduler supports document refresh as often as every 15 minutes, up to whatever interval and pattern you require. A faster refresh rate requires pushing index updates manually, perhaps through a double-write on transactions, updating both the external data source and the Azure Search index simultaneously.
 
 ## Full rebuilds
 
-For many types of updates, a full rebuild is required. A full rebuild refers to deletion of an index, both data and metadata, followed by repopulating the index from external data sources. Programmatically, [delete the index](https://docs.microsoft.com/rest/api/searchservice/delete-index), [create the index](https://docs.microsoft.com/rest/api/searchservice/create-index), and [add documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) (or .NET equivalent APIs) to rebuild the index. 
+For many types of updates, a full rebuild is required. A full rebuild refers to deletion of an index, both data and metadata, followed by repopulating the index from external data sources. Programmatically, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index), [create](https://docs.microsoft.com/rest/api/searchservice/create-index), and [reload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) the index to rebuild it. 
 
-Remember that if you have been testing query patterns and scoring profiles, you can expect variation in query results after full rebuilds because the content has changed.
+Post-rebuild, remember that if you have been testing query patterns and scoring profiles, you can expect variation in query results if the underlying content has changed.
 
 ## When to rebuild
 
@@ -33,17 +35,15 @@ Plan on frequent, full rebuilds during active development, when index schemas ar
 | Add a field | No strict requirement on rebuild. Existing indexed documents are given a null value for the new field. On a future reindex, values from source data are added to documents. |
 | Delete a field | No strict requirement on rebuild. A deleted field isn't used, but physically the field definition and contents remain in the index until the next rebuild. |
 
-Once in production, focus shifts from rebuild to incremental indexing, with no discernable service disruption.
-
 > [!Note]
 > A rebuild is also required if you switch tiers. If at some point you decide on more capacity, there is no in-place upgrade. A new service must be created at the new capacity point, and indexes must be built from scratch on the new service. 
 
 ## Partial or incremental indexing
 
-Partial or incremental indexing is a content-only workload that synchronizes the content of a search index to reflect the state of content in a contributing data source. A document added or deleted in the source is added or deleted to the index. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or .NET equivalent.
+Once an index is in production, focus shifts to incremental indexing, usually with no discernable service disruptions. Partial or incremental indexing is a content-only workload that synchronizes the content of a search index to reflect the state of content in a contributing data source. A document added or deleted in the source is added or deleted to the index. In code, call the [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation or .NET equivalent.
 
 > [!Note]
-> When using indexers that crawl external data sources, change tracking mechanisms in source systems are leveraged for incremental indexing. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a lastModified field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), timestamp serves the same purpose. Similarly both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. For more information about indexers, see [Indexer overview](search-indexer-overview.md).
+> When using indexers that crawl external data sources, change-tracking mechanisms in source systems are leveraged for incremental indexing. For [Azure Blob storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection), a `lastModified` field is used. On [Azure Table storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection), `timestamp` serves the same purpose. Similarly both [Azure SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) and  [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md#indexing-changed-documents) have fields for flagging row updates. For more information about indexers, see [Indexer overview](search-indexer-overview.md).
 
 ## Scale-out indexing
 
@@ -107,3 +107,4 @@ At the scheduled time, all indexers begin execution, loading data, applying enri
 + [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 + [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
++ [Security in Azure Search](search-security-overview.md)
