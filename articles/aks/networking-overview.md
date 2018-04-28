@@ -26,9 +26,11 @@ Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubene
 **Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
 Advanced networking is currently available only when deploying AKS clusters in the [Azure portal][portal] or with a Resource Manager template.
 
-Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin. The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
+Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
+
+The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
 
 ## Advanced networking features
 
