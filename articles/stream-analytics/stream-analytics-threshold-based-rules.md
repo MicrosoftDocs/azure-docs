@@ -14,7 +14,7 @@ ms.date: 04/27/2018
 This article describes how to use reference data to achieve an alerting solution that uses configurable threshold-based rules in Azure Stream Analytics.
 
 ## Scenario: Alerting based on adjustable rule thresholds
-You may need to produce an alert as output when an incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. It simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined. A fixed threshold can be hard-coded into the streaming query syntax using simple numerical comparisons (greater than, less than, and equality).
+You may need to produce an alert as output when incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. It simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined. A fixed threshold can be hard-coded into the streaming query syntax using simple numerical comparisons (greater than, less than, and equality).
 
 In some cases, the threshold values need to be more easily configurable without editing the query syntax each time that a threshold value changes. In other cases, you may need numerous devices or users processed by the same query with each of them having a different threshold values on each kind of device. 
 
@@ -39,7 +39,7 @@ This example reference data shows how a threshold-based rule could be represente
 - The example rule is used to represent an adjustable alert when CPU exceeds (average is greater than or equal to) the value `90` percent. The `value` field is configurable as needed.
 - Notice the rule has an **operator** field, which is dynamically interpreted in the query syntax later on `AVGGREATEROREQUAL`. 
 - The rule filters the data on a certain dimension key `2` with value `C1`. Other fields are empty string, indicating not to filter the input stream by those event fields. You could set up additional CPU rules to filter other matching fields as needed.
-- Not all columns are to be included in the output alert event. In this case `includedDim` key number `2` is turned on `TRUE` to represent that that field number 2 of event data in the stream will be included in the qualifying output events. The other fields are not included in the alert output, but the field list can be adjusted.
+- Not all columns are to be included in the output alert event. In this case, `includedDim` key number `2` is turned on `TRUE` to represent that that field number 2 of event data in the stream will be included in the qualifying output events. The other fields are not included in the alert output, but the field list can be adjusted.
 
 
 ```json
