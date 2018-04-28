@@ -14,9 +14,9 @@ ms.date: 04/27/2018
 This article describes how to use reference data to achieve an alerting solution that uses configurable threshold-based rules in Azure Stream Analytics.
 
 ## Scenario: Alerting based on adjustable rule thresholds
-You may need to produce an alert as output when an incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. While it simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined, since the threshold can be hard-coded into the streaming query syntax using static greater than, less than, and equality comparisons.
+You may need to produce an alert as output when an incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. It simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined. A fixed threshold can be hard-coded into the streaming query syntax using simple numerical comparisons (greater than, less than, and equality).
 
-In some cases, the threshold values need to be easily configurable without editing the query syntax each time that a threshold value changes. In other cases, you may need numerous devices or users processed by the same query with each of them having a different threshold values on each kind of device. 
+In some cases, the threshold values need to be more easily configurable without editing the query syntax each time that a threshold value changes. In other cases, you may need numerous devices or users processed by the same query with each of them having a different threshold values on each kind of device. 
 
 This pattern can be used to dynamically configure thresholds, selectively choose which kind of device the threshold applies by filtering the input data, and selectively choose which fields to include in the output.
 
