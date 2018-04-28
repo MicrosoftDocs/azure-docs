@@ -1,13 +1,13 @@
 ---
-title: IoT Edge continuous integration and continuous deployment | Microsoft Docs
-description: Overview of the continuous integration and continuous deployment for IoT Edge
+title: Azure IoT Edge continuous integration and continuous deployment | Microsoft Docs
+description: Overview of the continuous integration and continuous deployment for Azure IoT Edge
 services: iot-Edge
 documentationcenter: ''
 author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 4/26/2018
+ms.date: 4/30/2018
 ms.topic: article
 ms.service: iot-edge
 ---
@@ -435,7 +435,7 @@ In this section, you will create a build definition that is configured to run au
 
     ![Edge running](./media/how-to-ci-cd/edge-running.png)
 
-## Continuous Deployment to IoT Edge devices
+## Continuous deployment to IoT Edge devices
 
 To enable continuous deployment, basically you need to set up CI jobs with proper IoT Edge devices, enabling the **Triggers** for your branches in your project. In a classic DevOps practice, a project contains two main branches. The master branch should be the stable version of the code, and the develop branch contains the latest code changes. Every developer in the team should fork develop branch to his or her own feature branch when starting updating the code, which means all commits happens on feature branches off the develop branch. And every pushed commit should be tested via the CI system. After fully tested the code locally, the feature branch should be merged to the develop branch via a pull request. When the code on developer branch is tested via CI system, it can be merged to master branch via a pull request.
 
