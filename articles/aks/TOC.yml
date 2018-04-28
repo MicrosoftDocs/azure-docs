@@ -63,7 +63,7 @@
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
-    - name: HTTP Application Routing
+    - name: HTTP application routing
       href: addon-http-application-routing.md
   - name: Security and authentication
     items:
