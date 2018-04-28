@@ -12,11 +12,11 @@ ms.author: luisca
 
 # How to add a custom skill to a cognitive search pipeline
 
-A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you personally create and add to the pipeline.
+In this article, you learn how to add a custom skill to a cognitive search pipeline. A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) and custom skills that you personally create and add to the pipeline.
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
- Whatever custom capability you might require, there is a simple and clear interface for connecting a custom skill to the rest of the enrichment pipeline. The only requirement for inclusion in a [skillset](cognitive-search-defining-skillset.md) is the ability to accept inputs and emit outputs in ways that are consumable within the skillset as a whole. The focus of this article is on the input and output formats that the enrichment pipeline requires.
+ Whatever custom capability you require, there is a simple and clear interface for connecting a custom skill to the rest of the enrichment pipeline. The only requirement for inclusion in a [skillset](cognitive-search-defining-skillset.md) is the ability to accept inputs and emit outputs in ways that are consumable within the skillset as a whole. The focus of this article is on the input and output formats that the enrichment pipeline requires.
 
 ## Web API custom skill interface
 
@@ -24,9 +24,9 @@ Currently, the only mechanism for interacting with a custom skill is through a W
 
 ### 1.  Web API Input Format
 
-The Web API must accept an array of records to be processed. Each record must contain a "property bag" that will be the input provided to your Web API. 
+The Web API must accept an array of records to be processed. Each record must contain a "property bag" that is the input provided to your Web API. 
 
-Suppose that you want to create a simple enricher that identifies the first date mentioned in the text of a contract. In this example, the skill accepts a single input *contractText* as the contract text. The skill also has a single output, which is the date of the contract. To make the enricher more interesting, return this *contractDate* in the shape of a multi-part complex type.
+Suppose you want to create a simple enricher that identifies the first date mentioned in the text of a contract. In this example, the skill accepts a single input *contractText* as the contract text. The skill also has a single output, which is the date of the contract. To make the enricher more interesting, return this *contractDate* in the shape of a multi-part complex type.
 
 Your Web API should be ready to receive a batch of input records. Each member of the *values* array represents the input for a particular record. Each record is required to have the following elements:
 
@@ -104,7 +104,7 @@ This particular example has only one output, but you could output more than one 
 
 ### Errors and Warning
 
-As the previous example shows, you may return error and warning messages for each record. 
+As shown in the previous example, you may return error and warning messages for each record.
 
 ## Consuming custom skills from skillset
 
@@ -138,7 +138,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 }
 ```
 
-## See also
+## Next steps
 
 + [Example: Creating a custom skill for the Translate Text API](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
