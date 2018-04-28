@@ -177,7 +177,7 @@ Run the following command in the terminal window.
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-
+---
 
 
 ## Build and run the solution
