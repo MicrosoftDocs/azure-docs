@@ -56,7 +56,7 @@ Try it out yourself. Download the notebook and run it yourself.
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### Explore the sample data
-The following example uses a partial set of the [sentiment140](https://www.kaggle.com/kazanova/sentiment140/data) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
+The following example uses a partial set of the [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.php%3Fid=data.html) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
 
 ## Load data and explore
 Define and get your data. This code downloads the data from a blob and enables you to easily point to your own data set on blob or local and run the classifier with your data. <br />
