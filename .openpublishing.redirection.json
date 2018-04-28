@@ -8295,6 +8295,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
+            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
@@ -18777,6 +18782,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-whats-next.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-mfasettings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
             "redirect_document_id": false
         },
         {
