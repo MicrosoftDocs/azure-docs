@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to stream files, broadcast live, and analyze your videos with Media Services.'
+    text: 'Learn how to stream files and analyze your videos with Media Services.'
   - type: list
     style: ordered
     items:
