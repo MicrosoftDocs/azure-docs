@@ -32,5 +32,5 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: APIs
-      html: <p><a href="https://review.docs.microsoft.com/rest/api/azure-blockchain-workbench">REST</a></p><p><a href="/azure/blockchain-workbench/">Messages</a></p>
+    - title: REST
+      html: <p><a href="https://review.docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p><p><a href="/azure/blockchain-workbench/">Messages</a></p>
