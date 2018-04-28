@@ -3,7 +3,7 @@
   items:
   - name: What is Custom Vision Service
     href: home.md
-- name: How-to
+- name: How-to guides
   items:
   - name: Start using Custom Vision Service
     items:
