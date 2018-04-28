@@ -23,7 +23,7 @@ ms.reviewer: sijuman
 
 ## Python and version profiles
 
-A profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between different resource types. Profiles can provide:
+An API profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between different resource types. Profiles can provide:
 
  - Stability for your application by locking to specific API versions.
  - Compatibility for your application with Azure Stack and regional Azure datacenters.
@@ -55,7 +55,7 @@ The code samples show you to:
 - List virtual machines
 - Delete a virtual machine
 
-To see the code to perform these operations, check out the `run_example()` function in [example.py](example.py).
+To review the code to perform these operations, check out the **run_example()** function in the Python script **Hybrid/unmanaged-disks/example.py** in the GitHub Repo [virtual-machines-python-manage](https://github.com/viananth/virtual-machines-python-manage/tree/8643ed4bec62aae6fdb81518f68d835452872f88).
 
 Each operation is clearly labeled with a comment and a print function.
 The examples are not necessarily in the order shown in the above list.
