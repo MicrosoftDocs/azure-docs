@@ -25,10 +25,8 @@ Any time someone makes changes to role definitions or role assignments within yo
 
 Here are the RBAC-related operations that are logged in Activity Log:
 
-- Get role definition
 - Create or update custom role definition
 - Delete custom role definition
-- Get role assignment
 - Create role assignment
 - Delete role assignment
 
