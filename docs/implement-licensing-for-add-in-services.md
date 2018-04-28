@@ -161,3 +161,5 @@ As group membership grows (or as users from the organization install the add-in 
 - [SharePoint 2013 code sample: Import, validate, and manage app licenses](https://code.msdn.microsoft.com/SharePoint-2013-Import-f5f680a6)
 - [License your Office and SharePoint Add-ins](license-your-add-ins.md)
 - [Make your solutions available in AppSource and within Office](submit-to-the-office-store.md)
+- [Determine if Centralized Deployment of add-ins works for your Office 365 organization](https://support.office.com/en-us/article/Determine-if-Centralized-Deployment-of-add-ins-works-for-your-Office-365-organization-b4527d49-4073-4b43-8274-31b7a3166f92)
+
