@@ -39,11 +39,15 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 * The Azure IoT Edge device that you created in the quickstart or first tutorial.
 * The primary key connection string for the IoT Edge device.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* **[Bugbash only]** Private build of Azure IoT Edge VS Code extension, install via VSIX. [Download Private VSIX package](https://github.com/Microsoft/vscode-azure-iot-edge/releases/download/v0.3.0-alpha/azure-iot-edge-0.3.0-alpha.vsix).
+* [Azure IoT Edge extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
 * [Docker](https://docs.docker.com/engine/installation/) on the same computer that has Visual Studio Code. The Community Edition (CE) is sufficient for this tutorial. 
 * [Node.js](https://nodejs.org/).
 * [Yeoman](http://yeoman.io/) Use npm to install yeoman. `npm install -g yo`
-* **[Bugbash only]** Private build of Yeoman generator for IoT Edge Node.js module. `npm i -g https://github.com/Azure/generator-azure-iot-edge-module/archive/v0.1.0-rc2.tar.gz`
+* [Yeoman generator for IoT Edge Node.js module](https://www.npmjs.com/package/generator-azure-iot-edge-module). Run following command in your console window.
+
+    ```cmd/sh
+    npm i -g yo generator-azure-iot-edge-module
+    ```
 
 ## Create a container registry
 In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
@@ -151,17 +155,10 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
 
-- For Windows, run the following command in VS Code integrated terminal:
-    
-    ```cmd/sh
-    iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
+In VS Code command palette (Command + Shift + P), type and run the command **Azure IoT Edge: New IoT Edge solution**. Then enter container registry address, username and password in the textbox.
 
-- For Linux, run the following command:
-    
-    ```cmd/sh
-    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
-    ```
+![Login to registry](./media/tutorial-node-module/login-registry.png)
+
 
 ## Build and run the solution
 
@@ -170,7 +167,7 @@ Add the credentials for your registry to the Edge runtime on the computer where 
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   To find the user name, password and login server to use in this command, go to the [Azure portal] (https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
+   To find the user name, password and login server to use in this command, go to the [Azure portal](https://portal.azure.com). From **All resources**, click the tile for your Azure container registry to open its properties, then click **Access keys**. Copy the values in the **Username**, **password**, and **Login server** fields. 
 
 2. List your IoT Edge device in the Azure IoT Hub device explorer. Click the **...** button in the explorer, and select the command **Select IoT Hub**. Follow the wizard to log in your Azure Account and select the IoT Hub you provisioned.
 
@@ -209,8 +206,3 @@ In this tutorial, you created an IoT Edge module that contains code to filter ra
 <!-- Links -->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

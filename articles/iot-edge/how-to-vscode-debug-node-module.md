@@ -19,6 +19,9 @@ This article provides detailed instructions for using [Visual Studio Code](https
 ## Prerequisites
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device can be another physical device, or you can simulate your IoT Edge device on your development machine.
 
+> [!NOTE]
+> You can debug Node.js module in linux-amd64, windows-amd64, and linux-arm32v7 containers.
+
 Before following the guidance in this article, complete the steps in  [Develop and deploy a Node.js IoT Edge module to your simulated device](tutorial-node-module.md). After that, you should have the following items ready:
 - An IoT Edge solution project workspace with a Node.js module subfolder in it.
 - The `app.js` file, with the latest module code.
