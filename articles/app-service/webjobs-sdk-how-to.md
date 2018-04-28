@@ -1,5 +1,5 @@
 ---
-title: How to use the WebJobs SDK for event-driven background processing
+title: How to use the WebJobs SDK for event-driven background processing - Azure
 description: Learn more about how to write code for the WebJobs SDK. Create  event-driven background processing jobs that access data in Azure services and third-party services.
 services: app-service\web, storage
 documentationcenter: .net
@@ -88,7 +88,7 @@ static void Main()
 
 ### JobHost ServicePointManager settings
 
-The .NET Framework contains an API called [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/en-us/library/system.net.servicepointmanager.defaultconnectionlimit) that controls the number of concurrent connections to a host. We recommend that you increase this value from the default of 2 before starting your WebJobs host.
+The .NET Framework contains an API called [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) that controls the number of concurrent connections to a host. We recommend that you increase this value from the default of 2 before starting your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through the `ServicePointManager`. Once you hit the `DefaultConnectionLimit`, the `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only 2 requests are actually allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` may time out, because it *thinks* it’s made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
@@ -430,7 +430,7 @@ If you want to ensure that only one instance of a function runs even when there 
 	
 ## Filters 
 
-Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core Filters](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters). They can be implemented as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Function Filters (preview) provide a way to customize the WebJobs execution pipeline with your own logic. Filters are similar to [ASP.NET Core Filters](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters). They can be implemented as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## Logging and monitoring
 
@@ -450,7 +450,7 @@ Every log created by an `ILogger` instance has an associated `Category` and `Lev
 |Critical    | 5 |
 |None        | 6 |
 
-Each category can be independently filtered to a particular [LogLevel](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing but only `Error` and higher for everything else.
+Each category can be independently filtered to a particular [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel). For example, you might want to see all logs for blob trigger processing but only `Error` and higher for everything else.
 
 To make it easier to specify filtering rules, the WebJobs SDK provides the `LogCategoryFilter` that can be passed into many of the existing logging providers, including Application Insights and Console.
 
@@ -500,7 +500,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-The SamplingPercentageEstimatorSettings object configures [adaptive sampling](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, App Insights sends a selected subset of telemetry data to the server.
+The SamplingPercentageEstimatorSettings object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, App Insights sends a selected subset of telemetry data to the server.
 
 Once you've created the telemetry factory, you pass it in to the Application Insights logging provider:
 
