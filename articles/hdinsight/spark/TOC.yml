@@ -13,12 +13,18 @@
       href: apache-spark-jupyter-spark-sql.md
     - name: Run queries on a Spark cluster
       href: apache-spark-load-data-run-query.md
+    - name: Use VSCode to run Spark queries
+      href: ../hdinsight-for-vscode.md
+    - name: Use IntelliJ to run Spark queries
+      href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
       href: apache-spark-use-bi-tools.md
     - name: Manage cluster resources
       href: apache-spark-resource-manager.md
     - name: Debug Spark jobs
       href: apache-spark-job-debugging.md
+    - name: Use IntelliJ to debug Spark job
+      href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: Install HDInsight apps
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
@@ -44,10 +50,10 @@
           href: apache-spark-eclipse-tool-plugin.md
         - name: Create apps using IntelliJ
           href: apache-spark-intellij-tool-plugin.md
-        - name: Debug Spark jobs remotely with IntelliJ through VPN
-          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Debug Spark jobs remotely with IntelliJ through SSH
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
+        - name: Debug Spark jobs remotely with IntelliJ through VPN
+          href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
         - name: Create non-interactive authentication .NET HDInsight applications
           href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
           maintainContext: true
