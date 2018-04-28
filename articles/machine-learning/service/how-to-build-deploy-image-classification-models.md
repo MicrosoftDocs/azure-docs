@@ -396,26 +396,36 @@ display(pr_ui.ui)
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/image_precision_curve.png)
 
 ## Operationalization: deploy and consume
-Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. Once your model is trained, you can deploy your trained model as a web service for consumption with [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/preview/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster as a web service. You can scale your web service with Azure Container Service (ACS) cluster. It also provides some autoscaling functionality for your web service.
 
-<b>Prerequisite:</b> 
-   - Azure account with a valid subscription [Azure](https://azure.microsoft.com/). You need to login to your account if you haven't done so and change to your target subscription.
-   >Azure CLI command to login: 
-   `az login` 
+Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. 
+
+Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service maually or use the autoscaling functionality.
+
+**Log in with Azure CLI**
+
+Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in:
+
+```az login``` 
+
++ To switch to a different Azure subscription, use the following CLI command:
+
+   ```az account set --subscription [your subscription name]``` 
+
++ To see the current model management account, use the following CLI command:
+
+  ```az ml account modelmanagement show``` 
+
+**Create and set your deployment environment**
+
+If you don't have one yet, set up your deployment environment now using [these instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). Follow either the local or the cluster deployment setup steps correctly based on your need.
+
+The local environment deployment is not supported for the Windows Data Science VM or the Deep Learning VM. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. 
+
+To see your active deployment environment, use the following CLI command:
+
+```az ml env show```
    
-   >Azure CLI command to change subscription: 
-   `az account set --subscription [your subscription name]` 
-   
-   - [Azure ML Model Management](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-overview) account. Set your model management account if you haven't done it before.  For more details, you can follow the instruction from this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#create-a-model-management-account) to create one. You can use this CLI command to show your active model management account: `az ml account modelmanagement show`
-   >Azure CLI command example to create and set model management account:
-   ```
-   az ml account modelmanagement create -l [Azure region, e.g. westcentralus] -n [your account name] -g [resource group name] --sku-instances [number of instances, e.g. 1] --sku-name [Pricing tier for example S1]
-   az ml account modelmanagement set -n [your account name] -g [resource group it was created in]
-   ``` 
-   - Deployment environment - If you've already set the deployment environment before running the image classification sample notebook, you don't need to do it again. If you don't have one, follow the following instruction in this [page](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup) to set up a deployment environment. Be sure to follow the local or cluster deployment setup steps correctly based on your need.  
-   The local environment deployment is not supported for the Windows DSVM/DLVM today. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. You can use this CLI command to show your active deployment environment: az ml env show
-   
-   >Azure CLI command example to create and set deployment environment
+   >Sample Azure CLI command to create and set deployment environment
     ```
     az provider register -n Microsoft.MachineLearningCompute
     az provider register -n Microsoft.ContainerRegistry
@@ -425,11 +435,9 @@ Operationalization is the process of publishing models and code as web services 
     az ml env cluster
     ```
     
-### Deploy 
+### Manage web services and deployments
 
-#### Deployment API
-
-API examples for deployment include:
+Use the following APIs to deploy models as web services as well as manage those web services and deployments.
 
 |Task|API|
 |----|----|
@@ -441,13 +449,11 @@ API examples for deployment include:
 |List existing deployment|`AMLDeployment.list_deployment()`|
 |Delete if the service exists with the deployment name|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
+**API documentation:** Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
 
-For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI reference:** For more advanced operations related to deployment, refer to the [model management CLI reference](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-<b>Deployment management with portal:</b>
-
-You can go to [Azure portal](https://ms.portal.azure.com/) to track and manage your deployments. From the Azure portal, find your Machine Learning Model Management account page (You can search for your model management account name). Then go to: the model management account page->Model Management->Services.
+**Deployment management in Azure portal**: You can track and manage your deployments in the [Azure portal](https://ms.portal.azure.com/). From the Azure portal, find your Machine Learning Model Management account page using its name. Then go to the Model Management account page > Model Management > Services.
 
 
 ```python
@@ -480,7 +486,7 @@ from cvtk.operationalization import AMLDeployment
 # set deployment name
 deployment_name = "wsdeployment"
 
-# Optional azure machine learning deployment cluster name (environment name) and resource group name
+# Optional Azure Machine Learning deployment cluster name (environment name) and resource group name
 # If you don't provide here. It will use the current deployment environment (you can check with CLI command "az ml env show").
 azureml_rscgroup = "<resource group>"
 cluster_name = "<cluster name>"
