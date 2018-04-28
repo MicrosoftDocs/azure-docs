@@ -215,9 +215,19 @@ else:
 
 ## Define DNN models
 
-Six different per-trained Deep Neural Network models are supported in the Computer Vision Package: AlexNet, Resnet-18, Resnet-34, and Resnet-50, Resnet-101, and Resnet-152. These DNNs can be used either as classifier, or as featurizer (see step 5). More information about the networks can be found [here](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), and a basic introduction to Transfer Learning is [here](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+The following pretrained Deep Neural Network models are supported with this package: 
++ AlexNet
++ Resnet-18
++ Resnet-34
++ and Resnet-50
++ Resnet-101
++ Resnet-152
 
-The Computer Vision Package comes with default parameters (224x224 pixel resolution and Resnet-18 DNN) which were selected to work well on a wide variety of tasks. Accuracy can often be improved for example, by increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50), however this comes at a significant increase in training time. See the "How to improve accuracy" section in the Appendix for more detail, and why the minibatch-size and the learning rate need to be updated.
+These DNNs can be used either as classifier, or as featurizer. 
+
+More information about the networks can be found [here](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), and a basic introduction to Transfer Learning is [here](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
+
+**Azure Machine Learning Package for Computer Vision** comes with default parameters of 224x224 pixel resolution and a Resnet-18 DNN, which were selected to work well on a wide variety of tasks. Accuracy can often be improved, for example, by increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50). However, changing the parameters can come at a significant increase in training time. See the article on [How to improve accuracy](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -245,11 +255,16 @@ dnn_model = CNTKTLModel(train_set.labels,
 
 ## Train the classifier
 
-The pre-trained DNN from the last section can be used in two ways:
-  - DNN refinement: trains the DNN to directly perform the classification. While DNN training is slow, it typically leads to the best results since all network weights can be improved during training to give best accuracy.
-  - DNN featurization: runs the DNN as-is to obtain a lower-dimensional representation of an image (512, 2048, or 4096 floats), which is then used as input to train a separate classifier. Since the DNN is kept unchanged, this approach is much faster compared to DNN refinement, however accuracy is not as good. Nevertheless, training an external classifier such as a linear SVM (shown below) can provide a strong baseline, and help with understanding the feasibility of a problem.
+You can choose one of the following methods for the pre-trained DNN.
+
+  - **DNN refinement**, which trains the DNN to perform the classification directly. While DNN training is slow, it typically leads to the best results since all network weights can be improved during training to give best accuracy.
+
+  - **DNN featurization**, which runs the DNN as-is to obtain a lower-dimensional representation of an image (512, 2048, or 4096 floats). That representation is then used as input to train a separate classifier. Since the DNN is kept unchanged, this approach is much faster compared to DNN refinement, however accuracy is not as good. Nevertheless, training an external classifier such as a linear SVM (as shown in the following code) can provide a strong baseline, and help with understanding the feasibility of a problem.
   
-Tensorboard can be used to visualize the training progress. To activate, add the parameter `tensorboard_logdir=PATH` as shown below, start the tensorboard client by running in a new console the command `tensorboard --logdir=PATH`, and open a web-browser as instructed by tensorboard (default is localhost:6006). 
+TensorBoard can be used to visualize the training progress. To activate TensorBoard:
+1. Add the parameter `tensorboard_logdir=PATH` as shown in the following code
+1. Start the TensorBoard client using the command `tensorboard --logdir=PATH` in a new console.
+1. Open a web browser as instructed by TensorBoard, which by defaul is localhost:6006. 
 
 
 ```python
@@ -330,9 +345,15 @@ if classifier_name == "dnn":
 ![png](media/how-to-build-deploy-image-classification-models/output_17_0.png)
 
 
-## Evaluate and visualize
+## Evaluate and visualize model performance
 
-The evaluation module provides functionality to evaluate the performance of the trained model on an independent test dataset. Some of the evaluation metrics it computes are: accuracy (by default class-averaged), PR curve, ROC curve, area-under-curve, confusion matrix, etc.
+You can evaluate the performance of the trained model on an independent test dataset using the evaluation module. Some of the evaluation metrics it computes include:
+ 
++ Accuracy (by default class-averaged)
++ PR curve
++ ROC curve
++ Area-under-curve
++ Confusion matrix
 
 
 ```python
@@ -403,17 +424,14 @@ Once your model is trained, you can deploy that model as a web service for consu
 
 **Log in with Azure CLI**
 
-Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in:
+Using an [Azure](https://azure.microsoft.com/) account with a valid subscription, log in using the following CLI command:
+<br>`az login`
 
-```az login``` 
++ To switch to another Azure subscription, use the command:
+<br>`az account set --subscription [your subscription name]`
 
-+ To switch to a different Azure subscription, use the following CLI command:
-
-   ```az account set --subscription [your subscription name]``` 
-
-+ To see the current model management account, use the following CLI command:
-
-  ```az ml account modelmanagement show``` 
++ To see the current model management account, use the command:
+  <br>`az ml account modelmanagement show`
 
 **Create and set your deployment environment**
 
@@ -422,18 +440,18 @@ If you don't have one yet, set up your deployment environment now using [these i
 The local environment deployment is not supported for the Windows Data Science VM or the Deep Learning VM. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. 
 
 To see your active deployment environment, use the following CLI command:
-
-```az ml env show```
+<br>`az ml env show`
    
-   >Sample Azure CLI command to create and set deployment environment
-    ```
-    az provider register -n Microsoft.MachineLearningCompute
-    az provider register -n Microsoft.ContainerRegistry
-    az provider register -n Microsoft.ContainerService
-    az ml env setup --cluster -n [your environment name] -l [Azure region e.g. westcentralus] [-g [resource group]]
-    az ml env set -n [environment name] -g [resource group]
-    az ml env cluster
-    ```
+Sample Azure CLI command to create and set deployment environment
+
+```
+az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
+az ml env setup --cluster -n [your environment name] -l [Azure region e.g. westcentralus] [-g [resource group]]
+az ml env set -n [environment name] -g [resource group]
+az ml env cluster
+```
     
 ### Manage web services and deployments
 
