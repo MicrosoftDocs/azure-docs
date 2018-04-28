@@ -72,7 +72,7 @@ Next, you need to modify the application manifest to use application roles withi
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
 
-3.  You need to generate a GUID and replace the value for the **id** field in the manifest. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
+3.  Generate a GUID and replace the value for the **id** field in the manifest. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
 4.  Click **Save** to save the application manifest changes.
 
 ### Add Graph API key to application
@@ -99,7 +99,7 @@ Blockchain Workbench uses Azure AD as the main identity management system for us
 
 The API application needs to request permission from the user to access the directory. Set the following required permission for the API application:
 
-1. In the Blockchain API app registration, select **Settings > Required permissions > Select an API > Microsoft Graph** .
+1. In the Blockchain API app registration, select **Settings > Required permissions > Select an API > Microsoft Graph**.
 
     ![Select an API](media/blockchain-workbench-deploy/client-app-select-api.png)
 
@@ -257,7 +257,7 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations**.
 4. Select the Azure AD client application you registered in the prerequisite section.
 5. Select **Settings > Reply URLs**.
-6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the previous **Get the Azure Blockchain Workbench Web URL** section. The Reply URL is prefixed with `https://` and appended with `/callback`.  For example, `https://tarm24-rv60.azurewebsites.net/callback`
+6. Specify the main web URL of the Azure Blockchain Workbench deployment you retrieved in the **Get the Azure Blockchain Workbench Web URL** section. The Reply URL is prefixed with `https://` and appended with `/callback`.  For example, `https://tarm24-rv60.azurewebsites.net/callback`
 
     ![Reply URLs](media/blockchain-workbench-deploy/configure-reply-url.png)
 
