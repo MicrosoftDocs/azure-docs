@@ -105,10 +105,16 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
     
     public static string GetOperationId(string id)
     {
-        // Returns the root ID from the '|' to the first '.' if any.
+        // Returns the root ID from the '|' to the first '.' or '_' if any.
         int rootEnd = id.IndexOf('.');
-        if (rootEnd < 0)
+        var match = Regex.Match(s, @"(\.|_)");
+        if (match.Success) {
+            rootEnd = match.Index
+        }
+        else
+        {
             rootEnd = id.Length;
+        }
 
         int rootStart = id[0] == '|' ? 1 : 0;
         return id.Substring(rootStart, rootEnd - rootStart);
