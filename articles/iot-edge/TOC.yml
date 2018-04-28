@@ -55,8 +55,6 @@
         href: how-to-vscode-debug-node-module.md
       - name: Debug Azure Functions
         href: how-to-vscode-debug-azure-function.md
-  - name: CI/CD for Azure IoT Edge
-    href: how-to-ci-cd.md
   - name: Store data at the edge
     href: sql-storage.md
   - name: Troubleshoot
