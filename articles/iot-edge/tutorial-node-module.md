@@ -155,9 +155,29 @@ The following steps show you how to create an IoT Edge solution with a Node.js m
 ## Add registry credentials to Edge runtime
 Add the credentials for your registry to the Edge runtime on the computer where you are running your Edge device. These credentials give the runtime access to pull the container. 
 
-In VS Code command palette (Command + Shift + P), type and run the command **Azure IoT Edge: New IoT Edge solution**. Then enter container registry address, username and password in the textbox.
+# [VS Code](#tab/vscode)
+
+Type and run the command **Azure IoT Edge: New IoT Edge solution** in VS Code command palette. Then enter container registry address, username and password in the textbox.
 
 ![Login to registry](./media/tutorial-node-module/login-registry.png)
+
+# [Terminal](#tab/terminal)
+
+Run the following command in the terminal window.
+
+- For Windows, run the following command:
+    
+    ```cmd/sh
+    iotedgectl login --address <your container registry address> --username <username> --password <password> 
+    ```
+
+- For Linux, run the following command:
+    
+    ```cmd/sh
+    sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
+    ```
+
+
 
 
 ## Build and run the solution
