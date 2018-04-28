@@ -46,23 +46,24 @@ Consult the [package reference documentation](https://aka.ms/aml-packages/vision
 
 ## Sample data and notebook
 
-### Get the notebook
+### Get the Jupyter notebook
 
-Try it out yourself. Download the notebook and run it yourself.
+Download the notebook to run the sample described here yourself.
 
 > [!div class="nextstepaction"]
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/vision/notebooks/image_classification)
 
 ### Load the sample data
 
-The following example uses a dataset consisting of 63 tableware images, each labeled as belonging to one of four different classes (bowl, cup, cutlery, plate). The number of images in this example is small so that this tutorial can be executed quickly; in practice at least 100 images per class should be provided. All images are located at *"../sample_data/imgs_recycling/"*, in subdirectories called "bowl", "cup", "cutlery", and "plate".
+The following example uses a dataset consisting of 63 tableware images. Each image is labeled as belonging to one of four different classes (bowl, cup, cutlery, plate). The number of images in this example is small so that this sample can be executed quickly. In practice at least 100 images per class should be provided. All images are located at *"../sample_data/imgs_recycling/"*, in subdirectories called "bowl", "cup", "cutlery", and "plate".
 
 ![Azure Machine Learning dataset](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-                             
 ## Storage context
 
-The storage context is used to determine where various output files such as augmented images or DNN model files will be stored (for more information about the storage context, see the StorageContext documentation). Normally, the storage content does not need to be set explicitly. However, when using the AML Workbench, to avoid its 25-MB limit on the project size, set the Azure ML Package for Computer Vision outputs directory to point to a location outside the AML project ("../../../../cvtk_output"). Make sure to remove the "cvtk_output" directory once it is no longer needed.
+The storage context is used to determine where various output files such as augmented images or DNN model files will be stored. For more information on storage contexts, see the [StorageContext documentation](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
+
+Normally, the storage content does not need to be set explicitly. However, to avoid its 25-MB limit on the project size imposed by the Azure Machine Learning Workbench, set the outputs directory for the Azure Machine Learning Package for Computer Vision to a location outside the Azure Machine Learning project ("../../../../cvtk_output"). Be sure to remove the "cvtk_output" directory once it is no longer needed.
 
 
 ```python
@@ -104,16 +105,16 @@ Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_p
 
 ## Create a dataset
 
-Once you have imported the dependencies and set the storage context, you can create the dataset.
+Once you have imported the dependencies and set the storage context, you can create the dataset object.
 
-Create the Dataset object in the AML Package for Computer Vision is by providing the root directory of the images on the local disk. This directory has to follow the same general structure as the tableware dataset, that is, contain subdirectories with the actual images:
+To create that object with Azure Machine Learning Package for Computer Vision, provide the root directory of the images on the local disk. This directory must follow the same general structure as the tableware dataset, that is, contain subdirectories with the actual images:
 - root
     - label 1
     - label 2
     - ...
     - label n
   
-Training an image classification model for a different dataset is therefore as easy as changing the root path `dataset_location` in the following code to point at different images.
+Training an image classification model for a different dataset is as easy as changing the root path `dataset_location` in the following code to point at different images.
 
 
 ```python
@@ -138,7 +139,7 @@ Two types of search queries are supported:
 + Regular text queries
 + Image URL queries
 
-These queries as well as the class label must be provided inside a json-encoded text file, such as:
+These queries along with the class label must be provided inside a JSON-encoded text file. For example:
 
 ```json
 {
@@ -163,12 +164,14 @@ These queries as well as the class label must be provided inside a json-encoded 
 }
 ```
 
-Furthermore, a Context object needs to be created explicitly and contain the Bing Image Search API key that requires a Bing Image Search API subscription.     
+Furthermore, you must explicitly create a Context object to contain the Bing Image Search API key. This requires a Bing Image Search API subscription.
 
 ## Visualize and annotate images
 
-The following widget can be used to visualize the images in the dataset object, and to correct some of the labels if needed. In case you see a "Widget Javascript not detected" error, it can often be solved by running the command: 
-  `jupyter nbextension enable --py --sys-prefix widgetsnbextension`
+You can visualize the images and correct labels in the dataset object using the following widget. 
+
+If you encounter the "Widget Javascript not detected" error, run this command to solve it: 
+<br>`jupyter nbextension enable --py --sys-prefix widgetsnbextension`
 
 
 ```python
@@ -181,9 +184,11 @@ display(annotation_ui.ui)
 
 ## Augment images
 
-The augmentation module provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
+The [`augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) provides functionality to augment a dataset object using all the transformations described in the [imgaug](https://github.com/aleju/imgaug) library. Image transformations can be grouped in a single pipeline, in which case all transformations in the pipeline are applied simultaneously each image. 
 
-Adding augmented images to the training set is especially beneficial for small datasets. However, since it slows down DNN training due to the increased number of training images, it is recommended that you start experimentation without augmentation.
+If you would like to apply different augmentation steps separately, or in any different manner, you can define multiple pipelines and pass them to the *augment_dataset* function. For more information and examples of image augmentation, see the [imgaug documentation](https://github.com/aleju/imgaug).
+
+Adding augmented images to the training set is especially beneficial for small datasets. Since the DNN training process is slower due to the increased number of training images, we recommend you start experimentation without augmentation.
 
 
 ```python
@@ -219,7 +224,7 @@ The following pretrained Deep Neural Network models are supported with this pack
 + AlexNet
 + Resnet-18
 + Resnet-34
-+ and Resnet-50
++ Resnet-50
 + Resnet-101
 + Resnet-152
 
@@ -227,7 +232,7 @@ These DNNs can be used either as classifier, or as featurizer.
 
 More information about the networks can be found [here](https://github.com/Microsoft/CNTK/blob/master/PretrainedModels/Image.md), and a basic introduction to Transfer Learning is [here](https://blog.slavv.com/a-gentle-intro-to-transfer-learning-2c0b674375a0).
 
-**Azure Machine Learning Package for Computer Vision** comes with default parameters of 224x224 pixel resolution and a Resnet-18 DNN, which were selected to work well on a wide variety of tasks. Accuracy can often be improved, for example, by increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50). However, changing the parameters can come at a significant increase in training time. See the article on [How to improve accuracy](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
+The default image classification parameters for this package are 224x224 pixel resolution and a Resnet-18 DNN. These parameters were selected to work well on a wide variety of tasks. Accuracy can often be improved, for example, by increasing the image resolution to 500x500 pixels, and/or selecting a deeper model (Resnet-50). However, changing the parameters can come at a significant increase in training time. See the article on [How to improve accuracy](https://docs.microsoft.com/azure/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models).
 
 
 ```python
@@ -264,7 +269,7 @@ You can choose one of the following methods for the pre-trained DNN.
 TensorBoard can be used to visualize the training progress. To activate TensorBoard:
 1. Add the parameter `tensorboard_logdir=PATH` as shown in the following code
 1. Start the TensorBoard client using the command `tensorboard --logdir=PATH` in a new console.
-1. Open a web browser as instructed by TensorBoard, which by defaul is localhost:6006. 
+1. Open a web browser as instructed by TensorBoard, which by default is localhost:6006. 
 
 
 ```python
@@ -420,7 +425,7 @@ display(pr_ui.ui)
 
 Operationalization is the process of publishing models and code as web services and the consumption of these services to produce business results. 
 
-Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service maually or use the autoscaling functionality.
+Once your model is trained, you can deploy that model as a web service for consumption using [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Your models can be deployed to your local machine or Azure Container Service (ACS) cluster. Using ACS, you can scale your web service manually or use the autoscaling functionality.
 
 **Log in with Azure CLI**
 
@@ -435,16 +440,18 @@ Using an [Azure](https://azure.microsoft.com/) account with a valid subscription
 
 **Create and set your deployment environment**
 
-If you don't have one yet, set up your deployment environment now using [these instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). Follow either the local or the cluster deployment setup steps correctly based on your need.
+You only need to set your deployment environment once. If you don't have one yet, set up your deployment environment now using [these instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
-The local environment deployment is not supported for the Windows Data Science VM or the Deep Learning VM. However, local deployment is supported for Linux and Windows 10. The cluster environment deployment is supported for both Linux and Windows. You only need to set it once. 
+Follow either the local or the cluster deployment setup steps correctly based on your need.
++ Local deployments are supported for Linux and Windows 10 machines, but not for the Windows Data Science VM or the Deep Learning VM. 
++ Cluster environment deployments are supported for both Linux and Windows. 
 
 To see your active deployment environment, use the following CLI command:
 <br>`az ml env show`
    
 Sample Azure CLI command to create and set deployment environment
 
-```
+```CLI
 az provider register -n Microsoft.MachineLearningCompute
 az provider register -n Microsoft.ContainerRegistry
 az provider register -n Microsoft.ContainerService
@@ -455,7 +462,7 @@ az ml env cluster
     
 ### Manage web services and deployments
 
-Use the following APIs to deploy models as web services as well as manage those web services and deployments.
+The following APIs can be used to deploy models as web services, manage those web services, and manage deployments.
 
 |Task|API|
 |----|----|
