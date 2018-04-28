@@ -44,9 +44,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: latest/media/indexplaceholder.svg
+          src: media/index/placeholder.svg
       - image:
-          src: latest/media/indexplaceholder.svg 
+          src: media/index/placeholder.svg 
     rows:
       - title: Stream files
         values:
@@ -61,9 +61,9 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: latest/media/indexplaceholder.svg
+          src: media/index/placeholder.svg
       - image:
-          src: latest/media/indexplaceholder.svg
+          src: media/index/placeholder.svg
     rows:
       - title: Upload, encode, stream videos
         values:
