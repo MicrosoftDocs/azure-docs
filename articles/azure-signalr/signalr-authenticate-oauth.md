@@ -23,7 +23,7 @@ This tutorial builds on the chat room application introduced in the quickstart. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
-The authentication used in the quickstart's chat room application is too simple for real-world scenarios. In the application, you claim who you are, and the authentication API on the server simply accepts that, and gives you a token with that name. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
+The authentication initally used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the authentication API on the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
 [GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to require true authentication through a Github account before allowing client logins to the chat room application. 
 
@@ -70,15 +70,161 @@ To complete this tutorial, you must have the following prerequisites:
     | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
     | Authorization callback URL | *http://localhost:5000/api/auth/callback* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. |
 
-4. Once the new OAuth app registration is complete, copy the *Client ID* and *Client Secret*, you'll use these values later when implementing the OAuth flow.
+4. Once the new OAuth app registration is complete, add the *Client ID* and *Client Secret* to Secret Manager using the following commands. Replace *Your_GitHub_Client_Id* and *Your_GitHub_Client_Secret* with the values for your OAuth app.
+
+        dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
+        dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
+
 
 ## Implement the OAuth flow
 
-### Prompt the user for GitHub authentication
+### Update the Startup class to support GitHub authentication
 
-The first step of OAuth flow is to prompt the user to log in with a GitHub account. This login can be done by redirecting the user to the GitHub login page.
+1. Add a reference to project for the latest *Microsoft.AspNetCore.Authentication.Cookies* package and restore all packages.
 
-1. Open *wwwroot\index.html* and remove the JavaScript code that prompts for the username.
+        dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet restore
+
+1. Open *Startup.cs*, and add using statements for the following namespaces:
+
+    ```csharp
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+    using System.Security.Claims;
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication.OAuth;
+    using Newtonsoft.Json.Linq;
+    ```
+
+2. At the top of the `Startup` class, add constants for the Secret Manager keys that hold the GitHub OAuth app secrets.
+
+    ```csharp
+    private const string GitHubClientId = "GitHubClientId";
+    private const string GitHubClientSecret = "GitHubClientSecret";
+    ```
+
+3. Add the following code to the `ConfigureServices` method to support authentication with the GitHub OAuth app:
+
+    ```csharp
+    services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie()
+        .AddGitHub(options =>
+        {
+            options.ClientId = Configuration[GitHubClientId];
+            options.ClientSecret = Configuration[GitHubClientSecret];
+            options.Scope.Add("user:email");
+            options.Events = new OAuthEvents
+            {
+                OnCreatingTicket = GetUserCompanyInfoAsync
+            };
+        });
+    ```
+
+4. Add the following helper method to the `Startup` class, and save the file:    
+
+    ```csharp
+    private static async Task GetUserCompanyInfoAsync(OAuthCreatingTicketContext context)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
+        request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", context.AccessToken);
+
+        var response = await context.Backchannel.SendAsync(request,
+            HttpCompletionOption.ResponseHeadersRead, context.HttpContext.RequestAborted);
+
+        var user = JObject.Parse(await response.Content.ReadAsStringAsync());
+        if (user.ContainsKey("company"))
+        {
+            var company = user["company"].ToString();
+            var companyIdentity = new ClaimsIdentity(new[]
+            {
+                new Claim("Company", company)
+            });
+            context.Principal.AddIdentity(companyIdentity);
+        }
+    }        
+    ```
+
+
+### Add an authentication controller
+
+In this section, you will implement a `Login` API that authenticates clients using the GitHub OAuth app. Once authenticated, the API will add a cookie to the web client response before redirecting the client back to the chat app. That cookie will then be used to identify the client.
+
+1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
+
+2. Add the following code for the authentication controller. Make sure to update the namespace to be your namespace, if your project directory was not *chattest*:
+
+    ```csharp
+    using AspNet.Security.OAuth.GitHub;
+    using Microsoft.AspNetCore.Mvc;
+
+    namespace chattest.Controllers
+    {
+        [Route("/")]
+        public class AuthController : Controller
+        {
+            [HttpGet("login")]
+            public IActionResult Login()
+            {
+                if (!HttpContext.User.Identity.IsAuthenticated)
+                {
+                    return Challenge(GitHubAuthenticationDefaults.AuthenticationScheme);
+                }
+
+                HttpContext.Response.Cookies.Append("githubchat_username", User.Identity.Name);
+                return Redirect("/");
+            }
+        }
+    }    
+    ```
+
+3. Save your changes.    
+
+### Update the Hub class
+
+By default when a web client attempts to connect to SignalR Service, the connection is granted based on an access token that is provided internally. This access token is not associated with an authenticated identity. This access is actually anonymous access. 
+
+In this section, you will turn on real authentication by adding the `Authorize` attribute to the hub class, and updating the hub methods to read the username from the authenticated user's claim.
+
+1. Open *Hub\Chat.cs* and Add references to these namespaces:
+
+    ```csharp
+    using System.Linq;
+    using System.Security.Claims;    
+    using System.Threading.Tasks;
+    ```
+
+2. Update the hub code as shown below. This code adds the `Authorize` attribute to the `Chat` class, and uses the user's authenticated idenity in the hub methods. Also, the `OnConnectedAsync` method is added, which will log a system message to the chat room each time a new client connects.
+
+    ```csharp
+    [Authorize]
+    public class Chat : Hub
+    {
+        public override Task OnConnectedAsync()
+        {
+            return Clients.All.SendAsync("broadcastMessage", "_SYSTEM_", $"{Context.User.Identity.Name} JOINED");
+        }
+
+        // Uncomment this line to only allow user in Microsoft to send message
+        //[Authorize(Policy = "Microsoft_Only")]
+        public void BroadcastMessage(string message)
+        {
+            Clients.All.SendAsync("broadcastMessage", Context.User.Identity.Name, message);
+        }
+
+        public void Echo(string message)
+        {
+            var echoMessage = $"{message} (echo from server)";
+            Clients.Client(Context.ConnectionId).SendAsync("echo", Context.User.Identity.Name, echoMessage);
+        }
+    }
+    ```
+
+3. Save your changes.
+
+### Update the web client code
+
+1. Open *wwwroot\index.html* and replace the code that prompts for the username with code to use the cookie
 
     Remove the following code from *index.html*:
 
@@ -95,23 +241,10 @@ The first step of OAuth flow is to prompt the user to log in with a GitHub accou
     } while(!username)
     ```
 
-2. Near the bottom of *index.html*, replace the JavaScript call to `getAccessToken()` with the following code. 
-
-    Before:
+    Add the following code in place of the code above to use the cookie:
 
     ```javascript
-    getAccessToken(`/api/auth/chat?uid=${username}`)
-        .then(function(endpoint) {
-            accessToken = endpoint.accessToken;
-            return startConnection(endpoint.serviceUrl, bindConnectionMessage);
-        })
-        .then(onConnected)
-        .catch(onConnectionError);
-    ```    
-
-    After:
-
-    ```javascript
+    // Get the user name cookie.
     function getCookie(key) {
         var cookies = document.cookie.split(';').map(c => c.trim());
         for (var i = 0; i < cookies.length; i++) {
@@ -119,265 +252,45 @@ The first step of OAuth flow is to prompt the user to log in with a GitHub accou
         }
         return '';
     }
+    var username = getCookie('githubchat_username');    
+    ```
 
+2. Just beneath the line of code you added to use the cookie, add the following definition for the `appendMessage` function:
+
+    ```javascript
     function appendMessage(encodedName, encodedMsg) {
         var messageEntry = createMessageEntry(encodedName, encodedMsg);
         var messageBox = document.getElementById('messages');
         messageBox.appendChild(messageEntry);
         messageBox.scrollTop = messageBox.scrollHeight;
     }
-
-    var accessToken = getCookie('githubchat_access_token'), serviceUrl = getCookie('githubchat_service_url'), username = getCookie('githubchat_username');
-    if (!accessToken) {
-        appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/api/auth/login">here</a> to login with GitHub.');
-    } else {
-        startConnection(serviceUrl, bindConnectionMessage)
-            .then(onConnected)
-            .catch(() => appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/api/auth/login">here</a> to login with GitHub.'));
-    }
     ```
 
-    This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to log in through the *AuthController* in the web app.
-
-
-### Add an authentication controller
-
-The connection string contains sensitive access data and should only be used by server-side code to connect to the SignalR Service resource. You would not normally want to allow client-side code direct access to the service using the connection string. Code running as a client of the web app should authenticate with the web app in order to authorize access to SignalR functionality. 
-
-Azure SignalR Service gives you the flexibility to implement your own authentication. In this article, you aren't going to include real authentication. Instead you will simply issue the token when requested. You will implement real authentication in a later tutorial. 
-
-In this section, you will implement an API that issues a token to the client. Code running client-side can then use this token to connect to the service to push content updates.
-
-1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
-
-2. Add the following code to the authentication controller:
-
-    ```csharp
-    namespace chattest
-    {
-        using System.Security.Claims;
-        using Microsoft.AspNetCore.Mvc;
-        using Microsoft.Azure.SignalR;
-        using Microsoft.Extensions.Configuration;
-
-        [Route("api/auth")]
-        public class AuthController : Controller
-        {
-            private readonly EndpointProvider _endpointProvider;
-            private readonly TokenProvider _tokenProvider;
-
-            public AuthController(IConfiguration config)
-            {
-                var connStr = config[Constants.AzureSignalRConnectionStringKey];
-                _endpointProvider = CloudSignalR.CreateEndpointProviderFromConnectionString(connStr);
-                _tokenProvider = CloudSignalR.CreateTokenProviderFromConnectionString(connStr);
-            }
-
-            [HttpGet("{hubName}")]
-            public IActionResult GenerateJwtBearer(string hubName, [FromQuery] string uid)
-            {
-                var serviceUrl = _endpointProvider.GetClientEndpoint(hubName);
-                var accessToken =_tokenProvider.GenerateClientAccessToken(hubName, new[]
-                {
-                    new Claim(ClaimTypes.NameIdentifier, uid)
-                });
-
-                return new OkObjectResult(new
-                {
-                    ServiceUrl = serviceUrl,
-                    AccessToken = accessToken
-                });
-            }
-        }
-    }
-    ```
-
-    The Azure SignalR SDK defines the `GenerateClientAccessToken()` method. This method is used to help issue the token based on the connection string, once you authenticate a client.
-
-    Along with a valid token, this API also returns the *serviceURL* in the response body. This token and *serviceURL* are used by the client to authenticate the connection used to push content updates to all clients.    
-
-
-### Handle OAuth in the controller
-
-In this section, you will update the *AuthController* class to support OAuth authentication for the chat room application.
-
-1. Open *Controllers\AuthController.cs* and add the following method to the *AuthController* class to handle the login request. This method redirects the client login to GitHub's OAuth API. Notice the *Client ID* from the OAuth app you registered is passed in to the GitHub OAuth API:
-
-    ```csharp
-    [HttpGet("login")]
-    public IActionResult Login()
-    {
-        return Redirect($"https://github.com/login/oauth/authorize?scope=user:email&client_id={_clientId}");
-    }
-    ```
-
-2. Add the following code to the *AuthController* class. This code supports the settings for the OAuth app you registered on GitHub.
-
-    Add references to these namespaces:
-
-    ```csharp
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    ```
-
-    Add these members to the *AuthController* class:
-
-    ```csharp
-    private readonly HttpClient _httpClient;
-    private readonly string _clientId;
-    private readonly string _clientSecret;
-
-    public AuthController(IConfiguration config)
-    {
-        var connStr = config[Constants.AzureSignalRConnectionStringKey];
-        _endpointProvider = CloudSignalR.CreateEndpointProviderFromConnectionString(connStr);
-        _tokenProvider = CloudSignalR.CreateTokenProviderFromConnectionString(connStr);
-        _clientId = config[Constants.GitHubClientIdKey];
-        _clientSecret = config[Constants.GitHubClientSecretKey];
-        _httpClient = new HttpClient();
-        _httpClient.DefaultRequestHeaders.Add("User-Agent", "GitHubChat");
-        _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-    }
-    ```
-
-3. If authentication is successful with the GitHub OAuth API, then GitHub will return a code to the *Authorization callback URL* you configured for the OAuth app. Add the following code to the *AuthController* class to handle this callback:
-
-    Add references to these namespaces:
-
-    ```csharp
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using System.Collections.Generic;
-    using System.Text;
-    ```
-
-    Add these members to the *AuthController* class:
-
-    ```csharp
-    class UserInfo
-    {
-        public string Name { get; set; }
-        public string Company { get; set; }
-    }
-    
-    private async Task<string> GetToken(string code)
-    {
-        var body = JsonConvert.SerializeObject(new Dictionary<string, string> {
-            { "client_id", _clientId },
-            { "client_secret", _clientSecret },
-            { "code", code },
-            { "accept", "json" }
-        });
-        var response = await _httpClient.PostAsync("https://github.com/login/oauth/access_token", new StringContent(body, Encoding.UTF8, "application/json"));
-        var tokenString = await response.Content.ReadAsStringAsync();
-        var tokenObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(tokenString);
-        return tokenObject["access_token"];
-    }
-
-    private async Task<UserInfo> GetUser(string token)
-    {
-        var userString = await _httpClient.GetStringAsync($"https://api.github.com/user?access_token={token}");
-        var userObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(userString);
-        return new UserInfo
-        {
-            Name = userObject["login"],
-            Company = userObject["company"]
-        };
-    }
-    
-    [HttpGet("callback")]
-    public async Task<IActionResult> Callback(string code)
-    {
-        var hubName = "chat";
-        var githubToken = await GetToken(code);
-        var user = await GetUser(githubToken);
-        var serviceUrl = _endpointProvider.GetClientEndpoint(hubName);
-        var accessToken = _tokenProvider.GenerateClientAccessToken(hubName, new[]
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.Name),
-            new Claim("Company", user.Company ?? "")
-        });
-        Response.Cookies.Append("githubchat_access_token", accessToken);
-        Response.Cookies.Append("githubchat_service_url", serviceUrl);
-        Response.Cookies.Append("githubchat_username", user.Name);
-        return Redirect("/");
-    }
-    ```
-
-    After successful authentication, this code uses the temporary authentication code returned from the GitHub OAuth API to send HTTP POST requests back to GitHub. These HTTP POST requests allow the `AuthController` class to get the following information about the GutHub user account being authenticated:
-
-    * username
-    * company
-    * accessToken
-
-    The `AuthController` class adds cookies to the client response for this information, along with the *serviceURL*. Client-side code will use the cookies when connecting and pushing content updates with Azure SignalR Service.
-
-
-### Add the OAuth app secrets as constants
-
-1. Open *Constants.cs* and add the following members to the *Constants* class:
-
-    ```csharp
-    public const string GitHubClientIdKey = "GitHubClientId";
-    public const string GitHubClientSecretKey = "GitHubClientSecret";
-    ```
-
-2. In the command shell, add environment variables for the values of both of these constant strings:
-
-        set GitHubClientId=<Enter your Client ID here>
-        set GitHubClientSecret=<Enter your Client Secret here>
-
-    Replace the placeholder values, including the brackets (<>), using the Client ID, and Client Secret values of the new OAuth app you registered.
-
-
-### Update the Hub class to support claims
-
-The hub class will now be updated to use the user's claim for identification. In the previous tutorial, the `broadcastMessage()` method used the name parameter to let caller claim their own identity. This code did not verify who the user actually was. In this section, you will remove that name parameter and read the username from the authenticated user's claim.
-
-1. Open *Hub\Chat.cs* and add the following updates for the *Chat* hub class:
-
-    Add references to these namespaces:
-
-    ```csharp
-    using System.Linq;
-    using System.Security.Claims;    
-    using System.Threading.Tasks;
-    ```
-
-    Add and update these members of the *Chat* hub class:
-
-    ```csharp
-    public override Task OnConnectedAsync()
-    {
-        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-        return Clients.All.SendAsync("broadcastMessage", "_SYSTEM_", $"{username} JOINED");
-    }
-
-    // Uncomment this line to only allow user in Microsoft to send message
-    // [Authorize(Policy = "Microsoft_Only")]
-    public void broadcastMessage(string message)
-    {
-        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-        Clients.All.SendAsync("broadcastMessage", username, message);
-    }
-
-    public void echo(string message)
-    {
-        var username = Context.Connection.User.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
-        Clients.Client(Context.ConnectionId).SendAsync("echo", username, message + " (echo from server)");
-    }
-    ```
-
-2. Open *wwwroot\Index.html* and update the *onConnected** function to use the new signatures for calling *broadcastMessage*, and *echo*.
+3. Update the `bindConnectionMessage` and `onConnected` functions with the following code to use `appendMessage`.
 
     ```javascript
+    function bindConnectionMessage(connection) {
+        var messageCallback = function(name, message) {
+            if (!message) return;
+            // Html encode display name and message.
+            var encodedName = name;
+            var encodedMsg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            appendMessage(encodedName, encodedMsg);
+        };
+        // Create a function that the hub can call to broadcast messages.
+        connection.on('broadcastMessage', messageCallback);
+        connection.on('echo', messageCallback);
+        connection.onclose(onConnectionError);
+    }
+
     function onConnected(connection) {
         console.log('connection started');
-        connection.send('broadcastMessage', '_SYSTEM_', username + ' JOINED');
         document.getElementById('sendmessage').addEventListener('click', function (event) {
-            // Call the broadcastMessage method on the hub supporting claims.            
+            // Call the broadcastMessage method on the hub.
             if (messageInput.value) {
-                connection.send('broadcastMessage', messageInput.value);
+                connection
+                    .invoke('broadcastMessage', messageInput.value)
+                    .catch(e => appendMessage('_BROADCAST_', e.message));
             }
 
             // Clear text box and reset focus for next comment.
@@ -393,7 +306,7 @@ The hub class will now be updated to use the user's claim for identification. In
             }
         });
         document.getElementById('echo').addEventListener('click', function (event) {
-            // Call the echo method on the hub supporting claims.
+            // Call the echo method on the hub.
             connection.send('echo', messageInput.value);
 
             // Clear text box and reset focus for next comment.
@@ -401,8 +314,26 @@ The hub class will now be updated to use the user's claim for identification. In
             messageInput.focus();
             event.preventDefault();
         });
-    }
+    }    
+    ```    
+
+4. At the bottom of *index.html*, update the error handler for `connection.start()` as shown below to prompt the user to log in.
+
+    ```javascript
+    connection.start()
+        .then(function () {
+            onConnected(connection);
+        })
+        .catch(function (error) {
+            console.error(error.message);
+            if (error.message === "Unauthorized") {
+                appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/login">here</a> to login with GitHub.');
+            }
+        });
     ```
+
+5. Save your changes.    
+
 
 
 ## Build and Run the app locally

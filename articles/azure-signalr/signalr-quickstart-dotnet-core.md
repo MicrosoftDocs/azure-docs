@@ -117,7 +117,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     });
     ```            
 
-## Add a hub class
+### Add a hub class
 
 In SignalR, a hub is a core concept that exposes a set of methods that can be called from client. In this section, you define a hub class with two methods: 
 
@@ -153,11 +153,11 @@ Both methods use the `Clients` interface provided by the SignalR Core SDK. This 
     }
     ```
 
-## Add the web app client interface
+### Add the web app client interface
 
 The client user interface for this chat room app will be composed of HTML and JavaScript in a file named *index.html* in the *wwwroot* directory.
 
-Copy the *index.html* file, and the *css*, and *scripts* folders from the *wwwroot* folder of the [samples repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoomLocal/wwwroot) into your project's *wwwroot* folder.
+Copy the *index.html* file, and the *css*, and *scripts* folders from the *wwwroot* folder of the [samples repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot) into your project's *wwwroot* folder.
 
 The main code of *index.html*: 
 
@@ -179,7 +179,7 @@ The code in *index.html*, calls `HubConnectionBuilder.build()` to make a HTTP co
 
 If the connection is successful, that connection is passed to `bindConnectionMessage`, which adds event handlers for incoming content pushes to the client. 
 
-`HubConnection.start()` starts communication with the hub. Once communication is started `conConnected()` adds the button event handlers. These handlers use the connection to allow this client to push content updates to all connected clients.
+`HubConnection.start()` starts communication with the hub. Once communication is started, `onConnected()` adds the button event handlers. These handlers use the connection to allow this client to push content updates to all connected clients.
 
 ## Add a development runtime profile
 

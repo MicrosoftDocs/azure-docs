@@ -35,7 +35,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Authentication and Authorization with OAuth</a>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Azure SignalR Service Authentication</a>
     - html: <a href="/azure/azure-signalr/signalr-integrate-functions">Integration with Azure Functions</a></li>
 - title: Free Pluralsight Video Training
   items:
