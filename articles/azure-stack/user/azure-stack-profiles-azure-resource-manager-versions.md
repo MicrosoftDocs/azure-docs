@@ -41,7 +41,7 @@ For an explanation of API profiles and version release cadence for Azure Stack, 
 | Microsoft.Storage (Control Plane) | 2016-01-01 |
 | Microsoft. Web | 2016-08-01<br>which is the latest (as of now) in Azure |
 | Microsoft.KeyVault | 2016-10-01 (Not changing) |
-| Microsoft.Resources         (ARM itself) | 2016-02-01 |
+| Microsoft.Resources         (Azure Resource Manager itself) | 2016-02-01 |
 | Microsoft.Authorization   (policy operations) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
@@ -63,7 +63,7 @@ For more a list of the versions for each resource type for the providers in the 
 | Microsoft.Storage (Control Plane) | 2016-01-01   |
 | Microsoft.Websites | 2016-01-01 |
 | Microsoft.KeyVault | 2016-10-01<br>(Not changing) |
-| Microsoft.Resources<br>(ARM itself) | 2016-02-01 |
+| Microsoft.Resources<br>(Azure Resource Manager itself) | 2016-02-01 |
 | Microsoft.Authorization<Br>(policy operations) | 2015-11-01 |
 | Microsoft.Insights | 2015-11-01 |
 | Microsoft.Keyvault | 2016-10-01 |
