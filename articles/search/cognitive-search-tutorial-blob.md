@@ -52,7 +52,7 @@ First, sign up for the Azure Search service.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+  A Free service is limited to 3 indexes, 16-MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
 
 1. Pin the service to the dashboard for fast access to service information.
 
@@ -70,7 +70,7 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container named `basicdemo`. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
-1. Using the Azure Storage Explorer, in the `basicdemo` container you just created, click **Upload** to upload the sample files.
+1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
 1. Collect the following information from the portal:
 
@@ -88,7 +88,7 @@ There are other ways to specify the connection string, such as providing a share
 
 Now that your services and source files are prepared, start assembling the components of your indexing pipeline. Begin with a [data source object](https://docs.microsoft.com/rest/api/searchservice/create-data-source) that tells Azure Search how to retrieve external source data.
 
-For this tutorial, use the REST API and a tool that can formulate and send HTTP requests, such as PowerShell, Postman, or Fiddler. In the request header, provide the service name you provided when creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
+For this tutorial, use the REST API and a tool that can formulate and send HTTP requests, such as PowerShell, Postman, or Fiddler. In the request header, provide the service name you used while creating the Azure Search service, and the api-key generated for your search service. In the request body, specify the blob container name and connection string.
 
 ### Sample Request
 ```http
@@ -238,7 +238,7 @@ For more information about skillset fundamentals, see [How to define a skillset]
 
 ## Create an index
 
-In this section you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
+In this section, you define the index schema by specifying which fields to include in the searchable index, and the search attributes for each field. Fields have a type and can take attributes that determine how the field is used (searchable, sortable, and so forth). Field names in an index are not required to identically match the field names in the source. In a later step, you add field mappings in an indexer to connect source-destination fields. For this step, define the index using field naming conventions pertinent to your search application.
 
 This exercise uses the following fields and field types:
 
@@ -311,7 +311,7 @@ To learn more about defining an index, see [Create Index (Azure Search REST API)
 
 ## Create an indexer, map fields, and execute transformations
 
-So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these toghether in an indexer, you must define field mappings. Field mappings are part of the indexer definition and execute the transformations when you submit the request.
+So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings. Field mappings are part of the indexer definition and execute the transformations when you submit the request.
 
 For non-enriched indexing, the indexer definition provides an optional *fieldMappings* section if field names or data types do not precisely match, or if you want to use a function.
 
@@ -379,7 +379,7 @@ Content-Type: application/json
 
 Send the request. The web test tool should return a status code of 204 confirming successful processing. 
 
-Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are particularly long-running.
+Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
@@ -499,7 +499,7 @@ Repeat the previous exercise, including an `enriched` field to capture the conte
 }
 ```
 <a name="reset"></a>
-## Reset and re-run
+## Reset and rerun
 
 In the early experimental stages of pipeline development, the most practical approach for design iterations is to delete the objects from Azure Search and allow your code to rebuild them. Resource names are unique. Deleting an object lets you recreate it using the same name.
 
@@ -527,7 +527,7 @@ This tutorial demonstrates the basic steps for building an enriched indexing pip
 
 [Predefined skills](cognitive-search-predefined-skills.md) were introduced, along with skillset definition and the mechanics of chaining skills together through inputs and outputs. You also learned that `outputFieldMappings` in the indexer definition is required for routing enriched values from the pipeline into a searchable index on an Azure Search service.
 
-Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before re-running a pipeline.
+Finally, you learned how to test results and reset the system for further iterations. You learned that issuing queries against the index returns the output created by the enriched indexing pipeline. In this release, there is a mechanism for viewing internal constructs (enriched documents created by the system). You also learned how to check indexer status, and which objects to delete before rerunning a pipeline.
 
 ## Clean up resources
 
