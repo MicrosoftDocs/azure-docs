@@ -2606,7 +2606,7 @@ webservice_fcst_errors
 
 ## Next steps
 
-Learn more about the Azure Machine Learning Package for Forecasting:
+Learn more about the Azure Machine Learning Package for Forecasting in these articles:
 
 + Read the [package overview and learn how to install it](https://aka.ms/aml-packages/forecasting).
 

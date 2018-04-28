@@ -773,7 +773,7 @@ prediction
 
 ## Next steps
 
-For information about the Azure Machine Learning Package for Text Analytics:
+Learn more about Azure Machine Learning Package for Text Analytics in these articles:
 
 + Read the [package overview and learn how to install it](https://aka.ms/aml-packages/text).
 
