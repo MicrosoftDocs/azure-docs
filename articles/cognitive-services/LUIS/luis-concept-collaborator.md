@@ -39,7 +39,7 @@ Export the base version. Each author imports the version. They will be the owner
 Exported apps are JSON-formatted files which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
 ### Manage multiple versions inside the same app
-Begin by [cloning](luis-how-to-manage-versions), from a base version, for each author. 
+Begin by [cloning](luis-how-to-manage-versions.md), from a base version, for each author. 
 
 Each author makes changes to his own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
 
