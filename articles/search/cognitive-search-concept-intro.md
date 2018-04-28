@@ -30,6 +30,9 @@ At both ends of the pipeline, you have persisted data - source data stored in an
 
 Underneath it all, the engine driving the pipeline is an Azure Search *indexer*. An indexer pulls data from supported sources, adds field mappings and logic, and pushes it into a search index that you've defined in advance. Transformations and enrichment are added through individual *skills*, combined into a *skillset* attached to an indexer. The remaining sections explore each step in more detail.
 
+> [!NOTE]
+> Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+
 ### Source data and document cracking phase
 
 At the start of the pipeline, you have unstructured text or non-text content (such as image files, scanned document JPG files, audio files). Data must exist in an Azure data storage service that can be accessed by an indexer. Supported sources include Azure blob storage, Azure table storage, Azure SQL Database, and Azure Cosmos DB. Blobs can be image files, audio files, scanned documents, and so forth. Text-based content can be extracted from the following file types: PDFs, Word, PowerPoint, CSV files. For the full list, see [Supported formats](search-howto-indexing-azure-blob-storage.md#supported-document-formats).

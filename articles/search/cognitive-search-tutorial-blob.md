@@ -221,6 +221,8 @@ Content-Type: application/json
 ```
 Send the request. The web test tool should return a status code of 201 confirming success. 
 
+> [!NOTE] Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+
 #### About the request
 
 Notice how the key phrase extraction skill is applied for each page. By setting the context to ```"document/pages/*"``` you run this enricher for each member of the document/pages array (for each page in the document).
