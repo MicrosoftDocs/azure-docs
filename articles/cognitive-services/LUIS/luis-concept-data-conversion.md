@@ -18,8 +18,11 @@ LUIS provides a way to convert utterances from spoken utterances to text utteran
 ## Speech to intent conversion concepts
 Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is a coordination of the [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) service with LUIS. 
 
-### New Speech-to-intent key
-In order to make the integration between Speech and LUIS easy for the user, a new Azure key is available: **Speech-to-intent**. This key combines Speech and LUIS, providing a new endpoint and pricing model. The endpoint is able to receive both spoken and text utterances allowing you to use it as a single endpoint. 
+### Key requirements
+Create a **Bing Speech API** key for this integration. 
+
+### New endpoint 
+This integration creates a new endpoint and [pricing](luis-boundaries.md#key-limits) model. The endpoint is able to receive both spoken and text utterances allowing you to use it as a single endpoint. 
 
 ### Quota usage
 See [Key limits](luis-boundaries.md#key-limits) for information. 
