@@ -244,7 +244,7 @@ Remote Access from Intranet should be **enabled** before adding another node for
 
 During self-hosted integration runtime setup (v 3.3.xxxx.x onwards), by default, the self-hosted integration runtime installation disables the **'Remote Access from Intranet'** on the self-hosted integration runtime machine.
 
-If you are using a third-party firewall, you can manually open the port 8060 (or the user configured port). If you run into firewall issue during self-hosted integration runtime setup, you can try using the following command to install the self-hosted integration runtime without configuring the firewall.
+If you are using a third-party firewall, you can manually open the port 8050 (or the user configured port). If you run into firewall issue during self-hosted integration runtime setup, you can try using the following command to install the self-hosted integration runtime without configuring the firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
@@ -252,7 +252,7 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 > [!NOTE]
 > **Credential Manager Application** is not yet available for encrypting credentials in ADFv2. We will add this support later.  
 
-If you choose not to open the port 8060 on the self-hosted integration runtime machine, use mechanisms other than using the **Setting Credentials **application to configure data store credentials. For example, you could use New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
+If you choose not to open the port 8050 on the self-hosted integration runtime machine, use mechanisms other than using the **Setting Credentials **application to configure data store credentials. For example, you could use New-AzureRmDataFactoryV2LinkedServiceEncryptCredential PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 
 
 ## Next steps
