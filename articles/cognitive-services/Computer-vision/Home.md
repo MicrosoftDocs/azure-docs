@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.component: computer-vision 
 ms.topic: article
 ms.date: 08/10/2017 
-ms.author: kefre 
+ms.author: kefre
+
 --- 
  
 # What is Computer Vision API Version 1.0?
