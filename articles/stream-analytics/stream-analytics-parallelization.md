@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/22/2017
+ms.date: 04/27/2018
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -30,7 +30,7 @@ All Azure Stream Analytics input can take advantage of partitioning:
 
 ### Outputs
 
-When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](https://review.docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs?branch=master#partitioning).
+When you work with Stream Analytics, you can take advantage of partitioning for most output sinks. More information about output partitioning is available on the [partitioning section of the output page](stream-analytics-define-outputs.md#partitioning).
 
 PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
