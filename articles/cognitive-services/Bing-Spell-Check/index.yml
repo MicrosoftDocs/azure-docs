@@ -3,13 +3,13 @@ documentType: LandingData
 title: Bing Spell Check API Documentation 
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Spell Check API Documentation- Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
+  title: Bing Spell Check API Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Bing Spell Check API to obtain suggested corrections for text documents. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: v-jaswel
   manager: kamrani
   ms.service: cognitive-services
-  ms.component: spell-check
+  ms.component: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
