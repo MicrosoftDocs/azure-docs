@@ -60,9 +60,7 @@
   - name: Azure CLI 2.0
     href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
   - name: REST
-    href: /rest/api/media/mediaservice
-  - name: CLI 2.0
-    href: https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest
+    href: https://go.microsoft.com/fwlink/p/?linkid=873030
   - name: Event schemas
     href: media-services-event-schemas.md    
 - name: Resources
