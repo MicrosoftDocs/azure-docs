@@ -44,39 +44,35 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: 
+          src: latest/media/indexplaceholder.svg
       - image:
-          src:  
+          src: latest/media/indexplaceholder.svg 
     rows:
-      - title: Setup
+      - title: Stream files
         values:
-        - href: /azure/machine-learning/service/quickstart-installation
-        - href: /azure/machine-learning/studio/create-workspace
-      - title: Build a model
-        values:
-        - href: /azure/machine-learning/service/quickstart-installation
-        - href: /azure/machine-learning/studio/create-experiment
+        - href: /azure/media-services/latest/stream-files-dotnet-quickstart
+        - href: /azure/media-services/previous/media-services-portal-vod-get-started      
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
+    text: 'Learn how to stream files and analyze your videos with Media Services.:'
   - type: table
     style: dataMatrix
     columns:
       - image:
-          src: media/index/i_machine-learning.svg
+          src: latest/media/indexplaceholder.svg
       - image:
-          src: media/index/machine-learning-studio.svg
+          src: latest/media/indexplaceholder.svg
     rows:
       - title: Upload, encode, stream videos
         values:
-        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
-        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+        - href: /azure/media-services/latest/stream-files-tutorial-with-api
+        - href: /azure/media-services/previous/media-services-dotnet-get-started
       - title: Analyze videos
         values:
-        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
-        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
+        - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+        - href: /azure/media-services/previous/media-services-analytics-overview
 
 
 
