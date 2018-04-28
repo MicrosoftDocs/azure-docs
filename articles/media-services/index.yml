@@ -17,6 +17,8 @@ metadata:
 abstract:
   description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
 
+sections:
+
 - title: 
   items:
   - type: list
@@ -24,31 +26,57 @@ abstract:
     className: cardsA
     items:
 
-    - html: <a href="/azure/media-services/latest/">
-            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v3"> (preview)
-            <br><b>Azure Media Services v3</b></a>
-            <p>Learn how to stream videos on-demand, broadcast live events, and analyze your videos with Media Services v3. </p>
+    - html: <a href="/azure/machine-learning/service/">
+            <img height="48" width="48" src="/azure/machine-learning/media/index/i_machine-learning.svg" alt="Azure Machine Learning services"> (preview)
+            <br><b>Azure Media Services v3 (preview)</b></a>
+            <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
 
-    - html: <a href="/azure/media-services/previous/">
-            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v2"> (GA)
-            <br><b>Azure Media Services v2</b></a>
-            <p>Learn how to stream videos on-demand, broadcast live events, and analyze your videos with Media Services v2. </p>
+    - html: <a href="/azure/machine-learning/studio/">
+            <img height="48" width="48" src="/azure/machine-learning/media/index/machine-learning-studio.svg" alt="Azure Machine Learning Studio">
+            <br><b>Azure Media Services v2 (GA)</b></a>
+            <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v2.</p>
 
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to quickly set up and use Azure Media Services v3 (preview), and Media Services v2:'
+    text: 'Learn how to quickly set up and use Azure Machine Learning services (preview), Studio, and the Data Science Virtual Machine:'
   - type: table
     style: dataMatrix
     columns:
-      - title:     
-      - title: v3
-      - title: v2
+      - image:
+          src: media/index/i_machine-learning.svg
+      - image:
+          src: media/index/machine-learning-studio.svg
     rows:
-      - title: Stream files
+      - title: Setup
         values:
-        - href: /azure/media-services/latest/stream-files-dotnet-quickstart
-        - href: /azure/media-services/previous/media-services-portal-vod-get-started
+        - href: /azure/machine-learning/service/quickstart-installation
+        - href: /azure/machine-learning/studio/create-workspace
+      - title: Build a model
+        values:
+        - href: /azure/machine-learning/service/quickstart-installation
+        - href: /azure/machine-learning/studio/create-experiment
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to build, deploy, and consume models using Azure Machine Learning services (preview) and Studio:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/i_machine-learning.svg
+      - image:
+          src: media/index/machine-learning-studio.svg
+    rows:
+      - title: Upload, encode, stream videos
+        values:
+        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-1
+        - href: /azure/machine-learning/studio/walkthrough-2-upload-data
+      - title: Analyze videos
+        values:
+        - href: /azure/machine-learning/desktop-workbench/tutorial-classifying-iris-part-2
+        - href: /azure/machine-learning/studio/walkthrough-3-create-new-experiment
 
 
 
