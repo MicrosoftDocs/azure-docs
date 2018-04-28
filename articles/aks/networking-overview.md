@@ -43,6 +43,9 @@ Advanced networking provides the following benefits:
 * You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
 * Pods can access resources on the public Internet.
 
+> [!IMPORTANT]
+> Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20).
+
 ## Configure advanced networking
 
 When you [create an AKS cluster](kubernetes-walkthrough-portal.md) in the Azure portal, the following parameters are configurable for advanced networking:
@@ -65,11 +68,9 @@ The following screenshot from the Azure portal shows an example of configuring t
 
 Clusters configured with Advanced networking require additional planning. The size of your VNet and its subnet must accommodate the number of pods you plan to run simultaneously in the cluster, as well as your scaling requirements.
 
-Each VNet provisioned for use with the Azure CNI plugin is limited to 4096 IP addresses.
-
 IP addresses for the pods and the cluster's nodes are assigned from the specified subnet within the VNet. Each node is configured with a primary IP, which is the IP of the node itself, and 30 additional IP addresses pre-configured by Azure CNI that are assigned to pods scheduled to the node. When you scale out your cluster, each node is similarly configured with IP addresses from the subnet.
 
-Each node in a cluster configured for Advanced networking can host a maximum of 30 pods.
+As mentioned previously, each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20). Each node in a cluster configured for Advanced networking can host a maximum of **30 pods**.
 
 ## Frequently asked questions
 
