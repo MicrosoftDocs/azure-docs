@@ -1,6 +1,6 @@
 ---
-title: Tutorial for authenticating Azure SignalR Service clients with OAuth | Microsoft Docs
-description: In this tutorial, you learn how to authenticate Azure SignalR Service clients with OAuth
+title: Tutorial for authenticating Azure SignalR Service clients | Microsoft Docs
+description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
 services: signalr
 documentationcenter: ''
 author: wesmc7777
@@ -76,7 +76,7 @@ To complete this tutorial, you must have the following prerequisites:
 
 ### Prompt the user for GitHub authentication
 
-The first step of OAuth flow is to prompt the user to login with a GitHub account. This login can be done by redirecting the user to the GitHub login page.
+The first step of OAuth flow is to prompt the user to log in with a GitHub account. This login can be done by redirecting the user to the GitHub login page.
 
 1. Open *wwwroot\index.html* and remove the JavaScript code that prompts for the username.
 
@@ -137,7 +137,7 @@ The first step of OAuth flow is to prompt the user to login with a GitHub accoun
     }
     ```
 
-    This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to login through the *AuthController* in the web app.
+    This new code looks for stored cookies representing the: *accessToken*, *serviceURL*, and *username*. If they are not present, the user is provided a link to log in through the *AuthController* in the web app.
 
 
 ### Add an authentication controller

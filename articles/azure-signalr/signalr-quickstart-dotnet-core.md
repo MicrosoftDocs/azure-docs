@@ -24,7 +24,7 @@ Azure SignalR Service is an Azure service that helps developers easily build web
 This article shows you how to get started with the Azure SignalR Service. In this quickstart, you will create a chat application using an ASP.NET Core MVC Web App web app. This app will make a connection with your Azure SignalR Service resource to enable real-time content updates. You will host the web application locally and connect with multiple browser clients. Each client will be able to push content updates to all other clients. 
 
 
-You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option avaialble on the Windows, macOS, and Linux platforms.
+You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Also, the creation of the Azure resources used in this quickstart can be accomplished with the [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
@@ -55,7 +55,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 
 ## Add Secret Manager to the project
 
-In this section, you will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This helps prevent the accidential sharing of app secrets with source code.
+In this section, you will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
 1. Open your *.csproj* file. Add a `DotNetCliToolReference` attribute for *Microsoft.Extensions.SecretManager.Tools* and a `UserSecretsId` attribute as shown below, and save the file.
 
@@ -95,7 +95,7 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
     ```
 
-    This will only used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
+    This will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
 
 4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method:
 
@@ -126,7 +126,7 @@ In SignalR, a hub is a core concept that exposes a set of methods that can be ca
 
 Both methods use the `Clients` interface provided by the SignalR Core SDK. This interface gives you access to all connected clients enabling you to push content to your clients.
 
-1. In yout project directory, add a new folder named *Hub*. Add a new hub code file named *Chat.cs* to the new folder.
+1. In your project directory, add a new folder named *Hub*. Add a new hub code file named *Chat.cs* to the new folder.
 
 2. Add the following code to *Chat.cs* to define you hub class and save the file. 
 
@@ -175,7 +175,7 @@ connection.start()
     });
 ```    
 
-The code in *index.html*, calls the `HubConnectionBuilder.build()` to make a HTTP connection to the Azure SignalR resource.
+The code in *index.html*, calls `HubConnectionBuilder.build()` to make a HTTP connection to the Azure SignalR resource.
 
 If the connection is successful, that connection is passed to `bindConnectionMessage`, which adds event handlers for incoming content pushes to the client. 
 
@@ -259,9 +259,9 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this quickstart, you've created a new Azure SignalR Service resource and used to in an ASP.NET Core Web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the next tutorial that demonstrates authentication with OAuth.
+In this quickstart, you've created a new Azure SignalR Service resource and used it with an ASP.NET Core Web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service authentication with OAuth](./signalr-authenticate-oauth.md)
+> [Azure SignalR Service authentication](./signalr-authenticate-oauth.md)
 
 

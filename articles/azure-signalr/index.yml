@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/17/2018
   ms.author: wesmc
 abstract:
-  description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on SignalR Core which is an open source library that simplifies the process of adding real-time web functionality to applications.
+  description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core Core which is an open source library that simplifies the process of adding real-time web functionality to applications.
 sections:
 - title: 5-Minute Quickstarts
   items:
