@@ -10,18 +10,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
 --- 
-# Process configurable threshold based rules in Azure Stream Analytics
-This article describes how to use reference data to achieve an alerting solution that uses configurable threshold based rules in Azure Stream Analytics.
+# Process configurable threshold-based rules in Azure Stream Analytics
+This article describes how to use reference data to achieve an alerting solution that uses configurable threshold-based rules in Azure Stream Analytics.
 
 ## Scenario: Alerting based on adjustable rule thresholds
-You may need to produce an alert as output when an incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. While it simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined, since the threshold can be hard coded into the streaming query syntax using static greater than, less than, and equality comparisons.
+You may need to produce an alert as output when an incoming streamed events have reached a certain value, or when an aggregated value based on the incoming streamed events exceeds a certain threshold. While it simple to set up a Stream Analytics query that compared value to a static threshold that is fixed and predetermined, since the threshold can be hard-coded into the streaming query syntax using static greater than, less than, and equality comparisons.
 
-In some cases, the threshold values need to be easily configurable without editing the query syntax each time that a threshold value changes. In other cases you may need numerous devices or users processed by the same query with each of them having a different threshold values on each kind of device. 
+In some cases, the threshold values need to be easily configurable without editing the query syntax each time that a threshold value changes. In other cases, you may need numerous devices or users processed by the same query with each of them having a different threshold values on each kind of device. 
 
 This pattern can be used to dynamically configure thresholds, selectively choose which kind of device the threshold applies by filtering the input data, and selectively choose which fields to include in the output.
 
 ## Recommended design pattern
-Use a reference data input to you Stream Analytics job as a lookup of the alert thresholds:
+Use a reference data input to a Stream Analytics job as a lookup of the alert thresholds:
 - Store the threshold values in the reference data, one value per key.
 - Join the streaming data input events to the reference data on the key column.
 - Use the keyed value from the reference data as the threshold value.
@@ -29,17 +29,18 @@ Use a reference data input to you Stream Analytics job as a lookup of the alert 
 ## Example data and query
 In the example, alerts are generated when the aggregate of data streaming in from devices in a minute-long window matches the stipulated values in the rule supplied as reference data.
 
-In the query, for each deviceId, and each metricName under the deviceId, you can configure from 0 to 5 dimensions to GROUP BY. Only the events having the corresponding filter values are grouped. Once grouped, windowed aggregates of Min, Max, Avg, are calculated over a 60 second tumbling window. Filters on the aggregated values are then calculated as per the configured threshold in the reference, to generate the alert output event.
+In the query, for each deviceId, and each metricName under the deviceId, you can configure from 0 to 5 dimensions to GROUP BY. Only the events having the corresponding filter values are grouped. Once grouped, windowed aggregates of Min, Max, Avg, are calculated over a 60-second tumbling window. Filters on the aggregated values are then calculated as per the configured threshold in the reference, to generate the alert output event.
 
 As an example, assume there is a Stream Analytics job that has a reference data input named **rules**, and streaming data input named **metrics**. 
 
 ## Reference data
-This example reference data shows how a threshold based rule could be represented. A JSON file holds the reference data and is saved into Azure blob storage, and that blob storage container is used as a reference data input named **rules**. You could overwrite this JSON file and replace the rule configuration as time goes on, without stopping or starting the streaming job.
+This example reference data shows how a threshold-based rule could be represented. A JSON file holds the reference data and is saved into Azure blob storage, and that blob storage container is used as a reference data input named **rules**. You could overwrite this JSON file and replace the rule configuration as time goes on, without stopping or starting the streaming job.
 
-- The example rule is used to represent an adjustable alert when CPU exceeds (average is greater than or equal to) the value `90` percent. 
-- Notice the rule has an **operator** value which is dynamically interpreted in the query syntax later on `AVGGREATEROREQUAL`.  
-- Not all columns are included in the output alert event. In this case `includedDim` number 2 is turned on `TRUE` to represent that that field numer 2 of data in the stream will be included in the output event. 
-- The alert rule filters the input streaming data on a certain dimension ordinal `2` with value `C1`.
+- The example rule is used to represent an adjustable alert when CPU exceeds (average is greater than or equal to) the value `90` percent. The `value` field is configurable as needed.
+- Notice the rule has an **operator** field, which is dynamically interpreted in the query syntax later on `AVGGREATEROREQUAL`. 
+- The rule filters the data on a certain dimension key `2` with value `C1`. Other fields are empty string, indicating not to filter the input stream by those event fields. You could set up additional CPU rules to filter other matching fields as needed.
+ - Not all columns are to be included in the output alert event. In this case `includedDim` key number `2` is turned on `TRUE` to represent that that field number 2 of event data in the stream will be included in the qualifying output events. The other fields are not shown in the alert output, but those can be adjusted later.
+
 
 ```json
 {
@@ -128,12 +129,13 @@ HAVING
 ```
 
 ## Example streaming input event data
-This example JSON data represents the **metrics** input data that is used in the above streaming query. Three example events are listed within the same 1 minute timespan `T14:50`. 
+This example JSON data represents the **metrics** input data that is used in the above streaming query. 
 
-- There are 3 events represented in this example. All for `deviceId` value `978648`.
-- The CPU metric value are `98`, `95`, `80` in each event respectively. Only the first two event exceed the CPU alert rule established.
-- The includeDim field in the alert rule was number 2. The corresponding data in these event is the field named `NodeName`. The following three example events have values `N024`, `N024`, and `N014` respectively. In the output, you see only the node `N024` hits the alert criteria for high CPU. `N014` does not meet the high CPU threshold.
-- The alert rule is configured to filter data on ordinal 2, which is `cluster` field. The following three example events all have value `C1` and match the filter critera.
+- Three example events are listed within the 1-minute timespan, value `T14:50`. 
+- All three have the same `deviceId` value `978648`.
+- The CPU metric values vary in each event, `98`, `95`, `80` respectively. Only the first two example events exceed the CPU alert rule established in the rule.
+- The includeDim field in the alert rule was key number 2. The corresponding key 2 field in the example events is named `NodeName`. The three example events have values `N024`, `N024`, and `N014` respectively. In the output, you see only the node `N024` as that is the only data that matches the alert criteria for high CPU. `N014` does not meet the high CPU threshold.
+- The alert rule is configured with a `filter` only on key number 2, which corresponds to the `cluster` field in the sample events. The three example events all have value `C1` and match the filter criteria.
 
 ```json
 {
