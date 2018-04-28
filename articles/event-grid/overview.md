@@ -43,7 +43,6 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 Currently, the following Azure services support sending events to Event Grid:
 
 * Azure Subscriptions (management operations)
-* Container Registry
 * Custom Topics
 * Event Hubs
 * IoT Hub

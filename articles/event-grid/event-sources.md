@@ -26,14 +26,6 @@ Subscribe to Azure Subscriptions events to respond to changes in resources acros
 | [Integrate Azure Automation with Event Grid and Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Create a virtual machine, which sends an event. The event triggers an Automation runbook that tags the virtual machine, and triggers a message that is sent to a Microsoft Teams channel. |
 | [Event schema](event-schema-subscriptions.md) | Shows fields in Azure subscription events. |
 
-## Container Registry
-
-Subscribe to Container Registry to respond to image pushed and deleted events.
-
-|Title  |Description  |
-|---------|---------|
-| [Event schema](event-schema-container-registry.md) | Shows fields in Container Registry events. |
-
 ## Custom topics
 
 Subscribe to custom topics to respond to application events.
