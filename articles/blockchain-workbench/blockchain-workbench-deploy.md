@@ -265,4 +265,4 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 
 ## Next steps
 
-Now that you have Azure Blockchain Workbench deployed, the next step is to [Manage Users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
+Now that you have Azure Blockchain Workbench deployed, the next step is to [Manage Users in Azure Blockchain Workbench]().
