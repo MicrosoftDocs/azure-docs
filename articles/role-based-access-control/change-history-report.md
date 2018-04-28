@@ -93,21 +93,24 @@ This command lists the activity logs for the Authorization resource provider sin
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## Azure Activity Log Analytics
+## Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze role-based access control changes on all your Azure resources. You use the Azure Activity Log Analytics solution to connect your activity logs to Log Analytics. Log Analytics has the following benefits:
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) is another tool you can use to collect and analyze role-based access control changes for all your Azure resources. Log Analytics has the following benefits:
 
 - Write complex queries and logic
 - Integrate with alerts, Power BI, and other tools
+- Save data for longer retention periods
 - Cross-reference with other logs such as security, virtual machine, and custom
 
 Here are the basics steps to get started:
 
 1. [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../log-analytics/log-analytics-activity.md) for your workspace.
+1. [Configure the Activity Log Analytics solution](../log-analytics/log-analytics-activity.md#configuration) for your workspace.
 
-1. [View the activity logs](../log-analytics/log-analytics-activity.md).
+1. [View the activity logs](../log-analytics/log-analytics-activity.md#using-the-solution). A quick way to navigate to the Activity Log Analytics Overview page is to click the **Log Analytics** option.
+
+   ![Log Analytics option in portal](./media/change-history-report/azure-log-analytics-option.png)
 
 1. Optionally use the [Log Search](../log-analytics/log-analytics-log-search.md) page or the [Advanced Analytics portal](https://docs.loganalytics.io/docs/Learn) to query and view the logs. For more information about these two options, see [Log Search page or the Advanced Analytics portal](../log-analytics/log-analytics-log-search-portals.md).
 
@@ -129,7 +132,7 @@ AzureActivity
 | render timechart
 ```
 
-![Activity logs using the portal - screenshot](./media/change-history-report/azure-log-analytics.png)
+![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
 * [View events in activity log](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
