@@ -24,12 +24,11 @@ Nodes in an AKS cluster configured for Basic networking use the [kubenet][kubene
 ## Advanced networking
 
 **Advanced** networking places your pods in an Azure Virtual Network (VNet) that you configure, providing them automatic connectivity to VNet resources and integration with the rich set of capabilities that VNets offer.
+Advanced networking is currently available only when deploying AKS clusters in the [Azure portal][portal] or with a Resource Manager template.
 
-Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
+Nodes in an AKS cluster configured for Advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin. The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
-
-The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
 
 ## Advanced networking features
 
@@ -38,10 +37,8 @@ Advanced networking provides the following benefits:
 * You can deploy your AKS cluster into an existing VNet, or create a new VNet and subnet for your cluster.
 * Every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other VMs in the VNet.
 * A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
-* A Kubernetes service can be exposed externally or internally through the Azure Load Balancer.
 * Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL DB.
 * You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
-* Pods can access resources on the public Internet.
 
 > [!IMPORTANT]
 > Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20).
@@ -76,17 +73,17 @@ As mentioned previously, each VNet provisioned for use with the Azure CNI plugin
 
 The following questions and answers apply to the **Advanced** networking configuration.
 
+* *Can I configure Advanced networking with the Azure CLI?*
+
+  No. Advanced networking is currently available only when deploying AKS clusters in the Azure portal or with a Resource Manager template.
+
 * *Can I deploy VMs in my cluster subnet?*
 
-  Yes, you can. However, ensure you have a sufficient number of IP addresses in the subnet for the VMs.
-
-* *Are there any scenarios in which Network Security Groups, user-defined routes, and other network policies will not work for pods?*
-
-  Per-pod network policies are currently unsupported. You can configure the policies, but their behavior may be unpredictable, and they may not be functional. As such, their usage is discouraged.
+  No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same VNet, but in a different subnet.
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
-  Each node can host a maximum of 30 pods. This number is not currently configurable.
+  By default, each node can host a maximum of 30 pods. You can currently change the maximum value only by modifying the `maxPods` property when deploying a cluster with a Resource Manager template.
 
 * *How do I configure additional properties for the subnet that I created during AKS cluster creation? For example, service endpoints.*
 
@@ -110,6 +107,7 @@ Learn more about networking in AKS in the following articles:
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
 [aks-ssh]: aks-ssh.md
