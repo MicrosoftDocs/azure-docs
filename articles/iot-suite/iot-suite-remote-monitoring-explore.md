@@ -63,7 +63,7 @@ The following table shows a summary of the provisioned device types:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller            | Temperature, Humidity, Pressure            | Type, Firmware version, Model               | Location, Floor, Campus | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure                          |
 | Prototyping device | Temperature, Pressure, Geo-location        | Type, Firmware version, Model               | Location, Mode          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase |
-| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Restart, Firmware Update, Empty tank, Fill tank                                              |
+| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Firmware Update, Empty tank, Fill tank                                              |
 | Truck              | Geo-location, Speed, Cargo temperature     | Type, Firmware version, Model               | Location, Load          | Lower cargo temperature, Increase cargo temperature, Firmware update                         |
 | Elevator           | Floor, Vibration, Temperature              | Type, Firmware version, Model, Geo-location | Location, Campus        | Stop elevator, Start elevator, Firmware update                                               |
 
