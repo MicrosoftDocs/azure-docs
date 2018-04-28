@@ -34,16 +34,11 @@ public static async Task<List<string>> Run(
   var outputs = new List<string>();
 
   outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-
-  context.SetCustomStatus(new { nextCities = new[] { "Seattle", "London" }, processedCities = new[] { "Tokyo" }});
-
+  context.SetCustomStatus("Tokyo");
   outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-
-  context.SetCustomStatus(new { nextCities = new[] { "London" }, processedCities = new[] { "Tokyo", "Seattle" }});
-
+  context.SetCustomStatus("Seattle");
   outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
-
-  context.SetCustomStatus(new { nextCities = new string[] {}, processedCities = new[] { "Tokyo", "Seattle", "London" }});
+  context.SetCustomStatus("London");
 
   // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
   return outputs;
@@ -53,6 +48,39 @@ public static async Task<List<string>> Run(
 public static string SayHello([ActivityTrigger] string name)
 {
   return $"Hello {name}!";
+}
+```
+
+And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+  [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+  [OrchestrationClient] DurableOrchestrationClientBase starter,
+  string functionName,
+  ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    DurableOrchestrationStatus durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
+    while (durableOrchestrationStatus.CustomStatus.ToString() != "London")
+    {
+      await Task.Delay(200);
+      durableOrchestrationStatus = await starter.GetStatusAsync(instanceId);
+    }
+
+    HttpResponseMessage httpResponseMessage = new HttpResponseMessage(HttpStatusCode.OK)
+    {
+      Content = new StringContent(JsonConvert.SerializeObject(durableOrchestrationStatus))
+    };
+
+    return httpResponseMessage;
+  }
 }
 ```
 
@@ -98,7 +126,33 @@ public static void Run(
 
 ### Instruction specification 
 
-The orchestrator can provide unique instructions to the clients via the custom state. The custom status instructions will be mapped to the steps in the orchestration code.
+The orchestrator can provide unique instructions to the clients via the custom state. The custom status instructions will be mapped to the steps in the orchestration code:
+
+```csharp
+[FunctionName("ReserveTicket")]
+public static async Task<bool> Run(
+  [OrchestrationTrigger] DurableOrchestrationContextBase context)
+{
+  string userId = context.GetInput<string>();
+
+  int discuout = await context.CallActivityAsync<int>("CalculateDiscuount", userId);
+
+  context.SetCustomStatus(new
+  {
+    discuout = discuout,
+    discuoutTimeout = 60,
+    bookingUrl = "https://www.myawesomebookingweb.com",
+  });
+
+  bool isBookingConfirmed = await context.WaitForExternalEvent<bool>("BookingConfirmed");
+
+  context.SetCustomStatus(isBookingConfirmed
+    ? new {message = "Thank you for confirming your booking."}
+    : new {message = "The booking was not confirmed on time. Please try again."});
+
+  return isBookingConfirmed;
+}
+```
 
 ## Sample
 
