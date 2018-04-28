@@ -29,7 +29,7 @@
     href: Tutorials/javascript-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
-- name: How-to
+- name: How-to guides
   items:
   - name: Obtain subscription keys
     href: Vision-API-How-to-Topics/HowToSubscribe.md
