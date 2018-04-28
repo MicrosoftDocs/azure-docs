@@ -78,6 +78,7 @@
 #### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 #### [Pricing examples](iot-hub-devguide-pricing.md)
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
+#### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
@@ -169,7 +170,7 @@
 ##### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
