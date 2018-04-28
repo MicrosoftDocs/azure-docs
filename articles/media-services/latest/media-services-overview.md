@@ -58,15 +58,32 @@ v3 is based on a unified API surface which exposes both management and operation
 
 ## How can I get started with v3?
 
-As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
+As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
 
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
 * .NET Core 
 * Java
-* Node.js (npm install azure-arm-mediaservices)
+
+  Add following dependency in your project:
+  
+  ```
+  <dependency>
+    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
+    <artifactId>azure-mgmt- media</artifactId>
+    <version>0.0.1-beta</version>
+  </dependency> 
+  ```
+* Node.js 
+
+  Use the following command:
+  
+  ```
+  npm install azure-arm-mediaservices
+  ```
+  
 * [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* Go
-* Azure CLI 2.0
+* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
 
 Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
 
