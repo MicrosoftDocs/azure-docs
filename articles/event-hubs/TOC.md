@@ -47,7 +47,7 @@
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

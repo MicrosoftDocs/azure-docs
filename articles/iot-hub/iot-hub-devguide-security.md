@@ -357,7 +357,7 @@ The [Azure IoT Service SDK for C#][lnk-service-sdk] (version 1.0.8+) supports re
 
 ### C\# Support
 
-The **RegistryManager** class provides a programmatic way to register a device. In particular, the **AddDeviceAsync** and **UpdateDeviceAsync** methods enable you to register and update a device in the IoT Hub identity registry. These two methods take a **Device** instance as input. The **Device** class includes an **Authentication** property that allows you to specify primary and secondary X.509 certificate thumbprints. The thumbprint represents a SHA-1 hash of the X.509 certificate (stored using binary DER encoding). You have the option of specifying a primary thumbprint or a secondary thumbprint or both. Primary and secondary thumbprints are supported to handle certificate rollover scenarios.
+The **RegistryManager** class provides a programmatic way to register a device. In particular, the **AddDeviceAsync** and **UpdateDeviceAsync** methods enable you to register and update a device in the IoT Hub identity registry. These two methods take a **Device** instance as input. The **Device** class includes an **Authentication** property that allows you to specify primary and secondary X.509 certificate thumbprints. The thumbprint represents a SHA256 hash of the X.509 certificate (stored using binary DER encoding). You have the option of specifying a primary thumbprint or a secondary thumbprint or both. Primary and secondary thumbprints are supported to handle certificate rollover scenarios.
 
 Here is a sample C\# code snippet to register a device using an X.509 certificate thumbprint:
 

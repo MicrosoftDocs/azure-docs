@@ -81,7 +81,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
         -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
         -EnvironmentName AzureStackAdmin
 
-      Connect-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```
@@ -109,7 +109,7 @@ Use this option if you have deployed Azure Stack in a disconnected scenario or i
       -ADFS `
       -EnvironmentName "AzureStackAdmin" 
 
-      Connect-AzureRmAccount `
+      Add-AzureRmAccount `
         -EnvironmentName "AzureStackAdmin" `
         -TenantId $TenantID 
       ```

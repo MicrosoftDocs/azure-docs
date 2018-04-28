@@ -145,7 +145,7 @@ Defines functions that can be executed on the workflow.
 
 ## States
 
-A collection of unique states within a workflow. States that define the status within the workflow.
+A collection of unique states within a workflow. Each state captures a step in the business logic's control flow. 
 
 | Field | Description | Required |
 |-------|-------------|:--------:|
@@ -172,7 +172,7 @@ A collection of unique states within a workflow. States that define the status w
           "AllowedInstanceRoles": [ "InstanceOwner" ],
           "Description": "Cancels this instance of asset transfer",
           "Function": "Terminate",
-          "NextState": "Terminated",
+          "NextStates": [ "Terminated" ],
           "DisplayName": "Terminate Offer"
         },
         {
@@ -180,7 +180,7 @@ A collection of unique states within a workflow. States that define the status w
           "AllowedInstanceRoles": [],
           "Description": "Make an offer for this asset",
           "Function": "MakeOffer",
-          "NextState": "OfferPlaced",
+          "NextStates": [ "OfferPlaced" ],
           "DisplayName": "Make Offer"
         },
         {
@@ -188,7 +188,7 @@ A collection of unique states within a workflow. States that define the status w
           "AllowedInstanceRoles": [ "InstanceOwner" ],
           "Description": "Modify attributes of this asset transfer instance",
           "Function": "Modify",
-          "NextState": "Active",
+          "NextStates": [ "Active" ],
           "DisplayName": "Modify"
         }
       ]
@@ -223,7 +223,7 @@ Available actions to the next state. One or more user roles may perform an actio
 | DisplayName | Friendly display name of the transition. | Yes |
 | Description | Description of the transition. | No |
 | Function | The name of the function to initiate the transition. | Yes |
-| NextState | The next state after a successful transition. | Yes |
+| NextStates | A collection of potential next states after a successful transition. | Yes |
 
 ### Transitions example
 
@@ -234,7 +234,7 @@ Available actions to the next state. One or more user roles may perform an actio
     "AllowedInstanceRoles": [ "InstanceOwner" ],
     "Description": "Cancels this instance of asset transfer",
     "Function": "Terminate",
-    "NextState": "Terminated",
+    "NextStates": [ "Terminated" ],
     "DisplayName": "Terminate Offer"
   },
   {
@@ -242,7 +242,7 @@ Available actions to the next state. One or more user roles may perform an actio
     "AllowedInstanceRoles": [],
     "Description": "Make an offer for this asset",
     "Function": "MakeOffer",
-    "NextState": "OfferPlaced",
+    "NextStates": [ "OfferPlaced" ],
     "DisplayName": "Make Offer"
   },
   {
@@ -250,7 +250,7 @@ Available actions to the next state. One or more user roles may perform an actio
     "AllowedInstanceRoles": [ "InstanceOwner" ],
     "Description": "Modify attributes of this asset transfer instance",
     "Function": "Modify",
-    "NextState": "Active",
+    "NextStates": [ "Active" ],
     "DisplayName": "Modify"
   }
 ]
@@ -259,7 +259,7 @@ Available actions to the next state. One or more user roles may perform an actio
 
 ## Application roles
 
-Application roles define the user roles who can act or participate within the blockchain application. Application roles can be used to restrict actions and participation within the blockchain application and corresponding workflows.
+Application roles define a set of roles that can be assigned to users who want to act or participate within the application. Application roles can be used to restrict actions and participation within the blockchain application and corresponding workflows.
 
 | Field | Description | Required |
 |-------|-------------|:--------:|
@@ -289,7 +289,7 @@ Identifiers represent a collection of information used to describe workflow prop
 | Name | The unique name of the property or parameter. The corresponding smart contract must use the same **Name** for the applicable property or parameter. | Yes |
 | DisplayName | Friendly display name for the property or parameter. | Yes |
 | Description | Description of the property or parameter. | No |
-| Type | The type of data specified in the **Identifier**. Supported types are:</br>`address` – Blockchain address type, such as *contracts* or *users*</br>`int` – integer data type</br>`money` – money data type</br>`state` - Workflow state</br>`string` – string data type | Yes |
+| Type | The type of data specified in the **Identifier**. Supported types are:</br>`address` – Blockchain address type, such as *contracts* or *users*</br>`bool` – boolean data type</br>`contract` – address of type contract</br>`int` – integer data type</br>`money` – money data type</br>`state` - Workflow state</br>`string` – string data type</br>`user` – address of type user</br>`[ Application Role Name ]` – any name specified in application role. Limits users to be of that role type. | Yes |
 
 ### Identifiers example
 
@@ -611,7 +611,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancels this instance of asset transfer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate Offer"
             },
             {
@@ -619,7 +619,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [],
               "Description": "Make an offer for this asset",
               "Function": "MakeOffer",
-              "NextState": "OfferPlaced",
+              "NextStates": [ "OfferPlaced" ],
               "DisplayName": "Make Offer"
             },
             {
@@ -627,7 +627,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Modify attributes of this asset transfer instance",
               "Function": "Modify",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Modify"
             }
           ]
@@ -645,7 +645,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Accept the proposed offer for the asset",
               "Function": "AcceptOffer",
-              "NextState": "PendingInspection",
+              "NextStates": [ "PendingInspection" ],
               "DisplayName": "Accept Offer"
             },
             {
@@ -653,7 +653,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the proposed offer for the asset",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -661,7 +661,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel this instance of asset transfer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             },
             {
@@ -669,7 +669,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you previously placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             },
             {
@@ -677,7 +677,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Modify the price that you specified for your offer",
               "Function": "ModifyOffer",
-              "NextState": "OfferPlaced",
+              "NextStates": [ "OfferPlaced" ],
               "DisplayName": "Modify Offer"
             }
           ]
@@ -695,7 +695,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the offer",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -703,7 +703,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel the offer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             },
             {
@@ -711,7 +711,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             },
             {
@@ -719,7 +719,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceInspector" ],
               "Description": "Mark this asset as inspected",
               "Function": "MarkInspected",
-              "NextState": "Inspected",
+              "NextStates": [ "Inspected" ],
               "DisplayName": "Mark Inspected"
             },
             {
@@ -727,7 +727,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceAppraiser" ],
               "Description": "Mark this asset as appraised",
               "Function": "MarkAppraised",
-              "NextState": "Appraised",
+              "NextStates": [ "Appraised" ],
               "DisplayName": "Mark Appraised"
             }
           ]
@@ -744,7 +744,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the offer",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -752,7 +752,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel the offer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             },
             {
@@ -760,7 +760,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             },
             {
@@ -768,7 +768,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceAppraiser" ],
               "Description": "Mark this asset as appraised",
               "Function": "MarkAppraised",
-              "NextState": "NotionalAcceptance",
+              "NextStates": [ "NotionalAcceptance" ],
               "DisplayName": "Mark Appraised"
             }
           ]
@@ -786,7 +786,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the offer",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -794,7 +794,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel the offer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             },
             {
@@ -802,7 +802,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             },
             {
@@ -810,7 +810,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceInspector" ],
               "Description": "Mark the asset as inspected",
               "Function": "MarkInspected",
-              "NextState": "NotionalAcceptance",
+              "NextStates": [ "NotionalAcceptance" ],
               "DisplayName": "Mark Inspected"
             }
           ]
@@ -828,7 +828,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Sign-off on inspection and appraisal",
               "Function": "Accept",
-              "NextState": "SellerAccepted",
+              "NextStates": [ "SellerAccepted" ],
               "DisplayName": "SellerAccept"
             },
             {
@@ -836,7 +836,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the proposed offer for the asset",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -844,7 +844,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel this instance of asset transfer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             },
             {
@@ -852,7 +852,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Sign-off on inspection and appraisal",
               "Function": "Accept",
-              "NextState": "BuyerAccepted",
+              "NextStates": [ "BuyerAccepted" ],
               "DisplayName": "BuyerAccept"
             },
             {
@@ -860,7 +860,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             }
           ]
@@ -878,7 +878,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Sign-off on inspection and appraisal",
               "Function": "Accept",
-              "NextState": "SellerAccepted",
+              "NextStates": [ "SellerAccepted" ],
               "DisplayName": "Accept"
             },
             {
@@ -886,7 +886,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Reject the proposed offer for the asset",
               "Function": "Reject",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Reject"
             },
             {
@@ -894,7 +894,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceOwner" ],
               "Description": "Cancel this instance of asset transfer",
               "Function": "Terminate",
-              "NextState": "Terminated",
+              "NextStates": [ "Terminated" ],
               "DisplayName": "Terminate"
             }
           ]
@@ -912,7 +912,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Sign-off on inspection and appraisal",
               "Function": "Accept",
-              "NextState": "Accepted",
+              "NextStates": [ "Accepted" ],
               "DisplayName": "Accept"
             },
             {
@@ -920,7 +920,7 @@ The following example defines an asset transfer application. The application all
               "AllowedInstanceRoles": [ "InstanceBuyer" ],
               "Description": "Rescind the offer you placed for this asset",
               "Function": "RescindOffer",
-              "NextState": "Active",
+              "NextStates": [ "Active" ],
               "DisplayName": "Rescind Offer"
             }
           ]
@@ -950,7 +950,5 @@ The following example defines an asset transfer application. The application all
 ```
 ## Next steps
 
-Try out a tutorial.
-
-* Create your first blockchain app
+* [Create your first blockchain app]()
 

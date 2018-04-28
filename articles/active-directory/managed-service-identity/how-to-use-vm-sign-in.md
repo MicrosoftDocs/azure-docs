@@ -73,7 +73,7 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
 ## Error handling guidance 
 
