@@ -1,6 +1,6 @@
 ---
 title: Named Entity Recognition cognitive search skill (Azure Search) | Microsoft Docs
-description: Extract named entities for person, location and organization from text in an Azure Search augmentation pipeline.
+description: Extract named entities for person, location and organization from text in an Azure Search cognitive search pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -26,15 +26,15 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| categories	| Array of categories that should be extracted.  Possible category types: "Person", "Location", "Organization". If no category is provided, all types are returned.|
-|defaultLanguageCode |	Language code of the input text. The following languages are supported: ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt|
+| categories	| Array of categories that should be extracted.  Possible category types: `"Person"`, `"Location"`, `"Organization"`. If no category is provided, all types are returned.|
+|defaultLanguageCode |	Language code of the input text. The following languages are supported: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
 | minimumPrecision	| A number between 0 and 1. If the precision is lower than this value, the entity is not returned. The default is 0.|
 
 ## Skill inputs
 
 | Input name	  | Description                   |
 |---------------|-------------------------------|
-| languageCode	| Optional. Default is "en".    |
+| languageCode	| Optional. Default is `"en"`.    |
 | text          | The text to analyze.          |
 
 ## Skill outputs
@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 | persons	   | An array of strings where each string represents the name of a person. |
 | locations  | An array of strings where each string represents a location. |
 | organizations  | An array of strings where each string represents an organization. |
-| entities | An array of complex types. Each complex type will include the following fields: category ("person", "organization" or "location"), value (the actual entity name), offset (The location where it was found in the text) and confidence ( A value between 0 and 1 that represents that confidence that the value is an actual entity). |
+| entities | An array of complex types. Each complex type will include the following fields: category (`"person"`, `"organization"` or `"location"`), value (the actual entity name), offset (The location where it was found in the text) and confidence (A value between 0 and 1 that represents that confidence that the value is an actual entity). |
 
 ##	Sample definition
 

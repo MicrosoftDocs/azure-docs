@@ -1,6 +1,6 @@
 ---
-title: How to create a skillset or augmentation pipeline (Azure Search) | Microsoft Docs
-description: Define a set of steps to augment and extract structured information from your data
+title: Create a natural language skillset or cognitive search pipeline (Azure Search) | Microsoft Docs
+description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Search.
 manager: pablocas
 author: luiscabrer
 ms.service: search
@@ -12,15 +12,15 @@ ms.author: luisca
 
 # How to create a skillset in an enrichment pipeline
 
-Cognitive Search allows you to apply enrichment steps to your data. We call each of these enrichment steps *cognitive skills*, which are combined into a *skillset* referenced during indexing. When designing a skillset, you can use predefined skills or build an entirely new skill from the ground up. To view the list of existing skills, see [built-in skills page](cognitive-search-predefined-skills.md). For guidance on building custom skills, see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: create a custom skill](cognitive-search-create-custom-skill-example.md).
+Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset an use [predefined skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
 
-In this article, learn how to express the complete enrichment pipeline for the skills you want to use. The enrichment pipeline is attached to an Azure Search indexer. Part of pipeline design, covered in this article, is constructing the skillset itself. Another part is specifying an indexer, covered in the [next step](#next-step). An indexer definition includes a reference to the skillset, plus field mappings used for connecting inputs to outputs in the target index.
+In this article, learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Search [indexer](search-indexer-overview.md). Part of pipeline design, covered in this article, is constructing the skillset itself. Another part is specifying an indexer, covered in the [next step](#next-step). An indexer definition includes a reference to the skillset, plus field mappings used for connecting inputs to outputs in the target index.
 
 Key points to remember:
 
 + You can only have one skillset per indexer.
 + A skillset must have at least one skill.
-+ You can create multiple skills of the same type but each skill can only be used once within the same skillset.
++ You can create multiple skills of the same type (for example, variants of an image analysis skill) but each skill can only be used once within the same skillset.
 
 ## Begin with the end in mind
 
