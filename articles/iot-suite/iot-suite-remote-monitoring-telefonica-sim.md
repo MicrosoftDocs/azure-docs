@@ -2,7 +2,7 @@
 
 ## Overview
 IoT devices often connect to the cloud using a SIM card that allows them to send data streams from anywhere. The Azure IoT Remote Monitoring solution allows the integration of SIM Management data, so that operators can also track the health of the device through the data provided by the SIM. 
-Remote Monitoring provides out of the box integration with Telefonica IoT, allowing customers using its IoT Connectivity Platform synchronise their device SIMs connectivity data the solutions. This solution can be extended to support other Telco providers through GitHub repository.
+Remote Monitoring provides out of the box integration with Telefonica IoT, allowing customers using its IoT Connectivity Platform synchronize their device SIMs connectivity data the solutions. This solution can be extended to support other telephone company providers through GitHub repository.
 In this tutorial, you learn how to:
 * Integrate SIM data into the Remote Monitoring solution
 * View real-time telemetry
@@ -20,9 +20,9 @@ To sync your connectivity data into Azure Remote Monitoring Solution, follow the
 ### Telefonica SIM setup
 Telefónica SIM & Azure Twin device ID association will be based on Telefónica IoT SIM "alias" property. 
 
-Please go to [Telefónica IoT Connectivity Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM Inventory > Select your SIM, and update each SIM “alias” with your desired Twin deviceID. 
+Navigate to [Telefónica IoT Connectivity Platform Portal](https://m2m-movistar-es.telefonica.com/) > SIM Inventory > Select your SIM,and update each SIM “alias” with your desired Twin deviceID. 
 
-This task can also be done in bulk mode (please, refer to Telefónica IoT Connectivity Platform user manuals)
+This task can also be done in bulk mode (refer to Telefónica IoT Connectivity Platform user manuals)
 
 ![Telefonica Update](media/iot-suite-remote-monitoring-telefonica/telefonica_site.png)
 
@@ -35,7 +35,7 @@ The following connectivity parameters can be published:
 * IP
 * Network presence
 * SIM Status
-* Network based location
+* Network-based location
 * Consumed data traffic
 
 ![Dashboard](media/iot-suite-remote-monitoring-telefonica/dashboard.png)
