@@ -20,7 +20,7 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 ## Prepare for deployment
 
-Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerquistes include Azure AD configuration and Azure AD app registrations.
+Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and Azure AD app registrations.
 
 ### Azure Active Directory tenant
 
