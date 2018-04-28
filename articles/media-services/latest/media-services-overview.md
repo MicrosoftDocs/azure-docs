@@ -83,7 +83,7 @@ As a developer, you can use Media Services [REST API](https://docs.microsoft.com
   ```
   
 * [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* Go
+* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
 
 Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
 
