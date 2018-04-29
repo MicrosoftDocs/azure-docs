@@ -12,7 +12,7 @@
   - name: Speech translation # OK
     href: speech-translation.md
   - name: Speech SDK # OK
-    href: speech-sdks.md
+    href: speech-sdk.md
   - name: Speech Devices SDK # OK
     href: speech-devices-sdk.md
 - name: Get started # OK

@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are very similar to the APIs provided by the [Speech service](../speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](../translator-speech). In general, only the endpoints used differ.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](https://docs.microsoft.com/azure/cognitive-services/translator-speech/). In general, only the endpoints used differ.
 
 > [!NOTE]
 > The Speech Translation feature does not have a REST API. See [WebSocket protocols](websockets.md).

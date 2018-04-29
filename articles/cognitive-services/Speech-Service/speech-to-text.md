@@ -23,11 +23,11 @@ The Speech to Text API offers the following features:
 
 - Optimized Speech to Text results for interactive, conversation, and dictation scenarios. 
 
-- Support for many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [supported languages](supported-languages.md).
+- Support for many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [supported languages](supported-languages.md#speech-to-text).
 
 - Customized language and acoustic models, so you can tailor your application to your users way of speaking, speaking environment, and specialized vocabulary.
 
-- Natural-language understanding. Through integration with [Language Understanding](../LUIS) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
+- Natural-language understanding. Through integration with [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
 
 Some capabilities of the Speech to Text API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
 
@@ -46,9 +46,3 @@ Start your free trial of the Speech service.
 > [Free trial](#TODO)
 
 Or learn more about the concepts involved in using the Speech APIs.
-
-> [!div class="nextstepaction"]
-> [Speech to text concepts](speech-to-text/concepts/basic.md)
-
-> [!div class="nextstepaction"]
-> [Text to speech concepts](text-to-speech/concepts/basic.md)

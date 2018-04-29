@@ -22,7 +22,7 @@ With one subscription, the unified Speech service gives developers an easy way t
 
 |Function|Description|
 |-|-|
-|Speech to text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](../luis) (LUIS) to derive user intent from utterances.|
+|Speech to text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
 |Text to speech|Converts text to audio files of natural-sounding synthesized speech.|
 |Speech&nbsp;translation|Combines speech to text, text translation, and text to speech to provide translations of speech.|
 
@@ -53,7 +53,7 @@ Speech to Text has been separately optimized for interactive, conversation, and 
 
 The Speech to Text API supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
 
-You can customize Speech to Text acoustinc and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
+You can customize Speech to Text acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
 ## Text to speech
 
@@ -72,7 +72,7 @@ If you need to an unsupported dialect or just want a unique voice for your appli
 
 ## Speech translation
 
-The [Speech translation](../speech-translation) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
+The [Speech translation](speech-translation.md) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
 
 Use cases for speech translation include the following.
 
