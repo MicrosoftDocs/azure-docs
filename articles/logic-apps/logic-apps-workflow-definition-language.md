@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
 ---
 
@@ -58,10 +58,11 @@ Here is the high-level structure for a workflow definition:
 
 ## Parameters
 
-In the `parameters` section, define all the parameters 
-that accept inputs for the workflow at runtime. 
+In the `parameters` section, define all the workflow parameters 
+that your logic app uses at deployment for accepting inputs. 
+Both parameter declarations and parameter values are required at deployment. 
 Before you can use these parameters in other workflow sections, 
-make sure that you declare all the parameters in these sections.
+make sure that you declare all the parameters in these sections. 
 
 Here is the general structure for a parameter definition:  
 
@@ -87,7 +88,7 @@ Here is the general structure for a parameter definition:
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |  
 | metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |  
 ||||
-  
+
 ## Triggers and actions  
 
 In a workflow definition, the `triggers` and `actions` sections 
