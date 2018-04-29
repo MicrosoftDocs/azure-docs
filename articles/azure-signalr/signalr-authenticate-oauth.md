@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Register a new OAuth app with your GitHub account
-> * Update your authentication controller to support OAuth authentication
+> * Add an authentication controller to support GitHub authentication
 > * Deploy your ASP.NET Core web app to Azure
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -191,7 +191,7 @@ By default when a web client attempts to connect to SignalR Service, the connect
 
 In this section, you will turn on real authentication by adding the `Authorize` attribute to the hub class, and updating the hub methods to read the username from the authenticated user's claim.
 
-1. Open *Hub\Chat.cs* and Add references to these namespaces:
+1. Open *Hub\Chat.cs* and add references to these namespaces:
 
     ```csharp
     using System.Threading.Tasks;
@@ -364,7 +364,11 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
     ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-    You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button. You should be logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
+    You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button. 
+    
+    ![Authorize OAuth App](media/signalr-authenticate-oauth/signalr-authorize-oauth-app.png)
+    
+    You will be redirected back to the chat application and logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
 
     ![Account identified](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
 
@@ -491,15 +495,12 @@ To deploy your code, execute the following commands in a Git shell.
 
         git remote add Azure <your git deployment url>
 
-3. Stage all files in the initialized repository.
+3. Stage all files in the initialized repository and add a commit.
 
         git add -A
-
-4. Commit the staged files:
-
         git commit -m "init commit"
 
-5. Deploy your code to the web app        
+4. Deploy your code to the web app        
 
         git push Azure master
 
