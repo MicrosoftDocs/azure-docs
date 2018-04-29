@@ -78,6 +78,22 @@ How much does {Booktitle} cost and what format is it available in?
 
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
+### Explicit lists
+If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an [Explicit List](https://aka.ms/ExplicitList) through the authoring API to allow the exception. 
+
+For example, suppose you have a pattern containing both optional syntax, `[]`, and entity syntax, `{}`, combined in a way to extract data incorrectly.
+
+Consider the pattern `[find] email about {subject} [from {person}]'. In the following utterances, the **subject** and **person** entity are extracted correctly and incorrectly:
+
+|Utterance|Entity|Correct extraction|
+|--|--|:--:|
+|email about dogs from Chris|subject=dogs<br>person=Chris|✔|
+|email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
+
+In the above table, the utterance `email about the man from La Mancha`, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
+
+To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](https://aka.ms/ExplicitList).
+
 ### Syntax to mark optional text in a template utterance
 Mark optional text in the utterance using the regular expression square bracket syntax []. The optional text can nest square brackets up to two brackets only.
 <!-- TBD: add example with square brackets -->
