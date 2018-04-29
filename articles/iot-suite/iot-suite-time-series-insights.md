@@ -1,19 +1,19 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Visualize Device Data with Time Series Insights | Microsoft Docs
-description: Learn how to set up a Time Series Insights environment, then explore and analyze the time series data of your IoT solutions or connected things.
+title: Visualize Remote Monitoring Data with Time Series Insights | Microsoft Docs
+description: Learn how to configure your Time Series Insights environment to explore and analyze the time series data of your Remote Monitoring solution.
 services: ''
 suite: iot-suite
 author: philmea
 manager: timlt
 ms.author: philmea
-ms.date: 04/16/2018
+ms.date: 04/29/2018
 ms.topic: article
 ms.service: iot-suite
 ---
-# Visualize Device Data with Time Series Insights
+# Visualize Remote Monitoring Data with Time Series Insights
 
-An operator may want to further extend the out of the box data visualization provided by RM. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.
+An operator may want to further extend the out of the box data visualization provided by the Remote Monitoring preconfigure solution. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.
 
 ## Prerequisites
 
