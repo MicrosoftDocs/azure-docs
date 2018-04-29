@@ -38,7 +38,7 @@ sections:
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic across endpoints</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic to a set of endpoints</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
 - title: Free Pluralsight Video Training
   items:
