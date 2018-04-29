@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy a Machine Learning workspace with Azure Resource Manager | Microsoft Docs
 description: How to deploy a workspace for Azure Machine Learning using Azure Resource Manager template
 services: machine-learning
@@ -93,7 +93,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
-Add-AzureRmAccount
+Connect-AzureRmAccount
 ```
 This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 

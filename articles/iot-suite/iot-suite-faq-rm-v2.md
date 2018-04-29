@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Suite remote monitoring FAQ | Microsoft Docs
-description: Frequently asked questions for IoT Suite remote monitoring preconfigured solution
+title: Remote Monitoring solution accelerator FAQ | Microsoft Docs
+description: Frequently asked questions for Remote Monitoring solution accelerator
 services: iot-suite
 suite: iot-suite
 documentationcenter: ''
@@ -18,13 +18,13 @@ ms.date: 02/15/2018
 ms.author: dobett
 
 ---
-# Frequently asked questions for IoT Suite
+# Frequently asked questions for Remote Monitoring solution accelerator
 
 See also, the general [FAQ](iot-suite-faq.md).
 
 ### How much does it cost to provision the new remote monitoring solution?
 
-The new preconfigured solution offers two deployment options:
+The new solution accelerator offers two deployment options:
 
 * A *basic* option designed for developers looking for lower development cost or customers looking to build a demo or proof of concept.
 * A *standard* option designed for enterprises wanting to deploy a production-ready infrastructure.
@@ -43,9 +43,9 @@ For more information, see [Upgrade map key to see devices on a dynamic map](http
 
 ### Next steps
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the remote monitoring preconfigured solution](iot-suite-remote-monitoring-explore.md)
-* [Predictive maintenance preconfigured solution overview](iot-suite-predictive-overview.md)
-* [Connected factory preconfigured solution overview](iot-suite-connected-factory-overview.md)
+* [Explore the capabilities of the remote monitoring solution accelerator](iot-suite-remote-monitoring-explore.md)
+* [Predictive Maintenance solution accelerator overview](iot-suite-predictive-overview.md)
+* [Connected Factory solution accelerator overview](iot-suite-connected-factory-overview.md)
 * [IoT security from the ground up](securing-iot-ground-up.md)

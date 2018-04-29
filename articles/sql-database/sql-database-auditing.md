@@ -164,8 +164,18 @@ In production, you are likely to refresh your storage keys periodically. When re
 3. Go back to the auditing configuration blade, switch the storage access key from secondary to primary, and then click **OK**. Then click **Save** at the top of the auditing configuration blade.
 4. Go back to the storage configuration blade and regenerate the secondary access key (in preparation for the next key's refresh cycle).
 
-## Manage SQL database auditing using Azure PowerShell
+## Additional Information
 
+* For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
+
+   > [!IMPORTANT]
+   > Azure SQL Database Audit stores 4000 characters of data for character fields in an audit record. When the **statement** or the **data_sensitivity_information** values returned from an auditable action contain more than 4000 characters, any data beyond the first 4000 characters will be **truncated and not audited**.
+
+* Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+   * **Premium Storage** is currently **not supported** by Append Blobs.
+   * **Storage in VNet** is currently **not supported**.
+
+## Manage SQL database auditing using Azure PowerShell
 
 * **PowerShell cmdlets**:
 

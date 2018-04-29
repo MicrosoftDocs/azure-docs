@@ -1,4 +1,4 @@
----
+﻿---
 title: Use MapReduce and PowerShell with Hadoop - Azure HDInsight | Microsoft Docs
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Hadoop on HDInsight.
 services: hdinsight
@@ -38,7 +38,7 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce job
 
 The following cmdlets are used when running MapReduce jobs in a remote HDInsight cluster.
 
-* **Login-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription.
+* **Connect-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription.
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**: Creates a new *job definition* by using the specified MapReduce information.
 

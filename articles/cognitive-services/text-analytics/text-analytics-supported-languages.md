@@ -4,9 +4,8 @@ description: List of generally available and preview language support for Text A
 services: cognitive-services
 author: luiscabrer
 manager: cgronlun
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: luisca

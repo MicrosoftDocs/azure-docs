@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Service Fabric Docker Compose (Preview) | Microsoft Docs
 description: Azure Service Fabric accepts the Docker Compose format to make it easier to orchestrate existing containers by using Service Fabric. Support for Docker Compose is currently in preview.
 services: service-fabric
@@ -38,7 +38,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 ```
 
 > [!NOTE]
-> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709. 
+> Windows Server 2016 Datacenter does not support mapping SMB mounts to containers ([That is only supported on Windows Server version 1709](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/container-storage)). This constraint prevents network volume mapping and Azure Files volume drivers on versions older than 1709. 
 >   
 
 

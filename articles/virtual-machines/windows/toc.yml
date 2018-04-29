@@ -102,6 +102,8 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: How to enable write accelerator
+      href: how-to-enable-write-accelerator.md
     - name: Troubleshoot attached VHDs
       href: troubleshoot-vhds.md      
   - name: Networking
@@ -187,6 +189,8 @@
       href: move-vm.md
     - name: Change VM size
       href: resize-vm.md
+    - name: Swap the OS disk
+      href: os-disk-swap.md
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
@@ -421,6 +425,8 @@
       href: troubleshoot-activation-problems.md
     - name: Allocation failures
       href: allocation-failure.md
+    - name: Allocation failures-classic VM
+      href: allocation-failure-classic.md
     - name: Redeploy a VM
       href: redeploy-to-new-node.md
     - name: Common error messages

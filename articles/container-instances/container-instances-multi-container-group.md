@@ -3,7 +3,7 @@ title: Deploy multi-container groups in Azure Container Instances
 description: Learn how to deploy a container group with multiple containers in Azure Container Instances.
 services: container-instances
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
@@ -105,7 +105,7 @@ In this sample, a container group with two containers, a public IP address, and 
 }
 ```
 
-To use a private container image registry, add an object to the JSON document with the following format.
+To use a private container image registry, add an object to the JSON document with the following format. For an example implementation of this configuration, see the [ACI Resource Manager template reference][template-reference] documentation.
 
 ```json
 "imageRegistryCredentials": [
@@ -207,3 +207,4 @@ This article covered the steps needed for deploying a multi-container Azure cont
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-deployment-create]: /cli/azure/group/deployment#az_group_deployment_create
+[template-reference]: https://docs.microsoft.com/azure/templates/microsoft.containerinstance/containergroups

@@ -1,7 +1,7 @@
 ---
 title: Advanced monitoring in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to monitor devices with the remote monitoring solution dashboard.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
@@ -18,7 +18,7 @@ ms.workload: NA
 
 This tutorial shows the capabilities of the remote monitoring dashboard. To introduce these capabilities, the tutorial uses a scenario in the Contoso IoT application.
 
-In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the preconfigured solution dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
+In this tutorial, you use two simulated Contoso truck devices to learn how to monitor your devices from the solution accelerator dashboard. As a Contoso operator, you need to monitor the location and behavior of your trucks in the field.
 
 In this tutorial, you learn how to:
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## Choose the devices to display
 
@@ -53,7 +53,7 @@ To create, edit, and delete filters, choose **Manage filters**.
 
 ## View real-time telemetry
 
-The preconfigured solution plots detailed real-time telemetry data in the chart on the **Dashboard** page. The telemetry chart shows telemetry information for the devices selected by the current filter:
+The solution accelerator plots detailed real-time telemetry data in the chart on the **Dashboard** page. The telemetry chart shows telemetry information for the devices selected by the current filter:
 
 ![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardtelemetryview.png)
 

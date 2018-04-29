@@ -1,7 +1,7 @@
 ---
 title: Provision devices to Remote Monitoring in Node.js - Azure | Microsoft Docs
-description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in Node.js.
-services: ''
+description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in Node.js.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
@@ -18,11 +18,11 @@ ms.date: 01/24/2018
 ms.author: dobett
 
 ---
-# Connect your device to the remote monitoring preconfigured solution (Node.js)
+# Connect your device to the remote monitoring solution accelerator (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
 
 ## Create a Node.js solution
 

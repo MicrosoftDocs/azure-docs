@@ -57,7 +57,7 @@ To monitor your application, you add an Application Insights SDK to your applica
     ![Open the text editor](./media/app-insights-sample-mscrm/00004.png)
 2. Copy the code from Application Insights. While copying, make sure to ignore script tags. Refer below screenshot:
 
-    ![Set your instrumentation key](./media/app-insights-sample-mscrm/00005.png)
+    ![Set your instrumentation key](./media/app-insights-sample-mscrm/000005.png)
 
     The code includes the instrumentation key that identifies your Application insights resource.
 3. Save and publish.

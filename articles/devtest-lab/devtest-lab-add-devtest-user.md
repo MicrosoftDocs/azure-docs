@@ -1,4 +1,4 @@
----
+﻿---
 title: Add owners and users in Azure DevTest Labs| Microsoft Docs
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
 services: devtest-lab,virtual-machines
@@ -87,7 +87,7 @@ You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values 
 
     # Add an external user in DevTest Labs user role to a lab
     # Ensure that guest users can be added to the Azure Active directory:
-    # https://azure.microsoft.com/en-us/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+    # https://azure.microsoft.com/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
 
     # Values to change
     $subscriptionId = "<Enter Azure subscription ID here>"
@@ -96,7 +96,7 @@ You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.

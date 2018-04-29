@@ -4,9 +4,8 @@ description: Learn about how Linguistic Analysis APIs in Microsoft Cognitive Ser
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: lesun
