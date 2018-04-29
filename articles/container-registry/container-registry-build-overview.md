@@ -17,6 +17,9 @@ Containers provide new levels of virtualization, isolating application and devel
 
 **ACR Build**, a suite of features within Azure Container Registry, provides not only native container image build capability, but also automates [OS and framework patching](#automate-os-and-framework-patching) for your Docker containers.
 
+> [!IMPORTANT]
+> ACR Build is in currently in preview, and is supported only by Azure container registries in the **East US** and **West Europe** regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 ## What is ACR Build?
 
 Azure Container Registry Build is an Azure-native container image build service. ACR Build enables inner-loop development in the cloud with on-demand container image builds, and automated builds on source code commit and base image update.
