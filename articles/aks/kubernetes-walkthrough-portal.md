@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 02/24/2018
+ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
@@ -31,16 +31,16 @@ Choose **Create a resource** > **Containers** > **Azure Kubernetes Service (prev
 Complete the following steps under each heading of the create AKS cluster form.
 
 - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-- **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the cluster.
-- **SCALE**: select a VM size for the AKS nodes. The VM size cannot be changed once an AKS cluster hs been deployed. Also, select the number of nodes to deploy into the cluster. Node count can be adjusted after the cluster has been deployed.
+- **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
+- **SCALE**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster hss been deployed. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed.
 
 Select **Next Networking** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-1.png)
 
-Configure these networking options:
+Configure the following networking options:
 
-- **Http application routing** - configures an integrated ingress controller with automatic public DNS name creation. For more information on Http routing, see, AKS http routing and public DNS.
+- **Http application routing** - configures an integrated ingress controller with automatic public DNS name creation. For more information on Http routing, see, [AKS HTTP routing and DNS][http-routing].
 - **Network configuration** - choose between basic network configuration using the [kubenet][kubenet] Kubernetes plugin, or advanced networking configuration using [Azure CNI][azure-cni]. For more information on networking options, see [AKS networking overview][aks-network].
 
 Select **Next Monitoring** when complete.
@@ -92,7 +92,7 @@ aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 
 ## Run the application
 
-Kubernetes manifest files define a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. These objects include two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote Python applications, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
+Kubernetes manifest files define a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. These objects include two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote front end, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
 
 Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, create the file using vi or Nano, as if working on a virtual or physical system.
 
@@ -201,19 +201,19 @@ Now browse to the external IP address to see the Azure Vote App.
 
 ## Monitor container health and logs
 
-When container insights have been enabled, health metrics for both the AKS cluster and pods running on the cluster are available on the AKS cluster dashboard. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
+When container insights has been enabled, health metrics for both the AKS cluster and pods running on the cluster are available on the AKS cluster dashboard. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
-To see current status, uptime, and CPU and memory usage data for the Azure vote pods, select **Monitor Container Health** > select the **default** namespace > and select **Containers**.
+To see current status, uptime, and resource usage for the Azure Vote pods, select **Monitor Container Health** > select the **default** namespace > and select **Containers**.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-6.png)
 
-To see logs for the `azure-vote-front` pod, select the **View Logs** link.
+To see logs for the `azure-vote-front` pod, select the **View Logs** link. These logs include the stdout and stderr streams from the container.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-7.png)
 
 ## Delete cluster
 
-When the cluster is no longer needed, delete the cluster resource group, which deletes all associated resources. This operation can be completed in the Azure portal by selecting the resource group and clicking the delete button. Alternatively, the [az group delete][az-group-delete] command can be used in the Cloud Shell.
+When the cluster is no longer needed, delete the cluster resource, which deletes all associated resources. This operation can be completed in the Azure portal by selecting the delete button on the AKS cluster dashboard. Alternatively, the [az aks delete][az-aks-delete] command can be used in the Cloud Shell.
 
 ```azurecli-interactive
 az group delete --name myAKSCluster --no-wait
@@ -247,7 +247,8 @@ To learn more about AKS, and walk through a complete code to deployment example,
 
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-delete]: /cli/azure/group#delete
+[az-aks-delete]: /cli/azure/aks#delete
 [aks-monitor]: /monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
+[http-routing]: ./http-application-routing.md
