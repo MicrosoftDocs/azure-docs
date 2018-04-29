@@ -135,12 +135,12 @@ public static async Task<bool> Run(
 {
   string userId = context.GetInput<string>();
 
-  int discuout = await context.CallActivityAsync<int>("CalculateDiscuount", userId);
+  int discount = await context.CallActivityAsync<int>("CalculateDiscount", userId);
 
   context.SetCustomStatus(new
   {
-    discuout = discuout,
-    discuoutTimeout = 60,
+    discount = discount,
+    discountTimeout = 60,
     bookingUrl = "https://www.myawesomebookingweb.com",
   });
 
