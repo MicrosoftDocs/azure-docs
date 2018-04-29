@@ -19,23 +19,22 @@ ms.author: ecfan; LADocs
 
 # Create and manage integration accounts for B2B solutions with logic apps
 
-To build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) 
+Before you can build [enterprise integration and B2B solutions](../logic-apps/logic-apps-enterprise-integration-overview.md) 
 with [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-you must first have an integration account where you can create, 
-store, and manage B2B artifacts, such as trading partners, agreements, 
-maps, schemas, certificates, and so on. This article shows you how 
-to perform these tasks:
+you must first have an integration account, which is where you create, 
+store, and manage B2B artifacts, such as trading partners, agreements, maps, 
+schemas, certificates, and so on. Before your logic app can work with the 
+artifacts in your integration account and use the Logic Apps B2B connectors, 
+such as XML validation, you must [link your integration account](#link-account) 
+to your logic app. To link them, both your integration account and 
+logic app must have the *same* Azure location, or region.
+
+This article shows you how to perform these tasks:
 
 * Create your integration account.
 * Link your integration account to a logic app.
 * Move your integration account to another Azure resource group or subscription.
 * Delete your integration account.
-
-Before your logic app can work with the artifacts in your integration 
-account and use the Logic Apps B2B connectors, such as XML validation, 
-you must [link your integration account](#link-account) 
-to your logic app. Both your integration account and 
-logic app must exist the *same* Azure location, or region.
 
 If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
@@ -114,6 +113,55 @@ select the integration account to link to your logic app.
 Now your logic app can use any and all the artifacts in your 
 integration account plus the B2B connectors, 
 such as XML validation and flat file encoding or decoding.  
+
+## Unlink from logic app
+
+To link your logic app to another integration account, 
+or no longer use an integration account with your logic app, 
+you can delete the link through Azure Resource Explorer.
+
+1. In your browser, go to 
+<a href="https://resources.azure.com" target="_blank">Azure Resource Explorer (https://resources.azure.com)</a>. 
+Make sure that you're signed in with the same Azure credentials.
+
+   ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
+
+2. In the search box, enter your logic app's name, 
+then find and select your logic app.
+
+   ![Find and select logic app](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-find-logic-app.png)
+
+3. On the explorer title bar, choose **Read/Write**.
+
+   ![Turn on "Read/Write" mode](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-read-write-mode.png)
+
+4. On the **Data** tab, choose **Edit**.
+
+   ![On "Data" tab, choose "Edit"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-choose-edit.png)
+
+5. In the editor, find the `integrationAccount` property for the 
+integration account and delete that property, which has this format:
+
+   ```json
+   "integrationAccount": {
+      "name": "<integration-account-name>",
+      "id": "<integration-account-resource-ID>",
+      "type": "Microsoft.Logic/integrationAccounts"  
+   },
+   ```
+
+   For example:
+
+   ![Find "integrationAccount" property definition](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
+
+6. On the **Data** tab, choose **Put** to save your changes. 
+
+   ![Choose "Put" to save changes](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-save-changes.png)
+
+7. In the Azure portal, under your logic app's **Workflow settings**, 
+check that the **Integration account** property now appears empty.
+
+   ![Check that integration account is not linked](./media/logic-apps-enterprise-integration-create-integration-account/unlinked-account.png)
 
 ## Move integration account
 
