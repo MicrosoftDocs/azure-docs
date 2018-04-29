@@ -103,6 +103,11 @@ your workflow can return when finished running.
 For example, to track a specific status or value from each run, 
 specify that the workflow output returns that data. 
 
+> [!NOTE]
+> When responding to incoming requests from a service's REST API, 
+> do not use `outputs`. Instead, use the `Response` action type. 
+> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
 Here is the general structure for an output definition: 
 
 ```json
@@ -127,11 +132,6 @@ details in the Azure portal or use the
 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
 PowerBI so that you can create dashboards. 
-
-> [!NOTE]
-> When responding to incoming requests from a service's REST API, 
-> do not use `outputs`. Instead, use the `Response` action type. 
-> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 
