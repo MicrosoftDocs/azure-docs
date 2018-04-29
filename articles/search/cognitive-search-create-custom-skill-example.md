@@ -199,14 +199,14 @@ Make sure to enter your own *key* value in the *TranslateText* method based on t
 
 This example is a simple enricher that only works on one record at a time. This fact becomes important later, when setting the batch size for the skillset.
 
-### Test the function from Visual Studio
+## Test the function from Visual Studio
 
 Press **F5** to run the program and test function behaviors. Use Postman or Fiddler to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Translate
 ```
-#### Request body
+### Request body
 ```json
 {
    "values": [
@@ -221,7 +221,7 @@ POST https://localhost:7071/api/Translate
    ]
 }
 ```
-#### Response
+### Response
 You should see a response similar to the following example:
 
 ```json
@@ -239,7 +239,7 @@ You should see a response similar to the following example:
 }
 ```
 
-### Publish the function to Azure
+## Publish the function to Azure
 
 When you are satisfied with the function behavior, you can publish it.
 
@@ -254,14 +254,14 @@ When you are satisfied with the function behavior, you can publish it.
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
 
-### Test the function in Azure
+## Test the function in Azure
 
 Now that you have the default host key, test your function as follows:
 
 ```http
 POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
 ```
-#### Request Body
+### Request Body
 ```json
 {
    "values": [
@@ -279,7 +279,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 
 This should produce a similar result to the one you saw previously when running the function in the local environment.
 
-### Connect it to your pipeline
+## Connect to your pipeline
 Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill. Because the skill doesn't handle batches, add an instruction for maximum batch size to be just ```1``` to send documents one at a time.
 
 ```json
