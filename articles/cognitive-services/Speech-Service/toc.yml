@@ -11,7 +11,7 @@
     href: text-to-speech.md
   - name: Speech translation # OK
     href: speech-translation.md
-  - name: Speech SDKs # OK
+  - name: Speech SDK # OK
     href: speech-sdks.md
   - name: Speech Devices SDK # OK
     href: speech-devices-sdk.md

@@ -144,6 +144,8 @@ Connection: Keep-Alive
 
 If you cannot obtain an authorization token from the token service, make sure your subscription key is still valid and that you have not exceeded its quotas. If you are using a free trial key, go to the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page and log in using the account that you used for applying the free trial key to see the status of your subscription. For a paid subscription, consult your Azure dashboard.
 
+- - -
+
 ### Use a token in a request
 
 TODO update endpoint in sample request
@@ -224,7 +226,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
----
+- - -
 
 ### Renew a token
 
