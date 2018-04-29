@@ -13,14 +13,12 @@ ms.date: 05/07/2018
 
 # Build and deploy forecasting models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Forecasting** (AMLPF) to build and deploy a forecasting model. 
+In this article, learn how to use **Azure Machine Learning Package for Forecasting** (AMLPF) to quickly build and deploy a forecasting model. The workflow is as follows:
 
-The model building and deployment workflow for forecasting models is as follows:
-
-1. Ingest data
+1. Load and explore data
 2. Create features
 3. Train and select the best model
-4. Deploy  the model and consume the web service
+4. Deploy the model and consume the web service
 
 Consult the [package reference documentation](https://aka.ms/aml-packages/forecasting) for the full list of transformers and models as well as the detailed reference for each module and class.
 
@@ -37,7 +35,7 @@ Consult the [package reference documentation](https://aka.ms/aml-packages/foreca
 
 1. The Azure Machine Learning Package for Forecasting must be installed. Learn how to [install this package here](https://aka.ms/aml-packages/forecasting).
 
-## Sample data and notebook
+## Sample data and Jupyter notebook
 
 ### Sample workflow 
 The example follows the workflow:
@@ -52,19 +50,17 @@ The example follows the workflow:
 
 ### Get the notebook
 
-Try it out yourself. Download the notebook and run it yourself.
 
 > [!div class="nextstepaction"]
-> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
+> [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
 
 ### Explore the sample data
 
-This examples in this article show you how to perform machine learning sales forecasting using the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area. 
+The machine learning forecasting examples in this article use the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area.
 
 ### Import any dependencies for this sample
 
-The following dependencies should be imported for the example in the rest of the article.
-
+The following dependencies must be imported for the examples in this article.
 
 ```python
 import pandas as pd
@@ -101,7 +97,8 @@ print('imports done')
     
 
 ## Load data and explore
-This example shows the typical process of starting with a raw data set. You start by loading the Dominick's Finer Foods data.  You can also use the convenience function ```load_dominicks_oj_data```.
+
+This example shows the typical process of starting with a raw data set. You start by loading the Dominick's Finer Foods data.  You can also use the convenience function `load_dominicks_oj_data`.
 
 ```python
 # Load the data into a pandas DataFrame
@@ -240,12 +237,15 @@ whole_df.head()
 
 
 
-The data consist of weekly sales (the logarithm of the quantity sold is in the 'logmove' column) by brand and store. The data also includes some customer demographic features. To model the time series, you need to extract some essential elements from this dataframe: a date/time axis and a sales quantity that you wish to forecast.
+The data consist of weekly sales by brand and store. The logarithm of the quantity sold is in the 'logmove' column. The data also includes some customer demographic features. 
+
+To model the time series, you need to extract the following elements from this dataframe: a date/time axis and the sales quantity to be forecast.
 
 
 ```python
 # The sales are contained in the 'logmove' column. 
 # Values are logarithmic, so exponentiate and round them to get quantity sold
+
 def expround(x):
     return math.floor(math.exp(x) + 0.5)
 whole_df['Quantity'] = whole_df['logmove'].apply(expround)
@@ -253,6 +253,7 @@ whole_df['Quantity'] = whole_df['logmove'].apply(expround)
 # The time axis is in the 'week' column
 # This is the week offset from the week of 1989-09-07 through 1989-09-13 inclusive
 # Create new datetime columns containing the start and end of each week period
+
 weekZeroStart = pd.to_datetime('1989-09-07 00:00:00')
 weekZeroEnd = pd.to_datetime('1989-09-13 23:59:59')
 whole_df['WeekFirstDay'] = whole_df['week'].apply(lambda n: weekZeroStart + timedelta(weeks=n))
@@ -310,7 +311,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
 </table>
 
 
-
+The data contains approximately 250 different combinations of store and brand in this data frame, each one defining its own time series of sales. You can use the time series TimeSeriesDataFrame class to conveniently model multiple series in one data structure using the "grain." The grain is specified by the `store` and `brand` columns.
 
 ```python
 nseries = whole_df.groupby(['store', 'brand']).ngroups
@@ -320,8 +321,7 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
-The data contains approximately 250 different combinations of store and brand in this data frame, each one defining its own time series of sales. You can use the time series TimeSeriesDataFrame class to conveniently model multiple series in one data structure using the "grain." The grain is specified by the `store` and `brand` columns.
- 
+
 The difference between `grain` and `group` is that `grain` is always physically meaningful in the real world, while `group` doesn't have to be. `group` is used by internal package functions to build a single model from multiple time series if the user believes this grouping helps improve model performance. By default, `group` is set to be equal to `grain`, and a single model is built for each `grain`. 
 
 
@@ -1500,6 +1500,6 @@ Learn more about the Azure Machine Learning Package for Forecasting in these art
 
 + Read the [package overview and learn how to install it](https://aka.ms/aml-packages/forecasting).
 
-+ Explore the [reference docs](https://aka.ms/aml-packages/forecasting) for Azure Machine Learning Package for Forecasting.
++ Explore the [reference docs](https://aka.ms/aml-packages/forecasting) for this package.
 
 + Learn about [other Python packages for Azure Machine Learning](reference-python-package-overview.md).
