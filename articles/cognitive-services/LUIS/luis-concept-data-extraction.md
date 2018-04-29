@@ -528,13 +528,23 @@ If Sentiment analysis is configured, the LUIS json response includes sentiment a
 ### Sentiment data
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
 
-<!-- TBD: verify JSON-->
+When culture is `en-us`, the response is:
+
 ```JSON
-{
-    "score": 0.9999237060546875,
-    "id": "1"
+"sentimentAnalysis": {
+  "label": "positive",
+  "score": 0.9163064
 }
 ```
+
+For all other cultures, the response is:
+
+```JSON
+"sentimentAnalysis": {
+  "score": 0.9163064
+}
+```
+
 
 ### Key phrase extraction entity data
 The key phrase extraction entity returns key phrases in the utterance, provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
