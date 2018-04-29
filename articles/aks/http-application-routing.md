@@ -13,24 +13,16 @@ ms.author: laevenso
 
 # HTTP application routing
 
-The HTTP Application Routing addon makes it easy to access applications deployed to your AKS cluster. This feature provides an auto generated DNS records and IP endpoint for your applications.
+The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the solution configures an ingress controller in your AKS cluster. Additionally, as applications are deployed, the  solution also creates publically accessible DNS names for application endpoints.
 
 Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
 
 ## Understanding HTTP application routing addon on AKS
 
-The addon deploys two components a [Kubernetes Ingress Controller](ingress) and [External-DNS](external-dns).
+The addon deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
 
-The Kubernetes ingress controller watches and implements [Kubernetes ingress resources](ingress-resource). The ingress controller is exposed as a Kubernetes service of type LoadBalancer, which makes it accessible via the Internet.
-
-External-DNS watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
-
-The HTTP Application routing addon will only be triggered on Ingress resources that are annotated as follows:
-
-```
-annotations:
-  kubernetes.io/ingress.class: addon-http-application-routing
-```
+- Ingress controller - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources, which creates routes to application endpoints.
+- External-DNS controller - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
 ## Create an AKS cluster
 
@@ -46,9 +38,15 @@ Once the cluster has been deployed, browse to the auto-created AKS resource grou
 
 ## Deploy and expose sample application
 
-Create a file named `samples-http-application-routing.yaml` and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name.
+The HTTP Application routing solution is only be triggered on Ingress resources that are annotated as follows:
 
-This Kubernetes manifest creates a deployment, service, and an ingress resource. Because the ingress resource has an annotation of `addon-http-application-routing`, the HTTP routing addon creates a DNS record specific to the service endpoint.
+```
+annotations:
+  kubernetes.io/ingress.class: addon-http-application-routing
+```
+
+Create a file named `samples-http-application-routing.yaml` and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name collected in the last step of this document.
+
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -145,6 +143,10 @@ $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-sys
 time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clippy' to '52.242.28.189' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
+
+These records can also be seen on the DNS resource in the Azure portal.
+
+![Get the DNS records](media/http-routing/clippy.png)
 
 Use the [kubectl logs][kubectl-logs] command to view the application logs for the Nginx Ingress Controller. The logs should confirm the CREATE of an Ingress resource and the reload of the controller. All HTTP activity will be logged.
 
