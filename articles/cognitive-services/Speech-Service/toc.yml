@@ -1,0 +1,55 @@
+- name: Speech service documentation (Preview)
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Speech # OK
+    href: overview.md
+  - name: Speech to text # OK
+    href: speech-to-text.md
+  - name: Text to speech # OK
+    href: text-to-speech.md
+  - name: Speech translation # OK
+    href: speech-translation.md
+  - name: Speech SDKs # OK
+    href: speech-sdks.md
+  - name: Speech Devices SDK # OK
+    href: speech-devices-sdk.md
+- name: Get started # OK
+  href: get-started.md
+- name: How-to guides
+  items:
+    - name: Authenticate # some URLS need updates still
+      href: authenticate.md
+    - name: Migrate to the Speech service
+      name: migrate.md
+    - name: Speech to text
+      href: speech-to-text.md
+    - name: Custom speech to text
+      href: customize-speech-models.md
+    - name: Text to speech
+      href: text-to-speech.md
+    - name: Custom text-to-speech
+      href: customize-voice-font.md
+    - name: Speech translation
+      href: speech-translation.md
+- name: Samples # OK
+  href: samples.md
+- name: Reference
+  items:
+  - name: Supported languages # OK
+    href: supported-languages.md
+  - name: REST APIs # need endpoint URLs
+    href: rest-apis.md
+  - name: WebSockets protocols # need endpoint URLs
+    href: websockets.md
+  - name: SDK documentation # OK
+    href: speech-sdk-reference.md
+  - name: Speech synthesis markup # OK
+    href: speech-synthesis-markup.md
+- name: Resources
+  items:
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: Privacy & cookies
+    href: https://aka.ms/csspech/privacy
