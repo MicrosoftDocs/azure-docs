@@ -65,7 +65,7 @@ The enrichment pipeline pulls from Azure data sources supported by [Azure Search
 
 1. Sign up for Azure Blob storage, create a storage account, log in to Storage Explorer, and create a container. See [Azure Storage Explorer Quickstart](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) for instructions on all the steps.
 
-1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
+1. Using the Azure Storage Explorer, in the container you created, click **Upload** to upload the sample files.
 
   ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
@@ -82,11 +82,11 @@ In **Connect to your data** > **Azure Blob storage**, select the account and con
 
 Click **OK** to create the data source.
 
-One advantage of using the **Import data** wizard is that it can also create your index. The wizard  constructs an index schema based on sampling and metadata. It can take a few seconds to create the index.
+One advantage of using the **Import data** wizard is that it can also create your index. As the data source is created, the wizard simultaneously constructs an index schema. It can take a few seconds to create the index.
 
 ### Step 2: Define skills used for enrichment
 
-In the portal, a skillset operates over a single source field. That might seem like a small target, for Azure blobs, the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of blob's content is there.
+Step 2 adds skills to the indexing pipeline. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of blob's content is there.
 
 In **Define basic skillset**, choose skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
 
@@ -94,7 +94,7 @@ Click **OK** to accept the definition.
    
   ![Skillset definition](./media/cognitive-search-quickstart-blob/skillset.png)
 
-Natural language processing skills operate over text content in the sample data set. Since we didn't select any image processing options, the JPEG files won't be processed in this quickstart. 
+Natural language processing skills operate over text content in the sample data set. Since we didn't select any image processing options, the JPEG files found in the sample data set won't be processed in this quickstart. 
 
 ### Step 3: Configure the index
 
@@ -108,13 +108,13 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
 + Every field collection must have fields with a data type describing its values, and each field should have index attributes that describe how its used in a search scenario. 
 
-Because you defined a skillset, the wizard assumes that you want the source data field, plus the output fields you created in the skillset should be part of the index. For this reason, the portal adds index fields for `content`, `people`, `organizations`, and `locations`. Notice that the wizard automatically enabled Retrievable and Searchable for these fields.
+Because you defined a skillset, the wizard assumes that you want the source data field, plus the output fields created by the skills. For this reason, the portal adds index fields for `content`, `people`, `organizations`, and `locations`. Notice that the wizard automatically enables Retrievable and Searchable for these fields.
 
 In **Customize index**, review the attributes on the fields to see how they are used in an index. Searchable indicates a field can be searched. Retrievable means it can be returned in results. 
 
 Consider clearing Retrievable from the `content` field. In blobs, this field can run into thousands of lines, difficult to read in a tool like **Search Explorer**.
 
-Click **OK** to accept the defaults.
+Click **OK** to accept the index definition.
 
   ![Index fields](./media/cognitive-search-quickstart-blob/index-fields.png)
 
@@ -123,11 +123,11 @@ Click **OK** to accept the defaults.
 
 ### Step 4: Configure the indexer
 
-In **Indexer**, name and schedule the indexer. 
+The indexer is a high-level resource that drives the indexing process. It specifies the data source name, the index, and frequency of execution. The end result of the **Import data** wizard is always an indexer.
+
+In the **Indexer** page, give the indexer a name and use the default Once to run it immediatley.. 
 
   ![Indexer definition](./media/cognitive-search-quickstart-blob/indexer-def.png)
-
-Indexers are modifiable, high-level resources that automate indexing by chaining together a data source, index, and schedule. An indexer has a name so that you can manage it programmatically or in the portal. 
 
 Click **OK** to import, enrich, and index the data.
 
@@ -137,7 +137,7 @@ Indexing and enrichment can take time, which is why smaller data sets are recomm
 
 ## Query in Search Explorer
 
-Once an index is created, you can submit queries to return documents from the index. In the portal, use **Search Explorer** to run queries and view results. 
+After an index is created, you can submit queries to return documents from the index. In the portal, use **Search Explorer** to run queries and view results. 
 
 1. On the search service dashboard page, click **Search Explorer** on the command bar.
 
@@ -155,7 +155,7 @@ CTRL-F can also help you determine how many documents are in a given result set.
 
 ## Takeaways
 
-The purpose of this quickstart was to introduce important concepts and walk you through the wizard so that you can quickly prototype a cognitive search solution using your own data.
+You've now completed your first enriched indexing exercise. The purpose of this quickstart was to introduce important concepts and walk you through the wizard so that you can quickly prototype a cognitive search solution using your own data.
 
 Some key concepts that we hope you picked up include the dependency on Azure data sources. Cognitive search enrichment is bound to indexers, and indexers are Azure and source-specific. Although this quickstart uses Azure Blob storage, other Azure data sources are possible. For more information, see [Indexers in Azure Search](search-indexer-overview.md).
 
