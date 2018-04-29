@@ -14,27 +14,25 @@ ms.author: luisca
 ---
 # How to reference annotations in a cognitive search skillset
 
-As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
-This article explains how to reference annotations in skill definitions, using examples to illustrate various scenarios. 
-
-Examples are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
+In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
+ 
+Examples in this article are based on the *content* field generated automatically by [Azure Blob indexers](search-howto-indexing-azure-blob-storage.md) as part of the document cracking phase. When referring to documents from a Blob container, use a format such as `"/document/content"`, where the *content* field is part of the *document*. 
 
 ## Background concepts
 
-Before diving into syntax, revisiting a few important concepts can help you make sense of the examples provided further on.
+Before understanding the syntax, let's revisit a few important concepts to better understand the examples provided later in this article.
 
 | Term | Description |
 |------|-------------|
-| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. You can think of the enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child.<p/>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with it directly, it's useful to have a mental model of enriched documents when creating a skillset. |
+| Enriched Document | An enriched document is an internal structure created and used by the pipeline to hold all annotations related to a document. Think of an enriched document as a tree of annotations. Generally, an annotation created from a previous annotation becomes its child.<p/>Enriched documents only exist for the duration of skillset execution. Once content is mapped to the search index, the enriched document is no longer needed. Although you don't interact with enriched documents directly, it's useful to have a mental model of the documents when creating a skillset. |
 | Enrichment Context | The context in which the enrichment takes place, in terms of which element is enriched. By default, the enrichment context is at the `"/document"` level, scoped to individual documents. When a skill runs, the outputs of that skill become [properties of the defined context](#example-2).|
 
 <a name="example-1"></a>
-
 ## Example 1: Simple annotation reference
 
 In Azure Blob storage, suppose you have a variety of files containing references to people's names that you want to extract using named entity recognition. In the skill definition below, `"/document/content"` is the textual representation of the entire document, and "people" is an extraction of full names for entities identified as persons.
 
-Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation which could now be mapped to a field in an index, or used in another skill in the same skillset.
+Because the default context is `"/document"`, the list of people can now be referenced as `"/document/people"`. In this specific case `"/document/people"` is an annotation, which could now be mapped to a field in an index, or used in another skill in the same skillset.
 
 ```json
   {
@@ -86,7 +84,7 @@ To invoke the right number of iterations, set the context as `"/document/people/
   }
 ```
 
-When annotations are arrays or collections of strings, you might want to target specific members rather than the array as a whole. The above example generates an annotation called `"last"` under each node represented by the context. If you want to refer to this family of annotations you could use the syntax `"/document/people/*/last"`. If you want to refer to a particular annotation, you could use an explicit index: `"/document/people/1/last`" to reference the last name of the first person identified in the document. Notice that in this syntax arrays are "1 indexed".
+When annotations are arrays or collections of strings, you might want to target specific members rather than the array as a whole. The above example generates an annotation called `"last"` under each node represented by the context. If you want to refer to this family of annotations, you could use the syntax `"/document/people/*/last"`. If you want to refer to a particular annotation, you could use an explicit index: `"/document/people/1/last`" to reference the last name of the first person identified in the document. Notice that in this syntax arrays are "1 indexed".
 
 <a name="example-3"></a>
 

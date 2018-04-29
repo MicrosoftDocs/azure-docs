@@ -19,9 +19,9 @@ In this example, learn how to create a web API custom skill that accepts text in
 
 + Read about [custom skill interface](cognitive-search-custom-skill-interface.md) article if you are not familiar with the input/output interface that a custom skill should implement.
 
-+ [Sign up for the Translator Text API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup), and get an API key to consume it.
++ [Sign up for the Translator Text API](../cognitive-services/translator/translator-text-how-to-signup.md), and get an API key to consume it.
 
-+ Install [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) or a later version, including the Azure development workload.
++ Install [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) or later, including the Azure development workload.
 
 ## Create an Azure Function
 
@@ -31,19 +31,19 @@ Although this example uses an Azure Function to host a web API, it is not requir
 
 1. In Visual Studio, select **New** > **Project** from the File menu.
 
-1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select Azure Functions, type a Name for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
 1. Select the type to be **HTTP Trigger**
 
 1. For Storage Account, you may select **None**, as you won't need any storage for this function.
 
-1. Click **OK** to create the function project and HTTP triggered function.
+1. Select **OK** to create the function project and HTTP triggered function.
 
 ### Modify the code to call the Translate Cognitive Service
 
 Visual Studio creates a project and in it a class that contains boilerplate code for the chosen function type. The *FunctionName* attribute on the method sets the name of the function. The *HttpTrigger* attribute specifies that the function is triggered by an HTTP request.
 
-Now, replace all of the content of the file *Function1.cs* with:
+Now, replace all of the content of the file *Function1.cs* with the following code:
 
 ```csharp
 using System.IO;
@@ -199,14 +199,14 @@ Make sure to enter your own *key* value in the *TranslateText* method based on t
 
 This example is a simple enricher that only works on one record at a time. This fact becomes important later, when setting the batch size for the skillset.
 
-### Test the function from Visual Studio
+## Test the function from Visual Studio
 
 Press **F5** to run the program and test function behaviors. Use Postman or Fiddler to issue a call like the one shown below:
 
 ```http
 POST https://localhost:7071/api/Translate
 ```
-#### Request body
+### Request body
 ```json
 {
    "values": [
@@ -239,29 +239,29 @@ You should see a response similar to the following example:
 }
 ```
 
-### Publish the function to Azure
+## Publish the function to Azure
 
 When you are satisfied with the function behavior, you can publish it.
 
-1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New** and then **Publish**.
+1. In **Solution Explorer**, right-click the project and select **Publish**. Choose **Create New** > **Publish**.
 
 1. If you haven't already connected Visual Studio to your Azure account, select **Add an account....**
 
-1. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan and a storage account if you don't already have these. When finished, click **Create**
+1. Follow the on-screen prompts. You are asked to specify the Azure account, the resource group, the hosting plan, and the storage account you want to use. You can create a new resource group, a new hosting plan, and a storage account if you don't already have these. When finished, select **Create**
 
 1. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. 
 
-1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you just published. Under the **Manage** section, you should see Host Keys. Click the **Copy** icon for the *default* host key.  
+1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
 
 
-### Test it
+## Test the function in Azure
 
 Now that you have the default host key, test your function as follows:
 
 ```http
 POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter default host key here]
 ```
-#### Request Body
+### Request Body
 ```json
 {
    "values": [
@@ -279,7 +279,7 @@ POST https://translatecogsrch.azurewebsites.net/api/Translate?code=[enter defaul
 
 This should produce a similar result to the one you saw previously when running the function in the local environment.
 
-### Connect it to your pipeline
+## Connect to your pipeline
 Now that you have a new custom skill, you can add it to your skillset. The example below shows you how to call the skill. Because the skill doesn't handle batches, add an instruction for maximum batch size to be just ```1``` to send documents one at a time.
 
 ```json
@@ -316,8 +316,7 @@ Now that you have a new custom skill, you can add it to your skillset. The examp
 ## Next Steps
 Congratulations! You have created your first custom enricher. Now you can follow the same pattern to add your own custom functionality. 
 
-## See also
-+ [c](cognitive-search-custom-skill-interface.md)
++ [Add a custom skill to a cognitive search pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](ref-create-skillset.md)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

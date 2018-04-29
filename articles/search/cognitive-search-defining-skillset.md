@@ -12,9 +12,12 @@ ms.author: luisca
 
 # How to create a skillset in an enrichment pipeline
 
-Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset an use [predefined skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
+Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [predefined skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: create a custom skill](cognitive-search-create-custom-skill-example.md) for more information).
 
-In this article, learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Search [indexer](search-indexer-overview.md). Part of pipeline design, covered in this article, is constructing the skillset itself. Another part is specifying an indexer, covered in the [next step](#next-step). An indexer definition includes a reference to the skillset, plus field mappings used for connecting inputs to outputs in the target index.
+In this article, you learn how to create an enrichment pipeline for the skills you want to use. A skillset is attached to an Azure Search [indexer](search-indexer-overview.md). One part of pipeline design, covered in this article, is constructing the skillset itself. 
+
+> [!NOTE]
+> Another part of pipeline design is specifying an indexer, covered in the [next step](#next-step). An indexer definition includes a reference to the skillset, plus field mappings used for connecting inputs to outputs in the target index.
 
 Key points to remember:
 
@@ -24,11 +27,9 @@ Key points to remember:
 
 ## Begin with the end in mind
 
-A recommended initial step is deciding which data to extract from your raw data and how you want to use that data in a search solution. Diagramming the entire enrichment pipeline can help you identify the necessary steps.
+A recommended initial step is deciding which data to extract from your raw data and how you want to use that data in a search solution. Creating an illustration of the entire enrichment pipeline can help you identify the necessary steps.
 
-Suppose you are interested in processing a set of financial analyst comments. For each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in.
-
-Essentially, you want to end up with the following information indexed for each document:
+Suppose you are interested in processing a set of financial analyst comments. For each file, you want to extract company names and the general sentiment of the comments. You might also want to write a custom enricher that uses the Bing Entity Search service to find additional information about the company, such as what kind of business the company is engaged in. Essentially, you want to extract information like the following, indexed for each document:
 
 | record-text | companies | sentiment | company descriptions |
 |--------|-----|-----|-----|
@@ -36,24 +37,24 @@ Essentially, you want to end up with the following information indexed for each 
 
 The following diagram illustrates a hypothetical enrichment pipeline:
 
-![](media/cognitive-search-defining-skillset/sample-skillset.png)
+![A hypothetical enrichment pipeline](media/cognitive-search-defining-skillset/sample-skillset.png "A hypothetical enrichment pipeline")
 
 
-Once you have a clear idea  of what the pipeline looks like, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Search. To learn more about how to upload your indexer, see the [indexer-documentation](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Once you have fair idea of what you want in the pipeline, you can express the skillset that provides these steps. Functionally, the skillset is expressed when you upload your indexer definition to Azure Search. To learn more about how to upload your indexer, see the [indexer-documentation](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
 In the diagram, the *document cracking* step happens automatically. Essentially, Azure Search knows how to open well-known files and creates a *content* field containing the text extracted from each document. The white boxes are built-in enrichers, and the dotted "Bing Entity Search" box represents a custom enricher that you are creating. As illustrated, the skillset contains three skills.
-
 
 ## Skillset definition in REST
 
 A skillset is defined as an array of skills. Each skill defines the source of its inputs and the name of the outputs produced. Using the [Create Skillset REST API](ref-create-skillset.md), you can define a skillset that corresponds to the previous diagram: 
 
-```
+```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
 ```
+
 ```json
 {
   "description": 
@@ -116,12 +117,11 @@ Content-Type: application/json
     }
   ]
 }
-
 ```
 
 ## Create a skillset
 
-When creating a skillset, you can provide a description to make the skillset self-documenting. A description is optional, but useful for keeping track of what a skillset does (JSON does not allow comments).
+While creating a skillset, you can provide a description to make the skillset self-documenting. A description is optional, but useful for keeping track of what a skillset does. Because skillset is a JSON document, which does not allow comments, you must use a `description` element for this.
 
 ```json
 {
@@ -158,21 +158,20 @@ Let's look at the first skill, which is the predefined [named entity recognition
     }
 ```
 
-Every predefined skill has odata.type, input, and output properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, "categories" is one entity among a fixed set of entity types that the pretrained model can recognize.
+* Every predefined skill has `odata.type`, `input`, and `output` properties. Skill-specific properties provide additional information applicable to that skill. For entity recognition, `categories` is one entity among a fixed set of entity types that the pretrained model can recognize.
 
-Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"/document"```. In downstream skills, you can refer to this newly created information as ```"/document/organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
+* Each skill should have a ```"context"```. The context represents the level at which operations take place. In the skill above, the context is the whole document, meaning that the named entity recognition skill is called once per document. Outputs are also produced at that level. More specifically, ```"organizations"``` are generated as a member of ```"/document"```. In downstream skills, you can refer to this newly created information as ```"/document/organizations"```.  If the ```"context"``` field is not explicitly set, the default context is the document.
 
-The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (named entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
+* The skill has one input called "text", with a source input set to ```"/document/content"```. The skill (named entity recognition) operates on the *content* field of each document, which is a standard field created by the Azure blob indexer. 
 
-The skill has one output called ```"organizations"```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/organizations"```.
+* The skill has one output called ```"organizations"```. Outputs exist only during processing. To chain this output to a downstream skill's input, reference the output as ```"/document/organizations"```.
 
-For a particular document, the value of ```"/document/organizations"``` is an array of organizations extracted from the text. 
+* For a particular document, the value of ```"/document/organizations"``` is an array of organizations extracted from the text. For example:
 
-For instance:
+  ```json
+  ["Microsoft", "LinkedIn"]
+  ```
 
-```json
-["Microsoft", "LinkedIn"]
-```
 Some situations call for referencing each element of an array separately. For example, suppose you want to pass each element of ```"/document/organizations"``` separately to another skill (such as the custom Bing entity search enricher). You can refer to each element of the array by adding an asterisk to the path: ```"/document/organizations/*"``` 
 
 The second skill for sentiment extraction follows the same pattern as the first enricher. It takes ```"/document/content"``` as input, and returns a sentiment score for each content instance. Since you did not set the ```"context"``` field explicitly, the output (mySentiment) is now a child of ```"/document"```.
@@ -223,7 +222,7 @@ Recall the structure of the custom Bing entity search enricher:
     }
 ```
 
-This definition is a custom skill that calls a web API as part of the enrichment process. In other words, for each organization identified by named entity recognition, this skill calls a web API  to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine, but initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
+This definition is a custom skill that calls a web API as part of the enrichment process. For each organization identified by named entity recognition, this skill calls a web API to find the description of that organization. The orchestration of when to call the web API and how to flow the information received is handled internally by the enrichment engine. However, the initialization necessary for calling this custom API must be provided in the JSON (such as uri, httpHeaders, and the inputs expected). For guidance in creating a custom web API for the enrichment pipeline, see [How to define a custom interface](cognitive-search-custom-skill-interface.md).
 
 Notice that the "context" field is set to ```"/document/content/organizations/*"``` with an asterisk, meaning the enrichment step is called *for each* organization under ```"/document/content/organizations"```. 
 
@@ -231,18 +230,17 @@ Output, in this case a company description, is generated for each organization i
 
 ## Enrichments create structure out of unstructured information
 
-As you may have noticed, the skillset generates structured information out of unstructured data. Consider the following example:
+The skillset generates structured information out of unstructured data. Consider the following example:
 
 *"In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far."*
 
 A likely outcome would be a generated structure similar to the following illustration:
 
-![](media/cognitive-search-defining-skillset/enriched-doc.png)
+![Sample output structure](media/cognitive-search-defining-skillset/enriched-doc.png "Sample output structure")
 
 Recall that this structure is internal. You cannot actually retrieve this graph in code.
 
 <a name="next-step"></a>
-
 ## Next steps
 
 Now that you are familiar with the enrichment pipeline and skillsets, continue with [How to reference annotations in a skillset](cognitive-search-concept-annotations-syntax.md) or [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md). 
