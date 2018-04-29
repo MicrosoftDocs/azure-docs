@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/27/2017
-ms.author: mvorvoreanu
+ms.author: mivorvor
 ---
 
 # Academic Knowledge API
