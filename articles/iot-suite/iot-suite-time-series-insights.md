@@ -13,16 +13,15 @@ ms.service: iot-suite
 ---
 # Visualize Device Data with Time Series Insights
 
-An operator may want to further extend the out of the box data visualization provided by RM. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to to configure Time Series Insights to analyze device telemetry and detect anomalies.
+An operator may want to further extend the out of the box data visualization provided by RM. Our solution accelerator provides out of the box integration with TSI. In this how-to you will learn how to configure Time Series Insights to analyze device telemetry and detect anomalies.
 
 ## Prerequisites
 
-To complete this how-to, you should have the following:
+To complete this how-to, you will need the following:
 
-* An active Azure subscription.
-* A provisioned remote monitoring preconfigured solution. You can follow these directions to [deploy the remote monitoring preconfigured solution](/iot-suite/iot-suite-remote-monitoring-deploy).
+* [Deploy the Remote Monitoring preconfigured solution](/iot-suite/iot-suite-remote-monitoring-deploy)
 
-## Create a consumer group in your IoT hub
+## Create a consumer group
 
 You will need to create a dedicated consumer group in your IoT hub to be used for streaming data to Time Series Insights.
 
@@ -33,7 +32,7 @@ You will need to create a dedicated consumer group in your IoT hub to be used fo
 1. Execute the following command to create a new consumer group:
 
 ```azurecli-interactive
-az iot hub consumer-group create --hub-name contoso-rm30526 --name timeseriesinsights --resource-group contoso-rm
+az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsights --resource-group ContosoRM
 ```
 
 ## Create a new Time Series Insights environment
@@ -44,25 +43,23 @@ Azure Time Series Insights is a fully managed analytics, storage, and visualizat
 
 1. Select **Create a resource** > **Internet of Things** > **Time Series Insights**.
 
-    ![Create Time Series Insights](media/iot-suite-time-series-insights/01_Create_Time_Series_Insights.png)
+![New Time Series Insights](media/iot-suite-time-series-insights/new-time-series-insights.png)
 
 1. To create your Time Series Insights environment, use the values in the following table:
 
     | Setting | Value |
     | ------- | ----- |
-    | Environment Name | The following screenshot uses the name **howto-iot-tsi**. Choose your own unique name when you complete this step. |
+    | Environment Name | The following screenshot uses the name **contorosrmtsi**. Choose your own unique name when you complete this step. |
     | Subscription | Select your Azure subscription in the drop-down. |
-    | Resource group | **Create new**. We are using the name **howto-rg**. |
+    | Resource group | **Create new**. We are using the name **ContosoRM**. |
     | Location | We are using **East US**. Create your environment in the same region as your Remote Monitoring solution. |
     | Sku |**S1** |
     | Capacity | **1** |
     | Pin to dashboard | **Yes** |
 
-    ![Create Time Series Insights](media/iot-suite-time-series-insights/02_Create_Time_Series_Inisghts_Submit.png)
+![Create Time Series Insights](media/iot-suite-time-series-insights/new-time-series-insights-create.png)
 
 1. Click **Create**. It can take a moment for the environment to be created.
-
-1. Make a note of the Time Series Insights environment name you chose.
 
 ## Create Event Source
 
@@ -70,53 +67,33 @@ Create a new Event Source to connect to your IoT hub. Make sure that you use the
 
 1. Navigate to your new Time Series Environment.
 
-1. On the left, select **Event Sources** and then click **Add**.
+1. On the left, select **Event Sources**.
 
-![Create Event Source](media/iot-suite-time-series-insights/03_Create_Event_Source.png)
+![View Event Sources](media/iot-suite-time-series-insights/time-series-insights-event-sources.png)
+
+1. Click **Add**.
+
+![Add Event Source](media/iot-suite-time-series-insights/time-series-insights-event-sources-add.png)
 
 1. To configure your IoT hub as a new event source, use the values in the following table:
 
     | Setting | Value |
     | ------- | ----- |
-    | Event source Name | The following screenshot uses the name **howto-iot-hub**. Use your own unique name when you complete this step. |
+    | Event source Name | The following screenshot uses the name **contosorm-iot-hub**. Use your own unique name when you complete this step. |
     | Source | **IoT Hub** |
     | Import option | **Use IoT Hub from available subscriptions** |
     | Subscription Id | Select your Azure subscription in the drop-down. |
-    | Iot hub name | **howto-iot-hub**. Use the name of your IoT hub from your Remote Monitoring solution. |
+    | Iot hub name | **contosorma57a6**. Use the name of your IoT hub from your Remote Monitoring solution. |
     | Iot hub policy name | **iothubowner** Ensure the policy used is an owner policy. |
     | Iot hub policy key | This field is populated automatically. |
     | Iot hub consumer group | **timeseriesinsights** |
     | Event serialization format | **JSON**     | Timestamp property name | Leave blank |
 
-![Imported Script](media/iot-suite-time-series-insights/04_Create_Event_Source_Submit.png "Create Event Source")
+![Create Event Source](media/iot-suite-time-series-insights/time-series-insights-event-source-create.png)
 
 1. Click **Create**.
 
-## Configure data access
-
-To allow additional users to explorer data in Time Series Insights, configure your Data Access Policy with the appropriate permissions.
-
-[!NOTE] A user will see a Data Access Policy Error if they don't have permission to explore the data.
-
-![Data Access Policy Error](media/iot-suite-time-series-insights/16_data_access_poliy_error.png)
-
-1. Navigate to the Environment Topology and select **Data Access Policies**.
-
-![Select Data Access Policy](media/iot-suite-time-series-insights/15_data_access_policy.png)
-
-1. Click **Add**.
-
-![Add User and Role](media/iot-suite-time-series-insights/17_add_user_role.png)
-
-1. Click **Select role** and select the **Contributor** role.
-
-![Select Contributor Role](media/iot-suite-time-series-insights/18_select_controbutor_role.png)
-
-1. Click **Select user**, search for your user name or email address, then click **Select**.
-
-![Imported Script](media/iot-suite-time-series-insights/19_select_user.png "Select User")
-
-For more information on Time Series Insights data access policies, see [Grant data access to a Time Series Insights environment using Azure portal](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+[!NOTE] If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## Time Series Insights Explorer
 
@@ -126,38 +103,38 @@ The Time Series Insights explorer is a web app that helps you create visualizati
 
 1. Click **Go To Environment**, which will open the Time Series Insights explorer web app.
 
-![Time Series Insights Explorer](media/iot-suite-time-series-insights/05_GoTo_TSI_Explorer.png)
+![Time Series Insights Explorer](media/iot-suite-time-series-insights/time-series-insights-environment.png)
 
-1. Select Temperature and Split By ID
+1. In the time selection panel, select **Last 12 Hours** from the quick times menu and click **Search**.
 
-![Visualize Data](media/iot-suite-time-series-insights/07_Visual2.png)
+![Time Series Insights Explorer Search](media/iot-suite-time-series-insights/time-series-insights-search-time.png)
 
-1. Right Click to Explore events
+1. In the terms panel on the left, select a Measure value of **temperature** and a Split By value of **iothub-connection-device-id**.
 
-![Visualize Data](media/iot-suite-time-series-insights/08_Visual3.png)
+![Time Series Insights Explorer Query](media/iot-suite-time-series-insights/time-series-insights-query1.png)
 
-1. Explore Events in Tabular format
+1. Right-click on the chart and select **Explore events**.
 
-![Visualize Data](media/iot-suite-time-series-insights/09_Visual09.png)
+![Time Series Insights Explorer Events](media/iot-suite-time-series-insights/time-series-insights-explore-events.png)
 
-1. Create a perspective with various charts
+1. The events are rendered in the grid in tabular format.
 
-![Visualize Data](media/iot-suite-time-series-insights/10_visual10.png)
+![Time Series Insights Explorer Table](media/iot-suite-time-series-insights/time-series-insights-table.png)
 
-1. Select Humidity and ID
+1. Click the perspective view button.
 
-![Visualize Data](media/iot-suite-time-series-insights/11_visual11.png)
+![Time Series Insights Explorer Perspective](media/iot-suite-time-series-insights/time-series-insights-explorer-perspective.png)
 
-1. Create a chart by selecting a timeframe with drag feature
+1. Click **Add** to create a new query in the perspective.
 
-![Visualize Data](media/iot-suite-time-series-insights/12_Visual12.png)
+![Time Series Insights Explorer Add Query](media/iot-suite-time-series-insights/time-series-insights-new-query.png)
 
-1. Create 3rd Chart by adding a predicate
+1. Select a quick time of **Last 12 Hours**, a Measure of **Humidity** and a Split By of **iothub-connection-device-id**.
 
-![Visualize Data](media/iot-suite-time-series-insights/13_Visual13.png)
+![Time Series Insights Explorer Query](media/iot-suite-time-series-insights/time-series-insights-query2.png)
 
-1. Perspective with 4 different charts
+1. Click the perspective view button to view your dashboard of device metrics.
 
-![Visualize Data](media/iot-suite-time-series-insights/14_Visual_dashboard.png)
+![Time Series Insights Explorer Dashboard](media/iot-suite-time-series-insights/time-series-insights-dashboard.png)
 
-To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+To learn about how to explore and query data in the Time Series Insights explorer, see [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-dashboard.png).
