@@ -22,7 +22,14 @@ The WebSockets APIs of the unified Speech service are similar to the APIs provid
 
 In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
 
-TODO new endpoints needed
+Region|	Endpoint
+-|-
+West US| wss://westus.stt.speech.microsoft.com/v1.0/
+East Asia|	wss://eastasia.stt.speech.microsoft.com/v1.0/
+North Europe| wss://northeurope.stt.speech.microsoft.com/v1.0/
+
+> [!NOTE]
+> If you customized the acoustic model, the language model, or the pronunciation model, use your custom endpoint instead.
 
 Keep these differences in mind as you read the [WebSockets protocol documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/websocketprotocol) for the Speech service.
 
@@ -32,6 +39,10 @@ The Speech to Text API also supports a [REST API](rest-apis.md) for recognition 
 
 In the Speech Translation API, only the endpoints used differ from the Translator Speech API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
 
-TODO new endpoints needed
+Region|	Endpoint
+-|-
+West US| wss://westus.s2s.speech.microsoft.com/v1.0/
+East Asia|	wss://eastasia.s2s.speech.microsoft.com/v1.0/
+North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
 
 Keep these differences in mind as you read the [WebSockets protocol documentation](http://docs.microsofttranslator.com/speech-translate.html) for the Translator Speech service.

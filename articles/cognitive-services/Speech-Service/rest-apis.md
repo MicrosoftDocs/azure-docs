@@ -28,6 +28,9 @@ West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
 East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
 North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
 
+> [!NOTE]
+> If you customized the acoustic model, the language model, or the pronunciation model, use your custom endpoint instead.
+
 Keep these differences in mind as you read the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the Speech service.
 
 The Speech to Text API supports REST only for short (< 15 seconds) utterances. The Speech to Text API also supports a [WebSockets protocol](websockets.md) for streaming speech recognition.
@@ -65,5 +68,8 @@ Region|	Endpoint
 West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
 East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
 North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
+
+> [!NOTE]
+> If you created a custom voice font, use your custom endpoint instead.
 
 Keep these differences in mind as you refer to the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) for the Speech service.

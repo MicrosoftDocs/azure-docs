@@ -1,6 +1,6 @@
 ---
 title: About Speech to Text | Microsoft Docs
-description: An overview of the capabilities of Speech to Text.
+description: An overview of the capabilities of Microsoft Speech to Text.
 services: cognitive-services
 author: v-jerkin
 manager: wolfma
@@ -40,10 +40,11 @@ Some capabilities of the Speech to Text API are not available via REST. The foll
 
 \* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.
 
-## Next steps
+Next steps
+
+Start your free trial of the Speech service.
 
 > [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
+> [Free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
-> [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
+Or learn more about the concepts involved in using the Speech APIs.

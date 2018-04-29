@@ -31,10 +31,8 @@ Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
 Below is an example of a request header. The request uses the `westus` endpoint for Text to Speech; if your subscription is in another region, adjust the URL accordingly.
 
-TODO update service endpoint
-
 ```HTTP
-POST https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+POST https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed HTTP/1.1
 Accept: application/json;text/xml
 Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
@@ -45,7 +43,7 @@ Expect: 100-continue
 
 ### Client SDKs
 
-If you use [client SDK](speech-sdk.md) in your application, you provide your subscription key when initializing the SDK. 
+If you use the [client SDK](speech-sdk.md) in your application, you provide your subscription key to the SDK, and it handles authentication with the Speech service. You do not need to manage the key yourself.
 
 > [!TIP]
 > If you are having trouble authenticating, verify that you can get an authorization token with your subscription key as described in the next section.
@@ -57,15 +55,15 @@ You can use an authorization token obtained from the Cognitive Services authoriz
 After you have a valid subscription key, send a POST request to the authorization service. The response contains the authorization token in the form of a JSON Web Token (JWT).
 
 > [!NOTE]
-> Tokens have an expiration of 10 minutes. You should keep track of when you last obtained a token and request a new one before the old one expires, rather than obtaining a new token when a request fails.
+> Tokens have a lifetime of 10 minutes. Keep track of when you last obtained a token and request a new one before the old one expires, rather than obtaining a new token when a request fails.
 
-The token service endpoint is relative to function you are using and the region. Choose the appropriate endpoint from the table below.
+The token service endpoint is relative to function you are using and the region. Choose the appropriate URI from the table below.
 
 |Function|Regional endpoints|
 |-|-|
-|Speech to Text|`https://westus.stt.speech.microsoft.com`<br>`https://eastasia.stt.speech.microsoft.com`<br>`https://northeurope.stt.speech.microsoft.com`|
+|Speech to Text|`https://westus.stt.speech.microsoft.com/v1.0/issueToken`<br>`https://eastasia.stt.speech.microsoft.com/v1.0/issueToken`<br>`https://northeurope.stt.speech.microsoft.com/v1.0/issueToken`|
 |Text to Speech|`https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`<br>`https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`<br>`https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`|
-|Speech Translation|TODO|
+|Speech Translation|`https://westus.s2s.speech.microsoft.com/v1.0/issueToken`<br>`https://eastasia.s2s.speech.microsoft.com/v1.0/issueToken`<br>`https://northeurope.s2s.speech.microsoft.com/v1.0/issueToken`<br>|
 
 ### Obtain a token
 
@@ -148,11 +146,9 @@ If you cannot obtain an authorization token from the token service, make sure yo
 
 ### Use a token in a request
 
-TODO update endpoint in sample request
-
 Each time you call the Speech API, pass the authorization token in the `Authorization` header. The `Authorization` header must contain a JWT access token.
 
-The following examples show how to use an authorization token when you call the Speech REST API.  The requests use the `westus` endpoint for Text to Speech; if your subscription is in another region, adjust the URL accordingly.
+The following examples show how to use an authorization token when you call the Speech REST API for Text to Speech. The requests use the `westus` endpoint; if your subscription is in another region, adjust the URL accordingly.
 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
@@ -162,7 +158,7 @@ The following examples show how to use an authorization token when you call the 
 ```Powershell
 
 $SpeechServiceURI =
-'https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed'
+'https://westus.stt.speech.microsoft.com/v1.0/?language=en-us&format=detailed'
 
 # $OAuthToken is the authrization token returned by the token service.
 $RecoRequestHeader = @{
@@ -191,7 +187,7 @@ curl -v -X POST "https://westus.tts.speech.microsoft.com/cognitiveservices/v1?la
 
 ```cs
 HttpWebRequest request = null;
-request = (HttpWebRequest)HttpWebRequest.Create("TODO - need STT endpoint here");
+request = (HttpWebRequest)HttpWebRequest.Create("https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed");
 request.SendChunked = true;
 request.Accept = "application/json;text/xml";
 request.Method = "POST";

@@ -1,6 +1,6 @@
 ---
 title: About Speech Translation | Microsoft Docs
-description: An overview of the capabilities of Microsoft Speech Translation
+description: An overview of the capabilities of Speech Translation
 services: cognitive-services
 author: v-jerkin
 manager: chriswendt1

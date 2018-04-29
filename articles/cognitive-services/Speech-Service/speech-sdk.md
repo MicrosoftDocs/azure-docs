@@ -34,22 +34,24 @@ The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client li
 
 ## Getting the C++ SDK
 
-If you are running Ubuntu 16.04, ensure that you have the required compiler and libraries. Run the following shell commands:
+Make sure you have the required compiler and libraries by running the following shell commands:
 
 ```sh
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
+[!NOTE] These instructions assume you're running Ubuntu 16.04 on a PC (x86 or x64). On a different Ubuntu version, or a different Linux distribution, adapt these steps to fit your environment.
+
 Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the files in into a directory of your choice. This table shows the 
 
 |Path|Description|
 |-|-|
-|license.md|License|
-|third-party-notices.md|Third-party notices|
-|include|Header files for C and C++|
-|lib/x64|Native x64 library for linking with your application|
-|lib/x86|Native x86 library for linking with your application|
+|`license.md`|License|
+|`third-party-notices.md`|Third-party notices|
+|`include`|Header files for C and C++|
+|`lib/x64`|Native x64 library for linking with your application|
+|`lib/x86`|Native x86 library for linking with your application|
 
 To create an application, copy/move the required binaries (and libraries) into your development environment, and include them as required into your build process.
 
