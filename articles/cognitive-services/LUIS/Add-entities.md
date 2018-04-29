@@ -133,7 +133,7 @@ In the utterance `Who wrote the book Ask and when was it published?`, the book t
 
     See [Data Extraction](luis-concept-data-extraction.md#patternany-entity-data) to learn more about extracting the Pattern.any entity from the endpoint JSON query response. Try the [Pattern](luis-tutorial-pattern.md) tutorial to learn more about how to use a Pattern.any entity.
 
-If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-pattern.md#explicit-lists) to solve the problem. 
+If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-pattern.md#explicit-lists) to correct this problem. 
 
 ## Add role to pattern-based entity
 A role is a named subtype of an entity based on context. It is comparable to a [hierarchical](#add-hierarchical-entities) entity but roles are only used in [patterns](luis-how-to-model-intent-pattern.md). 
