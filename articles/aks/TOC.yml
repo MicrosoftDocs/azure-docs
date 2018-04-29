@@ -64,7 +64,7 @@
     - name: Ingress and TLS
       href: ingress.md
     - name: HTTP application routing
-      href: addon-http-application-routing.md
+      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal

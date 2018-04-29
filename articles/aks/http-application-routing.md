@@ -37,8 +37,7 @@ The HTTP Application Routing addon can be enabled throug the Azure portal when d
 
 ## Confirm DNS zone
 
-> [!NOTE]
-> Insert Portal Screenshots once available
+![Enable HTTP routing](media/http-routing/dns.png)
 
 ## Deploy and expose sample application
 
