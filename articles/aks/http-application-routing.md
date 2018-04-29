@@ -17,14 +17,14 @@ The HTTP Application Routing solution makes it easy to access applications deplo
 
 Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
 
-## Http routing solution overview
+## HTTP routing solution overview
 
 The addon deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
 
 - **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources, which creates routes to application endpoints.
 - **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
-## Deploy Http routing solution
+## Deploy HTTP routing
 
 The HTTP Application Routing addon can be enabled through the Azure portal when deploying an AKS cluster.
 
@@ -34,7 +34,7 @@ Once the cluster has been deployed, browse to the auto-created AKS resource grou
 
 ![Get the DNS zone name](media/http-routing/dns.png)
 
-## Use Http routing solution
+## Use HTTP routing
 
 The HTTP Application routing solution is only be triggered on Ingress resources that are annotated as follows:
 
