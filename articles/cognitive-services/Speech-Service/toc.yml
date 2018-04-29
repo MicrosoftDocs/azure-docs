@@ -32,7 +32,7 @@
     - name: Custom text-to-speech
       href: how-to-customize-voice-font.md
     - name: Speech translation
-      href: how-to-speech-translation.md
+      href: how-to-translate-speech.md
 - name: Samples # OK
   href: samples.md
 - name: Reference

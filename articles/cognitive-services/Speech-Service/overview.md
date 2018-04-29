@@ -27,7 +27,7 @@ With one subscription, the unified Speech service gives developers an easy way t
 |Speech&nbsp;translation|Combines speech to text, text translation, and text to speech to provide translations of speech.|
 
 > [!NOTE]
-> If you have been using the separately-available services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration is straightforward and brings you additional functionality. If you are considering migrating, or just want to know what has changed, see [How to Migrate to the Speech Service](how-to-migrate.md).
+> If you have been using the separately-available Speech services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration brings you additional functionality. If you are considering migrating, or just want to know what has changed, see [How to Migrate to the Speech Service](how-to-migrate.md).
 
 ## Using the Speech service
 

@@ -37,7 +37,7 @@ The Speech to Text API supports REST only for short (< 15 seconds) utterances. T
 
 ## Text to Speech API
 
-In the Text to Speech API, the `X-Microsoft-OutputFormat` parameter now takes the following values.
+In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the following values.
 
 Value|Meaning
 -|-
