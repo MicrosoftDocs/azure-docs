@@ -20,7 +20,7 @@ ms.custom: aaddev
 ---
 # Authentication scenarios for Azure AD
 
-Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. This topic will help you understand the various scenarios Azure AD supports and show you how to get started. It’s divided into the following sections:
+Azure Active Directory (Azure AD) simplifies authentication for developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open source libraries for different platforms to help you start coding quickly. This article will help you understand the various scenarios Azure AD supports and show you how to get started. It’s divided into the following sections:
 
 * [Basics of authentication in Azure AD](#basics-of-authentication-in-azure-ad)
 * [Claims in Azure AD security tokens](#claims-in-azure-ad-security-tokens)
@@ -45,7 +45,7 @@ With the diagram above in mind, here’s what you need to know about its various
 
 * Azure AD is the identity provider, responsible for verifying the identity of users and applications that exist in an organization’s directory, and ultimately issuing security tokens upon successful authentication of those users and applications.
 * An application that wants to outsource authentication to Azure AD must be registered in Azure AD, which registers and uniquely identifies the app in the directory.
-* Developers can use the open-source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md) for more information.
+* Developers can use the open source Azure AD authentication libraries to make authentication easy by handling the protocol details for you. See [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md) for more information.
 * Once a user has been authenticated, the application must validate the user’s security token to ensure that authentication was successful.  To make this easy, we have samples in a variety of languages and frameworks on [GitHub](https://github.com/Azure-Samples?q=active-directory).  If you're building a web app in ASP.NET, refer to this [getting started guide for web apps](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp).  If you’re building an web API resource in ASP.NET, refer to this [getting started guide for web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * The flow of requests and responses for the authentication process is determined by the authentication protocol that was used, such as OAuth 2.0, OpenID Connect, WS-Federation, or SAML 2.0. These protocols are discussed in more detail in the [Azure Active Directory authentication protocols](active-directory-authentication-protocols.md) article and in the sections below.
 
