@@ -1,7 +1,9 @@
 - name: Computer Vision Documentation
   href: index.md
 - name: Overview
-  href: Home.md
+  items:
+  - name: What is Computer Vision
+    href: Home.md
 - name: Quickstarts
   expanded: true
   items:
@@ -29,7 +31,7 @@
     href: Tutorials/javascript-tutorial.md
   - name: Python
     href: Tutorials/PythonTutorial.md
-- name: How-to
+- name: How-to guides
   items:
   - name: Obtain subscription keys
     href: Vision-API-How-to-Topics/HowToSubscribe.md
@@ -39,7 +41,9 @@
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Reference
   items: 
-  - name: Computer Vision API
+  - name: Computer Vision API v2.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
+  - name: Computer Vision API v1.0
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
   - name: SDKs
     items:
