@@ -97,7 +97,7 @@ See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen? 
 
-See [Prediction differences between copies of same app](luis-concept-prediction-score#differences-with-predictions).
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
 
 ## App publishing
 
