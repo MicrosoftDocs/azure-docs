@@ -125,7 +125,7 @@ Click **OK** to accept the index definition.
 
 The indexer is a high-level resource that drives the indexing process. It specifies the data source name, the index, and frequency of execution. The end result of the **Import data** wizard is always an indexer.
 
-In the **Indexer** page, give the indexer a name and use the default Once to run it immediatley.. 
+In the **Indexer** page, give the indexer a name and use the default "run once" to run it immediately. 
 
   ![Indexer definition](./media/cognitive-search-quickstart-blob/indexer-def.png)
 
