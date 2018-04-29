@@ -37,9 +37,9 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Route traffic based on geographic location of endpoint</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic based on endpoint priority</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic accross endpoints</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic based on endpoint proximity</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic across endpoints</a>
+    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
     - html: Send Real User Measurements to Traffic Manager<ul><li><a href="/azure/traffic-manager/traffic-manager-create-rum-visual-studio">Using Visual Studio SDK</a></li><li><a href="/azure/traffic-manager/traffic-manager-create-rum-web-pages">Using web pages</a></li></ul>
 - title: Free Pluralsight Video Training
   items:
@@ -57,11 +57,6 @@ sections:
       image: 
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
         href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: Implementing Microsoft Azure Networking
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-      image: 
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
     - title: Microsoft Azure Administration for AWS Administrators
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image: 

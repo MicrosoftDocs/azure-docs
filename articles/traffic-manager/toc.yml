@@ -18,11 +18,11 @@
   items:
   - name: Direct traffic to specific endpoints based on its location
     href: traffic-manager-configure-geographic-routing-method.md
-  - name: Direct traffic for low latency
+  - name: Route traffic for low latency
     href: traffic-manager-configure-performance-routing-method.md
-  - name: Distribute traffic to a set of endpoints
+  - name: Distribute traffic across endpoints
     href: traffic-manager-configure-weighted-routing-method.md
-  - name: Direct traffic to a priority endpoint
+  - name: Route traffic to a priority endpoint
     href: traffic-manager-configure-priority-routing-method.md
 - name: Concepts
   items:
