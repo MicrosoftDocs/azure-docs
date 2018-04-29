@@ -43,17 +43,16 @@ Learn how to trigger builds on source code commit in the second ACR Build tutori
 
 The power of ACR Build to truly enhance your container build pipeline comes from its ability to detect an update to a base image. When the updated base image is pushed to your registry, ACR Build can automatically build any application images based on it.
 
-[DIAGRAM HERE?]
+Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and application frameworks upon which your application is built, along with other customizations. These base images are themselves typically based on public upstream images, for example [Alpine Linux][base-alpine] or [Node.js][base-node]. Several of your application images might share a common base image.
 
-Container images can be broadly categorized into *base* images and *application* images. Your base images typically include the operating system and any application frameworks upon which your application is built.
+When an OS or app framework is updated by the upstream maintainer, for example, with a critical OS security patch, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 
-[EXPAND DESCRIPTION]
-
-ACR Build dynamically discovers base image dependencies when it builds a container image.
-
-While ACR Build is in preview, base images updates trigger builds only when both the base and application images reside the same registry.
+Because ACR Build dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated and needs to be rebuilt. With this automatic detection and rebuilding, ACR Build saves you the time and effort normally required to manually track and update each and every application image referencing the updated base image.
 
 Learn about OS and framework patching in the third ACR Build tutorial, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
+
+> [!NOTE]
+> While ACR Build is in preview, base image updates trigger builds only when both the base and application images reside the same Azure container registry.
 
 ## Next steps
 
@@ -63,6 +62,10 @@ When you're ready to automate OS and framework patching by building your contain
 > [Build container images in the cloud with Azure Container Registry Build](container-registry-tutorial-quick-build.md)
 
 <!-- LINKS - External -->
+[base-alpine]: https://hub.docker.com/_/alpine/
+[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
+[base-node]: https://hub.docker.com/_/node/
+[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
