@@ -68,6 +68,7 @@
 ### [Customize and redeploy a microservice](iot-suite-microservices-example.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
+### [Visualize data with Time Series Insights](iot-suite-time-series-insights.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
