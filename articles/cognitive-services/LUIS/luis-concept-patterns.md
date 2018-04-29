@@ -79,7 +79,7 @@ How much does {Booktitle} cost and what format is it available in?
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
 ### Explicit lists
-If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an Explicit List through the authoring API to allow the exception. 
+If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an [Explicit List](https://aka.ms/ExplicitList) through the authoring API to allow the exception. 
 
 For example, suppose you have a pattern containing both optional syntax, `[]`, and entity syntax, `{}`, combined in a way to extract data incorrectly.
 
