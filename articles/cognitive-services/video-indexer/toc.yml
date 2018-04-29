@@ -10,7 +10,7 @@
   items:
   - name: Get started
     href: video-indexer-get-started.md
-- name: How to
+- name: How to guides
   items:
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md   
