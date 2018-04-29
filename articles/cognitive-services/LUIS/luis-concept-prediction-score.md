@@ -48,7 +48,7 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 |--|--|
 |9.910309E-07|.0000009910309|
 
-## Differences with predictions between exact same model in different apps
+## Differences with predictions
 <!-- Nayer -->
 LUIS requires users to identify positive utterances for intents. For training, LUIS automatically selects utterances that would be considered negative for each intent. This selection contains some randomness, by design. Every model may not use the same negative utterances for training. When you train the same model in a different app, and the scores are not this same, there are a couple of reasons this can happen.
 
