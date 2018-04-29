@@ -45,17 +45,17 @@ If you don't have an Azure subscription,
 Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 with your Azure account credentials.
 
-## Create an integration account
+## Create integration account
 
 1. From the main Azure menu, select **All services**. 
 In the search box, enter "integration accounts" as your filter, 
 and select **Integration accounts**.
 
-   ![Create your integration account](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+   ![Find integration accounts](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
 2. Under **Integration accounts**, choose **Add**.
 
-   ![Add integration account](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
+   ![Choose "Add" to create integration account](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
 3. Provide information about your integration account: 
 
@@ -75,7 +75,7 @@ and select **Integration accounts**.
 
    After Azure deploys your integration account to the 
    selected location, which usually finishes within one minute, 
-   your integration account opens.
+   Azure opens your integration account.
 
    ![Azure opens your integration account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
 
@@ -84,7 +84,7 @@ you must link the integration account to your logic app.
 
 <a name="link-account"></a>
 
-## Link integration account to your logic app
+## Link to logic app
 
 To give your logic apps access to an integration account that contains 
 your B2B artifacts, such as trading partners, agreements, maps, 
@@ -109,13 +109,13 @@ select the integration account to link to your logic app.
    When your integration account is successfully linked, 
    Azure shows a confirmation message. 
 
-   ![Logic app successfully linked to integration account](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-5.png)
+   ![Azure confirms successful link](./media/logic-apps-enterprise-integration-create-integration-account/linkaccount-5.png)
 
 Now your logic app can use any and all the artifacts in your 
 integration account plus the B2B connectors, 
 such as XML validation and flat file encoding or decoding.  
 
-## Move your integration account
+## Move integration account
 
 You can move your integration account to 
 another Azure subscription or resource group.
@@ -130,16 +130,16 @@ and select **Integration accounts**.
 account that you want to move. On your integration account menu, 
 under **Settings**, choose **Properties**.
 
-   ![Under Settings, choose Properties](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-properties.png)
+   ![Under "Settings", choose "Properties"](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-properties.png)
 
 3. Change either the Azure resource group or subscription for your integration account.
 
-   ![Choose Change resource group or Change subscription](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
+   ![Choose "Change resource group" or "Change subscription"](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
 
- 4. When you're done, make sure that you update any and all 
- scripts with the new resource IDs for your artifacts.  
+4. When you're done, make sure that you update any and all 
+scripts with the new resource IDs for your artifacts.  
 
-## Delete your integration account
+## Delete integration account
 
 1. On the main Azure menu, select **All services**. 
 In the search box, enter "integration accounts" as your filter, 
@@ -151,11 +151,11 @@ and select **Integration accounts**.
 account that you want to delete. On the integration account menu, 
 choose **Overview**, then choose **Delete**. 
 
-   ![Select integration account. On Overview page, choose Delete](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
+   ![Select integration account. On "Overview" page, choose "Delete"](./media/logic-apps-enterprise-integration-create-integration-account/delete-integration-account.png)
 
 3. To confirm that you want to delete your integration account, choose **Yes**.
 
-   ![To confirm delete, choose Yes](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
+   ![To confirm delete, choose "Yes"](./media/logic-apps-enterprise-integration-create-integration-account/confirm-delete.png)
 
 ## Next steps
 
