@@ -44,7 +44,7 @@ During the installation, an Azure public IP address is created for the ingress c
 $ kubectl get service -l app=nginx-ingress --namespace kube-system
 
 NAME                                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
-eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   13.82.238.45   80:30920/TCP,443:30426/TCP   20m
+eager-crab-nginx-ingress-controller        LoadBalancer   10.0.182.160   51.145.155.210   80:30920/TCP,443:30426/TCP   20m
 eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>         80/TCP                       20m
 ```
 
@@ -60,7 +60,7 @@ Because HTTPS certificates are used, you need to configure an FQDN name for the 
 #!/bin/bash
 
 # Public IP address
-IP="52.224.125.195"
+IP="51.145.155.210"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
