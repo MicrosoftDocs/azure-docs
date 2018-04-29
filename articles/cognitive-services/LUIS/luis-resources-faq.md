@@ -31,7 +31,7 @@ Choose intents that are not so general as to be overlapping, but not so specific
 
 Yes, it is good to train your **None** intent with more utterances as you add more labels to other intents. A good ratio is 1 or 2 labels added to **None** for every 10 labels added to an intent. This ratio boosts the discriminative power of LUIS.
 
-### How can I deal with spelling mistakes in utterances?
+### How can I correct spelling mistakes in utterances?
 
 See the [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) tutorial. LUIS enforces limits imposed by Bing Spell Check API V7. 
 
@@ -94,6 +94,10 @@ The errors indicate that there is some discrepancy between your labels and the p
 * To help LUIS learn faster, add phrase-list features that introduce domain-specific vocabulary.
 
 See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
+
+### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen? 
+
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
 
 ## App publishing
 
