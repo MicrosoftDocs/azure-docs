@@ -20,9 +20,9 @@ ms.custom: aaddev
 ---
 # Azure Active Directory v2.0 authentication libraries
 
-The [Azure Active Directory (Azure AD) v2.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. You can use various libraries from Microsoft and other organizations with the v2.0 endpoint.
+The [Azure Active Directory (Azure AD) v2.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) supports the industry-standard OAuth 2.0 and OpenID Connect 1.0 protocols. The Microsoft Authentication Library (MSAL) is designed to work with the Azure AD v2.0 endpoint.  It is also possible to use open-source libraries that support OAuth 2.0 and OpenID Connect 1.0.
 
-When you build an application that uses the v2.0 endpoint, we recommend that you use libraries that are written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, like [the one followed by Microsoft][Microsoft-SDL]. If you decide to hand-code support for the protocols, we recommend you follow SDL methodology and pay close attention to the security considerations in the standards specifications for each protocol.
+It is recommended that you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, like [the one followed by Microsoft][Microsoft-SDL]. If you decide to hand-code support for the protocols, follow a methodology like Microsoft's SDL and pay close attention to the security considerations in the standards specifications for each protocol.
 
 > [!NOTE]
 > Looking for the Azure AD v1.0 libraries (ADAL)? Checkout the [ADAL library guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries).
@@ -38,11 +38,11 @@ Azure AD v2.0 endpoint works with two types of libraries:
 
 ## Library support
 
-Because you can choose any standards-compliant library when you use the v2.0 endpoint, it’s important to know where to go for support. For issues and feature requests in library code, contact the library owner. For issues and feature requests in the service-side protocol implementation, contact Microsoft.
+Because you can choose any standards-compliant library when you use the v2.0 endpoint, it’s important to know where to go for support. For issues and feature requests in library code, contact the library owner. For issues and feature requests in the service-side protocol implementation, contact Microsoft. [File a feature request](https://feedback.azure.com/forums/169401-azure-active-directory) for additional features you would like like to see in the protocol. [Create a support request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) if you find an issue where the Azure AD v2.0 endpoint is not compliant with OAuth 2.0 or OpenID Connect 1.0.
 
 Libraries come in two support categories:
 
-* **Microsoft-supported**. Microsoft provides fixes for these libraries, and has done SDL due diligence on these libraries.
+* **Microsoft-supported**. Microsoft provides fixes for these libraries and has done SDL due diligence on these libraries.
 * **Compatible**. Microsoft has tested these libraries in basic scenarios and confirmed that they work with the v2.0 endpoint. Microsoft does not provide fixes for these libraries and has not done a review of these libraries. Issues and feature requests should be directed to the library’s open-source project.
 
 For a list of libraries that work with the v2.0 endpoint, see the next sections in this article.
@@ -50,7 +50,7 @@ For a list of libraries that work with the v2.0 endpoint, see the next sections 
 ## Microsoft-supported client libraries
 
 > [!IMPORTANT]
-> The MSAL preview libraries are suitable for use in a production environment. We provide the same production level support for these libraries as we do our current production libraries (ADAL). During the preview we may make changes to the MSAL API, internal cache format, and other mechanisms of these libraries without notice, which you will be required to take along with bug fixes or feature improvements. This may impact your application. For instance, a change to the cache format may impact your users, such as requiring them to sign in again. An API change may require you to update your code. When we provide the General Availability release we will require you to update to the General Availability version within six months, as applications written using a preview version of library may no longer work.
+> The MSAL preview libraries are suitable for use in a production environment. Microsoft provides the same production level support for these libraries as the current production libraries (ADAL). During the preview, expect changes to the MSAL API, internal cache format, and other mechanisms of these libraries without notice, which you will be required to take along with bug fixes or feature improvements. This may impact your application. For instance, a change to the cache format may require your users to sign in again. An API change may require you to update your code. When the General Availability (GA) release becomes available, all applications using a preview version of the library must update within six months or they may stop working.
 
 | Platform | Library | Download | Source Code | Sample | Reference
 | --- | --- | --- | --- | --- | --- |
