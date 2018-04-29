@@ -19,9 +19,9 @@
   href: get-started.md
 - name: How-to guides
   items:
-    - name: Authenticate # some URLS need updates still
+    - name: Authenticate # OK
       href: how-to-authenticate.md
-    - name: Migrate to the Speech service
+    - name: Migrate to the Speech service # OK
       name: how-to-migrate.md
     - name: Speech to text
       href: how-to-speech-to-text.md
@@ -39,9 +39,9 @@
   items:
   - name: Supported languages # OK
     href: supported-languages.md
-  - name: REST APIs # need endpoint URLs
+  - name: REST APIs # OK
     href: rest-apis.md
-  - name: WebSockets protocols # need endpoint URLs
+  - name: WebSockets protocols # OK
     href: websockets.md
   - name: SDK documentation # OK
     href: speech-sdk-reference.md

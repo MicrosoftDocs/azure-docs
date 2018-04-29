@@ -84,7 +84,4 @@ North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
 
 ## Native clients
 
-The unified Speech SDK currently supports C/C++, C#, and Java. If you are using a native client library with some other programming language, you might want to wait for a unified Speech SDK for your platform.
-
-> [!NOTE]
-> The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.
+The unified Speech SDK currently supports C/C++, C#, and Java. If you are using a native client library with some other programming language, we suggest waiting for a unified Speech SDK for your platform.
