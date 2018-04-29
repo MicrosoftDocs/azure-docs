@@ -7,9 +7,9 @@
 ## [Architecture](blockchain-workbench-architecture.md)
 
 # How-to guides
-## Deploy Workbench
+## [Deploy Workbench](blockchain-workbench-deploy.md)
 ## [Create blockchain app](blockchain-workbench-troubleshooting.md)
-## Manage Workbench apps
+## Use Workbench apps
 ## [Troubleshoot apps](blockchain-workbench-troubleshooting.md)
 ## Code samples
 
