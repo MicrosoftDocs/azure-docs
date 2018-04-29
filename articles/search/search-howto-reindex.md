@@ -1,6 +1,6 @@
 ---
 title: Rebuild an Azure Search index or refresh searchable content | Microsoft Docs
-description: Add new elements, updated existing elements or documents, delete obsolete documents, in a full rebuild or partial incremental indexing that preserves unchanged documents in an Azure Search index.
+description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Search index.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -63,7 +63,7 @@ In practical terms, for index loads spanning several days, you can put the index
 
 ### Parallel indexing
 
-A second choice is to set up a parallel indexing strategy. For non-routine, computationally intensive indexing requirements, such as OCR on scanned documents in a cognitive search pipeline, a parallel indexing strategy might be the right choice. In a cognitive search enrichment pipeline, image analysis and natural language processing are long running. Parallel indexing on a service that is not simultaneously handling query requests could be a viable option for working through a large body of slow-processing content. 
+A second choice is to set up a parallel indexing strategy. For non-routine, computationally intensive indexing requirements, such as OCR on scanned documents in a cognitive search pipeline, a parallel indexing strategy might be the right approach for that specific goal. In a cognitive search enrichment pipeline, image analysis and natural language processing are long running. Parallel indexing on a service that is not simultaneously handling query requests could be a viable option for working through a large body of slow-processing content. 
 
 A strategy for parallel processing has these elements:
 

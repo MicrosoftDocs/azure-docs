@@ -20,7 +20,7 @@ Examples in this article are based on the *content* field generated automaticall
 
 ## Background concepts
 
-Before understanding the syntax, let's revisit a few important concepts to better understand the examples provided later in this article.
+Before reviewing the syntax, let's revisit a few important concepts to better understand the examples provided later in this article.
 
 | Term | Description |
 |------|-------------|
