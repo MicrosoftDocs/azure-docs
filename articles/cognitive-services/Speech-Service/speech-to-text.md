@@ -1,5 +1,5 @@
 ---
-title: Speech to Text overview | Microsoft Docs
+title: About Speech to Text | Microsoft Docs
 description: An overview of the capabilities of Microsoft Speech to Text.
 services: cognitive-services
 author: v-jerkin
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: v-jerkin
 ---
-# Speech to Text overview
+# About Speech to Text
 
 The Speech to Text API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API.
 
@@ -33,16 +33,18 @@ Some capabilities of the Speech to Text API are not available via REST. The foll
 
 | Use case | REST | WebSockets | SDKs |
 |-----|-----|-----|----|
-| Transcribe a short utterance, such as a command (audio length < 15 s); no interim results | Yes | Yes | Yes |
-| Convert a longer utterance (> 15 s) | No | Yes | Yes |
-| Streaming audio with optional interim results | No | Yes | Yes |
-| Understand speaker intents using LUIS | No\* | No\* | Yes |
+| Transcribe a short utterance, such as a command (length < 15 s); no interim results | Yes | Yes | Yes |
+| Transcribe a longer utterance (> 15 s) | No | Yes | Yes |
+| Transcribe streaming audio with optional interim results | No | Yes | Yes |
+| Understand speaker intents via LUIS | No\* | No\* | Yes |
 
-\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need require a separate LUIS subscription.
+\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.
+
+Next steps
 
 Start your free trial of the Speech service.
 
 > [!div class="nextstepaction"]
-> [Free trial](#TODO)
+> [Free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
 
 Or learn more about the concepts involved in using the Speech APIs.

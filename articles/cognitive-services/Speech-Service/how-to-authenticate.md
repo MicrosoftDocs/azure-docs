@@ -1,6 +1,6 @@
 ---
 title: Authenticate to the Speech service | Microsoft Docs
-description: How to obtain authentication to use the Speech service
+description: How to obtain authorization to use the Speech service.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
 ---
-# Authenticate to the Speech API
+# Authenticate to the Speech service
 
 The Speech service supports authentication by with either a subscription key or an authorization token. For most applications, it is easier to use a subscription key, since obtaining an authorization token requires a subscription key anyway.
 

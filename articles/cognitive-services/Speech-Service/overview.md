@@ -1,6 +1,6 @@
 ---
 title: Speech service overview | Microsoft Docs
-description: Introduction to the capabilities the Speech service.
+description: Introduction to the capabilities of the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: wolfma
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: v-jerkin
 ---
-# Microsoft Speech overview (Preview)
+# Speech service overview (Preview)
 
 The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.
 

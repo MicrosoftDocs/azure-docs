@@ -1,5 +1,5 @@
 ---
-title: Speech Translation overview | Microsoft Docs
+title: About Speech Translation | Microsoft Docs
 description: An overview of the capabilities of Microsoft Speech Translation
 services: cognitive-services
 author: v-jerkin
@@ -12,7 +12,7 @@ ms.date: 4/28/2018
 ms.author: v-jerkin
 ---
 
-# Speech Translation overview
+# About Speech Translation
 
 The Microsoft Speech API lets you add end-to-end, real-time, multi-language speech translation to applications and tools. The same API can be used for both speech-to-speech and speech-to-text translation.
 

@@ -1,6 +1,6 @@
 ---
 title: Speech SDK reference | Microsoft Docs
-description: References for the Speech SDK
+description: References for the Speech SDK.
 services: cognitive-services
 author: v-jerkin
 manager: chriswendt1

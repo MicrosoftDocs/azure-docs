@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: v-jerkin
 ---
-# Speech Devices SDK License Agreement
+# Speech Devices SDK license agreement
 
 ## MICROSOFT SOFTWARE LICENSE TERMS<br>SPEECH DEVICES SOFTWARE DEVELOPMENT KIT (SDK) 
 

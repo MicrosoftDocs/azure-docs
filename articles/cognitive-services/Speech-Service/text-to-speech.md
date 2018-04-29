@@ -1,5 +1,5 @@
 ---
-title: Text to Speech overview | Microsoft Docs
+title: About Text to Speech | Microsoft Docs
 description: An overview of the capabilities of Microsoft Text to Speech.
 services: cognitive-services
 author: v-jerkin
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: v-jerkin
 ---
-# Text to Speech overview
+# About Text to Speech
 
 Microsoft Text-to-Speech (TTS) is a cloud-based API that converts input text into natural-sounding speech (also called speech synthesis).
 
@@ -29,4 +29,4 @@ Scenarios in which speech synthesis is being adopted include:
 
 The Microsoft Text-to-Speech (TTS) service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts," you just specify the voice name with a few other parameters when you call the service's REST API. For the details of the voices supported, see [Supported Languages](supported-languages.md). 
 
-If you need to support a new dialect or just want a unique voice for your application, the Text to Speech API supports training [custom voice models](customize-tts) from your own data.
+If you need to support a new dialect or just want a unique voice for your application, the Text to Speech API supports training [custom voice models](customize-speech-models.md) from your own data.

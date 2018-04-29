@@ -1,6 +1,6 @@
 ---
 title: Transcription guidelines for Speech training | Microsoft Docs
-description: Learn how to prepare text to customize acoustic and language models and voice fonts
+description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech service
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
@@ -13,6 +13,7 @@ ms.author: v-jerkin
 ---
 
 # Transcription guidelines
+
 Customizing Speech to Text or Text to Speech requires text to be provided along with speech. Each line in the text corresponds to a single utterance. The text is called a *transcript,* and you must create it in a specific format.
 
 The Speech service will do some normalization for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 

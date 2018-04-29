@@ -1,6 +1,6 @@
 ---
 title: Get Started with the Speech service | Microsoft Docs
-description: Support for Microsoft Speech Service.
+description: How to get started with the Speech service.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -20,4 +20,4 @@ Next, get a free trial of the Speech service through [Try Cognitive Services](ht
 > [!NOTE]
 > When your trial subscription expires, you can sign up for a paid subscription through your Azure dashboard.
 
-Finally, check out the [native client SDK](speech-sdk.md).
+Finally, check out the [native client SDK](speech-sdk.md), [REST APIs](rest-apis.md), or [WebSockets protocols](websockets.md), then download some [Samples](samples.md).

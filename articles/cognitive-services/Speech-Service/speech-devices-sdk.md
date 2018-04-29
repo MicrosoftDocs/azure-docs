@@ -1,5 +1,5 @@
 ---
-title: About Speech Devices SDK | Microsoft Docs
+title: About the Speech Devices SDK | Microsoft Docs
 description: An introduction to the Speech Devices SDK.
 services: cognitive-services
 author: v-jerkin
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: v-jerkin
 ---
-# Speech Devices SDK (Preview)
+# About the Speech Devices SDK (Preview)
 
 On its own, the Microsoft Speech service works with a wide variety of devices and audio sources. Now you can take your speech applications to the next level with matched hardware and software. The Speech Devices SDK is a pre-tuned library paired with specific microphone-enabled hardware. It makes it easy to integrate your device with the cloud-based Microsoft Speech services and create an exceptional user experience for your customers.
 

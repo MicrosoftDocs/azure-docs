@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: v-jerkin
 ---
-# Speech service WebSockets protocols
+# WebSockets protocols
 
 The WebSockets APIs of the unified Speech service are similar to the APIs provided by the [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](https://docs.microsoft.com/azure/cognitive-services/translator-speech/). In general, only the endpoints used differ.
 
@@ -30,7 +30,7 @@ The Speech to Text API also supports a [REST API](rest-apis.md) for recognition 
 
 ## Speech Translation API
 
-In the Speech Translation API, only the endpoints used differ from the Translator SPeech API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
+In the Speech Translation API, only the endpoints used differ from the Translator Speech API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
 
 TODO new endpoints needed
 

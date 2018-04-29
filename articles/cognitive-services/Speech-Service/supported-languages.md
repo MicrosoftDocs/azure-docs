@@ -1,6 +1,6 @@
 ---
-title: Supported Languages of the Speech service | Microsoft Docs
-description: A list of spoken languages that are supported by Speech service.
+title: Speech service supported languages | Microsoft Docs
+description: A list of the languages supported by the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: wolfma

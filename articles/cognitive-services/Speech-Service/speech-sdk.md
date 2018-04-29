@@ -1,5 +1,5 @@
 ---
-title: Speech SDK overview | Microsoft Docs
+title: About the Speech SDK | Microsoft Docs
 description: An overview of the SDKs available for the Speech service.
 services: cognitive-services
 author: v-jerkin
@@ -12,9 +12,9 @@ ms.date: 4/28/2018
 ms.author: v-jerkin
 ---
 
-# Speech SDK overview
+# About the Speech SDK
 
-The Speech service provides native client libraries (SDKs) to provide your applications access to the functions of the Speech service, making it easier to develop software. Currently, the SDKs provide access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
+The Speech service provides native client libraries to provide your applications access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
 
 The table below the currently supported programming languages and operating systems.
 
@@ -30,7 +30,7 @@ Additional languages and platforms are currently being considered for future sup
 
 ## Getting the Windows SDK
 
-The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client libraries as well as managed (.NET) libraries for use with C#. The SDK can be installed in Visual Studio using NuGet; simply search for "Cognitive Services Speech SDK." You may also [download it directly](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) from NuGet.org.
+The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client libraries as well as managed (.NET) libraries for use with C#. The SDK can be installed in Visual Studio using NuGet; simply search for "Cognitive Services Speech SDK." You may also [download the NuGet package](https://aka.ms/carbon/nugetdirectdownload) from NuGet.org. A compressed archive of the libraries is also [available for download](https://aka.ms/csspeech/winbinary).
 
 ## Getting the C++ SDK
 
@@ -41,7 +41,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-Then [download the SDK](#TODO) and unpack the files in into a directory of your choice. This table shows the 
+Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the files in into a directory of your choice. This table shows the 
 
 |Path|Description|
 |-|-|
