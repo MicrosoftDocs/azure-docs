@@ -107,10 +107,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Use CURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file.
-
-> [!NOTE]
-> The application may take up to one minute before it's available via the Internet.
+Use CURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file. The application may take up to one minute before it's available via the internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -144,7 +141,7 @@ time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clipp
 time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
-These records can also be seen on the DNS resource in the Azure portal.
+These records can also be seen on the DNS zone resource in the Azure portal.
 
 ![Get the DNS records](media/http-routing/clippy.png)
 
