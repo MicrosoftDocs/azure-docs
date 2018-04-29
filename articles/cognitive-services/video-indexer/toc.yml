@@ -30,8 +30,6 @@
     href: https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4
 - name: Resources
   items:
-  - name: FAQ
-    href: FAQ.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
   - name: UserVoice
