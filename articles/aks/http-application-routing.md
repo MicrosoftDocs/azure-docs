@@ -21,8 +21,8 @@ Enabling this addon creates a DNS Zone in your subscription. For more informatio
 
 The addon deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
 
-- Ingress controller - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources, which creates routes to application endpoints.
-- External-DNS controller - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
+- **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources, which creates routes to application endpoints.
+- **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
 ## Create an AKS cluster
 
