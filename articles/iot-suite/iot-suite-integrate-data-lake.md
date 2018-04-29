@@ -105,11 +105,11 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
 1. Click **Authorize**.
 
-You will have to authorize with Data Lake Store to give the Stream analytics job write access to the file system.
+    You will have to authorize with Data Lake Store to give the Stream analytics job write access to the file system.
 
     ![Authorize Stream Analytics to Data Lake Store](media/iot-suite-integrate-data-lake/stream-analytics-out-authorize.png)
 
-You will see a popup and once the popup closes Authorize button will be greyed out after authorization is complete.
+    You will see a popup and once the popup closes Authorize button will be greyed out after authorization is complete.
 
 > [!NOTE]
 > If you see an error in the popup window, open a new browser window in Incognito Mode and try again.
@@ -126,14 +126,14 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 1. In the Query editor, replace the [YourOutputAlias] and [YourInputAlias] placeholders with the values you defined previously.
 
-```sql
-SELECT
-    *, System.Timestamp as time
-INTO
-    DataLakeStore
-FROM
-    IoTHub
-```
+    ```sql
+    SELECT
+        *, System.Timestamp as time
+    INTO
+        DataLakeStore
+    FROM
+        IoTHub
+    ```
 
     ![Stream Analytics Query](media/iot-suite-integrate-data-lake/stream-analytics-query.png)
 
@@ -154,11 +154,11 @@ FROM
 
     ![Pick Custom Date](media/iot-suite-integrate-data-lake/stream-analytics-start-custom.png)
 
-Wait until job goes into running state, if you see errors it could be from your query, make sure to verify that the syntax is correct.
+    Wait until job goes into running state, if you see errors it could be from your query, make sure to verify that the syntax is correct.
 
     ![Job running](media/iot-suite-integrate-data-lake/stream-analytics-running.png)
 
-The streaming job will begin to read data from your IoT Hub and store the data in your Data Lake Store. It may take a few minutes for the data to begin to appear in your Data Lake Store.
+    The streaming job will begin to read data from your IoT Hub and store the data in your Data Lake Store. It may take a few minutes for the data to begin to appear in your Data Lake Store.
 
 ## Explore the streaming data
 
@@ -170,9 +170,9 @@ The streaming job will begin to read data from your IoT Hub and store the data i
 
     ![Explore Streaming Data](media/iot-suite-integrate-data-lake/data-lake-store-data-explorer.png)
 
-You will see json files with one file per hour.
+    You will see json files with one file per hour.
 
-![Explore Streaming Data](media/iot-suite-integrate-data-lake/data-lake-store-file-preview.png)
+    ![Explore Streaming Data](media/iot-suite-integrate-data-lake/data-lake-store-file-preview.png)
 
 ## Next Steps
 
