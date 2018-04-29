@@ -51,11 +51,11 @@ with your Azure account credentials.
 In the search box, enter "integration accounts" as your filter, 
 and select **Integration accounts**.
 
-   ![Create integration account](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
+   ![Create your integration account](./media/logic-apps-enterprise-integration-create-integration-account/create-integration-account.png)
 
 2. Under **Integration accounts**, choose **Add**.
 
-   ![Choose Add](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
+   ![Add integration account](./media/logic-apps-enterprise-integration-create-integration-account/add-integration-account.png)
 
 3. Provide information about your integration account: 
 
@@ -77,7 +77,7 @@ and select **Integration accounts**.
    selected location, which usually finishes within one minute, 
    your integration account opens.
 
-   ![Integration account opened](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
+   ![Azure opens your integration account](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-created.png)
 
 Now, before your logic app can use your integration account, 
 you must link the integration account to your logic app.
@@ -117,9 +117,8 @@ such as XML validation and flat file encoding or decoding.
 
 ## Move your integration account
 
-To move your integration account to another Azure subscription or resource group, 
-follow these steps. After you finish moving your integration account, 
-make sure that you update all scripts to use the new resource IDs for your artifacts.
+You can move your integration account to 
+another Azure subscription or resource group.
 
 1. On the main Azure menu, select **All services**. 
 In the search box, enter "integration accounts" as your filter, 
@@ -136,6 +135,9 @@ under **Settings**, choose **Properties**.
 3. Change either the Azure resource group or subscription for your integration account.
 
    ![Choose Change resource group or Change subscription](./media/logic-apps-enterprise-integration-create-integration-account/change-resource-group-subscription.png)
+
+ 4. When you're done, make sure that you update any and all 
+ scripts with the new resource IDs for your artifacts.  
 
 ## Delete your integration account
 
