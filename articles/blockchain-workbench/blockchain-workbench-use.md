@@ -19,6 +19,9 @@ You can use Blockchain Workbench to create and take actions on contracts. You ca
 
 ## Prerequisites
 
+* A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) for details on deployment.
+* A deployed blockchain application in Blockchain Workbench. See [Create a blockchain application in Azure Blockchain Workbench]()
+
 [Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser.
 
 ![Blockchain Workbench](media/blockchain-workbench-use/workbench.png)
