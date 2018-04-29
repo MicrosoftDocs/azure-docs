@@ -13,7 +13,7 @@ ms.author: zhouwang
 ---
 # Support
 
-If you have questions, feedback, or suggestions about the Speech service, reach out to us via GitHub. 
+If you have questions, feedback, or suggestions about the Speech service, get in touch via GitHub. 
 
  - [REST API-related questions](https://github.com/Azure-Samples/SpeechToText-REST/issues)
  - [JavaScript library](https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript/issues)

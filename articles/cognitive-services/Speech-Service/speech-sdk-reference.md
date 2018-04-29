@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # Speech SDK reference
 
-The Speech service provides native client libraries (SDKs) to provide your applications access to the functions of the Speech service, making it easier to develop software. Currently, the SDKs provide access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
+The Speech service provides native client libraries (SDKs) to provide your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
 
 The table below the currently supported programming languages and operating systems.
 

@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Supported languages
 
-Different languages are supported for different Speech services functions. The tables below summarize these.
+Different languages are supported for different Speech services functions. The tables below summarize language support.
 
 ## Speech to Text
 
@@ -52,6 +52,22 @@ The Microsoft speech recognition API supports the following languages in `conver
 | en-US | English (United States) | pt-BR | Portuguese (Brazil) |
 | es-ES | Spanish (Spain) | ru-RU | Russian (Russia) |
 | fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
+
+### Customization
+
+The following languages are supported for custom Speech to Text language models.
+
+| Code | Language | Code | Language |
+|-|-|-|-|
+en-US | English (United States) | de-DE | German
+zh-CN | Chinese | pt-BR | Portuguese (Brazil)
+sp-SP | Spanish (Spain) | ru-RU | Russian
+fr-FR | French (France) | jp-JP | Japanese
+it-IT | Italian | ar-EG | Arabic (Egypt)
+
+Custom acoustic models support only US English (en-US). However, Chinese acoustic data sets can be imported for testing Chinese language models. 
+
+Custom pronunciation supports only US English (en-US) and German (de-DE).
 
 ## Text to Speech
 
@@ -142,11 +158,15 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 \* *ar-EG supports Modern Standard Arabic (MSA).*
 
+### Customization
+
+Custom Text to Speech voice fonts support US English (en-US) and Chinese (zh-CN).
+
 ## Speech Translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depends on whether the translation target is speech or text.
+The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
 
-You can access either list of languages programmatically via the REST Languages endpoint. The list provides the language code as well as the language name in English, or in any other supported language. This list is automatically updated by the Microsoft Translator service as new languages become available.
+You can obtain either list of languages programmatically using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 

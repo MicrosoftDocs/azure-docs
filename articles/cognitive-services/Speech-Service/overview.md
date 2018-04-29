@@ -13,12 +13,12 @@ ms.author: v-jerkin
 ---
 # Microsoft Speech overview (Preview)
 
-The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by state-of-the-art speech and language technologies used in other Microsoft products, including Cortana and Microsoft Office.
+The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.
 
 > [!NOTE]
 > The Speech service is currently in public preview. Return here regularly for updates to documentation, additional code samples, and more.
 
-With one subscription, the unified Speech service gives developers an easy way to give their applications powerful speech-enabled features, including voice command, transcription, dictation, speech synthesis, and translation.
+With one subscription, the unified Speech service gives developers an easy way to give their applications powerful speech-enabled features. Your apps can now feature voice command, transcription, dictation, speech synthesis, and translation.
 
 |Function|Description|
 |-|-|
@@ -31,7 +31,7 @@ With one subscription, the unified Speech service gives developers an easy way t
 
 ## Using the Speech service
 
-The function of the Speech service are made available in as many as three ways, depending on the function, including [native client SDKs](speech-sdk.md) that abstract away the details of the network and protocols.
+The function of the Speech service is made available in as many as three ways, depending on the function, including [native client SDKs](speech-sdk.md) that abstract away the details of the network and protocols.
 
 |<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|Description|
 |-|-|-|-|-|
@@ -53,11 +53,11 @@ Speech to Text has been separately optimized for interactive, conversation, and 
 
 The Speech to Text API supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
 
-If your users employ specialized vocabulary, work in noisy environments, or have dialects that the service has trouble understanding, you can create custom language and acoustic models to improve recognition accuracy.
+You can customize Speech to Text acoustinc and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
 ## Text to speech
 
-The [Text to Speech](./text-to-speech) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or regional accent, are available for many supported languages.
+The [Text to Speech](./text-to-speech) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages.
 
 The API supports Speech Synthesis Markup Language (SSML) tags, so you can specify exact phonetic pronunciation for troublesome words. SSML can also indicate speech characteristics (including emphasis, rate, volume, gender, and pitch) right in the text.
 
@@ -68,11 +68,11 @@ The following are common use cases for the Text to Speech API.
 > * Voice prompting for in-car applications such as navigation
 > * Conversational user interfaces in concert with the Speech to Text API
 
-If you need to support an additional dialect or simply want a unique voice for your application, the Text to Speech API supports custom voice models.
+If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports custom voice models.
 
 ## Speech translation
 
-The [Speech translation](../speech-translation) API can be used either to translate streaming audio in near-real-time or to process previously-recorded speech. In the case of streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
+The [Speech translation](../speech-translation) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
 
 Use cases for speech translation include the following.
 
@@ -82,7 +82,7 @@ Use cases for speech translation include the following.
  
 ## Speech Devices SDK
 
-With the introduction of the unified Speech service, Microsoft and its partrens now offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
+With the introduction of the unified Speech service, Microsoft and its partners now offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
 
 The Speech Devices SDK allows you to build your own ambient devices with a customized wake word—so the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
 

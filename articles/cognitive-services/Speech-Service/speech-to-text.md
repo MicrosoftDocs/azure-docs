@@ -13,13 +13,13 @@ ms.author: v-jerkin
 ---
 # Speech to Text overview
 
-The Speech to Text API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API (compatible with most programming languages).
+The Speech to Text API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API.
 
-The Speech to Text API offers the following:
+The Speech to Text API offers the following features:
 
 - Advanced speech recognition technology from Microsoft—the same used by Cortana, Office, and other Microsoft products.
 
-- Real-time continuous recognition. Speech to Text allows users to transcribe audio into text in real time, and supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and text normalization.
+- Real-time continuous recognition. Speech to Text allows users to transcribe audio into text in real time. It also supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and text normalization.
 
 - Optimized Speech to Text results for interactive, conversation, and dictation scenarios. 
 
@@ -27,7 +27,7 @@ The Speech to Text API offers the following:
 
 - Customized language and acoustic models, so you can tailor your application to your users way of speaking, speaking environment, and specialized vocabulary.
 
-- Natural-language understanding. Through integration with [Language Understanding](../LUIS) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can simply describe what they want in their own words.
+- Natural-language understanding. Through integration with [Language Understanding](../LUIS) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
 
 Some capabilities of the Speech to Text API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
 
@@ -38,7 +38,7 @@ Some capabilities of the Speech to Text API are not available via REST. The foll
 | Streaming audio with optional interim results | No | Yes | Yes |
 | Understand speaker intents using LUIS | No\* | No\* | Yes |
 
-\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and enttites, but this will require a separate LUIS subscription.
+\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need require a separate LUIS subscription.
 
 Start your free trial of the Speech service.
 

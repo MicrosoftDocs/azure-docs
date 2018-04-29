@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service WebSockets protocols
 
-The REST APIs of the unified Speech service are very similar to the APIs provided by the [Speech service](../speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](../translator-speech). In general, only the endpoints used differ.
+The WebSockets APIs of the unified Speech service are similar to the APIs provided by the [Speech service](../speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](../translator-speech). In general, only the endpoints used differ.
 
 > [!NOTE]
 > The Text to Speech feature does not have a WebSockets API. See [REST APIs](rest-apis.md).

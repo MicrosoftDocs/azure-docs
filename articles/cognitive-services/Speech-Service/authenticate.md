@@ -15,7 +15,7 @@ ms.author: zhouwang
 
 The Speech service supports authentication by with either a subscription key or an authorization token. For most applications, it is easier to use a subscription key, since obtaining an authorization token requires a subscription key anyway.
 
-You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech service, choose **Get API Key** to get two keys (primary and secondary). You may use use either key. Both keys are tied to the same quota.
+You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech service, choose **Get API Key** to get two keys (primary and secondary). You may use either key. Both keys are tied to the same quota.
 
 Paid subscription keys are available through your Azure dashboard.
 
@@ -29,7 +29,7 @@ Name| Format| Description
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
-The following is an example of a request header. The request uses the `westus` endpoint for Text to Speech; if your subscription is in another region, adjust the URL accordingly.
+Below is an example of a request header. The request uses the `westus` endpoint for Text to Speech; if your subscription is in another region, adjust the URL accordingly.
 
 TODO update service endpoint
 
@@ -69,7 +69,7 @@ The token service endpoint is relative to function you are using and the region.
 
 ### Obtain a token
 
-The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions (or Windows Subsystem for Linux), or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
+The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions, or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
 
 # [PowerShell](#tab/Powershell)
 
@@ -230,7 +230,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### Renew a token
 
-The authorization token expires after a certain time period (currently 10 minutes). You need to renew the authorization token before it expires. The following code is an example implementation in C# of how to renew the authorization token. As before, use the appropriate token service endpoint for the Speech function you are using and the region your subscription is in.
+The authorization token expires after a certain time period (currently 10 minutes). You must renew the authorization token before it expires. The following code is an example implementation in C# of how to renew the authorization token. The token is cached until it is close to expiring. As before, use the appropriate token service endpoint for the Speech function you are using and the region your subscription is in.
 
 ```cs
     /*

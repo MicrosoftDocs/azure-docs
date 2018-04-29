@@ -27,4 +27,4 @@ You can find samples for use of the Speech service on GitHub. A number of use ca
 
 - [ObjectiveC on iOS samples](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-All Microsoft Cognitive Services SDKs and samples are provided under the MIT License. For more information, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+All SDKs and samples are provided under the MIT License. For more information, see [LICENSE](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

@@ -13,25 +13,27 @@ ms.author: v-jerkin
 ---
 
 # Transcription guidelines
-Customizing Speech to Text or Text to Speech requires that text be provided along with speech. The text is called a *transcript.* For correct results, the transcript must be in the proper format.
+Customizing Speech to Text or Text to Speech requires text to be provided along with speech. Each line in the text corresponds to a single utterance. The text is called a *transcript,* and you must create it in a specific format.
 
-The Speech service will do some normalization for you. The rest must be performed before the text is submitted for training. This article describes both types of normalization. The guidelines vary slightly for various languages.
+The Speech service will do some normalization for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
+
+This article describes both types of normalization. The guidelines vary slightly for various languages.
 
 ## US English (en-US)
 
 Text data uploaded to this service should be written in plain text using only the ASCII character set. Each line of the file should contain the text for a single utterance.
 
-It is important to avoid the use of extended (Latin-1) or Unicode punctuation characters. This can happen inadvertently when preparing the data in a word processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
+It is important to avoid the use of extended (Latin-1) or Unicode punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace these characters with appropriate ASCII substitutions. For example:
 
 | Characters to avoid | Substitution |
 |----- | ----- |
 | “Hello world” (open and close double quotes) | "Hello world" (double quotes) |
 | John’s day (right single quotation mark) | John's day (apostrophe) |
-| it was good—no, it was great (em dash) | it was good--no, it was great |
+| it was good—no, it was great! (em dash) | it was good--no, it was great! |
 
 ### Text normalization performed by the service
 
-The Speech performs the following text normalization on text trancripts.
+The Speech service performs the following text normalization on text transcripts.
 
 *   Lower-casing all text
 *   Removing all punctuation except word-internal apostrophes
@@ -58,8 +60,8 @@ Apply the following normalization to your text transcripts.
 *   Abbreviations should be written out in words to reflect spoken form
 *   Non-standard numeric strings (such as some date or accounting forms) should be written out in words
 *   Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced
-*   Abbreviations pronounced as words (radar, laser, RAM, NATO, Mr.) can be left as a single word without periods or spaces between the letters
-*   Abbreviations pronounced as separate letters (IBM, CPU, FBI, TBD, NaN) should be written as such, with each letter separated by a single space
+*   Abbreviations pronounced as words (radar, laser, RAM, NATO, Mr.) can be left as a single word with nothing between the letters
+*   Abbreviations pronounced as separate letters (IBM, CPU, FBI, TBD, NaN) should be written with letters separated by spaces
 
 Here are some examples:
 
@@ -75,13 +77,12 @@ Here are some examples:
 | water is H20 | water is H 2 O |
 | play OU812 by Van Halen | play O U 8 1 2 by Van Halen |
 | UTF-8 with BOM | U T F 8 with BOM |
-| Made in the USA | Made in the U S A |
 
 ## Chinese (zh-CN)
 
 Text data uploaded to the Custom Speech Service should use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
 
-It is important to avoid the use of half-width punctuation characters. This can happen inadvertently if preparing the data in a word processing program or scraping data from web pages. Replace these characters with appropriate full-width substitutions. For example:
+It is important to avoid the use of half-width punctuation characters. These characters can be included inadvertently when preparing the data in a word-processing program or scraping data from web pages. Replace them with appropriate full-width substitutions. For example:
 
 | Characters to avoid | Substitution |
 |----- | ----- |
@@ -90,7 +91,7 @@ It is important to avoid the use of half-width punctuation characters. This can 
 
 ### Text normalization performed by the service
 
-The Speech to Text service will perform the following normalization on data imported as a language data set or transcriptions for an acoustic data set.
+The Speech to Text service performs the following normalization on data imported as a language data set or transcriptions for an acoustic data set.
 
 *   Removing all punctuation
 *   Expanding numbers to spoken form
@@ -114,7 +115,7 @@ Here are some examples.
 Apply the following normalization to your text before importing it.
 
 *   Abbreviations should be written out in words to reflect spoken form
-*   This service doesn't cover all numeric quantities. It is more reliable to write numeric strings out in spoken form
+*   This service doesn't cover all numeric quantities. It is more reliable to write out numeric strings in spoken form
 
 Here are some examples.
 
@@ -128,7 +129,7 @@ Here are some examples.
 Text data uploaded to the Speech to Text service must use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
 
 > [!NOTE]
-> We will use German for our examples. However, these guidelines apply to all languages that are not US English or Chinese.
+> These examples use German. However, these guidelines apply to all languages that are not US English or Chinese.
 
 ### Text normalization performed by the service
 
@@ -154,12 +155,12 @@ Here are some examples
 
 Apply the following normalization to your text before importing it.
 
-*   Decimal point should be , and not . e.g., 2,3% and not 2.3%
-*   Time separator between hours and minutes should be : and not ., e.g., 12:00 Uhr
+*   Decimal point should be "," and not ".": 2,3% and not 2.3%
+*   Time separator between hours and minutes should be ":" and not ".": 12:00 Uhr
 *   Abbreviations such as 'ca.', 'bzw.' are not replaced. We recommend you use the full form.
-*   The five main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form, e.g., plus, minus, mal, geteilt.
+*   The five main mathematical operators are removed: +, -, \*, /. We recommend replacing them with their literal form: plus, minus, mal, geteilt.
 *   Same applies for comparison operators (=, <, >) - gleich, kleiner als, grösser als
-*   Use fractions, such as 3/4, in word form (e.g. 'drei viertel' instead of ¾)
+*   Use fractions, such as 3/4, in word form (such as 'drei viertel' instead of ¾)
 *   Replace the € symbol with the word form "Euro"
 
 Here are some examples.

@@ -27,9 +27,9 @@ Consider the following guidelines when choosing a wake word.
 
 1. A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example: “computerama” could be a good wake word.
 
-1. Do not choose a very common word. For example, "eat“ and “come” are words that people say frequently in ordinary conversation, and could be false triggers for your device.
+1. Do not choose a common word. For example, "eat“ and “go” are words that people say frequently in ordinary conversation. They could be false triggers for your device.
 
-1. Avoid using a wake word that could have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, “509” could be pronounced as “five zero nine”, “five oh nine”, or “five hundred and nine.” “R.E.I.” could be pronounced as “R E I” or “Ray”. “Live” could be pronounced as [līv] or [liv].
+1. Avoid using a wake word that could have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, “509” could be pronounced as “five zero nine”, “five oh nine”, or “five hundred and nine.” “R.E.I.” could be pronounced as “R E I” or “Ray.” “Live” could be pronounced as [līv] or [liv].
 
 1. Do not use special characters, symbols, or digits. For example, "Go#" and "20 + cats" would not be good wake words. However, "go sharp" or "twenty plus cats" could work. You can still use the symbols in your branding, but use marketing and documentation to reinforce the proper pronunciation.
 
@@ -38,11 +38,11 @@ Consider the following guidelines when choosing a wake word.
 
 ## Creating your wake word
 
-Before you can use a custom wake word with your device, you must create it using the Microsoft Speech service. You will receive a file that you will deploy in your development kit to enable the wake word.
+You must create your custom wake word using the Microsoft Speech service before you can use it. You will receive a file to be deployed in the development kit to enable the wake word.
 
 1. Go to https://cris.ai/.
 
-2. Create a new account with the email address that you previously used to request access to the Azure Active Directory.<p>![create new account](Images/speech-devices-sdk/wake-word-1.png)<p>The email invitation you receive from Azure Active Directory looks like this:<p>![create new account](Images/speech-devices-sdk/wake-word-2.png)
+2. Create a new account with the email address that you previously used to request access to the Azure Active Directory.<p>![create new account](Images/speech-devices-sdk/wake-word-1.png)<p>The email invitation you receive from Azure Active Directory looks like:<p>![create new account](Images/speech-devices-sdk/wake-word-2.png)
  
 3.	Once logged in, fill out the form, then click **Start the Journey.**<p>![succellfully logged in](Images/speech-devices-sdk/wake-word-3.png)
  

@@ -22,7 +22,9 @@ The table below the currently supported programming languages and operating syst
 |-|-|
 |Windows|C/C++, C#|
 |Linux|C/C++|
-|Any|Java|
+|Any|Java*|
+
+\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.*
 
 Additional languages and platforms are currently being considered for future support.
 
@@ -32,7 +34,7 @@ The Windows version of the Speech SDK includes 32-bit and 64-bit C/C++ client li
 
 ## Getting the C++ SDK
 
-On Ubuntu 16.04, ensure that you have the necessary compiler and libraries by running the following commands:
+If you are running Ubuntu 16.04, ensure that you have the required compiler and libraries. Run the following shell commands:
 
 ```sh
 sudo apt-get update
