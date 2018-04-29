@@ -69,7 +69,7 @@ The token service endpoint is relative to function you are using and the region.
 
 ### Obtain a token
 
-The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions (or Windows Subsystem for Linux), or the C# programming language. A sample HTTP request and response are also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
+The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions (or Windows Subsystem for Linux), or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
 
 # [PowerShell](#tab/Powershell)
 
@@ -131,7 +131,7 @@ curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-for
     }
 ```
 
-# HTTP
+# HTTP(#tab/HTTP)
 
 ```
 POST TOKEN_SERVICE_ENDPOINT HTTP/1.1
