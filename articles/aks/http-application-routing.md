@@ -13,37 +13,42 @@ ms.author: laevenso
 
 # HTTP application routing
 
-The HTTP Application Routing addon makes it easy to access applications deployed to your AKS cluster by providing a public DNS record and associated IP endpoint. Each cluster with this addon enabled will have an associated DNS Zone created.
+The HTTP Application Routing addon makes it easy to access applications deployed to your AKS cluster. This feature provides an auto generated DNS records and IP endpoint for your applications.
 
-> [!NOTE]
-> Enabling this addon will create a DNS Zone in your subscription. See [DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/) for more information.
+Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
 
 ## Understanding HTTP application routing addon on AKS
 
 The addon deploys two components a [Kubernetes Ingress Controller](ingress) and [External-DNS](external-dns).
 
-The Kubernetes ingress controller watches and implements [Kubernetes ingress resources](ingress-resource). The ingress controller is exposed as a Kubernetes service of type LoadBalancer which makes it accessible via the Internet.
+The Kubernetes ingress controller watches and implements [Kubernetes ingress resources](ingress-resource). The ingress controller is exposed as a Kubernetes service of type LoadBalancer, which makes it accessible via the Internet.
 
 External-DNS watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
 The HTTP Application routing addon will only be triggered on Ingress resources that are annotated as follows:
-* kubernetes.io/ingress.class=addon-http-application-routing
+
+```
+annotations:
+  kubernetes.io/ingress.class: addon-http-application-routing
+```
 
 ## Create an AKS cluster
 
-The HTTP Application Routing addon can be enabled throug the Azure portal when deploying an AKS cluster.
+The HTTP Application Routing addon can be enabled through the Azure portal when deploying an AKS cluster.
 
-![Enable HTTP routing](media/http-routing/create.png)
+![Enable the HTTP routing feature](media/http-routing/create.png)
 
 ## Confirm DNS zone
 
-![Enable HTTP routing](media/http-routing/dns.png)
+Once the cluster has been deployed, browse to the auto-created AKS resource group and select the DNS zone. Take note of the DNS zone name. This name is needed when deploying applications to the AKS cluster.
+
+![Get the DNS zone name](media/http-routing/dns.png)
 
 ## Deploy and expose sample application
 
-Consider the following application deployment that contains resources Kubernetes Deployment, Service and Ingress resource manifests.
+Create a file named `samples-http-application-routing.yaml` and copy in the following YAML. On line 43, update `<CLUSTER_SPECIFIC_DNS_ZONE>` with the DNS zone name.
 
-Copy the manifests and save as **samples-http-application-routing.yaml**. Then locate the following line `host: party-clippy.<CLUSTER_SPECIFIC_DNS_ZONE>` and with the DNS Zone name from the `Confirm DNS Zone section above`.
+This Kubernetes manifest creates a deployment, service, and an ingress resource. Because the ingress resource has an annotation of `addon-http-application-routing`, the HTTP routing addon creates a DNS record specific to the service endpoint.
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -94,7 +99,7 @@ spec:
         path: /
 ```
 
-Use the [kubectl create][kubectl-create] command to create the resources. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl create][kubectl-create] command to create the resources.
 
 ```
 $ kubectl create -f samples-http-application-routing.yaml
@@ -104,17 +109,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Monitor the progress of the pod until `Running` STATUS [kubectl get pods][kubectl-get] command with the `--watch` argument.
-
-```
-$ kubectl get pods --selector app=party-clippy --watch
-
-NAME                            READY     STATUS              RESTARTS   AGE
-party-clippy-5fc696c989-q2w68   0/1       ContainerCreating   0          2s
-party-clippy-5fc696c989-q2w68   1/1       Running             0         3s
-```
-
-Using CURL or a browser navigate to the hostname specified in the host section of `samples-http-application-routing.yaml`.
+Use CURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file.
 
 > [!NOTE]
 > The application may take up to one minute before it's available via the Internet.
@@ -191,7 +186,9 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 ```
 
 ## Cleanup
+
 Remove the associated Kubernetes objects created in this step.
+
 ```
 $ kubectl delete -f samples-http-application-routing.yaml
 
