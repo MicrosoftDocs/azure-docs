@@ -18,7 +18,7 @@ ms.author: msfussell
 
 ---
 # DNS Service in Azure Service Fabric
-The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol.
+The DNS Service is an optional system service that you can enable in your cluster to discover other services using the DNS protocol. 
 
 Many services, especially containerized services, can have an existing URL name, and being able to resolve them using the standard DNS protocol (rather than the Naming Service protocol) is desirable, particularly in "lift and shift" scenarios. The DNS service enables you to map DNS names to a service name and hence resolve endpoint IP addresses. 
 
@@ -29,7 +29,10 @@ The DNS service maps DNS names to service names, which in turn are resolved by t
 You can use the DNS service to resolve stateless services exposed on well-known, static ports. To resolve services exposed on dynamic ports, use the [reverse proxy service](./service-fabric-reverseproxy.md). The DNS service supports A and SRV records. SRV records include the port exposed by the service endpoints; however, the SRV record information is only reliable if the port is the same across service instances.
 
 ## Enabling the DNS service
-First you need to enable the DNS service in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)  or create a Resource Manager template. You can enable the DNS service with the following steps:
+First you need to make sure that the DNS service is enabled in your cluster. 
+
+- If you are creating a cluster using the Azure portal, make sure that  **Include DNS service** is checked (it is checked by default) on the Cluster Configuration 
+- If you are creating a cluster using Azure Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)  or create a your own Resource Manager template. You can enable the DNS service with the following steps:
 
 1. Check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource, and if not, update it as shown in the following snippet:
 
@@ -64,9 +67,7 @@ Alternatively, you can enable the DNS service through the portal at the time of 
 ## Setting the DNS name for your service
 Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through PowerShell commands.
 
-> [!Important]
-> The DNS name for your service must contain at least one period ('.'). For example, `service1.application1` is a valid service DNS name, but `service1` is not.
->
+The DNS name for your service is resolvable throughout the cluster. It is a best practice to use a standard naming scheme of `<ServiceDnsName>.<AppInstanceName>`, for example `service1.application1`, to ensure the uniqueness of the DNS name throughout the cluster. If an application is deployed using Docker compose, services are automatically assigned DNS names using the standard naming scheme.
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
