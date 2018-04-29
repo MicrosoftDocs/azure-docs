@@ -185,6 +185,8 @@
       href: durable-functions-unit-testing.md
     - name: Event publishing
       href: durable-functions-event-publishing.md
+    - name: Use WebJobs SDK
+      href: durable-functions-webjobs-sdk.md      
 - name: Reference
   items:
   - name: Bindings
