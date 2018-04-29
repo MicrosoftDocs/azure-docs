@@ -58,6 +58,12 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Select correct intent](./media/luis-how-to-train-test/intent-select.png)
 
+## View sentiment results
+
+If **Sentiment analysis** is configured on the **Publish** page, the test results will include the sentiment found in the utterance. 
+
+![Image of Test pane with sentiment analysis](./media/luis-how-to-train-test/sentiment.png)
+
 ## Correct matched pattern's intent
 If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
 

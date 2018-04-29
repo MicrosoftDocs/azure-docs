@@ -24,7 +24,7 @@ You can publish your app to the **Staging slot** or the **Production Slot**. By 
 <!-- TBD: what is the technical difference? log files, endpoint quota? -->
 
 ## Configure settings then publish
-Publish to the endpoint after changes to the following settings.
+Train and publish to the endpoint after changes to the following settings. Train in order to see results in interactive [Test](Train-Test.md) panel.
 
 ### Set Timezone offset
 Part of the slot choice is the time zone selection. This timezone setting allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
@@ -113,7 +113,7 @@ See [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial for more in
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
 ## Publish your trained app to an HTTP endpoint
-Publish to the endpoint after changes to the previous settings.
+Train and publish to the endpoint after changes to the following settings. Train in order to see results in interactive [Test](Train-Test.md) panel.
 
 Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. 
 
