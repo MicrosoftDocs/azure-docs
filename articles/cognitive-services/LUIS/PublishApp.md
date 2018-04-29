@@ -68,7 +68,7 @@ See [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial for more in
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
 ## Endpoint URL settings
-Endpoint URL services settings include **[Timezone](#set-timezone-offset)** offset, **[all predicted intent scores](#include-all-predicted-intent-scores)**, and **[Bing spell checker](enable-bing-spell-checker)**.
+Endpoint URL services settings include **[Timezone](#set-timezone-offset)** offset, **[all predicted intent scores](#include-all-predicted-intent-scores)**, and **[Bing spell checker](#enable-bing-spell-checker)**.
 
 ### Set Timezone offset 
 Part of the slot choice is the time zone selection. This timezone setting allows LUIS to [alter](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) any prebuilt datetimeV2 time values during prediction so that the returned entity data is correct according to the selected time zone. 
