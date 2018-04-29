@@ -19,11 +19,11 @@ ms.author: wesmc
 ---
 # Tutorial: Azure SignalR Service authentication
 
-This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete those exercises first. 
+This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
-The authentication initally used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the authentication API on the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
+The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the authentication API on the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
 [GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to require true authentication through a Github account before allowing client logins to the chat room application. 
 
@@ -68,7 +68,7 @@ To complete this tutorial, you must have the following prerequisites:
     | Application name | *Azure SignalR Chat* | The github user should be able to recognize and trust the app they are authenticating with.   |
     | Homepage URL | *http://localhost:5000/home* | |
     | Application description | *A chat room sample using the Azure SignalR Service with Github authentication* | A useful description of the application that will help your application users understand the context of the authentication being used. |
-    | Authorization callback URL | *http://localhost:5000/api/auth/callback* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. |
+    | Authorization callback URL | *http://localhost:5000/signin-github* | This setting is the most important setting for your OAuth application. It's the callback URL that GitHub returns the user to after successful authentication. In this tutorial, you must use the default callback URL for the *AspNet.Security.OAuth.GitHub* package, */signin-github*.  |
 
 4. Once the new OAuth app registration is complete, add the *Client ID* and *Client Secret* to Secret Manager using the following commands. Replace *Your_GitHub_Client_Id* and *Your_GitHub_Client_Secret* with the values for your OAuth app.
 
@@ -120,7 +120,7 @@ To complete this tutorial, you must have the following prerequisites:
         });
     ```
 
-4. Add the following helper method to the `Startup` class, and save the file:    
+4. Add the `GetUserCompanyInfoAsync` helper method to the `Startup` class.    
 
     ```csharp
     private static async Task GetUserCompanyInfoAsync(OAuthCreatingTicketContext context)
@@ -145,6 +145,11 @@ To complete this tutorial, you must have the following prerequisites:
     }        
     ```
 
+5. Update the `Configure` method of the Startup class with the following line of code, and save the file.
+
+        app.UseAuthentication();
+
+
 
 ### Add an authentication controller
 
@@ -152,7 +157,7 @@ In this section, you will implement a `Login` API that authenticates clients usi
 
 1. Add a new controller code file to the *chattest\Controllers* directory. Name the file *AuthController.cs*.
 
-2. Add the following code for the authentication controller. Make sure to update the namespace to be your namespace, if your project directory was not *chattest*:
+2. Add the following code for the authentication controller. Make sure to update the namespace, if your project directory was not *chattest*:
 
     ```csharp
     using AspNet.Security.OAuth.GitHub;
@@ -189,12 +194,11 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 1. Open *Hub\Chat.cs* and Add references to these namespaces:
 
     ```csharp
-    using System.Linq;
-    using System.Security.Claims;    
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Authorization;
     ```
 
-2. Update the hub code as shown below. This code adds the `Authorize` attribute to the `Chat` class, and uses the user's authenticated idenity in the hub methods. Also, the `OnConnectedAsync` method is added, which will log a system message to the chat room each time a new client connects.
+2. Update the hub code as shown below. This code adds the `Authorize` attribute to the `Chat` class, and uses the user's authenticated identity in the hub methods. Also, the `OnConnectedAsync` method is added, which will log a system message to the chat room each time a new client connects.
 
     ```csharp
     [Authorize]
@@ -224,7 +228,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 ### Update the web client code
 
-1. Open *wwwroot\index.html* and replace the code that prompts for the username with code to use the cookie
+1. Open *wwwroot\index.html* and replace the code that prompts for the username with code to use the cookie returned by the authentication controller.
 
     Remove the following code from *index.html*:
 
@@ -356,7 +360,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    
 
-4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link at the top to login with GitHub. 
+4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link at the top to log in with GitHub. 
 
     ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 

@@ -30,6 +30,12 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
+This script uses the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI before using this sample script:
+
+```azurecli-interactive
+az extension add -n signalr
+```
+
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh "Create a new Azure SignalR Service and Web App")]
 
 Make a note of the actual name generated for the new resource group. It will be shown in the output. You will use that resource group name when you want to delete all group resources.

@@ -30,7 +30,13 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Sample script
 
-This script creates a new SignalR Service resource and a new resource group.
+This script uses the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI before using this sample script:
+
+```azurecli-interactive
+az extension add -n signalr
+```
+
+This script creates a new SignalR Service resource and a new resource group. 
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-service-and-group/create-signalr-service-and-group.sh "Creates a new Azure SignalR Service resource and resource group")]
 
