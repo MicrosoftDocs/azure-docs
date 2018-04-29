@@ -47,7 +47,7 @@ Container images can be broadly categorized into *base* images and *application*
 
 When an OS or app framework image is updated by the upstream maintainer, for example with a critical OS security patch, you must also update your base images to include the critical fix. Each application image must then also be rebuilt to include these upstream fixes now included in your base image.
 
-Because ACR Build dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated and needs to be rebuilt. With this automatic detection and rebuilding, ACR Build saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
+Because ACR Build dynamically discovers base image dependencies when it builds a container image, it can detect when an application image's base image is updated. With one preconfigured [build task](container-registry-tutorial-base-image-update.md#create-build-task), ACR Build then **automatically rebuilds every application image** for you. With this automatic detection and rebuilding, ACR Build saves you the time and effort normally required to manually track and update each and every application image referencing your updated base image.
 
 Learn about OS and framework patching in the third ACR Build tutorial, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
