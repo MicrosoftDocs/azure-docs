@@ -6,7 +6,7 @@ description: Learn how to integrate the Remote Monitoring solution with Azure Da
 +author: philmea
 +manager: timlt
 +ms.author: philmea
-+ms.date: 04/06/2018
++ms.date: 04/029/2018
 +ms.topic: article
 +ms.service: iot-suite
 
@@ -27,7 +27,7 @@ To complete this how-to, you will need the following:
   * Your Data Lake Store should be deployed to the same region as your Remote Monitoring solution.
   * [Create a folder](/data-lake-store/data-lake-store-get-started-portal#createfolder) named "streaming" in your account.
 
-## Create a consumer group in the IoT hub of your Remote Monitoring solution
+## Create a consumer group
 
 Create a dedicated consumer group in the IoT hub of your Remote Monitoring solution. This will be used by the Stream Analytics job for streaming data to your Data Lake Store.
 
@@ -48,11 +48,31 @@ az iot hub consumer-group create --hub-name contoso-rm30263 --name streamanalyti
 
 [!NOTE] Use the resource group and IoT hub names from your Remote Monitoring solution.
 
+## Create Stream Analytics Job
+
+Create an Azure Stream Analytics job to stream the data from your IoT hub to your Azure Data Lake store.
+
+1. Click **Create a resource**, select Internet of Things from the Marketplace, and click **Stream Analytics job**.
+
+![New Stream Analytics Job](media/iot-suite-integrate-data-lake/new-stream-analytics-job.png)
+
+1. Enter a job name and select the appropriate Subscription and Resource group.
+
+1. Select a Location in the near or in the same region as your Data Lake Store. Here we are using East US.
+
+1. Ensure to leave the Hosting environment as the default **Cloud**.
+
+1. Click **Create**.
+
+![Create Stream Analytics Job](media/iot-suite-integrate-data-lake/create-stream-analytics-job.png)
+
 ## Configure the Stream Analytics job
 
 1. Go to the **Stream Analytics job** in your Remote Monitoring solution resource group.
 
 1. On the Overview page, click **Inputs**.
+
+![Overview Page](media/iot-suite-integrate-data-lake/stream-analytics-overview.png)
 
 1. Click **Add stream input** and select **IoT Hub** from the drop-down.
 
