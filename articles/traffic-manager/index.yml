@@ -40,7 +40,6 @@ sections:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Route traffic for low latency</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Distribute traffic across endpoints</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Route traffic to a priority endpoint</a>
-    - html: Send Real User Measurements to Traffic Manager<ul><li><a href="/azure/traffic-manager/traffic-manager-create-rum-visual-studio">Using Visual Studio SDK</a></li><li><a href="/azure/traffic-manager/traffic-manager-create-rum-web-pages">Using web pages</a></li></ul>
 - title: Free Pluralsight Video Training
   items:
   - type: list
