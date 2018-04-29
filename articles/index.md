@@ -3908,7 +3908,7 @@ featureFlags:
                                                     <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azurereference-index">Reference</a>
+                                                    <a href="/cli/azure/reference-index">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
