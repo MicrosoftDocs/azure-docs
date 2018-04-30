@@ -23,7 +23,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: See how quickly/easily you can learn about Azure IoT by exploring these quickstarts
+    text: Learn about Azure IoT quickly and easily by exploring these articles.
   - type: list
     style: unordered
     items:
@@ -53,7 +53,7 @@ sections:
     - html: <a href="/azure/time-series-insights">Azure Time Series Insights</a>
     - html: <a href="/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks">IoT Service SDKs</a>
   - type: paragraph
-    text: Build the intelligent edge.
+    text: Build the solutions with IoT devices and edge computing.
   - type: list
     style: unordered
     items:
