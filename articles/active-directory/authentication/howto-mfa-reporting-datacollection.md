@@ -188,4 +188,4 @@ Use the [Microsoft Privacy Portal](https://portal.azure.com/?feature.customporta
 
 ## Next steps
 
-[MFA Server reporting](multi-factor-authentication-manage-reports.md)
+[MFA Server reporting](howto-mfa-reporting.md)
