@@ -14625,6 +14625,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-what-is-iot-hub.md",
+            "redirect_url": "/azure/iot-hub/about-iot-hub",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-automate-powershell.md",
             "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
             "redirect_document_id": false

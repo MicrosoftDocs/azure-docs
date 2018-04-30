@@ -2,7 +2,7 @@
 # [IoT Hub Documentation](index.md)
 
 # Overview
-## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
+## [What is Azure IoT Hub?](about-iot-hub.md)
 
 # Quickstarts
 ## [Send telemetry (Node.js)](quickstart-send-telemetry-node.md)
