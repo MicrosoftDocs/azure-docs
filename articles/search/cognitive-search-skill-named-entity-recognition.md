@@ -15,7 +15,7 @@ ms.author: luisca
 
 #	 Named Entity Recognition cognitive skill
 
-The **Named Entity Recognition** skill extracts named entities from text. Available entities include the following types: person, location, and organization.
+The **Named Entity Recognition** skill extracts named entities from text. Available entities include the types `person`, `location`, and `organization`.
 
 ## @odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -34,7 +34,7 @@ Parameters are case-sensitive.
 
 | Input name	  | Description                   |
 |---------------|-------------------------------|
-| languageCode	| Optional. Default is `"en"`.    |
+| languageCode	| Optional. Default is `"en"`.  |
 | text          | The text to analyze.          |
 
 ## Skill outputs
@@ -44,7 +44,7 @@ Parameters are case-sensitive.
 | persons	   | An array of strings where each string represents the name of a person. |
 | locations  | An array of strings where each string represents a location. |
 | organizations  | An array of strings where each string represents an organization. |
-| entities | An array of complex types. Each complex type will include the following fields: category (`"person"`, `"organization"` or `"location"`), value (the actual entity name), offset (The location where it was found in the text) and confidence (A value between 0 and 1 that represents that confidence that the value is an actual entity). |
+| entities | An array of complex types. Each complex type includes the following fields: <ul><li>category (`"person"`, `"organization"`, or `"location"`)</li> <li>value (the actual entity name)</li><li>offset (The location where it was found in the text)</li><li>confidence (A value between 0 and 1 that represents that confidence that the value is an actual entity)</li></ul> |
 
 ##	Sample definition
 
