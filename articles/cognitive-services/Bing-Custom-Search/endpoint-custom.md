@@ -12,8 +12,7 @@ ms.author: v-gedod
 ---
 
 # Custom Search
-
-The **Custom Search API**  includes one endpoint, which returns results from the Web based on a [user-defined set](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page) of sources. 
+Bing Custom Search enables you to create tailored search experiences for topics that you care about. Your users see search results tailored to the content they care about instead of having to page through search results that have irrelevant content.
 
 ## Custom Search Endpoint
 To get results using the Bing Custom Search API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.

@@ -16,9 +16,9 @@ A Custom Search instance lets you tailor the search experience to include conten
 To create your custom view of the web, use the Bing Custom Search [portal](https://customsearch.ai). For information about signing in to the portal, see [Create your first Bing Custom Search instance](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/quick-start). The portal lets you create a search instance that specifies the domains, subpages, and webpages that you want Bing to search, and those that you don’t want it to search. In addition to specifying the URLs of the content that you know about, you can also ask the portal to suggest content that you may want to add to your view. 
 The following are the ways that you can define a slice of the web: 
 
-1.	Domain. A domain slice includes all content found within. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
+1.	Domain. A domain slice includes all content found within an internet domain. For example, www.microsoft.com. Omitting 'www' causes Bing to also search the domain’s subdomains. For example, if you specify microsoft.com, Bing also returns results from support.microsoft.com or technet.microsoft.com.
 2.	Subpage. A subpage slice includes all content found in the subpage and paths below it. You may specify a maximum of two subpages in the path. For example, www.microsoft.com/en-us/windows/ 
-3.	Webpage. A webpage slice can include only that webpage in a custom search. An option in the **Search Experience** section specifies whether to include subpages.
+3.	Webpage. A webpage slice can include only that webpage in a custom search. You can optionally specify whether to include subpages.
 
 All domains, subpages, and webpages that you specify must be public and indexed by Bing. If you own a public site that you want to include in the search, and Bing hasn’t indexed it, see the Bing [webmaster documentation](https://www.bing.com/webmaster/help/webmaster-guidelines-30fba23a) for details about getting Bing to index it. Also, see the webmaster documentation for details about getting Bing to update your crawled site if the index is out of date.
 
@@ -26,7 +26,7 @@ All domains, subpages, and webpages that you specify must be public and indexed 
 When you define your custom search instance, you specify the active and blocked domains, subpages, and webpages that you want to search or not search.  
 
 - Active: A list of domains, subpages, or webpages to include in the search. 
-- Blocked: A list of domain, subpages, or webpages to exclude from the search. The items that you block should be content found under the domains and subpages listed in your Active list 
+- Blocked: A list of domain, subpages, or webpages to exclude from the search. The items that you block should be content found under the domains and subpages listed in your Active list.
 
 To access each list, click on the Active and Blocked tabs in your custom search instance. 
 
