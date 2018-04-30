@@ -81,11 +81,11 @@
       href: luis-concept-utterance.md
     - name: Roles
       href: luis-concept-roles.md
-  - name: Predictions
+  - name: Improve app performance
     items:
     - name: Prediction score
       href: luis-concept-prediction-score.md
-    - name: Features
+    - name: Phrase lists
       href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md

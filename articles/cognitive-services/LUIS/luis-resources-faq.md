@@ -163,7 +163,9 @@ See [Security Compliance](luis-concept-security.md#security-compliance) for ISO 
 ### Is LUIS available on-premise or in private cloud?
 No. 
 
-## Where did the tutorials go? 
+## Changes to the Docs
+
+### Where did the tutorials go? 
 The articles that were previously in the Tutorial section are now in the How-to section of the documents. 
 
 |Tutorial|
@@ -176,6 +178,16 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
 |[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
+### At the Build 2018 Conference, I heard about a Language Understanding feature but I don't remember what it was called? 
+
+The following features where released at the Build 2018 Conference:
+
+|Name|Content|
+|--|--|
+|Enhancements|[Regular expression](luis-concept-data-extraction.md##regular-expression-entity-data) entity and [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity
+|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
+|Integrations|[Text analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integration of [sentiment analysis](publishapp.md#enable-sentiment-analysis)<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech) integration of [speech priming](publishapp.md#enable-speech-priming) in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
+|Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
 ## Next steps
 
