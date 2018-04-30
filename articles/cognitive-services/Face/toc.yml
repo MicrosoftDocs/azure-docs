@@ -3,7 +3,7 @@
   items:
   - name: What is Face API
     href: Overview.md
-- name: How to
+- name: How to guides
   items:
   - name: Try Face API
     items:
