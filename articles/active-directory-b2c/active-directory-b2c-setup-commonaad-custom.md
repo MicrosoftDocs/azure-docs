@@ -21,7 +21,7 @@ ms.author: parakhj
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-This article shows you how to enable sign-in for users using the common endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md). This allows users from multiple Azure AD tenants to sign into Azure AD B2C without configuring a technical provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you will have to [individually configure each tenant](active-directory-b2c-setup-aad-custom.md).
+This article shows you how to enable sign-in for users using the multi-tenant endpoint for Azure Active Directory (Azure AD) through the use of [custom policies](active-directory-b2c-overview-custom.md). This allows users from multiple Azure AD tenants to sign into Azure AD B2C without configuring a technical provider for each tenant. However, guest members in any of these tenants **will not** be able to sign in. For that, you will have to [individually configure each tenant](active-directory-b2c-setup-aad-custom.md).
 
 >[!NOTE]
 > We use "contoso.com" for the organizational Azure AD tenant and "fabrikamb2c.onmicrosoft.com" as the Azure AD B2C tenant in the following instructions.
@@ -40,7 +40,7 @@ These steps include:
 
 ## Step 1. Create a multi-tenant Azure AD app
 
-To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
+To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in one of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant to register the Azure AD application (fabrikamb2c.onmicrosoft.com).
