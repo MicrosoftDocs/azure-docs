@@ -209,7 +209,11 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
 
     '''
     import org.apache.spark.eventhubs._
-    val connectionString = ConnectionStringBuilder("Endpoint=sb://myeventhubns20180403.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=").setEventHubName("myeventhub20180403").build 
+    // Event hub configurations
+    // Replace values below with yours        
+    val eventHubName = "<Event hub name>"
+    val eventHubNSConnStr = "<Event hub namespace connection string>"
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
     
     val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
