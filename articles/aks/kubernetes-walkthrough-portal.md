@@ -3,7 +3,7 @@ title: Quickstart - Azure Kubernetes cluster portal quickstart
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure portal.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
