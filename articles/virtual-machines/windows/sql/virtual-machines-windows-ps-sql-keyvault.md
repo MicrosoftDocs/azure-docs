@@ -7,18 +7,17 @@ author: rothja
 manager: craigg
 editor: ''
 tags: azure-service-management
-
 ms.assetid: cd66dfb1-0e9b-4fb0-a471-9deaf4ab4ab8
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 04/30/2017
 ms.author: jroth
-
 ---
 # Configure Azure Key Vault Integration for SQL Server on Azure Virtual Machines (Resource Manager)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Classic](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
