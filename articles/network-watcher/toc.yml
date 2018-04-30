@@ -17,6 +17,8 @@
   items:
   - name: Diagnose a VM routing problem
     href: diagnose-vm-network-routing-problem.md
+  - name: Monitor network connections
+    href: connection-monitor.md
 - name: Concepts
   items:
   - name: Diagnose VM network traffic filter problems
@@ -87,8 +89,6 @@
           href: network-watcher-intrusion-detection-open-source-tools.md
         - name: Visualize network traffic patterns using open source tools
           href: network-watcher-using-open-source-tools.md
-  - name: Monitor network connections
-    href: connection-monitor.md
   - name: Work with network security groups
     items:
     - name: Configure NSG flow logs
