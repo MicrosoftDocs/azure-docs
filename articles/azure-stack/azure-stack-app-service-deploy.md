@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/01/2018
 ms.author: anwestg
 
 ---
@@ -22,7 +22,7 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+> Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.2.
 >
 >
 
@@ -67,7 +67,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][3]
 
-4. You now have the option to deploy into an existing Virtual Network as configured through the steps [here](azure-stack-app-service-before-you-get-started.md#virtual-network), or allow the App Service installer to create a Virtual Network and associated Subnets.
+7. You now have the option to deploy into an existing Virtual Network as configured through the steps [here](azure-stack-app-service-before-you-get-started.md#virtual-network), or allow the App Service installer to create a Virtual Network and associated Subnets.
     1. Select **Create VNet with default settings**, accept the defaults and click **Next**, or;
     2. Select **Use existing VNet and Subnets**.
         1. Select the **Resource Group** that contains your Virtual Network;
@@ -77,7 +77,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][4]
 
-7. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
+8. Enter the information for your file share and then click **Next**. The address of the file share must use the Fully Qualified Domain Name, or IP Address of your File Server. For example, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, or \\\10.0.0.1\websites.
 
    > [!NOTE]
    > The installer attempts to test connectivity to the fileshare before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the fileshare and a warning is presented asking whether you want to continue.  Verify the fileshare information and continue if they are correct.
@@ -86,7 +86,7 @@ To deploy App Service resource provider, follow these steps:
 
    ![App Service Installer][7]
 
-8. On the next page:
+9. On the next page:
     1. In the **Identity Application ID** box, enter the GUID for the application you’re using for identity (from Azure AD).
     2. In the **Identity Application certificate file** box, enter (or browse to) the location of the certificate file.
     3. In the **Identity Application certificate password** box, enter the password for the certificate. This password is the one that you made note of when you used the script to create the certificates.
@@ -95,7 +95,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][9]
 
-9. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
+10. For each of the three certificate file boxes, click **Browse** and navigate to the appropriate certificate file. You must provide the password for each certificate. These certificates are the ones that you created in the [Create required certificates step](azure-stack-app-service-before-you-get-started.md#get-certificates). Click **Next** after entering all the information.
 
     | Box | Certificate file name example |
     | --- | --- |
@@ -107,7 +107,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][10]
 
-10. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
+11. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then click **Next**. The installer validates the SQL connection properties.
 
     > [!NOTE]
     > The installer attempts to test connectivity to the SQl Server before proceeding.  However if you have chosen to deploy in an existing Virtual Network, the installer might not be able to connect to the SQL Server and a warning is presented asking whether you want to continue.  Verify the SQL Server information and continue if they are correct.
@@ -116,7 +116,7 @@ To deploy App Service resource provider, follow these steps:
 
     ![App Service Installer][11]
 
-11. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
+12. Review the role instance and SKU options. The defaults populate with the minimum number of instance and the minimum SKU for each role in an ASDK Deployment. A summary of vCPU and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
 
     > [!NOTE]
     > For production deployments, following the guidance in [Capacity planning for Azure App Service server roles in Azure Stack](azure-stack-app-service-capacity-planning.md).
@@ -136,23 +136,23 @@ To deploy App Service resource provider, follow these steps:
     > [!NOTE]
     > **Windows Server 2016 Core is not a supported platform image for use with Azure App Service on Azure Stack.  Do not use evaluation images for production deployments.**
 
-12. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from the images available in the compute resource provider for the App Service cloud. Click **Next**.
+13. In the **Select Platform Image** box, choose your deployment Windows Server 2016 virtual machine image from the images available in the compute resource provider for the App Service cloud. Click **Next**.
 
-13. On the next page:
+14. On the next page:
      1. Enter the Worker Role virtual machine administrator user name and password.
      2. Enter the Other Roles virtual machine administrator user name and password.
      3. Click **Next**.
 
     ![App Service Installer][15]    
 
-14. On the summary page:
+15. On the summary page:
     1. Verify the selections you made. To make changes, use the **Previous** buttons to visit previous pages.
     2. If the configurations are correct, select the check box.
     3. To start the deployment, click **Next**.
 
     ![App Service Installer][16]
 
-15. On the next page:
+16. On the next page:
     1. Track the installation progress. App Service on Azure Stack takes about 60 minutes to deploy based on the default selections.
     2. After the installer successfully finishes, click **Exit**.
 
