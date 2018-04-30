@@ -315,9 +315,9 @@
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
-    - name: Location Based Services
-      tocHref: /azure/location-based-services/
-      topicHref: /azure/location-based-services/
+    - name: Maps
+      tocHref: /azure/azure-maps/
+      topicHref: /azure/azure-maps/
     - name: Time Series Insights
       tocHref: /azure/time-series-insights/
       topicHref: /azure/time-series-insights/                     
@@ -352,9 +352,6 @@
       - name: Data Science Virtual Machine
         tocHref: /azure/machine-learning/data-science-virtual-machine
         topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
-  - name: Maps
-    tocHref: /azure/azure-maps/
-    topicHref: /azure/azure-maps/
   - name: Marketplace Consumer
     tocHref: /azure/marketplace-consumer/
     topicHref: /azure/marketplace-consumer/
