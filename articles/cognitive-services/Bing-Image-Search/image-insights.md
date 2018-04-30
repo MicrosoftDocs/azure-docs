@@ -1,5 +1,6 @@
 ---
 title: Get image insights | Microsoft Docs
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to use the Bing Image Search API to get more information about an image.
 services: cognitive-services
 author: swhite-msft
@@ -13,6 +14,10 @@ ms.author: scottwhi
 ---
 
 # Get insights about an image
+
+> [!IMPORTANT]
+> Instead of using the /images/details endpoint to get image insights, you should use [Visual Search](../bing-visual-search/overview.md) since it provides more comprehensive insights.
+
 
 Each image includes an insights token that you can use to get information about the image. For example, you can get a collection of related images, web pages that include the image, or a list of merchants where you can buy the product shown in the image.  
   
