@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Translator Text API
+  - name: What is Translator Text API?
     href: translator-info-overview.md
   - name: Supported languages
     href: languages.md
@@ -19,20 +19,16 @@
     href: quickstarts/java.md
   - name: Node.js
     href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
   - name: Python
     href: quickstarts/python.md
+  - name: PHP
+    href: quickstarts/php.md
   - name: Ruby
     href: quickstarts/ruby.md
 - name: Tutorials
   items: 
   - name: Translator app
     href: tutorial-wpf-translation-csharp.md
-- name: Samples
-  items: 
-  - name: Samples on GitHub
-    href: https://aka.ms/TranslatorGitHub
 - name: How-to guides
   items:
   - name: Sign-up for Translator Text API
@@ -51,7 +47,7 @@
     href: return-n-best-translations.md
 - name: Reference
   items: 
-  - name: Translator Text API reference
+  - name: Translator Text API
     href: https://aka.ms/translator-text-api
 - name: Resources
   items:
@@ -65,3 +61,5 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-translator
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
+  - name: Code samples on GitHub
+    href: https://aka.ms/TranslatorGitHub

@@ -40,7 +40,7 @@ When alerts in a Log Analytics workspace get scheduled for extending into Azure,
  ![During scheduled period, user action on alerts redirected to Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Extending alerts from OMS portal to Azure is not charged and usage of Azure alerts for query based Log Analytics alerts will be not billed, when used within the limits and conditions stated in [Azure Monitor pricing policy](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Extending alerts from OMS portal to Azure is not charged and usage of Azure alerts for query based Log Analytics alerts will be not billed, when used within the limits and conditions stated in [Azure Monitor pricing policy](https://azure.microsoft.com/pricing/details/monitor/)  
 
 Users can enjoy the benefits of extending alerts before this date; by voluntarily opting to make their alerts manageable in Azure.
 

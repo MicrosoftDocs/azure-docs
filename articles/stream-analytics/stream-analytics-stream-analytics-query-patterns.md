@@ -11,8 +11,13 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ---
 # Query examples for common Stream Analytics usage patterns
+
 ## Introduction
-Queries in Azure Stream Analytics are expressed in a SQL-like query language. These queries are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
+Queries in Azure Stream Analytics are expressed in a SQL-like query language. The language constructs are documented in the [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) guide. 
+
+The query design can express simple pass-through logic to move event data from one input stream into another output data store. Or it can do rich pattern matching and temporal analysis to calculate aggregates over various time windows as in the TollApp sample. You can join data from multiple inputs to combine streaming events, and do lookups against static reference data to enrich the event values. Also you can write data to multiple outputs.
+
+This article outlines solutions to several common query patterns, based on real-world scenarios. It is a work in progress and continues to be updated with new patterns on an ongoing basis.
 
 ## Query example: Convert data types
 **Description**: Define the types of properties on the input stream.
@@ -577,7 +582,7 @@ WHERE
 ````
 
 **Explanation**:
-The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
+The first query `max_power_during_last_3_mins`, uses the [Sliding window](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) to find the max value of the power sensor for every device, during the last 3 minutes. 
 The second query is joined to the first query to find the power value in the most recent window relevant for the current event. 
 And then, provided the conditions are met, an alert is generated for the device.
 
