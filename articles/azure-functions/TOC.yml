@@ -121,6 +121,8 @@
       href: durable-functions-versioning.md
     - name: Performance and scale
       href: durable-functions-perf-and-scale.md
+    - name: Disaster Recovery and Geo-Distribution
+      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: How-to guides
   items:
   - name: Develop
