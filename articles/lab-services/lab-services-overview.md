@@ -17,7 +17,11 @@ ms.author: spelluru
 
 ---
 # An introduction to Azure Lab Services (formerly Azure DevTest Labs)
-Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
+This articles introduces you to Azure Lab Services (Preview) and Azure DevTest Labs services that's in general availability (GA). You create **Azure managed labs** with Azure Lab Services and **self-managed labs** with Azure DevTest Labs. 
+
+If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs** supported by Azure Lab Services. Currently, classroom lab is the only type of managed lab that you can create with Azure Lab Services. 
+
+If you want to manage your own infrastructure, create a **self-managed lab** with Azure DevTest Labs. 
 
 ## Key capabilities
 Azure Lab Services supports the following key capabilitiies/features: 
@@ -37,20 +41,55 @@ For DevTest L    abs, a lab owner can set up a private virtual networks and a su
 ### Integration into your workflows and tools
 Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
 
-## User profiles
-This section describes different user profiles in Azure Lab Services. 
 
-### Lab account owner
+## Azure Lab Services
+Azure Lab Services enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
 
-Typically, an administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner, who sets up a lab account for your organization, manages and configures policies across all labs, and gives permissions to people in the organization to create a lab under the lab account.
+Managed labs offer different types of labs that fit for your specific need. Currently, Azure Lab Services supports only classroom lab as a managed lab. Managed labs enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
 
-### Lab creator
+When you create and use Azure resources in these managed labs, the service creates and manages resources in internal Microsoft subscriptions. They are not created in your own Azure subscription. The service keeps track of usage of these resources in internal Microsoft subscriptions. This usage is billed back to your Azure subscription that contains the lab account. 
 
-Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator creates a lab, creates virtual machines in the lab, installs the appropriate software on virtual machines, specifies who can access the lab, and provides link to the lab to lab users.
+Here are some of the use cases for managed labs: 
 
-### Lab user
+- Provide students with a lab of virtual machines that are configured with exactly what’s needed for a class. Give each student a limited number of hours for using the VMs for homework or personal projects.
+- Set up a pool of high performance compute VMs to perform compute-intensive or graphics-intensive research. Run the VMs as needed, and clean up the machines once you are done. 
+- Move your school’s physical computer lab into the cloud. Automatically scale the number of VMs only to the maximum usage and cost threshold that you set on the lab. 
+- Quickly provision a lab of virtual machines for hosting a hackathon. Delete the lab with a single click once you’re done. 
 
-A lab user uses the registration link that the lab creator shares to register and access the lab. The lab user connects to a virtual machine in the lab and use it for development, testing, or to do class work.
+
+## Azure DevTest Labs
+Developers and testers are looking to solve the delays in creating and managing their environments by going to the cloud. Azure solves the problem of environment delays and allows self-service within a new cost efficient structure. However, developers and testers still need to spend considerable time configuring their self-served environments. Also, decision makers are uncertain about how to leverage the cloud to maximize their cost savings without adding too much process overhead.
+
+Azure DevTest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost. You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts. Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments. Scale up your load testing by provisioning multiple test agents, and create pre-provisioned environments for training and demos.
+
+### Use DevTest Labs for development envioronments
+Azure DevTest Labs can be used to implement many key scenarios, but one of the primary scenarios involves using DevTest Labs to host development machines for developers. In this scenario, DevTest Labs provides these benefits:
+
+- Developers can quickly provision their development machines on demand.
+- Developers can easily customize their development machines whenever needed.
+- Administrators can control costs by ensuring that developers cannot get more VMs than they need for development and VMs are shut down when not in use. 
+ 
+![Use DevTest Labs for development](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
+
+For more information, see [Use DevTest Labs for development](devtest-lab-developer-lab.md).
+
+### Use DevTest Labs for test environments
+You can use Azure DevTest Labs to implement many key scenarios, but a primary scenario involves using DevTest Labs to host machines for testers. In this scenario, DevTest Labs provides these benefits:
+
+- Testers can test the latest version of their application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.
+- Testers can scale up their load testing by provisioning multiple test agents.
+- Administrators can control costs by ensuring that:
+    - Testers cannot get more VMs than they need.
+    - VMs are shut down when not in use.
+
+For more information, see [Use DevTest Labs for testing](devtest-lab-test-env.md).
+
+### Use DevTest Labs for training
+Azure DevTest Labs can be used to implement many key scenarios in addition to dev/test. One of those scenarios is to set up a lab for training. Azure DevTest Labs allows you to create a lab where you can provide custom templates that each trainee can use to create identical and isolated environments for training. You can apply policies to ensure that training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. Finally, you can easily share the lab with trainees, which they can access in one click.
+
+![Use DevTest Labs for training](./media/devtest-lab-training-lab/devtest-lab-training.png)
+
+For more information, see [Use DevTest Labs for training](devtest-lab-training-lab.md).
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
