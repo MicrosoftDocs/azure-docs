@@ -5,29 +5,30 @@ description: Learn how to search for an address using the Azure Maps Search serv
 services: azure-maps
 author: kgremban
 ms.author: kgremban
-ms.date: 11/29/2017
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 ---
-# How to find an address using the Azure Maps Search service
-The Search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The Search Service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the Search service APIs can be used as parameters in other Azure Maps such as the Route and Traffic Flow APIs.
+# How to find an address using the Azure Maps search service
+
+The Maps search service is a RESTful set of APIs designed for developers to search for addresses, places, points of interest, business listings, and other geographic information. The service assigns a latitude/longitude to a specific address, cross street, geographic feature, or point of interest (POI). Latitude and longitude values returned by the search can be used as parameters in other Maps services like route and traffic flow.
 
 ## Prerequisites
-* Install the [Postman app](https://www.getpostman.com/apps).
 
-* Have an Azure Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). 
+To make any calls to the Maps service APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
 
-## Using Fuzzy Search
+This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer. 
 
-The default API for the Search service is Fuzzy Search, which handles inputs of any combination of address or POI tokens. This search API is the canonical 'single-line search' and is useful when you do not know what your user inputs as a search query. The Fuzzy Search API is a combination of POI search and geocoding. The API can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
+
+## Using fuzzy search
+
+The default API for the search service is [fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy), which handles inputs of any combination of address or POI tokens. This search API is the canonical 'single-line search' and is useful when you do not know what your user inputs as a search query. The fuzzy search API is a combination of POI search and geocoding. The API can also be weighted with a contextual position (lat./lon. pair), fully constrained by a coordinate and radius, or it can be executed more generally without any geo biasing anchor point.
 
 Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce unusual results. This default can be overridden as needed per request by passing in the query parameter 'maxFuzzyLevel=2' or '3'.
 
 ### Search for an address using Fuzzy Search
 
 1. Open the Postman app, click New | Create New, and select **GET request**. Enter a Request name of **Fuzzy search**, select a collection or folder to save it to, and click **Save**.
-
-    For more information, see the Postman's Requests documentation.
 
 2. On the Builder tab, select the **GET** HTTP method and enter the request URL for your API endpoint.
 
@@ -39,7 +40,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
     | Request URL | https://atlas.microsoft.com/search/fuzzy/json? |
     | Authorization | No Auth |
 
-    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/azure-maps/search/getsearchfuzzy).
+    The **json** attribute in the URL path determines the response format. You are using json throughout this article for ease of use and readability. You can find the available response formats in the **Get Search Fuzzy** definition of the [Maps Functional API reference] (https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 3. Click **Params**, and enter the following Key / Value pairs to use as query or path parameters in the request URL:
 
@@ -78,7 +79,7 @@ Most Search queries default to 'maxFuzzyLevel=1' to gain performance and reduce 
 
 ## Search for address properties and coordinates 
 
-You can pass a complete or partial street address to the Search Address API and receive a response that includes detailed address properties such as municipality or subdivision, as well as positional values in latitude and longitude.
+You can pass a complete or partial street address to the search address API and receive a response that includes detailed address properties such as municipality or subdivision, as well as positional values in latitude and longitude.
 
 1. In Postman, click **New Request** | **GET request** and name it **Address Search**.
 2. On the Builder tab, select the **GET** HTTP method, enter the request URL for your API endpoint, and select an authorization protocol, if any.
@@ -151,7 +152,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | number | true |
 
-    If the [number](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
+    If the [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is sent with the request, the response may include the side of the street (Left/Right) and also an offset position for that number.
     
 5. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -159,7 +160,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | spatialKeys | true |
 
-    When the [spatialKeys](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
+    When the [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response contains proprietary geo-spatial key information for a specified location.
 
 6. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -167,7 +168,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnSpeedLimit | true |
     
-    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
+    When the [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response return of the posted speed limit.
 
 7. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -175,7 +176,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | returnRoadUse | true |
 
-    When the [returnRoadUse](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
+    When the [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter is set, the response returns the road use array for reversegeocodes at street level.
 
 8. Add the following Key / Value pair to the **Params** section and click **Send**:
 
@@ -183,7 +184,7 @@ You can pass a complete or partial street address to the Search Address API and 
     |-----|------------|
     | roadUse | true |
 
-    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
+    You can restrict the reverse geocode query to a specific type of road use using the [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) query parameter.
     
 ## Search for the cross street using Reverse Address Cross Street Search
 
@@ -210,4 +211,4 @@ You can pass a complete or partial street address to the Search Address API and 
 4. Click **Send** and review the response body. 
 
 ## Next steps
-- Explore the [Azure Location Based Serices Search service](https://docs.microsoft.com/rest/api/azure-maps/search) API documentation 
+- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation 

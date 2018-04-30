@@ -3,9 +3,9 @@ title: Handle mouse events with Azure Maps | Microsoft Docs
 description: How to make an interactive Javascript map with map events
 services: azure-maps
 keywords: 
-author: kgremban
-ms.author: kgremban
-ms.date: 04/04/2018
+author: jinzh-azureiot
+ms.author: jinzh
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 

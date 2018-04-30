@@ -4,8 +4,8 @@ description: How to perform a search request with Azure Maps then display the re
 services: azure-maps
 keywords: 
 
-author: kgremban
-ms.author: kgremban
+author: jinzh-azureiot
+ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
@@ -29,7 +29,7 @@ In the code above, the first block of code constructs a map object. You can see 
 
 The second block of code creates and adds a layer of search pins on the map. You can see [add a pin on the map](./map-add-pin.md) for instructions.
 
-The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchfuzzy).
+The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
 The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each location returned. It adds all the location points to the map as pins and adjusts the bounds of the map to render all the pins.
 
@@ -38,6 +38,6 @@ The last block of code parses the incoming response. For a successful response, 
 
 Learn more about the classes and methods used in this article: 
 
-* [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchfuzzy)
+* [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
