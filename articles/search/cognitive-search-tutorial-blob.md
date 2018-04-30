@@ -179,7 +179,7 @@ Content-Type: application/json
       ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Text.PaginationSkill",
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
       "maximumPageLength": 4000,
       "inputs": [
       {
@@ -193,8 +193,8 @@ Content-Type: application/json
     ],
     "outputs": [
       {
-        "name": "pages",
-        "targetName": "pages"
+            "name": "textitems",
+            "targetName": "mypages"
       }
     ]
   },
@@ -203,7 +203,7 @@ Content-Type: application/json
       "context": "/document/pages/*",
       "inputs": [
         {
-          "name": "text", "source": "/document/pages/*"
+          "name": "text", "source": "/document/mypages/*"
         },
         {
           "name":"languageCode", "source": "/document/languageCode"
@@ -230,9 +230,11 @@ Notice how the key phrase extraction skill is applied for each page. By setting 
 
 Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
 
-A graphical representation of the skillset is shown below:
+A graphical representation of the skillset is shown below. 
 
 ![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
+
+Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 

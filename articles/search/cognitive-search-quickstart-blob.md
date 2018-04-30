@@ -10,14 +10,15 @@ ms.author: heidist
 ---
 # Quickstart: Create a cognitive search pipeline using skills and sample data
 
-Cognitive search (preview) adds data detection, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable, unstructured content both searchable and structured. 
-Information created by a skill like entity recognition or image analysis is added to a searchable index hosted in your Azure Search service.
+Cognitive search (preview) adds data extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
+Information created by a skill, such as entity recognition or image analysis, gets added to an index in Azure Search.
 
 In this quickstart, try the enrichment pipeline in the [Azure portal](https://portal.azure.com) before writing a single line of code:
 
 * Begin with sample data in Azure Blob storage
-* Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment
-* Use [Search explorer](search-explorer.md) to query the enriched data
+* Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment 
+* Run the wizard (entity recognition detects people, location, and organizations)
+* Use [Search explorer](search-explorer.md) to query the enriched data.
 
 You can try out cognitive search in an Azure Search service created in the following regions:
 
@@ -84,11 +85,11 @@ Click **OK** to create the data source.
 
 One advantage of using the **Import data** wizard is that it can also create your index. As the data source is created, the wizard simultaneously constructs an index schema. It can take a few seconds to create the index.
 
-### Step 2: Define skills used for enrichment
+### Step 2: Add cognitive skills
 
-Step 2 adds skills to the indexing pipeline. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of blob's content is there.
+Next, add enrichment steps to the indexing pipeline. The portal gives you predefined cognitive skills for image analysis and text analysis. In the portal, a skillset operates over a single source field. That might seem like a small target, but for Azure blobs the `content` field contains most of the blob document (for example, a Word doc or PowerPoint deck). As such, this field is an ideal input because all of a blob's content is there.
 
-In **Define basic skillset**, choose skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
+In **Add cognitive skills**, choose skills that perform natural language processing. For this quickstart, choose entity recognition for people, organizations, and locations.
 
 Click **OK** to accept the definition.
    
@@ -98,7 +99,7 @@ Natural language processing skills operate over text content in the sample data 
 
 ### Step 3: Configure the index
 
-Remember the index that was created with the data source? In this step, you could revise the index if you want to add, delete, or edit any settings. 
+Remember the index that was created with the data source? In this step, you can view its schema and potentially revise any settings. 
 
 For this quickstart, the wizard does a good job setting reasonable defaults: 
 
