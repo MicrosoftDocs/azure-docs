@@ -183,6 +183,8 @@
       href: durable-functions-phone-verification.md
     - name: Unit testing
       href: durable-functions-unit-testing.md
+    - name: Event publishing
+      href: durable-functions-event-publishing.md
 - name: Reference
   items:
   - name: Bindings
