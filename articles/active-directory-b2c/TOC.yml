@@ -153,8 +153,10 @@
         href: active-directory-b2c-get-started-custom.md
       - name: Configure OIDC/OAUTH providers
         items:
-        - name: Azure AD
+        - name: Azure AD (Single-Tenant)
           href: active-directory-b2c-setup-aad-custom.md
+        - name: Azure AD (Multi-Tenant)
+          href: active-directory-b2c-setup-commonaad-custom.md 
         - name: Microsoft Account
           href: active-directory-b2c-custom-setup-msa-idp.md
         - name: Google+
@@ -163,8 +165,6 @@
           href: active-directory-b2c-custom-setup-li-idp.md
         - name: Twitter
           href: active-directory-b2c-custom-setup-twitter-idp.md
-        - name: Multi-tenant
-          href: active-directory-b2c-setup-commonaad-custom.md 
       - name: Configure SAML providers
         items:
         - name: ADFS
