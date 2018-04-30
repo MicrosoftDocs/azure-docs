@@ -21,18 +21,6 @@ ms.reviewer: sijuman
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-## Python and version profiles
-
-An API profile is a combination of different resource types with different versions from different services. Using a profile will help you mix and match between different resource types. Profiles can provide:
-
- - Stability for your application by locking to specific API versions.
- - Compatibility for your application with Azure Stack and regional Azure datacenters.
-
-In the Python SDK, profiles are available ... `explain how to use each profile with Pyhton.` 
-
-Text fragments: version in the **YYYY-MM-DD** format.  the latest Azure Stack profile version is **2017-03-09**.  To import a given service from a profile, you need to import its corresponding module from the profile.
-
-
 ## Python samples for Azure Stack 
 
 You can use the following code samples to perform common management tasks
@@ -136,5 +124,4 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 - [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
 - [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-
-If you don't have a Microsoft Azure subscription you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- If you don't have a Microsoft Azure subscription you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
