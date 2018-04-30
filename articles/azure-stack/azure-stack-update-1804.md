@@ -38,7 +38,7 @@ This update includes the following improvements for Azure Stack.
  
 - <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
 
-- <!-- 1951191 - IS - ASDK --> **VPN Gateway capacity is doubled**  Azure Stack now has twice the number of active infrastructure multi-tenant gateways, which doubles the number of Site-to-Site VPN connections that an Azure Stack deployment can host. For more information, see [About VPN Gateway](azure-stack-vpn-gateway-about-vpn-gateways). 
+- <!-- 1951191 - IS - ASDK --> **VPN Gateway capacity is doubled**  Azure Stack now has twice the number of active infrastructure multi-tenant gateways, which doubles the number of Site-to-Site VPN connections that an Azure Stack deployment can host. For more information, see [About VPN Gateway](azure-stack-vpn-gateway-about-vpn-gateways.md). 
 
 
 ## Fixed issues
@@ -120,7 +120,7 @@ The following are post-installation known issues for build  **20180423.1**.
 
 - <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
 
-  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. Or more information, see how to [make an add-on plan available]( azure-stack-subscribe-plan-provision-vm#to-make-an-add-on-plan-available).
+  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. Or more information, see how to [make an add-on plan available](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
 - <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
   
