@@ -26,7 +26,7 @@ Azure Stack supports role-based access control (RBAC), which you can use to mana
 
 ## Basics of access management
 
-Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning an RBAC role to a user or application at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource.
+Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning a RBAC role at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource.
 
 ### Built-in roles
 
@@ -49,7 +49,7 @@ Access that you grant at a parent scope is inherited at child scopes. For exampl
 * You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
 * You assign the Contributor role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
-### Multiple role assignment
+### Multiple role assignments
 
 You can grant a user more than one role and each role can be associated with a different scope. For example:
 
