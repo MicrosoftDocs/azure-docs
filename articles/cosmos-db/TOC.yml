@@ -131,6 +131,8 @@ items:
               href: sql-api-java-application.md
             - name: Python Flask
               href: sql-api-python-application.md
+            - name: Create a serverless web application to host pictures in Cosmos DB
+              href: https://docs.microsoft.com/learn/build-serverless-app/index 
         - name: 2 - Import
           href: import-data.md
         - name: 3 - Query
