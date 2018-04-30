@@ -48,15 +48,16 @@ The example follows the workflow:
 
 4. **Deploy Model**: Deploy the trained model pipeline as a web service via Azure Machine Learning Workbench so it can be consumed by others.
 
-### Get the notebook
+### Get the Jupyter notebook
 
+Download the notebook to run the sample described here yourself.
 
 > [!div class="nextstepaction"]
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
 
 ### Explore the sample data
 
-The machine learning forecasting examples in this article use the [Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) from the University of Chicago to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area.
+The machine learning forecasting examples herein use the [University of Chicago's Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area.
 
 ### Import any dependencies for this sample
 
@@ -98,7 +99,7 @@ print('imports done')
 
 ## Load data and explore
 
-This example shows the typical process of starting with a raw data set. You start by loading the Dominick's Finer Foods data.  You can also use the convenience function `load_dominicks_oj_data`.
+This example shows the typical process of starting with a raw data set, in this case [Dominick's Finer Foods data](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  You can also use the convenience function `load_dominicks_oj_data`.
 
 ```python
 # Load the data into a pandas DataFrame
@@ -234,13 +235,9 @@ whole_df.head()
   </tbody>
 </table>
 
-
-
-
 The data consist of weekly sales by brand and store. The logarithm of the quantity sold is in the 'logmove' column. The data also includes some customer demographic features. 
 
 To model the time series, you need to extract the following elements from this dataframe: a date/time axis and the sales quantity to be forecast.
-
 
 ```python
 # The sales are contained in the 'logmove' column. 
@@ -311,7 +308,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
 </table>
 
 
-The data contains approximately 250 different combinations of store and brand in this data frame, each one defining its own time series of sales. You can use the time series TimeSeriesDataFrame class to conveniently model multiple series in one data structure using the "grain." The grain is specified by the `store` and `brand` columns.
+The data contains approximately 250 different combinations of store and brand in a data frame. Each combination defines its own time series of sales. You can use the time series [TimeSeriesDataFrame class](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) to conveniently model multiple series in one data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
 
 ```python
 nseries = whole_df.groupby(['store', 'brand']).ngroups
@@ -322,7 +319,7 @@ print('{} time series in the data frame.'.format(nseries))
     
 
 
-The difference between `grain` and `group` is that `grain` is always physically meaningful in the real world, while `group` doesn't have to be. `group` is used by internal package functions to build a single model from multiple time series if the user believes this grouping helps improve model performance. By default, `group` is set to be equal to `grain`, and a single model is built for each `grain`. 
+The difference between _grain_ and _group_ is that grain is always physically meaningful in the real world, while group doesn't have to be. Internal package functions use group to build a single model from multiple time series if the user believes this grouping helps improve model performance. By default, group is set to be equal to grain, and a single model is built for each grain. 
 
 
 ```python
@@ -388,8 +385,6 @@ whole_tsdf[['Quantity']].head()
     </tr>
   </tbody>
 </table>
-
-
 
 
 In the TimeSeriesDataFrame representation, the time axis and grain are now part of the data frame index, and allows easy access to Pandas datetime slicing functionality.
@@ -478,7 +473,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-The ```TimeSeriesDataFrame.ts_report()``` function generates a comprehensive report of the time series data frame. The report includes both a general data description and statistics specific to time series data. 
+The ```TimeSeriesDataFrame.ts_report()``` function generates a comprehensive report of the time series data frame. The report includes both a general data description as well as statistics specific to time series data. 
 
 
 ```python
@@ -863,14 +858,14 @@ whole_tsdf.head()
 
 ## Data preprocessing - impute missing values
 
-Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use the utility function, ```ftk.tsutils.last_n_periods_split```:
+Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use [this utility function](https://docs.microsoft.com/python/api/ftk.tsutils), ```ftk.tsutils.last_n_periods_split```:
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series models require contiguous time series. Check to see if the series are regular - that is, that they have a time index sampled at regular intervals. Check this using the ```check_regularity_by_grain``` function.
+Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, with the [`check_regularity_by_grain`](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) function.
 
 
 ```python
@@ -945,7 +940,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-You can see that most of the series (213 of them) aren't regular. An imputation transform is required to fill missing sales quantity values. There are many imputation options, but you can use a linear interpolation here.
+You can see that most of the series (213 of them) aren't regular. An [imputation transform](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) is required to fill missing sales quantity values. There are many imputation options, but you can use a linear interpolation here.
 
 
 ```python
@@ -973,10 +968,13 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
 
 ## Univariate Time Series Models
 
-Now that you have cleaned up the data, you can begin modeling.  Start by creating three univariate models: the "naive" model, the "seasonal naive" model, and an "ARIMA" model.     
+Now that you have cleaned up the data, you can begin modeling.  Start by creating three univariate models: the "naive" model, the "seasonal naive" model, and an "ARIMA" model.
 * The Naive forecasting algorithm uses the actual target variable value of the last period as the forecasted value of the current period.
+
 * The Seasonal Naive algorithm uses the actual target variable value of the same time point of the previous season as the forecasted value of the current time point. Some examples: use the actual value of the same month of last year to forecast months of the current year; use the same hour of yesterday to forecast hours today. 
+
 * The exponential smoothing (ETS) algorithm generates forecasts by computing the weighted averages of past observations, with the weights decaying exponentially as the observations get older. 
+
 * The AutoRegressive Integrated Moving Average (ARIMA) algorithm captures the autocorrelation in time series data. For more information about ARIMA, see [this link](https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average)
 
 Start by setting certain model parameters based on your data exploration. 
@@ -1007,7 +1005,8 @@ arima_model = Arima(oj_series_freq, arima_order)
 ```
 
 ### Combine Multiple Models
-The `ForecasterUnion` estimator allows you combine multiple estimators and fit/predict on them using one line of code.
+
+The [`ForecasterUnion` estimator](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) allows you to combine multiple estimators and fit/predict on them using one line of code.
 
 
 ```python
@@ -1017,10 +1016,10 @@ forecaster_union = ForecasterUnion(
 ```
 
 ### Fit and Predict
-The estimators in the Forecasting Package follow the same API as scikit-learn estimators: a fit method for model training, and a predict method for generating forecasts. 
+The estimators in AMLPF follow the same API as scikit-learn estimators: a fit method for model training and a predict method for generating forecasts. 
 
 **Train models**  
-Since these are all univariate models, one model will be fit to each grain of the data. Using AMLPF, all 249 models can be fit with just one function call.
+Since these models are all univariate models, one model is fit to each grain of the data. Using AMLPF, all 249 models can be fit with just one function call.
 
 
 ```python
@@ -1029,7 +1028,7 @@ arima_model_fitted = arima_model.fit(train_imputed_tsdf)
 ```
 
 **Forecast sales on test data**  
-Similar to the fit method, you can create predictions for all 249 series in the testing data set with one call to the ```predict``` function. 
+Similar to the fit method, you can create predictions for all 249 series in the testing data set with one call to the `predict` function. 
 
 
 ```python
@@ -1057,7 +1056,7 @@ print(all_model_errors)
     3 126.57           arima
     
 
-It's valuable to see the distribution of these errors over the 250 time series in the data. To see the distribution of errors, calculate errors for each series using the `by` argument in `calc_error` and then create a boxplot to visualize them.
+It's valuable to see the distribution of these errors over the 250 time series in the data. To see the distribution of errors, calculate errors for each series using the `by` argument in `calc_error` and then create a box plot to visualize them.
 
 
 ```python
@@ -1085,7 +1084,7 @@ error_bygrain_univariate[['ModelName', 'MAPE']].groupby('ModelName').boxplot(sub
 ![png](./media/how-to-build-deploy-forecast-models/output_41_1.png)
 
 
-Overall, the Naive model seems to make the better forecasts despite some outliers that are less accurate. 
+Overall, the Naive model seems to make better forecasts despite some outliers, which are less accurate. 
 
 ## Build machine learning models
 In addition to traditional univariate models, Azure Machine Learning Package for Forecasting enables users to create machine learning models as well. 
@@ -1256,8 +1255,7 @@ print(train_feature_tsdf.head())
     
 
 **RegressionForecaster**   
-RegressionForecaster wraps sklearn regression estimators, so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are determined to be similar and can be pooled together, which may be useful to improve forecasts for short series by using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these 
-models for any other models in the library that supports regression. 
+The [RegressionForecaster function](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are deemed similar and can be pooled together, which can improve forecasts for short series using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these models for any other models in the library that support regression. 
 
 
 ```python
@@ -1350,8 +1348,7 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
 The machine learning model was able to take advantage of the added features and the similarities between series to get better forecast accuracy.
 
 **Cross-Validation and Parameter Sweeping**    
-The package adapts some traditional machine learning functions to a forecasting application.  `RollingOriginValidator` does cross-validation temporally, respecting what would and 
-would not be known in a forecasting framework. About time series cross-validation: in the figure below, each square represents data from one time point. The blue squares are used for training and orange squares are used for testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data will be leaked into training data and the model evaluation is no longer valid. 
+The package adapts some traditional machine learning functions for a forecasting application.  `RollingOriginValidator` does cross-validation temporally, respecting what would and would not be known in a forecasting framework. In the figure below, each square represents data from one time point. The blue squares represent training and orange squares represent testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data is leaked into training data causing the model evaluation to become invalid. 
 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1376,7 +1373,7 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
 
 **Build the final pipeline**   
-Now that the best model has been identified, you can build and fit your final pipeline with all the transformers and the best model. 
+Now that you have identified the best model, build, and fit your final pipeline with all transformers and the best model. 
 
 
 ```python
@@ -1386,12 +1383,13 @@ pipeline_ml_fitted = pipeline_ml.fit(train_imputed_tsdf)
 final_prediction = pipeline_ml_fitted.predict(test_tsdf)
 ```
 
-## Operationalization
+## Operationalization: deploy and consume
+
 In this section, you deploy a pipeline as an Azure Machine Learning web service and consume it for training and scoring.
-The pipelines there are not fitted for deployment. Scoring the deployed web service retrains the model and generates forecasts on new data. 
+The pipelines are not fitted for deployment. Scoring the deployed web service retrains the model and generates forecasts on new data. 
 
 ### Set model deployment parameters
-Change the following parameters to your own values. Make sure your AML environment, model management account, and resource group are located in the same region.
+Change the following parameters to your own values. Make sure your Azure Machine Learning environment, model management account, and resource group are located in the same region.
 
 
 ```python
@@ -1430,7 +1428,7 @@ deployment_name = '<web service name?'
 deployment_working_directory = '<local working directory>'
 ```
 
-### Define the AML environment and deployment
+### Define the Azure Machine Learning environment and deployment
 
 
 ```python
@@ -1465,7 +1463,7 @@ aml_deployment.deploy()
 ```
 
 ### Score the web service
-To score a small dataset, use the score method to submit one web service call for all the data.
+To score a small dataset, use [the score method](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) to submit one web service call for all the data.
 
 
 ```python
