@@ -46,7 +46,7 @@ Read through the following steps to learn about the logic behind the password re
        * If the user challenge is not configured, then the user is advised to contact their administrator to reset their password.
      * If the policy requires two challenges, then it ensures that the user has the appropriate data defined for at least two of the challenges enabled by the administrator policy.
        * If the user challenge is not configured, then the user is advised to contact their administrator to reset their password.
-   * Checks to see if the user’s password is managed on-premises (federated or password hash synchronized).
+   * Checks to see if the user’s password is managed on-premises (federated, pass-through authentication, or password hash synchronized).
      * If writeback is deployed and the user’s password is managed on-premises, then the user is allowed to proceed to authenticate and reset their password.
      * If writeback is not deployed and the user’s password is managed on-premises, then the user is asked to contact their administrator to reset their password.
 4. If it's determined that the user is able to successfully reset their password, then the user is guided through the reset process.
@@ -221,8 +221,8 @@ This page provides you a quick status of the on-premises writeback client one of
 
 This control determines whether password writeback is enabled for this directory. If writeback is on, it indicates the status of the on-premises writeback service. This is useful if you want to temporarily disable password writeback without having to reconfigure Azure AD Connect.
 
-* If the switch is set to **Yes**, then writeback is enabled, and federated and password hash synchronized users are able to reset their passwords.
-* If the switch is set to **No**, then writeback is disabled, and federated and password hash synchronized users are not able to reset their passwords.
+* If the switch is set to **Yes**, then writeback is enabled, and federated, pass-through authentication, or password hash synchronized users are able to reset their passwords.
+* If the switch is set to **No**, then writeback is disabled, and federated, pass-through authentication, or password hash synchronized users are not able to reset their passwords.
 
 ### Allow users to unlock accounts without resetting their password
 

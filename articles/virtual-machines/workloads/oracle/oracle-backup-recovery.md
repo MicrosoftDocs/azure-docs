@@ -259,7 +259,7 @@ Application-consistent backups is a new feature in Azure Backup. You can create 
     # /etc/azure/post_script.sh
     ```
 
-For more information, see [Application-consistent backup for Linux VMs](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
+For more information, see [Application-consistent backup for Linux VMs](https://azure.microsoft.com/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
 ### Step 5: Use Azure Recovery Services vaults to back up the VM

@@ -60,7 +60,7 @@ This article provides you with troubleshooting guidance on how to resolve potent
 
 2. Open the command prompt as an administrator 
 
-3. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /i"`
+3. Type `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
 This command displays a dialog box that provides you with more details about the join status.
 
