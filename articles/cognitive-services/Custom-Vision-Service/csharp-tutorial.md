@@ -1,5 +1,5 @@
 ---
-title: Custom Vision API C# tutorial | Microsoft Docs
+title: Custom Vision Service C# tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
 author: anrothMSFT
@@ -10,17 +10,19 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: anroth
 ---
+# Custom Vision Service C&#35; tutorial
 
-# Custom Vision API C&#35; tutorial
-Explore a basic Windows application that uses the Computer Vision API to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
+Explore a basic Windows application that uses the Custom Vision Service to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
 
 ## Prerequisites
 
 ### Platform requirements
-This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### Get the Custom Vision SDK
-To build this example, you need the Custom Vision API, which you can find at [SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). 
+This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
+
+### Get the Custom Vision Service SDK
+
+To build this example, you need the Custom Vision Service API, which you can find at [SDK](http://github.com/Microsoft/Cognitive-CustomVision-Windows/).
 
 ## Step 1: Create a console application
 
@@ -31,7 +33,7 @@ In this step, you create a console application and prepare the training key and 
 
 **LoadImagesFromDisk** loads two sets of images that this example uses to train the project, and one test image that the example loads to demonstrate the use of the default prediction endpoint:
 
-```
+```C#
 using Microsoft.Cognitive.CustomVision.Prediction;
 using Microsoft.Cognitive.CustomVision.Training;
 using Microsoft.Cognitive.CustomVision.Training.Models;
@@ -62,7 +64,7 @@ namespace SmokeTester
             // Upload the images you need for training and the test image
             Console.WriteLine("\tUploading images");
             LoadImagesFromDisk();
-        }        
+        }
 
         private static void LoadImagesFromDisk()
         {
@@ -79,7 +81,7 @@ namespace SmokeTester
 
 To create a new Custom Vision Service project, add the following code in your **Main()** method after the call to **LoadImagesFromDisk()**:
 
-```
+```C#
             // Create a new project
             Console.WriteLine("Creating new project:");
             var project = trainingApi.CreateProject("My New Project");
@@ -89,7 +91,7 @@ To create a new Custom Vision Service project, add the following code in your **
 
 To add tags to your project, insert the following code after the call to **CreateProject()**:
 
-```
+```C#
             // Make two tags in the new project
             var hemlockTag = trainingApi.CreateTag(project.Id, "Hemlock");
             var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
@@ -99,7 +101,7 @@ To add tags to your project, insert the following code after the call to **Creat
 
 To add the images that you loaded into memory, insert the following code at the end of the **Main()** method:
 
-```
+```C#
             // Images can be uploaded one at a time
             foreach (var image in hemlockImages)
             {
@@ -118,10 +120,10 @@ To add the images that you loaded into memory, insert the following code at the 
 
 Now that you've added tags and images to the project, you can train it: 
 
-1. Insert the following code at the end of **Main()**. This creates the first iteration in the project.
+1. Insert the following code at the end of **Main()** to create the first iteration in the project.
 2. Mark this iteration as the default iteration.
 
-```
+```C#
             // Now there are images with tags start training the project
             Console.WriteLine("\tTraining");
             var iteration = trainingApi.TrainProject(project.Id);
@@ -143,12 +145,12 @@ Now that you've added tags and images to the project, you can train it:
 
 ## Step 6: Get and use the default prediction endpoint
 
-You're now ready to use the model for prediction: 
+You're now ready to use the model for prediction:
 
-1. Obtain the endpoint associated with the default iteration by inserting the following code at the end of **Main()**. 
+1. Obtain the endpoint associated with the default iteration by inserting the following code at the end of **Main()**.
 2. Send a test image to the project by using that endpoint.
 
-```
+```C#
             // Now there is a trained endpoint, it can be used to make a prediction
 
             // Add your prediction key from the settings page of the portal

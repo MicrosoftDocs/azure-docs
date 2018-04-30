@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Automation DSC Overview
 description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
 keywords: powershell dsc, desired state configuration, powershell dsc azure
