@@ -8,7 +8,7 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -25,6 +25,8 @@ In this tutorial, you learn how to:
 > * Create a storage account and configure diagnostics
 
 ![Web application firewall example](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
