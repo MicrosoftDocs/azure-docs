@@ -75,6 +75,8 @@ If you are constructing your own URLs for your LUIS-calling application, make su
 ```
 
 ### Enable sentiment analysis
+The Sentiment analysis setting is only available when the LUIS app culture is supported in [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/). 
+
 In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
@@ -97,6 +99,8 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 ```
 
 ### Enable speech priming 
+The Speech priming setting is only available when the LUIS app culture is supported in [Speech](https://docs.microsoft.com/azure/cognitive-services/speech/). 
+
 In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
