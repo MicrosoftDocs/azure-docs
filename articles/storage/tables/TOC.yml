@@ -1,0 +1,59 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
+- name: Overview
+  items: 
+  - name: Azure Table storage overview
+    href: table-storage-overview.md
+  - name: Choose Table storage or Table API
+    href: https://docs.microsoft.com/azure/cosmos-db/table-support?toc=/azure/storage/tables/toc.json 
+- name: Quickstarts
+  items:
+  - name: Create a storage account
+    href: https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=/azure/storage/tables/toc.json 
+  - name: Create a table in the Azure portal
+    href: table-storage-quickstart-portal.md
+- name: Tutorials
+  items:
+  - name: Build a web app in Node.js
+    href: table-storage-cloud-service-nodejs.md  
+- name: Samples
+  items:
+  - name: .NET
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet?toc=/azure/storage/tables/toc.json 
+  - name: F#
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage?toc=/azure/storage/tables/toc.json
+  - name: Java
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-java?toc=/azure/storage/tables/toc.json 
+  - name: Node.js
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-nodejs?toc=/azure/storage/tables/toc.json  
+  - name: C++ 
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-c-plus?toc=/azure/storage/tables/toc.json 
+  - name: PHP
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-php?toc=/azure/storage/tables/toc.json 
+  - name: Python
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-python?toc=/azure/storage/tables/toc.json 
+  - name: Ruby
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-ruby?toc=/azure/storage/tables/toc.json 
+  - name: PowerShell
+    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-powershell?toc=/azure/storage/tables/toc.json      
+- name: Concepts
+  items: 
+  - name: Design scalable and performant tables 
+    href: table-storage-design.md
+  - name: Guidelines for table design
+    href: table-storage-design-guidelines.md
+  - name: Design for querying
+    href: table-storage-design-for-query.md
+  - name: Design for data modification
+    href: table-storage-design-for-modification.md
+  - name: Encrypting table data
+    href: table-storage-design-encrypt-data.md
+  - name: Modeling relationships
+    href: table-storage-design-modelling.md
+  - name: Table design patterns
+    href: table-storage-design-patterns.md
+- name: How to Guides
+  items:
+  - name: How to use the storage emulator
+    href: https://docs.microsoft.com/azure/storage/common/storage-use-emulator?toc=/azure/storage/tables/toc.json 
+
