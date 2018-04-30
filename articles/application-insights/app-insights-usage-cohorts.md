@@ -1,5 +1,5 @@
 ---
-title:  Azure Application Insights Usage Cohorts | Microsoft docs
+title:  Azure Application Insights usage cohorts | Microsoft docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 services: application-insights
 documentationcenter: ''
@@ -16,57 +16,57 @@ ms.author: mbullwin ; daviste
 
 # Application Insights cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an Analytics query. If you find yourself analyzing a specific set of users or events repeatedly, cohorts can give you even more flexibility to express exactly the set you’re interested in.
+A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. If you find yourself analyzing a specific set of users or events repeatedly, cohorts can give you even more flexibility to express exactly the set you’re interested in.
 
 ![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
 
 ## Cohorts versus basic filters
 
-While cohorts are used in similar ways as filters, the fact that cohorts' definitions are built from custom Analytics queries allows them to be far more adaptable and complex. Unlike filters, you can save cohorts, so other members of your team can reuse them.
+Cohorts are used in ways similar to filters. But cohorts' definitions are built from custom analytics queries, so they can be much more adaptable and complex. You can save cohorts, unlike filters, so other members of your team can reuse them.
 
-You might define a cohort of users who have all tried a new feature in your app. With this cohort saved in your Application Insights resource, it makes analyzing this specific group of users in the future one click away.
+You might define a cohort of users who have all tried a new feature in your app. When this cohort is saved in your Application Insights resource, it's easy to analyze this specific group of users in the future.
 
 > [!NOTE]
-> Once created, cohorts are available from the Users, Sessions, Events, and User Flows tools.
+> After they're created, cohorts are available from the Users, Sessions, Events, and User Flows tools.
 
 ## Example: engaged users
 
-Your team defines an engaged user as anyone who uses your app five or more times in a given month. Let’s define a cohort of these engaged users.
+Your team defines an engaged user as anyone who uses your app five or more times in a given month. We'll define a cohort of these engaged users.
 
 1. Open the **Cohorts** tool.
 
-2. Click **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
+2. Select the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
 
-3. Choose **Engaged Users** – by Days Used”.
+3. Select **Engaged Users –- by Days Used**.
 
     There are three parameters for this cohort:
-    * **Activities** that let you choose which events and page views should count as “usage.”
-    * **Period** the definition of a month.
-    * **UsedAtleastCustom** the number of times they need to use something within a period to count as an engaged user.
+    * **Activities**, where you choose which events and page views should count as “usage.”
+    * **Period**, the definition of a month.
+    * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
 
-4. Change **UsedAtleastCustom** to “5+ days” and leave **Period** to the default of 28 days.
+4. Change **UsedAtleastCustom** to “5+ days,” and leave **Period** on the default of 28 days.
 
     ![Image](.\media\app-insights-usage-cohorts\003.png)
 
-    Now this cohort represents all user IDs that were sent with any custom event or page view on five separate days in the past 28 days.
+    Now this cohort represents all user IDs that were sent with any custom event or page view on 5 separate days in the past 28 days.
 
-5. Click **Save**.
+5. Select **Save**.
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days)” and save it to “My reports” or “Shared reports,” depending on if you want other people with access to this Appication Insights resource to see this cohort.
+   >  Give your cohort a name, like “Engaged Users (5+ Days),” and save it to “My reports” or “Shared reports,” depending on whether you want other people with access to this Appication Insights resource to see this cohort.
 
-6. Click **Back to Gallery**.
+6. Select **Back to Gallery**.
 
 ### What can you do with this cohort?
 
 Open the **Users** tool > In the **Show** dropdown > Choose the cohort you created under **Users who belong to…**
 
-Now the Users tool is filtered to this cohort of users:
+Now the **Users** tool is filtered to this cohort of users:
 
 ![Users pane filtered to a particular cohort](.\media\app-insights-usage-cohorts\004.png)
 
 A few important things to notice:
-* This is a set you couldn’t have created through normal filters. The date logic is more advanced.
+* This is a set you could not have created through normal filters. The date logic is more advanced.
 * You can further filter this cohort using the normal filters in the Users tool. So while the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days. 
 
 These filters lets you ask more sophisticated questions like: _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ that would otherwise be impossible to express through the query builder.
