@@ -199,10 +199,10 @@ Content-Type: application/json
   },
   {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/myPages/*",
+      "context": "/document/mypages/*",
       "inputs": [
         {
-          "name": "text", "source": "/document/myPages/*"
+          "name": "text", "source": "/document/mypages/*"
         },
         {
           "name":"languageCode", "source": "/document/languageCode"
