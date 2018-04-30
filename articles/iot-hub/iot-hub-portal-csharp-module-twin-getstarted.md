@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure IoT Hub module identity and module twin (Portal and .NET) | Microsoft Docs
-description: Learn how to create module identity and update module twin using Portal and .NET.
+title: Get started with Azure IoT Hub module identity and module twin (portal and .NET) | Microsoft Docs
+description: Learn how to create module identity and update module twin using the portal and .NET.
 services: iot-hub
 documentationcenter: .net
 author: chrissie926
@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 
 ---
 
-# Get started with IoT Hub module identity and module twin using portal and .NET device
+# Get started with IoT Hub module identity and module twin using the portal and .NET device
 
 > [!NOTE]
 > [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provides visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, it allows for isolated configuration and conditions for each component.
@@ -67,7 +67,7 @@ Save and click the just created module identity. You can see the module identity
 
 You've successfully created the module identity in your IoT Hub. Let's try to communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you will create a .NET console app on your simulated device that updates the module twin reported properties.
 
-1. **Create a visual studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
+1. **CCreate a Visual Studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
 
     ![Create a visual studio project][13]
 

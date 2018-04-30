@@ -24,7 +24,7 @@ ms.custom: H1Hack27Feb2017
 
 At the end of this tutorial, you have two .NET console apps:
 
-* **CreateIdentities**, which creates a device and a module identity and associated security key to connect your device and module app.
+* **CreateIdentities**, which creates a device identity, a module identity and associated security key to connect your device and module clients.
 * **UpdateModuleTwinReportedProperties**, which sends updated module twin reported properties to your IoT Hub.
 
 > [!NOTE]
@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.
 
 <a id="DeviceIdentity_csharp"></a>
-[!INCLUDE [iot-hub-get-started-create-device-identity-csharp](../../includes/iot-hub-get-started-create-device-identity-csharp.md)]
+[!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 
 <a id="D2C_csharp"></a>
@@ -48,7 +48,7 @@ You have now created your IoT hub, and you have the host name and IoT Hub connec
 
 In this section, you create a .NET console app on your simulated device that updates the module twin reported properties.
 
-1. **Create a visual studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
+1. **Create a Visual Studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
 
     ![Create a visual studio project][13]
 
@@ -71,7 +71,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
     Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
 
     ```csharp
-    private const string ModuleConnectionString = "<Your module connection string>“;
+    private const string ModuleConnectionString = "<Your module connection string>";
     private static DeviceClient Client = null;
     ```
 

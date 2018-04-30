@@ -145,8 +145,6 @@ In the previous example, the `telemetryConfig` module twin desired and reported 
 > 
 > 
 
-You can use twins to synchronize long-running operations such as firmware updates. For more information on how to use properties to synchronize and track a long running operation across modules, see [Use desired properties to configure modules][lnk-twin-properties].
-
 ## Back-end operations
 The solution back end operates on the module twin using the following atomic operations, exposed through HTTPS:
 
