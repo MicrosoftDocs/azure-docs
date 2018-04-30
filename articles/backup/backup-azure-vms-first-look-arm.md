@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
-ms.author: markgal;jimpark
+ms.author: markgal;jimpark;sogup
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -36,7 +36,9 @@ For more information on protecting Premium storage VMs, see the article, [Back u
 To find out more about what you can and can't backup, see [Prepare your environment to back up Azure VMs](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
 
 > [!NOTE]
-> This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
+> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service.
+The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>`
+<br>Eg: AzureBackupRG_northeurope_1
 >
 >
 
