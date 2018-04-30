@@ -62,34 +62,11 @@ To add users to the **Administrators** group in the Azure AD directory:
 
 ## Managing Blockchain Workbench members
 
-Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to the consortium, applications, and roles.
+Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to applications and roles.
 
 [Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
 
 ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
-
-### Add members
-
-1. Select the member tile to display a list of the current members.
-
-    ![Members tile](media/blockchain-workbench-manage-users/members-tile.png)
-
-2. Select **Add members**.
-
-    Search for the user's name.  Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [Add Azure AD users](#add-azure-ad-users).
-
-    ![Add members](media/blockchain-workbench-manage-users/find-user.png)
-
-3. In the **Role** drop-down, select a role to assign to the member.
-4. Select **Add** to add the Azure AD user as a member.
-
-### Remove members
-
-1. Select the member tile to display a list of the current members.
-
-    ![Members tile](media/blockchain-workbench-manage-users/members-tile.png)
-
-2. For the user you want to remove, choose **Remove** from the role drop-down.
 
 ### Managing members in applications
 
@@ -97,7 +74,7 @@ Members are added to each application. Members can have one or more application 
 
 To add members to an application, select an application tile in the **Applications** pane.
 
-![Applications](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+![Select application](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
 > [!NOTE]
 > The number of members associated to the selected application is reflected in the members tile.

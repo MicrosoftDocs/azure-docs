@@ -9,7 +9,7 @@
 # How-to guides
 ## [Deploy Workbench](blockchain-workbench-deploy.md)
 ## Create blockchain app
-## Manage Workbench apps
+## [Manage Workbench users](blockchain-workbench-manage-users.md)
 ## [Troubleshoot apps](blockchain-workbench-troubleshooting.md)
 ## Code samples
 
