@@ -121,4 +121,4 @@ To add members to an application, select an application tile in the **Applicatio
 
 ## Next steps
 
-[Create a blockchain app in Azure Blockchain Workbench]()
+[Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
