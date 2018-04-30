@@ -1,5 +1,5 @@
 # [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-# [IoT Hub Documentation](index.md)
+# [IoT Hub Documentation](index.yml)
 
 # Overview
 ## [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
@@ -53,7 +53,6 @@
 ### [Python back end/Python device](iot-hub-python-python-firmware-update.md)
 
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
-# Samples
 
 # Concepts
 ## [Overview of device management](iot-hub-device-management-overview.md)
@@ -109,20 +108,6 @@
 ### [Get started on X.509 CA certificate security](iot-hub-security-x509-get-started.md)
 #### [Create certificates - PowerShell](iot-hub-security-x509-create-certificates.md)
 
-# How-to guides
-## Use real devices
-### [Get started](iot-hub-get-started.md)
-### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
-### [Use a physical device](iot-hub-get-started-physical.md)
-#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
-#### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
-#### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
-#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
-#### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
-#### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
-#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
-#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
-#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 
 ### Extended IoT scenarios
 #### [Manage cloud device messaging with iothub-explorer](iot-hub-explorer-cloud-device-messaging.md)
@@ -170,7 +155,6 @@
 #### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 #### [Pricing examples](iot-hub-devguide-pricing.md)
 #### [Device and service SDKs](iot-hub-devguide-sdks.md)
-#### [Develop for mobile devices](iot-hub-how-to-develop-for-mobile-devices.md)
 #### [MQTT support](iot-hub-mqtt-support.md)
 #### [Glossary](iot-hub-devguide-glossary.md)
 ### [Use the IoT device SDK for C](iot-hub-device-sdk-c-intro.md)
@@ -256,6 +240,19 @@
 ## [Monitor with diagnostics](iot-hub-monitor-resource-health.md)
 ### [Migrate to diagnostics settings](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
+## Use real devices
+### [Get started](iot-hub-get-started.md)
+### [Use an online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md)
+### [Use a physical device](iot-hub-get-started-physical.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
+#### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
+#### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [MXChip IoT DevKit with Arduino](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+#### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
+#### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
+#### [Adafruit Feather HUZZAH ESP8266 with Arduino](iot-hub-arduino-huzzah-esp8266-get-started.md)
+#### [Sparkfun ESP8266 Thing Dev with Arduino](iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
+#### [Adafruit Feather M0 with Arduino](iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
 ## [Upgrade an IoT hub](iot-hub-upgrade.md)
 ## [Usage metrics](iot-hub-metrics.md)
 ## [Configure IP filtering](iot-hub-ip-filtering.md)
@@ -306,4 +303,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-
