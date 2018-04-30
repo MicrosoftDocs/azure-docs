@@ -6,7 +6,7 @@
     href: signalr-overview.md
 - name: Quickstarts
   items:
-  - name: Create an ASP.NET Core chat room
+  - name: Create a chat room
     href: signalr-quickstart-dotnet-core.md
 - name: Tutorials
   items:
