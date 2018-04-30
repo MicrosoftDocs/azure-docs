@@ -34,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Envi MMIS, you need the following items:
 
 - An Azure AD subscription
-- an Envi MMIS single sign-on enabled subscription
+- An Envi MMIS single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -115,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.<CUSTOMER DOMAIN>.com/Account`
 	 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Envi MMIS Client support team](support@ioscorp.com) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Envi MMIS Client support team](mailto:support@ioscorp.com) to get these values.
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -127,11 +127,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log into your Envi MMIS site as an administrator.
 
-8. Clcik on **My Domain** tab.
+8. Click on **My Domain** tab.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-envimmis-tutorial/configure1.png)
 
-9. Cilck **Edit**.
+9. Click **Edit**.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-envimmis-tutorial/configure2.png)
 
@@ -153,7 +153,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Ok**.
 
-13. After uploading the downloaded metadata file the fiels will populate automatically. Click **Update**
+13. After uploading the downloaded metadata file the fields will get populated automatically. Click **Update**
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-envimmis-tutorial/configure6.png)
 
@@ -202,23 +202,27 @@ In the case of Envi MMIS, provisioning is a manual task.
 
 	![Add Employee](./media/active-directory-saas-envimmis-tutorial/user1.png)
 
-3. Cilck **Edit**.
-
-	![Add Employee](./media/active-directory-saas-envimmis-tutorial/configure2.png)
-
-3. Perform the following steps:
+3. Click **Add User** button.
 
 	![Add Employee](./media/active-directory-saas-envimmis-tutorial/user2.png)
 
-	a. In the **First Name** textbox, type the first name of BrittaSimon like **Britta**.
+4. Perform the following steps:
 
-	b. In the **Last Name** textbox, type the last name of BrittaSimon like **Simon**.
+	![Add Employee](./media/active-directory-saas-envimmis-tutorial/user3.png)
 
-	c. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon@contoso.com**.
+	a. In the **User Name** textbox, type the username of Britta Simon account like **brittasimon@contoso.com**.
+	
+	b. In the **First Name** textbox, type the first name of BrittaSimon like **Britta**.
 
-	d. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon@contoso.com**.
+	c. In the **Last Name** textbox, type the last name of BrittaSimon like **Simon**.
 
-	e. Click **Update**.
+	d. Enter the Title of the user in the **Title** of the textbox.
+	
+	e. In the **Email Address** textbox, type the email address of Britta Simon account like **brittasimon@contoso.com**.
+
+	f. In the **SSO User Name** textbox, type the username of Britta Simon account like **brittasimon@contoso.com**.
+
+	g. Click **Save**.
 
 ### Assign the Azure AD test user
 
