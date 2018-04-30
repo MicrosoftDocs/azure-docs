@@ -39,7 +39,7 @@
     href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
   - name: Work with Visual Studio
     items:
-    - name: Use the Computer Vision Connected Service in Visual Studio
+    - name: Use the Computer Vision Connected Service
       href: vs-computer-vision-connected-service.md
 - name: Reference
   items: 
