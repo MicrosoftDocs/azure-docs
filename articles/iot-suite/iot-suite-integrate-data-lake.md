@@ -111,8 +111,8 @@ Create an Azure Stream Analytics job to stream the data from your IoT hub to you
 
     You will see a popup and once the popup closes Authorize button will be greyed out after authorization is complete.
 
-> [!NOTE]
-> If you see an error in the popup window, open a new browser window in Incognito Mode and try again.
+    > [!NOTE]
+    > If you see an error in the popup window, open a new browser window in Incognito Mode and try again.
 
 1. Click **Save**.
 
