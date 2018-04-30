@@ -40,7 +40,7 @@ Visual Studio provides a Service Fabric service template to help you deploy a gu
 4. Give your service a name, and click **OK**.
 5. If your service needs an endpoint for communication, you can now add the protocol, port, and type to the ServiceManifest.xml file. For example: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready, you can publish the application to a remote cluster or check in the solution to source control.
-7. Read [check your running application](#check-your-running-application) see how to view your guest executable service running in Service Fabric Explorer.
+7. Read [check your running application](#check-your-running-application) to see how to view your guest executable service running in Service Fabric Explorer.
 
 For an example walkthrough, see [Create your first guest executable application using Visual Studio](quickstart-guest-app.md).
 

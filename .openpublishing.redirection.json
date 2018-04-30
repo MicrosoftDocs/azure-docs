@@ -8300,6 +8300,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Face/index.md",
+            "redirect_url": "/azure/cognitive-services/Face/Overview",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -8818,6 +8823,61 @@
             "source_path": "articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md",
             "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-simulated-device",
             "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-dotnet",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node-getstarted.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-getstarted.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-java",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-getstarted.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-python",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-how-to.md",
+          "redirect_url": "/azure/iot-hub/",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-node-node-direct-methods.md",
+          "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
+          "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
+          "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-java-java-direct-methods.md",
+          "redirect_url": "/azure/iot-hub/quickstart-control-device-java",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
+          "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
+          "redirect_document_id": false
         },
         {
             "source_path": "articles/iot-suite/iot-suite-overview.md",
@@ -18775,6 +18835,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-versions-plans.md",
             "redirect_url": "/azure/active-directory/authentication/concept-mfa-licensing",
             "redirect_document_id": false
@@ -19043,6 +19108,11 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_document_id": false
         }
     ]
 }
