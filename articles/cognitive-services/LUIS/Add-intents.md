@@ -62,7 +62,7 @@ On the intent page, enter a relevant utterance you expect from your users, such 
 
 ![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-Utterances are added to the utterances list for the current intent. 
+Utterances are added to the utterances list for the current intent. Once an utterance is added, [label any entities](add-example-utterances.md) within the utterances and [train](luis-how-to-train.md) your app. 
 
 ## Create a pattern from an utterance
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
