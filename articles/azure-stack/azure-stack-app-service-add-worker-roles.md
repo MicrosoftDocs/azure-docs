@@ -48,7 +48,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Add-AzureRmAccount -EnvironmentName AzureStackAdmin
+    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
