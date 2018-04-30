@@ -1,14 +1,11 @@
 - name: Bing Custom Search Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
-    - name: Customize your search
+    - name: What is Bing Custom Search?
       href: overview.md
-    - name: Custom Search endpoint
-      href: endpoint-custom.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
-- name: API Quickstarts
+- name: Quickstarts
+  expanded: true
   items:
     - name: Create first instance
       href: quick-start.md
@@ -24,7 +21,7 @@
   items:
     - name: Build a Custom Search web page
       href: ./tutorials/custom-search-web-page.md
-- name: How-to  
+- name: How-to guides 
   items:        
     - name: Define your custom view
       href: define-your-custom-view.md
@@ -36,13 +33,13 @@
       href: hit-highlighting.md
     - name: Page webpages
       href: page-webpages.md 
-- name: References
+- name: Reference
   items:
-    - name: Bing Custom Search API Reference
+    - name: Bing Custom Search API v7
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
       href: use-and-display-requirements.md
-    - name: SDK
+    - name: Bing Search SDK
       items:
       - name: SDK samples overview 
         href: sdk.md
@@ -50,9 +47,22 @@
         href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
+  - name: Get API key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
   - name: Try it!
     href: https://aka.ms/bingcustomsearchtryit
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+custom+search
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Custom Search endpoint
+    href: endpoint-custom.md
+  - name: Supported countries and markets
+    href: supported-countries-markets.md
+
