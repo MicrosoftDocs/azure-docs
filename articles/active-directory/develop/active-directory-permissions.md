@@ -3,8 +3,8 @@ title: Permissions in Azure AD | Microsoft docs
 description: Learn about scopes and permissions in Azure Active Directory and how to use them 
 services: active-directory
 documentationcenter: ''
-author: justhu
-manager: benv
+author: jhutchings1
+manager: mtillman
 editor: ''
 
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
