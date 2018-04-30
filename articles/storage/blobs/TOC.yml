@@ -96,6 +96,8 @@
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Hot, cool, and archive tiers
       href: storage-blob-storage-tiers.md
+    - name: Managing the Azure Blob Storage Lifecycle
+      href: ../common/storage-lifecycle-management-concepts.md
     - name: Reacting to events
       href: storage-blob-event-overview.md
     - name: Scalability and performance targets

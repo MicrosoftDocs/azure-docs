@@ -12,18 +12,18 @@ ms.date: 04/30/2018
 ms.author: yzheng
 ---
 
-# Managing the Azure Storage Lifecycle (Preview)
+# Managing the Azure Blob Storage Lifecycle (Preview)
 
-Data stored in the cloud often has special considerations on how is generated, processed, and accessed over time. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Further, some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle. 
+Data has unique lifecycles. Some data is accessed often early in the lifecycle, but the need for retrieval drops drastically as the data ages. Some data remains idle in the cloud and is rarely, if ever, accessed once stored. Some data expires days or months after creation while other sets of data are actively read and modified throughout its lifetime. Azure Blob Storage lifecycle management (Preview) offers rule-based automation to transition your data to the best access tier and expire data at the end of its lifecycle.
 
-Lifecycle management policies include the following features:
+Lifecycle management policy helps you:
 
-- Defined at the storage account level
-- Applies to all or a subset of blobs (using the blob name prefixes as filters)
-- Transitions data to different storage tiers ([Hot, Cool and Archive](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)) to optimize for performance and cost
-- Deletes data at the end of the lifecycle
+- Transition blobs to a cooler storage tier ([Hot to Cool, Hot to Archive, or Cool to Archive](../blobs/storage-blob-storage-tiers.md) to optimize for performance and cost
+- Delete blobs at the end of its lifecycle
+- Define rules at the storage account level (supports both GPV2 and Blob storage accounts)
+- Apply rules to all or a subset of blobs (using the blob name prefixes as filters)
 
-Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, *hot* storage is best during the early stages, *cool* storage is most appropriate for occasional access, and *archive* storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
+Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, hot storage is best during the early stages, cool storage is most appropriate for occasional access, and archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
 
 ## Storage account support
 
@@ -68,17 +68,17 @@ Parameters required within a rule are:
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
 | Name           | String | A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy. |
-| type           | An enum value | The valid value for preview is `lifecycle` |
+| type           | An enum value | The valid value for preview is `Lifecycle` |
 | definition     | An object that defines the lifecycle rule | Each definition is made up with a filter set and an action set. |
 
 ## Rules
 
-Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `foo`. In the rule, data is transitioned between tiers based on the following rules:
+Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `foo`. In the policy, these rules are defined as:
 
-- Cool storage is used when the modified date is over 30 days 
-- Archive storage is used when the modified date is over 90 days
-- Blobs are deleted when modified data has aged over 2,555 days (7 years)
-- Blob snapshots are deleted after 90 days
+- Tier blob to cool storage 30 days after last modification
+- Tier blob to Archive storage 90 days after last modification
+- Delete blob 2,555 days (7 years) after last modification
+- Delete blob snapshots 90 days after snapshot creation
 
 ```json
 {
@@ -86,7 +86,7 @@ Each rule definition includes a filter set and an action set. The following samp
   "rules": [ 
     {
       "name": "ruleFoo", 
-      "type": "lifecycle", 
+      "type": "Lifecycle", 
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -94,9 +94,9 @@ Each rule definition includes a filter set and an action set. The following samp
         },
         "actions": {
           "baseBlob": {
-            "tierToCool": { "daysAfterLastModifiedGreaterThan": 30 },
-            "tierToArchive": { "daysAfterLastModifiedGreaterThan": 90 },
-            "delete": { "daysAfterLastModifiedGreaterThan": 2555 }
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
+            "delete": { "daysAfterModificationGreaterThan": 2555 }
           },
           "snapshot": {
             "delete": { "daysAfterCreationGreaterThan": 90 }
@@ -109,7 +109,7 @@ Each rule definition includes a filter set and an action set. The following samp
 
 ```
 
-## Rule actions
+## Rule filters
 
 Filters limit rule actions to a subset of blobs within the storage account. If multiple filters are defined, a logical `AND` is performed on all filters.
 
@@ -136,7 +136,7 @@ In preview, the action execution conditions are based on age. Base blob uses las
 
 | Action execution condition | Condition value | Description |
 |----------------------------|-----------------|-------------|
-| daysAfterLastModifiedGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
+| daysAfterModificationGreaterThan | Integer value indicating the age in days | Valid condition for base blob actions |
 | daysAfterCreationGreaterThan     | Integer value indicating the age in days | Valid condition for blob snapshot actions | 
 
 ## Examples
@@ -161,8 +161,8 @@ The following example demonstrates how to transition block blobs prefixed with `
           },
           "actions": {
             "baseBlob": {
-              "tierToCool": { "daysAfterLastModifiedGreaterThan": 30 },
-              "tierToArchive": { "daysAfterLastModifiedGreaterThan": 90 }
+              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
             }
           }
         }      
@@ -190,7 +190,7 @@ Some data remains idle in the cloud and is rarely, if ever, accessed once stored
           },
           "actions": {
             "baseBlob": { 
-                "tierToArchive": { "daysAfterLastModifiedGreaterThan": 0 }
+                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
             }
           }
         }      
@@ -218,7 +218,7 @@ Some data is expected to expire days or months after creation to reduce costs or
           },
           "actions": {
             "baseBlob": {
-              "delete": { "daysAfterLastModifiedGreaterThan": 365 }
+              "delete": { "daysAfterModificationGreaterThan": 365 }
             }
           }
         }      
@@ -242,7 +242,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData/" ]
+            "prefixMatch": [ "activeData" ]
           },
           "actions": {            
             "snapshot": {
@@ -256,4 +256,7 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 ```
 
 ## Next steps
-todo -> what should the next steps be?
+
+Learn how to recover data after accidental deletion:
+
+- [Soft delete for Azure Storage blobs ](../storage/blobs/storage-blob-soft-delete.md)
