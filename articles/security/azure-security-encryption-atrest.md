@@ -233,10 +233,10 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 #### Azure storage
 
-Azure Blob, and File supports encryption at rest for server-side encrypted scenarios as well as customer encrypted data (client-side encryption).
+All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest, with some services supporting customer-managed keys and client-side encryption.  
 
-- Server-side: customers using Azure blob storage can enable encryption at rest on each Azure storage resource account. Once enabled server-side encryption is done transparently to the application. See [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption) for more information.
-- Client-side: client-side encryption of Azure Blobs is supported. When using client-side encryption customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. See [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) for more information.
+- Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### SQL Azure
@@ -256,8 +256,8 @@ Client-side encryption of SQL Azure data is supported through the [Always Encryp
 | SQL Server (IaaS)                |                | Yes                 | Yes                          | Yes                          | Yes    |
 | SQL Azure (PaaS)                 |                | Yes                 | Yes                          | -                            | Yes    |
 | Azure Storage (Block/Page Blobs) |                | Yes                 | Yes                          | -                            | Yes    |
-| Azure Storage (Files)            |                | Yes                 | -                            | -                            | -      |
-| Azure Storage (Tables, Queues)   |                | -                   | -                            | -                            | Yes    |
+| Azure Storage (Files)            |                | Yes                 | Yes                          | -                            | -      |
+| Azure Storage (Tables, Queues)   |                | Yes                 | -                            | -                            | Yes    |
 | Cosmos DB (Document DB)          |                | Yes                 | -                            | -                            | -      |
 | StorSimple                       |                | Yes                 | -                            | -                            | Yes    |
 | Backup                           |                | -                   | -                            | -                            | Yes    |
