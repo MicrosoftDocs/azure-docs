@@ -106,11 +106,11 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
       <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
       ```
 
-   2. For the container application to communicate with the runtime and the file system, the cluster certificate must be accessible within the Jenkins container. Add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Configure the thumbprint of the cluster certificate for this step.
+   2. For the container application to communicate with the runtime and the file system, the cluster certificate must be accessible within the Jenkins container. Add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Update the thumbprint value for your cluster certificate.
 
       ```xml
       <Certificates>
-        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="[Thumbprint]" />
       </Certificates> 
       ```
 
