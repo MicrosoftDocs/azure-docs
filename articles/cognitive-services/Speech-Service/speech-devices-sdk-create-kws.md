@@ -21,15 +21,15 @@ Consider the following guidelines when choosing a wake word.
 
 1. Your wake word should be an English word or words. Your "wake word" can actually be more than one word, but it should take no longer than two seconds to say.
 
-1. Words of 4–7 syllables work best. For example, “Hey, Computer” is a good wake word, while just “Hey” is a poor one.
+1. Words of 4–7 syllables work best. For example, "Hey, Computer" is a good wake word, while just "Hey" is a poor one.
 
 1. Wake words should follow common English pronunciation rules.
 
-1. A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example: “computerama” could be a good wake word.
+1. A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example: "computerama" could be a good wake word.
 
-1. Do not choose a common word. For example, "eat“ and “go” are words that people say frequently in ordinary conversation. They could be false triggers for your device.
+1. Do not choose a common word. For example, "eat" and "go" are words that people say frequently in ordinary conversation. They could be false triggers for your device.
 
-1. Avoid using a wake word that could have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, “509” could be pronounced as “five zero nine”, “five oh nine”, or “five hundred and nine.” “R.E.I.” could be pronounced as “R E I” or “Ray.” “Live” could be pronounced as [līv] or [liv].
+1. Avoid using a wake word that could have alternative pronunciations. Users would have to know the "right" pronunciation to get their device to respond. For example, "509" could be pronounced as "five zero nine", "five oh nine", or "five hundred and nine." "R.E.I." could be pronounced as "R E I" or "Ray." "Live" could be pronounced as [līv] or [liv].
 
 1. Do not use special characters, symbols, or digits. For example, "Go#" and "20 + cats" would not be good wake words. However, "go sharp" or "twenty plus cats" could work. You can still use the symbols in your branding, but use marketing and documentation to reinforce the proper pronunciation.
 
@@ -50,7 +50,7 @@ You must create your custom wake word using the Microsoft Speech service before 
  
 6. Type a word of your choice, then **Submit** it.<p>![enter your wake word](Images/speech-devices-sdk/wake-word-5.png)
  
-7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser’s tab. After a moment, an information bar appears asking you to download a `.zip` file.<p>![receiving .zip file](Images/speech-devices-sdk/wake-word-6.png)
+7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.<p>![receiving .zip file](Images/speech-devices-sdk/wake-word-6.png)
 
 8. Save the `.zip` file to your computer. You will need this file to deploy the custom wake word to the development kit later, following the instructions in the Developer Quick Starter Guide, which will be available soon.
 

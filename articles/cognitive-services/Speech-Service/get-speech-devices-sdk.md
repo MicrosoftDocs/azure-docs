@@ -21,7 +21,7 @@ To get access to the Speech Devices SDK, follow these steps:
 
 1. Go to the Microsoft Speech Devices SDK [sign-up form](https://go.microsoft.com/fwlink/?linkid=872620).
 1. Read the [license agreement](speech-devices-sdk-license.md).
-1. If you agree to the terms of this license agreement, choose “I agree.”
+1. If you agree to the terms of this license agreement, choose "I agree."
 1. Answer the rest of the questions.
 1. Submit the form. 
 1. If you are approved, you will receive an invitation email like the one below. 
@@ -34,17 +34,17 @@ Subject: You're invited to the Microsoft organization
 ![email message](Images/speech-devices-sdk/get-sdk-1.png)
 
 ## Accepting access
-Continue with the steps below to join the Azure Active Directory with the email address you provided during registration. This process grants you access to the Speech Devices SDK’s [download site](https://shares.datatransfer.microsoft.com/).
+Continue with the steps below to join the Azure Active Directory with the email address you provided during registration. This process grants you access to the Speech Devices SDK's [download site](https://shares.datatransfer.microsoft.com/).
 
 1. Click **Get Started** in the email message.
 2. Click **Next** in the launched browser window.<p>![authentication window](Images/speech-devices-sdk/get-sdk-2.png)
-1. Create a Microsoft account, if you don’t have one already. Enter the same email address at which you have received the invitation email in step 6 above. <p>![create Microsoft account](Images/speech-devices-sdk/get-sdk-3.png)
+1. Create a Microsoft account, if you don't have one already. Enter the same email address at which you have received the invitation email in step 6 above. <p>![create Microsoft account](Images/speech-devices-sdk/get-sdk-3.png)
 1. Click **Next** to create a password.
 1. When you see the Verify email dialog, return to your email inbox to get the verification code <p>![verify email](Images/speech-devices-sdk/get-sdk-4.png)
  
 6. Copy the verification code from the email message. <p>![verify your email address](Images/speech-devices-sdk/get-sdk-5.png)
  
-7. Paste or type the security code from the email message in the dialog. In this example, it is “8406.” Then click **Next**. <p>![verify email](Images/speech-devices-sdk/get-sdk-6.png)
+7. Paste or type the security code from the email message in the dialog. In this example, it is "8406." Then click **Next**. <p>![verify email](Images/speech-devices-sdk/get-sdk-6.png)
  
 8. When you see the Access Panel Application in the browser window, you have confirmed that your email address (from step 6) is now part of the Azure Active Directory. You now have access to the Speech Devices SDK download site. 
 

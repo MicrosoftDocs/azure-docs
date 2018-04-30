@@ -28,8 +28,8 @@ It is important to avoid the use of extended (Latin-1) or Unicode punctuation ch
 
 | Characters to avoid | Substitution |
 |----- | ----- |
-| “Hello world” (open and close double quotes) | "Hello world" (double quotes) |
-| John’s day (right single quotation mark) | John's day (apostrophe) |
+| "Hello world" (open and close double quotes) | "Hello world" (double quotes) |
+| John's day (right single quotation mark) | John's day (apostrophe) |
 | it was good—no, it was great! (em dash) | it was good--no, it was great! |
 
 ### Text normalization performed by the service
@@ -45,10 +45,10 @@ Here are some examples
 | Original Text | After Normalization |
 |----- | ----- |
 | Starbucks Coffee | starbucks coffee |
-| “Holy cow!” said Batman. | holy cow said batman |
-| “What?” said Batman’s sidekick, Robin. | what said batman’s sidekick robin |
+| "Holy cow!" said Batman. | holy cow said batman |
+| "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
 | Go get -em! | go get em |
-| I’m double-jointed | i’m double jointed |
+| I'm double-jointed | i'm double jointed |
 | 104 Main Street | one oh four main street |
 | Tune to 102.7 | tune to one oh two point seven |
 | Pi is about 3.14 | pi is about three point one four |
@@ -87,7 +87,7 @@ It is important to avoid the use of half-width punctuation characters. These cha
 
 | Characters to avoid | Substitution |
 |----- | ----- |
-| “你好” (open and close double quotes) | "你好" (double quotes) |
+| "你好" (open and close double quotes) | "你好" (double quotes) |
 | 需要什么帮助? (question mark) | 需要什么帮助？ |
 
 ### Text normalization performed by the service
@@ -137,7 +137,7 @@ Text data uploaded to the Speech to Text service must use UTF-8 encoding with by
 This service will perform the following text normalization on text imported as a language data set or transcriptions for an acoustic data set.
 
 *   Lower-casing all text
-*   Removing all punctuation including various types of quotes ("test", 'test', “test„ or «test» are ok)
+*   Removing all punctuation including various types of quotes ("test", 'test', "test„ or «test» are ok)
 *   Discarding any row containing any special character from the set ^ ¢ £ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
 *   Expansion of numbers to word form, including dollar or euro amounts
 *   Umlauts are accepted only for a, o, u; others will be replaced by "th" or be discarded
