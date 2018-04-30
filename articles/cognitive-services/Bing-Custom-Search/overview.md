@@ -32,7 +32,7 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 ## Next steps
 To get started quickly, see [Create your first Bing Custom Search instance](quick-start.md).
 
-For detail about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
+For details about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
 Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
