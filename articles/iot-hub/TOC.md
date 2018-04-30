@@ -303,4 +303,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [Technical case studies](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
-
