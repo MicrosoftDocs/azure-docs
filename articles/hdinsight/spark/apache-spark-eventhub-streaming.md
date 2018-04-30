@@ -23,7 +23,7 @@ ms.author: jgao
 Learn how to create an Apache Spark streaming application that does:
 
 1.	Ingest messages into an Azure Event Hub.
-2.	Retrieve the messages from Event Hub in real-time using an application running in Spark cluster on Azure HDInsight with two different approaches.
+2.	Retrieve the messages from Event Hub in real time using an application running in Spark cluster on Azure HDInsight with two different approaches.
 3.	Build streaming analytic pipelines to persist data to different storage systems, or get insights from data on the fly.
 
 For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
@@ -46,7 +46,7 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 2. Select **Create New App**.
 3. Provide the following values:
 
-    - Name: provide the application name. The value used for this tutorial is **HDISparkStreamApp0423**. This name has to be an unique name.
+    - Name: provide the application name. The value used for this tutorial is **HDISparkStreamApp0423**. This name has to be a unique name.
     - Description: provide a short description of the application. The value used for this tutorial is **A simple HDInsight Spark streaming application**.
     - Website: provide the application's website. It doesn't have to be a valid website.  The value used for this tutorial is **http://www.contoso.com**.
     - Callback URL: you can leave it blank.
@@ -82,13 +82,11 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 
     1. From the portal, select **All services**.
     2. In the filter box, enter **event hubs**.
-    3. Doubl-click the namespace you just created.
+    3. Double-click the namespace you created.
     4. Select **+ Event Hub**.
 
-6. In the Event Hubs namespace list, Select the newly-created namespace.      
-
-
-5. In the namespace blade, Select **Event Hubs**, and then Select **+ Event Hub** to create a new Event Hub.
+6. In the Event Hubs namespace list, Select the newly created namespace.      
+5. Select **Event Hubs**, and then Select **+ Event Hub** to create a new Event Hub.
   
 
 6. Enter the following values:
@@ -100,11 +98,11 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
     ![Provide event hub details for Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Provide event hub details for Spark streaming example")
 
 7. Select **Create**.
-8. Select **Shared access policies** for the namespace (Note it is not the eventhub shared access policies), and then Select **RootManageSharedAccessKey**.
+8. Select **Shared access policies** for the namespace (Note it is not the event hub shared access policies), and then Select **RootManageSharedAccessKey**.
     
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
-9. Save the values of **Primaery key** and **Connection string-primary key** to use later in the tutorial.
+9. Save the values of **Primary key** and **Connection string-primary key** to use later in the tutorial.
 
     - QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
     - Endpoint=sb://myeventhubns20180403.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
@@ -116,7 +114,7 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 
 You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**. 
 
-1. Run the following code to add the external Maven libaries:
+1. Run the following code to add the external Maven libraries:
 
     ```
     %%configure
@@ -199,7 +197,7 @@ You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**.
 
 You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHub**. 
 
-1. Run the following code to add an external Maven libary:
+1. Run the following code to add an external Maven library:
 
     ```
     %%configure -f
@@ -224,7 +222,7 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
     import org.apache.spark.sql.functions._
     
     // Event Hub message format is JSON and contains "body" field
-    // Body is binary, so we cast it to string to see the actual content of the message
+    // Body is binary, so you cast it to string to see the actual content of the message
     val messages = incomingStream.withColumn("Offset", $"offset".cast(LongType)).withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType)).withColumn("Timestamp", $"enqueuedTime".cast(LongType)).withColumn("Body", $"body".cast(StringType)).select("Offset", "Time (readable)", "Timestamp", "Body")
     
     messages.printSchema
