@@ -27,7 +27,7 @@ The following diagram depicts a typical Azure environment, for applications runn
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
-If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment looks like this:
+If you're using Azure ExpressRoute or a VPN connection from your on-premises network to Azure, the environment looks as follows:
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
@@ -54,11 +54,11 @@ login.microsoftonline.com | Required for authorization and authentication to the
 If you are using an IP-based firewall proxy, or NSG rules to control outbound connectivity, these IP ranges need to be allowed.
 
 - All IP address ranges that correspond to the storage accounts in source region
-    - You need to create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
-    - You need to allow these addresses so that data can be written to the cache storage account, from the VM.
+    - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
+    - Allow these addresses so that data can be written to the cache storage account, from the VM.
 - All IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - If new address are added to the Office 365 ranges in the future, you need to create new NSG rules.
-- Site Recovery service endpoint IP addresses. These are available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location.
+    - If new addresses are added to the Office 365 ranges in the future, you need to create new NSG rules.
+- Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location.
 -  You can [download and use this script](https://aka.ms/nsg-rule-script), to automatically create the required rules on the NSG.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
@@ -134,7 +134,7 @@ These rules are required so that replication can be enabled from the target regi
 
 ## Network virtual appliance configuration
 
-If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend you to create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
+If you are using network virtual appliances (NVAs) to control outbound network traffic from VMs, the appliance might get throttled if all the replication traffic passes through the NVA. We recommend creating a network service endpoint in your virtual network for "Storage" so that the replication traffic does not go to the NVA.
 
 ### Create network service endpoint for Storage
 You can create a network service endpoint in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
@@ -151,9 +151,9 @@ You can create a network service endpoint in your virtual network for "Storage" 
 
 ### Forced tunneling
 
-You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
+You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this configuration is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
 
 ## Next steps
 - Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
-- Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover) for Azure virtual machine failover.
+- Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover.md) for Azure virtual machine failover.
 - Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
