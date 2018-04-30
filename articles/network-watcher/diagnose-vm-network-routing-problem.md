@@ -29,9 +29,7 @@ When you deploy a virtual machine (VM), Azure creates several default routes for
 > * Create a VM
 > * Test communication to a URL using the next hop capability of Network Watcher
 > * Test communication to an IP address
-> * Diagnose a communication problem to learn how you can resolve it
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> * Diagnose a routing problem, and learn how you can resolve it
 
 If you prefer, you can diagnose a virtual machine network routing problem using the [Azure CLI](diagnose-vm-network-routing-problem-cli.md) or [Azure PowerShell](diagnose-vm-network-routing-problem-powershell.md).
 

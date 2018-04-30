@@ -21,12 +21,10 @@ ms.custom: mvc
 
 Successful communication between a virtual machine (VM) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
-deploy two virtual machines (VM), and then use the *connection monitor* capability of Network Watcher to monitor communication from one VM to the other VM. The connection is monitored over time. If communication fails, connection monitor informs you of what is causing the problem, so that you can resolve it.
-
 > [!div class="checklist"]
 > * Create two VMs
 > * Monitor communication between VMs with the connection monitor capability of Network Watcher
-> * Diagnose a communication problem between two VMs
+> * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
