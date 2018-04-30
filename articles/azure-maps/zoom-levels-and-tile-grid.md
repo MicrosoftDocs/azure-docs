@@ -5,7 +5,7 @@ services: azure-maps
 keywords: 
 author: jinzh-azureiot
 ms.author: jinzh
-ms.date: 3/6/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 
@@ -22,16 +22,16 @@ The world is divided into square tiles. Render (Raster) has 19 zoom levels, numb
 
 ![World tile](./media/zoom-levels-and-tile-grid/world0.png)
 
-Zoom level 1 uses 4 tiles to render the world: a 2 x 2 square
+Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 ![World tile top left](./media/zoom-levels-and-tile-grid/world1a.png)     ![World tile top right](./media/zoom-levels-and-tile-grid/world1c.png) 
 
 ![World tile bottom left](./media/zoom-levels-and-tile-grid/world1b.png)     ![World tile bottom right](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 20 is a grid 2<sup>20</sup> x 2<sup>20</sup>, or 1,048,576 x 1,048,576 tiles (109,951,162,778 in total).
+Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 20 is a grid 2<sup>20</sup> x 2<sup>20</sup>, or 1,048,576 x 1,048,576 tiles (109,951,162,778 tiles in total).
 
-The full table of values for zoom levels is here:
+The following table provides the full list values for zoom levels:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
@@ -59,7 +59,7 @@ The full table of values for zoom levels is here:
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
 
-When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its, it may take four tiles:
+When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
 
 ![Zoom demo scale](./media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 

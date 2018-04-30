@@ -3,9 +3,9 @@ title: Geocoding Coverage in Azure Maps | Microsoft Docs
 description: Learn about Geocoding Coverage in Azure Maps
 services: azure-maps
 keywords: 
-author: dsk-2015
-ms.author: dkshir
-ms.date: 11/28/2017
+author: kgremban
+ms.author: kgremban
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 
@@ -15,12 +15,14 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Azure Maps - Geocoding Coverage
-Azure Maps provides detailed geocoding information for looking up addresses, places, and other geographic entities around the world. This is important for customers who want to know where they can and can't expect to find various levels of fidelity when searching for addresses in the Search Service. When searching regions with low fidelity coverage, you can expect lower confidence search results. The following table provides coverage information for Azure Maps Search Geocoding.
+# Azure Maps geocoding coverage
 
-| Region             | Address points<sup>1</sup>|House numbers<sup>2</sup>| Street level | City level | Points of interest |
+When you search for a location with Azure Maps, the search service takes your search terms and returns the latitude and longitude coordinates, a process called geocoding. However, Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region. 
+
+## Americas
+
+| Region             | Address points | House numbers | Street level | City level | Points of interest |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
-| **Americas**                                            |                 |                |              |            |                    |
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctica                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua And Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
@@ -77,8 +79,11 @@ Azure Maps provides detailed geocoding information for looking up addresses, pla
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Virgin Islands - British                            |                 |                |              |      ✓     |          ✓         |
 | Virgin Islands - United States                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| |                 |                |              |            |                    |
-| **Asia Pacific**                                        |                 |                |              |            |                    |
+
+## Asia Pacific
+
+| Region             | Address points |House numbers | Street level | City level | Points of interest |
+|-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | American Samoa                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
@@ -134,8 +139,11 @@ Azure Maps provides detailed geocoding information for looking up addresses, pla
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Wallis and Futuna|                 |                |              |      ✓     |          ✓         |
-| |                 |                |              |            |                    |
-| **Europe**                                              |                 |                |              |            |                    |
+
+## Europe
+
+| Region             | Address points |House numbers | Street level | City level | Points of interest |
+|-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorra                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Armenia                                             |                 |                |              |      ✓     |          ✓         |
@@ -199,8 +207,12 @@ Azure Maps provides detailed geocoding information for looking up addresses, pla
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| |                 |                |              |            |                    |
-| **Middle East Africa**                                  |                 |                |              |            |                    |
+
+
+## Middle East and Africa
+
+| Region             | Address points |House numbers | Street level | City level | Points of interest |
+|-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algeria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Angola                                              |                 |                |       ✓      |      ✓     |          ✓         |
@@ -280,8 +292,9 @@ Azure Maps provides detailed geocoding information for looking up addresses, pla
 
 
 
-|Terms|Definitions|
-|--- |--- |
-|**<sup>1</sup> - Address Point**|Derived from the Point Address index in Online Search. This field is only supported when Search and Geocoding is supported.|
-|**<sup>2</sup> - House Number**|Derived from the Address Interpolation index in Online Search. This field is only supported when Search and Geocoding is supported.|
-|**<sup>3</sup> - User-assigned code**|Online Search specific code, not an official ISO 3166-1 code.|
+## Next steps
+
+For more information about Azure Maps geocoding, see the [Search](https://docs.microsoft.com/rest/api/azure-maps/search) reference pages.
+
+Learn about the [coverage areas for the Maps traffic service](traffic-coverage.md). 
+
