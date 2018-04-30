@@ -7356,7 +7356,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-single-databases-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7421,7 +7421,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-on-the-fly.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7445,13 +7445,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-service-tiers.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
             "redirect_url": "/azure/sql-database/sql-database-servers-databases",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-service-tier-advisor.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -8290,11 +8295,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
+            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Face/index.md",
+            "redirect_url": "/azure/cognitive-services/Face/Overview",
+            "redirect_document_id": false
+        },
+       {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -18702,6 +18717,7 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/support-for-aml-services.md",
             "redirect_url": "/azure/machine-learning/service/support-for-aml-services",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
@@ -18766,6 +18782,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-whats-next.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-mfasettings",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
             "redirect_document_id": false
         },
         {
@@ -19037,6 +19058,11 @@
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "redirect_document_id": false
         }
     ]
 }
