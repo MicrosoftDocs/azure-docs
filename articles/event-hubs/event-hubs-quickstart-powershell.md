@@ -1,20 +1,16 @@
 ---
 title: Azure Quickstart - process event streams using PowerShell | Microsoft Docs
-description: Quickly learn to process event streams using PowerShell
+description: This quickstart teaches you to send and receive Azure Event Hubs events using PowerShell and a sample .NET application. 
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
 editor: ''
 
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/18/2018
+ms.date: 04/30/2018
 ms.author: sethm
 
 ---
