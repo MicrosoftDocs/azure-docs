@@ -55,9 +55,9 @@ By default, the charts and graphs reflect all metrics data that you have access 
 
 The dashboard shows charts and graphs of the metrics available for the selected endpoint. Not all metrics are available for all endpoints. The charts and graphs for each endpoint are static (you may not select the charts and graphs to display). The dashboard shows only charts and graphs for which there's data. 
 
-<!-->
+<!--
 For example, if you don't include the User-Agent header in your calls, the dashboard will not include device-related graphs.
-<-->
+-->
 
 The following are the possible metrics. Each metric notes endpoint restrictions. 
 

@@ -29,6 +29,8 @@
       href: bing-insights-usage.md
     - name: Supported countries and markets
       href: supported-countries-markets.md
+    - name: Analytics for Visual Search API
+      href: bing-visual-search-stats.md
 - name: How-to guides
   items:
   - name: Use and display results
