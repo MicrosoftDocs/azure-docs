@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: dobett
 
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -42,7 +42,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Download the sample Node.js project from https://github.com/Azure-Samples/iot-hub-quickstarts-node/archive/master.zip and extract the ZIP archive.
+Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
 ## Create an IoT hub
 
@@ -79,7 +79,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **simulated-device** folder.
+1. In a terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.js** file in a text editor of your choice.
 
@@ -102,7 +102,7 @@ The back-end application connects to the service-side **Events** endpoint on you
 
 1. In another terminal window, navigate to the root folder of the sample Node.js project. Then navigate to the **read-d2c-messages** folder.
 
-1. Open the **ReadDeviceToCloudMessages.js** file in a text editor of your choice.
+1. Open the **Quickstarts\ReadDeviceToCloudMessages.js** file in a text editor of your choice.
 
     Replace the value of the `connectionString` variable with the service connection string you made a note of previously. Then save your changes to the **ReadDeviceToCloudMessages.js** file.
 

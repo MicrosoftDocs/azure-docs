@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: dobett
 
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
@@ -46,7 +46,7 @@ python --version
 python3 --version
 ```
 
-Download the sample Python project from https://github.com/Azure-Samples/iot-hub-quickstarts-python/archive/master.zip and extract the ZIP archive.
+Download the sample Python project from https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip and extract the ZIP archive.
 
 To install the CLI utility that reads telemetry from the IoT hub, first install Node.js v4.x.x or later on your development machine. You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
@@ -97,7 +97,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
-1. In a terminal window, navigate to the root folder of the sample Python project. Then navigate to the **simulated-device** folder.
+1. In a terminal window, navigate to the root folder of the sample Python project. Then navigate to the **Quickstarts\simulated-device** folder.
 
 1. Open the **SimulatedDevice.py** file in a text editor of your choice.
 
