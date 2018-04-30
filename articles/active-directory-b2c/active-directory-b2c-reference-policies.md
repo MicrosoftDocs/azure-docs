@@ -79,6 +79,10 @@ This policy handles both consumer sign-up & sign-in experiences with a single co
 
 [!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
 
+## Preview policies
+
+As we release new features, some of these may not be available on existing policies.  We plan to replace older versions with the latest of the same type once these policies enter GA.  Your existing policies will not change and in order to take advantage of these new features you will have to create new policies.
+
 ## Frequently asked questions
 
 ### How do I link a sign-up or sign-in policy with a password reset policy?
