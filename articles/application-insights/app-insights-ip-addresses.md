@@ -47,11 +47,6 @@ Status Monitor Configuration - needed only when making changes.
 | Configuration |`login.live.com` | |`443` |
 | Installation |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (NuGet Downloads) | |`443` |
 
-## HockeyApp
-| Purpose | URL | IP | Ports |
-| --- | --- | --- | --- |
-| Crash data |gate.hockeyapp.net |104.45.136.42 |80, 443 |
-
 ## Availability tests
 This is the list of addresses from which [availability web tests](app-insights-monitor-web-app-availability.md) are run. If you want to run web tests on your app, but your web server is restricted to serving specific clients, then you will have to permit incoming traffic from our availability test servers.
 
@@ -215,7 +210,7 @@ Note: *.applicationinsights.io domain is owned by Application Insights team.
 
 Note: *.loganalytics.io domain is owned by the Log Analytics team.
 
-## Application Insights Azure Portal Extension
+## Application Insights Azure portal Extension
 
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
