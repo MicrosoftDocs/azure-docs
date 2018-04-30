@@ -151,7 +151,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
 In this tutorial you learn how to monitor a connection between two VMs. You can also monitor a connection between a VM, a fully-qualified domain name, a uniform resource identifier, or an IP address.
 
-If you are having communication problems between your on-premises network and a virtual network, there may be a problem with the Azure virtual network gateway that connects your on-premises network with your virtual network. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
+At some point, you may find that resources in a virtual network are unable to communicate with resources in other networks connected by an Azure virtual network gateway. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
 
 > [!div class="nextstepaction"]
-> [Diagnose a problem with a virtual network gateway](network-watcher-troubleshoot-manage-portal.md)
+> [Diagnose communication problems between networks](network-watcher-troubleshoot-manage-portal.md)
