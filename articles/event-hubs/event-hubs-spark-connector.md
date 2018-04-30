@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
-ms.author: shvija;sethm;sagrewal
+ms.author: shvija
 
 ---
 
 # Integrating Apache Spark with Azure Event Hubs
 
-Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/) to make building distributed streaming applications easy. This integration supports [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs connector for Apache Spark is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
+Azure Event Hubs seamlessly integrates with [Apache Spark](https://spark.apache.org/) to enable building distributed streaming applications. This integration supports [Spark Core](http://spark.apache.org/docs/latest/rdd-programming-guide.html), [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html), [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). The Event Hubs connector for Apache Spark is available on [GitHub](https://github.com/Azure/azure-event-hubs-spark). This library is also available for use in Maven projects from the [Maven Central Repository](http://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-eventhubs-spark_2.11%7C2.1.6%7C).
 
-This article shows you how to make a continuous application in [Azure Databricks](https://azure.microsoft.com/services/databricks/). While this article uses [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark Clusters are also available with [HDInsight](../hdinsight/spark/apache-spark-overview.md).
+This article shows you how to create a continuous application in [Azure Databricks](https://azure.microsoft.com/services/databricks/). While this article uses [Azure Databricks](https://azure.microsoft.com/services/databricks/), Spark clusters are also available with [HDInsight](../hdinsight/spark/apache-spark-overview.md).
 
 The following example uses two Scala notebooks: one for streaming events from an event hub and another for sending events back to it.
 
