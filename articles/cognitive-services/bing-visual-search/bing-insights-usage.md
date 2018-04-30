@@ -17,7 +17,7 @@ ms.author: scottwhi
 
 This section contains examples of how Bing might display insights on Bing.com.
 
-## PagesIncluding insights example
+## PagesIncluding insight example
 
 The following shows how Bing might display webpages that include the image. The example displays a link to the first webpage and lets the user expand and collapse the list of other webpages that include the image.
 
