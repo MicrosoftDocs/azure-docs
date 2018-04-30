@@ -49,10 +49,9 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 |9.910309E-07|.0000009910309|
 
 ## Differences with predictions
-<!-- Nayer -->
-LUIS requires users to identify positive utterances for intents. For training, LUIS automatically selects utterances that would be considered negative for each intent. This selection contains some randomness, by design. Every model may not use the same negative utterances for training. When you train the same model in a different app, and the scores are not this same, there are a couple of reasons this can happen.
+Each time you train your app, the process contains some randomness, by design. When you train the same model in a different app, and the scores are not this same, there are a couple of reasons this can happen.
 
-The first is that the negative utterances selected are not the same across the apps. Second, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
+The first is that element of randomness. Second, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
 
 If your chat bot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
 
