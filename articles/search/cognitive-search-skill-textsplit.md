@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| pages	| An array of substrings that were extracted. |
+| textItems	| An array of substrings that were extracted. |
 
 
 ##	Sample definition
@@ -64,7 +64,7 @@ Parameters are case-sensitive.
     ],
     "outputs": [
         {
-            "name": "textitems",
+            "name": "textItems",
             "targetName": "mypages"
         }
     ]
@@ -102,7 +102,7 @@ Parameters are case-sensitive.
         {
             "recordId": "1",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the loan…",
                     "On the second page we…"
                 ]
@@ -111,7 +111,7 @@ Parameters are case-sensitive.
         {
             "recordId": "2",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the second document...",
                     "On the second page of the second doc…"
                 ]
