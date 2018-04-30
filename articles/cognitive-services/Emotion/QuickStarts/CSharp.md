@@ -4,9 +4,8 @@ description: Get information and a code sample to help you quickly get started b
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: emotion
+ms.component: emotion-api
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: anroth
@@ -22,7 +21,7 @@ This article provides information and a code sample to help you quickly get star
 
 ## Prerequisites
 * Get the Cognitive Services [Emotion API Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).
-* Get your free [subscription key](https://azure.microsoft.com/en-us/try/cognitive-services/).
+* Get your free [subscription key](https://azure.microsoft.com/try/cognitive-services/).
 
 ## Emotion recognition C# example request
 

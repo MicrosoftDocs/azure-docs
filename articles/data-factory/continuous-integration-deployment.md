@@ -91,18 +91,20 @@ Here are the steps to set up a VSTS Release so you can automate the deployment o
 
        -   Create a copy of the parameters file that is uploaded to the publish branch and set the values of the parameters you want to get from key vault with the following format:
 
-       ```json
-       "parameters": {
-             "azureSqlReportingDbPassword": {
-               "reference": {
-                   "keyVault": {
-                       "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                   },
-                   "secretName": “<secret-name>"
-               }
-           }
-       }
-       ```
+        ```json
+        {
+	        "parameters": {
+		        "azureSqlReportingDbPassword": {
+	    		    "reference": {
+    				    "keyVault": {
+					        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+			        	},
+        				"secretName": " < secret - name > "
+		        	}
+		        }
+	        }
+        }
+        ```
 
        -   When you use this method, the secret is pulled from the key vault automatically.
 

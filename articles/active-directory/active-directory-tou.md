@@ -93,7 +93,7 @@ To get started with auditing use the following procedure:
 2. Click View audit logs.</br>
 ![Audit Event](media/active-directory-tou/tou8.png)
 3.  On the Azure AD audit logs screen, you can filter the information using the provided drops downs to target specific audit log information.
-![Audit Event](media/active-directory-tou/tou9.png)
+[Audit Event](media/active-directory-tou/tou9.png)
 4.  You can also download the information in a .csv file for use locally.
 
 ## 
@@ -146,7 +146,7 @@ A: Yes.  Currently there are 18 different languages an administrator can configu
 **Q: When is the terms of use triggered?**</br>
 A: The terms of use is triggered during the sign-in experience.
 
-**Q: What applications can I target a terms of use too?**</br>
+**Q: What applications can I target a terms of use to?**</br>
 A: You can create a conditional access policy on the enterprise applications using modern authentication.  For more information, see [enterprise applications](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
 
 **Q: Can I add multiple terms of use to a given user or app?**</br>

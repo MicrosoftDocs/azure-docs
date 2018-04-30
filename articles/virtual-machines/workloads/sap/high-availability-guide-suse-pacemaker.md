@@ -50,6 +50,14 @@ You first need to create an iSCSI target virtual machine if you do not have one 
    sudo zypper update
    </code></pre>
 
+1. Remove packages
+
+   To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that cannot be found
+   
+   <pre><code>
+   sudo zypper remove lio-utils python-rtslib python-configshell targetcli
+   </code></pre>
+   
 1. Install iSCSI target packages
 
    <pre><code>
@@ -59,9 +67,7 @@ You first need to create an iSCSI target virtual machine if you do not have one 
 1. Enable the iSCSI target service
 
    <pre><code>   
-   sudo systemctl enable target
    sudo systemctl enable targetcli
-   sudo systemctl start target
    sudo systemctl start targetcli
    </code></pre>
 
@@ -97,7 +103,6 @@ sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create i
 
 # save the targetcli changes
 sudo targetcli saveconfig
-sudo systemctl restart target
 </code></pre>
 
 ### Set up SBD device

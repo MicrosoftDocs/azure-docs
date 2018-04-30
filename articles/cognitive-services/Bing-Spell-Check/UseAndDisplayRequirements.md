@@ -4,9 +4,8 @@ description: Use data from the Bing Spell Check APIs to improve search results f
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: scottwhi

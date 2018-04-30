@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure your account for offline streaming of Widevine protected content - Azure
 description: This topic shows how to configure your Azure Media Services account for offline streaming of Widevine protected content.
 services: media-services
@@ -172,7 +172,7 @@ This means the Secure Token Service (STS) needs to have the business logic and c
 ### Question
 
 For Widevine security levels, in Google’s [Widevine DRM Architecture Overview doc](https://storage.googleapis.com/wvdocs/Widevine_DRM_Architecture_Overview.pdf) documentation,
-it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview),
+it defines three different security levels. However, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview),
 five different security levels are outlined. What is the relationship or mapping between the two different sets of security levels?
 
 ### Answer
@@ -184,7 +184,7 @@ it defines the following three security levels:
 2.  Security Level 2: Performs cryptography (but not video processing) within the TEE: decrypted buffers are returned to the application domain and processed through separate video hardware or software. At level 2, however, cryptographic information is still processed only within the TEE.
 3.  Security Level 3 Does not have a TEE on the device. Appropriate measures may be taken to protect the cryptographic information and decrypted content on host operating system. A Level 3 implementation may also include a hardware cryptographic engine, but that only enhances performance, not security.
 
-At the same time, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/en-us/azure/media-services/media-services-widevine-license-template-overview), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
+At the same time, in [Azure Media Services documentation on Widevine license template](https://docs.microsoft.com/azure/media-services/media-services-widevine-license-template-overview), the security_level property of content_key_specs can have the following five different values (client robustness requirements for playback):
 
 1.  Software-based whitebox crypto is required.
 2.  Software crypto and an obfuscated decoder is required.

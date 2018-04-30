@@ -19,8 +19,8 @@ You will not need this iothubowner connection string for this set-up tutorial. H
 
 1. In the [Azure portal](https://portal.azure.com/), open your IoT hub.
 
-2. Click **Device Explorer**.
-3. In the Device Explorer pane, click **Add** to add a device to your IoT hub. Then do the following:
+2. Click **IoT Devices**.
+3. In the IoT Devices pane, click **Add** to add a device to your IoT hub. Then do the following:
 
    **Device ID**: Enter the ID of the new device. Device IDs are case sensitive.
 
@@ -30,12 +30,15 @@ You will not need this iothubowner connection string for this set-up tutorial. H
 
    **Connect device to IoT Hub**: Click **Enable**.
 
-   ![Add a device in the Device Explorer of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Add a device in the IoT Devices of your IoT hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 4. Click **Save**.
-5. After the device is created, open the device in the **Device Explorer** pane.
+5. After the device is created, open the device in the **IoT Devices** pane.
+
+   ![IoT Device List in IoT Hub](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Make a note of the primary key of the connection string.
 
-   ![Get the device connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Get the device connection string](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

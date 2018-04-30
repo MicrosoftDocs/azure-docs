@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2018
-ms.author: devtiw
+ms.date: 04/27/2018
+ms.author: barclayn
 
 ---
 # Azure Disk Encryption FAQ
@@ -31,7 +31,7 @@ Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerS
 
 ## How much does Azure Disk Encryption cost?
 
-There is no charge for encrypting VM disks with Azure Disk Encryption.
+There is no charge for encrypting VM disks with Azure Disk Encryption but there are charges associated with the use of Azure Key Vault. For more information on Azure Key Vault costs refer to the [Key Vault pricing](https://azure.microsoft.com/pricing/details/key-vault/) page.
 
 ## Which virtual machine tiers does Azure Disk Encryption support?
 
@@ -65,7 +65,7 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | SLES | Priority:11-SP4 | Data disk |
 | SLES | 11 SP4 | Data disk |
 
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the ADE whitepaper for Linux OS disk encryption [here](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
+*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but is not currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the ADE whitepaper for Linux OS disk encryption [here](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).__
 
 ## How can I start using Azure Disk Encryption?
 

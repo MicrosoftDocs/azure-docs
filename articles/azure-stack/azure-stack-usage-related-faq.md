@@ -68,7 +68,7 @@ Usage is reported for the following resource providers:
   Azure Stack.
 * The Provider Usage API applies only to Azure Stack.
 * Currently, the [RateCard
-  API](https://msdn.microsoft.com/en-us/library/azure/mt219004.aspx)
+  API](https://msdn.microsoft.com/library/azure/mt219004.aspx)
   that is available in Azure is not available in Azure Stack.
 
 ## What is the difference between usage time and reported time?

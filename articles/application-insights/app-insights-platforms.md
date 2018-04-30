@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Application Insights: languages, platforms and integrations| Microsoft Docs'
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
@@ -36,12 +36,16 @@ These items are implementations of [Application Insights](app-insights-overview.
 * [ASP.NET - for apps that are already live](app-insights-monitor-performance-live-website-now.md)
 * [ASP.NET Core](app-insights-asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
+* [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
+* [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
 * [Azure Cloud Services](app-insights-cloudservices.md)&#151;including both web and worker roles
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
+* [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
+* [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center, HockeyApp)
 * [J2EE](app-insights-java-get-started.md)
 * [J2EE - for apps that are already live](app-insights-java-live.md)
 * [macOS app](https://support.hockeyapp.net/kb/client-integration-ios-mac-os-x-tvos/hockeyapp-for-mac-os-x) (HockeyApp - Deprecated)

@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Blob Storage resources with Storage Explorer (Preview) | Microsoft Docs
-description: Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)
+title: Manage Azure Blob Storage resources with Storage Explorer | Microsoft Docs
+description: Manage Azure Blob Containers and Blobs with Storage Explorer
 services: storage
 documentationcenter: na
 author: cawa
@@ -17,24 +17,24 @@ ms.date: 11/18/2016
 ms.author: cawa
 
 ---
-# Manage Azure Blob Storage resources with Storage Explorer (Preview)
+# Manage Azure Blob Storage resources with Storage Explorer
 ## Overview
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS.
-You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer (Preview)
+You can use Blob storage to expose data publicly to the world, or to store application data privately. In this article, you'll learn how to use Storage Explorer
 to work with blob containers and blobs.
 
 ## Prerequisites
 To complete the steps in this article, you'll need the following:
 
-* [Download and install Storage Explorer (preview)](http://www.storageexplorer.com)
+* [Download and install Storage Explorer](http://www.storageexplorer.com)
 * [Connect to a Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
 All blobs must reside in a blob container, which is simply a logical grouping of blobs. An account can contain an unlimited number of containers, and each container can store an unlimited number of blobs.
 
-The following steps illustrate how to create a blob container within Storage Explorer (Preview).
+The following steps illustrate how to create a blob container within Storage Explorer.
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account within which you wish to create the blob container.
 3. Right-click **Blob Containers**, and - from the context menu - select **Create Blob Container**.
 
@@ -50,9 +50,9 @@ The following steps illustrate how to create a blob container within Storage Exp
 ## View a blob container's contents
 Blob containers contain blobs and folders (that can also contain blobs).
 
-The following steps illustrate how to view the contents of a blob container within Storage Explorer (Preview):
+The following steps illustrate how to view the contents of a blob container within Storage Explorer:
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container you wish to view.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to view, and - from the context menu - select **Open Blob Container Editor**.
@@ -67,9 +67,9 @@ The following steps illustrate how to view the contents of a blob container with
 Blob containers can be easily created and deleted as needed. (To see how to delete individual blobs,
 refer to the section, [Managing blobs in a blob container](#managing-blobs-in-a-blob-container).)
 
-The following steps illustrate how to delete a blob container within Storage Explorer (Preview):
+The following steps illustrate how to delete a blob container within Storage Explorer:
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container you wish to view.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to delete, and - from the context menu - select **Delete**.
@@ -81,12 +81,12 @@ The following steps illustrate how to delete a blob container within Storage Exp
    ![Delete blob Container confirmation][5]
 
 ## Copy a blob container
-Storage Explorer (Preview) enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs,
+Storage Explorer enables you to copy a blob container to the clipboard, and then paste that blob container into another storage account. (To see how to copy individual blobs,
 refer to the section, [Managing blobs in a blob container](#managing-blobs-in-a-blob-container).)
 
 The following steps illustrate how to copy a blob container from one storage account to another.
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container you wish to copy.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the blob container you wish to copy, and - from the context menu - select **Copy Blob Container**.
@@ -103,7 +103,7 @@ share your account access keys.
 
 The following steps illustrate how to create a SAS for a blob container:
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container for which you wish to get a SAS.
 3. Expand the storage account's **Blob Containers**.
 4. Right-click the desired blob container, and - from the context menu - select **Get Shared Access Signature**.
@@ -122,7 +122,7 @@ The following steps illustrate how to create a SAS for a blob container:
 ## Manage Access Policies for a blob container
 The following steps illustrate how to manage (add and remove) access policies for a blob container:
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
 3. Expand the storage account's **Blob Containers**.
 4. Select the desired blob container, and - from the context menu - select **Manage Access Policies**.
@@ -142,7 +142,7 @@ By default, every blob container is set to "No public access".
 
 The following steps illustrate how to specify a public access level for a blob container.
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container whose access policies you wish to manage.
 3. Expand the storage account's **Blob Containers**.
 4. Select the desired blob container, and - from the context menu - select **Set Public Access Level**.
@@ -159,7 +159,7 @@ and much more.
 
 The following steps illustrate how to manage the blobs (and folders) within a blob container.
 
-1. Open Storage Explorer (Preview).
+1. Open Storage Explorer.
 2. In the left pane, expand the storage account containing the blob container you wish to manage.
 3. Expand the storage account's **Blob Containers**.
 4. Double-click the blob container you wish to view.
@@ -215,7 +215,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      3. Select **Yes** to the confirmation dialog.
 
 ## Next steps
-* View the [latest Storage Explorer (Preview) release notes and videos](http://www.storageexplorer.com).
+* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
 * Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

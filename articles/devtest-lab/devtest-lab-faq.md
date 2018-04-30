@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines
@@ -125,9 +125,9 @@ Yes, you can attach multiple disks to your VMs.
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, you must do one of the following:
 
 - [Buy an MSDN subscription](https://www.visualstudio.com/products/how-to-buy-vs).
-- If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/en-us/offers/ms-azr-0148p).
+- If you have an Enterprise Agreement, create an Azure subscription with the [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p).
 
-For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/).
+For more information about the Azure credits for each MSDN offering, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ## How do I automate the process of uploading VHD files to create custom images?
 To automate uploading VHD files to create custom images, you have two options:
@@ -156,7 +156,7 @@ You can delete VMs from your lab in the Azure portal. You also can delete all th
     $labName = "<Enter lab name here>"
 
     # Sign in to your Azure account.
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     # Select the Azure subscription that has the lab. This step is optional
     # if you have only one subscription.

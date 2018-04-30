@@ -62,7 +62,7 @@ These settings are easily configured via the diagnostic settings for a resource 
 >
 
 > [!WARNING]
-> Diagnostic logs and metrics for from the guest OS layer of Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
+> Diagnostic logs and metrics from the guest OS layer of Compute resources (for example, VMs or Service Fabric) use [a separate mechanism for configuration and selection of outputs](../azure-diagnostics.md).
 
 ## How to enable collection of resource diagnostic logs
 

@@ -17,7 +17,7 @@ ms.date: 09/05/2017
 ms.author: fryu
 ---
 
-# Azure Storage metrics in Azure Monitor (preview)
+# Azure Storage metrics in Azure Monitor
 
 With metrics on Azure Storage, you can analyze usage trends, trace requests, and diagnose issues with your storage account.
 
