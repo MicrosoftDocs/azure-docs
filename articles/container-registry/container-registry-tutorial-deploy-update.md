@@ -124,7 +124,7 @@ Verify that the updated container image was also deployed to the *East US* deplo
 
 ![Browser view of modified web app running in East US region][deployed-app-eastus-modified]
 
-With a single `docker push`, you've automatically updated the web application running both regional Web App deployments. And, Azure Container Registry served the container images from the repositories located closest to each deployment.
+With a single `docker push`, you've automatically updated the web application running in both regional Web App deployments. And, Azure Container Registry served the container images from the repositories located closest to each deployment.
 
 ## Next steps
 
