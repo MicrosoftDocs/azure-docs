@@ -52,7 +52,10 @@ First, sign up for the Azure Search service.
 
 1. For Pricing tier, you can create a **Free** service to complete tutorials and quickstarts. For deeper investigation using your own data, create a [paid service](https://azure.microsoft.com/pricing/details/search/) such as **Basic** or **Standard**. 
 
-  A Free service is limited to 3 indexes, 16-MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+  A Free service is limited to 3 indexes, 16 MB maximum blob size, and 2 minutes of indexing, which is insufficient for exercising the full capabilities of cognitive search. To review limits for different tiers, see [Service Limits](search-limits-quotas-capacity.md).
+
+  > [!NOTE]
+  > Cognitive Search is in public preview, and skillset execution is currently available in all tiers, including free. At a later time, the pricing for this capability will be announced.
 
 1. Pin the service to the dashboard for fast access to service information.
 
@@ -211,7 +214,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "keyPhrases",
-          "targetName": "keyPhrases"
+          "targetName": "keyphrases"
         }
       ]
     }
@@ -219,10 +222,7 @@ Content-Type: application/json
 }
 ```
 
-Send the request. The web test tool should return a status code of 201 confirming success. 
-
-> [!NOTE]
-> Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+Send the request. The web test tool should return a status code of 204 confirming success. 
 
 #### About the request
 
@@ -376,10 +376,9 @@ Content-Type: application/json
 		}
   }
 }
-
 ```
 
-Send the request. The web test tool should return a status code of 204 confirming successful processing. 
+Send the request. The web test tool should return a status code of 201 confirming successful processing. 
 
 Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
@@ -415,7 +414,7 @@ After indexing is finished, run queries that return the contents of individual f
 As a verification step, query the index for all of the fields.
 
 ```http
-https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
 api-key: [api-key]
 Content-Type: application/json
 ```
