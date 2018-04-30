@@ -47,10 +47,10 @@ For Azure VM disaster recovery, as long as replication data does not leave the A
 
 If you are already using ExpressRoute to connect from your on-premises datacenter to the Azure VMs on the source region, you can plan for re-establishing ExpressRoute connectivity at the failover target region. You can use the same ExpressRoute circuit to connect to the target region through a new virtual network connection or utilize a separate ExpressRoute circuit and connection for disaster recovery. The different possible scenarios are described [here](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you might need to enable ExpressRoute Premium. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
+You can replicate Azure virtual machines to any Azure region within the same geographic cluster as detailed [here](../site-recovery/azure-to-azure-support-matrix.md#region-support). If the chosen target Azure region is not within the same geopolitical region as the source, you might need to enable ExpressRoute Premium. For more details, check [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/en-us/pricing/details/expressroute/).
 
 ## Next steps
 - Learn more about [ExpressRoute circuits](../expressroute/expressroute-circuit-peerings.md).
-- Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md).
+- Learn more about [ExpressRoute routing domains](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
 - Learn more about [ExpressRoute locations](../expressroute/expressroute-locations.md).
 - Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
