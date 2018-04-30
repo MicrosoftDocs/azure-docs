@@ -57,7 +57,7 @@ For user flows that have either signing up, signing in or both, you can choose t
 
 ##Known issues
 ###Customization unavailable for new pages
-There are two new pages that can be available in your user flow when you enable age gating.  These pages for collecting country and date of birth on sign in and the error page can't be customized.  This option will be available in a coming update.
+There are two new pages that can be available in your user flow when you enable age gating.  These pages for collecting country and date of birth on sign in and the error page can't be used with page layout or language customization.  This option will be available in a coming update.
 
 ###Format for the response when a minor is blocked.
 The response currently is not correctly formed, this bug will be addressed in a coming update.
