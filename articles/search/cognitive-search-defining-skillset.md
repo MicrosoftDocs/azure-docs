@@ -1,5 +1,5 @@
 ---
-title: Create a natural language skillset or cognitive search pipeline (Azure Search) | Microsoft Docs
+title: Create a skillset in a cognitive search pipeline (Azure Search) | Microsoft Docs
 description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Search.
 manager: pablocas
 author: luiscabrer

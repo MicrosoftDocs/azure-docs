@@ -1,6 +1,6 @@
 ---
-title: How to structure inputs and outputs in a cognitive search pipeline in Azure Search | Microsoft Docs
-description: Document annotation syntax for referencing inputs and outputs in a cognitive search pipeline in Azure Search.
+title: Reference an annotation in inputs and outputs in a cognitive search pipeline in Azure Search | Microsoft Docs
+description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in a cognitive search pipeline in Azure Search.
 services: search
 manager: pablocas
 author: luiscabrer
