@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 
 # Build and deploy text classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Text Analytics** to train and deploy a text classification model. The goal of text classification is to assign a piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. 
+In this article, you can learn how to train and deploy a text classification model with **Azure Machine Learning Package for Text Analytics** (AMLPTA). The goal of text classification is to assign a piece of text to one or more predefined classes or categories. This text could, for example, be a document, news article, search query, email, tweet, support tickets.
 
 There are broad applications of text classification such as: 
 + Categorizing newspaper articles and news wire contents into topics
@@ -24,7 +24,7 @@ There are broad applications of text classification such as:
 + Routing support tickets
 + Analyzing customer feedback 
 
-The model building and deployment workflow for a text classification model with Azure Machine Learning Package for Text Analytics is as follows:
+The text classification model building and deployment workflow for a model with AMLPTA is as follows:
 
 1. Load the data
 2. Train the model
@@ -34,10 +34,9 @@ The model building and deployment workflow for a text classification model with 
 6. Test the pipeline
 8. Deploy the model as a web service
 
-This sample code uses a scikit-learn pipeline.
-
 Consult the [package reference documentation](https://aka.ms/aml-packages/text) for the detailed reference for each module and class.
 
+The sample code in this article uses a scikit-learn pipeline.
 
 ## Prerequisites 
 
@@ -67,9 +66,9 @@ The following example uses a partial set of the [Sentiment Analysis Semval-2013]
 
 ## Load data and explore
 
-Define and get the data that you will use to run the classifier.
+Define and get the data needed to run the classifier.
 
-Input dataset is a *.tsv file with the following [ID, Text, Label] format. 
+The input dataset must be a *.tsv file with the following [ID, Text, Label] format. 
 
 
 ```python
@@ -149,7 +148,7 @@ print(df_test.head())
     3   4  @TheScript_Danny @thescript - St Patricks Day ...  positive
     4   5  @DJT103 - You know what the holidays alright w...  positive
     
-The data consists of ID, text and the labels 'Positive', 'Neutral', or 'Negative'. 
+The data consists of ID, text, and the labels 'Positive', 'Neutral', or 'Negative'. 
 
 Now, you can create a preliminary exploration plot histogram of the class frequency in training and test data sets. 
 
@@ -204,11 +203,11 @@ plt.show()
 
 ## Train the model
 
-### Specify scikitlearn algorithm and define the text classifier
+### Specify scikit-learn algorithm and define the text classifier
 
-This step involves training a Scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
+This step involves training a scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
 
-Refer to the full list of [Scikit Learners](http://scikit-learn.org/stable/supervised_learning) for more information.
+For the full list of learnings, refer to the [Scikit Learners](http://scikit-learn.org/stable/supervised_learning) documentation.
 
 ```python
 from sklearn.linear_model import LogisticRegression
