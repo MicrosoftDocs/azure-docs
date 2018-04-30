@@ -1,43 +1,43 @@
 ﻿---
 title: Workflow triggers and actions - Azure Logic Apps | Microsoft Docs
-description: Learn about the triggers and actions for creating automated workflows and processes with logic apps
+description: Learn about triggers and actions in workflow definitions for Azure Logic Apps
 services: logic-apps
-author: divyaswarnkar
-manager: anneta
+author: kevinlam1
+manager: SyntaxC4
 editor: 
 documentationcenter: 
 
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.workload: logic-apps
+ms.tgt_pltfrm: 
+ms.devlang: 
+ms.topic: reference
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ---
 
-# Triggers and actions for logic app workflows
+# Triggers and actions for logic app workflow definitions
 
 All logic apps start with a trigger followed by actions. 
 This article describes the kinds of triggers and actions 
 that you can use for creating system integrations and 
 automating business workflows or processes by building logic apps. 
   
-## Triggers overview 
+## Triggers overview
 
-All logic apps start with a trigger, 
-which specifies the calls that can start a logic app run. 
+All logic apps start with a trigger, which defines the calls 
+that can instantiate and start a logic app workflow. 
 Here are the types of triggers that you can use:
 
 * A *polling* trigger, which checks a service's HTTP endpoint at regular intervals
 * A *push* trigger, which calls the 
 [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
   
-All triggers contain these top-level elements:  
+All triggers have these top-level elements:  
   
 ```json
-"<myTriggerName>": {
+"<triggerName>": {
     "type": "<triggerType>",
     "inputs": { <callSettings> },
     "recurrence": {  
@@ -46,21 +46,21 @@ All triggers contain these top-level elements:
     },
     "conditions": [ <array-with-required-conditions> ],
     "splitOn": "<property-used-for-creating-runs>",
-    "operationOptions": "<options-for-operations-on-the-trigger>"
+    "operationOptions": "<options-for-trigger-operations>"
 }
 ```
 
 ## Trigger types and inputs  
 
 Each trigger type has a different interface and 
-different *inputs* that defines its behavior. 
+*inputs* that define the trigger's behavior. 
 
 | Trigger type | Description | 
 | ------------ | ----------- | 
 | **Recurrence** | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running the workflow. | 
-| **Request**  | Makes your logic app into an endpoint that you can call, also known as a "manual" trigger. | 
+| **Request**  | Makes your logic app into a callable endpoint, also known as a "manual" trigger. | 
 | **HTTP** | Checks, or *polls*, an HTTP web endpoint. The HTTP endpoint must conform to a specific triggering contract either by using a "202" asynchronous pattern or by returning an array. | 
-| **ApiConnection** | Polls like an HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| **ApiConnection** | Checks, or *polls*, an HTTP web endpoint, like the HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
 | **HTTPWebhook** | Makes your logic app into a callable endpoint, like the **Request** trigger, but calls a specified URL for registering and unregistering. |
 | **ApiConnectionWebhook** | Works like the **HTTPWebhook** trigger, but uses Microsoft-managed APIs. | 
 ||| 
