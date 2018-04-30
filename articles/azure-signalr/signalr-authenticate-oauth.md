@@ -331,9 +331,13 @@ In this section, you will turn on real authentication by adding the `Authorize` 
             onConnected(connection);
         })
         .catch(function (error) {
-            console.error(error.message);
-            if (error.statusCode === 401) {
-                appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/login">here</a> to login with GitHub.');
+            if (error) {
+                if (error.message) {
+                    console.error(error.message);
+                }
+                if (error.statusCode && error.statusCode === 401) {
+                    appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/login">here</a> to login with GitHub.');
+                }
             }
         });
     ```
