@@ -442,20 +442,18 @@ In this section, you will add app settings for the following components:
 In the Azure Cloud Shell, paste the following script to add the app settings:
 
 ```azurecli-interactive
-# Get the SignalR Service resource
-signalRresource=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName)
+# Get the SignalR Service resource hostName
+signalRhostname=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName --query hostName)
 
 # Get the SignalR primary key 
-signalRkeys=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName)
-signalRprimarykey=$(echo "$signalRkeys" | grep -Po '(?<="primaryKey": ")[^"]*')
+signalRprimarykey=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName --query primaryKey)
 
 # Form the connection string to the service resource
-signalRhostname=$(echo "$signalRresource" | grep -Po '(?<="hostName": ")[^"]*')
 connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
-  --settings "AzureSignalRConnectionString=$connstring" 
+  --settings "Azure:SignalR:ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
@@ -476,7 +474,7 @@ az webapp deployment user set --user-name $deploymentUser --password $deployment
 
 # Configure Git deployment and note the deployment URL in the output
 az webapp deployment source config-local-git --name $WebAppName --resource-group $ResourceGroupName \
---query [url] -o tsv
+  --query [url] -o tsv
 
 ```
 
