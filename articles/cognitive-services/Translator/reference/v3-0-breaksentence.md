@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator Text API Transliterate Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Transliterate method.
+title: Microsoft Translator Text API BreakSentence Method | Microsoft Docs
+description: Use the Microsoft Translator Text API BreakSentence method.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -12,16 +12,16 @@ ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Transliterate
+# Text API 3.0: BreakSentence
 
-Converts text in one language from one script to another script.
+Identifies the positioning of sentence boundaries in a piece of text.
 
 ## Request URL
 
 Send a `POST` request to:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
+https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ```
 
 ## Request parameters
@@ -33,19 +33,15 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
+    <td>*Required query parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
   <tr>
     <td>language</td>
-    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](.\v3.0-languages.md).</td>
+    <td>*Optional query parameter*.<br/>Language tag identifying the language of the input text. If a code is not specified, automatic language detection will be applied.</td>
   </tr>
   <tr>
-    <td>fromScript</td>
-    <td>*Required parameter*.<br/>Specifies the script used by the input text. Lookup [supported languages](.\v3.0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
-  </tr>
-  <tr>
-    <td>toScript</td>
-    <td>*Required parameter*.<br/>Specifies the output script. Lookup [supported languages](.\v3.0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
+    <td>script</td>
+    <td>*Optional query parameter*.<br/>Script tag identifying the script used by the input text. If a script is not specified, the default script of the language will be assumed.</td>
   </tr>
 </table> 
 
@@ -56,7 +52,7 @@ Request headers include:
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3.0-reference.md#authentication).</td>
+    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -74,35 +70,46 @@ Request headers include:
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`, which represents the string to convert.
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Sentence boundaries are computed for the value of the `Text` property. A sample request body with one piece of text looks like that:
 
 ```json
 [
-    {"Text":"こんにちは"},
-    {"Text":"さようなら"}
+    { "Text": "How are you? I am fine. What did you do today?" }
 ]
 ```
 
 The following limitations apply:
 
-* The array can have at most 10 elements.
-* The text value of an array element cannot exceed 1,000 characters including spaces.
-* The entire text included in the request cannot exceed 5,000 characters including spaces.
+* The array can have at most 100 elements.
+* The text value of an array element cannot exceed 10,000 characters including spaces.
+* The entire text included in the request cannot exceed 50,000 characters including spaces.
+* If the `language` query parameter is specified, then all array elements must be in the same language. Otherwise, language auto-detection is applied to each array element independently.
 
 ## Response body
 
-A successful response is a JSON array with one result for each element in the input array. A result object includes the following properties:
+A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
 
-  * `text`: A string which is the result of converting the input string to the output script.
-  
-  * `script`: A string specifying the script used in the output.
+  * `sentLen`: An array of integers representing the lengths of the sentences in the text element. The length of the array is the number of sentences, and the values are the length of each sentence. 
+
+  * `detectedLanguage`: An object describing the detected language through the following properties:
+
+     * `language`: Code of the detected language.
+
+     * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
+     
+    Note that the `detectedLanguage` property is only present in the result object when language auto-detection is requested.
 
 An example JSON response is:
 
 ```json
 [
-    {"text":"konnnichiha","script":"Latn"},
-    {"text":"sayounara","script":"Latn"}
+  {
+    "sentenceLengths": [ 13, 11, 22 ]
+    "detectedLanguage": {
+      "language": "en",
+      "score": 401
+    },
+  }
 ]
 ```
 
@@ -156,20 +163,13 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Examples
 
-The following example shows how to convert two Japanese strings into Romanized Japanese.
+The following example shows how to obtain sentence boundaries for a single sentence. The language of the sentence is automatically detected by the service.
 
 # [curl](#tab/curl)
 
-The JSON payload for the request in this example:
-
 ```
-[{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
-```
-
-If you are using cUrl in a command-line window that does not support Unicode characters, take the following JSON payload and save it into a file named `request.txt`. Be sure to save the file with `UTF-8` encoding.
-
-```
-curl -X POST "https://dev.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
+curl -X POST "https://dev.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
 
 ---
+

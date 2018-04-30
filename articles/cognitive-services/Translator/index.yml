@@ -19,5 +19,5 @@ sections:
 - title: Reference
   items:
   - type: paragraph
-    text: <p><a href="reference/v3.0-reference.md">API Reference</a></p>
+    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
    

@@ -47,22 +47,22 @@
 - name: Reference
   items: 
   - name: v3 Translator Text API reference
-    href: reference/v3.0-reference.md
+    href: reference/v3-0-reference.md
     items:
     - name: Languages
-      href: reference/v3.0-languages.md
+      href: reference/v3-0-languages.md
     - name: Translate
-      href: reference/v3.0-translate.md
+      href: reference/v3-0-translate.md
     - name: Transliterate
-      href: reference/v3.0-transliterate.md
+      href: reference/v3-0-transliterate.md
     - name: Detect
-      href: reference/v3.0-detect.md
+      href: reference/v3-0-detect.md
     - name: BreakSentence
-      href: reference/v3.0-breaksentence.md
+      href: reference/v3-0-breaksentence.md
     - name: Dictionary Lookup
-      href: reference/v3.0-dictionarylookup.md
+      href: reference/v3-0-dictionarylookup.md
     - name: Dictionary Examples
-      href: reference/v3.0-dictionaryexamples.md
+      href: reference/v3-0-dictionaryexamples.md
   - name: v2 Translator Text API reference (Deprecated)
     href: http://docs.microsofttranslator.com/text-translate.html
     items:

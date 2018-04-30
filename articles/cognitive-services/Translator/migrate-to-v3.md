@@ -99,11 +99,11 @@ Dictionary/example
 
 ## Links
 
-* [Microsoft Privacy Policy](https://privacy.microsoft.com/en-us/privacystatement)
-* [Microsoft Azure Legal Information](https://azure.microsoft.com/en-us/support/legal)
+* [Microsoft Privacy Policy](https://privacy.microsoft.com/privacystatement)
+* [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal)
 * [Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View V3.0 Documentation](/reference/v3.0-reference.md)
+> [View V3.0 Documentation](/reference/v3-0-reference.md)

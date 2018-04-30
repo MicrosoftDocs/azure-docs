@@ -35,7 +35,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Get language names
 
-The following code gets a list of languages supported for translation, transliteration, and dictionary lookup and examples, using the [Languages](../reference/v3.0-languages.md) method.
+The following code gets a list of languages supported for translation, transliteration, and dictionary lookup and examples, using the [Languages](../reference/v3-0-languages.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -222,7 +222,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Translate text
 
-The following code translates source text from one language to another, using the [Translate](../reference/v3.0-translate.md) method.
+The following code translates source text from one language to another, using the [Translate](../reference/v3-0-translate.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -367,7 +367,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Detect language
 
-The following code identifies the language of the source text, using the [Detect](../reference/v3.0-detect.md) method.
+The following code identifies the language of the source text, using the [Detect](../reference/v3-0-detect.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -513,7 +513,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Break sentences
 
-The following code breaks the source text into sentences, using the [BreakSentence](../reference/v3.0-breaksentence.md) method.
+The following code breaks the source text into sentences, using the [BreakSentence](../reference/v3-0-breaksentence.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -650,7 +650,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Transliterate
 
-The following converts text in one language from one script to another script, using the [Transliterate](../reference/v3.0-transliterate.md) method.
+The following converts text in one language from one script to another script, using the [Transliterate](../reference/v3-0-transliterate.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -784,7 +784,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Dictionary lookup
 
-The following gets alternate translations for a word, using the [DictionaryLookup](../reference/v3.0-dictionarylookup.md) method.
+The following gets alternate translations for a word, using the [DictionaryLookup](../reference/v3-0-dictionarylookup.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -963,7 +963,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Dictionary examples
 
-The following gets examples of how to use a term in the dictionary, using the [DictionaryExamples](../reference/v3.0-dictionaryexamples.md) method.
+The following gets examples of how to use a term in the dictionary, using the [DictionaryExamples](../reference/v3-0-dictionaryexamples.md) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1121,5 +1121,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## See also 
 
 [Translator Text overview](../text-overview.md)
-TODO1 UPDATE
-[API Reference](http://docs.microsofttranslator.com/text-translate.html)
+[API Reference](../reference/v3-0-reference.md)

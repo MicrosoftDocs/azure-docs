@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator Text API Detect Method | Microsoft Docs
-description: Use the Microsoft Translator Text API Detect method.
+title: Microsoft Translator Text API Transliterate Method | Microsoft Docs
+description: Use the Microsoft Translator Text API Transliterate method.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -12,16 +12,16 @@ ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Detect
+# Text API 3.0: Transliterate
 
-Identifies the language of a piece of text.
+Converts text in one language from one script to another script.
 
 ## Request URL
 
 Send a `POST` request to:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
+https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 ```
 
 ## Request parameters
@@ -35,6 +35,18 @@ Request parameters passed on the query string are:
     <td>api-version</td>
     <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
+  <tr>
+    <td>language</td>
+    <td>*Required parameter*.<br/>Specifies the language of the text to convert from one script to another. Possible languages are listed in the `transliteration` scope obtained by querying the service for its [supported languages](.\v3-0-languages.md).</td>
+  </tr>
+  <tr>
+    <td>fromScript</td>
+    <td>*Required parameter*.<br/>Specifies the script used by the input text. Lookup [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find input scripts available for the selected language.</td>
+  </tr>
+  <tr>
+    <td>toScript</td>
+    <td>*Required parameter*.<br/>Specifies the output script. Lookup [supported languages](.\v3-0-languages.md) using the `transliteration` scope, to find output scripts available for the selected combination of input language and input script.</td>
+  </tr>
 </table> 
 
 Request headers include:
@@ -44,7 +56,7 @@ Request headers include:
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3.0-reference.md#authentication).</td>
+    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -62,58 +74,35 @@ Request headers include:
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. A sample request body looks like that:
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`, which represents the string to convert.
 
 ```json
 [
-    { "Text": "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal." }
+    {"Text":"こんにちは"},
+    {"Text":"さようなら"}
 ]
 ```
 
 The following limitations apply:
 
-* The array can have at most 100 elements.
-* The text value of an array element cannot exceed 10,000 characters including spaces.
-* The entire text included in the request cannot exceed 50,000 characters including spaces.
+* The array can have at most 10 elements.
+* The text value of an array element cannot exceed 1,000 characters including spaces.
+* The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body
 
-A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
+A successful response is a JSON array with one result for each element in the input array. A result object includes the following properties:
 
-  * `language`: Code of the detected language.
-
-  * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
-
-  * `isTranslationSupported`: A boolean value which is true if the detected language is one of the languages supported for text translation.
-
-  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for translatiteration.
+  * `text`: A string which is the result of converting the input string to the output script.
   
-  * `alternatives`: An array of other possible languages. Each element of the array is another object with the same properties listed above: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
+  * `script`: A string specifying the script used in the output.
 
 An example JSON response is:
 
 ```json
 [
-  {
-    "language": "de",
-    "score": 0.92,
-    "isTranslationSupported": true,
-    "isTransliterationSupported": false,
-    "alternatives": [
-      {
-        "language": "pt",
-        "score": 0.23,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      },
-      {
-        "language": "sk",
-        "score": 0.23,
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false
-      }
-    ]
-  }
+    {"text":"konnnichiha","script":"Latn"},
+    {"text":"sayounara","script":"Latn"}
 ]
 ```
 
@@ -167,12 +156,20 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Examples
 
-The following example shows how to retrieve languages supported for text translation.
+The following example shows how to convert two Japanese strings into Romanized Japanese.
 
 # [curl](#tab/curl)
 
+The JSON payload for the request in this example:
+
 ```
-curl -X POST "https://dev.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
+[{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
+```
+
+If you are using cUrl in a command-line window that does not support Unicode characters, take the following JSON payload and save it into a file named `request.txt`. Be sure to save the file with `UTF-8` encoding.
+
+```
+curl -X POST "https://dev.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
 
 ---

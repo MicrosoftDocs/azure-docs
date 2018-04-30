@@ -1,6 +1,6 @@
 ---
-title: Microsoft Translator Text API BreakSentence Method | Microsoft Docs
-description: Use the Microsoft Translator Text API BreakSentence method.
+title: Microsoft Translator Text API Detect Method | Microsoft Docs
+description: Use the Microsoft Translator Text API Detect method.
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
@@ -12,16 +12,16 @@ ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: BreakSentence
+# Text API 3.0: Detect
 
-Identifies the positioning of sentence boundaries in a piece of text.
+Identifies the language of a piece of text.
 
 ## Request URL
 
 Send a `POST` request to:
 
 ```HTTP
-https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
+https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ```
 
 ## Request parameters
@@ -33,15 +33,7 @@ Request parameters passed on the query string are:
   <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td>*Required query parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
-  </tr>
-  <tr>
-    <td>language</td>
-    <td>*Optional query parameter*.<br/>Language tag identifying the language of the input text. If a code is not specified, automatic language detection will be applied.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*Optional query parameter*.<br/>Script tag identifying the script used by the input text. If a script is not specified, the default script of the language will be assumed.</td>
+    <td>*Required parameter*.<br/>Version of the API requested by the client. Value must be `3.0`.</td>
   </tr>
 </table> 
 
@@ -52,7 +44,7 @@ Request headers include:
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3.0-reference.md#authentication).</td>
+    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -70,11 +62,11 @@ Request headers include:
 
 ## Request body
 
-The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Sentence boundaries are computed for the value of the `Text` property. A sample request body with one piece of text looks like that:
+The body of the request is a JSON array. Each array element is a JSON object with a string property named `Text`. Language detection is applied to the value of the `Text` property. A sample request body looks like that:
 
 ```json
 [
-    { "Text": "How are you? I am fine. What did you do today?" }
+    { "Text": "Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal." }
 ]
 ```
 
@@ -83,32 +75,44 @@ The following limitations apply:
 * The array can have at most 100 elements.
 * The text value of an array element cannot exceed 10,000 characters including spaces.
 * The entire text included in the request cannot exceed 50,000 characters including spaces.
-* If the `language` query parameter is specified, then all array elements must be in the same language. Otherwise, language auto-detection is applied to each array element independently.
 
 ## Response body
 
 A successful response is a JSON array with one result for each string in the input array. A result object includes the following properties:
 
-  * `sentLen`: An array of integers representing the lengths of the sentences in the text element. The length of the array is the number of sentences, and the values are the length of each sentence. 
+  * `language`: Code of the detected language.
 
-  * `detectedLanguage`: An object describing the detected language through the following properties:
+  * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
 
-     * `language`: Code of the detected language.
+  * `isTranslationSupported`: A boolean value which is true if the detected language is one of the languages supported for text translation.
 
-     * `score`: A float value indicating the confidence in the result. The score is between zero and one and a low score indicates a low confidence.
-     
-    Note that the `detectedLanguage` property is only present in the result object when language auto-detection is requested.
+  * `isTransliterationSupported`: A boolean value which is true if the detected language is one of the languages supported for translatiteration.
+  
+  * `alternatives`: An array of other possible languages. Each element of the array is another object with the same properties listed above: `language`, `score`, `isTranslationSupported` and `isTransliterationSupported`.
 
 An example JSON response is:
 
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
-    "detectedLanguage": {
-      "language": "en",
-      "score": 401
-    },
+    "language": "de",
+    "score": 0.92,
+    "isTranslationSupported": true,
+    "isTransliterationSupported": false,
+    "alternatives": [
+      {
+        "language": "pt",
+        "score": 0.23,
+        "isTranslationSupported": true,
+        "isTransliterationSupported": false
+      },
+      {
+        "language": "sk",
+        "score": 0.23,
+        "isTranslationSupported": true,
+        "isTransliterationSupported": false
+      }
+    ]
   }
 ]
 ```
@@ -163,13 +167,12 @@ The following are the possible HTTP status codes that a request returns.
 
 ## Examples
 
-The following example shows how to obtain sentence boundaries for a single sentence. The language of the sentence is automatically detected by the service.
+The following example shows how to retrieve languages supported for text translation.
 
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
+curl -X POST "https://dev.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
 ---
-

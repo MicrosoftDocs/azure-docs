@@ -37,11 +37,11 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>from</td>
-    <td>*Optional parameter*.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](.\v3.0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.</td>
+    <td>*Optional parameter*.<br/>Specifies the language of the input text. Find which languages are available to translate from by looking up [supported languages](.\v3-0-languages.md) using the `translation` scope. If the `from` parameter is not specified, automatic language detection is applied to determine the source language.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](.\v3.0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian.</td>
+    <td>*Required parameter*.<br/>Specifies the language of the output text. The target language must be one of the [supported languages](.\v3-0-languages.md) included in the `translation` scope. For example, use `to=de` to translate to German.<br/>It's possible to translate to multiple languages simultaneously by repeating the parameter in the query string. For example, use `to=de&to=it` to translate to German and Italian.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -88,7 +88,7 @@ Request headers include:
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*Required request header*.<br/>See [available options for authentication](./v3.0-reference.md#authentication).</td>
+    <td>*Required request header*.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
