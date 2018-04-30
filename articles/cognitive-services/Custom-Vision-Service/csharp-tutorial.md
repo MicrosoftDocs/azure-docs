@@ -10,9 +10,10 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: anroth
 ---
-# Custom Vision Service C&#35; tutorial
 
-Explore a basic Windows application that uses the Custom Vision Service to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
+# Custom Vision API C&#35; tutorial
+
+Explore a basic Windows application that uses the Computer Vision API to create an image classification project. After it's created, you can add tags, upload images, train the project, obtain the project's  default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision API.
 
 ## Prerequisites
 

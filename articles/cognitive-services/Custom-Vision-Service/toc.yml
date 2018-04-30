@@ -17,12 +17,22 @@
       href: use-prediction-api.md
     - name: Export your model to mobile
       href: export-your-model.md
+    - name: Run TensorFlow model in Python
+      href: export-model-python.md
   - name: Build apps
     items:
-    - name: C# tutorial
-      href: csharp-tutorial.md
-    - name: Python tutorial
-      href: python-tutorial.md
+    - name: Image Classification
+      items:
+      - name: C# tutorial
+        href: csharp-tutorial.md
+      - name: Python tutorial
+        href: python-tutorial.md
+    - name: Object Detection
+      items:
+      - name: C# tutorial
+        href: csharp-tutorial-od.md
+      - name: Python tutorial
+        href: python-tutorial-od.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
