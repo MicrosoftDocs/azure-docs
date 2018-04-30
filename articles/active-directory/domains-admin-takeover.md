@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -73,21 +73,19 @@ When you complete the preceding steps, you are now the global administrator of t
 
 ## External admin takeover
 
-If you already manage a tenant with Azure services or Office 365, you are can't add a custom domain name if it is already verified in another Azure AD tenant. However, from your managed tenant in Azure AD you can take over an unmanaged tenant as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](add-custom-domain.md).
+If you already manage a tenant with Azure services or Office 365, you cannot add a custom domain name if it is already verified in another Azure AD tenant. However, from your managed tenant in Azure AD you can take over an unmanaged tenant as an external admin takeover. The general procedure follows the article [Add a custom domain to Azure AD](add-custom-domain.md).
 
 When you verify ownership of the domain name, Azure AD removes the domain name from the unmanaged tenant and moves it to your existing tenant. External admin takeover of an unmanaged directory requires the same DNS TXT validation process as internal admin takeover. The difference is that the following are also moved over with the domain name:
 
 - Users
 - Subscriptions
 - License assignments
- 
-The [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for domain name external admin takeover is supported for only two services, Power BI and Azure RMS.
 
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
 
 - Power BI
-- Azure Rights Management Service (RMS)
+- Azure Rights Management
 - Exchange Online
 
 The supported service plans include:
@@ -96,12 +94,19 @@ The supported service plans include:
 - Power BI Pro
 - PowerApps Free
 - PowerFlow Free
-- Azure Rights Management Service Basic (RMS)
-- Azure Rights Management Service Enterprise (RMS)
+- RMS for individuals
 - Microsoft Stream
 - Dynamics 365 free trial
 
-Exernal admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU.
+External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. This ForceTakeover option will not move over users, or retain access to the subscription. Instead, this option only moves the domain name. 
+
+#### More information about RMS for individuals
+
+For [RMS for individuals](/information-protection/understand-explore/rms-for-individuals), when the unmanaged tenant is in the same region as the tenant that you own, the automatically created [Azure Information Protection tenant key](/information-protection/plan-design/plan-implement-tenant-key) and [default protection templates](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) are additionally moved over with the domain name. 
+
+The key and templates are not moved over when the unmanaged tenant is in a different region. For example, the unmanaged tenant is in Europe and the tenant you own is in North American. 
+
+Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content will not be accessible after the domain takeover.    
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).
@@ -115,7 +120,7 @@ cmdlet | Usage
 `get-msoldomain` | The domain name is now included in the list of domain names associated with your managed tenant, but is listed as **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Provides the information to put into new DNS TXT record for the domain (MS=xxxxx). Verification might not happen immediately because it takes some time for the TXT record to propagate, so wait a few minutes before considering the **-ForceTakeover** option. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>If your domain name is still not verified, you can proceed with the **-ForceTakeover** option. It verifies that the TXT record was created and kicks off the takeover process.<li>The **-ForceTakeover** option should be added to the cmdlet only when forcing an external admin takeover, such as when the unmanaged tenant has Office 365 services blocking the takeover.
-`get-msoldomain` | The domain list now shows the the domain name as **Verified**.
+`get-msoldomain` | The domain list now shows the domain name as **Verified**.
 
 ### PowerShell example
 

@@ -3,8 +3,9 @@ title: Extend your experiment with R | Microsoft Docs
 description: How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
 
 ---
 # Extend your experiment with R

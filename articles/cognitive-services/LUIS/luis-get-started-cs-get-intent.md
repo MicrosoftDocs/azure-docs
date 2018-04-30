@@ -1,15 +1,14 @@
 ---
-title: Call a Language Understanding (LUIS) app using C# | Microsoft Docs 
-description: Learn to call a LUIS app using C#. 
+title: Call a Language Understanding (LUIS) app using C# | Microsoft Docs
+description: Learn to call a LUIS app using C#.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Call a LUIS app using C#

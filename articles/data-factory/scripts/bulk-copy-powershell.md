@@ -3,7 +3,7 @@ title: "PowerShell script: Copy data in bulk by using Azure Data Factory | Micro
 description: This PowerShell script shows how to use Azure Data Factory to copy data from a source data store to a destination data store in bulk. 
 services: data-factory
 author: linda33wj
-manager: jhubbard
+manager: craigg
 editor: ''
 
 ms.service: data-factory

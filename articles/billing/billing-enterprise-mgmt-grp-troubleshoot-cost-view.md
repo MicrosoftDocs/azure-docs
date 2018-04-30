@@ -17,7 +17,7 @@ ms.author: rithorn
 
 # Troubleshoot enterprise cost views 
 
-Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Within enterprise enrollments, there are multiple settings that could cause users within the enrollment to not be able to view costs.  These settings are managed by the enrollment administrator, or by the partner if the enrollment is not purchased directly with Microsoft.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the [Azure RBAC Roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## Enabling access to costs
@@ -42,4 +42,4 @@ If you are receiving an error message "This asset is unavailable" when trying to
 ![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Contact the administer of the subscription or management groups to be given access.  
-* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) document for help on which role is needed.
+* For subscriptions, reference [Azure Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) document for help on which role is needed.

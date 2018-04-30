@@ -1,15 +1,14 @@
 ---
-title: Add utterances to a LUIS app using PHP | Microsoft Docs 
-description: Learn to call a LUIS app using PHP. 
+title: Add utterances to a LUIS app using PHP | Microsoft Docs
+description: Learn to call a LUIS app using PHP.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Add utterances to a LUIS app using PHP 
@@ -20,7 +19,7 @@ refer to the technical documentation for the [add utterance](https://westus.dev.
 
 * Latest [**PHP**](http://php.net/).
 * Make sure openssl is available as a dependency for PHP.  
-* Your LUIS **[authoring key](manage-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
+* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.php`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.php` project in VSCode.

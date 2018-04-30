@@ -51,7 +51,7 @@ While the example uses only system routes, the same steps can be used to determi
 ### View effective routes for a virtual machine
 To see the aggregate routes that are applied to a VM, complete the following steps:
 
-1. Login to the Azure portal at https://portal.azure.com. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
+1. Login to the Azure portal at https://portal.azure.com. Your account must be assigned the *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* operation for the network interface. To learn how to assign operations to accounts, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Click **All services**, then click **Virtual machines** in the list that appears.
 3. Select a VM to troubleshoot from the list that appears and a VM blade with options appears.
 4. Click **Diagnose & solve problems** and then select a common problem. For this example, **I can’t connect to my Windows VM** is selected.

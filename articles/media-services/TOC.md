@@ -229,14 +229,15 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=media-services)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Service Management)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Specifications
 ### [Live Ingest - Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Live Ingest - Signaling Timed Metadata in Live Streaming](media-services-specifications-live-timed-metadata.md)
+### [Smooth Streaming HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Resources
 ## [Azure Media Services community](media-services-community.md)

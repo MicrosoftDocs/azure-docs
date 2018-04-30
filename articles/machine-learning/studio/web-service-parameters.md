@@ -3,8 +3,9 @@ title: Use Azure Machine Learning Web Service Parameters | Microsoft Docs
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 documentationcenter: ''
-author: raymondlaghaeian
-manager: jhubbard
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
@@ -14,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
+
 
 ---
 # Use Azure Machine Learning Web Service Parameters
@@ -49,7 +50,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
    * Under **Please specify data destination**, select "Azure Blob Storage".
    * Under **Please specify authentication type**, select "Account".
    * Enter the account information for the Azure blob storage. 
-     <p />
+
 3. Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
    
    ![Web Service Parameter icon][icon]

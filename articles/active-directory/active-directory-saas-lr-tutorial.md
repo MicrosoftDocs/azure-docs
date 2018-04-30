@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with lr | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and lr.
+title: 'Tutorial: Azure Active Directory integration with LoginRadius | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and LoginRadius.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,28 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 03/13/2018
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with lr
+# Tutorial: Azure Active Directory integration with LoginRadius
 
-In this tutorial, you learn how to integrate lr with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate LoginRadius with Azure Active Directory (Azure AD).
 
-Integrating lr with Azure AD provides you with the following benefits:
+Integrating LoginRadius with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to lr.
-- You can enable your users to automatically get signed-on to lr (Single Sign-On) with their Azure AD accounts.
+- You can control in Azure AD who has access to LoginRadius.
+- You can enable your users to automatically get signed-on to LoginRadius (Single Sign-On) with their Azure AD accounts.
 - You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
 
-To configure Azure AD integration with lr, you need the following items:
+To configure Azure AD integration with LoginRadius, you need the following items:
 
 - An Azure AD subscription
-- A lr single sign-on enabled subscription
+- A LoginRadius single-sign on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -48,13 +48,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 In this tutorial, you test Azure AD single sign-on in a test environment. 
 The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding lr from the gallery
+1. Adding LoginRadius from the gallery
 2. Configuring and testing Azure AD single sign-on
 
-## Adding lr from the gallery
-To configure the integration of lr into Azure AD, you need to add lr from the gallery to your list of managed SaaS apps.
+## Adding LoginRadius from the gallery
+To configure the integration of LoginRadius into Azure AD, you need to add LoginRadius from the gallery to your list of managed SaaS apps.
 
-**To add lr from the gallery, perform the following steps:**
+**To add LoginRadius from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
 
@@ -68,58 +68,58 @@ To configure the integration of lr into Azure AD, you need to add lr from the ga
 
 	![The New application button][3]
 
-4. In the search box, type **lr**, select **lr** from result panel then click **Add** button to add the application.
+4. In the search box, type **LoginRadius**, select **LoginRadius** from result panel then click **Add** button to add the application.
 
-	![lr in the results list](./media/active-directory-saas-lr-tutorial/tutorial_lr_addfromgallery.png)
+	![LoginRadius in the results list](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with lr based on a test user called "Britta Simon".
+In this section, you configure and test Azure AD single sign-on with LoginRadius based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in lr is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in lr needs to be established.
+For single sign-on to work, Azure AD needs to know what the counterpart user in LoginRadius is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in LoginRadius needs to be established.
 
-To configure and test Azure AD single sign-on with lr, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with LoginRadius, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create a lr test user](#create-a-lr-test-user)** - to have a counterpart of Britta Simon in lr that is linked to the Azure AD representation of user.
+3. **[Create a LoginRadius test user](#create-a-loginradius-test-user)** - to have a counterpart of Britta Simon in LoginRadius that is linked to the Azure AD representation of user.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your lr application.
+In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your LoginRadius application.
 
-**To configure Azure AD single sign-on with lr, perform the following steps:**
+**To configure Azure AD single sign-on with LoginRadius, perform the following steps:**
 
-1. In the Azure portal, on the **lr** application integration page, click **Single sign-on**.
+1. In the Azure portal, on the **LoginRadius** application integration page, click **Single sign-on**.
 
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
  
-	![Single sign-on dialog box](./media/active-directory-saas-lr-tutorial/tutorial_lr_samlbase.png)
+	![Single sign-on dialog box](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_samlbase.png)
 
-3. On the **lr Domain and URLs** section, perform the following steps:
+3. On the **LoginRadius Domain and URLs** section, perform the following steps:
 
-	![lr Domain and URLs single sign-on information](./media/active-directory-saas-lr-tutorial/tutorial_lr_url.png)
+	![LoginRadius Domain and URLs single sign-on information](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_url.png)
 
 	a.  In the **Sign-on URL** textbox, type a URL: `https://secure.loginradius.com/login`
 
-    b. In the **Identifier** textbox, type a URL: `https://lr.hub.loginradius.com/`
+    b. In the **Identifier** textbox, type a URL: `https://LoginRadius.hub.loginradius.com/`
 	 
 	> [!NOTE] 
-	> Open the Sign-on URL page. Click on **Single Sign-On** tab and enter **plugin name** given by the [lr support team](mailto:support@loginradius.com) then click **Sign in** button and you will be redirected to the Azure AD page for login. 
+	> Open the Sign-on URL page. Click on **Single Sign-On** tab and enter **plugin name** given by the [LoginRadius support team](mailto:support@loginradius.com) then click **Sign in** button and you will be redirected to the Azure AD page for login. 
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
-	![The Certificate download link](./media/active-directory-saas-lr-tutorial/tutorial_lr_certificate.png) 
+	![The Certificate download link](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_certificate.png) 
 
 6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-lr-tutorial/tutorial_general_400.png)
 	
-7. To configure single sign-on on **lr** side, you need to send the downloaded **Metadata XML** to [lr support team](mailto:support@loginradius.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **LoginRadius** side, you need to send the downloaded **Metadata XML** to [LoginRadius support team](mailto:support@loginradius.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -156,25 +156,25 @@ The objective of this section is to create a test user in the Azure portal calle
 
     d. Click **Create**.
  
-### Create a lr test user
+### Create a LoginRadius test user
 
-In this section, you create a user called Britta Simon in lr. Work with [lr support team](mailto:support@loginradius.com) to add the users in the lr platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in LoginRadius. Work with [LoginRadius support team](mailto:support@loginradius.com) to add the users in the LoginRadius platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to lr.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to LoginRadius.
 
 ![Assign the user role][200] 
 
-**To assign Britta Simon to lr, perform the following steps:**
+**To assign Britta Simon to LoginRadius, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201] 
 
-2. In the applications list, select **lr**.
+2. In the applications list, select **LoginRadius**.
 
-	![The lr link in the Applications list](./media/active-directory-saas-lr-tutorial/tutorial_lr_app.png)  
+	![The LoginRadius link in the Applications list](./media/active-directory-saas-lr-tutorial/tutorial_LoginRadius_app.png)  
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -194,7 +194,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the lr tile in the Access Panel, you should get automatically signed-on to your lr application.
+When you click the LoginRadius tile in the Access Panel, you should get automatically signed-on to your LoginRadius application.
 For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources

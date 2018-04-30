@@ -3,7 +3,7 @@ title: Add the Office 365 Users connector in Logic Apps | Microsoft Docs
 description: Overview of Office 365 Users connector with REST API parameters
 services: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Office 365 Users connector
@@ -33,7 +33,7 @@ When you add this connector to your logic apps, you must sign-in to your Office 
 > 
 > 
 
-After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this topic describes these properties.
+After you create the connection, you enter the Office 365 Users properties, like the user ID. The **REST API reference** in this article describes these properties.
 
 ## Connector-specific details
 

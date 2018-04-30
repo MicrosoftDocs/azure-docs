@@ -3,7 +3,6 @@
 title: How to use the Azure Location Based Services Map Control | Microsoft Docs 
 description: Learn how to use the Azure Location Based Services Map Control client-side Javascript library.
 services: location-based-services 
-keywords: Don’t add or edit keywords without consulting your SEO champ.
 author: kgremban
 ms.author: kgremban
 ms.date: 11/22/2017

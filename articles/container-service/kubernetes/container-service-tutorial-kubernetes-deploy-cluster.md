@@ -3,7 +3,7 @@ title: Azure Container Service tutorial - Deploy Cluster
 description: Azure Container Service tutorial - Deploy Cluster
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -23,7 +23,7 @@ Kubernetes provides a distributed platform for containerized applications. With 
 > * Installation of the Kubernetes CLI (kubectl)
 > * Configuration of kubectl
 
-In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Operations Management Suite is configured to monitor the Kubernetes cluster.
+In subsequent tutorials, the Azure Vote application is deployed to the cluster, scaled, updated, and Log Analytics is configured to monitor the Kubernetes cluster.
 
 ## Before you begin
 

@@ -4,10 +4,9 @@ description: Shows how to use the Bing Entities Search API to search the web for
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.assetid: 0B54E747-61BF-42AA-8788-E25D63F625FC
 ms.service: cognitive-services
-ms.technology: bing-entities-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi

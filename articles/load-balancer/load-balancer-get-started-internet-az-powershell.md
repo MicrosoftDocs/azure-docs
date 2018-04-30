@@ -1,4 +1,4 @@
----
+﻿---
 title: Create a public Load Balancer Standard with zone-redundant Public IP address frontend using PowerShell | Microsoft Docs
 description: Learn how to create public Load Balancer Standard with a zone-redundant Public IP address frontend using PowerShell 
 services: load-balancer
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 03/23/2018
 ms.author: kumud
 ---
 
@@ -24,24 +24,15 @@ This article steps through creating a public [Load Balancer Standard](https://ak
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Register for Availability Zones, Load Balancer Standard, and Public IP Standard Preview
-
-This article requires that you have version 4.4.0 or higher of the AzureRM module installed. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to install or upgrade, install the latest version of the AzureRM module from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureRM).
-
->[!NOTE]
-[Load Balancer Standard SKU](https://aka.ms/azureloadbalancerstandard) is currently in Preview. During preview, the feature may not have the same level of availability and reliability as features that are in general availability release. For more information, see [Microsoft Azure Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use the Generally Available [Load Balancer Basic SKU](load-balancer-overview.md) for your production services. 
-
 > [!NOTE]
-> Availability zones are in preview and are ready for your development and test scenarios. Support is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
-
-Before selecting a zone or zone-redundant option for the frontend Public IP Address for the Load Balancer, you must first complete the steps in [register for the availability zones preview](https://docs.microsoft.com/azure/availability-zones/az-overview).
+ Support for Availability Zones is available for select Azure resources and regions, and VM size families. For more information on how to get started, and which Azure resources, regions, and VM size families you can try availability zones with, see [Overview of Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). For support, you can reach out on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) or [open an Azure support ticket](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## Create resource group
@@ -102,7 +93,7 @@ $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBa
 ```
 
 ## Next steps
-- Learn how [create a Public IP in an availability zone](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
 
 
 

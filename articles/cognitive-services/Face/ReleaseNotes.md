@@ -4,10 +4,9 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles

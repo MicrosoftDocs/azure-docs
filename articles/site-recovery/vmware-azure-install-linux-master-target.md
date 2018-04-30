@@ -37,7 +37,7 @@ Post comments or questions at the end of this article or on the [Azure Recovery 
 
 Create the master target in accordance with the following sizing guidelines:
 - **RAM**: 6 GB or more
-- **OS disk size**: 100 GB or more (to install CentOS6.6)
+- **OS disk size**: 100 GB or more (to install OS)
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
@@ -109,24 +109,31 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
 1.  Select **Yes** to write the changes to disk, and then select **Enter**.
 
-1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
+    ![Select the default option](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-     ![Select the default option](./media/vmware-azure-install-linux-master-target/image17.png)
+1.  In the configure proxy selection, select the default option, select **Continue**, and then select **Enter**.
+     
+     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
 1.  Select **No automatic updates** option in the selection for managing upgrades on your system, and then select **Enter**.
 
-     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18.png)
+     ![Select how to manage upgrades](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
     > [!WARNING]
     > Because the Azure Site Recovery master target server requires a very specific version of the Ubuntu, you need to ensure that the kernel upgrades are disabled for the virtual machine. If they are enabled, then any regular upgrades cause the master target server to malfunction. Make sure you select the **No automatic updates** option.
 
 1.  Select default options. If you want openSSH for SSH connect, select the **OpenSSH server** option, and then select **Continue**.
 
-    ![Select software](./media/vmware-azure-install-linux-master-target/image19.png)
+    ![Select software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
 1. In the selction for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
+     
+    ![GRUB boot installer](./media/vmware-azure-install-linux-master-target/image20.png)
+
 
 1. Select the appropriate device for the boot loader installation (preferably **/dev/sda**), and then select **Enter**.
+     
+    ![Select appropriate device](./media/vmware-azure-install-linux-master-target/image21.png)
 
 1. Select **Continue**, and then select **Enter** to finish the installation.
 
@@ -151,9 +158,9 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 4. In the left pane, select **Advanced** > **General**, and then select the **Configuration Parameters** button on the lower-right part of the screen.
 
-	![Options tab](./media/vmware-azure-install-linux-master-target/image20.png)
+    ![Open configuration parameter](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
-	The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
+    The **Configuration Parameters** option is not available when the machine is running. To make this tab active, shut down the virtual machine.
 
 5. See whether a row with **disk.EnableUUID** already exists.
 
@@ -165,7 +172,7 @@ To get the ID for each SCSI hard disk in a Linux virtual machine, the **disk.Ena
 
 	- In the name column, add **disk.EnableUUID**, and then set the value to **TRUE**.
 
-	![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image21.png)
+	![Checking whether disk.EnableUUID already exists](./media/vmware-azure-install-linux-master-target/image25.png)
 
 #### Disable kernel upgrades
 
@@ -241,7 +248,7 @@ Use the following steps to create a retention disk:
 	
 	`mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
 	
-	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/media/image23.png)
+	![Creating a file system on the drive](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. After you create the file system, mount the retention disk.
 
@@ -249,7 +256,6 @@ Use the following steps to create a retention disk:
     mkdir /mnt/retention
     mount /dev/mapper/<Retention disk's multipath id> /mnt/retention
     ```
-	![Mounting the retention disk](./media/vmware-azure-install-linux-master-target/image24.png)
 
 5. Create the **fstab** entry to mount the retention drive every time the system starts.
 	

@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Deploy and use Azure Container Registry
+# Tutorial: Deploy and use Azure Container Registry
 
 Azure Container Registry (ACR) is an Azure-based, private registry, for Docker container images. This tutorial, part two of eight, walks through deploying an Azure Container Registry instance, and pushing a container image to it. Steps completed include:
 
@@ -76,7 +76,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 Each container image needs to be tagged with the loginServer name of the registry. This tag is used for routing when pushing container images to an image registry.
 
-To get the loginServer name, run the following command.
+Use the [az acr list][az-acr-list] command to get the loginServer name.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -167,7 +167,9 @@ Advance to the next tutorial to learn about deploying a Kubernetes cluster in Az
 
 <!-- LINKS - internal -->
 [az-acr-create]: /cli/azure/acr#create
+[az-acr-list]: /cli/azure/acr#list
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-list]: https://docs.microsoft.com/cli/azure/acr#az_acr_list
 [az-acr-repository-list]: /cli/azure/acr/repository#list
 [az-acr-repository-show-tags]: /cli/azure/acr/repository#show-tags
 [az-group-create]: /cli/azure/group#az_group_create

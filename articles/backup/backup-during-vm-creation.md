@@ -55,6 +55,10 @@ If you are not already in signed in to your account, sign in to the [Azure porta
 
 Though the Backup policy has been created, it is good practice to create an initial backup. To view the backup details for the virtual machine once the VM creation template finishes, from the **Operations** setting on the left-hand menu, click **Backup**. You can use this to trigger an on-demand backup, restore a full VM or all disks, restore files from VM backup, or change the backup policy associated with the virtual machine.  
 
+## Using a Resource Manager template to deploy a protected VM
+
+The previous steps explain how to use the Azure portal to create a virtual machine, and protect it to a Recovery Services vault. If you want to quickly deploy one or more virtual machines, and protect them to a Recovery Services vault, see the template, [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+
 ## Frequently asked questions 
 
 ### Which VM images enable backup at the time of VM creation? 

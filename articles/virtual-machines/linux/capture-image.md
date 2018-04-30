@@ -4,7 +4,7 @@ description: Capture an image of an Azure VM to use for mass deployments using t
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 03/22/2018
 ms.author: cynthn
 
 ---
@@ -86,6 +86,8 @@ Use the Azure CLI 2.0 to mark the VM as generalized and capture the image. In th
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
+   >
+   > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
 
 ## Step 3: Create a VM from the captured image
 Create a VM using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*:

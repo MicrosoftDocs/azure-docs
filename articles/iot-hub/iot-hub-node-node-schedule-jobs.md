@@ -34,6 +34,8 @@ Learn more about each of these capabilities in these articles:
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
 * Direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: direct methods][lnk-c2d-methods]
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial shows you how to:
 
 * Create a Node.js simulated device app that has a direct method, which enables **lockDoor**, which can be called by the solution back end.

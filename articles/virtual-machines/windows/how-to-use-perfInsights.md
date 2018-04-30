@@ -236,11 +236,11 @@ To run the PerfInsights tool, follow these steps:
     >
     >If the duration switch **/d** is not specified, PerfInsights will prompt you to repro the issue while running vmslow, azurefiles and custom scenarios. 
 
-When the traces or operations are completed, a new file appears in D:\\log\_collection (or the temporary drive). The name of the file is **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip.** You can send this file to the support agent for analysis or open the report inside the zip file to review findings and recommendations.
+When the traces or operations are completed, a new file appears in the same folder as PerfInsights. The name of the file is **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip.** You can send this file to the support agent for analysis or open the report inside the zip file to review findings and recommendations.
 
 ## Review the diagnostics report
 
-Within the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file, and then open the **PerfInsights Report.html** file.
+Within the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, you can find an HTML report that details the findings of PerfInsights. To review the report, expand the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file, and then open the **PerfInsights Report.html** file.
 
 Select the **Findings** tab.
 
@@ -305,4 +305,4 @@ The following screenshot shows a message similar to what you might receive:
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 
-After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** file that was collected by PerfInsights.
+After you sign in, you will find a dialog box to upload the **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip** file that was collected by PerfInsights.

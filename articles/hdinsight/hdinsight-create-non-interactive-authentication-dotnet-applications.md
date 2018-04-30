@@ -11,10 +11,8 @@ author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
 
@@ -32,7 +30,7 @@ From your non-interactive .NET application, you need:
 * An HDInsight cluster. See the [getting started tutorial](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## Assign a role to the Azure AD application
-Assign your Azure AD application a [role](../active-directory/role-based-access-built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+Assign your Azure AD application a [role](../role-based-access-control/built-in-roles.md), to grant it permissions to perform actions. You can set the scope at the level of the subscription, resource group, or resource. The permissions are inherited to lower levels of scope. (For example, adding an application to the Reader role for a resource group means that the application can read the resource group and any resources in it.) In this tutorial, you set the scope at the resource group level. For more information, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
 
 **To add the Owner role to the Azure AD application**
 
@@ -124,4 +122,4 @@ Assign your Azure AD application a [role](../active-directory/role-based-access-
 ## Next steps
 * [Create an Azure Active Directory application and service principal in the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Learn how to [authenticate a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Learn about [Azure Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md).
+* Learn about [Azure Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md).

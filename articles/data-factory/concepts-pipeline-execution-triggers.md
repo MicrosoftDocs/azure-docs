@@ -4,8 +4,8 @@ description: This article provides information about how to execute a pipeline i
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

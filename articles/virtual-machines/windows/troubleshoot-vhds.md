@@ -3,7 +3,7 @@ title: Troubleshoot attached VHDs on Azure Windows virtual machines | Microsoft 
 description: How to troubleshoot issues such as unexpected reboots of Windows VMs or problems deleting a storage account containing attached VHDs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines-windows
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
@@ -11,7 +11,7 @@ ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
+ms.author: rogarana
 ---
 
 # Troubleshoot attached VHDs on Azure Windows virtual machines

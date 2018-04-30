@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
 ms.author: mblythe; glenga
-ms.custom: mvc
+ms.custom: mvc, cc996988-fb4f-47
 ---
 
 # Create an OpenAPI definition for a function
@@ -37,8 +37,6 @@ In this tutorial, you learn how to:
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, scaling, and sharing of resources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 
 ## Create the function

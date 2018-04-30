@@ -5,16 +5,16 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/30/2018
-ms.topic: article
+ms.date: 04/26/2018
+ms.topic: conceptual
 ms.service: cost-management
-manager: carmonm
+manager: dougeby
 ms.custom:
 ---
 
 # Use Cost Management reports
 
-This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understading-cost-reports.md). The article also describes various options and fields used in most reports.
+This article describes how to use various Cost Management reports in the Cloudyn portal. Most Cloudyn reports are intuitive and have a uniform look and feel. For an overview about Cloudyn reports, see [Understanding cost reports](understanding-cost-reports.md). The article also describes various options and fields used in most reports.
 
 ## Cost Analysis reports
 

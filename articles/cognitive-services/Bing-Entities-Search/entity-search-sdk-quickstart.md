@@ -6,26 +6,26 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-#Entity Search SDK C# quickstart
+# Entity Search SDK C# quickstart
 
 The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Entity Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.EntitySearch` package.
 
-Installing the [NuGet Entity Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.1.0-preview) will also install dependencies, including the following assemblies:
+Installing the [NuGet Entity Search package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) will also install dependencies, including the following assemblies:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##Entity Search client
+## Entity Search client
 To create an instance of the `EntitySearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch;
@@ -67,7 +67,7 @@ else
 
 ```
 
-##Complete console application
+## Complete console application
 The following console application looks up a single entity on query "Satya Nadella" and prints out a short description.
 ```
 using System;
@@ -133,7 +133,7 @@ namespace EntitySrchSDK
 
 ```
 
-##Ambiguous results
+## Ambiguous results
 The following code handles disambiguation of results for an ambiguous query "William Gates".
 ```
        public static void HandlingDisambiguation(EntitySearchAPI client)
@@ -190,7 +190,7 @@ The following code handles disambiguation of results for an ambiguous query "Wil
 
 ```
 
-##EntityData places
+## EntityData places
 The following code looks up a single store "Microsoft Store" and prints out its phone number.
 ```
         public static void StoreLookup(EntitySearchAPI client)
@@ -227,7 +227,7 @@ The following code looks up a single store "Microsoft Store" and prints out its 
         }
 
 ```
-##EntityScenario list
+## EntityScenario list
 The following code looks up a list of "Seattle restaurants" and prints their names and phone numbers.
 ```
        public static void MultipleRestaurantLookup(EntitySearchAPI client)
@@ -278,7 +278,7 @@ The following code looks up a list of "Seattle restaurants" and prints their nam
         }
 
 ```
-##Error results
+## Error results
 The following code triggers a bad request and shows how to read the error response.
 ```
         public static void Error(EntitySearchAPI client)
@@ -307,6 +307,6 @@ The following code triggers a bad request and shows how to read the error respon
         }
 
 ```
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

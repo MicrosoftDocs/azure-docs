@@ -3,10 +3,9 @@ title: Computer Vision API PHP quick starts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using PHP and the Computer Vision API in Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corneliakara
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: kefre

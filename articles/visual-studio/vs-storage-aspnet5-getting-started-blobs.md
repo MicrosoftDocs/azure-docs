@@ -2,20 +2,15 @@
 title: Get started with blob storage and Visual Studio connected services (ASP.NET Core) | Microsoft Docs
 description: How to get started using Azure Blob storage in a Visual Studio ASP.NET Core project after you have created a storage account using Visual Studio connected services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.workload: azure
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # Get started with Azure Blob storage and Visual Studio connected services (ASP.NET Core)
 
@@ -25,7 +20,7 @@ This article describes how to get started using Azure Blob storage in Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. This article describes how to get started with blob storage after you create an Azure storage account by using the Visual Studio **Connected Services** in an ASP.NET Core project.
 
-Just as files live in folders, storage blobs live in containers. After you have created a blob, you create one or more containers in that blob. For example, in an blob called "Scrapbook," you can create containers called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual files to them. See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) for more information on programmatically manipulating blobs.
+Just as files live in folders, storage blobs live in containers. After you have created a blob, you create one or more containers in that blob. For example, in a blob called "Scrapbook," you can create containers called "images" to store pictures and another called "audio" to store audio files. After you create the containers, you can upload individual files to them. See [Quickstart: Upload, download, and list blobs using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) for more information on programmatically manipulating blobs.
 
 Some of the Azure Storage APIs are asynchronous, and the code in this article assumes async methods are being used. See [Asynchronous programming](https://docs.microsoft.com/dotnet/csharp/async) for more information.
 
@@ -138,7 +133,7 @@ do
 } while (token != null);
 ```
 
-See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) for other ways to list the contents of a blob container.
+See [Quickstart: Upload, download, and list blobs using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) for other ways to list the contents of a blob container.
 
 ## Download a blob
 
@@ -155,7 +150,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-See [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) for other ways to save blobs as files.
+See [Quickstart: Upload, download, and list blobs using .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) for other ways to save blobs as files.
 
 ## Delete a blob
 

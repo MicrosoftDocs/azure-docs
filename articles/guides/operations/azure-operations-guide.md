@@ -321,7 +321,7 @@ Here are a few example roles built into Azure:
 
 -   **Storage account contributor**: A user with this role can manage storage accounts but cannot manage access to the storage accounts.
 
-For more information, see [Use role assignments to manage access to your Azure subscription resources](../../active-directory/role-based-access-control-configure.md).
+For more information, see [Use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 ## Azure Virtual Machines
 
@@ -483,7 +483,7 @@ You can connect an on-premises network to an Azure virtual network by using Expr
 
 Because the Azure virtual network is connected to your on-premises network, cross-premises virtual networks must use a unique portion of the address space that your organization uses. In the same way that different corporate locations are assigned a specific IP subnet, Azure becomes another location as you extend your network.
 
-###Deploying a virtual network
+### Deploying a virtual network
 
 There are several options for deploying a virtual network.
 

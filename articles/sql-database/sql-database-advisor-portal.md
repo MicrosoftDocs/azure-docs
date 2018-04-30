@@ -2,21 +2,13 @@
 title: Apply performance recommendations - Azure SQL Database | Microsoft Docs
 description: Use the Azure portal to find performance recommendations that can optimize performance of your Azure SQL Database.
 services: sql-database
-documentationcenter: ''
 author: stevestein
 manager: jhubbard
-editor: monicar
-
-ms.assetid: cda8a646-0584-4368-b28a-85cdd9b54fcd
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: "On Demand"
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-
 
 ---
 # Find and apply performance recommendations
@@ -25,7 +17,7 @@ You can use the Azure portal to find performance recommendations that can optimi
 
 ## Viewing recommendations
 
-To view and apply performance recommendations, you need the correct [role-based access control](../active-directory/role-based-access-control-what-is.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
+To view and apply performance recommendations, you need the correct [role-based access control](../role-based-access-control/overview.md) permissions in Azure. **Reader**, **SQL DB Contributor** permissions are required to view recommendations, and **Owner**, **SQL DB Contributor** permissions are required to execute any actions; create or drop indexes and cancel index creation.
 
 Use the following steps to find performance recommendations on Azure portal:
 
@@ -158,5 +150,5 @@ Monitor your recommendations and continue to apply them to refine performance. D
 ## Additional resources
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Role-based access control](../active-directory/role-based-access-control-what-is.md)
+* [Role-based access control](../role-based-access-control/overview.md)
 

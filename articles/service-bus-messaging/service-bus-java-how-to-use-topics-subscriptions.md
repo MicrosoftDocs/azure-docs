@@ -350,8 +350,8 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

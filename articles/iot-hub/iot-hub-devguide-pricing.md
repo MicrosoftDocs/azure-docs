@@ -22,6 +22,8 @@ ms.author: dobett
 
 [Azure IoT Hub pricing][lnk-pricing] provides the general information on different SKUs and pricing for IoT Hub. This article contains additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## Charges per operation
 
 | Operation | Billing information | 

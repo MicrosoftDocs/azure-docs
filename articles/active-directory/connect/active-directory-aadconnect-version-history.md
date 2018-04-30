@@ -1,5 +1,4 @@
 
-
 ---
 title: 'Azure AD Connect: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Connect and Azure AD Sync
@@ -14,18 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/16/2018
+ms.date: 04/17/2018
 ms.author: billmath
 
 ---
 # Azure AD Connect: Version release history
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
+
 This article is designed to help you keep track of the versions that have been released, and to understand whether you need to update to the newest version or not.
 
 This is a list of related topics:
-
-
 
 Topic |  Details
 --------- | --------- |
@@ -34,9 +32,40 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## 1.1.751.0
+Status 4/12/2018: Released for download only
+
+>[!NOTE]
+>This is a hotfix for Azure AD Connect
+
+### Azure AD Connect sync
+#### Fixed issues
+Corrected an issue where automatic Azure instance discovery for China tenants was occasionally failing.  
+
+### AD FS Management
+#### Fixed issues
+
+There was a problem in the configuration retry logic that would result in an ArgumentException stating “an item with the same key has already been added.”  This would cause all retry operations to fail.
+
+## 1.1.750.0
+Status 3/22/2018: Released for auto-upgrade and download.
+>[!NOTE]
+>When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
+
+>[!NOTE]
+>“AutoUpgrade functionality was incorrectly disabled for some tenants who deployed builds later than 1.1.524.0. To ensure that your Azure AD Connect instance is still eligible for AutoUpgrade, run the following PowerShell cmdlet:
+“Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
+
+
+### Azure AD Connect
+#### Fixed issues
+
+* Set-ADSyncAutoUpgrade cmdlet would previously block Autoupgrade if auto-upgrade state is set to Suspended. This is now changed so it does not block AutoUpgrade of future builds.
+* Changed the **User Sign-in** page option "Password Synchronization" to "Password Hash Synchronization".  Azure AD Connect synchronizes password hashes, not passwords, so this aligns with what is actually occurring.  For more information see [Implement password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
+
 ## 1.1.749.0
 Status: Released to select customers
-This release is currently distributed to a small and random section of AADConnect tenants that have enabled auto-upgrade. We will expand this group of tenants in the coming weeks until 100% of our auto-upgrade customers have received this release. After that we will post the build for general download on the above download link - currently planned for mid of March 2018.
+
 >[!NOTE]
 >When the upgrade to this new version completes, it will automatically trigger a full sync and full import for the Azure AD connector and a full sync for the AD connector. Since this may take some time, depending on the size of your Azure AD Connect environment, please make sure that you have taken the necessary steps to support this or hold off on upgrading until you have found a convenient moment to do so.
 
@@ -44,15 +73,15 @@ This release is currently distributed to a small and random section of AADConnec
 #### Fixed issues
 * Fix timing window on background tasks for Partition Filtering page when switching to next page.
 
-* Fixed a bug that caused Access violation during the ConfigDB custom action
+* Fixed a bug that caused Access violation during the ConfigDB custom action.
 
 * Fixed a bug to recover from SQL connection timeout.
 
-* Fixed a bug where certificates with SAN wildcards failed a prerequisite check
+* Fixed a bug where certificates with SAN wildcards failed a prerequisite check.
 
 * Fixed a bug which causes miiserver.exe to crash during an Azure AD connector export.
 
-* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration
+* Fixed a bug which bad password attempt logged on DC when running the Azure AD Connect wizard to change configuration.
 
 
 #### New features and improvements
@@ -82,8 +111,7 @@ This release is currently distributed to a small and random section of AADConnec
 The changes will take care of following:
 1. Express Installations
 2. Custom Installations with Auto-Create account
-
-* Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
+3. Changed the installer so it doesn't require SA privilege on clean install of Azure AD Connect
 
 * Added a new utility to troubleshoot synchronization issues for a specific object. It is available under 'Troubleshoot Object Synchronization' option of Azure AD Connect Wizard Troubleshoot Additional Task. Currently, the utility checks for the following:
 
@@ -542,7 +570,7 @@ Azure AD Connect sync
   * Added **userType** to the Metaverse schema and AAD Connector schema. Customers who want to update either attributes in Azure AD can implement custom sync rules to do so.
 
 * Azure AD Connect now automatically enables the use of ConsistencyGuid attribute as the Source Anchor attribute for on-premises AD objects. Further, Azure AD Connect populates the ConsistencyGuid attribute with the objectGuid attribute value if it is empty. This feature is applicable to new deployment only. To find out more about this feature, refer to article section [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* New troubleshooting cmdlet Invoke-ADSyncDiagnostics has been added to help diagnose Password Hash Synchronization related issues. For information about using the cmdlet, refer to article [Troubleshoot password hash synchronization with Azure AD Connect sync](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect now supports synchronizing Mail-Enabled Public Folder objects from on-premises AD to Azure AD. You can enable the feature using Azure AD Connect wizard under Optional Features. To find out more about this feature, refer to article [Office 365 Directory Based Edge Blocking support for on-premises Mail Enabled Public Folders](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect requires an AD DS account to synchronize from on-premises AD. Previously, if you installed Azure AD Connect using the Express mode, you could provide the credentials of an Enterprise Admin account and Azure AD Connect would create the AD DS account required. However, for a custom installation and adding forests to an existing deployment, you were required to provide the AD DS account instead. Now, you also have the option to provide the credentials of an Enterprise Admin account during a custom installation and let Azure AD Connect create the AD DS account required.
 * Azure AD Connect now supports SQL AOA. You must enable SQL AOA before installing Azure AD Connect. During installation, Azure AD Connect  detects whether the SQL instance provided is enabled for SQL AOA or not. If SQL AOA is enabled, Azure AD Connect further figures out if SQL AOA is configured to use synchronous replication or asynchronous replication. When setting up the Availability Group Listener, it is recommended that you set the RegisterAllProvidersIP property to 0. This is because Azure AD Connect currently uses SQL Native Client to connect to SQL and SQL Native Client does not support the use of MultiSubNetFailover property.
@@ -732,7 +760,7 @@ Released: June 2016
 **Fixed issues and improvements:**
 
 * Azure AD Connect can now be installed on a FIPS-compliant server.
-  * For password synchronization, see [Password sync and FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * For password synchronization, see [Password hash sync and FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Fixed an issue where a NetBIOS name could not be resolved to the FQDN in the Active Directory Connector.
 
 ## 1.1.180.0
@@ -786,8 +814,8 @@ Released: February 2016
 
 * [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) feature for Express settings customers.
 * Support for the global admin by using Azure Multi-Factor Authentication and Privileged Identity Management in the installation wizard.
-  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
-  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
+  * You need to allow your proxy to also allow traffic to https://secure.aadcdn.microsoftonline-p.com if you use Multi-Factor Authentication.
+  * You need to add https://secure.aadcdn.microsoftonline-p.com to your trusted sites list for Multi-Factor Authentication to properly work.
 * Allow changing the user's sign-in method after initial installation.
 * Allow [Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in the installation wizard. This also allows connecting to forests where not all domains are available.
 * [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) is built in to the sync engine.

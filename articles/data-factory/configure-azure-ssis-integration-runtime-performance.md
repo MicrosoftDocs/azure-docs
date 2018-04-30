@@ -19,7 +19,7 @@ This article describes how to configure an Azure-SSIS Integration Runtime (IR) f
 
 ## Properties to configure
 
-The following portion of a configuration script shows the properties that you can configure when you create an Azure-SSIS Integration Runtime. For the complete PowerShell script and description, see [Deploy SQL Server Integration Services packages to Azure](tutorial-deploy-ssis-packages-azure.md).
+The following portion of a configuration script shows the properties that you can configure when you create an Azure-SSIS Integration Runtime. For the complete PowerShell script and description, see [Deploy SQL Server Integration Services packages to Azure](tutorial-deploy-ssis-packages-azure-powershell.md).
 
 ```powershell
 $SubscriptionName = "<Azure subscription name>"
@@ -44,7 +44,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```

@@ -2,12 +2,13 @@
 title: "Troubleshoot Azure SQL Data Sync (Preview) | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync (Preview)."
 services: sql-database
-ms.date: "11/13/2017"
+ms.date: 04/01/2018
 ms.topic: "article"
 ms.service: "sql-database"
 author: "douglaslMS"
 ms.author: "douglasl"
 manager: "craigg"
+ms.custom: data-sync
 ---
 # Troubleshoot issues with SQL Data Sync (Preview)
 
@@ -436,7 +437,7 @@ For more information about SQL Data Sync (Preview), see:
 -   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync (Preview)](sql-database-sync-data.md)  
 -   [Set up Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md)  
 -   [Best practices for Azure SQL Data Sync (Preview)](sql-database-best-practices-data-sync.md)  
--   [Monitor Azure SQL Data Sync (Preview) with OMS Log Analytics](sql-database-sync-monitor-oms.md)  
+-   [Monitor Azure SQL Data Sync (Preview) with Log Analytics](sql-database-sync-monitor-oms.md)  
 -   Complete PowerShell examples that show how to configure SQL Data Sync (Preview):  
     -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  

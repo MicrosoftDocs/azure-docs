@@ -3,11 +3,11 @@ title: Azure SQL Database Managed Instance Custom DNS | Microsoft Docs
 description: This topic describes configuration options for a custom DNS with an Azure SQL Database Managed Instance.
 services: sql-database
 author: srdjan-bozovic
-manager: cguyer
+manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ---
@@ -75,5 +75,5 @@ DNS configuration on an Azure VNet requires that you enter IP addresses, so conf
 ## Next steps
 
 - For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- For an example of creating a VNet and then creating a Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-tutorial-portal.md).
-- For configuring the VNet, see [VNet configuration for Managed Instances](sql-database-managed-instance-vnet-configuration.md)
+- For a tutorial showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- For information about configuring a VNet for a Managed Instance, see [VNet configuration for Managed Instances](sql-database-managed-instance-vnet-configuration.md)

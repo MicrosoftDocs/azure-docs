@@ -2,19 +2,12 @@
 title: Azure SQL Database customer implementations-technical | Microsoft Docs
 description: Learn technical details about customer implementatons of Azure SQL Database to solve business problems
 services: sql-database
-documentationcenter: ''
 author: CarlRabeler
-manager: jhubbard
-editor: ''
-
-ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
+manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: "Inactive"
-ms.date: 03/03/2017
+ms.date: 04/01/2018
 ms.author: carlrab
 
 ---

@@ -1,0 +1,37 @@
+- name: Manage access overview
+  href: manage-access-to-azure-resources.md
+- name: Resource access in Azure
+  href: rbac-and-directory-admin-roles.md
+- name: Role-based access control (RBAC)
+  href: overview.md
+  items:
+  - name: Manage role assignments
+    items:
+    - name: User
+      href: role-assignments-users.md
+    - name: Resource
+      href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
+    - name: Azure CLI
+      href: role-assignments-cli.md
+    - name: PowerShell
+      href: role-assignments-powershell.md
+    - name: REST
+      href: role-assignments-rest.md
+  - name: Built-in roles
+    href: built-in-roles.md
+  - name: Custom roles
+    href: custom-roles.md
+  - name: Assign custom roles for internal and external users
+    href: role-assignments-external-users.md
+  - name: Activity logs
+    href: change-history-report.md
+  - name: Elevate tenant admin access
+    href: elevate-access-global-admin.md
+  - name: Troubleshoot
+    href: troubleshooting.md
+  - name: Resource provider operations
+    href: resource-provider-operations.md
+- name: Privileged Identity Management (PIM) for RBAC
+  href: pim-azure-resource.md
+- name: Conditional access for Azure management
+  href: conditional-access-azure-management.md

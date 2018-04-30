@@ -3,7 +3,7 @@ title: Azure Container Registry tutorial - Deploy web app from Azure Container R
 description: Deploy a Linux-based web app using a container image from a geo-replicated Azure container registry. Part two of a three-part series.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.author: marsma
 ms.custom: mvc
 ---
 
-# Deploy web app from Azure Container Registry
+# Tutorial: Deploy web app from Azure Container Registry
 
 This is part two in a three-part tutorial series. In [part one](container-registry-tutorial-prepare-registry.md), a private, geo-replicated container registry was created, and a container image was built from source and pushed to the registry. In this article, you deploy the container into two Web App instances in two different Azure regions to take advantage of the network-close aspect of the geo-replicated registry.
 

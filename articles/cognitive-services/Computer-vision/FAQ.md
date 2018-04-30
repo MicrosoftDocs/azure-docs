@@ -3,10 +3,9 @@ title: FAQs for the Computer Vision API | Microsoft Docs
 description: Get answers to frequently asked questions about the Computer Vision API in Microsoft Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corneliakara
-
-ms.service: cognitive-services 
-ms.technology: computer-vision
+manager: corncar
+ms.service: cognitive-services
+ms.component: computer-vision
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: kefre

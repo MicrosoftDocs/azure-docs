@@ -4,8 +4,8 @@ description: Set up a data gateway to move data between on-premises and the clou
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
@@ -70,7 +70,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 6. Click **Create** on the **New data factory** page.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
    >
    >
 7. After creation is complete, you see the **Data Factory** page as shown in the following image:

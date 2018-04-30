@@ -4,7 +4,7 @@ description: Learn how to use Terraform to create and manage a complete Linux vi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
@@ -448,7 +448,7 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-If everything looks correct and you ready to build the infrastructure in Azure, apply the template in Terraform:
+If everything looks correct and you are ready to build the infrastructure in Azure, apply the template in Terraform:
 
 ```bash
 terraform apply

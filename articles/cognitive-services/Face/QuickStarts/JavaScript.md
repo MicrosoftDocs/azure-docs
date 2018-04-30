@@ -4,10 +4,9 @@ titleSuffix: "Microsoft Cognitive Services"
 description: Get information and code samples to help you quickly get started using the Face API with JavaScript in Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
-manager: CorneliaKara
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles

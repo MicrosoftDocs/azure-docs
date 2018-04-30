@@ -118,7 +118,7 @@ In Azure Stack there is a simple way to do that:
 ## Set the retention period
 The retention period setting allows a cloud operator to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
-potentially be recovered. The default retention period is set to 15
+potentially be recovered. The default retention period is set to 0
 days. Setting the value to “0” means that any deleted account is
 immediately out of retention and marked for periodic garbage
 collection.

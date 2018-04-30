@@ -17,7 +17,7 @@ services: azure-migrate
 
 ## Overview
 
-An Azure Migrate Collector is a lighweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
+An Azure Migrate Collector is a lightweight appliance that can be used to discover your on-premises vCenter environment. This appliance discovers on-premises VMware machines, and sends metadata about them to the Azure Migrate service.
 
 The Collector appliance is an OVF that you can download from the Azure Migrate project. It instantiates a VMware virtual machine with 4 cores, 8 GB RAM and one disk of 80 GB. The Operating system of the appliance is Windows Server 2012 R2 (64 bit).
 
@@ -122,7 +122,7 @@ Once connected to the vCenter, you can select a scope to discover. Selecting a s
 
 1. The scope can be either a datacenter, a folder, or a ESXi host. 
 2. You can only select one scope at a time. To select more virtual machines, you can complete one discovery, and restart the discovery process with a new scope.
-3. You can only select a scope that has *less than 1000 virtual machines*. If you select a scope that has more than 1000 virtual machines, you need to split the scope into smaller units by creating folders. Next, you need to run independent discoveries of the smaller folders.
+3. You can only select a scope that has *less than 1500 virtual machines*.
 
 ## Specify migration project
 
@@ -169,6 +169,15 @@ The Collector only discovers the machine data and sends it to the project. The p
 
 Based on the number of virtual machines in the selected scope, it takes upto 15 minutes to send the static metadata to the project. Once the static metadata is available on the portal, you can see the list of machines in the portal and start creating groups. A assessment cannot be created until the collection job completes and the project has processed the data. Once the collection job completed on the Collector, it can take upto one hour for the performance data to be available on the portal, based on the number of virtual machines in the selected scope.
 
+## Locking down the collector appliance
+We recommend running continuous Windows updates on the collector appliance. If a collector is not updated for 45 days, the collector will start auto-shutting down the machine. If a discovery is running, the machine will not be turned off, even if it is past its 45 day period. Post the discovery job completes, the machine will be turned off. If you are using the collector for more than 45 days, we recommend keeping the machine updated at all times by running Windows update.
+
+We also recommend the following steps to secure your appliance
+1. Do not share or misplace administrator passwords with unauthorized parties.
+2. Shut down the appliance when not in use.
+3. Place the appliance in a secured network.
+4. Once the migration work is complete, delete the appliance instance. Be sure to also delete the disk backing files (VMDKs), as the disks may have vCenter credentials cached on them.
+
 ## How to upgrade Collector
 
 You can upgrade the Collector to the latest version without downloading the OVA once again.
@@ -184,6 +193,16 @@ You can upgrade the Collector to the latest version without downloading the OVA 
 5. Right-click on Setup.ps1 and select Run with PowerShell and follow the instructions on screen to install the update.
 
 ### List of updates
+
+#### Upgrade to version 1.0.9.7
+
+For Upgrade to version 1.0.9.7 download [package](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algorithm** | **Hash value**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### Upgrade to version 1.0.9.5
 

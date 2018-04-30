@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create an Azure Service Fabric Windows container application | Microsoft Docs
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -26,12 +26,12 @@ Running an existing application in a Windows container on a Service Fabric clust
 
 ![IIS default web page][iis-default]
 
-Using this quickstart you learn how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
+In this quickstart you learn how to:
+
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
 
 ## Prerequisites
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
@@ -81,17 +81,20 @@ Configure the container port-to-host port mapping so that incoming requests to t
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
 ## Create a cluster
-To deploy the application to a cluster in Azure, you can either join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform. The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. 
+To deploy the application to a cluster in Azure, you can join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform.  The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. Party clusters support containers. If you decide to set up and use your own cluster, the cluster must be running on a SKU that supports containers (such as Windows Server 2016 Datacenter with Containers).
 
-Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. The certificate and the **Connection endpoint** value are used in following steps.
+Sign in and [join a Windows cluster](http://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **How to connect to a secure Party cluster?** link and copy the certificate password. The certificate, certificate password, and the **Connection endpoint** value are used in following steps.
 
 ![PFX and connection endpoint](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
+
+> [!Note]
+> There are a limited number of Party clusters available per hour. If you get an error when you try to sign up for a Party cluster, you can wait for a period and try again, or you can follow these steps in the [Deploy a .NET app](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) tutorial to create a Service Fabric cluster in your Azure subscription and deploy the application to it. The cluster created through Visual Studio supports containers. After you have deployed and verified the application in your cluster, you can skip ahead to [Complete example Service Fabric application and service manifests](#complete-example-service-fabric-application-and-service-manifests) in this quickstart. 
+>
 
 On a Windows computer, install the PFX in *CurrentUser\My* certificate store.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
   PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -116,7 +119,7 @@ Click **Publish**.
 
 Each application in the cluster must have a unique name.  Party clusters are a public, shared environment however and there may be a conflict with an existing application.  If there is a name conflict, rename the Visual Studio project and deploy again.
 
-Open a browser and navigate to http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
+Open a browser and navigate to the **Connection endpoint** specified in the Party cluster page. You can optionally prepend the scheme identifier, `http://`, and append the port, `:80`, to the URL. For example, http://zwin7fh14scd.westus.cloudapp.azure.com:80. You should see the IIS default web page:
 ![IIS default web page][iis-default]
 
 ## Complete example Service Fabric application and service manifests
@@ -206,16 +209,16 @@ Here are the complete service and application manifests used in this quickstart.
 
 ## Next steps
 In this quickstart, you learned how to:
-> [!div class="checklist"]
-> * Package a Docker image container
-> * Configure communication
-> * Build and package the Service Fabric application
-> * Deploy the container application to Azure
 
-* Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
-* Read the [Deploy a .NET application in a container](service-fabric-host-app-in-a-container.md) tutorial.
-* Learn about the Service Fabric [application life-cycle](service-fabric-application-lifecycle.md).
-* Checkout the [Service Fabric container code samples](https://github.com/Azure-Samples/service-fabric-containers) on GitHub.
+* Package a Docker image container
+* Configure communication
+* Build and package the Service Fabric application
+* Deploy the container application to Azure
+
+To learn more about working with Windows containers in Service Fabric, continue to the tutorial for Windows container apps.
+
+> [!div class="nextstepaction"]
+> [Create a Windows container app](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

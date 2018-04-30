@@ -3,10 +3,9 @@ title: Research behind the Computer Vision API | Microsoft Docs
 description: Learn about the award-winning research behind the Computer Vision API in Microsoft Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corneliakara
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 12/20/2016
 ms.author: kefre

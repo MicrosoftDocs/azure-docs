@@ -18,7 +18,7 @@ ms.date: 02/15/2018
 ms.author: dobett
 
 ---
-# Frequently asked questions for IoT Suite
+# Frequently asked questions for IoT Suite remote monitoring preconfigured solution
 
 See also, the general [FAQ](iot-suite-faq.md).
 

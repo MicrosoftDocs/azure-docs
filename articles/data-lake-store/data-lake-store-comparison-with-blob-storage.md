@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
@@ -31,10 +31,10 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Hadoop File System Client |Yes |Yes |
 | Data Operations - Authentication |Based on [Azure Active Directory Identities](../active-directory/active-directory-authentication-scenarios.md) |Based on shared secrets - [Account Access Keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account) and [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Data Operations - Authentication Protocol |OAuth 2.0. Calls must contain a valid JWT (JSON Web Token) issued by Azure Active Directory |Hash-based Message Authentication Code (HMAC) . Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
-| Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Data Operations - Authorization |POSIX Access Control Lists (ACLs).  ACLs based on Azure Active Directory Identities can be set at the file and folder level. |For account-level authorization – Use [Account Access Keys](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>For account, container, or blob authorization -  Use [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Data Operations - Auditing |Available. See [here](data-lake-store-diagnostic-logs.md) for information. |Available |
 | Encryption data at rest |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault</li></ul></ul> |<ul><li>Transparent, Server side</li> <ul><li>With service-managed keys</li><li>With customer-managed keys in Azure KeyVault (preview)</li></ul><li>Client-side encryption</li></ul> |
-| Management operations (e.g. Account Create) |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |[Role-based access control](../active-directory/role-based-access-control-what-is.md) (RBAC) provided by Azure for account management |
+| Management operations (e.g. Account Create) |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |[Role-based access control](../role-based-access-control/overview.md) (RBAC) provided by Azure for account management |
 | Developer SDKs |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Optimized performance for parallel analytics workloads. |
 | Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../storage/common/storage-scalability-targets.md). Larger account limits available by contacting [Azure Support](https://azure.microsoft.com/support/faq/) |
@@ -43,7 +43,4 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |Available in all Azure regions |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
 
-### Next steps
-* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-* [Get Started with Data Lake Store](data-lake-store-get-started-portal.md)
 
