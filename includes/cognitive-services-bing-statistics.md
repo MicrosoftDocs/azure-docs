@@ -19,7 +19,7 @@ Bing Statistics provides analytics for Bing Search APIs. Analytics includes call
 > [!NOTE]
 > You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
 
-Bing updates analytics data every two to three hours and maintains up to 13 month's worth of history.
+Bing updates analytics data every 24 hours and maintains up to 13 month's worth of history.
 
 ## Accessing your analytics
 
