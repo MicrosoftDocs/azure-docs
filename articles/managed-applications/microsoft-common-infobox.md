@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/23/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
@@ -27,12 +27,17 @@ A control that adds an information box.
   "type": "Microsoft.Common.InfoBox",
   "visible": true,
   "options": {
-    "icon": "None", // Info, Warning, Error
+    "icon": "None",
     "text": "Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo.",
-    "uri:"https://www.microsoft.com" // optional
+    "uri": "https://www.microsoft.com"
   }
 }
 ```
+
+## Remarks
+
+* For `icon`, use **None**, **Info**, **Warning**, or **Error**.
+* The `uri` property is optional.
 
 ## Sample output
 
