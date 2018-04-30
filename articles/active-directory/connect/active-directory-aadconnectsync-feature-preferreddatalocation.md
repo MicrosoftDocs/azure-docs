@@ -12,17 +12,12 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 04/16/2018
 ms.author: billmath
 
 ---
 # Azure Active Directory Connect sync: Configure preferred data location for Office 365 resources
 The purpose of this topic is to walk you through how to configure the attribute for preferred data location in Azure Active Directory (Azure AD) Connect sync. When someone uses Multi-Geo capabilities in Office 365, you use this attribute to designate the geo-location of the user’s Office 365 data. (The terms *region* and *geo* are used interchangeably.)
-
-> [!IMPORTANT]
-> Multi-Geo is currently in preview. If you want to join the preview program, contact your Microsoft representative.
->
->
 
 ## Enable synchronization of preferred data location
 By default, Office 365 resources for your users are located in the same geo as your Azure AD tenant. For example, if your tenant is located in North America, then the users' Exchange mailboxes are also located in North America. For a multinational organization, this might not be optimal.
@@ -30,7 +25,7 @@ By default, Office 365 resources for your users are located in the same geo as y
 By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> To be eligible for Multi-Geo, you must have at least 5,000 seats in your Office 365 subscription.
+> Multi-Geo is currently available to customers with a minimum of 5,000 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
 >
 
@@ -46,12 +41,12 @@ The geos in Office 365 available for Multi-Geo are:
 | European Union | EUR |
 | India | IND |
 | Japan | JPN |
-| South Korea | KOR |
+| Korea | KOR |
 | United Kingdom | GBR |
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-* India and South Korea geos are only available to customers with billing addresses and licenses purchased in those geos.
+* The India geo is only available to customers with billing address and licenses purchased in this geo.
 * Not all Office 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization

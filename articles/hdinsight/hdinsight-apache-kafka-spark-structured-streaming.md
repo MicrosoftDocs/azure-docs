@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Structured Streaming with Kafka - Azure HDInsight | Microsoft Docs
+title: 'Tutorial: Apache Spark Structured Streaming with Kafka - Azure HDInsight | Microsoft Docs'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter notebook from Spark on HDInsight.
 services: hdinsight
 documentationcenter: ''
@@ -93,7 +93,7 @@ In both snippets, data is read from Kafka and written to file. The differences b
 | `write` | `writeStream` |
 | `save` | `start` |
 
-The streaming operation also uses `awaitTermination(3000)`, which stops the stream after 3000 ms. 
+The streaming operation also uses `awaitTermination(30000)`, which stops the stream after 30000 ms. 
 
 To use Structured Streaming with Kafka, your project must have a dependency on the `org.apache.spark : spark-sql-kafka-0-10_2.11` package. The version of this package should match the version of Spark on HDInsight. For Spark 2.2.0 (available in HDInsight 3.6), you can find the dependency information for different project types at [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 

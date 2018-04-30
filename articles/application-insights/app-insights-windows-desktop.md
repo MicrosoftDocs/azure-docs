@@ -1,6 +1,6 @@
 ﻿---
 title: Monitoring usage and performance for Windows desktop apps
-description: Analyze usage and performance of your Windows desktop app with HockeyApp and Application Insights.
+description: Analyze usage and performance of your Windows desktop app with Application Insights.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -12,21 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 04/16/2018
 ms.author: mbullwin
 
 ---
 # Monitoring usage and performance in Windows Desktop apps
 
-
-[Azure Application Insights](app-insights-overview.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
-
-> [!IMPORTANT]
-> We recommend [HockeyApp](https://hockeyapp.net) to distribute and monitor desktop and device apps. With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [export and query your telemetry with Analytics](app-insights-hockeyapp-bridge-app.md).
-> 
-> Although telemetry can be sent to Application Insights from a desktop application, this is chiefly useful for debugging and experimental purposes.
-> 
-> 
+Although telemetry can be sent to Application Insights from a desktop application, this is chiefly useful for debugging and experimental purposes.
 
 ## To send telemetry to Application Insights from a Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
