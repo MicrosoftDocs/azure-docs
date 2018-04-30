@@ -13,18 +13,31 @@ manager: femila
 ---
 # What is Azure Blockchain Workbench?
 
-Azure Blockchain Workbench is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Azure Blockchain Workbench provides the infrastructure scaffolding for building blockchain applications enabling developers to focus on creating business logic and smart contracts. Azure Blockchain Workbench orchestrates several Azure services with popular blockchains into a reference architecture, which can be used to build blockchain applications. 
+Azure Blockchain Workbench is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Azure Blockchain Workbench provides the infrastructure scaffolding for building blockchain applications enabling developers to focus on creating business logic and smart contracts. It also makes it easier to create blockchain applications by integrating several Azure services and capabilities to help automate common development tasks.
 
-With Azure Blockchain Workbench you can:
+## Create blockchain applications
 
-* Create blockchain applications.
-* Manage Workbench blockchain applications and users.
-* Integrate blockchain workflows with existing systems and applications leveraging Microsoft Flow and Logic Apps. 
-* Extend Workbench using a REST API or a message-based API for system-to-system integration. 
-* Extend your existing applications to use blockchain ledgers.
-* Deploy a consortium blockchain network.
-* Associate and abstract blockchain identities with Active Directory for easier login and collaboration.
-* Synchronize on-chain data with off-chain storage and databases to more easily query attestations and visualize ledger activity. 
+With Azure Blockchain Workbench, you can define blockchain applications by defining configuration and writing smart contract code. This allows you to jumpstart blockchain application development and focus on defining your contract and writing business logic instead of building scaffolding and setting up supporting services.
+
+## Manage applications and users
+
+Azure Blockchain Workbench provides a web application and REST APIs for managing applications and users. As an administrator on an Azure Blockchain Workbench instance, you are provided an out of the box experience which makes it easy to manage application access and assign your users to application roles.  Azure AD users are automatically mapped to members in the application.
+
+## Integrate blockchain with applications
+
+Azure Blockchain Workbench is designed so users can customize and develop specific to their requirements. The REST API and message-based API makes it easily extensible and provides a pluggable model to allow for replacing or using multiple distributed ledger technologies, storage, and database offerings.
+
+## Deploy a blockchain network
+
+Azure Blockchain Workbench simplifies consortium blockchain network setup as a preconfigured solution with an Azure Resource Manager (ARM) solution template. The ARM solution template provides a clickthrough deployment experience which will deploy all components needed to run a consortium 
+
+## Use Active Directory login
+
+With existing blockchain protocols, blockchain identities are represented as an address on the network. Azure Blockchain Workbench abstracts away the blockchain identity by associating it with an Active Directory identity, making it simpler to build enterprise applications with Active Directory identities.
+
+## Synchronize on-chain data with off-chain storage
+
+Azure Blockchain Workbench makes it easier to analyze blockchain events and data by automatically synchronizing data on the blockchain to off-chain storage. Instead of extracting data directly from the blockchain, users can directly query off-chain systems (such as a more traditional database system), so blockchain specific expertise is not required for end users who are purely doing data analysis work. 
 
 ## Capabilities
 
