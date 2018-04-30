@@ -13,7 +13,7 @@ ms.author: scottwhi
 ---
 # What is Bing Video Search?
 
-The Videos Search API provides a similar (but not exact) experience to Bing.com/Videos. The API lets you send a search query to Bing and get back a list of relevant videos.
+The Bing Video Search API provides a similar (but not exact) experience to [Bing Videos](https://www.bing.com/videos). The Bing Video Search API lets you send a search query to Bing and get back a list of relevant videos.
 
 If you're building a videos-only search results page to find videos that are relevant to the user's search query, call this API instead of calling the more general [Bing Web Search API](../bing-web-search/search-the-web.md). If you want videos and other types of content such as webpages, news, and images, then call the Bing Web Search API.
 
