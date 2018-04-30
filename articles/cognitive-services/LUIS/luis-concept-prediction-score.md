@@ -49,9 +49,7 @@ Prediction scores can use exponent notation, *appearing* above the 0-1 range, su
 |9.910309E-07|.0000009910309|
 
 ## Differences with predictions
-Each time you train your app, the process contains some randomness, by design. When you train the same model in a different app, and the scores are not this same, there are a couple of reasons this can happen.
-
-The first is that element of randomness. Second, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
+When you train the same model in a different app, and the scores are not this same, this is because there is an element of randomness in the training. Secondly, any overlap of an utterance to more than one intent means the top intent for the same utterance can change based on training.
 
 If your chat bot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
 
