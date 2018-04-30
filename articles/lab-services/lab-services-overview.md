@@ -29,10 +29,10 @@ Using Azure Lab Services, you can quickly set up a lab for your development, tes
 A lab owner adds users to a lab and provide them access to lab’s set of resources. A lab user views a single list of all the resources that they can access across labs. A lab owner gives permissions for lab users to manage and reuse data disks, and sets up reusable secrets. Lab users can integrate labs into their website or learning management systems. 
 
 ### Cost optimization and analysis
-For DevTest labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in a lab. For managed labs such as classroom labs, currently some cost optimization and analysis options are available. 
+For DevTest Labs, a lab owner can set lab schedules to automatically shut down and start up virtual machines. The lab owner can set a schedule to specify the time slots when the lab’s virtual machines are accessible to users, set usage policies per user or per lab to optimize cost, and analyze usage and activity trends in a lab. For managed labs such as classroom labs, currently some cost optimization and analysis options are available. 
 
 ### Embedded security
-For DevTest labs, a lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN.
+For DevTest Labs, a lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN.
 
 ### Integration into your workflows and tools
 Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools.
