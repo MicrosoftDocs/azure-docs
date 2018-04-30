@@ -60,11 +60,11 @@ Audio files for acoustic models should be recorded in a representative location,
 | Property | Required value |
 |----------|------|
 File format | RIFF (WAV)
-Sample rate | 8000 Hz or 16000 Hz
+Sample rate | 8000 Hz or 16,000 Hz
 Channels | 1 (mono)
-Sample format | PCM, 16 bit integer
+Sample format | PCM, 16-bit integer
 File duration | Between 0.1 and 60 seconds
-Silence collar | 0.1 seconds
+Silence collar | 0.1 second
 Archive format | zip
 Maximum archive size | 2 GB
 
@@ -111,7 +111,7 @@ Validation makes sure that all files are in the correct format. It may take a fe
 
 As part of the model creation process, you can test your model against an acoustic data set. The new model is used to recognize the speech in the data set's audio files and the results tested against the corresponding text. For best results, use a different acoustic data set than the one you used to create the model.
 
-## Custom custom endpoint
+## Custom endpoint
 
 After you have created custom acoustic models or language models, you can deploy them to a custom Speech to Text endpoint. Only the account that created an endpoint is permitted to make calls to it.
 

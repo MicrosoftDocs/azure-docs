@@ -29,10 +29,12 @@
       href: how-to-customize-speech-models.md
     - name: Text to Speech # OK
       href: how-to-text-to-speech.md
-    - name: Custom Text to Speech
+    - name: Custom Text to Speech # OK
       href: how-to-customize-voice-font.md
     - name: Speech Translation # OK
       href: how-to-translate-speech.md
+    - name: Customize device wake word # OK
+      href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
   href: samples.md
 - name: Reference

@@ -1,6 +1,6 @@
 ---
 title: Customizing voice fonts for Text to Speech | Microsoft Docs
-description: How to create Text to Speech voice fonts.
+description: How to create custom Text to Speech voice fonts.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
