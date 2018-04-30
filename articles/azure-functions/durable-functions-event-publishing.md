@@ -266,7 +266,7 @@ The following list explains the lifecycle events schema:
 
 ## How to test locally
 
-To test locally, use [ngrok](functions-bindings-event-grid#local-testing-with-ngrok).
+To test locally, use [ngrok](functions-bindings-event-grid.md#local-testing-with-ngrok).
 
 ## Next steps
 
