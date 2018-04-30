@@ -369,13 +369,13 @@ Deployment of the blockchain application takes a few minutes. When deployment is
 
 ## Add blockchain application members
 
-Add application members to your application to initiate and take actions on contracts. To add application members, you need to be a Blockchain Workbench administrator.
+Add application members to your application to initiate and take actions on contracts. To add application members, you need to be a [Blockchain Workbench administrator]().
 
 1. Select **Applications** > **Hello, Blockchain!**.
 2. The number of members associated to the application is displayed in the upper right corner of the page. For a new application, the number of members will be zero.
 3. Select the **members** link in the upper right corner of the page. A current list of members for the application is displayed.
 4. In the membership list, select **Add members**.
-5. Select or enter the member's name you want to add.
+5. Select or enter the member's name you want to add. Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [add Azure AD users]().
 6. Select the **Role** for the member. For the first member, select **Requestor** as the role.
 7. Select **Add** to add the member with the associated role to the application.
 8. Add another member to the application with the **Responder** role.
