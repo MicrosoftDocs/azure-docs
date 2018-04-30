@@ -1,6 +1,6 @@
 ---
- title: Azure Event Grid limits
- description: Provides limits for using Azure Event Grid
+ title: include file
+ description: include file
  services: event-grid
  author: tfitzmac
  ms.service: event-grid
