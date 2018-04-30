@@ -156,10 +156,6 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ## LUIS service 
 
-### Does LUIS have any certificates or ISO conformance for security or GDPR? 
-
-See [Security Compliance](luis-concept-security.md#security-compliance) for ISO and CSA STAR conformance. See [GDPR](luis-reference-gdpr.md) regarding General Data Protection Regulation information.
-
 ### Is LUIS available on-premise or in private cloud?
 No. 
 
