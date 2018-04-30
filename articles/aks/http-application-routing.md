@@ -15,7 +15,7 @@ ms.author: laevenso
 
 The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the solution configures an ingress controller in your AKS cluster. Additionally, as applications are deployed, the  solution also creates publically accessible DNS names for application endpoints.
 
-Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/en-us/pricing/details/dns/).
+Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 
 ## HTTP routing solution overview
 
