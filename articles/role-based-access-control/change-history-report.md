@@ -102,7 +102,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 - Save data for longer retention periods
 - Cross-reference with other logs such as security, virtual machine, and custom
 
-Here are the basics steps to get started:
+Here are the basic steps to get started:
 
 1. [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
 
