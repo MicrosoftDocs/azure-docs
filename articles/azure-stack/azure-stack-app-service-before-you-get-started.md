@@ -13,7 +13,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 05/01/2018
 ms.author: anwestg
 
 ---
@@ -22,7 +22,7 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Apply the 1802 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service.
+> Apply the 1804 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.2.
 >
 >
 
@@ -46,7 +46,7 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
 
 Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack which were deployed prior to the release of the 1802 update, please see the [documentation](azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
 
-In addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration. 
+In addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration.
 
 ## Get certificates
 
@@ -54,7 +54,11 @@ In addition Azure App Service on Azure Stack for high availability, deploy the r
 
 In a PowerShell session running as azurestack\CloudAdmin on a machine which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script create a root certificate in the same folder as the script that App Service needs for creating certificates.
 
-| Get-AzureStackRootCert.ps1 parameter | Required or optional | Default value | Description |
+```PowerShell
+    Get-AzureStackRootCert.ps1
+```
+
+| Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Required | AzS-ERCS01 | Privileged endpoint |
 | CloudAdminCredential | Required | AzureStack\CloudAdmin | Domain account credential for Azure Stack cloud admins |
@@ -76,6 +80,10 @@ Run the script on the Azure Stack Development Kit host and ensure that you're ru
 2. Enter a password to secure the .pfx files, and make a note of it. You must enter it in the App Service on Azure Stack installer.
 
 #### Create-AppServiceCerts.ps1 parameters
+
+```PowerShell
+    Create-AppServiceCerts.ps1
+```
 
 | Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
@@ -135,11 +143,11 @@ Virtual Network - /16
 
 Subnets
 
-* ControllersSubnet /24
-* ManagementServersSubnet /24
-* FrontEndsSubnet /24
-* PublishersSubnet /24
-* WorkersSubnet /21
+- ControllersSubnet /24
+- ManagementServersSubnet /24
+- FrontEndsSubnet /24
+- PublishersSubnet /24
+- WorkersSubnet /21
 
 ## Prepare the file server
 
@@ -306,7 +314,11 @@ Follow these steps:
 13. Click **Settings**.
 14. Select **Required Permissions** > **Grant Permissions** > **Yes**.
 
-| Create-AADIdentityApp.ps1  parameter | Required or optional | Default value | Description |
+```PowerShell
+    Create-AADIdentityApp.ps1
+```
+
+| Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Required | Null | Azure AD tenant ID. Provide the GUID or string. An example is myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Required | Null | Admin Azure Resource Manager endpoint. An example is adminmanagement.local.azurestack.external. |
@@ -337,7 +349,11 @@ Follow these steps:
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
 6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
-| Create-ADFSIdentityApp.ps1  parameter | Required or optional | Default value | Description |
+```PowerShell
+    Create-ADFSIdentityApp.ps1
+```
+
+| Parameter | Required or optional | Default value | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Required | Null | Admin Azure Resource Manager endpoint. An example is adminmanagement.local.azurestack.external. |
 | PrivilegedEndpoint | Required | Null | Privileged endpoint. An example is AzS-ERCS01. |
