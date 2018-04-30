@@ -233,10 +233,10 @@ Any customer using Azure Infrastructure as a Service (IaaS) features can achieve
 
 #### Azure storage
 
-All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support encryption at rest. This includes 
+All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support encryption at rest.  
 
-- Server-side: Server-side encryption is enabled by default for all Azure Storage Services and is done transparently to the application. See [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption) for more information. Azure blob storage and file storage also support customer-managed keys in Azure Key Vault. See [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys) for more information.
-- Client-side: client-side encryption of Azure Blobs, Tables, and Queues is supported. When using client-side encryption customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. See [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption) for more information.
+- Server-side: Server-side encryption is enabled by default for all Azure Storage Services and is done transparently to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure blob storage and file storage also support customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- Client-side: client-side encryption of Azure Blobs, Tables, and Queues is supported. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### SQL Azure
