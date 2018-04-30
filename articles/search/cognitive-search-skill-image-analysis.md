@@ -17,7 +17,7 @@ ms.author: luisca
 ---
 #	Image Analysis cognitive skill
 
-The **Image Analysis** skill extracts a rich set of visual features based on the image content. For instance, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
+The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks.
 
 ## @odata.type  
 Microsoft.Skills.Vision.ImageAnalysisSkill 
@@ -28,9 +28,9 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| defaultLanguageCode	|  A string indicating which language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages: <br/>*en* - English, Default <br/> *zh* - Simplified Chinese|
-|visualFeatures |	An array of strings indicating what visual feature types to return.  <br/><br/> Valid visual feature types include:  <br/> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy). <br/> *tags* - tags the image with a detailed list of words related to the image content. <br/>	*Description* - describes the image content with a complete English sentence. <br/>	*Faces* - detects if faces are present. If present, generate coordinates, gender and age.<br/>	*ImageType* - detects if image is clipart or a line drawing.<br/>	*Color* - determines the accent color, dominant color, and whether an image is black&white. <br/>*Adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.<br/><br/> Names of visual features are case sensitive.|
-| details	| An array of strings indicating which domain-specific details to return.  <br/><br/> Valid visual feature types include: <br/> *Celebrities* - identifies celebrities if detected in the image. <br/> *Landmarks* - identifies landmarks if detected in the image.
+| defaultLanguageCode	|  A string indicating the language to return. The service returns recognition results in a specified language. If this parameter is not specified, the default value is "en". <br/><br/>Supported languages are: <br/>*en* - English (default) <br/> *zh* - Simplified Chinese|
+|visualFeatures |	An array of strings indicating the visual feature types to return. Valid visual feature types include:  <ul><li> *categories* - categorizes image content according to a taxonomy defined in the Cognitive Services [documentation](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).</li><li> *tags* - tags the image with a detailed list of words related to the image content.</li><li>*Description* - describes the image content with a complete English sentence.</li><li>*Faces* - detects if faces are present. If present, generates coordinates, gender, and age.</li><li>	*ImageType* - detects if image is clipart or a line drawing.</li><li>	*Color* - determines the accent color, dominant color, and whether an image is black&white.</li><li>*Adult* - detects if the image is pornographic in nature (depicts nudity or a sex act). Sexually suggestive content is also detected.</li></ul> Names of visual features are case-sensitive.|
+| details	| An array of strings indicating which domain-specific details to return. Valid visual feature types include: <ul><li>*Celebrities* - identifies celebrities if detected in the image.</li><li>*Landmarks* - identifies landmarks if detected in the image.</li></ul>
  |
 
 ## Skill inputs
@@ -237,7 +237,7 @@ In the following error cases, no elements are extracted.
 | InvalidImageFormat | Input data is not a valid image. |
 | InvalidImageSize | Input image is too large. |
 | NotSupportedVisualFeature  | Specified feature type is not valid. |
-| NotSupportedImage | Unsupported image, e.g. child pornography. |
+| NotSupportedImage | Unsupported image, for example, child pornography. |
 | InvalidDetails | Unsupported domain-specific model. |
 
 ## See also

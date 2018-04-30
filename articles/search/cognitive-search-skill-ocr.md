@@ -33,7 +33,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | detectOrientation	| Enables autodetection of image orientation. <br/> Valid values: true / false.|
-|defaultLanguageCode |	Language code of the input text. Supported languages include: ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt.  If the language code is unspecified or null, the language is autodetected.|
+|defaultLanguageCode |	Language code of the input text. Supported languages include: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  If the language code is unspecified or null, the language is autodetected.|
 | textExtractionAlgorithm | "printed" or "handwritten". The "handwritten" text recognition OCR algorithm is currently in preview and only supported in English. |
 
 ## Skill inputs
@@ -47,7 +47,7 @@ Parameters are case-sensitive.
 | Output name	  | Description                   |
 |---------------|-------------------------------|
 | text         	| Plain text extracted from the image.   |
-| layoutText    | Complex type that describing the extracted text as well as the location where the text was found.|
+| layoutText    | Complex type that describes the extracted text as well as the location where the text was found.|
 
 
 ## Sample definition
