@@ -245,6 +245,6 @@ In this tutorial, you learned how to:
 * Read message from an event hub.
 Advance to the next article to see you can create a machine learning application. 
 > [!div class="nextstepaction"]
-> [Analyze data using BI tools](apache-spark-use-bi-tools.md)
+> [Create a machine learning application](./apache-spark-ipython-notebook-machine-learning.md)
 
 
