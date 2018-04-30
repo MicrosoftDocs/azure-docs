@@ -1,4 +1,4 @@
----
+﻿---
 title: Backup and recover info with Microsoft Authenticator - Azure | Microsoft Docs
 description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
 services: multi-factor-authentication
@@ -101,4 +101,4 @@ Now that you've backed up and recovered your account credentials to your new dev
 
 - [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
 
-- [Multi-factor Authentication](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)
+- [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)
