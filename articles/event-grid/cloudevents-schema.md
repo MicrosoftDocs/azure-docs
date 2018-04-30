@@ -13,27 +13,13 @@ ms.author: babanisa
 
 # Define schema for Event Grid events
 
-In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). You can use Event Grid for both input and output of events in CloudEvents schema. This article describes how to use the CloudEvents schema.
-
-## CloudEvents
-
-[CloudEvents](http://cloudevents.io/) is an [open standard specification](https://github.com/cloudevents/spec/blob/master/spec.md) for describing event data in a common way. It is being build by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Compute Foundation](https://www.cncf.io/).
-
-It's currently available as version 0.1.
-
-### Why use CloudEvents?
+In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) is an [open standard specification](https://github.com/cloudevents/spec/blob/master/spec.md) for describing event data in a common way.
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-## Event Grid support for CloudEvents
+CloudEvents is being build by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Compute Foundation](https://www.cncf.io/). It's currently available as version 0.1.
 
-Currently, Azure Event Grid has preview support for CloudEvents JSON format input and output in **US West Central**, **US Central**, and **Europe North**.
-
-To use CloudEvent, you must enable an extension for Azure CLI:
-
-```azurecli
-az extension add –-name eventgrid
-```
+This article describes how to use the CloudEvents schema with Event Grid.
 
 ## CloudEvent schema
 
@@ -67,7 +53,7 @@ Here is an example of an Azure Blob Storage event in CloudEvents format:
 CloudEvents v0.1 has the following properties available:
 
 | CloudEvents        | Type     | Example JSON Value             | Description                                                        | Event Grid Mapping
-|--------------------|----------|-----------------------------------------------------------------------------------------------------------------------------
+|--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
 | eventType          | String   | "com.example.someevent"          | Type of occurrence that happened                                   | eventType
 | eventTypeVersion   | String   | "1.0"                            | The version of the eventType (Optional)                            | dataVersion
 | cloudEventsVersion | String   | "0.1"                            | The version of the CloudEvents specification the event uses        | *passed through*
@@ -81,12 +67,21 @@ CloudEvents v0.1 has the following properties available:
 
 For more information, see the [CloudEvents spec](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## Configuring input and delivery schema
+## Configure Event Grid for CloudEvents
 
-Azure Event Grid can accept incoming events in CloudEvents format, and emit events in CloudEvents format. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
+Currently, Azure Event Grid has preview support for CloudEvents JSON format input and output in **West Central US**, **Central US**, and **North Europe**.
+
+To use CloudEvent, you must enable an extension for Azure CLI:
+
+```azurecli
+az extension add –-name eventgrid
+```
+
+You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
+
 
 | Input schema       | Output schema
-|-----------------------------------------
+|--------------------|---------------------
 | CloudEvents format | CloudEvents format
 | Event Grid format  | CloudEvents format
 | CloudEvents format | Event Grid format
@@ -96,11 +91,32 @@ Azure Event Grid can accept incoming events in CloudEvents format, and emit even
 
 To set the input schema on a custom topic to CloudEvents, use the following parameter in Azure CLI when you create your topic `--input-schema cloudeventv01schema`. The custom topic now expects incoming events in CloudEvents v0.1 format.
 
+To create an event grid topic, use:
+
+```azurecli
+az eventgrid topic create \
+  --name <topic_name> \
+  -l westcentralus \
+  -g gridResourceGroup \
+  --input-schema cloudeventv01schema
+```
+
 The current version of CloudEvents doesn't support batching of events. To publish events with CloudEvent schema to a topic, publish each event individually.
 
 ### Output schema
 
 To set the output schema on an event subscription to CloudEvents, use the following parameter in Azure CLI when you create your Event Subscription `--event-delivery-schema cloudeventv01schema`. Events for this event subscription are now be delivered in CloudEvents v0.1 format.
+
+To create an event subscription, use:
+
+```azurecli
+az eventgrid event-subscription create \
+  --name <event_subscription_name> \  
+  --topic-name <topic_name> \
+  -g gridResourceGroup \
+  --endpoint <endpoint_URL> \
+  --event-delivery-schema cloudeventv01schema
+```
 
 The current version of the CloudEvents doesn't support batching of events. An event subscription that's configured for CloudEvent schema receives each event individually.
 
