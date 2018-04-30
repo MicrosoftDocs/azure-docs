@@ -29,7 +29,6 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features and fixes
 This build includes the following improvements and fixes for Azure Stack.
 
- <!-- 1951191 - IS - ASDK --> **VPN Gateway capacity is doubled**  Azure Stack now has twice the number of active infrastructure multi-tenant gateways, which doubles the number of Site-to-Site VPN connections that an Azure Stack deployment can host. For more information, see [About VPN Gateway](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 
 ### Fixed issues
