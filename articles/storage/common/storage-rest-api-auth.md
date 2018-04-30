@@ -2,18 +2,13 @@
 title: Calling Azure Storage Services REST API operations including authentication | Microsoft Docs
 description: Calling Azure Storage Services REST API operations including authentication
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
+author: tamram
+manager: jeconnoc
 
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
+ms.date: 04/19/2018
+ms.author: tamram
 ---
 
 # Using the Azure Storage REST API
@@ -45,10 +40,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 This command clones the repository to your local git folder. To open the Visual Studio solution, look for the storage-dotnet-rest-api-with-auth folder, open it, and double-click on StorageRestApiAuth.sln. 
 
-## Why do I need to know REST?
-
-Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the  storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
-
 ## What is REST?
 
 REST means *representational state transfer*. For a specific definition, check out [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
@@ -56,9 +47,11 @@ REST means *representational state transfer*. For a specific definition, check o
 Basically, REST is an architecture you can use when calling APIs or making APIs available to be called. It is independent of what’s happening on either side, and what other software is being used when sending or receiving the REST calls. You can write an application that runs on a Mac, Windows, Linux, an Android phone or tablet, iPhone, iPod, or web site, and use the same REST API for all of those platforms. Data can be passed in and/or out when the REST API is called. The REST API doesn’t care from what platform it’s
 called – what’s important is the information passed in the request and the data provided in the response.
 
-## Here's the plan
+Knowing how to use REST is a useful skill. The Azure product team frequently releases new features. Many times, the new features are accessible through the REST interface, but have not yet been surfaced through **all** of the  storage client libraries or the UI (such as the Azure portal). If you always want to use the latest and greatest, learning REST is a requirement. Also, if you want to write your own library to interact with Azure Storage, or you want to access Azure Storage with a programming language that does not have an SDK or storage client library, you can use the REST API.
 
-The example project lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, other REST calls are easier to figure out. 
+## About the sample application
+
+The sample application lists the containers in a storage account. Once you understand how the information in the REST API documentation correlates to your actual code, other REST calls are easier to figure out. 
 
 If you look at the [Blob Service REST
 API](/rest/api/storageservices/fileservices/Blob-Service-REST-API), you see all of the operations you can perform on blob storage. The storage client libraries are wrappers around the REST APIs – they make it easy for you to access storage without using the REST APIs directly. But as noted above, sometimes you want to use the REST API instead of a storage client library.
@@ -146,7 +139,7 @@ Add the request headers for x-ms-date and x-ms-version. This place in the code i
     // Add the request headers for x-ms-date and x-ms-version.
     DateTime now = DateTime.UtcNow;
     httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-04-17");
+    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
     // If you need any additional headers, add them here before creating
     //   the authorization header. 
 ```
@@ -210,7 +203,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 3e889876-001e-0039-6a3a-5f4396000000
-x-ms-version: 04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
@@ -317,7 +310,7 @@ Let’s start with those two canonicalized fields, because they are required to 
 To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this: 
 
 ```
-x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 Here’s the code used to create that output:
@@ -423,7 +416,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 When you run this code, the resulting MessageSignature looks like this:
 
 ```
-GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list
+GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
 Here's the final value for AuthorizationHeader:
@@ -469,7 +462,7 @@ When you run this sample, you get results like the following:
 **Canonicalized Headers:**
 
 ```
-x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 **Canonicalized Resource:**
@@ -482,7 +475,7 @@ x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
-  \nx-ms-version:2017-04-17\n/contosorest/container-1\ncomp:list\nrestype:container
+  \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
 **AuthorizationHeader:**
@@ -503,7 +496,7 @@ GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Authorization: SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
@@ -516,7 +509,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 7e9316da-001e-0037-4063-5faf9d000000
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
