@@ -5,6 +5,7 @@
   - name: About Virtual Network
     href: virtual-networks-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create virtual network - Portal
     href: quick-create-portal.md
