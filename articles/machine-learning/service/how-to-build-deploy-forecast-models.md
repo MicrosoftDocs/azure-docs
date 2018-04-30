@@ -312,7 +312,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
 
 The data contains approximately 250 different combinations of store and brand in a data frame. Each combination defines its own time series of sales. 
 
-You can use the time series [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe)  class to conveniently model multiple series in a single data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
+You can use the [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe)  class to conveniently model multiple series in a single data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
 
 ```python
 nseries = whole_df.groupby(['store', 'brand']).ngroups
@@ -391,7 +391,7 @@ whole_tsdf[['Quantity']].head()
 </table>
 
 
-In the TimeSeriesDataFrame representation, the time axis and grain are now part of the data frame index, and allows easy access to pandas datetime slicing functionality.
+In the TimeSeriesDataFrame representation, the time axis and grain are now part of the data frame index, and allow easy access to pandas datetime slicing functionality.
 
 
 ```python
@@ -860,16 +860,16 @@ whole_tsdf.head()
 
 
 
-## Data preprocessing - impute missing values
+## Preprocess data and impute missing values
 
-Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use the utility function, [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils):
+Start by splitting the data into training set and a testing set with the [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) utility function. The resulting testing set contains the last 40 observations of each time series. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, with the [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) function.
+Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, using the [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) function.
 
 
 ```python
@@ -944,7 +944,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-You can see that most of the series (213 of them) aren't regular. An [imputation transform](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) is required to fill missing sales quantity values. There are many imputation options, but you can use a linear interpolation here.
+You can see that most of the series (213 out of 249) are irregular. An [imputation transform](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) is required to fill in missing sales quantity values. While there are many imputation options, the following sample code uses a linear interpolation.
 
 
 ```python
@@ -957,7 +957,7 @@ imputer = TimeSeriesImputer(input_column='Quantity',
 train_imputed_tsdf = imputer.transform(train_tsdf)
 ```
 
-Now all series have a regular frequency:
+After the imputation code is run, the series all have a regular frequency:
 
 
 ```python
@@ -970,12 +970,12 @@ print(ts_regularity_imputed[ts_regularity_imputed['regular'] == False])
     Index: []
     
 
-## Univariate Time Series Models
+## Univariate time series models
 
 Now that you have cleaned up the data, you can begin modeling.  Start by creating three univariate models: the "naive" model, the "seasonal naive" model, and an "ARIMA" model.
 * The Naive forecasting algorithm uses the actual target variable value of the last period as the forecasted value of the current period.
 
-* The Seasonal Naive algorithm uses the actual target variable value of the same time point of the previous season as the forecasted value of the current time point. Some examples: use the actual value of the same month of last year to forecast months of the current year; use the same hour of yesterday to forecast hours today. 
+* The Seasonal Naive algorithm uses the actual target variable value of the same time point of the previous season as the forecasted value of the current time point. Some examples include using the actual value of the same month of last year to forecast months of the current year; use the same hour of yesterday to forecast hours today. 
 
 * The exponential smoothing (ETS) algorithm generates forecasts by computing the weighted averages of past observations, with the weights decaying exponentially as the observations get older. 
 
@@ -1040,7 +1040,8 @@ forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_
 arima_prediction= arima_model_fitted.predict(test_tsdf)
 ```
 
-**Evaluate model performance**   
+**Evaluate model performance**
+
 Now you can calculate the forecast errors on the test set. You can use the mean absolute percentage error (MAPE) here. MAPE is the mean absolute error relative to the actual sales values. The ```calc_error``` function provides a few built-in functions for commonly used error metrics. You can also define your custom error function and pass it to the ```err_fun``` argument.
 
 
@@ -1060,7 +1061,7 @@ print(all_model_errors)
     3 126.57           arima
     
 
-It's valuable to see the distribution of these errors over the 250 time series in the data. To see the distribution of errors, calculate errors for each series using the `by` argument in `calc_error` and then create a box plot to visualize them.
+It's valuable to see the distribution of these errors over the 249 time series in the data. To see the distribution of errors, use the `by` argument in `calc_error` to calculate the errors for each series. Then, create a box plot to visualize them.
 
 
 ```python
@@ -1091,8 +1092,9 @@ error_bygrain_univariate[['ModelName', 'MAPE']].groupby('ModelName').boxplot(sub
 Overall, the Naive model seems to make better forecasts despite some outliers, which are less accurate. 
 
 ## Build machine learning models
-In addition to traditional univariate models, Azure Machine Learning Package for Forecasting enables users to create machine learning models as well. 
-You begin by creating features for modeling.
+In addition to traditional univariate models, Azure Machine Learning Package for Forecasting also enables you to create machine learning models. Y
+
+For these model, begin by creating features.
 
 ### Feature Engineering
 **Transformers**   
@@ -1129,7 +1131,7 @@ grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_
 ```
 
 **Pipelines**   
-Pipeline objects make it easy to save a set of steps so they can be applied over and over again to different objects. Also, pipeline objects are pickelable, making it easy to port them to other machines for deployment. You can chain  all the transformers you've created so far using a pipeline. 
+Pipeline objects make it easy to save a set of steps so they can be applied over and over again to different objects. Also, pipeline objects can be pickled to make them easily portable to other machines for deployment. You can chain all the transformers you've created so far using a pipeline. 
 
 
 ```python
@@ -1258,8 +1260,9 @@ print(train_feature_tsdf.head())
     [5 rows x 25 columns]
     
 
-**RegressionForecaster**   
-The [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster)  function wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are deemed similar and can be pooled together, which can improve forecasts for short series using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these models for any other models in the library that support regression. 
+**RegressionForecaster**
+
+The [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster)  function wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group, in this case store, into the same model. The forecaster can learn one model for a group of series that were deemed similar and can be pooled together. One model for a group of series often  uses the data from longer series to improve forecasts for short series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these models for any other models in the library that support regression. 
 
 
 ```python
@@ -1351,8 +1354,11 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
 
 The machine learning model was able to take advantage of the added features and the similarities between series to get better forecast accuracy.
 
-**Cross-Validation and Parameter Sweeping**    
-The package adapts some traditional machine learning functions for a forecasting application.  `RollingOriginValidator` does cross-validation temporally, respecting what would and would not be known in a forecasting framework. In the figure below, each square represents data from one time point. The blue squares represent training and orange squares represent testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data is leaked into training data causing the model evaluation to become invalid. 
+**Cross-Validation and Parameter Sweeping**
+
+The package adapts some traditional machine learning functions for a forecasting application.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) does cross-validation temporally, respecting what would and would not be known in a forecasting framework. 
+
+In the figure below, each square represents data from one time point. The blue squares represent training and orange squares represent testing in each fold. Testing data must come from the time points after the largest training time point. Otherwise, future data is leaked into training data causing the model evaluation to become invalid. 
 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
@@ -1377,7 +1383,7 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
 
 **Build the final pipeline**   
-Now that you have identified the best model, build, and fit your final pipeline with all transformers and the best model. 
+Now that you have identified the best model, you can build and fit your final pipeline with all transformers and the best model. 
 
 
 ```python
@@ -1467,7 +1473,7 @@ aml_deployment.deploy()
 ```
 
 ### Score the web service
-To score a small dataset, use [the score method](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) to submit one web service call for all the data.
+To score a small dataset, use the [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice)  method to submit one web service call for all the data.
 
 
 ```python
@@ -1489,7 +1495,7 @@ results = aml_web_service.score(score_context=score_context)
 
 ```
 
-To score a large dataset, use the parallel scoring mode to submit multiple web service calls, one for each group of data.
+To score a large dataset, use the [parallel scoring](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) mode to submit multiple web service calls, one for each group of data.
 
 
 ```python
