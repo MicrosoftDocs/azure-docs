@@ -40,22 +40,16 @@ WebSockets|West US| `wss://westus.stt.speech.microsoft.com/v1.0/`
 
 The Text to Speech functionality of the unified Speech service is similar to the same functionality in the previous [Speech service](https://docs.microsoft.com/azure/cognitive-services/speech), also called Bing Search. However, there have been some important improvements. For example, it is now possible to create [custom voice fonts](how-to-customize-voice-font.md) by providing recorded voice samples and a corresponding text transcription.
 
-In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the following values.
+In the Text to Speech API, the `X-Microsoft-OutputFormat` header can now specify the following formats.
 
-Value|Meaning
--|-
-1| raw-16khz-16bit-mono-pcm 
-2| audio-16khz-16kbps-mono-siren 
-3| riff-16khz-16kbps-mono-siren 
-4| riff-16khz-16bit-mono-pcm 
-5| audio-16khz-128kbitrate-mono-mp3 
-6| audio-16khz-64kbitrate-mono-mp3 
-7| audio-16khz-32kbitrate-mono-mp3
-9|  raw-24khz-16bit-mono-pcm
-10| riff-24khz-16bit-mono-pcm
-11| audio-24khz-160kbitrate-mono-mp3
-12| audio-24khz-96kbitrate-mono-mp3
-13| audio-24khz-48kbitrate-mono-mp3
+|||
+|-|-|
+`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren `
+`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
+`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
+`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
+`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 Text to Speech also offers two new voices.
 

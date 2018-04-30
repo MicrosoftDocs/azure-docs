@@ -18,7 +18,7 @@ The REST APIs of the unified Speech service are similar to the APIs provided by 
 > [!NOTE]
 > The Speech Translation feature does not have a REST API. See [WebSocket protocols](websockets.md).
 
-## Speech to Text API
+## Speech to Text
 
 In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
 
@@ -35,24 +35,18 @@ Keep these differences in mind as you read the [REST API documentation](https://
 
 The Speech to Text API supports REST only for short (< 15 seconds) utterances. The Speech to Text API also supports a [WebSockets protocol](websockets.md) for streaming speech recognition.
 
-## Text to Speech API
+## Text to Speech
 
 In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the following values.
 
-Value|Meaning
--|-
-1| raw-16khz-16bit-mono-pcm 
-2| audio-16khz-16kbps-mono-siren 
-3| riff-16khz-16kbps-mono-siren 
-4| riff-16khz-16bit-mono-pcm 
-5| audio-16khz-128kbitrate-mono-mp3 
-6| audio-16khz-64kbitrate-mono-mp3 
-7| audio-16khz-32kbitrate-mono-mp3
-9|  raw-24khz-16bit-mono-pcm
-10| riff-24khz-16bit-mono-pcm
-11| audio-24khz-160kbitrate-mono-mp3
-12| audio-24khz-96kbitrate-mono-mp3
-13| audio-24khz-48kbitrate-mono-mp3
+|||
+|-|-|
+`raw-16khz-16bit-mono-pcm`         | `audio-16khz-16kbps-mono-siren `
+`riff-16khz-16kbps-mono-siren`     | `riff-16khz-16bit-mono-pcm`
+`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
+`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
+`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
+`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 The service now includes two new voices:
 

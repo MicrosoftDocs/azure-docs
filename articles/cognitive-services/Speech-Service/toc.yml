@@ -23,7 +23,7 @@
       href: how-to-authenticate.md
     - name: Migrate to the Speech service # OK
       name: how-to-migrate.md
-    - name: Speech to text
+    - name: Speech to text # OK
       href: how-to-speech-to-text.md
     - name: Custom speech to text
       href: how-to-customize-speech-models.md

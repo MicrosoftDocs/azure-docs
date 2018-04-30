@@ -25,8 +25,8 @@ Scenarios in which speech synthesis is being adopted include:
 
 * *Enhancing learning with multiple modes:* Different people learn best different ways. Online learning experts have shown that providing voice and text together can help make information easier to learn and retain. 
 
-* *Delivering intuitive bots or assistants:* The ability to talk is an integral part of an intelligent chat bot or a virtual assistant. More and more companies are developing chat bots to provide engaging customer service experiences for their customers. Voice adds another dimension by allows the bot's responses to be received aurally (for exmaple, by phone).
+* *Delivering intuitive bots or assistants:* The ability to talk can be an integral part of an intelligent chat bot or a virtual assistant. More and more companies are developing chat bots to provide engaging customer service experiences for their customers. Voice adds another dimension by allows the bot's responses to be received aurally (for example, by phone).
 
 The Microsoft Text-to-Speech (TTS) service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts," you just specify the voice name with a few other parameters when you call the service's REST API. For the details of the voices supported, see [Supported Languages](supported-languages.md). 
 
-If you need speech for an unsupported dialect or just want a unique voice for your application, you can create [custom voice fonts](how-tocustomize-voice-fonts.md) from your own speech samples.
+If you need speech for an unsupported dialect or just want a unique voice for your application, you can create [custom voice fonts](how-to-customize-voice-fonts.md) from your own speech samples.
