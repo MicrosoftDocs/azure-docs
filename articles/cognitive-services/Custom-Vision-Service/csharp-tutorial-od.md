@@ -69,7 +69,7 @@ namespace SampleObjectDetection
 
 ## Step 2: Create a Custom Vision Service project
 
-To create a new Custom Vision Service project, add the following code in your **Main()** method after the call to **LoadImagesFromDisk()**:
+To create a new Custom Vision Service project, add the following code to the end of your **Main()** method.
 
 ```
             // Find the object detection domain
