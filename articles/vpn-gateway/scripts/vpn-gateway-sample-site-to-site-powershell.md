@@ -21,7 +21,7 @@ ms.author: anzaman
 
 # Create a VPN Gateway and add a Site-to-Site connection using PowerShell
 
-This script creates a route-based VPN Gateway and adds Site-to-Site configuration.
+This script creates a route-based VPN Gateway and adds Site-to-Site configuration. In order to create the connection, you also need to configure your VPN device. For more information, see [About VPN devices and IPsec/IKE parameters for Site-to-Site VPN Gateway connections](../vpn-gateway-about-vpn-devices.md).
 
 
 ```azurepowershell-interactive

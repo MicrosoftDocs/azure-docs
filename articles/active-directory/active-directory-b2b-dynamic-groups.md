@@ -54,7 +54,4 @@ Browse our other articles on Azure AD B2B collaboration:
 * [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
 * [B2B collaboration code and PowerShell samples](active-directory-b2b-code-samples.md)
 * [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
-* [B2B collaboration user tokens](active-directory-b2b-user-token.md)
-* [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
-* [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
-* [B2B collaboration current limitations](active-directory-b2b-current-limitations.md)
+
