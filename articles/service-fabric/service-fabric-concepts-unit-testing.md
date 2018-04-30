@@ -18,8 +18,8 @@
             - [Execute Requests Against Multiple Replicas](#execute-requests-against-multiple-replicas)
         - [Asserting](#asserting)
             - [Ensure Responses Match Across Replicas](#ensure-responses-match-across-replicas)
-            - [Verify Replicas That Should Serve Requests](#verify-replicas-that-should-serve-requests)
             - [Verify Service Respects Cancellation](#verify-service-respects-cancellation)
+            - [Verify Which Replicas Should Serve Requests](#verify-which-replicas-should-serve-requests)
 
 This article covers the concepts and practices of unit testing Service Fabric Stateful Services. Unit testing within Service Fabric deserves its own considerations due to the fact that the application code actively runs under multiple different contexts. In this article we will describe the practices used to ensure application code is covered under each of the different contexts it can run.
 
@@ -37,7 +37,6 @@ Unit testing stateful services can help to uncover some common mistakes that are
 The following section advises on the most common practices for unit testing a stateful service. It also advises what a mocking layer should have to closely align to the Service Fabric orchestration and state management. Mocking libraries do exist libraries that provide this functionality. [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) as of 3.3.0 or later is one such library that provides the mocking functionality recommended and follows the practices outlined below.
 
 ### Arrangement
-*Add a diagram here to illustrate the arrangement of the services and state manager before executing requests.*
 
 #### Use Multiple Service Instances
 Unit tests should execute multiple instances of a stateful service. This simulates what actually happens on the cluster where Service Fabric provisions multiple replicas running your service across different nodes. Each of these instances will be executing under a different context however. When running the test each instance should be primed with the role configuration expected on the cluster. For example, if the service is expected to have target replica size of 3, Service Fabric would provision 3 replicas on different nodes. One of which being the primary and the other two being Active Secondary's.
@@ -82,30 +81,41 @@ This test will assert that the data being captured on one replica is available t
 #### Mimic Service Fabric Replica Orchestration
 When managing multiple service instances, the tests should intialize and tear down these services in the same manner as the Service Fabric orchestration. For example, when a service is created on a new primary replica, Service Fabric will invoke CreateServiceReplicaListener, OpenAsync, ChangeRoleAsync, and RunAsync. The lifecycle events are documented in the following articles:
 
-*TODO: add links to https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-startup, shutdown, and primary swaps*
+- [Stateful Service Startup](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-startup)
+- [Stateful Service Shutdown](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-shutdown)
+- [Stateful Service Primary Swaps](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps)
 
 #### Run Replica Role Changes
 The unit tests should change the roles of the service instances in the same manner as the Service Fabric orchestration. The role state machine is documented in the following article:
 
-*TODO: add link https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-concepts-replica-lifecycle#replica-role*
+[Replica Role State Machine](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-concepts-replica-lifecycle#replica-role)
 
 Simulating role changes is one of the more critical aspects of testing as it can uncover issues where the replicas state are not consistent with each other. This happens often times due to storing in-memory state in static or class level instance variables. Examples of this may be cancellation tokens, enums, and configuration objects/values. This will also ensure that the service is respecting the cancellation tokens provided during RunAsync to allow the role change to occur. This can also uncover issues that may arise if code is not written to allow an invocation of RunAsync multiple times.
 
 #### Cancel Cancellation Tokens
-*Verify the service responds accordingly to cancellation token cancel events. Long running processes should respect tokens and shut down when the token is cancelled*
 There should exists unit tests where the cancellation token provided to RunAsync is actually cancelled. This will allow the test to verify that the service gracefully shutsdown. During this shut down any long running or asynchronous operations should be stopped. Example of a long running process that may exist on a service is one that listens for messages on a Reliable Queue. This may exist directly within RunAsync or a background thread. The implementation should include logic for exiting the operation if this cancellation token is cancelled.
 
 If the stateful services makes use of any cache or in-memory state that should only exist on the primary, it should be disposed at this time. This is to ensure that this state is consistent if the node becomes a primary again later. Cancellation testing will allow the test to verify this state is disposed properly.
 
 #### Execute Requests Against Multiple Replicas
-*Executing the same request against multiple replica after transitioning them to primary will verify state is in sync amongst the replicas*
+There should assert tests that execute the same request against different replica's. When pairing this with role changes, consistency issues can be uncovered. An example test may perform the following steps
+1. Execute a write request against the current primary
+2. Execute a read request that returns the data written in step 1 against current primary
+3. Promote a secondary to primary. This should also demote the current primary to secondary
+4. Execute the same read request from step 2 against the new secondary.
+
+In the last step, the test can assert the data returned is consistent. A potential issue that this could uncover is that the data being returned by the service may be in memory but backed ultimately by a reliable collection. That in-memory data may not being kept in sync properly with what exists in the reliable collection.
+
+In-memory data is typically used to create secondary indexes or aggregations of data that exists in a reliable collection.
 
 ### Asserting
 #### Ensure Responses Match Across Replicas
-*Run requests against multiple replicas and ensure the response they provide matches. This will check if the service has state that is not synced with the other replicas*
-
-#### Verify Replicas That Should Serve Requests
-*If a secondary shouldnt serve a request, verify the service will reject the request when its running on secondary*
+Unit tests should assert that a response for a given request is consistent across multiple replica after they transition to primary. This can surface potential issues where data provided in the response is either not backed by a reliable collection, or kept in-memory without a mechanism to synchornize that data across replicas. This will ensure that the service sends back consistent responses after Service Fabric rebalances or fails over to a new primary replica.
 
 #### Verify Service Respects Cancellation
-*Assert long running processes are shut down when cancellation is tripped*
+Long-running or asynchronous processes that should be terminated when a cancellation token is cancelled should be verified that they actually terminated after cancellation. This will ensure that despite the replica changing roles, processes that are not intended to keep running on non-primary replica stop before the transition completes. This can also uncover issues where such a process blocks a role change or shutdown request from Service Fabric from completing.
+
+#### Verify Which Replicas Should Serve Requests
+The tests should assert the expected behavior if a request is routed to a non-primary replica. Service Fabric does provide the ability to have secondary replicas serve requests. However, writes to reliable collections can only occur from the primary replica. If your application intends for only primary replicas to serve requests or, only a subset of requests can be handled by a secondary, then the tests should assert the expected behavior for both the positive and negative cases. The negative case being a request is routed to a replica that should not handle the request and, the positive being the opposite.
+
+
