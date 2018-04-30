@@ -42,15 +42,15 @@ You must create your custom wake word using the Microsoft Speech service before 
 
 1. Go to https://cris.ai/.
 
-2. Create a new account with the email address that you previously used to request access to the Azure Active Directory.<p>![create new account](Images/speech-devices-sdk/wake-word-1.png)<p>The email invitation you receive from Azure Active Directory looks like:<p>![create new account](Images/speech-devices-sdk/wake-word-2.png)
+2. Create a new account with the email address that you previously used to request access to the Azure Active Directory.<p>![create new account](media/speech-devices-sdk/wake-word-1.png)<p>The email invitation you receive from Azure Active Directory looks like:<p>![create new account](media/speech-devices-sdk/wake-word-2.png)
  
-3.	Once logged in, fill out the form, then click **Start the Journey.**<p>![successfully logged in](Images/speech-devices-sdk/wake-word-3.png)
+3.	Once logged in, fill out the form, then click **Start the Journey.**<p>![successfully logged in](media/speech-devices-sdk/wake-word-3.png)
  
-4. The Custom Wake Word page is not available to the public, so there is no link that takes you there. Click or paste in this link instead: https://cris.ai/customkws<p>![hidden page](Images/speech-devices-sdk/wake-word-4.png)
+4. The Custom Wake Word page is not available to the public, so there is no link that takes you there. Click or paste in this link instead: https://cris.ai/customkws<p>![hidden page](media/speech-devices-sdk/wake-word-4.png)
  
-6. Type a word of your choice, then **Submit** it.<p>![enter your wake word](Images/speech-devices-sdk/wake-word-5.png)
+6. Type a word of your choice, then **Submit** it.<p>![enter your wake word](media/speech-devices-sdk/wake-word-5.png)
  
-7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.<p>![receiving .zip file](Images/speech-devices-sdk/wake-word-6.png)
+7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.<p>![receiving .zip file](media/speech-devices-sdk/wake-word-6.png)
 
 8. Save the `.zip` file to your computer. You will need this file to deploy the custom wake word to the development kit later, following the instructions in the Developer Quick Starter Guide, which will be available soon.
 
