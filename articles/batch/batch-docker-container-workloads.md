@@ -136,7 +136,7 @@ pool.Commit();
 
 ### Prefetch images for container configuration
 
-To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com), and start TensorFlow in a start task.
+To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, and prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com). This example includes a start task that runs in the VM host on the pool nodes. You might do this, for example, to mount a file server that can be accessed by the containers.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -149,15 +149,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
     containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
 
-// Set a native command line start task
+// Set a native host command line start task
 StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
-
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
