@@ -69,6 +69,8 @@
       href: insights-webhooks-alerts.md
       name: Webhook actions for log alerts
       href: monitor-alerts-unified-log-webhook.md
+    - name: Create a newer metric alert with a Resource Manager template
+      href: monitoring-create-metric-alerts-with-templates.md
     - name: Create a classic metric alert with a Resource Manager template
       href: monitoring-enable-alerts-using-template.md      
     - name: Copy alerts from OMS portal to Azure portal 

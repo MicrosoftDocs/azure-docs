@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory integration with AppNeta Performance Monitor | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AppNeta Performance Monitor.
 services: active-directory
@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| title| user.jobtitle|
 
 	> [!NOTE]
-	> 'groups' refers to the security group in Appneta which is mapped to a 'Role' in Azure AD. Please refer to [this](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) doc which explains how to create custom roles in Azure AD.
+	> 'groups' refers to the security group in Appneta which is mapped to a 'Role' in Azure AD. Please refer to [this](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) doc which explains how to create custom roles in Azure AD.
 		
 	a. Click **Add attribute** to open the **Add Attribute** dialog.
 

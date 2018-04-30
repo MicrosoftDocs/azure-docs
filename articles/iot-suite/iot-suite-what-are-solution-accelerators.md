@@ -94,8 +94,8 @@ When you deploy a solution accelerator, the provisioning process configures a nu
 * [Azure Time Series Insights](../time-series-insights/index.yml). The solution accelerators use this service to analyze and display the telemetry data from your devices.
 * [Azure Container Service](../container-service/index.yml). This service hosts and manages the microservices in the solution accelerators.
 * [Azure Cosmos DB](../cosmos-db/index.yml) and [Azure Storage](../storage/index.yml) for data storage.
-* [Azure Stream Analytics](../stream-analytics/index.md). The Predictive Maintenance solution accelerator uses this service to process incoming telemetry, perform aggregation, and detect events. This solution accelerator also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
-* [Azure Web Apps](../app-service/index.yml) to host the custom application code in the solution accelerators.
+* [Azure Stream Analytics](../stream-analytics/index.yml). The predictive maintenance preconfigured solution uses this service to process incoming telemetry, perform aggregation, and detect events. This preconfigured solution also uses stream analytics to process informational messages that contain data such as metadata or command responses from devices.
+* [Azure Web Apps](../app-service/index.yml) to host the custom application code in the preconfigured solutions.
 
 For an overview of the architecture of a typical IoT solution, see [Microsoft Azure and the Internet of Things (IoT)](iot-suite-what-is-azure-iot.md).
 

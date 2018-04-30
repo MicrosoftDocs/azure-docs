@@ -1,4 +1,4 @@
----
+﻿---
 title: Frequently asked questions for Azure Application Gateway
 description: This page provides answers to frequently asked questions about Azure Application Gateway
 services: application-gateway
@@ -51,7 +51,7 @@ Backend pools can be composed of NICs, virtual machine scale sets, public IPs, i
 
 **Q. What regions is the service available in?**
 
-Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Application Gateway is available in all regions of global Azure. It is also available in [Azure China](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 **Q. Is this a dedicated deployment for my subscription or is it shared across customers?**
 
@@ -327,4 +327,4 @@ The most common reason is access to the backend is being blocked by an NSG or cu
 
 ## Next Steps
 
-To learn more about Application Gateway visit [Introduction to Application Gateway](application-gateway-introduction.md).
+To learn more about Application Gateway visit [What is Azure Application Gateway?](overview.md)
