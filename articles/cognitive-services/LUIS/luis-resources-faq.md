@@ -184,7 +184,7 @@ The following features where released at the Build 2018 Conference:
 
 |Name|Content|
 |--|--|
-|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles) concept|
+|Patterns|Patterns [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entity concept including [Explicit list](luis-concept-patterns.md#explicit-lists) for exceptions<br>[Roles](luis-concept-roles.md) concept|
 |Integrations|[Sentiment analysis](publishapp.md#enable-sentiment-analysis) with [Key phrase](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entity<br>[Speech-to-text](publishapp.md#enable-speech-priming) a.k.a Speech priming in conjunction with [Speech SDK](https://aka.ms/SpeechSDK)|
 |Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
