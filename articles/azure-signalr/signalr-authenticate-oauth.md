@@ -332,7 +332,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
         })
         .catch(function (error) {
             console.error(error.message);
-            if (error.message === "Unauthorized") {
+            if (error.statusCode === 401) {
                 appendMessage('_BROADCAST_', 'You\'re not logged in. Click <a href="/login">here</a> to login with GitHub.');
             }
         });
