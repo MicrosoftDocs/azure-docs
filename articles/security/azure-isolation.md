@@ -209,7 +209,7 @@ You can establish firewalls and define an IP address range for your trusted clie
 IP storage data can be protected from unauthorized users via a networking mechanism that is used to allocate a dedicated or dedicated tunnel of traffic to IP storage.
 
 ### Encryption
-Azure offers following types of Encryption to protect data:
+Azure offers the following types of Encryption to protect data:
 -	Encryption in transit
 
 -	Encryption at rest
