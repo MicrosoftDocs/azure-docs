@@ -16,8 +16,6 @@ Bing Visual Search API provides an experience similar to the image details shown
 
 This tutorial extends the single page web app from the Bing Image Search tutorial (see [Single-page Web app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). For full source code to start this tutorial, see [Single-page Web app (source code)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). For the final source code of this tutorial, see [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app-source.md).
 
-![[Single-page Bing Visual Search app]](./media/visual-search-similar.png)
-
 The tasks covered are:
 
 > [!div class="checklist"]
@@ -25,7 +23,7 @@ The tasks covered are:
 > * Display similar images
 
 ## Call Bing Visual Search
-Add the following code to the end of the script element at line 409. This code calls the Bing Visual Search API and displays the results.
+Edit the Bing Image Search tutorial and add the following code to the end of the script element at line 409. This code calls the Bing Visual Search API and displays the results.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -112,4 +110,4 @@ With all the new JavaScript code and HTML elements in place, search results are 
 
 > [!div class="nextstepaction"]
 > [Visual Search Single-page Web app source](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Bing Visual Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
