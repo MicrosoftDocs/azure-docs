@@ -111,4 +111,4 @@ With all the new JavaScript code and HTML elements in place, search results are 
 
 > [!div class="nextstepaction"]
 > [Visual Search Single-page Web app source](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)

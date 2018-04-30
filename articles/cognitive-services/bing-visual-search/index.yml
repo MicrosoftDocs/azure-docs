@@ -54,4 +54,4 @@ sections:
     className: cardsD
     items:
     - title: REST v7 API
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference">API Reference</a></p>
+      html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">API Reference</a></p>

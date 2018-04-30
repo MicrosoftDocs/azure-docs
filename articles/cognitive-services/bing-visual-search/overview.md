@@ -460,7 +460,7 @@ To get started quickly with your first request, see the quickstarts: [C#](quicks
 Try out the API. Go to [Visual Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
 
 
-Familiarize yourself with the [Visual Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+Familiarize yourself with the [Visual Search API Reference](https://aka.ms/bingvisualsearchreferencedoc). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
 
