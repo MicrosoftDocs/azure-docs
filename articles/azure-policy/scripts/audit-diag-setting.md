@@ -34,7 +34,7 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 To pass in the parameter value, use the following format:
 
 ```json
-{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.ClassicCompute/domainNames"]}}
+{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}
 ```
 
 ## Deploy with the portal
@@ -48,7 +48,7 @@ When assigning a policy, select **Audit diagnostic setting** from the available 
 ```powershell
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
 
-New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.ClassicCompute/domainNames"]}}' -Scope <scope>
+New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
 ### Clean up PowerShell deployment
@@ -64,7 +64,7 @@ Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.ClassicCompute/domainNames"]}}'
+az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
 ### Clean up Azure CLI deployment
