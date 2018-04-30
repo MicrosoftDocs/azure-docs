@@ -11,7 +11,7 @@
 - name: How-to guides
   items: 
   - name: Deploy Workbench
-    href: blockchain-workbench-overview.md
+    href: blockchain-workbench-deploy.md
   - name: Manage Workbench users
     href: blockchain-workbench-overview.md
   - name: Create blockchain app
@@ -25,7 +25,7 @@
   - name: Configuration
     href: blockchain-workbench-configuration-overview.md
   - name: REST API
-    href: https://review.docs.microsoft.com/rest/api/azure-blockchain-workbench
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
   - name: Messaging API
     href: blockchain-workbench-messages-overview.md
 - name: Resources
