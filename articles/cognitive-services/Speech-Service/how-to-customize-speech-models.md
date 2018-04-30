@@ -1,6 +1,6 @@
 ---
-title: Migrating to the unified Speech service | Microsoft Docs
-description: How to migrate from separate speech services to the unified Speech service.
+title: Customizing Speech to Text models | Microsoft Docs
+description: How to improve speech recognition by customizing Speech to Text models.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,77 +11,114 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: zhouwang
 ---
-# Migrating to the unified Speech service
+# Customizing Speech to Text models
 
-The Speech service unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation.
+To help you achieve better speech recognition results, the Speech service allows you to customize three models used by the Speech to Text API. The models are trained automatically from sample data you provide.
 
-If you have been using these separate speech services through their REST or WebSockets interfaces, there is no pressing need to migrate to the unified Speech service. The pre-existing speech services will continue to be available for some time. However, migrating requires minimal code changes and may provide additional functionality.
+| Model | Sample data | Purpose |
+|-------|---------------|---------|
+| Acoustic model      | Speech, text | Customize the sounds (phonemes) associated with particular words. Train a new accent or dialect, speaking environment, etc. |
+| Language model      | Text | Customize the words that are known to the service and how they are used in utterances. Add technical terms, local place names, etc. |
+| Pronunciation | Text | Improve recognition of troublesome words, compounds, and abbreviations. For example, map "see threepio" to be recognized as "C3PO" |
 
-Changes to the Speech APIs are summarized in the following sections.
+After creating new models, you create a custom endpoint that uses your model for one or more of the above purposes. You may also choose a base model provided by the Speech service if you wish to use, for example, a custom acoustic model but a standard language model. You then use the custom endpoint in place of the standard endpoint for REST or WebSockets requests. Each endpoint has an associated Deployment ID that so it can be used with the Speech SDK.
 
-## Speech to Text
+Customization of all models is done through the [Custom Speech portal](https://www.cris.ai/).
 
-In the previous [Speech service](https://docs.microsoft.com/azure/cognitive-services/speech) (also called Bing Speech), Speech to Text was called Speech Recognition. It is essentially the same functionality; only the name has changed.
+## Language support
 
-The previous [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) service is now an integrated part of the Speech service and no longer requires a separate subscription.
+The following languages are supported for custom Speech to Text language models.
 
-The REST and WebSockets Speech to Text endpoints in the unified Speech service are shown here.
+| Code | Language | Code | Language |
+|-|-|-|-|
+en-US | English (United States) | de-DE | German
+zh-CN | Chinese | pt-BR | Portuguese (Brazil)
+sp-SP | Spanish (Spain) | ru-RU | Russian
+fr-FR | French (France) | jp-JP | Japanese
+it-IT | Italian | ar-EG | Arabic (Egypt)
 
-Method | Region|	Endpoint
--|-|-
-REST | West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-||East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-||North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-WebSockets|West US| `wss://westus.stt.speech.microsoft.com/v1.0/`
-||East Asia|	`wss://eastasia.stt.speech.microsoft.com/v1.0/`
-||North Europe| `wss://northeurope.stt.speech.microsoft.com/v1.0/`
+Custom acoustic models support only US English (en-US). However, Chinese acoustic data sets can be imported for testing Chinese language models. 
 
-## Text to Speech
+Custom pronunciation supports only US English (en-US) and German (de-DE) at this time.
 
-The Text to Speech functionality of the unified Speech service is similar to the same functionality in the previous [Speech service](https://docs.microsoft.com/azure/cognitive-services/speech), also called Bing Search. However, there have been some important improvements. For example, it is now possible to create [custom voice fonts](how-to-customize-voice-font.md) by providing recorded voice samples and a corresponding text transcription.
+## Preparing data sets
 
-In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the following values.
+Each type of model requires slightly different data and formatting, as described here.
 
-Value|Meaning
--|-
-1| raw-16khz-16bit-mono-pcm 
-2| audio-16khz-16kbps-mono-siren 
-3| riff-16khz-16kbps-mono-siren 
-4| riff-16khz-16bit-mono-pcm 
-5| audio-16khz-128kbitrate-mono-mp3 
-6| audio-16khz-64kbitrate-mono-mp3 
-7| audio-16khz-32kbitrate-mono-mp3
-9|  raw-24khz-16bit-mono-pcm
-10| riff-24khz-16bit-mono-pcm
-11| audio-24khz-160kbitrate-mono-mp3
-12| audio-24khz-96kbitrate-mono-mp3
-13| audio-24khz-48kbitrate-mono-mp3
+| Model | What you provide      |
+|-------|-----------------------|
+| Acoustic | A ZIP file containing audio files of complete utterances, and a text file containing transcriptions of these files. Each line of the file must consist of the name of the file, a tab (ASCII 9), and the text.|
+| Language | A text file containing one utterance per line. |
+| Pronunciation | A text file containing a pronunciation hint on each line. Each hint is a display form (a word or abbreviation), followed by a tab (ASCII 9) and the spoken form (the desired pronunciation).  |
 
-Text to Speech also offers two new voices.
+Text files should follow the [text transcription guidelines)[prepare-transcription.md] for the model's language.
 
-Locale | Language | Gender  | Service name mapping
--------|-----------|--------|------------
-en-US | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
-en-US | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)
+## Preparing audio files
 
-The REST endpoints for Text to Speech in the unified Speech service are shown here.
+Audio files for acoustic models should be recorded in a representative location, by a variety of representative users (unless your goal is to optimize recognition for one speaker), using a microphone similar to what your users will be using. The required format of all audio samples is described in this table.
 
-Region|	Endpoint
--|-
-West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
-East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
-North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
+| Property | Required value |
+|----------|------|
+File format | RIFF (WAV)
+Sample rate | 8000 Hz or 16000 Hz
+Channels | 1 (mono)
+Sample format | PCM, 16 bit integer
+File duration | Between 0.1 and 60 seconds
+Silence collar | 0.1 seconds
+Archive format | zip
+Maximum archive size | 2 GB
 
-## Speech Translation
+If you are training a model to work in noisy backgrounds, such as a factory or a car, include a few seconds of typical background noise at the beginning or end of some samples. Do not include noise-only samples.
 
-Speech Translation functionality is essentially the same as the [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech) service. Only the WebSockets endpoints are different, as shown here.
+## Uploading data sets
 
-Region|	Endpoint
--|-
-West US| wss://westus.s2s.speech.microsoft.com/v1.0/
-East Asia|	wss://eastasia.s2s.speech.microsoft.com/v1.0/
-North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
+To create a custom model, first upload your data, then begin the training process.
 
-## Native clients
+To upload training data:
 
-The unified Speech SDK currently supports C/C++, C#, and Java. If you are using a native client library with some other programming language, we suggest waiting for a unified Speech SDK for your platform.
+1.  Log in to the [Custom Speech portal](https://www.cris.ai/).
+
+1.  Choose the type of data set you want to create from the Custom Speech menu: Adaptation Data for acoustic models, Language Data for language models, or Pronunciation. A list of existing data sets of that type (if any) appears.
+
+1. Choose the language by clicking **Change Locale.**
+
+1.  Click **Import New** and specify a name and description for the new data set.
+
+1. Choose the data file(s) you have prepared.
+
+1. Click Import to upload the data and begin validation.
+
+Validation makes sure that all files are in the correct format. It may take a few moments.
+
+## Creating a model
+
+ After your data set has been validated, you can train the model as follows.
+
+> [!NOTE]
+> Pronunciation data does not need to be trained.
+
+1. Choose the type of model you are creating from the Custom Speech menu, then click **Create New.**
+
+1. Choose the locale for the model.
+
+1. Choose a base model for your new model. Your choice of base model determines the recognition modes for which your model can be used, as well as serving as a fallback for any data not in your data set.
+
+1.  Choose the data set from which the model will be created. A data set may be used by any number of models.
+
+1. Click **Create** to begin training the now model.
+
+## Model testing
+
+As part of the model creation process, you can test your model against an acoustic data set. The new model will be used to recognize the speech in the data set's audio files and the results tested against the corresponding text. For best results, use a different acoustic data set than the one you used to create the model.
+
+## Custom custom endpoint
+
+After you have created custom acoustic models or language models, you can deploy them to a custom speech-to-text endpoint. Only the account that created an endpoint is permitted to make calls to that endpoint.
+
+To create an endpoint, choose **Deployments** from the Custom Speech menu at the top of the page. This action takes you to the Deployments page, which contains a table of current custom endpoints, if you have created any. Click **Create New** to create a new endpoint.
+
+Choose the models you want to use in the Acoustic Model and Language Model lists. The available choices always include the base Microsoft models. You may not mix conversational  models with search and dictate models, so choosing an acoustic model limits the available language models, and vice versa. You may use the same models in any number of endpoints.
+
+Click **Create** after choosing the models. Your new endpoint may take up to 30 minutes to provision.
+
+When your endpoint is ready, click it in the Deployments table to see its URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text), the [WebSockets API](websockets.md#speech-to-text, and the [Speech SDK](speech-sdk.wd). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
