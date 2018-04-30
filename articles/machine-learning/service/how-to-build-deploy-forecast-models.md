@@ -50,18 +50,18 @@ The example follows the workflow:
 
 ### Get the Jupyter notebook
 
-Download the notebook to run the sample described here yourself.
+Download the notebook to run the code samples described herein yourself.
 
 > [!div class="nextstepaction"]
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
 
 ### Explore the sample data
 
-The machine learning forecasting examples herein use the [University of Chicago's Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area.
+The machine learning forecasting examples in the follow code samples rely on the [University of Chicago's Dominick's Finer Foods dataset](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks) to forecast orange juice sales. Dominick's was a grocery chain in the Chicago metropolitan area.
 
 ### Import any dependencies for this sample
 
-The following dependencies must be imported for the examples in this article.
+These dependencies must be imported for the following code samples.
 
 ```python
 import pandas as pd
@@ -99,7 +99,7 @@ print('imports done')
 
 ## Load data and explore
 
-This example shows the typical process of starting with a raw data set, in this case [Dominick's Finer Foods data](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  You can also use the convenience function `load_dominicks_oj_data`.
+This code snippet shows the typical process of starting with a raw data set, in this case the [data from Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  You can also use the convenience function [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 ```python
 # Load the data into a pandas DataFrame
@@ -235,9 +235,11 @@ whole_df.head()
   </tbody>
 </table>
 
-The data consist of weekly sales by brand and store. The logarithm of the quantity sold is in the 'logmove' column. The data also includes some customer demographic features. 
+The data consist of weekly sales by brand and store. The logarithm of the quantity sold is in the _logmove_ column. The data also includes some customer demographic features. 
 
-To model the time series, you need to extract the following elements from this dataframe: a date/time axis and the sales quantity to be forecast.
+To model the time series, you need to extract the following elements from this dataframe: 
++ A date/time axis 
++ The sales quantity to be forecast
 
 ```python
 # The sales are contained in the 'logmove' column. 
@@ -308,7 +310,9 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
 </table>
 
 
-The data contains approximately 250 different combinations of store and brand in a data frame. Each combination defines its own time series of sales. You can use the time series [TimeSeriesDataFrame class](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) to conveniently model multiple series in one data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
+The data contains approximately 250 different combinations of store and brand in a data frame. Each combination defines its own time series of sales. 
+
+You can use the time series [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe)  class to conveniently model multiple series in a single data structure using the _grain_. The grain is specified by the `store` and `brand` columns.
 
 ```python
 nseries = whole_df.groupby(['store', 'brand']).ngroups
@@ -387,7 +391,7 @@ whole_tsdf[['Quantity']].head()
 </table>
 
 
-In the TimeSeriesDataFrame representation, the time axis and grain are now part of the data frame index, and allows easy access to Pandas datetime slicing functionality.
+In the TimeSeriesDataFrame representation, the time axis and grain are now part of the data frame index, and allows easy access to pandas datetime slicing functionality.
 
 
 ```python
@@ -473,7 +477,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-The ```TimeSeriesDataFrame.ts_report()``` function generates a comprehensive report of the time series data frame. The report includes both a general data description as well as statistics specific to time series data. 
+The [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) function generates a comprehensive report of the time series data frame. The report includes both a general data description as well as statistics specific to time series data. 
 
 
 ```python
@@ -640,7 +644,7 @@ whole_tsdf.ts_report()
 
 ## Integrate with external data
 
-Sometimes it's useful to integrate external data as additional features for forecasting. Use weather data as an example to understand how to join TimeSeriesDataFrame with external data.
+Sometimes it's useful to integrate external data as additional features for forecasting. In this code sample, you join TimeSeriesDataFrame with external data related to weather.
 
 
 ```python
@@ -858,14 +862,14 @@ whole_tsdf.head()
 
 ## Data preprocessing - impute missing values
 
-Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use [this utility function](https://docs.microsoft.com/python/api/ftk.tsutils), ```ftk.tsutils.last_n_periods_split```:
+Start by splitting the data into training and testing sets. The testing set will contain the last 40 observations of each time series. To create the split, use the utility function, [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils):
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, with the [`check_regularity_by_grain`](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) function.
+Basic time series models require contiguous time series. Check to see if the series are regular, meaning that they have a time index sampled at regular intervals, with the [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) function.
 
 
 ```python
@@ -1006,7 +1010,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### Combine Multiple Models
 
-The [`ForecasterUnion` estimator](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) allows you to combine multiple estimators and fit/predict on them using one line of code.
+The [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) estimator allows you to combine multiple estimators and fit/predict on them using one line of code.
 
 
 ```python
@@ -1255,7 +1259,7 @@ print(train_feature_tsdf.head())
     
 
 **RegressionForecaster**   
-The [RegressionForecaster function](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are deemed similar and can be pooled together, which can improve forecasts for short series using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these models for any other models in the library that support regression. 
+The [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster)  function wraps sklearn regression estimators so that they can be trained on TimeSeriesDataFrame. The wrapped forecaster also puts each group (in this case store) into the same model. The forecaster can learn one model for a group of series that are deemed similar and can be pooled together, which can improve forecasts for short series using data from longer series. Use the `Lasso` and `RandomForest` model directly from `scikit-learn`.  You can substitute these models for any other models in the library that support regression. 
 
 
 ```python
