@@ -25,7 +25,7 @@ Use the following instructions to configure a hosted UI to include in your web a
     - Pop-over &mdash; Don't display a search box, show only results in a sliding overlay
     
    > [!IMPORTANT]
-   > Be sure to include the query parameter when selecting the **Results only** layout.
+   > Be sure to include the customConfig query parameter when selecting the **Results only** layout, see [Query parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
 
 5.	Under **Additional Configurations**, provide values as appropriate for your app. These settings are optional. To see the effect of applying or removing them, see the preview pane on the right.  Available configuration options are:
     - Web search configurations:
@@ -50,10 +50,10 @@ Use the following instructions to configure a hosted UI to include in your web a
 6.  Enter the search subscription key, or choose one from the drop-down. The drop-down is populated with keys from your account's Azure subscriptions. See [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 7.  If you enabled autosuggest, enter the autosuggest subscription key, or choose one from the drop-down. The drop-down is populated with keys from your account's Azure subscriptions. Custom Autosuggest requires a specifiec subscription tier, see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
-
 > [!NOTE]
 > As you make changes to the custom hosted UI configuration, the pane on the right provides a visual reference for the changes made. The displayed search results are not actual results for your instance
+
+[!INCLUDE[publish or revert](./includes/publish-revert.md)]
 
 ## Consume custom UI
 To consume the hosted UI, either: 
@@ -71,10 +71,10 @@ To consume the hosted UI, either:
     ```
 
 - Use the URL provided 
-  > [!IMPORTANT]
-  > The page cannot display your privacy statement or other notices and terms. Suitability for your use may vary.
-
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`
+
+  > [!IMPORTANT]
+  > The page cannot display your privacy statement or other notices and terms. Suitability for your use may vary.  
 
 For additional information, including your Custom Configuration ID, go to **Endpoints** under the **Production** tab.
 
