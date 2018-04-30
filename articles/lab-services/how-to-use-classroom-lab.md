@@ -20,13 +20,13 @@ ms.author: spelluru
 # How to access a classroom lab in Azure Lab Services
 This article describes how to access a classroom lab, connect to the VM in the lab, and stop the VM. 
 
-## View all the labs
+## View all the classroom labs
 
 Navigate to the **registration URL** that you received from the professor/educator. Confirm that you see the labs that you have access to.     
 
 ![View all labs](./media/how-to-use-classroom-lab/all-labs.png)
 
-## Connect to the virtual machine in a lab
+## Connect to the virtual machine in a classroom lab
 
 1. Select **Connect** on the tile that represents the classroom lab. It takes sometime for the virtual machine to be ready.
 
@@ -39,7 +39,7 @@ Navigate to the **registration URL** that you received from the professor/educat
     ![Save the RDP file](./media/how-to-use-classroom-lab/save-rdp-file.png)
 4. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
 
-## Stop the virtual machine in a lab
+## Stop the virtual machine in a classroom lab
 
 Select **Stop** on the tile that represents the classroom lab. When the VM is stopped, the **Start** button on the tile is enabled. 
 
