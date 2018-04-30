@@ -58,11 +58,11 @@
     - name: Detect
       href: reference/v3-0-detect.md
     - name: BreakSentence
-      href: reference/v3-0-breaksentence.md
+      href: reference/v3-0-break-sentence.md
     - name: Dictionary Lookup
-      href: reference/v3-0-dictionarylookup.md
+      href: reference/v3-0-dictionary-lookup.md
     - name: Dictionary Examples
-      href: reference/v3-0-dictionaryexamples.md
+      href: reference/v3-0-dictionary-examples.md
   - name: v2 Translator Text API reference (Deprecated)
     href: http://docs.microsofttranslator.com/text-translate.html
     items:

@@ -14,7 +14,7 @@ ms.author: v-jansko
 
 # Text API 3.0: Dictionary Examples
 
-Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](.\v3-0-dictionaryLookup.md).
+Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](.\v3-0-dictionary-lookup.md).
 
 ## Request URL
 
@@ -72,9 +72,9 @@ Request headers include:
 
 The body of the request is a JSON array. Each array element is a JSON object with the following properties:
 
-  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](.\v3-0-dictionaryLookup.md) request. It can also be the value of the `normalizedSource` field.
+  * `Text`: A string specifying the term to lookup. This should be the value of a `normalizedText` field from the back-translations of a previous [Dictionary lookup](.\v3-0-dictionary-lookup.md) request. It can also be the value of the `normalizedSource` field.
 
-  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionaryLookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionaryLookup.md) response. The service will return examplesfor the specific source-target word-pair.
+  * `Translation`: A string specifying the translated text previously returned by the [Dictionary lookup](.\v3-0-dictionary-lookup.md) operation. This should be the value from the `normalizedTarget` field in the `translations` list of the [Dictionary lookup](.\v3-0-dictionary-lookup.md) response. The service will return examplesfor the specific source-target word-pair.
 
 An example is:
 

@@ -394,7 +394,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Break sentences
 
-The following code breaks the source text into sentences, using the [BreakSentence](../reference/v3-0-breaksentence.md) method.
+The following code breaks the source text into sentences, using the [BreakSentence](../reference/v3-0-break-sentence.md) method.
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
@@ -581,7 +581,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Dictionary lookup
 
-The following gets alternate translations for a word, using the [DictionaryLookup](../reference/v3-0-dictionarylookup.md) method.
+The following gets alternate translations for a word, using the [DictionaryLookup](../reference/v3-0-dictionary-lookup.md) method.
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
@@ -717,7 +717,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Dictionary examples
 
-The following gets examples of how to use a term in the dictionary, using the [DictionaryExamples](../reference/v3-0-dictionaryexamples.md) method.
+The following gets examples of how to use a term in the dictionary, using the [DictionaryExamples](../reference/v3-0-dictionary-examples.md) method.
 
 1. Create a new Node.JS project in your favorite IDE.
 2. Add the code provided below.
