@@ -977,9 +977,9 @@ featureFlags:
                                     <h3>Internet of Things</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://azure.microsoft.com/develop/iot/">
+                                            <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Developer Center</p>
+                                                <p>IoT Fundamentals</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2639,7 +2639,7 @@ featureFlags:
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/develop/iot/">
+                                <a href="/azure/iot-fundamentals">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2649,7 +2649,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Developer Center</h3>
+                                                    <h3>IoT Fundamentals</h3>
                                                     <p>Get started connecting your devices</p>
                                                 </div>
                                             </div>
@@ -3908,7 +3908,7 @@ featureFlags:
                                                     <a href="/cli/azure">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azurereference-index">Reference</a>
+                                                    <a href="/cli/azure/reference-index">Reference</a>
                                                 </p>
                                             </div>
                                         </div>
