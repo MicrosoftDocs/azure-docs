@@ -1,6 +1,6 @@
 ---
-title: Example - Creating a custom skill | Microsoft Docs
-description: Create a custom skill from the Text Translate API.
+title: 'Example: Create a custom skill in cognitive search pipeline (Azure Search) | Microsoft Docs'
+description: Demonstrates using the Text Translate API in custom skill mapped to a cognitive search indexing pipeline in Azure Search.
 manager: pablocas
 author: luiscabrer
 

@@ -1,5 +1,5 @@
 ---
-title: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs
+title: 'Quickstart: Create a cognitive search pipeline in Azure Search using the portal | Microsoft Docs'
 description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
 manager: cgronlun
 author: HeidiSteen
@@ -123,7 +123,7 @@ Click **OK** to accept the index definition.
 
 ### Step 4: Configure the indexer
 
-The indexer is a high-level resource that drives the indexing process. It specifies the data source name, the index, and frequency of execution. The end result of the **Import data** wizard is always an indexer.
+The indexer is a high-level resource that drives the indexing process. It specifies the data source name, the index, and frequency of execution. The end result of the **Import data** wizard is always an indexer that you can run repeatedly.
 
 In the **Indexer** page, give the indexer a name and use the default "run once" to run it immediately. 
 
