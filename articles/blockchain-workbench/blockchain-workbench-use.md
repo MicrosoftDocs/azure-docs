@@ -30,57 +30,63 @@ You need to sign in as a member of the Blockchain Workbench. If there are no app
 
 ## Create new contract 
 
-To create a new contract, you need to be a member with the **Owner** role. 
+To create a new contract, you need to be a member of the **AllowedInstanceRoles** role. 
 
-In Blockchain Workbench application section, select the application tile that contains the contract you want to create.
+1. In Blockchain Workbench application section, select the application tile that contains the contract you want to create.
 
-![Application list](media/blockchain-workbench-use/apps-list.png)
+    ![Application list](media/blockchain-workbench-use/apps-list.png)
 
-A list of active contracts are listed. To create a new contract, select **New contract**.
+    A list of active contracts are displayed.
 
-![New contract button](media/blockchain-workbench-use/contract-list.png)
+2. To create a new contract, select **New contract**.
 
-The **New contract** pane is displayed. Name the new contract and specify the initial parameters values. Select **Create**.
+    ![New contract button](media/blockchain-workbench-use/contract-list.png)
 
-![New contract pane](media/blockchain-workbench-use/new-contract.png)
+3. The **New contract** pane is displayed. Name the new contract and specify the initial parameters values. Select **Create**.
 
-The newly created contract is displayed in the list with the other active contracts.
+    ![New contract pane](media/blockchain-workbench-use/new-contract.png)
 
-![Active contracts list](media/blockchain-workbench-use/active-contracts.png)
+    The newly created contract is displayed in the list with the other active contracts.
+
+    ![Active contracts list](media/blockchain-workbench-use/active-contracts.png)
 
 ## Take action on contract
 
-In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
+1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
 
-![Application list](media/blockchain-workbench-use/apps-list.png)
+    ![Application list](media/blockchain-workbench-use/apps-list.png)
 
-Select the contract in the list.
+2. Select the contract in the list.
 
-![Contract list](media/blockchain-workbench-use/select-contract.png)
+    ![Contract list](media/blockchain-workbench-use/select-contract.png)
 
-Details about the contract are displayed in different sections. 
+    Details about the contract are displayed in different sections. 
 
-![Contract details](media/blockchain-workbench-use/contract-details.png)
+    ![Contract details](media/blockchain-workbench-use/contract-details.png)
 
-| Section  | Description  |
-|---------|---------|
-| Status | Lists the current progress within the contract stages |
-| Details | The current values of the contract |
-| Action | Details about the last action |
-| Timeline | Transaction history of the contract |
+    | Section  | Description  |
+    |---------|---------|
+    | Status | Lists the current progress within the contract stages |
+    | Details | The current values of the contract |
+    | Action | Details about the last action |
+    | Activity | Transaction history of the contract |
+    
+3. In the **Action** section, select **Take action**.
 
-In the **Action** section, select **Take action**.
+4. The details about the current state of the contract are displayed in a pane. Choose the action you want to take in the drop-down. 
 
-The details about the current state of the contract are displayed in a pane. Choose the action you want to take in the drop-down. 
+    ![Take action](media/blockchain-workbench-use/take-action.png)
 
-![Take action](media/blockchain-workbench-use/take-action.png)
-
-Select **Execute** to take the action.
+5. Select **Execute** to take the action.
 
 ## Transaction history
 
-In the **Timeline** section, you can see the history of the contract. The last transaction is listed at the top of the list.
+In the **Activity** section, you can see the history of the contract. The last transaction is listed at the top of the list.
 
-Select an entry in the timeline to review details from the blockchain about the transaction.
+Select an entry in the activity to review details from the blockchain about the transaction.
 
 ![Details](media/blockchain-workbench-use/transaction-details.png)
+
+## Next steps
+
+[How to troubleshoot Azure Blockchain Workbench](blockchain-workbench-troubleshooting.md)
