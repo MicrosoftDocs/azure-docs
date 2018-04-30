@@ -33,25 +33,22 @@ Complete the steps in the [Getting started with custom policies](active-director
 These steps include:
  	 
 1. Creating an Azure Active Directory B2C (Azure AD B2C) tenant.
-2. Creating an Azure AD B2C application.	
-3. Registering two policy-engine applications.	
-4. Setting up keys.	
-5. Setting up the starter pack.
+1. Creating an Azure AD B2C application.	
+1. Registering two policy-engine applications.	
+1. Setting up keys.	
+1. Setting up the starter pack.
 
 ## Step 1. Create a multi-tenant Azure AD app
 
 To enable sign-in for users using the multi-tenant Azure AD endpoint, you need to have a multi-tenant application registered in any of your Azure AD tenants. In this article, we will show you how to create a multi-tenant Azure AD application in your Azure AD B2C tenant. Then enable sign-in for users through the use of that multi-tenant Azure AD application.
 
->[!NOTE]
-> If you would like Azure AD users **and users with Microsoft accounts** to sign in, skip this section and instead register an application in the [Microsoft developer portal](https://apps.dev.microsoft.com).
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, select your account. From the **Directory** list, choose the Azure AD B2C tenant to register the Azure AD application (fabrikamb2c.onmicrosoft.com).
-2. Select **More services** in the left pane, and search for "App registrations."
-3. Select **New application registration**.
-4. Enter a name for your application (for example, `Azure AD B2C App`).
-5. Select **Web app / API** for the application type.
-6. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
+1. Select **More services** in the left pane, and search for "App registrations."
+1. Select **New application registration**.
+1. Enter a name for your application (for example, `Azure AD B2C App`).
+1. Select **Web app / API** for the application type.
+1. For **Sign-on URL**, enter the following URL, where `yourtenant` is replaced by the name of your Azure AD B2C tenant (`fabrikamb2c.onmicrosoft.com`):
 
     >[!NOTE]
     >The value for "yourtenant" must be all lowercase in the **Sign-on URL**.
@@ -79,8 +76,8 @@ You need to register the application key in the Azure AD B2C settings. To do thi
    * For **Name**, choose a name that matches your Azure AD tenant name (for example, `AADAppSecret`).  The prefix `B2C_1A_` is added automatically to the name of your key.
    * Paste your application key in the **Secret** box.
    * Select **Signature**.
-5. Select **Create**.
-6. Confirm that you've created the key `B2C_1A_AADAppSecret`.
+1. Select **Create**.
+1. Confirm that you've created the key `B2C_1A_AADAppSecret`.
 
 ## Step 3. Add a claims provider in your base policy
 
@@ -211,11 +208,11 @@ You now need to update the relying party (RP) file that will initiate the user j
 ## Step 6: Upload the policy to your tenant
 
 1. In the [Azure portal](https://portal.azure.com), switch to the [context of your Azure AD B2C tenant](active-directory-b2c-navigate-to-b2c-context.md), and then select **Azure AD B2C**.
-2. Select **Identity Experience Framework**.
-3. Select **All Policies**.
-4. Select **Upload Policy**.
-5. Select the **Overwrite the policy if it exists** check box.
-6. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
+1. Select **Identity Experience Framework**.
+1. Select **All Policies**.
+1. Select **Upload Policy**.
+1. Select the **Overwrite the policy if it exists** check box.
+1. Upload the `TrustFrameworkExtensions.xml` file and the RP file (e.g. `SignUpOrSignInWithAAD.xml`) and ensure they pass validation.
 
 ## Step 7: Test the custom policy by using Run Now
 
