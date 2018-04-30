@@ -97,6 +97,8 @@
       href: durable-functions-bindings.md
     - name: Checkpoint and replay 
       href: durable-functions-checkpointing-and-replay.md
+    - name: Custom orchestration status
+      href: durable-functions-custom-orchestration-status.md
     - name: Instance management
       href: durable-functions-instance-management.md
     - name: HTTP API

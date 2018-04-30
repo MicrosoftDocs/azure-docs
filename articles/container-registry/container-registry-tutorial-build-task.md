@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -29,7 +29,7 @@ In this tutorial, part two in the series:
 This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md). If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
 
 > [!IMPORTANT]
-> ACR Build is in currently in preview, and is supported only by Azure container registries in the **EastUS** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> ACR Build is in currently in preview, and is supported only by Azure container registries in the **East US**  (eastus) and **West Europe** (westeurope) regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
