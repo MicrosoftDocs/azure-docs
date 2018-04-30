@@ -117,7 +117,7 @@ Construct a POST call like this with the information in the following table as t
 
 Our implementaion meets OAuth 2.0 standards or public client ROPC and should be compatible with most client SDKs.  We have tested this flow extensively, in production, with AppAuth for iOS and AppAuth for Android.  See https://appauth.io/ for the latest information.
 
-You may download working samples which have been configured for use with b2c from github at https://aka.ms/aadb2cappauthropc for Android and https://aka.ms/aadb2cappauthropciOS.
+You may download working samples which have been configured for use with b2c from github at https://aka.ms/aadb2cappauthropc for Android and https://aka.ms/aadb2ciosappauthropc.
 
 
 

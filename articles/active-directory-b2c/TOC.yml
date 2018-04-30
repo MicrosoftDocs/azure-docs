@@ -62,34 +62,36 @@
         href: https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop
       - name: Xamarin
         href: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native
-    - name: Web apps
-      items:
-      - name: Overview
-        href: active-directory-b2c-reference-oidc.md
-      - name: ASP.NET
-        href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-      - name: ASP.NET Core
-        href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
-      - name: Node.js
-        href: active-directory-b2c-devquickstarts-web-node.md
-    - name: Single page apps
-      items:
-      - name: Overview
-        href: active-directory-b2c-reference-spa.md
-      - name: JavaScript using MSAL
-        href: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
-      - name: JavaScript using Hello
-        href: https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi
-    - name: Web APIs
-      items:
-      - name: ASP.NET
-        href: active-directory-b2c-devquickstarts-api-dotnet.md
-      - name: ASP.NET Core
-        href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi
-      - name: Node.js
-        href: https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi
-      - name: Call a .NET Web API
-        href: active-directory-b2c-devquickstarts-web-api-dotnet.md
+    - name: Resource owner password credentials
+      href: configure-ropc.md
+  - name: Web apps
+    items:
+    - name: Overview
+      href: active-directory-b2c-reference-oidc.md
+    - name: ASP.NET
+      href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
+    - name: ASP.NET Core
+      href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp
+    - name: Node.js
+      href: active-directory-b2c-devquickstarts-web-node.md
+  - name: Single page apps
+    items:
+    - name: Overview
+      href: active-directory-b2c-reference-spa.md
+    - name: JavaScript using MSAL
+      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp
+    - name: JavaScript using Hello
+      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi
+  - name: Web APIs
+    items:
+    - name: ASP.NET
+      href: active-directory-b2c-devquickstarts-api-dotnet.md
+    - name: ASP.NET Core
+      href: https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi
+    - name: Node.js
+      href: https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi
+    - name: Call a .NET Web API
+      href: active-directory-b2c-devquickstarts-web-api-dotnet.md
   - name: Guides
     items:
       - name: Configure identity providers
@@ -135,8 +137,6 @@
         href: active-directory-b2c-reference-custom-attr.md
       - name: Customize password
         href: active-directory-b2c-reference-password-complexity.md
-      - name: Configure ROPC
-        href: configure-ropc.md
       - name: Language customization
         href: active-directory-b2c-reference-language-customization.md
       - name: Use the reporting API
