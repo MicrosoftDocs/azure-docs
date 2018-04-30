@@ -17,7 +17,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 + Train classifiers based on those features
 
-+ Deploy models to field programmable gate arrays (FPGA) on Azure for ultra-low latency inferencing
++ Deploy models to [field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md) on Azure for ultra-low latency inferencing
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 ## Sample code
 
-This sample code walks you through using the SDK.
+This sample code walks you through using the SDK to deploy a model to an FPGA.
 
 1. Import the package:
    ```python
@@ -138,3 +138,7 @@ This sample code walks you through using the SDK.
 ## Reporting issues
 
 Use the [forum](https://aka.ms/aml-forum) to report any issues you encounter with the package.
+
+## Next steps
+
+[Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)
