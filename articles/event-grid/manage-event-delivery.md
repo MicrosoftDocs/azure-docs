@@ -43,9 +43,11 @@ az eventgrid event-subscription create \
 
 If you set both `event-ttl` and `max-deliver-attempts`, Event Grid uses the first to expire for retry attempts.
 
-## Set deadletter location
+## Set dead-letter location
 
-When Event Grid can't deliver an event, it can store the undelivered event in a storage account. You pull events from this storage account to resolve deliveries.
+When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. By default, Event Grid does not turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
+
+Event Grid sends an event to the dead-letter location if it has tried all of its retry attempts, or if it receives an error message that indicates delivery will never succeed. For example, if Event Grid receives an improper format error when delivering an event, it immediately sends that event to the dead-letter location.
 
 Before setting the deadletter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
@@ -64,7 +66,7 @@ az eventgrid event-subscription create \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the deadletter blob storage. The event subscription should send events to a handler that responds to undelivered events.
+To use Event Grid to respond to undelivered events, [create an event subscription](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) for the dead-letter blob storage. The event subscription should send events to a handler that responds to undelivered events.
 
 ## Next steps
 
