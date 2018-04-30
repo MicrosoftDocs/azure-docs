@@ -1,42 +1,42 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure SignalR Documentation
+title: Azure SignalR Service Documentation
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
-  title: Azure SignalR Documentation - Tutorials, API Reference
-  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on SignalR Core which is an open source library that simplifies the process of adding real-time web functionality to applications.
+  title: Azure SignalR Service Documentation - Tutorials, API Reference
+  meta.description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core SignalR which is an open source library that simplifies adding real-time web functionality to applications.
   services: azure-signalr
   author: v-chmccl
   manager: wesmc
-  ms.service: virtual-machines-linux
+  ms.service: signalr
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/17/2018
   ms.author: wesmc
 abstract:
-  description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on SignalR Core which is an open source library that simplifies the process of adding real-time web functionality to applications.
+  description: Azure SignalR Service is an Azure managed service that helps developers easily build web applications with real-time features. This service is based on ASP.NET Core Core which is an open source library that simplifies the process of adding real-time web functionality to applications.
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to deploy your first web application using Azure SignalR for real-time communications:'
+    text: 'Learn how to develop your first web application using Azure SignalR Service for real-time communications:'
   - type: list
     style: icon48
     items: 
     - image: 
         src: http://docs.microsoft.com/en-us/media/logos/logo_NET.svg
       text: .NET
-      href: /azure/azure-signalr/
+      href: /azure/azure-signalr/signalr-quickstart-dotnet-core
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to build Azure SignalR applications
+    text: Learn how to build Azure SignalR Service applications
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/azure-signalr/">Authenticating and Authorizing clients</a>
-    - html: <a href="/azure/azure-signalr/">Integration with Azure Functions</a></li>
+    - html: <a href="/azure/azure-signalr/signalr-authenticate-oauth">Azure SignalR Service Authentication</a>
+    - html: <a href="/azure/azure-signalr/signalr-integrate-functions">Integration with Azure Functions</a></li>
 - title: Free Pluralsight Video Training
   items:
   - type: list
@@ -61,14 +61,4 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/azure-signalr/">Azure PowerShell</a>
-    - html: <a href="/azure/azure-signalr/">Azure CLI</a>
-- title: Reference
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/azure-signalr/">Azure SignalR SDK for .NET - API Reference</a>
-    - html: <a href="/azure/azure-signalr/">Azure CLI</a>
-    - html: <a href="/azure/azure-signalr/">Azure PowerShell</a>
+    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
