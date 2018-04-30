@@ -143,6 +143,10 @@
         href: active-directory-b2c-reference-usage-reporting-api.md
       - name: Migrate users
         href: active-directory-b2c-user-migration.md
+      - name: Using b2clogin.com
+        href: b2clogin.md
+      - name: Using age gating
+        href: basic-age-gating.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
