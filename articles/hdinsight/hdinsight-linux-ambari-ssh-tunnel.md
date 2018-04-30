@@ -18,7 +18,7 @@ ms.author: larryfr
 ---
 # Use SSH Tunneling to access Ambari web UI, JobHistory, NameNode, Oozie, and other web UIs
 
-HDInsight clusters provide access to the Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Oozie service cannot be accessed over the internet.
+HDInsight clusters provide access to the Ambari web UI over the Internet, but some features require an SSH tunnel. For example, the web UI for the Oozie service cannot be accessed over the internet without an SSh tunnel.
 
 ## Why use an SSH tunnel
 
