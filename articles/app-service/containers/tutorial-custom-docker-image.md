@@ -122,6 +122,10 @@ Verify the web app and container are functioning correctly by browsing to `http:
 
 ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
 
+> [!NOTE] 
+> You can also connect to the app container directly from your local development machine using SSH, SFTP, or Visual Studio Code (for live debugging Node.js apps). For more information, see [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug).
+>
+
 ## Push the Docker image to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. In order to share your image, you must push it to a registry. 
