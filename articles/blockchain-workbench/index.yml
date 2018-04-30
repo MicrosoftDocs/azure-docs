@@ -25,7 +25,7 @@ sections:
     items:
     - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Deploy Azure Blockchain Workbench</a>
     - html: <a href="/azure/blockchain-workbench/blockchain-workbench-create-app">Create a blockchain app</a>
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Use a blockchain app</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-use">Use a blockchain app</a>
 - title: Reference
   items:
   - type: list
