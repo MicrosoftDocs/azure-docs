@@ -2,14 +2,14 @@
 title: Speech service sample code | Microsoft Docs
 description: Code samples for using the Microsoft Speech service
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: v-jerkin
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 09/15/2017
-ms.author: zhouwang
+ms.date: 04/28/2018
+ms.author: v-jerkin
 ---
 # Speech client samples
 

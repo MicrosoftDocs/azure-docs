@@ -3,12 +3,12 @@ title: Speech Devices SDK license agreement | Microsoft Docs
 description: Speech Devices SDK license agreement.
 services: cognitive-services
 author: v-jerkin
-manager: wolfma
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 # Speech Devices SDK license agreement

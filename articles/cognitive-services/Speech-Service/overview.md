@@ -3,12 +3,12 @@ title: Speech service overview | Microsoft Docs
 description: Introduction to the capabilities of the Speech service.
 services: cognitive-services
 author: v-jerkin
-manager: wolfma
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 # Speech service overview (Preview)

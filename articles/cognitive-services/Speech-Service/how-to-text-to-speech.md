@@ -3,12 +3,12 @@ title: How to use Text to Speech | Microsoft Docs
 description: How to use Text to Speech in the Speech service.
 services: cognitive-services
 author: v-jerkin
-manager: wolfma
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 # How to use Text to Speech

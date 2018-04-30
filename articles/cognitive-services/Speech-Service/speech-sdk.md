@@ -3,12 +3,12 @@ title: About the Speech SDK | Microsoft Docs
 description: An overview of the SDKs available for the Speech service.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: noellelacharite
 
 ms.service: cognitive-services
-ms.component: speech
+ms.technology: speech
 ms.topic: article
-ms.date: 4/28/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 

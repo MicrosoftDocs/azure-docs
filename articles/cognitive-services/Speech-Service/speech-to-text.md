@@ -3,12 +3,12 @@ title: About Speech to Text | Microsoft Docs
 description: An overview of the capabilities of Speech to Text.
 services: cognitive-services
 author: v-jerkin
-manager: wolfma
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 # About Speech to Text

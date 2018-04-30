@@ -3,12 +3,12 @@ title: About the Speech Devices SDK | Microsoft Docs
 description: An introduction to the Speech Devices SDK.
 services: cognitive-services
 author: v-jerkin
-manager: wolfma
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 # About the Speech Devices SDK (Preview)

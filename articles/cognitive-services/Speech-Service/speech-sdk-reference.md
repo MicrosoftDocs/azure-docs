@@ -3,12 +3,12 @@ title: Speech SDK reference | Microsoft Docs
 description: References for the Speech SDK.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: noellelacharite
 
 ms.service: cognitive-services
-ms.component: speech
+ms.technology: speech
 ms.topic: article
-ms.date: 4/28/2018
+ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
 

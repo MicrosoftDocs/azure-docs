@@ -2,14 +2,15 @@
 title: Speech service support | Microsoft Docs
 description: How to get support for the Speech service.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+services: cognitive-services
+author: v-jerkin
+manager: noellelacharite
 
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 10/15/2017
-ms.author: zhouwang
+ms.date: 04/28/2018
+ms.author: v-jerkin
 ---
 # Support
 

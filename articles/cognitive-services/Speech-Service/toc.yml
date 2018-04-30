@@ -25,13 +25,13 @@
       name: how-to-migrate.md
     - name: Speech to text # OK
       href: how-to-speech-to-text.md
-    - name: Custom speech to text
+    - name: Custom speech to text # OK
       href: how-to-customize-speech-models.md
-    - name: Text to speech
+    - name: Text to speech # OK
       href: how-to-text-to-speech.md
     - name: Custom text-to-speech
       href: how-to-customize-voice-font.md
-    - name: Speech translation
+    - name: Speech translation # OK
       href: how-to-translate-speech.md
 - name: Samples # OK
   href: samples.md
@@ -43,7 +43,7 @@
     href: rest-apis.md
   - name: WebSockets protocols # OK
     href: websockets.md
-  - name: SDK documentation # OK
+  - name: SDK APIs # OK
     href: speech-sdk-reference.md
   - name: Speech synthesis markup # OK
     href: speech-synthesis-markup.md
