@@ -11,7 +11,7 @@ ms.date: 04/30/2018
 ms.author: babanisa
 ---
 
-# Define schema for Event Grid events
+# Use CloudEvents schema with Event Grid
 
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) is an [open standard specification](https://github.com/cloudevents/spec/blob/master/spec.md) for describing event data in a common way.
 
