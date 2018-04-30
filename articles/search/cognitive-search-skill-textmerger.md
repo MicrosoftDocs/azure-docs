@@ -27,7 +27,7 @@ Parameters are case-sensitive.
 | Parameter name	 | Description |
 |--------------------|-------------|
 | insertPreTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
-| insertPostTag	| String to be included before every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
+| insertPostTag	| String to be included after every insertion. The default value is `" "`. To omit the space, set the value to `""`.  |
 
 
 ##	Sample input
@@ -68,9 +68,9 @@ This example shows the output of the previous input, assuming that the *insertPr
 
 ## Extended sample skillset definition
 
-A common use case for Text Merge is the ability to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
+A common scenario for using Text Merge is to merge the textual representation of images (text from an OCR skill, or the caption of an image)  into the content field of a document. 
 
-This example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. 
+The following example skillset uses the OCR skill to extract text from images embedded in the document. Next, it creates a *merged_text* field to contain both original and OCRed text from each image. 
 
 ```json
 {
