@@ -1,6 +1,6 @@
 ---
 title: Java Quickstart for Bing Visual Search API | Microsoft Docs
-titleSuffix: Cognitive Services
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to quickly get started using the Visual Search API to get insights about an image.
 services: cognitive-services
 author: swhite-msft

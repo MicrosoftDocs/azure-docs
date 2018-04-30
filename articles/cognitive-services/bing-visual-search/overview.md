@@ -1,6 +1,6 @@
 ---
 title: Bing Visual Search API overview | Microsoft Docs
-titleSuffix: Cognitive Services
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to get details or insights about an image such as similar images or shopping sources.
 services: cognitive-services
 author: swhite-msft

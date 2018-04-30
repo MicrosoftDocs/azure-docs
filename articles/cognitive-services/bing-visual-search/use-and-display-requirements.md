@@ -1,6 +1,6 @@
 ---
 title: Use and display requirements for images returned by Bing Visual Search API | Microsoft Docs
-titleSuffix: Cognitive Services
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Describes the requirements for displaying content that Bing Visual Search API returns.
 services: cognitive-services
 author: swhite-msft

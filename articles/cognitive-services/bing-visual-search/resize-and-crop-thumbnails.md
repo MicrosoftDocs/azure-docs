@@ -1,6 +1,6 @@
 ---
 title: Resize and crop Bing thumbnails | Microsoft Docs
-titleSuffix: Cognitive Services
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to resize and crop thumbnails included in a Bing response.
 services: cognitive-services
 author: swhite-msft

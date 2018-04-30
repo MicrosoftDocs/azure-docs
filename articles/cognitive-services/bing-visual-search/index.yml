@@ -44,7 +44,7 @@ sections:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Visual Search API:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="tutorial-bing-visual-search-single-page-app">Single-Page Web app</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Source code</a>
 - title: Reference

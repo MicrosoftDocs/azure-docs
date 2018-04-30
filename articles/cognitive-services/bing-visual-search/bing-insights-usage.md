@@ -1,6 +1,6 @@
 ---
 title: Examples of Bing insights | Microsoft Docs
-titleSuffix: Cognitive Services
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows examples of image insights shown on Bing.com.
 services: cognitive-services
 author: swhite-msft

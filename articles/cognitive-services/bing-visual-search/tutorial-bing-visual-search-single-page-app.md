@@ -1,5 +1,6 @@
 ---
 title: Bing Image Search single-page Web app | Microsoft Docs
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to use the Bing Image Search API in a single-page Web application.
 services: cognitive-services
 author: brapel
