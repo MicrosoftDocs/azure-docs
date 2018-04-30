@@ -267,6 +267,6 @@ namespace BingSearchApisQuickstart
 ## See also 
 
 [Bing Visual Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-visual-search-api/)  
+[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Bing Visual Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference)

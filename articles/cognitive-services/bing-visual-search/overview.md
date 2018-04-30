@@ -19,16 +19,16 @@ Bing Visual Search API provides an experience similar to the image details shown
 
 Visual Search can identify celebrities, monuments and landmarks, artwork, home furnishings, fashion, products, character recognition (OCR), and more.
 
-The following are the insights that Visual Search lets you discover, if applicable.
+The following are the insights that Visual Search lets you discover.
 
 - Visually similar images&mdash;A list of images that are visually similar to the input image
 - Visually similar products&mdash;A list of images that contain products that are visually similar to the product shown in the input image
 - Shopping sources&mdash;A list of places where you can buy the item shown in the input image
 - Related searches&mdash;A list of related searches made by others or that are based on the contents of the image
-- Other web pages that include the image&mdash;A list of webpages that include the input image
-- Recipes&mdash;A list of webpages that include recipes for making the baked good shown in the input image
+- Web pages that include the image&mdash;A list of webpages that include the input image
+- Recipes&mdash;A list of webpages that include recipes for making the dish shown in the input image
 
-In addition to these insights, Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags allow users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports.
+In addition to these insights, Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags allow users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports. Or, if the input image is of an apple pie, one of the tags might be Desserts, which contains links to other types desserts the user can explore.
 
 The Visual Search results also include bounding boxes for regions of interest in the image. For example, if the image contains several celebrities, the results may include bounding boxes for each of the recognized celebrities in the image. Or, if Bing recognizes a product or clothing in the image, the result may include a bounding box for the recognized product or clothing item.
 
@@ -42,7 +42,7 @@ The following are the options for getting insights about an image.
 
 - Send an insights token that you get from an image in a previous call to one of the [Bing Images API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) endpoints
 - Send the URL of an image
-- Upload an image
+- Upload an image (binary)
 
 
 If you send Visual Search an image token or URL, the following shows the JSON object that you must include in the body of the POST. 
@@ -58,16 +58,22 @@ If you send Visual Search an image token or URL, the following shows the JSON ob
             "right" : 0.9,
             "bottom" : 0.9
         }
+    },
+    "knowledgeRequest" : {
+      "filters" : {
+        "site" : ""
+      }
     }
 }
 ```
 
-The imageInfo object must include either the `url` and `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
+The `imageInfo` object must include either the `url` and `imageInsightsToken` field but not both. Set the `url` field to the URL of an Internet accessible image. The maximum supported image size is 1 MB.
 
-The `imageInsightsToken` must be set to an insights token. To get an insights token, call the Bing Image API. The response contains a list of `Image` object. Each `Image` object contains a `imageInsightsToken` field, which contains the token.
+The `imageInsightsToken` must be set to an insights token. To get an insights token, call the Bing Image API. The response contains a list of `Image` objects. Each `Image` object contains an `imageInsightsToken` field, which contains the token.
 
 The `cropArea` field is optional. The crop area specifies the top, left corner and bottom, right corner of a region of interest. Specify the values in the range 0.0 through 1.0. The values are a percentage of the overall width or height. For example, the above example marks the right half of the image as the region of interest. Include it if you want to limit the insights request to the region of interest.
 
+The `filters` object contains a site filter (see the `site` field) that you can use to restrict the similar images and similar products results to a specific domain. For example, if the image is of a Surface Book, you can set `site` to www.microsoft.com. 
 
 If you want to get insights about a local copy of an image, upload the image as binary data.
 
@@ -76,7 +82,7 @@ For details about including these options in the body of the POST, see [Content 
 
 ### Endpoint
 
-The Visual Search endpoint is: https:\/\/api.cognitive.microsoft.com/bing/v7.0/visualsearch.
+The Visual Search endpoint is: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
 
 Requests must be sent as HTTP POST requests only. 
 
@@ -184,7 +190,7 @@ The following shows a complete image insights request that passes an image token
 
 
 ```  
-POST https://api.cognitive.microsoft.com/bing/v7.0/visualsearch?mkt=en-us HTTP/1.1  
+POST https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch?mkt=en-us HTTP/1.1  
 Content-Type: multipart/form-data; boundary=boundary_1234-abcd
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 X-MSEdge-ClientIP: 999.999.999.999  
@@ -231,7 +237,7 @@ If there are insights available for the image, the response contains one or more
 }
 ```
 
-The `tags` field contains a display name and list of actions (insights). One of the tags contains a `displayName` field that is set to an empty string. This tag contains the default insights such as webpages that include the image, visually similar images, and shopping sources for items found in the image. Because the entire image is of interest, the default insights tag doesn't include a bounding boxes for the regions of interest.
+The `tags` field contains a display name and list of actions (insights). One of the tags contains a `displayName` field that is set to an empty string. This tag contains the default insights such as webpages that include the image, visually similar images, and shopping sources for items found in the image. Because the entire image is of interest, the default insights tag doesn't include bounding boxes for the regions of interest.
 
 
 ```json
@@ -264,9 +270,9 @@ For a list of the default insights, see [Default insights](./default-insights-ta
 
 The remaining tags contain other insights that may be of interest to the user. For example, if the image contains text, one of the tags may include a TextResults insight, which contains the recognized text. Or, if Bing recognizes an entity (person, place, or thing) in the image, one of the tags may identify the entity. Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags allow users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports.
 
-Each tag includes a display name that you can use to categorize the insight, bounding box that identifies the region of interest that the insight applies to, the insights themselves, and a thumbnail of the image. For example, if the image is of a person wearing a sports jersey, one of the tags might include a bounding box that surrounds the jersey and includes VisualSearch and ProductVisualSearch insights. And another tag might include an ImageResults insight that contains a URL for an /images/search API request to get images that are topically related or a Bing.com search URL that takes the user to the Bing.com image search results.
+Each tag includes a display name that you can use to categorize the insight, bounding box that identifies the region of interest that the insight applies to, the insights themselves, and a thumbnail of the image. For example, if the image is of a person wearing a sports jersey, one of the tags might include a bounding box that bounds the jersey and includes VisualSearch and ProductVisualSearch insights. And another tag might include an ImageResults insight that contains a URL for an /images/search API request to get images that are topically related or a Bing.com search URL that takes the user to the Bing.com image search results.
 
-All tags other than the default insights tag include bounding boxes that identify regions of interest in the image. For example, if the image includes multiple recognized people, tags could include bounding boxes for each of the people, or if the image contains recognized clothing items, tags could include bounding boxes for each recognized clothing item. You can use the bounding boxes to create hot spots over the image that when clicked, provide details about that region of the image. You should not include hot spots in an image for bounding boxes that identify the entire image.
+All tags other than the default insights tag include bounding boxes that identify regions of interest in the image. For example, if the image includes multiple recognized people, tags could include bounding boxes for each of the people, or if the image contains recognized clothing items, tags could include bounding boxes for each recognized clothing item. You can use the bounding boxes to create hot spots over the image that when clicked, provide details about the contents in that region of the image. You should not include hot spots in an image for bounding boxes that identify the entire image.
 
 ### Text recognition
 
@@ -449,12 +455,12 @@ If the image contains a recognized entity such as a person, place, or thing, one
 
 ## Next steps
 
-To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
 Try out the API. Go to [Visual Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
 
 
-Familiarize yourself with the [Visual Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-visualsearch-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+Familiarize yourself with the [Visual Search API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference). The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
 

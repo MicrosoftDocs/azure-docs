@@ -31,7 +31,7 @@ To run this application, follow these steps:
 
 1. Download or install the [gson library](https://github.com/google/gson). You may also obtain it via Maven.
 2. Create a new Java project in your favorite IDE or editor.
-3. Add the provided code in a file named `BingImageSearch.java`.
+3. Add the provided code in a file named `VisualSearch.java`.
 4. Replace the `subscriptionKey` value with your subscription key.
 4. Replace the `insightsToken` value with an insights token from an /images/search response.
 5. Run the program.
@@ -54,14 +54,14 @@ import javax.net.ssl.HttpsURLConnection;
  * Maven info:
  *     groupId: com.google.code.gson
  *     artifactId: gson
- *     version: 2.8.1
+ *     version: 2.8.2
  *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (BingImageSearch.java), you can compile and run this program at
+ * Once you have compiled or downloaded gson-2.8.2.jar, assuming you have placed it in the
+ * same folder as this file (VisualSearch.java), you can compile and run this program at
  * the command line as follows.
  *
- * javac BingImageSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar BingImageSearch
+ * javac VisualSearch.java -classpath .;gson-2.8.2.jar -encoding UTF-8
+ * java -cp .;gson-2.8.2.jar VisualSearch
  */
 
 import com.google.gson.Gson;
@@ -72,7 +72,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  *
- * @author scottwhi
+ * @author microsoft
  */
 public class VisualSearch {
 

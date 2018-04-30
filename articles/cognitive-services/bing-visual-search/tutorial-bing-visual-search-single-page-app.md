@@ -14,7 +14,7 @@ ms.author: v-brapel
 
 Bing Visual Search API provides an experience similar to the image details shown on Bing.com/images. With Visual Search, you can specify an image and get back insights about the image such as visually similar images, shopping sources, webpages that include the image, and more. 
 
-This tutorial extends the single page web app from the Bing Image Search tutorial, see [Single-page Web app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md). For full source code to start this tutorial, see [Single-page Web app (source code)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). For the final source code of this tutorial, see [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app-source.md).
+This tutorial extends the single page web app from the Bing Image Search tutorial (see [Single-page Web app](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). For full source code to start this tutorial, see [Single-page Web app (source code)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). For the final source code of this tutorial, see [Visual Search Single-page Web app](tutorial-bing-visual-search-single-page-app-source.md).
 
 ![[Single-page Bing Visual Search app]](./media/visual-search-similar.png)
 
@@ -97,7 +97,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 ```
 
 ## Display similar images
-Add the following html code at line 601. This markup code adds an element used to display the results of the Bing Visual Search API call.
+Add the following HTML code at line 601. This markup code adds an element used to display the results of the Bing Visual Search API call.
 
 ``` html
 <div id="insights">
@@ -106,7 +106,7 @@ Add the following html code at line 601. This markup code adds an element used t
 </div>
 ```
 
-With all the new JavaScript code and html elements in place, search results are displayed with a **find similar** link. Click the link to populate the **Similar** section with images similar to the one you picked. You may have to expand the **Similar** section to show the images.
+With all the new JavaScript code and HTML elements in place, search results are displayed with a **find similar** link. Click the link to populate the **Similar** section with images similar to the one you picked. You may have to expand the **Similar** section to show the images.
 
 ## Next steps
 

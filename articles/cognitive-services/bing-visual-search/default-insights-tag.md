@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Default insights tag
 
-The tag with the `displayName` field set to an empty string contains the default insights. The following example shows the possible list of default insights (actions).
+The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions).
 
 ```json
 {
@@ -96,7 +96,7 @@ The tag with the `displayName` field set to an empty string contains the default
 
 ## PagesIncluding insight
 
-The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of Image objects; the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding example](./bing-insights-usage.md#pagesincluding-insight-example). 
+The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of Image objects and the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding example](./bing-insights-usage.md#pagesincluding-insight-example). 
 
 ```json
       {
@@ -311,7 +311,7 @@ The ImageById insight provides an `Image` object of the image that you requested
 
 ## ProductVisualSearch insight
 
-The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product. For example usage, see [ProductVisualSearch example](./bing-insights-usage.md#productvisualsearch-insight-example).
+The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product. 
 
 ```json
       {
@@ -397,7 +397,7 @@ The RelatedSearches insight provides a list of related searches made by others (
 
 ## DocumentLevelSuggestions insight
 
-The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image. For example usage, see [DocumentLevelSuggestions example](./bing-insights-usage.md#documentlevelsuggestions-insight-example).
+The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image. 
 
 ```json
       {
@@ -422,6 +422,6 @@ The DocumentLevelSuggestions insight provides a list of suggested search terms b
 
 ## Next steps
 
-Check out examples of how Bing might display the visual insights. See [Examples of Bing insights usage](bing-insights-usage.md).
+Check out examples of how Bing might display the visual insights (see [Examples of Bing insights usage](bing-insights-usage.md)).
 
-To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
