@@ -1,5 +1,5 @@
 ---
-title: FPGA acceleration
+title: Azure Machine Learning and FPGAs
 description: Learn how to accelerate models and deep neural networks with FPGAs. 
 services: machine-learning
 ms.service: machine-learning
