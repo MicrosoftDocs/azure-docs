@@ -43,6 +43,8 @@
     href: container-registry-skus.md
   - name: Image storage
     href: container-registry-storage.md
+  - name: Build and patch with ACR Build
+    href: container-registry-build-overview.md
   - name: Geo-replication (preview)
     href: container-registry-geo-replication.md
   - name: Registry best practices
