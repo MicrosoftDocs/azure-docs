@@ -168,7 +168,17 @@ time="2018-04-18T18:28:29Z" level=info msg="Running command docker inspect --for
 time="2018-04-18T18:28:30Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
 ACR Builder discovered the following dependencies:
-[{"image":{"registry":"mycontainerregistry.azurecr.io","repository":"helloacrbuild","tag":"v1","digest":"sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9-alpine","digest":"sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"},"buildtime-dependency":null}]
+- image:
+    registry: mycontainerregistry.azurecr.io
+    repository: helloacrbuild
+    tag: v1
+    digest: sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1
+  runtime-dependency:
+    registry: registry.hub.docker.com
+    repository: library/node
+    tag: 9-alpine
+    digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+
 Build complete
 Build ID: eastus1 was successful after 38.116951381s
 ```
