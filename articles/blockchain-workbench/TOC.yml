@@ -15,7 +15,7 @@
   - name: Manage Workbench users
     href: blockchain-workbench-manage-users.md
   - name: Create blockchain app
-    href: blockchain-workbench-overview.md
+    href: blockchain-workbench-create-app.md
   - name: Use blockchain app
     href: blockchain-workbench-overview.md
   - name: Troubleshoot apps
