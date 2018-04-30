@@ -53,6 +53,8 @@ If you're adding the Service Fabric plugin to an existing Jenkins environment, y
 
 After you've installed the prerequisites needed for your environment, you can search for the Azure Service Fabric Plugin in Jenkins marketplace and install it.
 
+After you've installed the plugin, skip ahead to  [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
+
 
 ## Set up Jenkins inside a Service Fabric cluster
 
@@ -98,17 +100,13 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 3 above.
 
 5. **Secure Cluster Only:** 
-   1. To configure the deployment of applications on a secure cluster from Jenkins, the certificate must be accessible within the Jenkins container. In the *ApplicationManifest.xml* file, under the **ContainerHostPolicies** tag add this certificate reference and update the thumbprint value. The thumbprint value must be that of a certificate (PEM) that is located on the node.
+   1. To configure the deployment of applications on a secure cluster from Jenkins, the certificate used to connect to the cluster must be accessible within the Jenkins container. In development, test, and OneBox environments, this is generally the cluster certificate. In production environments, this is generally a client certificate configured for the cluster. In the *ApplicationManifest.xml* file, under the **ContainerHostPolicies** tag add this certificate reference and update the thumbprint value for your certificate.
 
       ```xml
       <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
       ```
 
-      > [!NOTE]
-      > The thumbprint value must be the same as the certificate that is used to connect to the secure cluster.	
-      >
-
-   2. For the container application to communicate with the runtime and the file system, add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Use the same certificate as you did in the previous step.
+   2. For the container application to communicate with the runtime and the file system, the cluster certificate must be accessible within the Jenkins container. Add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Configure the thumbprint of the cluster certificate for this step.
 
       ```xml
       <Certificates>
@@ -123,6 +121,13 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
    bash Scripts/install.sh
    ```
+   > [!NOTE]
+   > The preceding command takes the certificate in PEM format. If your certificate is in PFX format, you can use the following command to convert it. If your PFX file is not password protected, specify the **passin** parameter as `-passin pass:`.
+   > ```sh
+   >  openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:MyPassword1234!
+   > ``` 
+   >
+
 
    **Unsecure Cluster**
    ```sh
@@ -152,6 +157,8 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    ```
 5. On the Jenkins Getting Started page, choose the Select plugins to install option, select the **None** checkbox, and click install.
 6. Create a user or select to continue as an admin.
+
+After you've set up Jenkins, skip ahead to [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).  
 
 ## Set up Jenkins outside a Service Fabric cluster
 
@@ -196,6 +203,7 @@ You can set up Jenkins either inside or outside of a Service Fabric cluster. The
 
 Make sure that the cluster or machine where the Jenkins container image is hosted has a public-facing IP address. This enables the Jenkins instance to receive notifications from GitHub.
 
+After you've set up Jenkins, continue on to the next section, [Create and configure a Jenkins job](#create-and-configure-a-jenkins-job).
 
 ## Create and configure a Jenkins job
 
