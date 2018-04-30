@@ -85,7 +85,7 @@
       items:
       - name: VMware/physical to secondary site support matrix
         href: vmware-physical-secondary-support-matrix.md
-      - name: VMware/physical to secondary site architecture 
+      - name: VMware/physical to secondary site architecture
         href: vmware-physical-secondary-architecture.md
   - name: Hyper-V VMs
     items:
@@ -96,7 +96,7 @@
       - name: Hyper-V to Azure architecture
         href: hyper-v-azure-architecture.md
     - name: Replication to a secondary site
-      items: 
+      items:
       - name: Hyper-V to secondary site support matrix
         href: hyper-v-vmm-secondary-support-matrix.md
       - name: Hyper-V to secondary site architecture
@@ -111,6 +111,8 @@
     href: site-recovery-role-based-linked-access-control.md
   - name: About Azure Traffic Manager with Site Recovery
     href: concepts-traffic-manager-with-site-recovery.md
+  - name: About ExpressRoute with Site Recovery
+    href: concepts-expressroute-with-site-recovery.md
   - name: FAQ
     href: site-recovery-faq.md
 - name: How-to Guides
@@ -118,13 +120,15 @@
   - name: Azure to Azure
     items:
     - name: Networking
-      items: 
-      - name: Manage networking for Azure VM disaster recovery (preview)
+      items:
+      - name: Manage networking for Azure VM disaster recovery
         href: azure-to-azure-about-networking.md
       - name: Prepare network mapping in Azure VM disaster recovery
         href: azure-to-azure-network-mapping.md
       - name: Set up IP addressing for failover
         href: site-recovery-retain-ip-azure-vm-failover.md
+      - name: ExpressRoute with Azure VM disaster recovery
+        href: azure-vm-disaster-recovery-with-expressroute.md
     - name: Disaster recovery
       items:
       - name: Disaster recovery of Azure VMs after migration to Azure
@@ -196,7 +200,7 @@
       - name: Deploy the Mobility service with Azure Automation DSC
         href: vmware-azure-mobility-deploy-automation-dsc.md
     - name: Failover and failback
-      items: 
+      items:
       - name: Run a disaster recovery drill to Azure
         href: site-recovery-test-failover-to-azure.md
       - name: Set up recovery plans
@@ -228,7 +232,7 @@
       - name: Delete a vault
         href: delete-vault.md
     - name: Monitor and troubleshoot
-      items: 
+      items:
       - name: Monitor Azure Site Recovery
         href: site-recovery-monitor-and-troubleshoot.md
       - name: Troubleshoot VMware to Azure replication
@@ -264,7 +268,7 @@
         - name: Analyze the cost estimation report
           href: hyper-v-deployment-planner-cost-estimation.md
     - name: Disaster recovery
-      items: 
+      items:
       - name: Set up Hyper-V replication to Azure (no VMM) using PowerShell
         href: hyper-v-azure-powershell-resource-manager.md
       - name: Set up Hyper-V replication to Azure (with VMM) using PowerShell
@@ -294,7 +298,7 @@
       - name: Delete a vault
         href: delete-vault.md
     - name: Monitor and troubleshoot
-      items: 
+      items:
       - name: Troubleshoot Hyper-V replication
         href: hyper-v-azure-troubleshoot.md
       - name: Monitor Azure Site Recovery

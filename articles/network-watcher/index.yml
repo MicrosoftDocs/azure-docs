@@ -43,7 +43,8 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnose a virtual machine network routing problem</a>
+    - html: <a href="/azure/network-watcher/diagnose-vm-network-routing-problem">Diagnose a virtual machine (VM) network routing problem</a>
+    - html: <a href="/azure/network-watcher/connection-monitor">Monitor network communication between a VM and an endpoint</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list
