@@ -28,88 +28,172 @@ You'll learn how to:
 
 * A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) for details on deployment.
 * Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Manage Users in Azure Blockchain Workbench]()
-* A Blockchain Workbench member with administration rights. For more information, see [add Blockchain Workbench administrators in Manage Users in Azure Blockchain Workbench]()
+* A Blockchain Workbench administrator account. For more information, see [add Blockchain Workbench administrators in Manage Users in Azure Blockchain Workbench]()
 
-## Scenario
+Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
+For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
 
-Explain the scenario for the application. **TODO: Supply chain - refrigerated transportation** 
-
-
-## Refrigerated transportation sample
-
-A sample project for the asset transfer scenario is available on GitHub.
-
-[Download a zip file](https://github.com/Azure-Samples) or clone the sample from GitHub.
-
-```
-git clone https://github.com/Azure-Samples/placeholder.git
-```
-
-Blockchain Workbench applications are multi-party workflows defined by configuration metadata and smart contract code. 
-
-Configuration metadata defines the high-level workflows and interaction model of the blockchain application. **TODO: highlight configuration file in sample**
-
-Smart contracts define the business logic of the blockchain application. Blockchain Workbench uses configuration and smart contract code to generate end-to-end blockchain application user experiences. **TODO: highlight code file in sample**
+The **HelloBlockchain** example used in this article is available on GitHub. [Download a zip file](https://github.com/Azure-Samples) or clone the sample from GitHub `git clone https://github.com/Azure-Samples/placeholder.git` You can download the source or follow the outlined steps to build the application configuration and code files.
 
 ## Configuration file
 
-Configuration metadata represents the workflow stages and interaction model of the blockchain application.
+Configuration metadata defines the high-level workflows and interaction model of the blockchain application. Configuration metadata represents the workflow stages and interaction model of the blockchain application.
 
-1. In an editor, open `AssetTransfer.json`.
-2. Copy and paste the following JSON into the `AssetTransfer.json` configuration file. Save the changes. **TODO: Perhaps have a github repo with the sample to avoid copy paste a very large file**.
+1. In your favorite editor, create a file named `HelloBlockchain.json`.
+2. Add the following JSON to define the configuration of the blockchain application.
 
     ``` json
     {
-      "ApplicationName": "AssetTransfer",
-      "DisplayName": "Asset Transfer",
-      "Description": "Allows transfer of assets",
+      "ApplicationName": "HelloBlockchain",
+      "DisplayName": "Hello, Blockhain!",
+      "Description": "A simple application to send request and get response",
       "ApplicationRoles": [
         {
-          "Name": "Owner",
-          "Description": "Description of owner"
+          "Name": "Requestor",
+          "Description": "A person sending a request."
+        },
+        {
+          "Name": "Responder",
+          "Description": "A person responding to a request"
         }
       ],
       "Workflows": [
         {
-          "Name": "AssetTransfer",
-          "DisplayName": "Asset Transfer",
-          "Description": "Handles the business logic for the asset transfer scenario",
-          "Initiators": [ "Owner" ],
-          "StartState":  "Active",
+          "Name": "RequestResponse",
+          "DisplayName": "Request Response",
+          "Description": "A simple workflow to send a request and receive a response.",
+          "Initiators": [ "Requestor" ],
+          "StartState": "Request",
           "Properties": [
             {
               "Name": "State",
               "DisplayName": "State",
-              "Description": "Holds the state of the contract",
+              "Description": "Holds the state of the contract.",
               "Type": {
                 "Name": "state"
+              }
+            },
+            {
+              "Name": "Requestor",
+              "DisplayName": "Requestor",
+              "Description": "A person sending a request.",
+              "Type": {
+                "Name": "Requestor"
+              }
+            },
+            {
+              "Name": "Responder",
+              "DisplayName": "Responder",
+              "Description": "A person sending a response.",
+              "Type": {
+                "Name": "Responder"
               }
             }
           ],
           "Constructor": {
             "Parameters": [
               {
-                "Name": "description",
-                "Description": "The description of this asset",
-                "DisplayName": "Description",
+                "Name": "Topic",
+                "Description": "Topic for discussion",
+                "DisplayName": "Topic for messages",
                 "Type": {
                   "Name": "string"
-                 }
+                }
               }
-             ]
+            ]
+          },
+          "Functions": [
+            {
+              "Name": "SendRequest",
+              "DisplayName": "Request",
+              "Description": "Send a message",
+              "Parameters": [
+                {
+                  "Name": "RequestMessage",
+                  "Description": "Message you want to send",
+                  "DisplayName": "Request",
+                  "Type": {
+                    "Name": "string"
+                  }
+                }
+              ]
+            },
+            {
+              "Name": "SendResponse",
+              "DisplayName": "Response",
+              "Description": "Send a response",
+              "Parameters": [
+                {
+                  "Name": "ResponseMessage",
+                  "Description": "Response you want to send",
+                  "DisplayName": "Response Message",
+                  "Type": {
+                    "Name": "string"
+                  }
+                }
+              ]
             }
-          }
-       ]
+          ],
+          "States": [
+            {
+              "Name": "Request",
+              "DisplayName": "Request",
+              "Description": "Waiting for a message",
+              "PercentComplete": 50,
+              "Value": 0,
+              "Style": "Success",
+              "Transitions": [
+                {
+                  "AllowedRoles": [],
+                  "AllowedInstanceRoles": [ "Requestor" ],
+                  "Description": "Send a message",
+                  "Function": "SendRequest",
+                  "NextStates": [ "Respond" ],
+                  "DisplayName": "Send Request"
+                }
+              ]
+            },
+            {
+              "Name": "Respond",
+              "DisplayName": "Respond",
+              "Description": "...",
+              "PercentComplete": 90,
+              "Value": 1,
+              "Style": "Success",
+              "Transitions": [
+                {
+                  "AllowedRoles": [ "Responder" ],
+                  "AllowedInstanceRoles": [],
+                  "Description": "Respond to message",
+                  "Function": "SendResponse",
+                  "NextStates": [ "Request" ],
+                  "DisplayName": "Send Response"
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
     ```
 
-The configuration file includes:
+3. Save the `HelloBlockchain.json` file.
 
-* Information about the application including application name and description
-* Application roles that define the user roles who can act or participate within the blockchain application.
-* Workflows that define one or more stages and actions of the contract.
+The configuration file has several sections. Details about each section are as follows:
 
-See [Azure Blockchain Workflow configuration reference]() for details about the contents of configuration files.
+### Application metadata
+
+The beginning of the configuration file contains information about the application including application name and description.
+
+### Application roles
+
+The application roles section defines the user roles who can act or participate within the blockchain application. You define a set of distinct roles based on functionality. In the request-response scenario, there is a distinction between the functionality of a requestor as an entity that produces requests and a responder as an entity that produces responses.
+
+### Workflows
+
+Workflows define one or more stages and actions of the contract. In the request-response scenario, the first stage (state) of the workflow is a requestor (role) takes an action (transition) to send a request (function). The next stage (state) is a responder (role) takes an action (transition) to send a response (function). An application's workflow can involve properties, functions, and states required describe the flow of a contract. 
+
+For more information about the contents of configuration files, see [Azure Blockchain Workflow configuration reference](blockchain-workbench-configuration-overview.md).
 
 ## Smart contract code file
 
@@ -117,114 +201,113 @@ Smart contracts represent the business logic of the blockchain application. Curr
 
 Smart contracts in Solidity are similar to classes in object-oriented languages. Each contract contains state and functions to implement stages and actions of the smart contract.
 
-In your favorite editor, create a file called `AssetTransfer.sol`.
+In your favorite editor, create a file called `HelloBlockchain.sol`.
 
 ### Version pragma
 
-As a best practice, indicate the version of Solidity you are targeting. This helps avoid version incompatibilities with future Solidity versions. 
+As a best practice, indicate the version of Solidity you are targeting. Specifying the version helps avoid incompatibilities with future Solidity versions. 
 
-Add the following version pragma at the top of `AssetTransfer.sol` smart contract code file.
+Add the following version pragma at the top of `HelloBlockchain.sol` smart contract code file.
 
 
   ``` solidity
-  pragma solidity ^0.4.10;
+  pragma solidity ^0.4.20;
   ```
 
 ### Base class
 
 **WorkbenchBase** base class enables Blockchain Workbench to create an update the contract. The base class is required for Blockchain Workbench specific smart contract code. Your contract needs to inherit from the **WorkbenchBase** base class.
 
-In `AssetTransfer.sol` smart contract code file, find the **WorkbenchBase** class at the beginning of the file. 
+In `HelloBlockchain.sol` smart contract code file, add the **WorkbenchBase** class at the beginning of the file. 
 
-```solidity
+```
 contract WorkbenchBase {
-    event AppBuilderContractCreated(string applicationName, string workflowName, address originatingAddress);
-    event AppBuilderContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
-    
+    event WorkbenchContractCreated(string applicationName, string workflowName, address originatingAddress);
+    event WorkbenchContractUpdated(string applicationName, string workflowName, string action, address originatingAddress);
+
     string internal ApplicationName;
     string internal WorkflowName;
 
-    function AppBuilderBase(string applicationName, string workflowName) internal {
+    function WorkbenchBase(string applicationName, string workflowName) internal {
         ApplicationName = applicationName;
         WorkflowName = workflowName;
     }
 
     function ContractCreated() internal {
-        AppBuilderContractCreated(ApplicationName, WorkflowName, msg.sender);
+        WorkbenchContractCreated(ApplicationName, WorkflowName, msg.sender);
     }
 
     function ContractUpdated(string action) internal {
-        AppBuilderContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
+        WorkbenchContractUpdated(ApplicationName, WorkflowName, action, msg.sender);
     }
 }
 ```
 The base class includes two important functions:
-
 
 |Base class function  | Purpose  | When to call  |
 |---------|---------|---------|
 | ContractCreated() | Notifies Blockchain Workbench a contract has been created | Before exiting the contract constructor |
 | ContractUpdated() | Notifies Blockchain Workbench a contract state has been updated | Before exiting a contract function |
 
-
-
 ### Configuration and smart contract code relationship
 
-Blockchain Workbench uses the configuration file and smart contract code file to create a blockchain application. There is a relationship between what is defined in the configuration and the code in the smart contract. Contract details, functions, parameters and types are required to match to create the application. Blockchain Workbench verifies the files prior to application creation. 
+Blockchain Workbench uses the configuration file and smart contract code file to create a blockchain application. There is a relationship between what is defined in the configuration and the code in the smart contract. Contract details, functions, parameters, and types are required to match to create the application. Blockchain Workbench verifies the files prior to application creation. 
 
 ### Contract
 
 For Blockchain Workbench, contracts need to inherit from the **WorkbenchBase** base class. When declaring the contract, you need to pass the application name and the workflow name as arguments.
 
-Add the **contract** header to your `AssetTransfer.sol` smart contract code file. 
+Add the **contract** header to your `HelloBlockchain.sol` smart contract code file. 
 
-```solidity
-contract AssetTransfer is WorkbenchBase('AssetTransfer', 'AssetTransfer')
-{
-...
 ```
+contract RequestResponse is WorkbenchBase('HelloBlockchain', 'RequestResponse') {
+```
+
+Your contract needs to inherit from the **WorkbenchBase** base class and pass in the parameters **ApplicationName**  and the workflow **Name** as defined in the configuration file.
 
 ### State variables
 
 State variables store values of the state for each contract instance. The state variables in your contract must match the workflow properties defined in the configuration file.
 
-Add the state variables to your contract in your `AssetTransfer.sol` smart contract code file. 
+Add the state variables to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
-```solidity
-contract AssetTransfer is AppBuilderBase('AssetTransfer', 'AssetTransfer')
-{
-    enum AssetState { Active, OfferPlaced, PendingInspection, Inspected, Appraised, NotionalAcceptance, BuyerAccepted, SellerAccepted, Accepted, Terminated }
-Address public InstanceOwner;
-    string public Description;
-    uint public AskingPrice;
-    AssetState public State;
-    
-Address public InstanceBuyer;
-    uint public OfferPrice;
-Address public InstanceInspector;
-Address public InstanceAppraiser;
-...
+```
+contract RequestResponse is WorkbenchBase('HelloBlockchain', 'RequestResponse') {
+
+    //Set of States
+    enum StateType { Request, Respond }
+
+    //List of properties
+    StateType public State;
+    address public Requestor;
+    address public Responder;
+
+    string public Topic;
+    string public RequestMessage;
+    string public ResponseMessage;
 ```
 
 ### Constructor
 
-The constructor defines input parameters for a new smart contract instance of a workflow. The contructor is declared as a function with the same name as the contract. Required parameters for the constructor are defined as constructor parameters in the configuration file. The number, order, and type of parameters must match in both files.
+The constructor defines input parameters for a new smart contract instance of a workflow. The constructor is declared as a function with the same name as the contract. Required parameters for the constructor are defined as constructor parameters in the configuration file. The number, order, and type of parameters must match in both files.
 
 In the constructor function, write any business logic you want to perform prior to creating the contract. For example, initialize the state variables with starting values.
 
-Before exiting the constructor function, call the `ContractCreated()` function. This notifies Blockchain Workbench a contract has been created.
+Before exiting the constructor function, call the `ContractCreated()` function. This function notifies Blockchain Workbench a contract has been created.
 
-Add the constructor function to your contract in your `AssetTransfer.sol` smart contract code file. 
+Add the constructor function to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
 ```
-function AssetTransfer(string description, uint256 price) public
-{
-    InstanceOwner = msg.sender;
-    AskingPrice = price;
-    Description = description;
-    State = AssetState.Active;
-    ContractCreated();
-}
+    // constructor function
+    function RequestResponse(string Topic) public
+    {
+        Topic = Topic;
+        Requestor = msg.sender;
+        State = StateType.Request;
+    
+        // call ContractCreated() to create an instance of this workflow
+        ContractCreated();
+    }
 ```
 
 ### Functions
@@ -233,77 +316,55 @@ Functions are the executable units of business logic within a contract. Required
 
 Write any business logic you want to perform in the function. For example, modifying a state variable's value.
 
-Before exiting the function, call the `ContractUpdated()` function. This notifies Blockchain Workbench contract state has been updated. If you want to undo state changes made in the function, call revert(). This discards state changes made since the last call to ContractUpdated().
+Before exiting the function, call the `ContractUpdated()` function. The function notifies Blockchain Workbench contract state has been updated. If you want to undo state changes made in the function, call revert(). Revert discards state changes made since the last call to ContractUpdated().
 
-1. Add the following functions to your contract in your `AssetTransfer.sol` smart contract code file. 
+1. Add the following functions to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
-    ``` solidity
-        function Modify(string description, uint256 price) public
+    ```
+        // call this function to send a request
+        function SendRequest(string RequestMessage) public
         {
-            if (State != AssetState.Active)
-            {
-                revert();
-            }
-            if (InstanceOwner != msg.sender)
+            if (Requestor != msg.sender)
             {
                 revert();
             }
     
-            Description = description;
-            AskingPrice = price;
-            ContractUpdated('Modify');
+            RequestMessage = RequestMessage;
+            State = StateType.Request;
+    
+            // call ContractUpdated() to record this action
+            ContractUpdated('SendRequest');
         }
     
-        function MakeOffer(address inspector, address appraiser, uint256 offerPrice) public
+        // call this function to send a response
+        function SendResponse(string ResponseMessage) public
         {
-            if (inspector == 0x0 || appraiser == 0x0 || offerPrice == 0)
+            if (Responder != msg.sender)
             {
                 revert();
             }
-            if (State != AssetState.Active)
-            {
-                revert();
-            }
-            // Cannot enforce "AllowedRoles":["Buyer"] because Role information is unavailable
-            if (InstanceOwner == msg.sender) // not expressible in the current specification language
-            {
-                revert();
-            }
-            
-            InstanceBuyer = msg.sender;
-            InstanceInspector = inspector;
-            InstanceAppraiser = appraiser;
-            OfferPrice = offerPrice;
-            State = AssetState.OfferPlaced;
-            ContractUpdated('MakeOffer');
+    
+            // call ContractUpdated() to record this action
+            ResponseMessage = ResponseMessage;
+            ContractUpdated('SendResponse');
         }
+    }
     ```
 
-2. Save your `AssetTransfer.sol` smart contract code file.
-
-## Azure Blockchain Workbench web application
-
-Use the Blockchain Workbench web application to create and manage blockchain applications.
- 
-1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://contoso.com/` The web application is created when you deploy Blockchain Workbench. **TODO: instructions on how to find the address**
-2. Sign in as a Blockchain Workbench administrator. Blockchain Workbench administrators and users are configured when you deploy Blockchain Workbench.
-
-> [!IMPORTANT]
-> Blockchain Workbench web application creation and initial user configuration occurs during Blockchain Workbench deployment.
+2. Save your `HelloBlockchain.sol` smart contract code file.
 
 ## Add blockchain application to Blockchain Workbench
 
-To add a blockchain application to Blockchain Workbench, you use the configuration and smart contract files to define the application.
+To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
 
-1. Sign in as a Blockchain Workbench administrator.
-2. Select **Applications** > **New**. The **New application** pane is displayed.
-3. Select **Upload the contract configuration** > **Browse** to locate the **AssetTransfer** configuration file from the **TODO** sample. The configuration file is automatically validated. Select the **Show** link to display validation errors. Validation errors need to be fixed before you deploy the application.
-4. Select **Upload the contract code** > **Browse** to locate a **TODO** sample smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Validation errors need to be fixed before you deploy the application.
-5. Select **Deploy** to create the blockchain application based on the configuration and smart contract files.
+1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
+2. Sign in as a Blockchain Workbench administrator. For more information on managing users, see [Manage Users in Azure Blockchain Workbench]().
+3. Select **Applications** > **New**. The **New application** pane is displayed.
+4. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
+5. Select **Upload the contract code** > **Browse** to locate the **HelloBlockchain.sol** smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
+6. Select **Deploy** to create the blockchain application based on the configuration and smart contract files.
 
 Deployment of the blockchain application takes a few minutes. When deployment is finished, the new application is displayed in **Applications**. 
-
-{Screenshot: Application pane with application tile}
 
 > [!NOTE]
 > You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench). 
@@ -312,15 +373,15 @@ Deployment of the blockchain application takes a few minutes. When deployment is
 
 Add application members to your application to initiate and take actions on contracts.
 
-1. Select **Applications** > **Asset Transfer**.
-2. The number of members associated to the application is displayed in the upper right corner of the page.
-    {screenshot: application with members}
-3. Select the **members** link in the upper right corner of the page. This displays the current list of members for the application.
+1. Select **Applications** > **Hello, Blockchain!**.
+2. The number of members associated to the application is displayed in the upper right corner of the page. For a new application, the number of members will be zero.
+3. Select the **members** link in the upper right corner of the page. A current list of members for the application is displayed.
 4. In the membership list, select **Add members**.
-5. Select or enter the member's name.
-6. Select the **Role** for the member.
+5. Select or enter the member's name you want to add.
+6. Select the **Role** for the member. For the first member, select **Requestor** as the role.
 7. Select **Add** to add the member with the associated role to the application.
+8. Add another member to the application with the **Responder** role.
 
 ## Next steps
 
-* [Use the blockchain application]()
+Now that you have created an application, try [Using a blockchain application]().
