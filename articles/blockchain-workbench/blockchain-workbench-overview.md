@@ -17,7 +17,7 @@ Azure Blockchain Workbench is a collection of Azure services and capabilities de
 
 ## Create blockchain applications
 
-With Blockchain Workbench, you can define blockchain applications by with configuration and writing smart contract code. This allows you to jumpstart blockchain application development and focus on defining your contract and writing business logic instead of building scaffolding and setting up supporting services.
+With Blockchain Workbench, you can define blockchain applications by with configuration and writing smart contract code. You can jumpstart blockchain application development and focus on defining your contract and writing business logic instead of building scaffolding and setting up supporting services.
 
 ## Manage applications and users
 
