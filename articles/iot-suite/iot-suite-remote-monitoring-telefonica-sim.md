@@ -3,7 +3,7 @@ title: Integrate SIM data in the Remote Monitoring Solution - Azure| Microsoft D
 description: This article describes how to integrate Telefonica SIM data into the Remote Monitoring solution. 
 services: iot-suite
 suite: iot-suite
-author: hectorgarciatellado
+author: hegate
 manager: corywink
 ms.author: hegate
 ms.service: iot-suite
