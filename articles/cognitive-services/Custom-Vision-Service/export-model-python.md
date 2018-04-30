@@ -59,13 +59,15 @@ with open(labels_filename, 'rt') as lf:
 There are a few steps for preparing the image so that it's the right shape for prediction. These steps mimic the image manipulation performed during training:
 
 1. Open the file and create an image
+
 ```Python
 # Load from a file
 imageFile = "<path to your image file>"
 image = Image.open(imageFile)
 ```
 
-2. Deal with files with a dimension >1600
+2. Deal with images with a dimension >1600
+
 ```Python
 w,h = image.size
 
@@ -75,18 +77,24 @@ image = resize_down_to_1600_max_dim(image)
 ```
 
 3. Crop the largest center square
+
 ```Python
 # We next get the largest center square
 w,h = image.size
 min_dim = min(w,h)
 max_square_image = crop_center(image, min_dim, min_dim)
 ```
+
 4. Resize down to 256x256
+
 ```Python
 # Resize that square down to 256x256
 augmented_image = resize_to_256_square(max_square_image)
 ```
+
+
 5. Crop the center for the specific input size for the model
+
 ```Python
 # The compact models have a network size of 227x227x, the model requires this size.
 network_input_size = 227
@@ -95,7 +103,9 @@ network_input_size = 227
 augmented_image = crop_center(augmented_image, network_input_size, network_input_size)
 
 ```
+
 6. Color space conversion to BGR
+
 ```Python
 # RGB -> BGR
 r,g,b = np.array(augmented_image).T            

@@ -7,7 +7,7 @@ manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 04/30/2018
 ms.author: areddish
 ---
 
