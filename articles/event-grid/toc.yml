@@ -63,14 +63,14 @@
     href: post-to-custom-topic.md
   - name: Receive events at HTTP endpoint
     href: receive-events.md
+  - name: Manage event delivery
+    href: manage-event-delivery.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
     href: query-event-subscriptions.md
   - name: Map custom fields to schema
     href: input-mappings.md
-  - name: Set event delivery policy
-    href: set-retry-policy.md
 - name: Reference
   items:
   - name: Azure CLI
