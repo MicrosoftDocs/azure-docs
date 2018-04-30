@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Migrating to the unified Speech service
 
-The Speech service unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation.
+The Speech service unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and synthesis), Custom Speech, and Speech Translation.
 
 If you have been using these separate speech services through their REST or WebSockets interfaces, there is no pressing need to migrate to the unified Speech service. The pre-existing speech services will continue to be available for some time. However, migrating requires minimal code changes and may provide additional functionality.
 

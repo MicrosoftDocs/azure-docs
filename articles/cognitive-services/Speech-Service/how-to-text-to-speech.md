@@ -38,7 +38,7 @@ To specify a voice, use the `<voice>` [SSML](speech-synthesis-markup.md) tag. Fo
 <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Hello, world!</voice> </speak>
 ```
 
-See [text to speech voices](supported-languages.md#text-to-speech) for a list of the available voices and their names.
+See [Text to Speech voices](supported-languages.md#text-to-speech) for a list of the available voices and their names.
 
 ## Making a request
 

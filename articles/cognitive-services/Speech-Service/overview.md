@@ -22,9 +22,9 @@ With one subscription, the unified Speech service gives developers an easy way t
 
 |Function|Description|
 |-|-|
-|Speech to text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
-|Text to speech|Converts text to audio files of natural-sounding synthesized speech.|
-|Speech&nbsp;translation|Combines speech to text, text translation, and text to speech to provide translations of speech.|
+|Speech to Text|Converts continuous human speech to text that can be used as input to your application. Can integrate with the [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) to derive user intent from utterances.|
+|Text to Speech|Converts text to audio files of natural-sounding synthesized speech.|
+|Speech&nbsp;Translation|Provide translations of speech to other languages, with text or speech output.|
 
 > [!NOTE]
 > If you have been using the separately-available Speech services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration brings you additional functionality. If you are considering migrating, or just want to know what has changed, see [How to Migrate to the Speech Service](how-to-migrate.md).
@@ -39,7 +39,7 @@ The function of the Speech service is made available in as many as three ways, d
 |[WebSockets](websockets.md)|Yes|No|Yes|Provides advanced functionality such as streaming real-time audio.|
 |[SDKs](speech-sdk.md)|Yes|No|Yes|Native clients that simplify development by doing the networking for you.|
 
-## Speech to text
+## Speech to Text
 
 The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command.
 
@@ -55,7 +55,7 @@ The Speech to Text API supports interactive speech transcription with real-time 
 
 You can customize Speech to Text acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
-## Text to speech
+## Text to Speech
 
 The [Text to Speech](text-to-speech.md) (TTS), or speech synthesis, API converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many supported languages.
 
@@ -70,11 +70,11 @@ The following are common use cases for the Text to Speech API.
 
 If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports custom voice models.
 
-## Speech translation
+## Speech Translation
 
-The [Speech translation](speech-translation.md) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
+The [Speech Translation](speech-translation.md) API can be used either to translate streaming audio in near-real-time or to process recorded speech. In streaming translation, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
 
-Use cases for speech translation include the following.
+Use cases for Speech Translation include the following.
 
 > [!div class="checklist"] 
 > * Implement a "conversational" translation mobile app or device for travelers 

@@ -3,13 +3,13 @@
 - name: Overview
   expanded: true
   items:
-  - name: About Speech # OK
+  - name: About Speech service # OK
     href: overview.md
-  - name: Speech to text # OK
+  - name: Speech to Text # OK
     href: speech-to-text.md
-  - name: Text to speech # OK
+  - name: Text to Speech # OK
     href: text-to-speech.md
-  - name: Speech translation # OK
+  - name: Speech Translation # OK
     href: speech-translation.md
   - name: Speech SDK # OK
     href: speech-sdk.md
@@ -23,15 +23,15 @@
       href: how-to-authenticate.md
     - name: Migrate to the Speech service # OK
       name: how-to-migrate.md
-    - name: Speech to text # OK
+    - name: Speech to Text # OK
       href: how-to-speech-to-text.md
-    - name: Custom speech to text # OK
+    - name: Custom Speech to Text # OK
       href: how-to-customize-speech-models.md
-    - name: Text to speech # OK
+    - name: Text to Speech # OK
       href: how-to-text-to-speech.md
-    - name: Custom text-to-speech
+    - name: Custom Text to Speech
       href: how-to-customize-voice-font.md
-    - name: Speech translation # OK
+    - name: Speech Translation # OK
       href: how-to-translate-speech.md
 - name: Samples # OK
   href: samples.md

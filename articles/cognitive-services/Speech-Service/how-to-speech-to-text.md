@@ -26,7 +26,7 @@ You can use Speech to Text in your applications in three different ways.
 
 ## Recognition modes
 
-The speech-to-text API supports three recognition modes: interactive, conversation, and dictation. The recognition mode tunes speech recognition functionality based on how users are likely to speak in a given scenario.
+The Speech to Text API supports three recognition modes: interactive, conversation, and dictation. The recognition mode tunes speech recognition functionality based on how users are likely to speak in a given scenario.
 
 |Mode|Description
 |----|-----------

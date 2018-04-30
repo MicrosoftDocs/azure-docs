@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # About Speech Translation
 
-The Microsoft Speech API lets you add end-to-end, real-time, multi-language speech translation to applications and tools. The same API can be used for both speech-to-speech and speech-to-text translation.
+The Microsoft Speech API lets you add end-to-end, real-time, multi-language translation  of speech to applications and tools. The same API can be used for both speech-to-speech and speech-to-text translation.
 
 With the Microsoft Translator Speech API, client applications stream speech audio to the service and receive back a stream of results. These results include the recognized text in the source language and its translation in the target language. Interim translations can be provided until an utterance is complete, at which time a final translation is provided. Optionally, a synthesized audio version of the final translation can be prepared, enabling true speech-to-speech translation.
 
