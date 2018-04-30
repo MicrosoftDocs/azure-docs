@@ -100,11 +100,7 @@ Once the Docker image is deployed from your geo-replicated container registry, t
 
 ## Next steps
 
-In this tutorial, you deployed two Web App for Containers instances from a geo-replicated Azure container registry. By following the steps in this tutorial, you:
-
-> [!div class="checklist"]
-> * Deployed a container image to two *Web Apps for Containers* instances
-> * Verified the deployed application
+In this tutorial, you deployed two Web App for Containers instances from a geo-replicated Azure container registry.
 
 Advance to the next tutorial to update and then deploy a new container image to the container registry, then verify that the web apps running in both regions were updated automatically.
 
