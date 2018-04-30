@@ -9,7 +9,7 @@ editor: cgronlun
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2018
+ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
 
