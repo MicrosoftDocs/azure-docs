@@ -1,5 +1,6 @@
 ---
 title: Get image insights | Microsoft Docs
+titleSuffix: Bing Web Search APIs - Cognitive Services
 description: Shows how to use the Bing Image Search API to get more information about an image.
 services: cognitive-services
 author: swhite-msft
