@@ -6,7 +6,7 @@
     href: lab-services-overview.md
 - name: Tutorials
   items:
-  - name: DevTest labs
+  - name: DevTest Labs
     items: 
     - name: 1. Set up a lab
       href: tutorial-create-custom-lab.md 
@@ -22,12 +22,14 @@
       href: tutorial-connect-virtual-machine-classroom-lab.md      
 - name: Samples
   items:
-  - name: Resource Manager templates
-    href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
-  - name: Azure PowerShell
-    href: samples-powershell.md
-  - name: Azure CLI
-    href: samples-cli.md    
+  - name: DevTest Labs
+    items:
+    - name: Resource Manager templates
+      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+    - name: Azure PowerShell
+      href: samples-powershell.md
+    - name: Azure CLI
+      href: samples-cli.md    
 - name: Concepts
   items:
   - name: DevTest Labs
