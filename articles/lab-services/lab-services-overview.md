@@ -19,7 +19,7 @@ ms.author: spelluru
 # An introduction to Azure Lab Services (formerly Azure DevTest Labs)
 Azure Lab Services and Azure DevTest Labs enables you to quickly set up an environment for your team (for example: development environment, test environment, classroom lab environment) in the cloud. A lab owner creates a lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools, and makes them available to lab users. Lab users connect to virtual machines (VMs) in the lab, and use them for their day-to-day work, short-term projects, or for doing classroom exercises. Once users start utilizing resources in the lab, a lab admin can analyze cost and usage across multiple labs, and set overarching policies to optimize your organization or team's costs.
 
-You create **Azure managed labs** with Azure Lab Services and **self-managed labs** with Azure DevTest Labs. If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs** supported by Azure Lab Services. Currently, classroom lab is the only type of managed lab that you can create with Azure Lab Services. If you want to manage your own infrastructure, create a **self-managed lab** with Azure DevTest Labs. 
+You create **Azure managed labs** with Azure Lab Services and **custom labs** with Azure DevTest Labs. If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs** supported by Azure Lab Services. Currently, classroom lab is the only type of managed lab that you can create with Azure Lab Services. If you want to manage your own infrastructure, create a **custom lab** with Azure DevTest Labs. 
 
 ## Azure Lab Services
 Managed labs offer different types of labs that fit for your specific need. Currently, Azure Lab Services supports only classroom lab as a managed lab. Managed labs enable you to get started right away, with minimal setup. The service itself handles all the management of the infrastructure for the lab, from spinning up the VMs to handling errors, and scaling the infrastructure. To create a managed lab, you need to create a lab account for your organization first. The lab account serves as the central account in which all labs in the organization are managed. 
@@ -96,4 +96,4 @@ For more information, see [Use DevTest Labs for training](devtest-lab-training-l
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a self-managed lab](tutorial-create-custom-lab.md)
+- [Set up a custom lab](tutorial-create-custom-lab.md)
