@@ -1,3 +1,19 @@
+---
+title: Visualize Remote Monitoring data using Power BI - Azure | Microsoft Docs 
+description: This tutorial uses Power BI Desktop and Cosmos DB to integerate data from a Remote Monitoring solution into a customized visualization. This way users can build their own custom dashboards and share them out to users not on the solution. 
+services: iot-suite
+suite: iot-suite
+author: ashleydonaldson
+manager: hegate
+ms.author: asdonald
+ms.service: iot-suite
+ms.date: 04/30/2018
+ms.topic: article
+ms.devlang: NA
+ms.tgt_pltfrm: NA
+ms.workload: NA
+---
+
 # Visualize Remote Monitoring data using Power BI
 
 This tutorial will walk you through how to plug in your Remote Monitoring solution data from CosmosDB into Power BI. With this connection established, you can then create your own custom dashboards, and add them back onto your Remote Monitoring solution dashboard. This workstream allows for more specialized graphs to be created, in addition to the ones out of the box. You can then use this tutorial to integrate with other data streams or build custom dashboards to be consumed outside of your Remote Monitoring Solution. Building dashboards in Power BI means that you can also make each panel interact with one another as you select specific pieces. For example, you could have a filter that shows you only information about your simulated trucks and each piece of your dashboard would interact to show you only simulated truck information. If you would like to use a tool other than Power BI, you can also extend these steps to use your visualization tool of choice and hook into the Cosmos Database, or custom database if you've set one up. 
@@ -42,8 +58,8 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
   
 3. Enter the information, which you have recorded above:
 
-    - URI
-    - Primary Key
+* URI
+* Primary Key
 
 4. Select all the tables to be imported into Power BI. This action will kick off the loading of the data. The longer your solution has been running, the longer it can take for the data to load (up to a few hours). 
 

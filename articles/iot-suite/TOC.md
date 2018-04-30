@@ -58,11 +58,13 @@
 ## Remote Monitoring
 ### [Perform advanced monitoring](iot-suite-remote-monitoring-monitor.md)
 ### [Use rules to detect issues](iot-suite-remote-monitoring-automate.md)
+### [Integrate SIM data](iot-suite-remote-monitoring-telefonica-sim.md)
 ### [Manage your devices](iot-suite-remote-monitoring-manage.md)
 ### [Troubleshoot device issues](iot-suite-remote-monitoring-maintain.md)
 ### [Understand the device model schema](iot-suite-remote-monitoring-device-schema.md)
 ### [Understand the device model behavior](iot-suite-remote-monitoring-device-behavior.md)
 ### [Create a new simulated device](iot-suite-remote-monitoring-test.md)
+### [Visualize with PowerBI](iot-suite-integrate-data-powerbi.md)
 ### [Customize the solution](iot-suite-remote-monitoring-customize.md)
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
@@ -74,7 +76,8 @@
 #### [C on Raspberry Pi](iot-suite-connecting-pi-c.md)
 
 ### Concepts
-#### [Remote Monitoring architecture](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Remote Monitoring implementation details](iot-suite-remote-monitoring-sample-walkthrough.md)
+#### [Remote Monitoring architectural choices](iot-suite-remote-monitoring-architectural-choices.md)
 
 ## Connected Factory
 ### [Deploy a gateway for Connected Factory](iot-suite-connected-factory-gateway-deployment.md)

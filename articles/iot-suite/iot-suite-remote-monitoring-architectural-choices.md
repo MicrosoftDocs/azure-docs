@@ -1,3 +1,19 @@
+---
+title: Remote Monitoring solution architectural choices - Azure | Microsoft Docs 
+description: This article describes the architectural and technical choices made in Remote Monitoring
+services: iot-suite
+suite: iot-suite
+author: timlaverty
+manager: camerons
+ms.author: timlav
+ms.service: iot-suite
+ms.date: 04/30/2018
+ms.topic: article
+ms.devlang: NA
+ms.tgt_pltfrm: NA
+ms.workload: NA
+---
+
 # Remote Monitoring architectural choices
 
 The Azure IoT Remote Monitoring (RM) is an open-source, MIT licensed, solution accelerator that introduces common IoT scenarios such as device connectivity, device management, and stream processing, so customers can speed up their development process.  RM follows the recommended Azure IoT reference architecture published [here](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).  
@@ -23,7 +39,7 @@ The Azure IoT Hub is used as the RM Cloud Gateway.  The IoT Hub offers secure, b
 For Stream Processing RM uses Azure Stream Analytics for complex rule processing.  For customers wanting simpler rules, we also have a custom microservice with support for processing of simple rules, although this set-up not part of the out of the box deployment. The reference architecture recommends use of Azure Functions for simple rule processing and Azure Stream Analytics (ASA) for complex rule processing.  
 
 ### Storage
-For Storage, Cosmos DB is used for all storage needs: cold storage, warm storage, rules storage, and alarms. In the future, cold storage will be moved to Azure blob storage as recommended by the reference architecture.  Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases.
+For Storage, Cosmos DB is used for all storage needs: cold storage, warm storage, rules storage, and alarms. We are currently in the process of moving to Azure blob storage, as recommended by the reference architecture.  Cosmos DB is the recommended general-purpose warm storage solution for IoT applications though solutions such as Azure Time Series Insights and Azure Data Lake are appropriate for many use cases.
 
 ### Business integration
 Business integration in RM is limited to generation of alarms, which are placed in warm storage. Further business integrations can be performed by integrating the solution with Azure Logic Apps.
@@ -32,7 +48,7 @@ Business integration in RM is limited to generation of alarms, which are placed 
 The web UI is built with JavaScript React.  React offers a commonly used industry web UI framework and is similar to other popular frameworks such as Angular.  
 
 ### Runtime and orchestration
-The Application Runtime chosen for subsystem implementation in RM is Docker containers with Kubernetes (K8s) as the orchestrator for horizontal scale.  This architecture allows for individual scale definition per subsystem however incurs DevOps costs in keeping VMs and containers up-to-date from a security perspective.  Alternatives to Docker & K8s include hosting microservices in PaaS services (for example, Azure App Service) or using Service Fabric, DCOS, Swarm, etc. as an orchestrator.  RM will continue to support Docker and K8s but will expand support to one or more other runtimes in the future.
+The Application Runtime chosen for subsystem implementation in RM is Docker containers with Kubernetes (K8s) as the orchestrator for horizontal scale.  This architecture allows for individual scale definition per subsystem however incurs DevOps costs in keeping VMs and containers up-to-date from a security perspective.  Alternatives to Docker & K8s include hosting microservices in PaaS services (for example, Azure App Service) or using Service Fabric, DCOS, Swarm, etc. as an orchestrator.
 
 ## Next steps:
 * Deploy your RM solution [here](https://www.azureiotsuite.com/).
