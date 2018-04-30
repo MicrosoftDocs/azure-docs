@@ -1,6 +1,6 @@
 ---
-title: Monitor network connections - tutorial - Azure portal | Microsoft Docs
-description: Learn how to monitor network connectivity with Azure Network Watcher using the Azure portal.
+title: Monitor network communication - tutorial - Azure portal | Microsoft Docs
+description: Learn how to monitor network communication between a virtual machine and an endpoint with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -17,15 +17,17 @@ ms.author: jdial
 ms.custom: mvc
 ---
 
-# Tutorial: Monitor network connections using the Azure portal
+# Tutorial: Monitor network communication with connection monitor using the Azure portal
 
-In this tutorial, you deploy two virtual machines (VM), and then use the *connection monitor* capability of Network Watcher to monitor communication from one VM to the other VM. Connection monitor provides monitoring between source and destination IP address and port. It also provides you a hop-by-hop topology, and identifies configuration issues impacting your connection.
+In this tutorial, you deploy two virtual machines (VM), and then use the *connection monitor* capability of Network Watcher to monitor communication from one VM to the other VM. The connection is monitored over time. If communication fails, connection monitor informs you of what is causing the problem, so that you can resolve it.
 
-## Sign in to Azure 
+## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create VMs
+
+Create two VMs.
 
 ### Create the first VM
 
@@ -57,7 +59,7 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select **Ubuntu Server 17.10 VM**|                                                                         |
+| 1 | Select **Ubuntu Server 17.10 VM** |                                                                         |
 | 3 | Name                              | myVm2                                                                   |
 | 3 | Authentication type               | Paste your SSH public key or select **Password**, and enter a password. |
 | 3 | Resource group                    | Select **Use existing** and select **myResourceGroup**.                 |
@@ -77,7 +79,7 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
     | Setting                  | Value               |
     | ---------                | ---------           |
-    | Name                     | myVm1-myVm2(22) |
+    | Name                     | myVm1-myVm2(22)     |
     | Source                   |                     |
     | Virtual machine          | myVm1               |
     | Destination              |                     |
@@ -93,7 +95,7 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
     ![Connection monitors](./media/connection-monitor/connection-monitors.png)
 
-2. Select the monitor with the name **myVm1-myVm2(22)**, to see details for the monitor, as shown in the following picture:
+2. Select the monitor with the name **myVm1-myVm2(22)**, as shown in the previous picture, to see details for the monitor, as shown in the following picture:
 
     ![Monitor details](./media/connection-monitor/vm-monitor.png)
 
@@ -102,13 +104,13 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
     | Item                     | Value                      | Details                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Status                   | Reachable                  | This lets you know whether the endpoint is reachable or not.|
-    | AVG. ROUND-TRIP          | This lets you know the round-trip time to make the connection, in milliseconds. Connection monitor probes the connection every 60 seconds, so you can monitor latency over time.                                                |
+    | AVG. ROUND-TRIP          | This lets you know the round-trip time to make the connection, in milliseconds. Connection monitor probes the connection every 60 seconds, so you can monitor latency over time.                                         |
     | Hops                     | Connection monitor lets you know the hops between the two endpoints. In this example, the connection is between two VMs in the same virtual network, so there is only one hop, to the 10.0.0.5 IP address. If any existing system or custom routes routed traffic between the VMs through a VPN gateway, or network virtual appliance, for example, additional hops are listed.                                                                                                                         |
-    | Status (in the table)    | The green check marks for each endpoint lets you know that each endpoint is healthy.   ||
+    | STATUS                   | The green check marks for each endpoint lets you know that each endpoint is healthy.    ||
 
-# Create a network security group rule
+## View a problem
 
-By default, Azure allows communication over all ports between VMs in the same virtual network. Over time, you, or someone in your organization, might override Azure's default rules, inadvertently causing a communication failure. Complete the following steps which will cause a failure in connection monitoring:
+By default, Azure allows communication over all ports between VMs in the same virtual network. Over time, you, or someone in your organization, might override Azure's default rules, inadvertently causing a communication failure. Complete the following steps to create a communication problem and then view the connection monitor again:
 
 1. In the search box at the top of the portal, enter *myResourceGroup*. When the **myResourceGroup** resource group appears in the search results, select it.
 2. Select the **myVm2-nsg** network security group.
@@ -116,7 +118,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
     ![Inbound security rules](./media/connection-monitor/inbound-security-rules.png)
 
-4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **OK**:
+4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **Add**:
 
     | Setting                 | Value          |
     | ---                     | ---            |
@@ -125,16 +127,16 @@ By default, Azure allows communication over all ports between VMs in the same vi
     | Priority                | 100            |
     | Name                    | DenySshInbound |
 
-5. Since connection monitor probes at 60 second intervals, wait a few minutes and then complete steps 1 and 2 in [View a connection monitor](#view-a-connection-monitor) again. The results are different now, as shown in the following picture:
+5. Since connection monitor probes at 60 second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and thenselect the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
     ![Monitor details fault](./media/connection-monitor/vm-monitor-fault
 .png)
 
-    You can see that there's a red exclamation icon in the status column for the network interface in the myVm2 VM. 
+    You can see that there's a red exclamation icon in the status column for the **myvm2529** network interface.
 
-6. To learn why the status has changed, select the *myvm2529* network interface. Connection monitor informs you that the issue is *Traffic blocked due to the following network security group rule: UserRule_DenySshInbound*.
+6. To learn why the status has changed, select 10.0.0.5, in the previous picture. Connection monitor informs you that the reason for the communication failure is: *Traffic blocked due to the following network security group rule: UserRule_DenySshInbound*.
 
-    If someone other than you had implemented the rule you created in [Create a network security group rule](#create-a-network-security-group-rule), you'd know that this rule is causing the communication problem. You could then change, override, or remove the rule to restore communication between the VMs. 
+    If you didn't know that someone had implemented the security rule you created in step 4, you'd learn from connection monitor that the rule is causing the communication problem. You could then change, override, or remove the rule, to restore communication between the VMs.
 
 ## Next steps
 
@@ -143,4 +145,4 @@ In this tutorial you learn how to monitor a connection between two VMs. You can 
 If you are having communication problems between your on-premises network and a virtual network, there may be a problem with the Azure virtual network gateway that connects your on-premises network with your virtual network. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
 
 > [!div class="nextstepaction"]
-> [Diagnose a problem with a virtual network gateway](network-watcher-troubleshoot-manage-portal)
+> [Diagnose a problem with a virtual network gateway](network-watcher-troubleshoot-manage-portal.md)
