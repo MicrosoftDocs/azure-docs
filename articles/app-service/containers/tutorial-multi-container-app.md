@@ -1,7 +1,7 @@
 ---
 title: Using multiple containers (preview) on Web App for Containers - Azure | Microsoft Docs
 description: How to use a multi-container app for Web App for Containers.
-keywords: azure app service, web app, linux, docker, compose, kubernetes, multi-container, container
+keywords: azure app service, web app, linux, docker, compose, multi-container, container
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Create a multi-container (preview) app using Web App for Containers
 
 > [!NOTE]
-> Deployment to multiple containers is currently in preview. In this tutorial, you will learn how to take an existing .yaml configuration (Docker Compose or Kubernetes) and deploy to Web App for Containers using the Azure Cloud Shell.
+> Deployment to multiple containers is currently in preview. In this tutorial, you will learn how to take an existing .yaml configuration (Docker Compose) and deploy to Web App for Containers using the Azure Cloud Shell.
 
 [Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom Docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
@@ -44,7 +44,7 @@ To complete this tutorial, you need:
 
 ## Using a Docker Compose configuration
 
-In this section, you will learn how to use a Docker Compose configuration in Web App for Containers. To use a Kuberentes configuration, follow the steps at [Use a Kubernetes configuration](#using-a-kubernetes-configuration-optional) instead for the rest of the tutorial.
+In this section, you will learn how to use a Docker Compose configuration in Web App for Containers. <!--To use a Kuberentes configuration, follow the steps at [Use a Kubernetes configuration](#using-a-kubernetes-configuration-optional) instead for the rest of the tutorial.-->
 
 ```yaml
 version: '3.3'
@@ -56,7 +56,7 @@ services:
        - db_data:/var/lib/mysql
      restart: always
      environment:
-       MYSQL_ROOT_PASSWORD: mysqldbpass
+       MYSQL_ROOT_PASSWORD: examplepass
 
    wordpress:
      depends_on:
@@ -66,7 +66,7 @@ services:
        - "8000:80"
      restart: always
      environment:
-       WORDPRESS_DB_PASSWORD: mysqldbpass
+       WORDPRESS_DB_PASSWORD: examplepass
 volumes:
     db_data:
 ```
@@ -106,13 +106,13 @@ version: '3.3'
 services:
 
   mysql:
-    container_name: mysql57
+    container_name: mysql
     image: mysql:5.7
     volumes:
       - ${WEBAPP_STORAGE_HOME}/site/data:/var/lib/mysql
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: mysqldbpass
+      MYSQL_ROOT_PASSWORD: examplepass
 
   wordpress:
     container_name: wordpress
@@ -123,21 +123,21 @@ services:
     ports:
       - 8080:80
     environment:
-      WORDPRESS_DB_PASSWORD: mysqldbpass
+      WORDPRESS_DB_PASSWORD: examplepass
 ```
 
 
 ## Create a multi-container app (Docker)
 
 <!--Change this to a create command 
+az webapp config container set --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml 
 
 -->
 
 In the Cloud Shell, create a multi-container [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) command. Don't forget to replace _\<app_name>_ with a unique app name.
 
 ```azurecli-interactive
-az webapp config container set --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yml 
-
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file "https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml"
 ```
 
 When the web app has been created, the Azure CLI shows output similar to the following example:
@@ -175,12 +175,13 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Browse to the deployed app using your web browser.(`http://<app_name>.azurewebsites.net`). 
 
-
-The multi-container sample is running in Web App for Containers.
+The app is now running multiple containers in Web App for Containers.
 
 ![Sample multi-container app on Web App for Containers](media/tutorial-multi-container-app/AzureMultiContainerWordPressInstall.png)
 
-**Congratulations**, you've created a multi-container app on Web App for Containers. If you're only looking for Docker Compose instructions, you're done. See [next steps](#next-steps).
+**Congratulations**, you've created a multi-container app on Web App for Containers.
+
+<!-- If you're only looking for Docker Compose instructions, you're done. See [next steps](#next-steps).
 
 ## Use a Kubernetes configuration (optional)
 
@@ -190,19 +191,44 @@ In this section, you will learn how to use a Kubernetes configuration to deploy 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx
+  name: wordpress
+  labels:
+    name: wordpress
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.7.9
-    ports:
-    - containerPort: 80
-  - name: redis
-    image: redis
-  - name: ubuntu
-    image: ubuntu:latest
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do echo hello; sleep 10; done"]
+   - image: mysql:5.7
+     name: mysql
+     env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: examplepass
+          
+     ports:
+     - containerPort: 3306
+       name: mysql
+
+     volumeMounts:
+     - name: appservice-storage
+       mountPath: /var/lib/mysql
+       subPath: /mysql
+       
+   - image: wordpress
+     name: wordpress
+     ports:
+     - containerPort: 80
+       name: wordpress
+     env:
+        - name: WORDPRESS_DB_PASSWORD
+          value: examplepass
+
+     volumeMounts:
+      - name: appservice-storage
+        mountPath: /var/www/html
+        subPath: /site/wwwroot
+        
+  volumes:
+    - name: appservice-storage
+      hostConfig:
+        path: ${WEBAPP_STORAGE_HOME}
 
 ```
 
@@ -237,6 +263,7 @@ az webapp config container set --resource-group myResourceGroup --plan myAppServ
   }
 ]
 ```
+-->
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
 
