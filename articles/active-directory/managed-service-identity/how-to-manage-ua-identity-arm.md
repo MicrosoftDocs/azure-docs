@@ -1,4 +1,4 @@
----
+﻿---
 title: How to create and delete a user assigned Managed Service Identity using Azure Resource Manager
 description: Step by step instructions on how to create and delete user assigned Managed Service Identity using Azure Resource.
 services: active-directory
@@ -31,7 +31,7 @@ It is not possible to list and delete a user assigned identity using an Azure Re
 ## Prerequisites
 
 - If you're unfamiliar with Managed Service Identity, check out the [overview section](overview.md). **Be sure to review the [difference between a system assigned and user assigned identity](overview.md#how-does-it-work)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 
 Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM. Also ensure that your account belongs to a role that gives you write permissions on the VM (for example, the role of “Virtual Machine Contributor”).
 

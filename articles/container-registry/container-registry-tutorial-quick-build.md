@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/23/2018
+ms.date: 04/27/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -32,7 +32,7 @@ In this tutorial, part one of a series:
 In subsequent tutorials, you learn to use ACR Build's build tasks for automated container image builds on code commit and base image update.
 
 > [!IMPORTANT]
-> ACR Build is in currently in preview, and is supported only by Azure container registries in the **EastUS** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> ACR Build is in currently in preview, and is supported only by Azure container registries in the **East US**  (eastus) and **West Europe** (westeurope) regions. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -120,7 +120,7 @@ With the container registry environment variable populated, you should now be ab
 RES_GROUP=$ACR_NAME # Resource Group name
 
 az group create --resource-group $RES_GROUP --location eastus
-az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard
+az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
 Now that you have a registry, use ACR Build to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *Quick Build*:
