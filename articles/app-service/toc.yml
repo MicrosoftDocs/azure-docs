@@ -187,6 +187,10 @@
       href: web-sites-create-web-jobs.md
     - name: Develop WebJobs using VS
       href: websites-dotnet-deploy-webjobs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md
 - name: Reference
   items:
   - name: Azure CLI
