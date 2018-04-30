@@ -92,4 +92,4 @@ This article describes how to create and configure a classroom lab, view all cla
 Get started with setting up a lab using Azure Lab Services:
 
 - [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a self-managed lab](tutorial-create-custom-lab.md)
+- [Set up a custom lab](tutorial-create-custom-lab.md)
