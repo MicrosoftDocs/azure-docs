@@ -381,7 +381,13 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new [Azure Web App](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
-When creating these resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
+The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI 2.0:
+
+```azurecli-interactive
+az extension add -n signalr
+```
+
+When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
 Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to create the variables:
 
