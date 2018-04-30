@@ -1,6 +1,6 @@
 ---
-title: Configure automated message routing with Azure IoT Hub (.NET) | Microsoft Docs
-description: Configure automated message routing with Azure IoT Hub 
+title: Configure message routing with Azure IoT Hub (.NET) | Microsoft Docs
+description: Configure message routing with Azure IoT Hub 
 services: iot-hub
 documentationcenter: .net
 author: robinsh
@@ -19,20 +19,20 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message.
 ---
 
-# Tutorial: Configure automated message routing with IoT Hub
+# Tutorial: Configure message routing with IoT Hub
 
-In this tutorial, you learn how to set up and use automated routing with IoT Hub to route messages from an IoT device to one of multiple services, such as a storage account or a service bus queue. 
+In this tutorial, you learn how to set up and use routing with IoT Hub to route messages from an IoT device to one of multiple services, such as a storage account or a Service Bus queue. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a service bus queue, and a simulated device.
+> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
 > * Configure endpoints and routes in IoT hub. 
-> * Create a Logic App that is triggered when a message is added to the service bus queue.
+> * Create a Logic App that is triggered when a message is added to the Service Bus queue.
 > * Download and run an app that simulates an IoT Device sending messages to the hub. 
 > * Create a PowerBI visualization for the default endpoint.
 > * View the results ...
-> * ...in the service bus queue/e-mails.
+> * ...in the Service Bus queue/e-mails.
 > * ...in the storage account.
 > * ...in the PowerBI visualization.
 
@@ -73,19 +73,19 @@ This tutorial requires Azure PowerShell module version 5.7 or later. Run `Get-Mo
 
 ## Set up resources
 
-For this tutorial, you need an IoT hub, a storage account, and a service bus queue. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
+For this tutorial, you need an IoT hub, a storage account, and a Service Bus queue. These resources can all be created using Azure CLI or Azure PowerShell. Use the same resource group and location for all of the resources. Then at the end, you can remove everything in one step by deleting the resource group.
 
-Here are the steps described in the following sections: 
+The following sections describe how to do these required steps. Follow the CLI *or* the PowerShell instructinos.
 
 1. Create a [resource group](../azure-resource-manager/resource-group-overview.md). 
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. Create an IoT hub in the Standard 1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
+2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
 
 3. Create a standard V1 storage account with Standard_LRS replication.
 
-4. Create a service bus namespace and queue. 
+4. Create a Service Bus namespace and queue. 
 
 5. Create a device identity for the simulated device that sends messages to your hub. Save the key for the testing phase.
 
@@ -150,12 +150,12 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
-# Create the service bus namespace.
+# Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
 	
-# Create the service bus queue to be used as a routing destination.
+# Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
 	--resource-group $resourceGroup
@@ -224,12 +224,12 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
-# Create the service bus namespace.
+# Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
 
-# Create the service bus queue to be used as a routing destination.
+# Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
     -Namespace $serviceBusNamespace `
     -Name $serviceBusQueueName 
@@ -254,14 +254,14 @@ Next, create a device identity and save its key for later use. This device ident
 
 
 
-## Custom routing
+## Set up message routing
 
 You are going to route messages to different resources based on properties attached to the message by the simulated device. Messages that are not custom routed are sent to the default endpoint (messages/events). 
 
 |value |Result|
 |------|------|
 |level="storage" |Write to Azure Storage.|
-|level="critical" |Write to a service bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
+|level="critical" |Write to a Service Bus queue. A Logic App retrieves the message from the queue and uses Office 365 to e-mail the message.|
 |default |Display this data using PowerBI.|
 
 ### Routing to a storage account 
@@ -292,11 +292,11 @@ Now set up the routing for the storage account. Define an endpoint, and then set
 
    ![Screenshot showing creating a routing rule for the storage account.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
    
-   Click **Save**. When it finishes, it returns to the Routes pane, where you can see your new custom routing rule for storage. Close the Routes pane, which returns you to the Resource group page.
+   Click **Save**. When it finishes, it returns to the Routes pane, where you can see your new routing rule for storage. Close the Routes pane, which returns you to the Resource group page.
 
 ### Routing to a Service Bus queue 
 
-Now set up the routing for the service bus queue. Define an endpoint, and then set up a route for that endpoint. Messages where the **level** property is set to **critical** are written to the service bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
+Now set up the routing for the Service Bus queue. Define an endpoint, and then set up a route for that endpoint. Messages where the **level** property is set to **critical** are written to the Service Bus queue, which triggers a Logic App, which then sends an e-mail with the information. 
 
 1. On the Resource group page, click your IoT hub, then click **Endpoints**. In the **Endpoints** pane, click **+Add**. Enter the following information.
 
@@ -304,15 +304,15 @@ Now set up the routing for the service bus queue. Define an endpoint, and then s
 
    **Endpoint Type**: Select **Service Bus queue** from the dropdown list.
 
-   **Service Bus namespace**: Select the namespace of the service bus for this tutorial from the dropdown list. This tutorial uses **ContosoSBNamespace**.
+   **Service Bus namespace**: Select the Service Bus namespace for this tutorial from the dropdown list. This tutorial uses **ContosoSBNamespace**.
 
-   **Service Bus queue**: Select the service bus queue from the dropdown list. This tutorial uses **contososbqueue**.
+   **Service Bus queue**: Select the Service Bus queue from the dropdown list. This tutorial uses **contososbqueue**.
 
-   ![Screenshot showing adding an endpoint for the service bus queue.](./media/tutorial-routing/add-endpoint-sb-queue.png)
+   ![Screenshot showing adding an endpoint for the Service Bus queue.](./media/tutorial-routing/add-endpoint-sb-queue.png)
 
    Click **OK** to save the endpoint. After it's finished, close the Endpoints pane. 
     
-2. Click **Routes** on your IoT hub. You're going to create a routing rule that routes messages to the service bus queue you just added as an endpoint. Click **+Add** at the top of the Routes pane. Fill in the fields on the screen. 
+2. Click **Routes** on your IoT hub. You're going to create a routing rule that routes messages to the Service Bus queue you just added as an endpoint. Click **+Add** at the top of the Routes pane. Fill in the fields on the screen. 
 
    **Name**: Enter a name for your routing rule. This tutorial uses **SBQueueRule**. 
 
@@ -322,9 +322,9 @@ Now set up the routing for the service bus queue. Define an endpoint, and then s
 
    **Query string**: Enter `level="critical"` as the query string. 
 
-   ![Screenshot showing creating a routing rule for the service bus queue.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   ![Screenshot showing creating a routing rule for the Service Bus queue.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
    
-   Click **Save**. When it returns to the Routes pane, you see both of your new custom routing rules, as displayed here.
+   Click **Save**. When it returns to the Routes pane, you see both of your new routing rules, as displayed here.
 
    ![Screenshot showing the routes you just set up.](./media/tutorial-routing/show-routing-rules-for-hub.png)
 
@@ -332,7 +332,7 @@ Now set up the routing for the service bus queue. Define an endpoint, and then s
 
 ## Create a Logic App  
 
-The service bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the service bus queue, and send an e-mail when a message is added to the queue. 
+The Service Bus queue is to be used for receiving messages designated as critical. Set up a Logic app to monitor the Service Bus queue, and send an e-mail when a message is added to the queue. 
 
 1. In the [Azure portal](https://portal.azure.com), click **+ Create a resource**. Put **logic app** in the search box and click Enter. From the search results displayed, select Logic App, then click **Create** to continue to the **Create logic app** pane. Fill in the fields. 
 
@@ -362,9 +362,9 @@ The service bus queue is to be used for receiving messages designated as critica
 
 6. On the next screen, fill in the Connection Name. This tutorial uses **ContosoConnection**. 
 
-   ![Screenshot showing setting up the connection for the service bus queue.](./media/tutorial-routing/logic-app-define-connection.png)
+   ![Screenshot showing setting up the connection for the Service Bus queue.](./media/tutorial-routing/logic-app-define-connection.png)
 
-   Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the service bus to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**. 
+   Click the Service Bus namespace. This tutorial uses **ContosoSBNamespace**. When you select the namespace, the portal queries the Service Bus namespace to retrieve the keys. Select **RootManageSharedAccessKey** and click **Create**. 
    
    ![Screenshot showing finishing setting up the connection.](./media/tutorial-routing/logic-app-finish-connection.png)
 
@@ -486,7 +486,7 @@ After opening the app, open Program.cs. Substitute `{iot hub hostname}` with the
 
 Run the console application. Wait a few minutes. You can see the messages being sent on the console screen of the application.
 
-The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the service bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
+The app sends a new device-to-cloud message to the IoT hub every second. The message contains a JSON-serialized object with the device ID, temperature, humidity, and message level, which defaults to `normal`. It randomly assigns a level of `critical` or `storage`, causing the message to be routed to the storage account or to the Service Bus queue (which triggers your Logic App to send an e-mail). The default (`normal`) readings will be displayed in the BI report you set up next.
 
 If everything is set up correctly, at this point you should see the following results:
 
@@ -510,7 +510,7 @@ This means the following:
 
 Now with the application still running, set up the PowerBI visualization to see the messages coming through the default routing. 
 
-## Set up PowerBI
+## Set up the PowerBI Visualizations
 
 1. Sign in to your [PowerBI](https://powerbi.microsoft.com/) account.
 
@@ -578,17 +578,17 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned how to use custom routing to route IoT Hub messages to different destinations by following each of these steps. 
+In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by following each of these steps. 
 
 > [!div class="checklist"]
-> * Using Azure CLI or PowerShell, create an IoT hub, storage account, and service bus queue. 
+> * Using Azure CLI or PowerShell, create an IoT hub, storage account, and Service Bus queue. 
 > * Configure endpoints and routes in the IoT hub. 
-> * Create a Logic App to send e-mail when a message is received by the service bus queue. 
+> * Create a Logic App to send e-mail when a message is received by the Service Bus queue. 
 > * Using Azure CL Ior PowerShell, register a device with the IoT hub.
 > * Download and run an app that simulates an IoT Device sending messages to the hub. 
 > * Create a PowerBI visualization for the default endpoint.
 > * Run the device simulator and view the results...
-> * ...in the service bus queue/e-mails.
+> * ...in the Service Bus queue/e-mails.
 > * ...in the storage account.
 > * ...in the PowerBI visualization.
 
