@@ -23,7 +23,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Deploy Azure Blockchain Workbench</a>
+    - html: <a href="/azure/blockchain-workbench/blockchain-workbench-deploy">Deploy Azure Blockchain Workbench</a>
     - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Create a blockchain app</a>
     - html: <a href="/azure/blockchain-workbench/blockchain-workbench-overview">Use a blockchain app</a>
 - title: Reference
@@ -33,4 +33,4 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://review.docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/azure-blockchain-workbench">REST API</a></p>
