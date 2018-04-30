@@ -82,14 +82,13 @@ Spark clusters in HDInsight enable the following key scenarios:
 
     Apache Spark in HDInsight stores data in Azure Storage or Azure Data Lake Store. Business experts and key decision makers can analyze and build reports over that data and use Microsoft Power BI to build interactive reports from the analyzed data. Analysts can start from unstructured/semi structured data in cluster storage, define a schema for the data using notebooks, and then build data models using Microsoft Power BI. Spark clusters in HDInsight also support a number of third-party BI tools such as Tableau making it easier for data analysts, business experts, and key decision makers.
 
-    [tutorial: Visualize Spark data using Power BI](apache-spark-use-bi-tools.md)
+    [Tutorial: Visualize Spark data using Power BI](apache-spark-use-bi-tools.md)
 - Spark Machine Learning
 
     Apache Spark comes with [MLlib](http://spark.apache.org/mllib/), a machine learning library built on top of Spark that you can use from a Spark cluster in HDInsight. Spark cluster in HDInsight also includes Anaconda, a Python distribution with a variety of packages for machine learning. Couple this with a built-in support for Jupyter and Zeppelin notebooks, and you have an environment for creating machine learning applications.
 
-    [tutorial: Predict building temperatures using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-
-    [tutorial: Predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)    
+    [Tutorial: Predict building temperatures using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
+    [Tutorial: Predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)    
 - Spark streaming and real-time data analysis
 
     Spark clusters in HDInsight offer a rich support for building real-time analytics solutions. While Spark already has connectors to ingest data from many sources like Kafka, Flume, Twitter, ZeroMQ, or TCP sockets, Spark in HDInsight adds first-class support for ingesting data from Azure Event Hubs. Event Hubs is the most widely used queuing service on Azure. Having an out-of-the-box support for Event Hubs makes Spark clusters in HDInsight an ideal platform for building real-time analytics pipeline.
