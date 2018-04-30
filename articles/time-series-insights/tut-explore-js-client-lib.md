@@ -21,7 +21,7 @@ ms.author: bryanla
 
 # Tutorial: Explore the Time Series Insights JavaScript client library
 
-This tutorial guides you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming model. The topics discussed will provide you with opportunities to experiment, and gain a deeper understanding of how the library makes it easy to access data from a TSI environment, and use chart controls to render and visualize the data. The goal is to provide you with enough details, that you can use the library in your own web application.
+This tutorial guides you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming model. The topics discussed provide you with opportunities to experiment, gain a deeper understanding of how to access TSI data, and use chart controls to render and visualize data. The goal is to provide you with enough details, that you can use the library in your own web application.
 
 In this tutorial, you learn about:
 
@@ -42,32 +42,46 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 <!--
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 -->
-This tutorial makes heavy use of the "Developer Tools" feature (also known as F12 or DevTools), found in most browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern web browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
+This tutorial makes heavy use of the "Developer Tools" feature (also known as DevTools or F12), found in most browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern web browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
-## TSI sample application overview
+## TSI sample application
 
-Throughout this tutorial, we will be using the Time Series Insights sample application to explore the TSI JavaScript library. The sample application is a Single-Page web Application (SPA), which showcases the use of the library for querying and visualizing data from a sample TSI environment. Fundamentally, the library provides an abstraction for two important categories :
-- the TSI environment REST APIs used for querying data
-- the charting controls used for rendering data in a web page
-
-TODO: Stuff to integrate below:
-- Talk about the structure of the HTML downloaded from the SPA web app. 
-- Talk about the fact that it uses a couple of additional CSS files for styling, uses DIVs for formatting/placement, and uses TSClient.js library to make API calls and render UX/controls.
+Throughout this tutorial, you use a Time Series Insights sample application to explore the TSI JavaScript library. The sample application is a Single-Page web Application (SPA), which showcases the use of the library for querying and visualizing data from a sample TSI environment. 
 
 1. Navigate to the [Time Series Insights sample application](https://tsiclientsample.azurewebsites.net/)
    ![TSI Client Sample sign-in prompt](media/tut-explore-js-client-lib/tcs-sign-in.png)
 
-2. Click the "Log in" button. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). If this is the first time you've used the application with a given account, you'll also be prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retreive data.  
+2. Click the "Log in" button. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
    ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-consent.png)
 
-3. After successful sign-in, you should see the a page similar to the following, containing several styles of charts, populated with TSI data:
+3. After successful sign-in, you should see a page similar to the following, containing several styles of charts, populated with TSI data:
    ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
 
+### Page source code and structure
 
-## Exploring the single-page source
+Now let's view the source code behind the page that rendered in your browser as the TSI sample application. We won't walk through everything, but we discuss the major sections of the code, and give you sense of what the page is doing:
 
+1. Open "Developer Tools" in your browser, and inspect the elements that make up the current page, also known as the HTML or DOM tree:
 
-## Exploring the pie, line, and bar charts
+2. The page contains, among many other things, the following major sections:
+   - The \<head\> element, which pulls in additional files to assist in the functioning of the page:
+     - Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides  OAuth 2.0 authentication (sign-in) and acquisition of an OAuth access token for accessing APIs.
+     - Additional style sheets (sampleStyles.css, tsiclient.css) - also known as CSS, these are used to control page styling, such as colors, fonts, spacing, etc.
+     - TSI Client library (tsiclient.js) - this is the JavaScript library used by the page to call TSI APIs and render chart controls on the page.
+   - Log In dialog
+   - Main page 
+     - layout for the chart controls
+     - JavaScript that manages TSI environment API calls, and rendering of the chart controls.
+
+### TSI JavaScript library
+
+Fundamentally, the library provides an abstraction for two important categories :
+- the TSI environment REST APIs used for querying data
+- the charting controls used for rendering data in a web page
+
+As you explore more of the source code below, and walk through specific examples, you will see the programming model and API patterns take shape.
+
+## Explore pie, line, and bar charts
 
 First, lets look at some of the standard chart controls as demonstrated in the TSI Client Sample application. 
 
@@ -75,7 +89,7 @@ First, lets look at some of the standard chart controls as demonstrated in the T
 
 Go through the steps from the video.
 
-## Exploring states and events
+## Explore states and events
 
 Go through teh steps from the video.
 
