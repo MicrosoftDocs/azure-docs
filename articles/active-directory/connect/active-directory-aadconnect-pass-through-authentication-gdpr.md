@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect - Pass-through Authentication - GDPR compliance | Microsoft Docs
+title: User Privacy and Azure Active Directory Pass-through Authentication | Microsoft Docs
 description: This article deals with Azure Active Directory (Azure AD) Pass-through Authentication and GDPR compliance.
 services: active-directory
 keywords: Azure AD Connect Pass-through Authentication, GDPR, required components for Azure AD, SSO, Single Sign-on
@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/28/2018
 ms.author: billmath
 ms.custom: seohack1
 ---
 
-# Azure Active Directory Pass-through Authentication: GDPR compliance
+# User Privacy and Azure Active Directory Pass-through Authentication
+
+
+[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## Overview
-
-In May 2018, a European privacy law, the [General Data Protection Regulation (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm), is due to take effect. The GDPR imposes new rules on companies, government agencies, non-profits, and other organizations that offer goods and services to people in the European Union (EU), or that collect and analyze data tied to EU residents. The GDPR applies no matter where you are located. 
-
-Microsoft products and services are available today to help you meet the GDPR requirements. Read more about Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
 Azure AD Pass-through Authentication creates the following log types, which can contain EUII:
 
@@ -31,7 +30,7 @@ Azure AD Pass-through Authentication creates the following log types, which can 
 - Authentication Agent trace log files.
 - Windows Event log files.
 
-GDPR compliance for Pass-through Authentication can be reached in two ways:
+User privacy for Pass-through Authentication can be reached in two ways:
 
 1.	Upon request, extract data for a person and remove data from that person from the installations.
 2.	Ensure no data is retained beyond 48 hours.
@@ -100,4 +99,5 @@ To schedule this script to run every 48 hours follow these steps:
 If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
+* [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
 - [**Troubleshoot**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - Learn how to resolve common issues with the feature.

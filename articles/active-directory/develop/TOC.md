@@ -69,9 +69,9 @@
 ## [ACS Migration](active-directory-acs-migration.md)
 ## [Error handling best practices for ADAL](active-directory-devhowto-adal-error-handling.md)
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Auth libraries (ADAL)](active-directory-authentication-libraries.md)
-## [Code samples article](active-directory-code-samples.md)
+## [Code samples by scenario](active-directory-code-samples.md)
 ## [Glossary](active-directory-dev-glossary.md)
 ## [Authentication protocols](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
@@ -110,8 +110,10 @@
 #### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Guides
 ### [Register an app](active-directory-v2-app-registration.md)
+### [App registration reference](active-directory-v2-registration-portal.md)
 ## Reference
 ### [Authentication libraries](active-directory-v2-libraries.md)
+### [v2.0 code samples by scenario](active-directory-v2-code-samples.md)
 ### [v2.0 authentication protocols](active-directory-v2-protocols.md)
 #### [OpenID Connect](active-directory-v2-protocols-oidc.md)
 #### [OAuth 2.0 authorization code grant](active-directory-v2-protocols-oauth-code.md)
