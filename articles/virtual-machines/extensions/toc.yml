@@ -22,19 +22,19 @@
     href: features-windows.md
 - name: How-to guides
   items:
-  - name: Custom Script extension
+  - name: Custom Script
     items:
     - name: Linux
       href: custom-script-linux.md
     - name: Windows
       href: custom-script-windows.md
-  - name: OMS extension
+  - name: Operations Management suite
     items:
     - name: Linux
       href: oms-linux.md
     - name: Windows
       href: oms-windows.md
-  - name: Diagnostics extension
+  - name: Diagnostics 
     items:
     - name: Linux
       href: diagnostics-linux.md
@@ -48,7 +48,7 @@
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
-  - name: PowerShell DSC extension
+  - name: PowerShell DSC 
     href: dsc-overview.md
     items:
     - name: DSC and Windows
@@ -59,9 +59,9 @@
       href: dsc-template.md
   - name: IaaS antimalware for Windows
     href: iaas-antimalware-windows.md
-  - name: Key Vault extension
+  - name: Key Vault 
     href: key-vault-windows.md
-  - name: VM Snapshot extension
+  - name: VM Snapshot 
     items:
     - name: Linux
       href: vmsnapshot-linux.md
@@ -75,7 +75,7 @@
       href: symantec.md
   - name: Deprecated extensions
     items:
-    - name: Log Collector extension
+    - name: Log collector
       href: log-collector.md
     - name: Trend Micro Deep Security
       href: trend.md
