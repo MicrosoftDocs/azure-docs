@@ -110,10 +110,10 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
 
     | Item                     | Value                      | Details                                                     |
     | ---------                | ---------                  |--------                                                     |
-    | Status                   | Reachable                  | This lets you know whether the endpoint is reachable or not.|
-    | AVG. ROUND-TRIP          | This lets you know the round-trip time to make the connection, in milliseconds. Connection monitor probes the connection every 60 seconds, so you can monitor latency over time.                                         |
-    | Hops                     | Connection monitor lets you know the hops between the two endpoints. In this example, the connection is between two VMs in the same virtual network, so there is only one hop, to the 10.0.0.5 IP address. If any existing system or custom routes routed traffic between the VMs through a VPN gateway, or network virtual appliance, for example, additional hops are listed.                                                                                                                         |
-    | STATUS                   | The green check marks for each endpoint lets you know that each endpoint is healthy.    ||
+    | Status                   | Reachable                  | Lets you know whether the endpoint is reachable or not.|
+    | AVG. ROUND-TRIP          | Lets you know the round-trip time to make the connection, in milliseconds. Connection monitor probes the connection every 60 seconds, so you can monitor latency over time.                                         |
+    | Hops                     | Connection monitor lets you know the hops between the two endpoints. In this example, the connection is between two VMs in the same virtual network, so there is only one hop, to the 10.0.0.5 IP address. If any existing system or custom routes, route traffic between the VMs through a VPN gateway, or network virtual appliance, for example, additional hops are listed.                                                                                                                         |
+    | STATUS                   | The green check marks for each endpoint let you know that each endpoint is healthy.    ||
 
 ## View a problem
 
@@ -134,7 +134,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
     | Priority                | 100            |
     | Name                    | DenySshInbound |
 
-5. Since connection monitor probes at 60 second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and thenselect the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
+5. Since connection monitor probes at 60-second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
     ![Monitor details fault](./media/connection-monitor/vm-monitor-fault
 .png)
@@ -145,9 +145,17 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
     If you didn't know that someone had implemented the security rule you created in step 4, you'd learn from connection monitor that the rule is causing the communication problem. You could then change, override, or remove the rule, to restore communication between the VMs.
 
+## Clean up resources
+
+When no longer needed, delete the resource group and all of the resources it contains:
+
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal. When you see **myResourceGroup** in the search results, select it.
+2. Select **Delete resource group**.
+3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME:** and select **Delete**.
+
 ## Next steps
 
-In this tutorial you learn how to monitor a connection between two VMs. You can also monitor a connection between a VM, a fully-qualified domain name, a uniform resource identifier, or an IP address.
+In this tutorial, you learned how to monitor a connection between two VMs. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
 
 At some point, you may find that resources in a virtual network are unable to communicate with resources in other networks connected by an Azure virtual network gateway. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
 

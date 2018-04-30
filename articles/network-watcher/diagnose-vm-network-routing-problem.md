@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Tutorial: Diagnose a virtual machine network routing problem using the Azure portal
 
-When you deploy a virtual machine (VM), Azure creates several default routes for it. You may create custom routes to override Azure's default routes. Sometimes, a custom route can result in a VM's not being able to communicate with other resources. In this tutorial, you learn how to:
+When you deploy a virtual machine (VM), Azure creates several default routes for it. You may create custom routes to override Azure's default routes. Sometimes, a custom route can result in a VM not being able to communicate with other resources. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a VM
