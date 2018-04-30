@@ -22,7 +22,7 @@ The Shaper skill allows you to essentially create a structure, define the name o
 
 By default, this technique supports objects that are one level deep. For more complex objects, you can chain several Shaper steps.
 
-In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This point might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
+In the response, the output name is always "output". Internally, the pipeline can map a different name, such as "analyzedText" in the examples below to "output", but the Shaper skill itself returns "output" in the response. This might be important if you are debugging enriched documents and notice the naming discrepancy, or if you build a custom skill and are structuring the response yourself.
 
 
 ## @odata.type  
@@ -32,7 +32,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 Consider a scenario where you want to create a structure called *analyzedText* that has two members: *text* and *sentiment*, respectively. In Azure Search, a multi-part searchable field is called a *complex type*, and it's not yet supported out of the box. In this preview, a Shaper skill can be used to generate fields of a complex type in your index. 
 
-This example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
+The following example provides the member names as the input. The output structure (your complex field in Azure Search) is specified through *targetName*. 
 
 
 ```json

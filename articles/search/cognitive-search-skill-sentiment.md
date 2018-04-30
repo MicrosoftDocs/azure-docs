@@ -24,7 +24,7 @@ The **Sentiment** skill evaluates unstructured text along a positive-negative co
 Microsoft.Skills.Text.SentimentSkill
 
 ## Data limits
-The maximum size of a record should be 5000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 5000 characters as measured by `String.Length`. If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 
 ## Skill parameters
@@ -33,14 +33,14 @@ Parameters are case-sensitive.
 
 | Parameter Name |                      |
 |----------------|----------------------|
-| defaultLanguageCode | (optional) The language code to apply to documents that don't specify language explicitly. <br/>[Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) |
+| defaultLanguageCode | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
 | text | The text to be analyzed.|
-| languageCode	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>[Full list of supported languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| languageCode	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## Skill outputs
 
