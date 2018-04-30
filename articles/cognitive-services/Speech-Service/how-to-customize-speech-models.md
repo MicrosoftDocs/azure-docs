@@ -121,4 +121,4 @@ Choose the models you want to use in the Acoustic Model and Language Model lists
 
 Click **Create** after choosing the models. Your new endpoint may take up to 30 minutes to provision.
 
-When your endpoint is ready, click it in the Deployments table to see its URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text), the [WebSockets API](websockets.md#speech-to-text, and the [Speech SDK](speech-sdk.wd). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
+When your endpoint is ready, click it in the Deployments table to see its URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text), the [WebSockets API](websockets.md#speech-to-text, and the [Speech SDK](speech-sdk.md). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
