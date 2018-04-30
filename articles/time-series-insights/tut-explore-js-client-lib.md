@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bryanla
-# Customer intent: As a developer, I want learn about the TSI JavaScript library, so I can use them in my own apps.
+# Customer intent: As a developer, I want learn about the TSI JavaScript library, so I can use the APIs in my own applications.
 ---
 
 # Tutorial: Explore the Time Series Insights JavaScript client library
 
-This tutorial will guide you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming models. The topics discussed will provide you with opportunities to experiment, and gain a deeper understanding of how the library makes it easy to both access data from your TSI environment, and use chart  controls to render and visualize the data. The goal is to provide you with enough details, that you can use the library in your own web application.
+This tutorial guides you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming model. The topics discussed will provide you with opportunities to experiment, and gain a deeper understanding of how the library makes it easy to access data from a TSI environment, and use chart controls to render and visualize the data. The goal is to provide you with enough details, that you can use the library in your own web application.
 
 In this tutorial, you learn about:
 
@@ -42,7 +42,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 <!--
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 -->
-This tutorial will make heavy use of the "Developer Tools" feature (also known as F12 or DevTools), found in most web browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
+This tutorial makes heavy use of the "Developer Tools" feature (also known as F12 or DevTools), found in most browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern web browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
 ## TSI sample application overview
 
@@ -61,10 +61,10 @@ TODO: Stuff to integrate below:
    ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-consent.png)
 
 3. After successful sign-in, you should see the a page similar to the following, containing several styles of charts, populated with TSI data:
-   ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/main-after-sign-in.png)
+   ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
 
 
-
+## Exploring the single-page source
 
 
 ## Exploring the pie, line, and bar charts
