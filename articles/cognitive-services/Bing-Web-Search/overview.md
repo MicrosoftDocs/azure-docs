@@ -225,7 +225,7 @@ The following shows an example of how you might display articles in a search res
 
 For details about the news answer and news articles, see [News Search API](../bing-news-search/search-the-web.md).
 
-## Computation answer
+### Computation answer
 
 If the user enters a mathematical expression or a unit conversion query, the response may contain a [Computation](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#computation) answer. The `computation` answer contains the normalized expression and its result.
 
@@ -253,7 +253,7 @@ Encoded query: %285%2B3%29%2810%2F2%29%2B8
     "id": "https:\/\/www.bing.com\/api\/v7\/#Computation",
     "expression": "((5+3)*(10\/2))+8",
     "value": "48"
-}  
+}
 ```
 
 ```
