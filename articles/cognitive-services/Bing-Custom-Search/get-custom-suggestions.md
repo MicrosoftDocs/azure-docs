@@ -13,7 +13,7 @@ ms.author: v-brapel
 ---
 
 # Get custom suggestions
-Before sending queries to Bing Custom Search, call the Custom Autosuggest API to make search term suggestions and enhance the search experience. The Custom Autosuggest API returns a list of suggested queries based on a partial query string that the user provides. Any relevant custom query terms that you specify appear before the suggestions that Autosuggest generates, see [Define custom search suggestions](define-custom-suggestions.md).
+Before sending queries to Bing Custom Search, call the Custom Autosuggest API to make search term suggestions and enhance the search experience. The Custom Autosuggest API returns a list of suggested queries based on a partial query string that the user provides. Any relevant custom query terms that you specify appear before the suggestions that Autosuggest generates. For more information, see [Define custom search suggestions](define-custom-suggestions.md).
 
 ## Endpoint
 To get suggested queries using the Bing Custom Search API, send a `GET` request to the following endpoint.
@@ -35,7 +35,7 @@ The response contains a list of SearchAction objects that contain the suggested 
 
 Each suggestion includes a `displayText` and `query` field. The `displayText` field contains the suggested query that you use to populate your search box's drop-down list.
 
-If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Custom Search API](overview.md) and render the results yourself.   
+If the user selects a suggested query from the drop-down list, use the query term in the `query` field when calling the [Bing Custom Search API](overview.md).
 
 ## Throttling requests
 
