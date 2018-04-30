@@ -13,7 +13,7 @@
   - name: Deploy Workbench
     href: blockchain-workbench-deploy.md
   - name: Manage Workbench users
-    href: blockchain-workbench-overview.md
+    href: blockchain-workbench-manage-users.md
   - name: Create blockchain app
     href: blockchain-workbench-create-app.md
   - name: Use blockchain app
