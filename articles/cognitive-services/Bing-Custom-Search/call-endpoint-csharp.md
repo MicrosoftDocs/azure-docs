@@ -26,7 +26,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
  
 ## Running the code
 
-To run this example, follow these steps.
+To run this example, follow these steps:
 
 1. Create a folder for your code.
 2. From a command prompt or terminal, navigate to the folder you just created.
