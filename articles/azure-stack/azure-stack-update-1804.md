@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -29,17 +29,16 @@ This article describes the improvements and fixes in the 1804 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1804 update build number is **201804xx.x**.
+The Azure Stack 1804 update build number is **20180423.1**.   
 
 ### New features
 This update includes the following improvements for Azure Stack.
 
 - <!-- 15028744 -->  **Visual Studio support for disconnected Azure Stack deployments using AD FS**. Within Visual Studio you now can add subscriptions and authenticate using AD FS federated User credentials. 
  
-- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md).
+- <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
 
-- <!-- 1951191 --> Doubled the VPN Gateway capacity.
- 
+- <!-- 1951191 - IS - ASDK --> **VPN Gateway capacity is doubled**  Azure Stack now has twice the number of active infrastructure multi-tenant gateways, which doubles the number of Site-to-Site VPN connections that an Azure Stack deployment can host. For more information, see [About VPN Gateway](azure-stack-vpn-gateway-about-vpn-gateways). 
 
 
 ## Fixed issues
@@ -72,7 +71,7 @@ This update includes the following improvements for Azure Stack.
 
 
 ### Known issues (post-installation)
-The following are post-installation known issues for build  **201804xx.x**.
+The following are post-installation known issues for build  **20180423.1**.
 
 #### Portal
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
@@ -111,13 +110,20 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 
 #### Networking
+- <!-- 1766332 - IS ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+
 - <!-- 2388980 - IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
 
   Currently, you must use only new public IP addresses for new VMs you create.
 
   This behavior occurs even if you reassign the IP address to a new VM (commonly referred to as a *VIP swap*). All future attempts to connect through this IP address result in a connection to the originally associated VM, and not to the new one.
 
+- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
 
+  To work around this problem, use an Add-On plan to increase a Network Quota when the plan is already associated with a subscription. Or more information, see how to [make an add-on plan available]( azure-stack-subscribe-plan-provision-vm#to-make-an-add-on-plan-available).
+
+- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+  
 
 - <!-- 1902460 - IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
 
@@ -192,7 +198,7 @@ The following are post-installation known issues for build  **201804xx.x**.
 
 - <!-- TBD - IS --> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
 
 
 > [!NOTE]  
