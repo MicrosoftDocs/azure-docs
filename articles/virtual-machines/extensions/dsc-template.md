@@ -21,7 +21,7 @@ ms.author: migreene
 # Desired State Configuration extension with Azure Resource Manager templates
 
 This article describes the Azure Resource Manager template for the
-[Desired State Configuration (DSC) extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Desired State Configuration (DSC) extension handler](dsc-overview.md).
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from the previous format](#update-from-the-previous-format).
@@ -272,7 +272,7 @@ to set LCM metadata.
 ## Example using the configuration script in Azure Storage
 
 The following example is from the
-[DSC extension handler overview](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[DSC extension handler overview](dsc-overview.md).
 This example uses Resource Manager templates
 instead of cmdlets to deploy the extension.
 Save the IisInstall.ps1 configuration,
@@ -428,6 +428,6 @@ or configuration.module is specified"
 ## Next steps
 
 * Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-* Find more details about [DSC's secure credential management](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Get an [introduction to the Azure DSC extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Find more details about [DSC's secure credential management](dsc-credentials.md).
+* Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
 * For more information about PowerShell DSC, go to the [PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview).
