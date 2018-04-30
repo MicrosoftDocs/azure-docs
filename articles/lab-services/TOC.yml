@@ -2,8 +2,10 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Lab Services (Preview)
+  - name: About Lab Services 
     href: lab-services-overview.md
+  - name: Compare lab types
+    href: compare-lab-types.md
 - name: Tutorials
   items:
   - name: DevTest labs
