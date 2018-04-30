@@ -183,7 +183,7 @@ ACR Builder discovered the following dependencies:
     registry: mycontainerregistry.azurecr.io
     repository: helloworld
     tag: eastus2
-    digest: sha256:cfcdbab63ce6b2a2fef1fb666b849b825401e48e2db881fc78dd4fbf7bcf2928
+    digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node

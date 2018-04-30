@@ -172,7 +172,7 @@ ACR Builder discovered the following dependencies:
     registry: mycontainerregistry.azurecr.io
     repository: helloacrbuild
     tag: v1
-    digest: sha256:1dd096b53b2f5f2fb16a94087bf75ebec07159483710ba0b97ce89366bb6abb4
+    digest: sha256:60d78f0a336a387ba93f04ecf22538d01bca985a277ac77d3813ce360aba0cb1
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
