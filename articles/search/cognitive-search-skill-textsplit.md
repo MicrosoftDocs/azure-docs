@@ -27,7 +27,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | textSplitMode      | Either "pages" or "sentences" | 
 | maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by `String.Length`. The minimum value is 100. | 
-| defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). <ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format will be used.</li><li>If the language is not in the previous list, the split skill will break text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.</li></ul>  |
+| defaultLanguageCode	| (optional) One of the following language codes: `da, de, en, es, fi, fr, it, ko, pt`. Default is English (en). <ul><li>If you pass a languagecode-countrycode format, only the languagecode part of the format is used.</li><li>If the language is not in the previous list, the split skill breaks the text at character boundaries.</li><li>Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.</li></ul>  |
 
 
 ## Skill Inputs
@@ -41,7 +41,7 @@ Parameters are case-sensitive.
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| pages	| An array of substrings that were extracted. |
+| textItems	| An array of substrings that were extracted. |
 
 
 ##	Sample definition
@@ -64,7 +64,7 @@ Parameters are case-sensitive.
     ],
     "outputs": [
         {
-            "name": "textitems",
+            "name": "textItems",
             "targetName": "mypages"
         }
     ]
@@ -102,7 +102,7 @@ Parameters are case-sensitive.
         {
             "recordId": "1",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the loan…",
                     "On the second page we…"
                 ]
@@ -111,7 +111,7 @@ Parameters are case-sensitive.
         {
             "recordId": "2",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the second document...",
                     "On the second page of the second doc…"
                 ]
