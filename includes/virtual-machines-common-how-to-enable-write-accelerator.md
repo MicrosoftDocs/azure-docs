@@ -154,6 +154,13 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
 
+### Enabling through Azure Portal
+
+You can enable Write Accelerator via the Portal where you specify your disk caching settings: 
+
+![Write Accelerator on the Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
+
 ### Enabling through Rest APIs
 In order to deploy through Azure Rest API, you need to install the Azure armclient
 
