@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new Timer function with Azure Functions using the Azure CLI.
-> * Configure the timer function for local git repository deployment.
+> * Configure the timer function for local Git repository deployment.
 > * Connect the timer to your SignalR Service to push updates every minute
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -60,7 +60,7 @@ To complete this tutorial, you must have the following prerequisites:
 
 You must create a function app to define the execution environment for your functions. The function app also lets you group multiple functions as a logical unit for easier management, deployment, and resource sharing. For more information, see [Create your first function using the Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md).
 
-In this section, you will use the Azure Cloud Shell to create a new Azure Function app configured for deployment from a local git repository. 
+In this section, you will use the Azure Cloud Shell to create a new Azure Function app configured for deployment from a local Git repository. 
 
 When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
@@ -93,7 +93,7 @@ az functionapp create --resource-group $ResourceGroupName \
 
 ## Configure the function app
 
-In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local git repository.
+In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local Git repository.
 
 Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section.
 
@@ -109,13 +109,13 @@ az functionapp config appsettings set --resource-group $ResourceGroupName
     --name $functionappName \
     --setting "AzureSignalRConnectionString=$connstring"
 
-# configure for deployment from a local git repository
+# configure for deployment from a local Git repository
 az functionapp deployment source config-local-git --name $functionappName \
     --resource-group $ResourceGroupName
 
 ```
 
-Make a note the git deployment URL returned from the last command. You will use this URL for deploying the function code.
+Make a note the Git deployment URL returned from the last command. You will use this URL for deploying the function code.
 
 
 ## The timer function
@@ -165,11 +165,11 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
         msbuild /p:Configuration=Release
 
 
-## Create and deploy the local git repo
+## Create and deploy the local Git repo
 
-1. In a git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
+1. In a Git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
 
-2. Initialize the directory as a new git repository using the following command:
+2. Initialize the directory as a new Git repository using the following command:
 
         git init
 
@@ -178,9 +178,9 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
         git add -A
         git commit -v -a -m "Initial Timer function commit"        
 
-4. Add a remote endpoint for the git deployment URL you made note of during the configuration of your function app:
+4. Add a remote endpoint for the Git deployment URL you made note of during the configuration of your function app:
 
-        git remote add Azure <enter your git deployment URL>
+        git remote add Azure <enter your Git deployment URL>
 
 5. Deploy the function app
 

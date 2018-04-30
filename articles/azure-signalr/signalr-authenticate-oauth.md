@@ -421,7 +421,8 @@ ResourceGroupName=SignalRTestResources
 
 let randomNum=$RANDOM*$RANDOM
 WebAppName=SignalRTestWebApp$randomNum
-WebAppPlanName=$myWebAppName"Plan"
+WebAppPlanName=$WebAppName"Plan"
+
 
 ```
 
@@ -437,6 +438,7 @@ az appservice plan create --name $WebAppPlanName --resource-group $ResourceGroup
 # Create the new Web App
 az webapp create --name $WebAppName --resource-group $ResourceGroupName --plan $WebAppPlanName
 
+
 ```
 
 ### Add app settings to the web app
@@ -451,10 +453,10 @@ In the Azure Cloud Shell, paste the following script to add the app settings:
 
 ```azurecli-interactive
 # Get the SignalR Service resource hostName
-signalRhostname=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName --query hostName)
+signalRhostname=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName --query hostName -o tsv)
 
 # Get the SignalR primary key 
-signalRprimarykey=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName --query primaryKey)
+signalRprimarykey=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName --query primaryKey -o tsv)
 
 # Form the connection string to the service resource
 connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
@@ -510,6 +512,7 @@ To deploy your code, execute the following commands in a Git shell.
 
         git push Azure master
 
+    You will be prompted to authenticate in order to deploy the code to Azure. Enter the user name and password of the deployment user you created above.
 
 ### Update the GitHub OAuth app 
 
