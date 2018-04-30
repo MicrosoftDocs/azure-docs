@@ -44,4 +44,4 @@ To update the DNS server setting for the virtual network in which you have enabl
 >
 
 ## Next step
-[Task 5: enable password synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)
+[Task 5: enable password hash synchronization to Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)

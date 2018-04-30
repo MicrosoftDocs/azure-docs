@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
@@ -118,6 +118,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
+* Data Factory - V1 can be moved, but moving V2 (preview) is not supported
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -144,7 +145,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs cannot be moved when in running state.
-* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
+* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This includes Azure SQL Database and Azure SQL Data Warehouse databases. 
 * Traffic Manager
 * Virtual Machines - VMs with managed disks cannot be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -163,7 +164,6 @@ The services that currently do not enable moving a resource are:
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Service
-* Data Factory
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
 * Express Route
