@@ -42,7 +42,7 @@ Cache-Control: no-cache
 ```
 
 ### C#
-```javascript
+```C#
 string responseString = string.Empty;
 
 var query = “hi”; //User Query
@@ -79,7 +79,7 @@ The response to the above request will be a JSON with the answer and the confide
 }`
 
 ### C#
-```javascript
+```C#
 using Newtonsoft.Json; 
 
 private class QnAMakerResult
