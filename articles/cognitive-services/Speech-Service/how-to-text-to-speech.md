@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request may be plain text (ASCII or UTF8) or a [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you will want to use an SSML body.
+The body of the POST request may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you will want to use an SSML body.
 
 The regional Speech to Text endpoints are shown here. Use the one appropriate to your subscription.
 
@@ -91,11 +91,11 @@ Content-Type: audio/x-wav
 Response audio payload
 ```
 
-In the event of an error, the status codes below are used. In this case, the response body contains a description of the problem.
+If an error occurs, the status codes below are used. In this case, the response body contains a description of the problem.
 
 |Code|Description|Problem|
 |-|-|-|
-400 |Bad Request |A required parameter is missing, empty, or null, or the value passed to either a required or optional parameter is invalid. A common issue is passing a string value that is too long, such as the .
+400 |Bad Request |A required parameter is missing, empty, or null, or the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
 401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid.
 413|Request Entity Too Large|The SSML input is longer than 1024 characters.
 |502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.

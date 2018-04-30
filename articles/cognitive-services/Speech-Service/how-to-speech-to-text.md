@@ -40,7 +40,7 @@ Both conversation and dictation mode support continuous speech recognition. The 
 
 The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text in your application. The SDK gives you full functionality, with the limitations of the REST or WebSockets methods. The basic process is as follows.
 
-1. Create a speech factory by providing a Speech service subscription key or an authorization token. You can also configure options, such as the recognition language or a custom endpoint for your own speech recognition models, at this point.
+1. Create a speech factory, providing a Speech service subscription key or an authorization token. You can also configure options, such as the recognition language or a custom endpoint for your own speech recognition models, at this point.
 
 2. Get a recognizer from the factory. Three different types of recognizers are available. Each type can use your device's default microphone, an audio stream, or audio from a file.
 
@@ -48,7 +48,7 @@ Recognizer | Function
 -|-
 Speech recognizer|Provides text transcription of speech
 Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition
-Translation recognizer|Translates the transcribed text to another language
+Translation recognizer|Translates the transcribed text to another language (see [Speech Translation](how-to-translate-speech.md))
 
 4. Hook up events for asynchronous operation, if desired. The recognizer will then call your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
 
@@ -56,7 +56,7 @@ Translation recognizer|Translates the transcribed text to another language
 
 ### SDK samples
 
-You can download code samples demonstrating the use of the SDK using the links below.
+You can download code samples demonstrating the use of the SDK for Speech to Text using the links below.
 
 - [Download samples for Windows](https://aka.ms/csspeech/winsample)
 - [Download samples for Linux](https://aka.ms/csspeech/linuxsample)
@@ -82,4 +82,4 @@ The WebSockets API is the most flexible way to work with Speech to Text if you a
 
 The WebSockets request must include an authorization, either your subscription key or a token. See [how to authenticate](how-to-authenticate.md).
 
-See [WebSockets protocols](websockets.md#speech-to-text) for more information on the Speech to Text WebSockets API. To see it in action, download the [WebSockets API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
+See [WebSockets protocols](websockets.md#speech-to-text) for more information on the Speech to Text WebSockets API. To see it in action, download the [JavaScript WebSockets API samples](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) from GitHub.
