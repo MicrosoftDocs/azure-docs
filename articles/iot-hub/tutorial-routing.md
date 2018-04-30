@@ -479,7 +479,7 @@ After opening the app, open Program.cs. Substitute `{iot hub hostname}` with the
         static string iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "l2Br/k8gric+KJtTqLn2BnWbHB4fVU45mYXiHm7abc8=";
+        static string deviceKey = "{your device key here}";
    ```
 
 ## Run and test 
