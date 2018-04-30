@@ -20,7 +20,7 @@ ms.author: juliako;anilmur
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-AMS operates in multiple data centers around the world. These data centers are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
+AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
 
 This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across data centers.
 
@@ -62,7 +62,7 @@ You can view the whole model [here](https://media.windows.net/API/$metadata?api-
 4. Publish the asset by creating an OnDemand locator.
 5. Stream published content.
 
-For information about availability in datacenters, see the [Availability](#availability) section.
+For information about availability in regions, see the [Availability](#availability) section.
 
 ## Protect content in storage, deliver dynamically encrypted streaming media
 
@@ -76,7 +76,7 @@ For information about availability in datacenters, see the [Availability](#avail
 6. Publish the asset by creating an OnDemand locator.
 7. Stream published content.
 
-For information about availability in datacenters, see the [Availability](#availability) section.
+For information about availability in regions, see the [Availability](#availability) section.
 
 ## Use Media Analytics to derive actionable insights from your videos
 
@@ -86,7 +86,7 @@ Media Analytics is a collection of speech and vision components that make it eas
 2. Process your videos with one of the Media Analytics services described in the [Media Analytics overview](media-services-analytics-overview.md) section.
 3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
 
-For information about availability in datacenters, see the [Availability](#availability) section.
+For information about availability in regions, see the [Availability](#availability) section.
 
 ## Deliver progressive download
 
@@ -126,7 +126,7 @@ The following diagram shows the major parts of the AMS platform that are involve
 
 For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-For information about availability in datacenters, see the [Availability](#availability) section.
+For information about availability in regions, see the [Availability](#availability) section.
 
 ## Consuming content
 
@@ -154,9 +154,9 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
 * You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Availability of Media Services features across datacenters
+##<a id="availability"></a> Availability of Media Services features across regions
 
-This section provides details about availability of Media Services features across datacenters.
+This section provides details about availability of Media Services features across regions.
 
 ### AMS accounts
 
@@ -170,7 +170,7 @@ Media Services customers can choose either a **Standard** streaming endpoint or 
 
 #### Availability
 
-|Name|Status|Datacenters
+|Name|Status|Regions
 |---|---|---|
 |Standard|GA|All|
 |Premium|GA|All|
@@ -179,7 +179,7 @@ Media Services customers can choose either a **Standard** streaming endpoint or 
 
 #### Availability
 
-Available in all datacenters except: Germany, Brazil South, India West, India South, and India Central. 
+Available in all regions except: Germany, Brazil South, India West, India South, and India Central. 
 
 ### Encoding media processors
 
@@ -187,7 +187,7 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 
 #### Availability
 
-|Media processor name|Status|Datacenters
+|Media processor name|Status|Regions
 |---|---|---|
 |Media Encoder Standard|GA|All|
 |Media Encoder Premium Workflow|GA|All except China|
@@ -198,7 +198,7 @@ Media Analytics is a collection of speech and vision components that makes it ea
 
 #### Availability
 
-|Media processor name|Status|Datacenters
+|Media processor name|Status|Regions
 |---|---|---|
 |Azure Media Face Detector|Preview|All|
 |Azure Media Hyperlapse|Preview|All|
@@ -216,7 +216,7 @@ Microsoft Azure Media Services enables you to secure your media from the time it
 
 #### Availability
 
-|Encryption|Status|Datacenters|
+|Encryption|Status|Regions|
 |---|---|---| 
 |Storage|GA|All|
 |AES-128 keys|GA|All|
@@ -232,7 +232,7 @@ For more information, see the [scaling](#scaling) section.
 
 #### Availability
 
-Available in all datacenters.
+Available in all regions.
 
 ### Reserved unit (RU) type
 
@@ -242,7 +242,7 @@ For more information, see the [scaling](#scaling) section.
 
 #### Availability
 
-|RU type name|Status|Datacenters
+|RU type name|Status|Regions
 |---|---|---|
 |S1|GA|All|
 |S2|GA|All except Brazil South, and India West|
