@@ -112,14 +112,139 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
      ![View Event Hub policy keys for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub policy keys for the Spark streaming example")
 
 
+## Send tweets to the event hub
+
+You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**. 
+
+1. Run the following code to add the external Maven libaries:
+
+    ```
+    %%configure
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    ```
+
+2. Run the following code to send tweets to your event hub:
+
+    ```
+    import java.util._
+    import scala.collection.JavaConverters._
+    import java.util.concurrent._
+    
+    import org.apache.spark._
+    import org.apache.spark.streaming._
+    import org.apache.spark.eventhubs.ConnectionStringBuilder
+
+    // Event hub configurations
+    // Replace values below with yours        
+    val eventHubName = "<Event hub name>"
+    val eventHubNSConnStr = "<Event hub namespace connection string>"
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
+    
+    import com.microsoft.azure.eventhubs._
+    val pool = Executors.newFixedThreadPool(1)
+    val eventHubClient = EventHubClient.create(connStr.toString(), pool)
+    
+    def sendEvent(message: String) = {
+          val messageData = EventData.create(message.getBytes("UTF-8"))
+          eventHubClient.get().send(messageData)
+          println("Sent event: " + message + "\n")
+    }
+    
+    import twitter4j._
+    import twitter4j.TwitterFactory
+    import twitter4j.Twitter
+    import twitter4j.conf.ConfigurationBuilder
+    
+ 
+    // Twitter application configurations
+    // Replace values below with yours   
+    val twitterConsumerKey = "<CONSUMER KEY>"
+    val twitterConsumerSecret = "<CONSUMER SECRET>"
+    val twitterOauthAccessToken = "<ACCESS TOKEN>"
+    val twitterOauthTokenSecret = "<TOKEN SECRET>"
+    
+    val cb = new ConfigurationBuilder()
+    cb.setDebugEnabled(true).setOAuthConsumerKey(twitterConsumerKey).setOAuthConsumerSecret(twitterConsumerSecret).setOAuthAccessToken(twitterOauthAccessToken).setOAuthAccessTokenSecret(twitterOauthTokenSecret)
+    
+    val twitterFactory = new TwitterFactory(cb.build())
+    val twitter = twitterFactory.getInstance()
+
+    // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
+    
+    val query = new Query(" #Azure ")
+    query.setCount(100)
+    query.lang("en")
+    var finished = false
+    while (!finished) {
+      val result = twitter.search(query)
+      val statuses = result.getTweets()
+      var lowestStatusId = Long.MaxValue
+      for (status <- statuses.asScala) {
+        if(!status.isRetweet()){
+          sendEvent(status.getText())
+        }
+        lowestStatusId = Math.min(status.getId(), lowestStatusId)
+        Thread.sleep(2000)
+      }
+      query.setMaxId(lowestStatusId - 1)
+    }
+    
+    // Closing connection to the Event Hub
+    eventHubClient.get().close()
+    ```
+
+3. Open the event hub in the Azure portal.  On **Overview**, you shall see some charts showing the messages sent to the event hub.
+
+## Read tweets from the event hub
+
+You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHub**. 
+
+1. Run the following code to add an external Maven libary:
+
+    ```
+    %%configure -f
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    '''
+2. Run the following code to read tweets from your event hub:
+
+    '''
+    import org.apache.spark.eventhubs._
+    val connectionString = ConnectionStringBuilder("Endpoint=sb://myeventhubns20180403.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=").setEventHubName("myeventhub20180403").build 
+    
+    val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
+    val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
+    //incomingStream.printSchema
+    
+    
+    import org.apache.spark.sql.types._
+    import org.apache.spark.sql.functions._
+    
+    // Event Hub message format is JSON and contains "body" field
+    // Body is binary, so we cast it to string to see the actual content of the message
+    val messages = incomingStream.withColumn("Offset", $"offset".cast(LongType)).withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType)).withColumn("Timestamp", $"enqueuedTime".cast(LongType)).withColumn("Body", $"body".cast(StringType)).select("Offset", "Time (readable)", "Timestamp", "Body")
+    
+    messages.printSchema
+    
+    messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
+    '''
+
+## Clean up resources
+
+With HDInsight, your data is stored in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
+
+Open the cluster in the Azure portal, and select **Delete**.
+
+![Delete HDInsight cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+
+You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight Spark cluster, and the default storage account.
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
-- Visualize Spark data using Power BI.
-
-Advance to the next article to see how the data you registered in Spark can be pulled into a BI analytics tool such as Power BI. 
+* Read message from an event hub.
+Advance to the next article to see you can create a machine learning application. 
 > [!div class="nextstepaction"]
-> [Run a Spark streaming job](apache-spark-eventhub-streaming.md)
+> [Analyze data using BI tools](apache-spark-use-bi-tools.md)
+
 
