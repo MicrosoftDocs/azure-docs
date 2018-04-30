@@ -121,11 +121,10 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    sfctl cluster select --endpoint https://PublicIPorFQDN:19080  --pem [Pem] --no-verify # cluster connect command
    bash Scripts/install.sh
    ```
-   The preceding command takes the certificate in PEM format. If your certificate is in PFX format, you can use the following command to convert it. If your PFX file is not password protected, specify the **passin** parameter as `-passin pass:`.
+   The preceding command takes the certificate in PEM format. If your certificate is in PFX format, you can use the following command to convert it. If your PFX file isn't password protected, specify the **passin** parameter as `-passin pass:`.
    ```sh
    openssl pkcs12 -in cert.pfx -out cert.pem -nodes -passin pass:MyPassword1234!
    ``` 
-   
    
    **Unsecure Cluster**
    ```sh
@@ -139,7 +138,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    > It may take a couple of minutes for the Jenkins image to be downloaded on the cluster.
    >
 
-1. From your browser, go to `http://PublicIPorFQDN:8081`. It provides the path of the initial admin password required to sign in. 
+7. From your browser, go to `http://PublicIPorFQDN:8081`. It provides the path of the initial admin password required to sign in. 
 2. Look at the Service Fabric Explorer to determine on which node the Jenkins container is running. Secure Shell (SSH) sign in to this node.
    ```sh
    ssh user@PublicIPorFQDN -p [port]
