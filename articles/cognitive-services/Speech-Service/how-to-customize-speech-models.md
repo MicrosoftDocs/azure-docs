@@ -55,7 +55,7 @@ Text files should follow the [text transcription guidelines)[prepare-transcripti
 
 ## Preparing audio files
 
-Audio files for acoustic models should be recorded in a representative location, by a variety of representative users (unless your goal is to optimize recognition for one speaker), using a microphone similar to what your users will be using. The required format of all audio samples is described in this table.
+Audio files for acoustic models should be recorded in a representative location, by a variety of representative users (unless your goal is to optimize recognition for one speaker), using a microphone similar to what your users have. The required format of all audio samples is described in this table.
 
 | Property | Required value |
 |----------|------|
@@ -86,7 +86,7 @@ To upload training data:
 
 1. Choose the data file(s) you have prepared.
 
-1. Click Import to upload the data and begin validation.
+1. Click **Import** to upload the data and begin validation.
 
 Validation makes sure that all files are in the correct format. It may take a few moments.
 
@@ -103,17 +103,17 @@ Validation makes sure that all files are in the correct format. It may take a fe
 
 1. Choose a base model for your new model. Your choice of base model determines the recognition modes for which your model can be used, as well as serving as a fallback for any data not in your data set.
 
-1.  Choose the data set from which the model will be created. A data set may be used by any number of models.
+1.  Choose the data set from which the model is to be created. A data set may be used by any number of models.
 
-1. Click **Create** to begin training the now model.
+1. Click **Create** to begin training the new model.
 
 ## Model testing
 
-As part of the model creation process, you can test your model against an acoustic data set. The new model will be used to recognize the speech in the data set's audio files and the results tested against the corresponding text. For best results, use a different acoustic data set than the one you used to create the model.
+As part of the model creation process, you can test your model against an acoustic data set. The new model is used to recognize the speech in the data set's audio files and the results tested against the corresponding text. For best results, use a different acoustic data set than the one you used to create the model.
 
 ## Custom custom endpoint
 
-After you have created custom acoustic models or language models, you can deploy them to a custom speech-to-text endpoint. Only the account that created an endpoint is permitted to make calls to that endpoint.
+After you have created custom acoustic models or language models, you can deploy them to a custom Speech to Text endpoint. Only the account that created an endpoint is permitted to make calls to it.
 
 To create an endpoint, choose **Deployments** from the Custom Speech menu at the top of the page. This action takes you to the Deployments page, which contains a table of current custom endpoints, if you have created any. Click **Create New** to create a new endpoint.
 

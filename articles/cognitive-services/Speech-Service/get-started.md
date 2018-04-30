@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Get started with the Speech Service
+# Get started with the Speech service
 
 To get started with the Speech service, first sign up for a [free Azure account](https://azure.microsoft.com/free/) if you don't already have one.
 

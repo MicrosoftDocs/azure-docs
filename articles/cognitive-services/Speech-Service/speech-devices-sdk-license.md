@@ -43,7 +43,7 @@ d)	use the software in any way that is against the law or to create or propagate
 
 e)	share, publish, or lend the software (except for any distributable code, and then subject to the applicable terms above), provide the software as a stand-alone hosted solution for others to use, or transfer the software or this agreement to any third party.
 
-f)	You must use the software only in combination with Microsoft Azure Cognitive Services, Speech Service
+f)	You must use the software only in combination with Microsoft Azure Cognitive Services, Speech service
 
 **3\. DATA COLLECTION.** This software may interact with other Microsoft products that collect data that is transmitted to Microsoft. To learn more about how Microsoft processes personal data we collect, please see the Microsoft Privacy Statement at http://go.microsoft.com/fwlink/?LinkId=248681.
 
