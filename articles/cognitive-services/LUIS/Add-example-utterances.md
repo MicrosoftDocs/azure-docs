@@ -166,6 +166,9 @@ If you add the prebuilt entities to your LUIS app, you don't need to label utter
 ## Add regular expression entity label
 If you add the regular expression entities to your LUIS app, you don't need to label utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](Add-entities.md#add-regular-expression-entities).
 
+## Create a pattern from an utterance
+See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+
 ## Add pattern.any entity label
 If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](Add-entities.md#add-patternany-entities).
 
