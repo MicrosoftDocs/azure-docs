@@ -72,11 +72,9 @@ The enrichment pipeline pulls from Azure data sources. Source data must originat
 
 1. Using the Azure Storage Explorer, in the `basicdemo` container you created, click **Upload** to upload the sample files.
 
-1. Collect the following information from the portal:
+1. After sample files are loaded, get the container name and a connection string for your Blob storage. You could do that by navigating to you storage account in the Azure portal. On **Access keys**, and then copy the **Connection String**  field.
 
-  + The container name you created when uploading the files. The sample script used to create the data source in a later step assumes `basicdemo`.
-
-  + The connection string for your storage account from  **Settings** > **Access keys**. The connection string should be a URL similar to the following example:
+  The connection string should be a URL similar to the following example:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
@@ -104,7 +102,7 @@ api-key: [admin key]
     "type" : "azureblob",
     "credentials" :
     { "connectionString" :
-      "DefaultEndpointsProtocol=https;=<your account name>;AccountName=<your account name>;AccountKey=<your account key>;"
+      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
     },  
     "container" : { "name" : "<your blob container name>" }
 }  
@@ -179,7 +177,8 @@ Content-Type: application/json
       ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Text.PaginationSkill",
+      "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
+      "textSplitMode" : "pages", 
       "maximumPageLength": 4000,
       "inputs": [
       {
@@ -193,17 +192,17 @@ Content-Type: application/json
     ],
     "outputs": [
       {
-        "name": "pages",
-        "targetName": "pages"
+            "name": "textItems",
+            "targetName": "mypages"
       }
     ]
   },
   {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/pages/*",
+      "context": "/document/mypages/*",
       "inputs": [
         {
-          "name": "text", "source": "/document/pages/*"
+          "name": "text", "source": "/document/mypages/*"
         },
         {
           "name":"languageCode", "source": "/document/languageCode"
@@ -219,6 +218,7 @@ Content-Type: application/json
   ]
 }
 ```
+
 Send the request. The web test tool should return a status code of 201 confirming success. 
 
 > [!NOTE]
@@ -230,9 +230,11 @@ Notice how the key phrase extraction skill is applied for each page. By setting 
 
 Each skill executes on the content of the document. During processing, Azure Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated ```content``` field, one for each document. As such, set the input as ```"/document/content"```.
 
-A graphical representation of the skillset is shown below:
+A graphical representation of the skillset is shown below. 
 
 ![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
+
+Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking.
 
 For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 

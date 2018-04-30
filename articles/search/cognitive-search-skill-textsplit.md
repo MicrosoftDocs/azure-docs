@@ -27,8 +27,7 @@ Parameters are case-sensitive.
 |--------------------|-------------|
 | textSplitMode      | Either "pages" or "sentences" | 
 | maximumPageLength	| If textSplitMode is set to "pages", this refers to the maximum page length as measured by String.Length. The minimum value is 100. | 
-| defaultLanguageCode	| (optional) One of the following language codes: da, de, en, es, fi, fr, it, ko, pt.  <br/> If you pass a languagecode-countrycode format, only the languagecode part of the format will be used. 
-If the language is not in the previous list, the split skill will break text at character boundaries. <br/> Default is English (en). <br/> Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.  |
+| defaultLanguageCode	| (optional) One of the following language codes: da, de, en, es, fi, fr, it, ko, pt.  <br/> If you pass a languagecode-countrycode format, only the languagecode part of the format will be used. <br/><br/> If the language is not in the previous list, the split skill will break text at character boundaries. <br/><br/>  Default is English (en). <br/><br/>  Providing a language code is useful to avoid cutting a word in half for non-space languages such as Chinese, Japanese, and Korean.  |
 
 
 ## Skill Inputs
@@ -42,7 +41,7 @@ If the language is not in the previous list, the split skill will break text at 
 
 | Parameter name	 | Description |
 |--------------------|-------------|
-| pages	| An array of substrings that were extracted. |
+| textItems	| An array of substrings that were extracted. |
 
 
 ##	Sample definition
@@ -65,7 +64,7 @@ If the language is not in the previous list, the split skill will break text at 
     ],
     "outputs": [
         {
-            "name": "textitems",
+            "name": "textItems",
             "targetName": "mypages"
         }
     ]
@@ -103,7 +102,7 @@ If the language is not in the previous list, the split skill will break text at 
         {
             "recordId": "1",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the loan…",
                     "On the second page we…"
                 ]
@@ -112,7 +111,7 @@ If the language is not in the previous list, the split skill will break text at 
         {
             "recordId": "2",
             "data": {
-                "pages": [
+                "textItems": [
                     "This is the second document...",
                     "On the second page of the second doc…"
                 ]
