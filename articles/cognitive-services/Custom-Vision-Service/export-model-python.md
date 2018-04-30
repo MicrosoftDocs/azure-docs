@@ -96,7 +96,7 @@ augmented_image = resize_to_256_square(max_square_image)
 ### Crop the center for the specific input size for the model
 
 ```Python
-# The compact models have a network size of 227x227x, the model requires this size.
+# The compact models have a network size of 227x227, the model requires this size.
 network_input_size = 227
 
 # Crop the center for the specified network_input_Size
