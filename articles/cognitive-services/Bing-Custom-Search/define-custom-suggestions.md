@@ -13,7 +13,7 @@ ms.author: v-brapel
 ---
 
 # Configure your custom autosuggest experience
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. Custom Autosuggest returns a list of suggested queries based on a partial query string that the user provides. With Custom Autosuggest, you provide custom search suggestions relevant to your search experience. You specify whether to return only custom suggestions or to include Bing suggestions. If Bing suggestions are included, custom suggestions appear before the suggestions Bing provides. Bing suggestions are restricted to the context of your Custom Search instance.
+If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. Custom Autosuggest returns a list of suggested queries based on a partial query string that the user provides. With Custom Autosuggest, you provide custom search suggestions relevant to your search experience. You specify whether to return only custom suggestions or to also include Bing suggestions. If you include Bing suggestions, custom suggestions appear before the Bing suggestions. Bing suggestions are restricted to the context of your Custom Search instance.
 
 ## Configure Custom Autosuggest
 Use the following instructions to configure Custom Autosuggest for your Custom Search instance.
@@ -26,10 +26,10 @@ Use the following instructions to configure Custom Autosuggest for your Custom S
 To enable Bing suggestions, toggle the **Automatic Bing suggestions** slider to the on position. The slider becomes blue.
 
 ## Add suggestions
-To add a suggestion, enter it into the text box whose place-holder reads **Type in a search suggestion**. Press the enter key or click the **+** icon. Custom suggestions can be in any language and will appear before Bing suggestions.
+To add a suggestion, enter it into the text box. Press the enter key or click the **+** icon. Custom suggestions can be in any language and will appear before Bing suggestions.
 
 ## Upload suggestions
-You can upload a list of suggestions from a file, place each suggestion on a separate line. Click the upload icon and select your file.
+You can upload a list of suggestions from a file. Place each suggestion on a separate line. Click the upload icon and select your file.
 
 ## Remove suggestions
 To remove a suggestion, click the remove icon next to the suggestion you want to remove.

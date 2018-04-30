@@ -15,15 +15,15 @@ ms.author: luisca
 ---
 #	Language detection cognitive skill
 
-For up to 120 languages, the **Language Detection** skill detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
+For up to 120 languages, the **Language Detection** skill detects the language of input text and reports a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the analysis.
 
 This capability is especially useful when you need to provide the language of the text as input to other skills (for example, the [Sentiment Snalysis skill](cognitive-search-skill-sentiment.md) or [Text Split skill](cognitive-search-skill-textsplit.md)).
 
 ## @odata.type  
-Microsoft.Skills.Text.LanguageDetectionSkill 
+Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by String.Length. If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill inputs
 
@@ -37,9 +37,9 @@ Parameters are case-sensitive.
 
 | Output Name	 | Description |
 |--------------------|-------------|
-| languageCode | The iso 6391 language code for the language identified. For example "en" |
+| languageCode | The ISO 6391 language code for the language identified. For example, "en". |
 | languageName | The name of language. For example "English". |
-| score | A value between 0 and 1. The likelihood that language is correctly identified. May be lowe than 1 if the sentence has mixed languages.  |
+| score | A value between 0 and 1. The likelihood that language is correctly identified. The score may be lower than 1 if the sentence has mixed languages.  |
 
 ##	Sample definition
 
