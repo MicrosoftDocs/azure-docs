@@ -23,11 +23,13 @@ This tutorial builds on the chat room application introduced in the quickstart. 
 
 In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
 
-The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the authentication API on the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
+The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
-[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to require true authentication through a Github account before allowing client logins to the chat room application. 
+[GitHub](https://github.com/) provides authentication APIs based on a popular industry-standard protocol called [OAuth](https://oauth.net/). These APIs allow third-party applications to authenticate GitHub accounts. In this tutorial, you will use these APIs to implement authentication through a Github account before allowing client logins to the chat room application. After authenticating a GitHub account, the account information will be added as a cookie to be used by the web client to authenticate.
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
+
+You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
@@ -80,12 +82,12 @@ To complete this tutorial, you must have the following prerequisites:
 
 ### Update the Startup class to support GitHub authentication
 
-1. Add a reference to project for the latest *Microsoft.AspNetCore.Authentication.Cookies* package and restore all packages.
+1. Add a reference to the latest *Microsoft.AspNetCore.Authentication.Cookies* package and restore all packages.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
         dotnet restore
 
-1. Open *Startup.cs*, and add using statements for the following namespaces:
+1. Open *Startup.cs*, and add `using` statements for the following namespaces:
 
     ```csharp
     using System.Net.Http;
@@ -426,7 +428,7 @@ WebAppPlanName=$myWebAppName"Plan"
 
 ### Create the web app and plan
 
-In the Azure Cloud Shell, paste the following script to create a new app plan and web app.
+In the Azure Cloud Shell, paste the following script to create a new App Service plan and web app.
 
 ```azurecli-interactive
 # Create an App Service plan.
@@ -470,9 +472,9 @@ az webapp config appsettings set --name $WebAppName --resource-group $ResourceGr
 ```
 
 
-### Configure the web app for local git deployment
+### Configure the web app for local Git deployment
 
-In the Azure Cloud Shell, paste the following script. This script creates a new deployment user name and password that you will use when deploying your code to the web app with Git. The script also configures the web app for deployment with a local git repository, and returns the git deployment URL.
+In the Azure Cloud Shell, paste the following script. This script creates a new deployment user name and password that you will use when deploying your code to the web app with Git. The script also configures the web app for deployment with a local Git repository, and returns the Git deployment URL.
 
 ```azurecli-interactive
 # Add the desired deployment user name and password
@@ -484,7 +486,7 @@ az webapp deployment source config-local-git --name $WebAppName --resource-group
 
 ```
 
-Make a note the git deployment URL returned from this command. You will use this URL later.
+Make a note the Git deployment URL returned from this command. You will use this URL later.
 
 
 ### Deploy your code to the Azure web app
@@ -495,7 +497,7 @@ To deploy your code, execute the following commands in a Git shell.
 
         git init
 
-2. Add a remote for the git deployment URL you noted earlier:
+2. Add a remote for the Git deployment URL you noted earlier:
 
         git remote add Azure <your git deployment url>
 
@@ -504,7 +506,7 @@ To deploy your code, execute the following commands in a Git shell.
         git add -A
         git commit -m "init commit"
 
-4. Deploy your code to the web app        
+4. Deploy your code to the web app in Azure.        
 
         git push Azure master
 

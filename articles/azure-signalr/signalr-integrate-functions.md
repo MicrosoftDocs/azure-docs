@@ -28,6 +28,8 @@ Normally, this scenario would present a problem when trying to use SignalR becau
 
 In this tutorial, you will use Azure Functions to generate messages using a timer function at the beginning of each minute. The function will publish the messages to all clients of the chat room created in the previous tutorials. For more information timer functions, see [Timer Function](../azure-functions/functions-create-scheduled-function.md).
 
+You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
+
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Timer).
 
 ![Chat app with server messages](./media/signalr-integrate-functions/signalr-functions-complete.png)

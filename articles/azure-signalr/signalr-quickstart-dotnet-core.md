@@ -57,7 +57,7 @@ In this section, you use the [.NET Core command-line interface (CLI)](https://do
 
 In this section, you will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
-1. Open your *.csproj* file. Add a `DotNetCliToolReference` attribute for *Microsoft.Extensions.SecretManager.Tools* and a `UserSecretsId` attribute as shown below, and save the file.
+1. Open your *.csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown below, and save the file.
 
     *chattest.csproj:*
 
@@ -87,15 +87,13 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
         dotnet restore
 
-3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. This secret will contain the connection string to access your SignalR Service resource. Replace the value in the command below with the connection string for your SignalR Service resource.
+3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager. This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection. Replace the value in the command below with the connection string for your SignalR Service resource.
 
     This command must be executed in the same directory as the *.csproj* file.
 
     ```
     dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
     ```
-
-    *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection.
 
     Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.
 
@@ -123,12 +121,12 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
 
 ### Add a hub class
 
-In SignalR, a hub is a core concept that exposes a set of methods that can be called from client. In this section, you define a hub class with two methods: 
+In SignalR, a hub is a core component that exposes a set of methods that can be called from client. In this section, you define a hub class with two methods: 
 
 * `Broadcast`: This method broadcasts a message to all clients.
 * `Echo`: This method sends a message back to the caller.
 
-Both methods use the `Clients` interface provided by the SignalR Core SDK. This interface gives you access to all connected clients enabling you to push content to your clients.
+Both methods use the `Clients` interface provided by the ASP.NET Core SignalR SDK. This interface gives you access to all connected clients enabling you to push content to your clients.
 
 1. In your project directory, add a new folder named *Hub*. Add a new hub code file named *Chat.cs* to the new folder.
 
