@@ -1,4 +1,4 @@
----
+﻿---
  title: include file
  description: include file
  services: virtual-machines
@@ -20,7 +20,7 @@ Microsoft has deployed mitigations across all our cloud services. The infrastruc
 In addition, Azure is expanding the use of [memory preserving maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) whenever possible, pausing the VM for up to 30 seconds while the host is updated or the VM is moved to an already updated host.  Memory preserving maintenance further minimizes customer impact and eliminates the need for reboots.  Azure will utilize these methods when making system-wide updates to the host.
 
 > [!NOTE] 
-> In late February 2018, Intel Corporation published updated [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) on the status of their microcode releases, which improve stability and mitigate against the recent vulnerabilities disclosed by [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). The mitigations put in place by Azure on [January 3, 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) are not affected by Intel’s microcode update. Microsoft already put strong mitigations in place to protect Azure customers from other Azure virtual machines.  
+> In late February 2018, Intel Corporation published updated [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) on the status of their microcode releases, which improve stability and mitigate against the recent vulnerabilities disclosed by [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). The mitigations put in place by Azure on [January 3, 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) are not affected by Intel’s microcode update. Microsoft already put strong mitigations in place to protect Azure customers from other Azure virtual machines.  
 >
 > Intel’s microcode addresses variant 2 Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) or branch target injection) to protect against attacks which would only be applicable where you run shared or untrusted workloads inside your VMs on Azure. Our engineers are testing the stability to minimize performance impacts of the microcode, prior to making it available to Azure customers.  As very few customers run untrusted workloads within their VMs, most customers will not need to enable this capability once released. 
 >
