@@ -163,6 +163,7 @@ In this section, you will implement a `Login` API that authenticates clients usi
 
     ```csharp
     using AspNet.Security.OAuth.GitHub;
+    using Microsoft.AspNetCore.Authentication;
     using Microsoft.AspNetCore.Mvc;
 
     namespace chattest.Controllers
@@ -173,12 +174,13 @@ In this section, you will implement a `Login` API that authenticates clients usi
             [HttpGet("login")]
             public IActionResult Login()
             {
-                if (!HttpContext.User.Identity.IsAuthenticated)
+                if (!User.Identity.IsAuthenticated)
                 {
                     return Challenge(GitHubAuthenticationDefaults.AuthenticationScheme);
                 }
 
                 HttpContext.Response.Cookies.Append("githubchat_username", User.Identity.Name);
+                HttpContext.SignInAsync(User);
                 return Redirect("/");
             }
         }
@@ -395,7 +397,7 @@ az extension add -n signalr
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
-Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to create the variables:
+Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to set your variables:
 
 ```azurecli-interactive
 #========================================================================
@@ -405,14 +407,21 @@ Update the values for the variables shown below. These variables will be reused 
 ResourceName=mySignalRresourcename
 
 #========================================================================
+#=== Update myWebAppName with a unique name for your web app.         ===
+#=== For example, signalrtestwebapp22665120.                          ===
+#========================================================================
+WebAppName=myWebAppName
+WebAppPlanName=$WebAppName"Plan"
+
+#========================================================================
 #=== Update these values based on your GitHub OAuth App registration. ===
 #========================================================================
 GitHubClientId=1234567890
 GitHubClientSecret=1234567890
 
 #========================================================================
-#=== Update these values based on your desired deployment username    ===
-#=== and password.                                                    ===
+#=== Update these values based to the desired deployment username and ===
+#=== password. This deployment user will be used to deploy your code. ===
 #========================================================================
 deploymentUser=myUserName
 deploymentUserPassword=myPassword
@@ -422,11 +431,6 @@ deploymentUserPassword=myPassword
 #=== name, SignalRTestResources.                                      ===
 #========================================================================
 ResourceGroupName=SignalRTestResources
-
-let randomNum=$RANDOM*$RANDOM
-WebAppName=SignalRTestWebApp$randomNum
-WebAppPlanName=$WebAppName"Plan"
-
 
 ```
 

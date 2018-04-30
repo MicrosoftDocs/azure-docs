@@ -6,7 +6,7 @@
     href: signalr-overview.md
 - name: Quickstarts
   items:
-  - name: ASP.NET Core
+  - name: Create achat room with ASP.NET Core
     href: signalr-quickstart-dotnet-core.md
 - name: Tutorials
   items:
@@ -20,14 +20,6 @@
     href: https://github.com/aspnet/AzureSignalR-samples
   - name: Azure CLI
     href: signalr-cli-samples.md
-- name: Reference
-  items:
-  - name: Azure CLI Preview
-    href: /cli/azure/signalr
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.signalr
-  - name: Java
-    href: /java/api/com.microsoft.azure.management.signalr
 - name: Resources
   items:
   - name: SignalR Roadmap
