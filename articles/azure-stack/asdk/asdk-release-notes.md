@@ -42,7 +42,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 <!-- ### Changes  --> 
-
+ 
 
 ### Known issues
  
