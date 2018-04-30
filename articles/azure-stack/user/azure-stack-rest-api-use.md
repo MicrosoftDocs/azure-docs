@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/30/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -23,17 +23,18 @@ ms.reviewer: sijuman
 
 You can use the Azure Stack API to automate operations such as syndicating marketplace items.
 
-The process requires that your client authentications against the Microsoft Azure login endpoint. The endpoint returns a token. Provide the token in the header of every request sent to the Azure Stack API. Azure uses Oauth2.0.
+Using the API requires your client to authenticate against the Microsoft Azure login endpoint. The endpoint returns a token to use in the header of every request sent to the Azure Stack API. (Microsoft Azure uses Oauth 2.0.)
 
-This article provides simple examples specific to Azure Stack using the curl utility. This topic walks through the process of retrieving a token to access the Azure Stack API. Most languages provide Oauth 2.0 libraries, which have robust token management and handling tasks such refreshing the token.
+This article provides examples that use the curl utility to create Azure Stack requests. These examples walk through the process of retrieving a token to access the Azure Stack API. Most programming languages provide Oauth 2.0 libraries, which have robust token management and handle tasks such refreshing the token.
 
-Looking at the entire process of using the Azure Stack REST API with a generic REST client such as curl can help you understand the underlying requests, and what you can expect to receive in the response payload.
+Looking at the entire process of using the Azure Stack REST API with a generic REST client such as curl can help you understand the underlying requests, and shows what you can expect to receive in a response payload.
 
-This article also doesn't explore all the options available for retrieving tokens such as interactive login or creating dedicated App IDs. For more information, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
+This article doesn't explore all the options available for retrieving tokens such as interactive login or creating dedicated App IDs. For more information, see [Azure REST API Reference](https://docs.microsoft.com/rest/api/).
 
 ## Get a token from Azure
 
 Create a request *body* formatted using the content type x-www-form-urlencoded to obtain an access token. POST your request to the Azure REST Authentication and Login endpoint.
+
 ```
 POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 ```
@@ -45,6 +46,7 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 - Default value for tenant-independent keys: common
 
 ### Post Body
+
 ```
 grant_type=password
 &client_id=1950a258-227b-4e31-a9cf-717495945fc2
@@ -57,8 +59,9 @@ grant_type=password
 For each value:
 
   **grant_type**
-  
+
   The type of authentication scheme you will using. In this example, the value is:
+
   ```
   password
   ```
@@ -68,18 +71,22 @@ For each value:
   The resource the token accesses. You can find the resource by querying the Azure Stack management metadata endpoint. Look at the **audiences** section
 
   The Azure Stack Management endpoint:
+
   ```
   https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
   ```
- > [!NOTE]  
+
+ > [!NOTE]
  > If you are an administrator trying to access the tenant API then you must make sure to use tenant endpoint, for example `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011
-  
+
   For example, with the Azure Stack Development Kit:
+
   ```
   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
   ```
- 
+
   Response:
+
   ```
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
@@ -93,6 +100,7 @@ For each value:
   ```
 
 ### Example
+
   ```
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
@@ -100,11 +108,13 @@ For each value:
   **client_id**
 
   This value is hardcoded to a default value:
+
   ```
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
   Alternative options are available for specific scenarios:
+
   
   | Application | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
@@ -115,8 +125,9 @@ For each value:
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
   **username**
-  
+
   The Azure Stack AAD account, for example:
+
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
@@ -124,10 +135,11 @@ For each value:
   **password**
 
   The Azure Stack AAD admin password.
-  
+
 ### Example
 
 Request:
+
 ```
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
 -H "Content-Type: application/x-www-form-urlencoded" \
@@ -139,6 +151,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 ```
 
 Response:
+
 ```
 {
   "token_type": "Bearer",
@@ -157,11 +170,13 @@ Response:
 Once you obtain your access token, you need to add it as a header to each of your API requests. In order to do so, you need to create a header **authorization** with value: `Bearer <access token>`. For example:
 
 Request:
+
 ```
 curl -H "Authorization: Bearer eyJ0eXAiOi...truncated for readability..." 'https://adminmanagement.local.azurestack.external/subscriptions?api-version=2016-05-01'
 ```
 
 Response:
+
 ```
 offerId : /delegatedProviders/default/offers/92F30E5D-F163-4C58-8F02-F31CFE66C21B
 id : /subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8
@@ -186,16 +201,19 @@ The path specifies the resource or resource collection, which may include multip
 The string provides additional simple parameters, such as the API version or resource selection criteria.
 
 ## Azure Stack request URI construct
+
 ```
-{URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version} 
+{URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
 ### URI syntax
+
 ```
-https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version} 
+https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
 ### Query URI example
+
 ```
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
