@@ -25,3 +25,5 @@ FPGAs provide ultra-low latency, and they are particularly effective for scoring
 ## Next steps
 
 [Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)
+
+[Learn how to install the FPGA SDK](reference-fpga-package-overview.md)

@@ -47,7 +47,7 @@ Try these next steps for this package:
 
 ## amlrealtimeai (FPGA acceleration)
 
-With Azure Machine Learning Hardware Acceleration package, data scientists and AI developers can featurize images with a quantized version of ResNet 50, train classifiers based on those features, and then deploy models to an FPGA on Azure for ultra-low latency inferencing.
+With Azure Machine Learning Hardware Acceleration package, data scientists and AI developers can featurize images with a quantized version of ResNet 50, train classifiers based on those features, and then deploy models to an [field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md) on Azure for ultra-low latency inferencing.
 
 Try these next steps for this package:
 1. [Download](https://aka.ms/aml-real-time-ai-package) the package.

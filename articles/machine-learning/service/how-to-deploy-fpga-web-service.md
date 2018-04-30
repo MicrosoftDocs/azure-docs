@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning
 
-In this document, you learn how to set up your workstation environment and deploy a model as a web service. The web service uses Project Brainwave to run the model on field programmable gate arrays (FPGA).
+In this document, you learn how to set up your workstation environment and deploy a model as a web service on [field programmable gate arrays (FPGA)](concept-accelerate-with-fpgas.md). The web service uses Project Brainwave to run the model on FPGA.
 
 Using FPGAs provides ultra-low latency inferencing, even with a single batch size.
 
@@ -36,7 +36,7 @@ Using FPGAs provides ultra-low latency inferencing, even with a single batch siz
 
 6. Click **Create** on the ML Model Management on the left.
 
-## Get Model Management Account Information
+## Get Model Management account information
 
 To get information about your Model Management Account (MMA), click the __Model Management Account__ on the Azure portal.
 
