@@ -1,5 +1,5 @@
 ---
-title: Durable Functions publishing to Azure Event Grid
+title: Durable Functions publishing to Azure Event Grid (preview)
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 services: functions
 author: tdykstra
@@ -16,7 +16,7 @@ ms.date: 04/20/2018
 ms.author: tdykstra
 ---
 
-# Durable Functions publishing to Azure Event Grid
+# Durable Functions publishing to Azure Event Grid (preview)
 
 This article shows how to set up Azure Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
 
