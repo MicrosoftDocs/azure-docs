@@ -95,7 +95,9 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
     dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
     ```
 
-    This will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the web app to Azure. Once the web app is deployed to Azure, you will use an application setting in place of the environment variable.
+    *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for in order to establish a connection.
+
+    Secret Manager will only be used for testing the web app while it is hosted locally. In a later tutorial, you will deploy the chat web app to Azure. Once the web app is deployed to Azure, you will use an application setting instead of storing the connection string with Secret Manager.
 
 4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `services.AddSignalR().AddAzureSignalR()` method:
 
@@ -106,6 +108,8 @@ In this section, you will add the [Secret Manager tool](https://docs.microsoft.c
         services.AddSignalR().AddAzureSignalR();
     }
     ```
+
+    By not passing a parameter to `AddAzureSignalR()`, this code uses the default configuration key, *Azure:SignalR:ConnectionString*, for the SignalR Service resource connection string.
 
 5. Also in *Startup.cs*, update the `Configure` method by replacing the call to `app.UseStaticFiles()` with the following code and save the file.
 
