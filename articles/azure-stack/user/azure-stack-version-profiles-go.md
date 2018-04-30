@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/30/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -31,7 +31,7 @@ A profile is a combination of different resource types with different versions f
 In the Go SDK, profiles are available under the profiles/ path, with their version in the **YYYY-MM-DD** format. Right now, the latest Azure Stack profile version is **2017-03-09**. To import a given service from a profile, you need to import its corresponding module from the profile. For example, to import **Compute** service from **2017-03-09** profile:
 
 ````go
-import "github.com/Azure/azure-sdk-for-go/profi1es/2e17-e3-eg/compute/mgmt/compute" 
+import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
 ## Install Azure SDK for Go
