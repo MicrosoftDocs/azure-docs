@@ -149,42 +149,11 @@ You can create a network service endpoint in your virtual network for "Storage" 
 >[!NOTE]
 >Do not restrict virtual network access to your storage accounts used for ASR. You should allow access from 'All networks'
 
-## ExpressRoute/VPN
-
-If you have an ExpressRoute or VPN connection between on-premises and Azure location, follow the guidelines in this section.
-
 ### Forced tunneling
 
-Typically, you define a default route (0.0.0.0/0) that forces outbound Internet traffic to flow through the on-premises location or. We do not recommend this. The replication traffic should not leave the Azure boundary.
-
-You can [create a network service endpoint](#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave Azure boundary.
-
-
-### Connectivity
-
-Follow these guidelines for connections between the target location and the on-premises location:
-- If your application needs to connect to the on-premises machines or if there are clients that connect to the application from on-premises over VPN/ExpressRoute, ensure that you have at least a [site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) between your target Azure region and the on-premises datacenter.
-
-- If you expect a lot of traffic to flow between your target Azure region and the on-premises datacenter, you should create another [ExpressRoute connection](../expressroute/expressroute-introduction.md) between the target Azure region and the on-premises datacenter.
-
-- If you want to retain IPs for the virtual machines after they fail over, keep the target region's site-to-site/ExpressRoute connection in a disconnected state. This is to make sure there is no range clash between the source region's IP ranges and target region's IP ranges.
-
-### ExpressRoute configuration
-Follow these best practices for ExpressRoute configuration:
-
-- Create an ExpressRoute circuit in both the source and target regions. Then you need to create a connection between:
-    - The source virtual network and the on-premises network, via the ExpressRoute circuit in the source region.
-    - The target virtual network and the on-premises network, via the ExpressRoute circuit in the target region.
-
-
-- As part of ExpressRoute standard, you can create circuits in the same geopolitical region. To create ExpressRoute circuits in different geopolitical regions, Azure ExpressRoute Premium is required, which involves an incremental cost. (If you are already using ExpressRoute Premium, there is no extra cost.) For more details, see the [ExpressRoute locations document](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) and [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- We recommend that you use different IP ranges in source and target regions. The ExpressRoute circuit won't be able to connect with two Azure virtual networks of the same IP ranges at the same time.
-
-- You can create virtual networks with the same IP ranges in both regions and then create ExpressRoute circuits in both regions. In the case of a failover event, disconnect the circuit from the source virtual network, and connect the circuit in the target virtual network.
-
- >[!IMPORTANT]
- > If the primary region is completely down, the disconnect operation can fail. That will prevent the target virtual network from getting ExpressRoute connectivity.
+You can override Azure's default system route for the 0.0.0.0/0 address prefix with a [custom route](../virtual-network/virtual-networks-udr-overview.md#custom-routes) and divert VM traffic to an on-premises network virtual appliance (NVA), but this is not recommended for Site Recovery replication. If you're using custom routes, you should [create a virtual network service endpoint](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) in your virtual network for "Storage" so that the replication traffic does not leave the Azure boundary.
 
 ## Next steps
-Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
+- Start protecting your workloads by [replicating Azure virtual machines](site-recovery-azure-to-azure.md).
+- Learn more about [IP address retention](site-recovery-retain-ip-azure-vm-failover) for Azure virtual machine failover.
+- Learn more about disaster recovery of [Azure virtual machines with ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).
