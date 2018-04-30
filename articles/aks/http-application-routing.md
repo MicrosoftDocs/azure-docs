@@ -21,7 +21,7 @@ Enabling this addon creates a DNS Zone in your subscription. For more informatio
 
 The addon deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
 
-- **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources, which creates routes to application endpoints.
+- **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources][ingress-resource], which creates routes to application endpoints.
 - **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
 ## Deploy HTTP routing
@@ -193,6 +193,13 @@ deployment "party-clippy" deleted
 service "party-clippy" deleted
 ingress "party-clippy" deleted
 ```
+
+## Next steps
+
+For information on installing an HTTPS secured Ingress controller in AKS, see [HTTPS Ingress on Azure Container Service (AKS)][ingress-https]
+
+<!-- LINKS - internal -->
+[ingress-https]: ./ingress.md
 
 <!-- LINKS - external -->
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
