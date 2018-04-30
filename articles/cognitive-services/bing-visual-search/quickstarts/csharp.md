@@ -26,7 +26,7 @@ The example program uses .NET Core classes only and runs on Windows using the .N
 
 You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to get this code running on Windows. (The free Community Edition will work.)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and Visual Search subscription key. For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
 ## Running the application
 
@@ -267,6 +267,6 @@ namespace BingSearchApisQuickstart
 ## See also 
 
 [Bing Visual Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference)
+[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)

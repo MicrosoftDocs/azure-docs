@@ -41,13 +41,13 @@
   expanded: true
   items:
   - name: REST v7 API
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-visual-search-api-v7-reference
+    href: https://aka.ms/bingvisualsearchreferencedoc
 - name: Resources
   items:
   - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
   - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-visual-search-api/
+    href: https://aka.ms/bingvisualsearchtryforfree
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: User Voice

@@ -23,7 +23,7 @@ This article includes a simple console application that sends a Bing Visual Sear
 
 You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) and Visual Search subscription key. For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
 
 ## Running the application
 
@@ -85,7 +85,7 @@ var req = request(options, function(err, resp, body) {
 
 ## See also 
 
-[Bing Image Search overview](../overview.md)  
-[Try it](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing Image Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Bing Visual Search overview](../overview.md)  
+[Try it](https://aka.ms/bingvisualsearchtryforfree)  
+[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)
