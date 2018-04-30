@@ -19,7 +19,7 @@ You can use Azure Blockchain Workbench to create blockchain applications that re
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Configure a blockchain application in Blockchain Workbench
+> * Configure a blockchain application
 > * Create a smart contract code file
 > * Add a blockchain application to Blockchain Workbench
 > * Add members to the blockchain application
@@ -32,8 +32,6 @@ You'll learn how to:
 
 Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
 For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
-
-The **HelloBlockchain** example used in this article is available on GitHub. [Download a zip file](https://github.com/Azure-Samples) or clone the sample from GitHub `git clone https://github.com/Azure-Samples/placeholder.git` You can download the source or follow the outlined steps to build the application configuration and code files.
 
 ## Configuration file
 
@@ -371,7 +369,7 @@ Deployment of the blockchain application takes a few minutes. When deployment is
 
 ## Add blockchain application members
 
-Add application members to your application to initiate and take actions on contracts.
+Add application members to your application to initiate and take actions on contracts. To add application members, you need to be a Blockchain Workbench administrator.
 
 1. Select **Applications** > **Hello, Blockchain!**.
 2. The number of members associated to the application is displayed in the upper right corner of the page. For a new application, the number of members will be zero.
