@@ -20,7 +20,7 @@ ms.custom: it-pro
 Most Azure AD data stays in Europe and isn't replicated outside Europe. The only exceptions are a few attributes that can identify customers, and some metadata that's required for certain identity services to function properly. This article provides details about the stored Azure AD data, including what customers need to know while they plan for their own data residency and storage requirements.
 
 ## Data storage and residency
-Most Azure AD for European-based customers stays within the European datacenters, managed by Microsoft. Azure AD data that's not stored in the European datacenters, includes:
+Most Azure AD data for European-based customers stays within the European datacenters, managed by Microsoft. Azure AD data that's not stored in the European datacenters, includes:
 
 - **Identity-related attributes**
 
@@ -30,7 +30,7 @@ Most Azure AD for European-based customers stays within the European datacenters
     -   PasswordHash
     -   GivenName
     -   Surname
-    -   customerPrincipalName
+    -   userPrincipalName
     -   AccountEnabled
     -   PasswordPolicies
     -   StrongAuthenticationRequirement
