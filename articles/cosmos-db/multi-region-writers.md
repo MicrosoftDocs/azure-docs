@@ -55,7 +55,7 @@ Implementing multi-master on your own adds burden on developers. Large-scale cus
 
 * **Improved write scalability and write throughput** - Multi-master will give higher throughput, and greater utilization while offering multiple consistency models with correctness guarantees and backed up by SLAs. 
 
-![Scaling write throughput with multi-master](./media/multi-region-writers/scale-write-throughput.png.png)
+![Scaling write throughput with multi-master](./media/multi-region-writers/scale-write-throughput.png)
 
 * **Better support for disconnected environments (for example, edge devices)** - Multi-master enables users to replicate all or a subset of data from an edge device to a closest region in a disconnected environment. This scenario is typical of sales force automation systems, where an individual's laptop (a disconnected device) stores a subset of data related to the individual salesperson. Master regions in the cloud that are located anywhere in the world can operate as the target of the copy from the remote edge devices.  
 
@@ -93,7 +93,7 @@ With multi-master, the challenge is often that two (or more) replicas of the sam
 
 Azure Cosmos DB implements the logic for handling conflicting writes inside the database engine itself. Azure Cosmos DB offers **comprehensive and flexible conflict resolution support** by offering several conflict resolution models, including Automatic (CRDT- conflict-free replicated data types), Last Write Wins (LWW), Custom (Stored Procedure) and Manual for automatic conflict resolution. The conflict resolution models provide correctness and consistency guarantees and remove the burden from developers to have to think about consistency, availability, performance, replication latency, and complex combinations of events under geo-failovers and cross-region write conflicts.  
 
-![Multi-master conflict resolution blade](./media/multi-region-writers/multi-master-conflict-resolution-blade.png.png)
+![Multi-master conflict resolution blade](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
 The semantics of the conflict resolution models offered by Azure Cosmos DB is as follows: 
 
