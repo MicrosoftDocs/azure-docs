@@ -31,19 +31,19 @@ An app owner can add collaborators to an app. The owner needs to add the collabo
 If you want to share multiple apps with collaborators, each app needs the collaborator's email added. 
 
 ## Managing multiple authors
-The [LUIS][LUIS] website doesn't currently offer transaction-level authoring. You can allow authors to work on independent versions from a base version. Two different methods are described below.
+The [LUIS][LUIS] website doesn't currently offer transaction-level authoring. You can allow authors to work on independent versions from a base version. Two different methods are described in the following sections.
 
 ### Manage multiple versions as apps
-Export the base version. Each author imports the version. They will be the owners of this version. When they are done modifying the app, export the version. 
+Export the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
 
-Exported apps are JSON-formatted files which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
 
 ### Manage multiple versions inside the same app
 Begin by [cloning](luis-how-to-manage-versions.md), from a base version, for each author. 
 
 Each author makes changes to his own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
 
-Exported apps are JSON-formatted files which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the app. 
+Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the app. 
 
 ## Next steps
 

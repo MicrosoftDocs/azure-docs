@@ -36,7 +36,7 @@ If you are not sure how you would use the information, add a few common prebuilt
 ## Label for word meaning
 If the word choice or word arrangement is the same, but doesn't mean the same thing, do not label it with the entity. 
 
-The the following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
+The following utterances, the word `fair` is a homograph. It is spelled the same but has a different meaning:
 
 ```
 What kind of county fairs are happening in the Seattle area this summer?

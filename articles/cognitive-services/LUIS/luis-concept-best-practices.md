@@ -16,7 +16,7 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read this 
 ## Intents
 Use only as many [intents](luis-concept-intent.md) as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in the calling application or bot. 
 
-The intents should be specific. They should not overlapping each other. If multiple intents are semantically close, consider merging them.
+The intents should be specific. They should not overlap each other. If multiple intents are semantically close, consider merging them.
 
 If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping. 
 

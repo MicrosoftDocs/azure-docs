@@ -34,7 +34,7 @@ LUIS has several boundary areas. The first is the [model boundary](#model-bounda
 | **[Simple](./luis-concept-entity-types.md)| 100 entities|
 | [Utterance][utterances] | 500 characters|
 | [Utterances][utterances] | 15,000 per application|
-| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanum and period (.) |
+| [Version name][luis-how-to-manage-versions] | 10 characters restricted to alphanumeric and period (.) |
 
 **The total count of simple, hierarchical, and composite entities can't exceed 100. The total count of hierarchical entities, composite entities, simple entities, and hierarchical children entities can't exceed 330. 
 
@@ -68,7 +68,7 @@ The authoring key has different limits for authoring and endpoint. The LUIS serv
 
 ## Website sign in time period
 
-Your sign in access is for **60 minutes**. After this time period, you will get this error. You need to login again.
+Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to log in again.
 
 [luis-get-started-create-app]:luis-get-started-create-app.md
 [batch-testing]:luis-concept-test.md#batch-testing
