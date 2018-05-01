@@ -7,20 +7,14 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Stream video files
-    items: 
-    - name: .NET with Visual Studio
-      href: stream-files-dotnet-quickstart.md
+  - name: Stream video files with .NET
+    href: stream-files-dotnet-quickstart.md
 - name: Tutorials
   items:
   - name: Upload, encode, and stream
-    items:
-    - name: Using APIs
-      href: stream-files-tutorial-with-api.md
+    href: stream-files-tutorial-with-api.md
   - name: Analyze your video
-    items:
-    - name: Using APIs    
-      href: analyze-videos-tutorial-with-api.md
+    href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
   - name: Azure code samples
