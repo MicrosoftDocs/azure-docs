@@ -17,7 +17,7 @@ ms.author: bryanla; v-clay
 ms.custom: 
 
 ---
-# The collection of PaaS/SaaS technologies and solutions available for building an Azure IoT solution
+# Azure IoT technologies and solutions: PaaS and SaaS
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
 - Platform as a Service (PaaS): build your application using [Azure IoT Suite](https://www.azureiotsuite.com/), a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
@@ -55,6 +55,34 @@ Organizations with fewer device models, more predictable scenarios, and limited 
 - Configurable to your needs
 - Ideal for straightforward IoT needs
 
+### Compare Azure IoT Suite and Azure IoT Central
+
+To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), Azure IoT offers several options, [Azure IoT Suite](/azure/iot-suite) and [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), each appropriate for different sets of customer requirements.
+
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is the core Azure PaaS that both Azure IoT Central and Azure IoT Suite use. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
+
+* High-volume device connectivity and management.
+* High-volume telemetry ingestion.
+* Command and control of devices.
+* Device security enforcement.
+
+Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT Suite or Azure IoT Central to use it. Both Azure IoT Suite and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between Azure IoT Suite and Azure IoT Central to help you choose the correct one for your requirements:
+
+|                        | Azure IoT Suite | Azure IoT Central |
+| ---------------------- | --------- | ----------- |
+| Primary usage | To accelerate development of a custom IoT solution that needs maximum flexibility. | To accelerate time to market for straightforward IoT solutions that don’t require deep service customization. |
+| Access to underlying PaaS services          | You have access to the underlying Azure services to manage them, or replace them as needed. | SaaS. Fully managed solution, the underlying services aren't exposed. |
+| Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. Additionally, you can customize the deployment infrastructure.| Medium. You can use the built-in browser-based user experience to customize the solution model and aspects of the UI. The infrastructure is not customizable because the different components are not exposed.|
+| Skill level                 | Medium-High. You need Java or .NET skills to customize the solution back end. You need JavaScript skills to customize the visualization. | Low. You need modeling skills to customize the solution. No coding skills are required. |
+| Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Application templates and device templates provide pre-built models. Can be deployed in minutes. |
+| Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
+
+The decision of which product to use to build your IoT solution is ultimately determined by:
+
+* Your business requirements.
+* The type of solution you want to build
+* Your organization's skill set for building and maintaining the solution in the long term.
+
 ## Technologies (PaaS)
 
 With the most comprehensive IoT portfolio of platform services, Platform-as-a-Service (PaaS) technologies that span the Azure platform enable you to easily create, customize, and control all aspects of your IoT solution. Establish bi-directional communications with billions of IoT devices and manage your IoT devices at scale. Then integrate your IoT device data with other platform services, such as Azure Cosmos DB and Azure Time Series Insights, to enhance insights across your solution. 
@@ -77,41 +105,9 @@ Take advantage of an array of Azure data and analytics PaaS offerings in your Io
 ### Visualization and integration
 Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services with an industry-leading commitment to the protection and privacy of your data. Find out more about [Microsoft Azure](https://azure.microsoft.com/).
 
-## Compare Azure IoT options
 
-To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), Azure IoT offers several options, each appropriate for different sets of customer requirements:
 
-* [Azure IoT Suite](/azure/iot-suite) is an enterprise-grade collection of [preconfigured solutions](/azure/iot-suite/iot-suite-what-are-preconfigured-solutions) built on Azure Platform-as-a-Service (PaaS) that enable you to accelerate the development of custom IoT solutions.
 
-* [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions) is a Software-as-a-Service (SaaS) solution that uses a model-based approach to enable you to build enterprise-grade IoT solutions without requiring cloud solution development expertise.
-
-### Azure IoT Hub
-
-Azure IoT Hub is the core Azure PaaS that both Azure IoT Central and Azure IoT Suite use. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
-
-* High-volume device connectivity and management.
-* High-volume telemetry ingestion.
-* Command and control of devices.
-* Device security enforcement.
-
-### Compare Azure IoT Suite and Azure IoT Central
-
-Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT Suite or Azure IoT Central to use it. Both Azure IoT Suite and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between Azure IoT Suite and Azure IoT Central to help you choose the correct one for your requirements:
-
-|                        | Azure IoT Suite | Azure IoT Central |
-| ---------------------- | --------- | ----------- |
-| Primary usage | To accelerate development of a custom IoT solution that needs maximum flexibility. | To accelerate time to market for straightforward IoT solutions that don’t require deep service customization. |
-| Access to underlying PaaS services          | You have access to the underlying Azure services to manage them, or replace them as needed. | SaaS. Fully managed solution, the underlying services aren't exposed. |
-| Flexibility            | High. The code for the microservices is open source and you can modify it in any way you see fit. Additionally, you can customize the deployment infrastructure.| Medium. You can use the built-in browser-based user experience to customize the solution model and aspects of the UI. The infrastructure is not customizable because the different components are not exposed.|
-| Skill level                 | Medium-High. You need Java or .NET skills to customize the solution back end. You need JavaScript skills to customize the visualization. | Low. You need modeling skills to customize the solution. No coding skills are required. |
-| Get started experience | Preconfigured solutions implement common IoT scenarios. Can be deployed in minutes. | Application templates and device templates provide pre-built models. Can be deployed in minutes. |
-| Pricing                | You can fine-tune the services to control the cost. | Simple, predictable pricing structure. |
-
-The decision of which product to use to build your IoT solution is ultimately determined by:
-
-* Your business requirements.
-* The type of solution you want to build
-* Your organization's skill set for building and maintaining the solution in the long term.
 
 ## Next steps
 
