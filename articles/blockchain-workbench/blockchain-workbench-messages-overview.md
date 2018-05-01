@@ -21,8 +21,7 @@ Developers have also expressed interest in the ability to have external systems 
 
 ## Event notifications
 
-Event notifications can be used to notify users and downstream systems of events that happen in Workbench and the blockchain network it is connected to. Event notifications can be consumed directly in code or
-used with tools such as Logic Apps and Flow to trigger flow of data to downstream systems.
+Event notifications can be used to notify users and downstream systems of events that happen in Workbench and the blockchain network it is connected to. Event notifications can be consumed directly in code or used with tools such as Logic Apps and Flow to trigger flow of data to downstream systems.
 
 See [Notification message reference](#notification-message-reference)
 for details of various messages that can be received.
