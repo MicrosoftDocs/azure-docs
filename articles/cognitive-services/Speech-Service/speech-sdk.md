@@ -22,6 +22,9 @@ The table below the currently supported programming languages and operating syst
 |-|-|
 |Windows|C/C++, C#|
 |Linux|C/C++|
+|Devices|Java\*|
+
+\* *The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).*
 
 ## Getting the Windows SDK
 
@@ -50,3 +53,7 @@ Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the file
 |`lib/x86`|Native x86 library for linking with your application|
 
 To create an application, copy/move the required binaries (and libraries) into your development environment, and include them as required into your build process.
+
+## Getting the Java SDK
+
+The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).

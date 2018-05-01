@@ -24,6 +24,8 @@ The Speech Translation API uses a WebSockets protocol to provide a full-duplex c
 
 The Speech Translation API employs the same technologies that power various Microsoft products and services. This service is already used by thousands of businesses worldwide in their applications and workflows.
 
+## About the technology
+
 Underlying Microsoft's translation engine are two different approaches: statistical machine translation (SMT) and neural machine translation (NMT). The latter, an artificial intelligence approach employing neural networks, is the more modern approach to machine translation. MNT simply provides better translations—not just more accurate, but also more fluent and natural. The key reason for this fluidity is that NMT uses the full context of a sentence to translate words.
 
 Today, Microsoft has migrated to MNT for the most popular languages, employing SMT only for less-frequently-used languages. All [languages available for speech-to-speech translation](supported-languages.md#speech-translation) are powered by MNT. Speech-to-text translation may use SMT or MNT depending on the language pair. If the target language is supported by NMT, the full translation is NMT-powered. If the target language isn't supported by NMT, the translation is a hybrid of NMT and SMT, using English as a "pivot" between the two languages.
@@ -32,3 +34,5 @@ The differences between models are internal to the translation engine. End users
 
 > [!NOTE]
 > Interested in learning more about the technology behind Microsoft's translation engine? See [Machine Translation](https://www.microsoft.com/en-us/translator/mt.aspx).
+
+## Next steps

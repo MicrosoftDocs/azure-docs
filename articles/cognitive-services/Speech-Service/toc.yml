@@ -7,6 +7,8 @@
   items:
   - name: Get set up # OK
     href: get-started.md
+  - name: Recognize speech in C# # OK
+    href: quickstart-csharp-windows.md
 - name: How-to guides
   items:
     - name: Authenticate with the Speech service # OK
@@ -19,14 +21,16 @@
       href: how-to-customize-speech-models.md
     - name: Synthesize speech # OK
       href: how-to-text-to-speech.md
-    - name: Customize voice fonts # OK
-      href: how-to-customize-voice-font.md
+   - name: Customize voice fonts # OK
+     href: how-to-customize-voice-font.md
     - name: Translate speech # OK
       href: how-to-translate-speech.md
     - name: Prepare transcripts #OK
       name: preprare-transcription.md
-#    - name: Customize device wake word # OK
-#      href: speech-devices-sdk-create-kws.md
+   - name: Get the Speech Devices SDK
+     href: get-speech-devices-sdk.md
+   - name: Customize device wake word # OK
+     href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
   href: samples.md
 - name: Concepts
@@ -39,8 +43,8 @@
     href: speech-translation.md
   - name: Speech SDK # OK
     href: speech-sdk.md
-#  - name: Speech Devices SDK # OK
-#    href: speech-devices-sdk.md
+  - name: Speech Devices SDK # OK
+    href: speech-devices-sdk.md
 - name: Reference
   items:
   - name: Supported languages # OK
@@ -49,9 +53,9 @@
     href: rest-apis.md
 #  - name: WebSockets protocols # OK
 #    href: websockets.md
-  - name: Speech SDK # OK
+  - name: Speech SDK API # OK
     href: speech-sdk-reference.md
-  - name: Speech synthesis markup # OK
+    - name: Speech synthesis markup # OK
     href: speech-synthesis-markup.md
 - name: Resources
   items:
@@ -71,7 +75,9 @@
     href: ship-application.md
   - name: Release notes
     hraf: release-notes.md
-  - name: License
+  - name: Speech SDK License
     href: license.md
+  - name: Speech Devices SDK License
+    href: speech-devices-sdk-license.md
   - name: Third party notices
     href: third-party-notices.md

@@ -78,8 +78,6 @@ West US| wss://westus.s2s.speech.microsoft.com/v1.0/
 East Asia|	wss://eastasia.s2s.speech.microsoft.com/v1.0/
 North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
 
-
-
 ## Software Development Kits
 
-The unified Speech SDK currently supports C/C++ and C#. If you are using another programming language, you may not want to migrate at this time.
+The unified Speech SDK currently supports C/C++, C#, and Java. If you are using another programming language, you may not want to migrate at this time.
