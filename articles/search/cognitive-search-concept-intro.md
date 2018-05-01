@@ -12,26 +12,26 @@ ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search, now in public preview, is a new extensible data extraction and enrichment pipeline in Azure Search. It uses AI powered algorithms to find latent information in non-text sources and unstructured text, transforming data into searchable content. 
+Cognitive search is a preview feature of Azure Search, available on all tiers in South Central US and West Europe, that adds AI to indexing workloads. Data extraction, natural language processing, and image processing during indexing finds the latent information in  unstructured or non-searchable content and makes it searchable in Azure Search.
 
-New data extraction capabilities in cognitive search make content more searchable in the following ways:
-
-+ Natural language processing - in the form of entity recognition, sentiment analysis, key phrase extraction, and language detection - bring AI-powered modeling that extracts information that can amplify a search experience.
-+ Image processing can extract data from images, making scanned documents searchable through optical character recognition. You can also analyze photographs to identify faces or automatically create searchable tags.
-+ Custom processing – create your own skills and custom classifiers, and plug them into the enrichment pipeline. 
-
-At the heart of cognitive search is an extensible indexing pipeline powered by *cognitive skills* that enrich source documents through these various forms of processing, in route to a search index.
+AI integration is through *cognitive skills* that enrich source documents through these various forms of processing, in route to a search index. 
 
 ![Cognitive search pipeline diagram](./media/cognitive-search-intro/cogsearch-architecture.png "Cognitive Search pipeline overview")
 
-## Pipeline components
+Skills can be predefined or custom:
 
-At both ends of the pipeline, you have persisted data - source data stored in an Azure data source, and a searchable index in Azure Search. In between is a run-time process that moves data through a series of transformations, culminating in an index accessed via search requests through all query types supported by Azure Search. 
++ Prefined skills are based on Cognitive Services APIs. Named Entity Recognition, Text Analytics, and OCR are just a few. 
 
-Underneath it all, the engine driving the pipeline is an Azure Search *indexer*. An indexer pulls data from supported sources, adds field mappings and logic, and pushes it into a search index that you've defined in advance. Transformations and enrichment are added through individual *skills*, combined into a *skillset* attached to an indexer. The remaining sections explore each step in more detail.
++ Custom skills can be developed for specialized processing. Examples of custom skills might be a custom entity module or document classifier targeting a specific domain such as finance, scientific publications, or medicine.
 
 > [!NOTE]
 > Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
+
+## Components of cognitive search
+
+You can think of cognitive search as a pipeline that pushes source documents through a sequence of operations, building an enriched version of source documents that ultimately find their way to an Azure Search index, accessed via search requests through all query types supported by Azure Search.  
+
+Underneath, the engine driving the pipeline is an existing Azure Search *indexer*. Indexers crawl data from supported sources, add field mappings and logic, and push documents into a search index that you've defined in advance.
 
 ### Source data and document cracking phase
 
@@ -57,21 +57,23 @@ The index is like any other you might create for Azure Search: you can supplemen
 
 Indexes are generated from an index schema that defines the fields, attributes, and other constructs attached to a specific index, such as scoring profiles and synonym maps. Once an index is defined and populated, you can refresh it to pick up new and updated source documents. Enrichment steps are seamlessly integrated with the indexing workload; the same operations performed during initial data ingestion also occur in subsequent refresh operations.
 
-
-
 <a name="feature-concepts"></a>
 
 ## Key features and concepts
 
 | Concept | Description|
 |---------|------------|
+| Skillset | A top-level named resource containing a collection of skills. A skillset is the enrichment pipeline. |
+| Cognitive skill | An atomic transformation in an enrichment pipeline. Often, it is a component that extracts or infers structure, and therefore augments an understanding of the input data. Almost always, the output is text-based and the processing is natural language processing or image processing that extracts or generates text from image inputs. Output can be mapped to a field in an index, or used as an input for a downstream enrichment. A skill is either predefined or custom. |
+| Data extraction | Covers a broad range of processing, but as specifically related to cognitive search, the named entity recognition skill is most typically used to extract data (an entity) from a source that doesn't provide that information natively. |
+| Image processing | Infers text from an image, such as the ability to recognize a landmark, or extracts text from an image. Common examples include OCR for lifting characters from a scanned document (JPEG) file, or recognizing a street name in a photograph containing a street sign. | 
+| Natural language processing | Text processing for insights and information about text inputs.. Language detection, sentiment analysis, and key phrase extraction are skills that fall under natural language processing.  | 
+| Document cracking | The process of extracting or creating text content from non-text sources during indexing. Optical character recognition (OCR) and audio-to-text translation are two examples. The data source providing source file location, and the indexer definition providing field mappings, are both key factors in document cracking. |
+| Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For cognitive search enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. |
 | Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. |
 | Index | A persisted search corpus in Azure Search, built from an index schema that defines field structure and usage. |
-| Document cracking | The process of extracting or creating text content from non-text sources. Optical character recognition (OCR) and audio-to-text translation are two examples. The data source and the indexer definition with field mappings are the key factors in document cracking. |
-| Cognitive skill | An atomic transformation in an enrichment pipeline. Often, it is a component that extracts or infers structure, and therefore augments an understanding of the input data. Almost always, the output is text-based and the processing is natural language processing. Output can be mapped to a field in an index, or used as an input for a downstream enrichment. |
-| Skillset | A top-level named resource containing a collection of skills. A skillset is the enrichment pipeline. |
-| Enriched documents | A transitory internal structure, not directly accessible in code. Enriched documents are generated during processing, but only final outputs are persisted in a search index. Field mappings determine which data elements are added to the index. |
+
 
 ## Where do I start?
 
