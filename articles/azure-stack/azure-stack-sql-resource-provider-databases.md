@@ -3,7 +3,7 @@ title: Using databases provided by the SQL Adapter RP on Azure Stack | Microsoft
 description: How to create and manage SQL databases provisioned using the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
-
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: jeffgo
 ---
 # Create SQL databases
 
@@ -59,3 +59,8 @@ You can update database credentials (login settings).
 AlwaysOn databases should show as synchronized and available on all instances and in the Availability group. After failover, the database should seamlessly connect. You can use SQL Server Management Studio to verify that a database is synchronizing:
 
 ![Verify AlwaysOn](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+
+
+## Next steps
+
+[Maintain the SQL Server resource provider](azure-stack-sql-resource-provider-maintain.md)
