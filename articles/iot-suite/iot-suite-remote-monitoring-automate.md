@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -36,9 +36,9 @@ If you haven't deployed the remote monitoring solution yet, you should complete 
 
 ## View the rules in your solution
 
-The **Rules and Actions** page in the solution displays a list of all the current rules:
+The **Rules** page in the solution displays a list of all the current rules:
 
-![Rules and Actions page](media/iot-suite-remote-monitoring-automate/rulesactions.png)
+![Rules page](media/iot-suite-remote-monitoring-automate/rulesactions.png)
 
 To view only the rules that apply to **Chiller** devices, apply a filter:
 
@@ -60,23 +60,24 @@ To add a new rule that generates a warning when the pressure in a **Chiller** de
 
 Use the following values to create the rule:
 
-| Setting          | Value                                 |
-| ---------------- | ------------------------------------- |
-| Name             | Chiller warning                       |
-| Source           | **Chillers** device group             |
-| Trigger field    | pressure                              |
-| Trigger operator | Greater than                          |
-| Trigger value    | 150                                   |
-| Severity level   | Warning                               |
-| Description      | Chiller pressure has exceeded 150 PSI |
+| Setting            | Value                                 |
+| ------------------ | ------------------------------------- |
+| Name               | Chiller warning                       |
+| Device group       | **Chillers**                          |
+| Condition field    | pressure                              |
+| Condition operator | Greater than                          |
+| Condition value    | 150                                   |
+| Severity level     | Warning                               |
+| Description        | Chiller pressure has exceeded 150 PSI |
+| Calculation        | Instant                               |
 
 To save the new rule, choose **Apply**.
 
-You can view when the rule is triggered on the **Rules and Actions** page or on the **Dashboard** page.
+You can view when the rule is triggered on the **Rules** page or on the **Dashboard** page.
 
 ## Edit an existing rule
 
-To make a change to an existing rule, select it in the list of rules. Then, in the **Rule Detail** panel choose **Edit mode**.
+To make a change to an existing rule, select it in the list of rules.
 
 ![Edit rule](media/iot-suite-remote-monitoring-automate/rulesactionsedit.png)
 
