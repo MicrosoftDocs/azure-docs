@@ -55,7 +55,7 @@ To start working with resources, you must [create a database account](create-sql
 | Database |A database is a logical container of document storage partitioned across collections. It is also a users container. |
 | User |The logical namespace for scoping permissions. |
 | Permission |An authorization token associated with a user for access to a specific resource. |
-| Collection |A collection is a container of JSON documents and the associated JavaScript application logic. A collection is a billable entity, where the [cost](performance-levels.md) is determined by the performance level associated with the collection. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput. |
+| Collection |A collection is a container of JSON documents and the associated JavaScript application logic. Collections can span one or more partitions/servers and can scale to handle practically unlimited volumes of storage or throughput. |
 | Stored Procedure |Application logic written in JavaScript, which is registered with a collection and transactionally executed within the database engine. |
 | Trigger |Application logic written in JavaScript executed before or after either an insert, replace, or delete operation. |
 | UDF |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core SQL API query language. |
@@ -170,7 +170,7 @@ A Cosmos DB database is elastic by default – ranging from a few GB to petabyte
 
 Unlike a database in traditional RDBMS, a database in Cosmos DB is not scoped to a single machine. With Cosmos DB, as your application’s scale needs to grow, you can create more collections, databases, or both. Indeed, various first party applications within Microsoft have been using Azure Cosmos DB at a consumer scale by creating extremely large Azure Cosmos DB databases each containing thousands of collections with terabytes of document storage. You can grow or shrink a database by adding or removing collections to meet your application’s scale requirements. 
 
-You can create any number of collections within a database subject to the offer. Each collection has SSD backed storage and throughput provisioned for you depending on the selected performance tier.
+You can create any number of collections within a database subject to the offer. Each collection, or set of collections (within a database), has SSD backed storage and throughput provisioned for you depending on the selected offer.
 
 An Azure Cosmos DB database is also a container of users. A user, in-turn, is a logical namespace for a set of permissions that provides fine-grained authorization and access to collections, documents, and attachments.  
 
@@ -180,7 +180,7 @@ As with other resources in the Azure Cosmos DB resource model, databases can be 
 A Cosmos DB collection is a container for your JSON documents. 
 
 ### Elastic SSD backed document storage
-A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions within a collection is determined by Cosmos DB based on the storage size and the throughput provisioned for your collection or a set of collections. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB collections are **practically unlimited** in terms of storage and throughput. 
+A collection is intrinsically elastic - it automatically grows and shrinks as you add or remove documents. Collections are logical resources and can span one or more physical partitions or servers. The number of partitions assigned to a collection is determined by Cosmos DB based on the storage size and the throughput provisioned for the collection or a set of collections. Every partition in Cosmos DB has a fixed amount of SSD-backed storage associated with it, and is replicated for high availability. Partition management is fully managed by Azure Cosmos DB, and you do not have to write complex code or manage your partitions. Cosmos DB collections are **unlimited** in terms of storage and throughput. 
 
 ### Automatic indexing of collections
 Azure Cosmos DB is a true schema-free database system. It does not assume or require any schema for the JSON documents. As you add documents to a collection, Azure Cosmos DB automatically indexes them and they are available for you to query. Automatic indexing of documents without requiring schema or secondary indexes is a key capability of Azure Cosmos DB and is enabled by write-optimized, lock-free, and log-structured index maintenance techniques. Azure Cosmos DB supports sustained volume of extremely fast writes while still serving consistent queries. Both document and index storage are used to calculate the storage consumed by each collection. You can control the storage and performance trade-offs associated with indexing by configuring the indexing policy for a collection. 
