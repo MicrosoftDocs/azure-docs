@@ -30,17 +30,17 @@ Nodes in an AKS cluster configured for Advanced networking use the [Azure Contai
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram-01]
 
-The Azure CNI plugin is also supported by the open source [Azure Container Service Engine (ACS Engine)][acs-engine] project.
-
 ## Advanced networking features
 
 Advanced networking provides the following benefits:
 
-* You can deploy your AKS cluster into an existing VNet, or create a new VNet and subnet for your cluster.
+* Deploy your AKS cluster into an existing VNet, or create a new VNet and subnet for your cluster.
 * Every pod in the cluster is assigned an IP address in the VNet, and can directly communicate with other pods in the cluster, and other VMs in the VNet.
 * A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
+* Expose a Kubernetes service externally or internally through the Azure Load Balancer. Also a feature of Basic networking.
 * Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL DB.
 * You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
+* Pods can access resources on the public Internet. Also a feature of Basic networking.
 
 > [!IMPORTANT]
 > Each node in an AKS cluster configured for Advanced networking can host a maximum of **30 pods**. Each VNet provisioned for use with the Azure CNI plugin is limited to **4096 IP addresses** (/20).
@@ -83,6 +83,10 @@ The following questions and answers apply to the **Advanced** networking configu
 
   No. Deploying VMs in the subnet used by your Kubernetes cluster is not supported. VMs may be deployed in the same VNet, but in a different subnet.
 
+* *Can I configure per-pod network policies? For example, Network Security Groups or user-defined routes.*
+
+  No. Per-pod network policies are currently unsupported.
+
 * *Is the maximum number of pods deployable to a node configurable?*
 
   By default, each node can host a maximum of 30 pods. You can currently change the maximum value only by modifying the `maxPods` property when deploying a cluster with a Resource Manager template.
@@ -93,6 +97,8 @@ The following questions and answers apply to the **Advanced** networking configu
 
 ## Next steps
 
+### Networking in AKS
+
 Learn more about networking in AKS in the following articles:
 
 [Use a static IP address with the Azure Kubernetes Service (AKS) load balancer](static-ip.md)
@@ -100,6 +106,12 @@ Learn more about networking in AKS in the following articles:
 [HTTPS ingress on Azure Container Service (AKS)](ingress.md)
 
 [Use an internal load balancer with Azure Container Service (AKS)](internal-lb.md)
+
+### ACS Engine
+
+[Azure Container Service Engine (ACS Engine)][acs-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Docker-enabled clusters on Azure. Kubernetes, DC/OS, Swarm Mode, and Swarm orchestrators can be deployed with ACS Engine.
+
+Kubernetes clusters created with ACS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both basic and advanced networking scenarios are supported by ACS Engine.
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
