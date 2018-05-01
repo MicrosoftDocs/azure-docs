@@ -18,19 +18,14 @@ ms.author: jgao
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to use Apache Spark in Azure HDInsight to process streaming data from Azure Event Hubs.
 ---
 
-# Tutorial: Process data from Azure Event Hubs with Spark in  HDInsight
+# Tutorial: Process tweets using Azure Event Hubs and Spark in HDInsight
 
-Learn how to create an Apache Spark streaming application that does:
-
-1.	Ingest messages into an Azure Event Hub.
-2.	Retrieve the messages from Event Hub in real time using an application running in Spark cluster on Azure HDInsight with two different approaches.
-3.	Build streaming analytic pipelines to persist data to different storage systems, or get insights from data on the fly.
-
-For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
+In this tutorial, you Learn how to create an Apache Spark streaming application to send tweets to an Azure event hub, and create another application to read the tweets from the event hub. For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * bla, bla, bla
+> * Send messages to Azure Event Hub
+> * Read messages from Azure Event Hub
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -40,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create a Twitter application
 
-To receive a stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and record the values that you need to complete this tutorial.
+To receive a stream of tweets, you create an application in Twitter. Follow the instructions create a Twitter application and write down the values that you need to complete this tutorial.
 
 1. Browse to [Twitter Application Management](https://apps.twitter.com/).
 2. Select **Create New App**.
@@ -56,12 +51,14 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
 6. Select **Create my access token** at the end of the page.
 7. Write down the following values from the page.  You need these values later in the tutorial:
 
-    - **Consumer Key (API Key)**	KsdaSZzOA0Ij4oCgQnjb0w590
-    - **Consumer Secret (API Secret)**	Y4Qr2VOXFRYpouBES9ZeWYwVUbNWEPPo7peIoGxzKjFKpefjzo
-    - **Access Token**	23087070-KfFXFmTo00thKXzdDbkhpI3D4P27kPHoQtFQboLv1
-    - **Access Token Secret**	09sbg641kC5LGpYgz5FSRUhNi6IJ7WaRmk3q5FYognYrl
+    - **Consumer Key (API Key)**	
+    - **Consumer Secret (API Secret)**	
+    - **Access Token**
+    - **Access Token Secret**	
 
 ## Create an Azure Event Hub
+
+You use this event hub to store tweets.
 
 1. Sign in to the [Azure Portal](https://ms.portal.azure.com).
 2. Select **Create a resource** at the top left of the screen.
@@ -103,9 +100,6 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
      ![Set Event Hub policies for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Set Event Hub policies for the Spark streaming example")
 
 9. Save the values of **Primary key** and **Connection string-primary key** to use later in the tutorial.
-
-    - QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
-    - Endpoint=sb://myeventhubns20180403.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=QZXxdjaVjLRzaJE/ycYl8sBVgo2IOGmTwEaSZlzrxlc=
 
      ![View Event Hub policy keys for the Spark streaming example](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "View Event Hub policy keys for the Spark streaming example")
 
@@ -152,8 +146,7 @@ You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**.
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
- 
+
     // Twitter application configurations
     // Replace values below with yours   
     val twitterConsumerKey = "<CONSUMER KEY>"
@@ -202,10 +195,10 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
     ```
     %%configure -f
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
-    '''
+    ```
 2. Run the following code to read tweets from your event hub:
 
-    '''
+    ```
     import org.apache.spark.eventhubs._
     // Event hub configurations
     // Replace values below with yours        
@@ -228,7 +221,7 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
     messages.printSchema
     
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
-    '''
+    ```
 
 ## Clean up resources
 
@@ -246,6 +239,7 @@ In this tutorial, you learned how to:
 
 * Read message from an event hub.
 Advance to the next article to see you can create a machine learning application. 
+
 > [!div class="nextstepaction"]
 > [Create a machine learning application](./apache-spark-ipython-notebook-machine-learning.md)
 
