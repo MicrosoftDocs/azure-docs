@@ -8295,11 +8295,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Content-Moderator/index.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/overview",
             "redirect_document_id": false
@@ -8310,11 +8305,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Emotion/index.md",
+            "redirect_url": "/azure/cognitive-services/Emotion/Home",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Face/index.md",
             "redirect_url": "/azure/cognitive-services/Face/Overview",
             "redirect_document_id": false
         },
-       {
+        {
+            "source_path": "articles/cognitive-services/video-indexer/index.md",
+            "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
