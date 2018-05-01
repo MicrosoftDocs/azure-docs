@@ -69,7 +69,7 @@ After you have a template, you can enable the DNS service with the following ste
 ## Setting the DNS name for your service
 Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through PowerShell commands.
 
-The DNS name for your service is resolvable throughout the cluster. It is highly recommended that you use a naming scheme of *<ServiceDnsName>.<AppInstanceName>*; for example, `service1.application1`. Doing so ensures the uniqueness of the DNS name throughout the cluster. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
+The DNS name for your service is resolvable throughout the cluster. It is highly recommended that you use a naming scheme of `<ServiceDnsName>.<AppInstanceName>`; for example, `service1.application1`. Doing so ensures the uniqueness of the DNS name throughout the cluster. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
