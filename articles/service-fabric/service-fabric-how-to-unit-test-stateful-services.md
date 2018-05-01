@@ -1,14 +1,20 @@
 # Unit Testing Considerations in Stateful Services
-*TODO: Here highlight points to keep in mind when developing tests for stateful services. These should cover*
-1. *Each replica executes application code but under different context*
-2. *State should be synchronized between the replicas (reliable collections facilitate this easiest)*
-3. *Replica's will move and change roles. The context under which they execute is dependent on the role.*
+While developing unit tests for stateful services, each there are some special considerations that should be kept in mind.
+1. Each replica executes application code but under different context. If the service uses 3 replicas, the service code is executing on 3 nodes in parallel under different context/role.
+2. State stored within the stateful service should be consistent amongst all replicas. The state manager and reliable collections will provide this consistentcy out-of-the-box. However, in-memory state will need to be managed by the application code.
+3. Each replica will change roles at some point while running on the cluster. A secondary replica will become a primary, in the event that the node hosting the primary becomes unavailable or overloaded. This is natural behavior for service fabric therefore services must plan for eventually executing under a different role.
 
-*Link back to conceptual article indicating this article assumes the consumer has read it as those concepts will be applied here.*
+This article assumes the following conceptual documentation has been read:
+
+*TODO: Link back to conceptual article indicating this article assumes the consumer has read it as those concepts will be applied here.*
 
 # ServiceFabric.Mocks
-*TODO: As of version 3.3.0, this package provides an api for mocking both the orchestration of the replicas and the state management. This will be used in the examples.*
-*Add link to nuget package and github*
+As of version 3.3.0, [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) provides an api for mocking both the orchestration of the replicas and the state management. This will be used in the examples.
+
+[Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
+[Github](https://github.com/loekd/ServiceFabric.Mocks)
+
+*ServiceFabric.Mocks is not owned or maintained by Microsoft. However, this is currently the Microsoft recommended library for unit testing stateful services.*
 
 # Setting up the Mock Orchestration & State
 As part of the arrange portion of a test, a mock replica set and state manager will be created. The replica set will then own creating an instance of the tested service for each replica. It will also own executing lifecycle events such as `OnChangeRole` and `RunAsync`. The mock state manager will ensure any operations performed against the state manager are run and kept as the actual state manager would.
