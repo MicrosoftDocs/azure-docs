@@ -80,8 +80,20 @@ Make sure that the following URLs are accessible from computers inside your orga
 
 - https://device.login.microsoftonline.com
 
-If your organizations requires access to the Internet via an outbound proxy, must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
+- Your organization's STS (federated domains)
 
+If not already done, your organization's STS (for federated domains) should be included in the user's local intranet settings.
+
+If your organization is planning to use Seamless SSO, then the following URLs need to be reachable from the computers inside your organization and they must also be added to the user's local intranet zone:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Also, the following setting should be enabled in the user's intranet zone: "Allow updates to status bar via script."
+
+
+If your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
 
 ## Configuration steps
 
