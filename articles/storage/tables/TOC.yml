@@ -1,11 +1,9 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
-- name: Overview
+- name: Azure Table storage Documentation
   items: 
   - name: Azure Table storage overview
     href: table-storage-overview.md
-  - name: Choose Table storage or Table API
-    href: https://docs.microsoft.com/azure/cosmos-db/table-support?toc=/azure/storage/tables/toc.json 
+  - name: Azure Table storage support in Azure Cosmos DB
+    href: ../../cosmos-db/table-support.md?toc=/azure/cosmos-db/toc.json 
 - name: Quickstarts
   items:
   - name: Create a storage account
