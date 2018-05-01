@@ -46,26 +46,30 @@ The following distributions are supported out of the box from the Azure Gallery:
 * **Debian "Stretch" with backports kernel**
 * **Oracle Linux 7.4**
 
-## Supported VM instances
+## Limitations and Constraints
+
+### Supported VM instances
 Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs.  These supported series are: D/DSv2 and F/Fs
 
 On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs. Supported series are: D/DSv3, E/ESv3, Fsv2, and Ms/Mms.
 
 For more information on VM instances, see [Linux VM sizes](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## Regions
+### Regions
 Available in all public Azure regions as well as Azure Government Clouds.
 
-## Limitations
-The following limitations exist when using this capability:
+### Network interface creation 
+Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
+### Enabling Accelerated Networking on a running VM
+A supported VM size without accelerated networking enabled can only have the feature enabled when it is stopped and deallocated.  
+### Deployment through Azure Resource Manager
+Virtual machines (classic) cannot be deployed with Accelerated Networking.
 
-* **Network interface creation:** Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
-* **Enabling Accelerated Networking on a running VM:** A supported VM without accelerated networking enabled can only have the feature enabled when it is stopped and deallocated.  
-* **Deployment through Azure Resource Manager only:** Virtual machines (classic) cannot be deployed with Accelerated Networking.
+## Create a Linux VM with Azure Accelerated Networking
 
 Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, under **Settings**, select **Enabled**, under **Accelerated networking**. The option to enable accelerated networking doesn't appear in the portal unless you've selected a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances). After the virtual machine is created, you need to complete the instructions in [Confirm that accelerated networking is enabled](#confirm-that-accelerated-networking-is-enabled).
 
-## Create a virtual network
+### Create a virtual network
 
 Install the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index#az_login). In the following examples, replace example parameter names with your own values. Example parameter names included *myResourceGroup*, *myNic*, and *myVm*.
 
@@ -88,7 +92,7 @@ az network vnet create \
     --subnet-prefix 192.168.1.0/24
 ```
 
-## Create a network security group
+### Create a network security group
 Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli
@@ -114,7 +118,7 @@ az network nsg rule create \
   --destination-port-range 22
 ```
 
-## Create a network interface with accelerated networking
+### Create a network interface with accelerated networking
 
 Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). A public IP address isn't required if you don't plan to access the virtual machine from the Internet, but to complete the steps in this article, it is required.
 
@@ -137,7 +141,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## Create a VM and attach the NIC
+### Create a VM and attach the NIC
 When you create the VM, specify the NIC you created with `--nics`. Select a size and distribution listed in [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview). 
 
 Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM* with the UbuntuLTS image and a size that supports Accelerated Networking (*Standard_DS4_v2*):
@@ -170,7 +174,7 @@ Once the VM is created, output similar to the following example output is return
 }
 ```
 
-## Confirm that accelerated networking is enabled
+### Confirm that accelerated networking is enabled
 
 Use the following command to create an SSH session with the VM. Replace `<your-public-ip-address>` with the public IP address assigned to the virtual machine you created, and replace *azureuser* if you used a different value for `--admin-username` when you created the VM.
 
@@ -208,27 +212,27 @@ vf_tx_dropped: 0
 ```
 Accelerated Networking is now enabled for your VM.
 
-# Enable Accelerated Networking on existing VMs
+## Enable Accelerated Networking on existing VMs
 If you have created a VM without Accelerated Networking, it is possible to enable this feature on an existing VM.  The VM must support Accelerated Networking by meeting the following prerequisites that are also outlined above:
 
 * The VM must be a supported size for Accelerated Networking
 * The VM must be a supported Azure Gallery image (and kernel version for Linux)
-* All VMs in an Availability Set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
+* All VMs in an availability set or VMSS must be stopped/deallocated before enabling Accelerated Networking on any NIC
 
-## Individual VMs & VMs in an Availability Set
+### Individual VMs & VMs in an availability set
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
 
-```bash
+```azurecli
 az vm stop \
     --resource-group myResourceGroup \
     --name myVM
 ```
 
-Important, please note, if your VM was created individually, without an Availability Set, you only need to stop/deallocate the individual VM to enable Accelerated Networking.  If your VM was created with an Availability Set, all VMs contained in the Availability Set will need to be stopped/deallocated before enabling Accelerated Networking on any of the NICs. 
+Important, please note, if your VM was created individually, without an availability set, you only need to stop/deallocate the individual VM to enable Accelerated Networking.  If your VM was created with an availability set, all VMs contained in the availability set will need to be stopped/deallocated before enabling Accelerated Networking on any of the NICs. 
 
 Once stopped, enable Accelerated Networking on the NIC of your VM:
 
-```bash
+```azurecli
 az network nic update \
     --name myVM -n myNic \
     --resource-group myResourceGroup \
@@ -237,15 +241,15 @@ az network nic update \
 
 Restart your VM or, if in an Availability Set, all the VMs in the Set and confirm that Accelerated Networking is enabled: 
 
-```bash
+```azurecli
 az vm start --resource-group myResourceGroup \
     --name myVM
 ```
 
-## VMSS
+### VMSS
 VMSS is slightly different but follows the same workflow.  First, stop the VMs:
 
-```bash
+```azurecli
 az vmss deallocate \
     --name myvmss \
     --resource-group myrg
@@ -253,7 +257,7 @@ az vmss deallocate \
 
 Once the VMs are stopped, update the Accelerated Networking property under the network interface:
 
-```bash
+```azurecli
 az vmss update --name myvmss \
     --resource-group myrg \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
@@ -261,7 +265,7 @@ az vmss update --name myvmss \
 
 Please note, a VMSS has VM upgrades that apply updates using three different settings, automatic, rolling and manual.  In these instructions the policy is set to automatic so that the VMSS will pick up the changes immediately after restarting.  To set it to automatic so that the changes are immediately picked up: 
 
-```bash
+```azurecli
 az vmss update \
     --name myvmss \
     --resource-group myrg \
@@ -270,7 +274,7 @@ az vmss update \
 
 Finally, restart the VMSS:
 
-```bash
+```azurecli
 az vmss start \
     --name myvmss \
     --resource-group myrg
@@ -278,13 +282,13 @@ az vmss start \
 
 Once you restart, wait for the upgrades to finish but once completed, the VF will appear inside the VM.  (Please make sure you are using a supported OS and VM size.)
 
-## Resizing existing VMs with Accelerated Networking
+### Resizing existing VMs with Accelerated Networking
 
 VMs with Accelerated Networking enabled can only be resized to VMs that support Accelerated Networking.  
 
 A VM with Accelerated Networking enabled cannot be resized to a VM instance that does not support Accelerated Networking using the resize operation.  Instead, to resize one of these VMs: 
 
-* Stop/Deallocate the VM or if in an Availability Set/VMSS, stop/deallocate all the VMs in the Set/VMSS.
-* Accelerated Networking must be disabled on the NIC of the VM or if in an Availability Set/VMSS, all VMs in the Set/VMSS.
-* Once Accelerated Networking is disabled, the VM/Availability Set/VMSS can be moved to a new size that does not support Accelerated Networking and restarted.  
+* Stop/Deallocate the VM or if in an availability set/VMSS, stop/deallocate all the VMs in the set/VMSS.
+* Accelerated Networking must be disabled on the NIC of the VM or if in an availability set/VMSS, all VMs in the set/VMSS.
+* Once Accelerated Networking is disabled, the VM/availability set/VMSS can be moved to a new size that does not support Accelerated Networking and restarted.  
 
