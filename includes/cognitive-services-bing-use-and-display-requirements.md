@@ -13,7 +13,7 @@ ms.author: rosh, v-gedod
 
 # Bing Search API use and display requirements
 
-Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.
+Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.     
 
 ## 1. Bing Spell Check and Bing Autosuggest API.
 
@@ -24,7 +24,7 @@ Do not:
 
 ## 2. Definitions
 
-- "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news;
+- "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news;   
 - "response" means any and all answers and associated data received in response to a single call to a Search API;
 - "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
 - “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, and Web Search APIs. 
