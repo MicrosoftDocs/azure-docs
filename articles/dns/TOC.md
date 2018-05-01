@@ -3,29 +3,32 @@
 # Overview
 
 ## [What is Azure DNS?](dns-overview.md)
+
+# Quickstarts
+
+## [Create a DNS zone and record - portal](dns-getstarted-portal.md)
+## [Create a DNS zone and record - PowerShell](dns-getstarted-powershell.md)
+## [Create a DNS zone and record - CLI](dns-getstarted-cli.md)
+
+# Samples
+## [Azure CLI](cli-samples.md)
+
+#Tutorials
+## [Create a private DNS zone and record](private-dns-getstarted-powershell.md)
+## [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md)
+## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
+
+#Concepts
 ## [DNS zones and records](dns-zones-records.md)
 ## [DNS delegation with Azure DNS](dns-domain-delegation.md)
 ## [DNS FAQ](dns-faq.md)
 ## [Using private DNS zones](private-dns-overview.md)
 ## [Private DNS scenarios](private-dns-scenarios.md)
 ## [DNS metrics and alerts](dns-alerts-metrics.md)
-
-
-# Get Started
-
-## Create a DNS zone and record
-### [Azure portal](dns-getstarted-portal.md)
-### [Azure PowerShell](dns-getstarted-powershell.md)
-### [Azure CLI](dns-getstarted-cli.md)
-
-## Create a private DNS zone and record
-### [PowerShell](private-dns-getstarted-powershell.md)
-### [Azure CLI](private-dns-getstarted-cli.md)
-## [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md)
-## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
+## [Reverse DNS](dns-reverse-dns-overview.md)
 
 # How to
-
+## [Create a private DNS zone and record - CLI](private-dns-getstarted-cli.md)
 ## Manage DNS zones
 ### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
@@ -37,15 +40,12 @@
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## Manage reverse DNS
-### [Overview](dns-reverse-dns-overview.md)
 ### [Host reverse lookup zones in Azure DNS](dns-reverse-dns-hosting.md)
 ### [Manage reverse DNS records for Azure services](dns-reverse-dns-for-azure-services.md)
-
 ## [Import and export a DNS zone file](dns-import-export.md)
 ## [Integrate with other Azure services](dns-for-azure-services.md)
 ## [Protect DNS zones and records](dns-protect-zones-recordsets.md)
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
-
 ## [Custom domains for Azure resources](dns-custom-domain.md)
 ## Troubleshoot
 ### [Troubleshooting guide](dns-troubleshoot.md)
