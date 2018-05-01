@@ -8495,8 +8495,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "source_path": "articles/cognitive-services/Computer-vision/index.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
             "redirect_document_id": false
         },
         {
@@ -8510,11 +8510,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Emotion/index.md",
+            "redirect_url": "/azure/cognitive-services/Emotion/Home",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Face/index.md",
             "redirect_url": "/azure/cognitive-services/Face/Overview",
             "redirect_document_id": false
         },
-       {
+        {
+            "source_path": "articles/cognitive-services/video-indexer/index.md",
+            "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -19269,7 +19284,12 @@
             "source_path": "articles/network-watcher/network-watcher-check-next-hop-powershell.md",
             "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-powershell",
             "redirect_document_id": true
-        },        
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
+            "redirect_document_id": true
+        },         
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",

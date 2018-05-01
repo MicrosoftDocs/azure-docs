@@ -423,6 +423,16 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |CpuUsage|CPU Usage|Count|Average|CPU usage on all cores in millicores.|containerName|
 |MemoryUsage|Memory Usage|Bytes|Average|Total memory usage in byte.|containerName|
 
+## Microsoft.ContainerService/managedClusters
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|kube_node_status_allocatable_cpu_cores|Total number of available cpu cores in a managed cluster|Count|Total|Total number of available cpu cores in a managed cluster|No Dimensions|
+|kube_node_status_allocatable_memory_bytes|Total amount of available memory in a managed cluster|Bytes|Total|Total amount of available memory in a managed cluster|No Dimensions|
+|kube_pod_status_ready|Number of pods in Ready state|Count|Total|Number of pods in Ready state|namespace, pod|
+|kube_node_status_condition|Statuses for various node conditions|Count|Total|Statuses for various node conditions|condition, status, node|
+|kube_pod_status_phase|Number of pods by phase|Count|Total|Number of pods by phase|phase, namespace, pod|
+
 ## Microsoft.CustomerInsights/hubs
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1009,6 +1019,20 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |CPUXNS|CPU usage per namespace|Percent|Maximum|Service bus premium namespace CPU usage metric|No Dimensions|
 |WSXNS|Memory size usage per namespace|Percent|Maximum|Service bus premium namespace memory usage metric|No Dimensions|
 
+## Microsoft.SignalRService/SignalR
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|ConnectionCount|Connection Count|Count|Maximum|The amount of user connection.|No Dimensions|
+|ConnectionCountPerSecond|Connection Count Per Second|CountPerSecond|Average|The average connection count per second.|No Dimensions|
+|MessageCount|Message Count|Count|Maximum|The total amount of message in the month|No Dimensions|
+|MessageCountPerSecond|Message Count Per Second|CountPerSecond|Average|The average count of message|No Dimensions|
+|MessageUsed|Message Used|Percent|Maximum|The percentage of messages have been used in the month|No Dimensions|
+|ConnectionUsed|Connection Used|Percent|Maximum|The percentage of connections have been used|No Dimensions|
+|UserErrors|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
+|SystemErrors|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
+|SystemLoad|System Load|Percent|Maximum|The percentage of system load|No Dimensions|
+
 ## Microsoft.Sql/servers/databases
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1144,6 +1168,30 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DeserializationError|Input Deserialization Errors|Count|Total|Input Deserialization Errors|No Dimensions|
 |EarlyInputEvents|Events whose application time is earlier than their arrival time.|Count|Total|Events whose application time is earlier than their arrival time.|No Dimensions|
 
+## Microsoft.TimeSeriesInsights/environments
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingress Received Messages|Count|Total|Count of messages read from all Event hub or IoT hub event sources|No Dimensions|
+|IngressReceivedInvalidMessages|Ingress Received Invalid Messages|Count|Total|Count of invalid messages read from all Event hub or IoT hub event sources|No Dimensions|
+|IngressReceivedBytes|Ingress Received Bytes|Bytes|Total|Count of bytes read from all event sources|No Dimensions|
+|IngressStoredBytes|Ingress Stored Bytes|Bytes|Total|Total size of events successfully processed and available for query|No Dimensions|
+|IngressStoredEvents|Ingress Stored Events|Count|Total|Count of flattened events successfully processed and available for query|No Dimensions|
+|IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag|Seconds|Maximum|Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress|No Dimensions|
+|IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag|Count|Average|Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress|No Dimensions|
+
+## Microsoft.TimeSeriesInsights/environments/eventsources
+
+|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|
+|IngressReceivedMessages|Ingress Received Messages|Count|Total|Count of messages read from the event source|No Dimensions|
+|IngressReceivedInvalidMessages|Ingress Received Invalid Messages|Count|Total|Count of invalid messages read from the event source|No Dimensions|
+|IngressReceivedBytes|Ingress Received Bytes|Bytes|Total|Count of bytes read from the event source|No Dimensions|
+|IngressStoredBytes|Ingress Stored Bytes|Bytes|Total|Total size of events successfully processed and available for query|No Dimensions|
+|IngressStoredEvents|Ingress Stored Events|Count|Total|Count of flattened events successfully processed and available for query|No Dimensions|
+|IngressReceivedMessagesTimeLag|Ingress Received Messages Time Lag|Seconds|Maximum|Difference between the time that the message is enqueued in the event source and the time it is processed in Ingress|No Dimensions|
+|IngressReceivedMessagesCountLag|Ingress Received Messages Count Lag|Count|Average|Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress|No Dimensions|
+
 ## Microsoft.Web/serverfarms
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1178,6 +1226,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|
+|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
 
 ## Microsoft.Web/sites (functions)
 
@@ -1190,6 +1251,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
 |FunctionExecutionUnits|Function Execution Units|Count|Total|Function Execution Units|Instance|
 |FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
+|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
 
 ## Microsoft.Web/sites/slots
 
@@ -1216,6 +1290,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |AppConnections|Connections|Count|Average|Connections|Instance|
 |Handles|Handle Count|Count|Average|Handle Count|Instance|
 |Threads|Thread Count|Count|Average|Thread Count|Instance|
+|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
+|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
 
 ## Microsoft.Web/hostingEnvironments/multiRolePools
 
