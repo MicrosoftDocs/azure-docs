@@ -27,7 +27,7 @@ Consider a Human Resources app that reports on the organizational chart in relat
 
 If an app has between 10 and 20 utterances with different lengths of sentence, different word order, and even different words (synonyms of "subordinate", "manage", "report"), LUIS may return a low confidence score. In order to help LUIS understand the importance of the word order, create a pattern. 
 
-Patterns solves the following situations: 
+Patterns solve the following situations: 
 
 *  When the intent score is low
 * When the correct intent is not the top score but too close to the top score. 
@@ -55,7 +55,7 @@ Who does {Employee} manage?
 ```
 
 ### Syntax to add an entity and role to a pattern template
-An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity namd and role name with curly braces, such as `Book a ticket from {Location:Origin} to {Location:Destination}`. 
+An entity role is denoted as `{entity:role}` with the entity name followed by a colon, then the role name. To add an entity with a role into the pattern template, surround the entity name and role name with curly braces, such as `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
 ```
 Book a ticket from {Location:Origin} to {Location:Destination}
@@ -90,13 +90,16 @@ Consider the pattern `[find] email about {subject} [from {person}]'. In the foll
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-In the above table, the utterance `email about the man from La Mancha`, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
+In the preceding table, the utterance `email about the man from La Mancha`, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
 
 To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](https://aka.ms/ExplicitList).
 
 ### Syntax to mark optional text in a template utterance
-Mark optional text in the utterance using the regular expression square bracket syntax []. The optional text can nest square brackets up to two brackets only.
-<!-- TBD: add example with square brackets -->
+Mark optional text in the utterance using the regular expression square bracket syntax, `[]`. The optional text can nest square brackets up to two brackets only.
+
+```
+[find] email about {subject} [from {person}]
+```
 
 ## Best practices
 See [Entity best practices](luis-concept-best-practices.md#entities) to learn more.
