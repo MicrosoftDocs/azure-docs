@@ -21,14 +21,14 @@ In the Speech to Text API, only the endpoints used differ from the previous Spee
 
 Region|	Endpoint
 -|-
-West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
-East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
-North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
+West US|	`https://westus.stt.speech.microsoft.com/cognitiveservices/v1`
+East Asia|	`https://eastasia.stt.speech.microsoft.com/cognitiveservices/v1`
+North Europe|	`https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
-> If you customized the acoustic model, the language model, or the pronunciation model, use your custom endpoint instead.
+> If you customized the acoustic or language model, or the pronunciation, use your custom endpoint instead.
 
-Keep these differences in mind as you read the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the Speech service.
+Keep these differences in mind as you read the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the Bing Speech service.
 
 The Speech to Text API supports REST only for short (< 15 seconds) utterances.
 
@@ -45,7 +45,7 @@ In the Text to Speech API, the `X-Microsoft-OutputFormat` header now takes the f
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-The service now includes two new voices:
+The service includes two additional voices:
 
 Locale | Language | Gender  | Service name mapping
 -------|-----------|--------|------------

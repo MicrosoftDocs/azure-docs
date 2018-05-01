@@ -35,7 +35,10 @@ The HTTP request must include an authorization, either your subscription key or 
 To specify a voice, use the `<voice>` [SSML](speech-synthesis-markup.md) tag. For example:
 
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Hello, world!</voice> </speak>
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+    Hello, world!
+</voice> </speak>
 ```
 
 See [Text to Speech voices](supported-languages.md#text-to-speech) for a list of the available voices and their names.
@@ -78,7 +81,10 @@ Content-Type: application/ssml+xml
 User-Agent: Test TTS application
 Ocp-Apim-Subscription-Key: ... your subscription key
 
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Hello, world!</voice> </speak>
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
+    Hello, world!
+</voice> </speak>
 ```
 
 The response body with a status of 200 contains audio in the specified output format.
