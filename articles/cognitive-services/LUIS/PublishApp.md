@@ -8,9 +8,8 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/25/2018
-ms.author: cahann
-ms.reviewer: v-geberr
+ms.date: 05/07/2018
+ms.author: v-geberr;
 ---
 
 
