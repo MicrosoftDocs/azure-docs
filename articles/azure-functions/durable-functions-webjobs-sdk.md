@@ -195,7 +195,7 @@ This section provides an overview of how to run the [sample project](https://git
 
 1. Run the project.
 
-## Run in Azure
+### Run in Azure
 
 1. Create a web app and a storage account.
 
