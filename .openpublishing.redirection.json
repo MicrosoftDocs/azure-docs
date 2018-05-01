@@ -18640,6 +18640,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsphone.md",
+            "redirect_url": "/azure/active-directory/develop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsstore.md",
+            "redirect_url": "/azure/active-directory/develop",
+            "redirect_document_id": false
+
+        }, 
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-android.md",
             "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-android",
             "redirect_document_id": false
