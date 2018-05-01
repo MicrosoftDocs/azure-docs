@@ -15,13 +15,14 @@ ms.author: ghogen
 
 In this tutorial, you will learn how to easily add everything you need to start using Azure Key Vault to manage your secrets for web projects in Visual Studio, whether you are using ASP.NET Core or any type of ASP.NET project. By using the Connected Services feature in Visual Studio 2017, you can have Visual Studio automatically add all the NuGet packages and configuration settings you need to connect to Key Vault in Azure. 
 
-For details on the changes that Connected Services makes in your project to enable Key Vault, see [Key Vault Connected Service - What happened to my ASP.NET project](vs-key-vault-aspnet-what-happened.md) or [Key Vault Connected Service - What happened to my ASP.NET Core project](vs-key-vault-aspnet-core-what-happened.md).
+For details on the changes that Connected Services makes in your project to enable Key Vault, see [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](vs-key-vault-aspnet-what-happened.md) or [Key Vault Connected Service - What happened to my ASP.NET Core project](vs-key-vault-aspnet-core-what-happened.md).
 
 ## Prerequisites
 
 - **An Azure subscription**. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload).
-- An ASP.NET or ASP.NET Core web project open.
+- For ASP.NET (not Core), you need the .NET Framework 4.7.1 Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
+- An ASP.NET 4.7.1 or ASP.NET Core web project open.
 
 ## Add Key Vault support to your project
 
@@ -61,6 +62,10 @@ For details on the changes that Connected Services makes in your project to enab
    ![Create a secret](media/vs-key-vault-add-connected-service/create-a-secret.jpg)
 
 1. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret."
+ 
+Now, you can access your secrets in code. The next steps are different depending on whether you are using ASP.NET 4.7.1 or ASP.NET Core.
+
+## Access your secrets in code (ASP.NET Core projects)
 
 1. In Visual Studio, in your ASP.NET Core project, you can now reference these secrets by using the following expressions in code:
  
@@ -85,6 +90,39 @@ For details on the changes that Connected Services makes in your project to enab
    ```
 
 1. Build and run the web application, navigate to the About page, and see the "secret" value.
+
+## Access your secrets in code (ASP.NET 4.7.1 projects)
+
+1. Modify web.config as follows. The keys are placeholders that will be replaced by the AzureKeyVault ConfigurationBuilder with the values of secrets in Key Vault.
+
+   ```xml
+     <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="MySecret" value="dummy1"/>
+       <add key="Secrets--MySecret" value="dummy2"/>
+     </appSettings>
+   ```
+
+1. In the HomeController, in the About controller method, add the following lines to retrieve the secret and store it in the ViewBag.
+ 
+   ```csharp
+            var secret = ConfigurationManager.AppSettings["MySecret"];
+            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
+            ViewBag.Secret = $"Secret: {secret}";
+            ViewBag.Secret2 = $"Secret2: {secret2}";
+   ```
+
+1. In the About.cshtml view, add the following to display the value of the secret (for testing only).
+
+   ```csharp
+      <h3>@ViewBag.Secret</h3>
+      <h3>@ViewBag.Secret2</h3>
+   ```
+
+Congratulations, you have now confirmed that your web app can use Key Vault to access securely stored secrets.
 
 ## Clean up resources
 
