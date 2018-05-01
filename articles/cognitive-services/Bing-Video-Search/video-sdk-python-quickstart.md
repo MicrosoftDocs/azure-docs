@@ -13,7 +13,7 @@ ms.author: v-gedod
 ---
 # Video Search SDK Python quickstart
 
-The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results.>
+The Bing Image Search SDK contains the functionality of the REST API for web queries and parsing results.
 
 >[!NOTE] 
 > Some SDKs are now in GA and changes to documentation are pending. 
