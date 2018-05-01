@@ -91,9 +91,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
     ![Screen shot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
-6. Click **Save**.
- 
-    ![Screen shot of the Hosted UI save button](./media/custom-search-hosted-ui-save.png)
+[!INCLUDE[publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## Consuming Hosted UI
