@@ -13,12 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2017
+ms.date: 05/01/2018
 ms.author: robb
 
 ---
 # What is Azure Diagnostics
 Azure Diagnostics is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from a number of different sources. Currently supported are Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine Scale sets, and Service Fabric. Other Azure services have different diagnostics methods. See [Overview of monitoring in Azure](monitoring-overview.md). 
+
+## Linux Agent
+A [Linux version Azure Diagnostics](../virtual-machines/linux/diagnostic-extension.md) is available for Virtual Machines running Linux. The statistics collected and behavior vary from the Windows version. 
 
 ## Data you can collect
 Azure Diagnostics can collect the following types of data:
@@ -37,8 +40,12 @@ Azure Diagnostics can collect the following types of data:
 
 The Azure diagnostics extension can transfer this data to an Azure storage account or send it to [Application Insights](../application-insights/app-insights-cloudservices.md). You can also stream it to [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md), which then allows you to send it to non-Azure montoring services. You can use the data for debugging and troubleshooting, measuring performance, monitoring resource usage, traffic analysis and capacity planning, and auditing.
 
+## Data Storage
+Azure Diagnostics stores its data in an [Azure Storage account](azure-diagnostics-storage.md) that you specify. 
+
 ## Versioning
 See [Azure Diagnostics Versioning History](azure-diagnostics-versioning-history.md).
+
 
 ## Next steps
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
