@@ -96,18 +96,7 @@ As an operator, you see in the dashboard that there's an alert related to the pr
 
     ![Dashboard shows pressure alert and device on map](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-<!-- 05/01 - broken can't select item on map
-
-1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
-
-    ![Choose device on map to view detail](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
-
-1. Close **Device detail**.
--->
-
-1. To navigate to the **Maintenance** page, choose **Maintenance** on the navigation menu.
-
-On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alert.
+1. To navigate to the **Maintenance** page, choose **Maintenance** on the navigation menu. On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alert.
 
 1. The list of alerts shows the number of times the alert has triggered, acknowledgments, and open and closed alerts:
 
