@@ -55,7 +55,7 @@ Implementing multi-master on your own adds burden on developers. Large-scale cus
 
 * **Improved write scalability and write throughput** - Multi-master will give higher throughput, and greater utilization while offering multiple consistency models with correctness guarantees and backed up by SLAs. 
 
-![Scaling write throughput with multi-master](./media/multi-region-writers/scale-write-throughput.png)
+  ![Scaling write throughput with multi-master](./media/multi-region-writers/scale-write-throughput.png)
 
 * **Better support for disconnected environments (for example, edge devices)** - Multi-master enables users to replicate all or a subset of data from an edge device to a closest region in a disconnected environment. This scenario is typical of sales force automation systems, where an individual's laptop (a disconnected device) stores a subset of data related to the individual salesperson. Master regions in the cloud that are located anywhere in the world can operate as the target of the copy from the remote edge devices.  
 
@@ -69,7 +69,7 @@ Implementing multi-master on your own adds burden on developers. Large-scale cus
 
 * **Lower Total Cost of Ownership(TCO) and DevOps** - Meeting scalability, performance, global distribution, recovery time objectives are often  expensive due to expensive add-ons or maintaining a back-up infrastructure that  is at rest until disaster strikes. With Azure Cosmos DB multi-master backed up by industry-leading SLAs, developers no longer require building and maintaining the “backend glue logic” themselves and get a peace of mind running their mission-critical workloads. 
 
-## Use-cases where multi-master support is needed 
+## Use-cases where multi-master support is needed
 
 There are numerous use cases for multi-master in Azure Cosmos DB: 
 
