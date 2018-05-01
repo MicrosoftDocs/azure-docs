@@ -23,11 +23,11 @@ Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), e
 
 ## <a name="authoring-key"></a>Authoring Key
 
-Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. Refer to [Key limits](luis-boundaries.md#key-limits) for more information.   
+Previously named "Programmatic" key. Used to author the app. Not used for production-level endpoint queries. For more information, see [Key limits](luis-boundaries.md#key-limits).   
 
 ## <a name="batch-test-json-file"></a>Batch text JSON file
 
-The batch file is a JSON array. Each element in the array has 3 properties: `text`, `intent`, and `entities`. The `entities` property is an array. The array can be empty. If the `entities` array is not empty, it needs to accurately identify the entities.
+The batch file is a JSON array. Each element in the array has three properties: `text`, `intent`, and `entities`. The `entities` property is an array. The array can be empty. If the `entities` array is not empty, it needs to accurately identify the entities.
 
 ```JSON
 [
@@ -95,7 +95,7 @@ In [batch testing][batch-testing], the data points represent utterances in which
 
 ## <a name="false-positive"></a>False positive (TP)
 
-In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity..
+In [batch testing][batch-testing], the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 
 ## <a name="features"></a>Features
 
@@ -179,7 +179,7 @@ The subscription key is the key associated with the LUIS service [you created in
 
 ## <a name="timezoneoffset"></a>Timezone offset
 
-The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned will be the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user. 
+The endpoint includes timezoneOffset. This is the number in minutes you want to add or remove from the datetimeV2 prebuilt entity. For example, if the utterance is "what time is it now?", the datetimeV2 returned is the current time for the client request. If your client request is coming from a bot or other application that is not the same as your bot's user, you should pass in the offset between the bot and the user. 
 
 See [Change time zone of prebuilt datetimeV2 entity](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 

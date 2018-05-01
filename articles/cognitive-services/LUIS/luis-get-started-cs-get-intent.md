@@ -31,7 +31,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 
 ## Understand what LUIS returns
 
-To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app you'll use is an IoT app that detects whether the user wants to turn on or turn off lights.
+To understand what a LUIS app returns, you can paste the URL of a sample LUIS app into a browser window. The sample app is an IoT app that detects whether the user wants to turn on or turn off lights.
 
 1. The endpoint of the sample app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Copy the URL and substitute your subscription key for the value of the `subscription-key` field.
 2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent and the `HomeAutomation.Room` entity with the value `bedroom`.
@@ -46,7 +46,7 @@ To understand what a LUIS app returns, you can paste the URL of a sample LUIS ap
 
 You can use C# to access the same results you saw in the browser window in the previous step. 
 
-1. Create a new console application in Visual Studio. Copy the code that follows and save it into an .cs file:
+1. Create a new console application in Visual Studio. Copy the code that follows and save it into an *.cs file:
     
    [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
 1. Replace the value of the `subscriptionKey` variable with your LUIS subscription key.
