@@ -215,7 +215,7 @@ To monitor your existing storage accounts and gather this data, you can make use
 For more information, see [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) and [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. Zone-redundant storage (ZRS) accounts support collecting metrics data, while ZRS Classic storage accounts do not. For more information on ZRS, see [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage). 
+> Blob storage accounts expose the Table service endpoint only for storing and accessing the metrics data for that account. 
 
 To monitor the storage consumption for Blob storage, you need to enable the capacity metrics.
 With this enabled, capacity data is recorded daily for a storage account's Blob service and recorded as a table entry that is written to the *$MetricsCapacityBlob* table within the same storage account.

@@ -3,13 +3,12 @@ title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Batch testing
@@ -32,8 +31,8 @@ ms.author: v-geberr;
 
 4. Select **Done**. The dataset file is added.
 
-## Export, rename, delete, or download dataset
-To export, rename, delete, or download the imported dataset, use the three dots (**...**) at the end of the dataset row.
+## Run, rename, export, or delete dataset
+To run, rename, export, or delete the dataset, use the three dots (**...**) at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
 

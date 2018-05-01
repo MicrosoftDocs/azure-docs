@@ -4,7 +4,7 @@ description: Overview of the two debugging features for Linux virtual machines i
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: Deland-Han
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

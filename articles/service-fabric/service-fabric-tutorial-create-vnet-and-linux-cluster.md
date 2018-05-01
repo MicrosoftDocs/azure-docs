@@ -61,7 +61,7 @@ The cluster certificate must:
 
 Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
-This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+This tutorial deploys a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)

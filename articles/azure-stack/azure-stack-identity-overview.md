@@ -167,9 +167,9 @@ When all validations are complete, Azure Resource Manager uses the *objected* (o
 ### Use Role-Based Access Control  
 Role-Based Access Control (RBAC) in Azure Stack is consistent with the implementation in Microsoft Azure. You can manage access to resources by assigning the appropriate RBAC role to users, groups, and applications. 
 For information about how to use RBAC with Azure Stack, see the following articles:
-- [Get started with Role-Based Access Control in the Azure portal](/azure/active-directory/role-based-access-control-what-is).
-- [Use Role-Based Access Control to manage access to your Azure subscription resources](/azure/active-directory/role-based-access-control-configure).
-- [Create custom roles for Azure Role-Based Access Control](/azure/active-directory/role-based-access-control-custom-roles).
+- [Get started with Role-Based Access Control in the Azure portal](/azure/role-based-access-control/overview).
+- [Use Role-Based Access Control to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
+- [Create custom roles for Azure Role-Based Access Control](/azure/role-based-access-control/custom-roles).
 - [Manage Role-Based Access Control](azure-stack-manage-permissions.md) in Azure Stack.
 
 

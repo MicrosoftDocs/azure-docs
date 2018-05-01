@@ -15,13 +15,12 @@ ms.service: iot-edge
 ---
 
 # Develop an IoT Edge solution with multiple modules in Visual Studio Code - preview
-You can use Visual Studio Code to develop your IoT Edge solution with multiple modules. This tutorial walks you through creating, updating, and deploying an IoT Edge solution that simply pipe sensor data on the simulated IoT Edge device in Visual Studio Code. In this tutorial, you learn how to:
+You can use Visual Studio Code to develop your IoT Edge solution with multiple modules. This article walks through creating, updating, and deploying an IoT Edge solution that pipes sensor data on the simulated IoT Edge device in Visual Studio Code. In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Use Visual Studio Code to create an IoT Edge solution
-> * Use VS Code to add a new module to your working IoT Edge solution. 
-> * Deploy the IoT Edge solution (multiple modules) to your IoT Edge device
-> * View generated data
+* Use Visual Studio Code to create an IoT Edge solution
+* Use VS Code to add a new module to your working IoT Edge solution. 
+* Deploy the IoT Edge solution (multiple modules) to your IoT Edge device
+* View generated data
 
 ## Prerequisites
 * Complete below tutorials
@@ -66,8 +65,7 @@ You can use Visual Studio Code to develop your IoT Edge solution with multiple m
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge solution with a C# module, later you added a Function module, updated the routes for the solution, built and deployed to your simulated IoT Edge device. You can continue on to either of the following tutorials to learn about other scenarios when developing Azure IoT Edge in VS Code.
+You can continue on to either of the following articles to learn about other scenarios when developing Azure IoT Edge in Visual Studio Code:
 
-> [!div class="nextstepaction"]
-> [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
-> [Debug a C# Function in VS Code](how-to-vscode-debug-azure-function.md)
+* [Debug a C# module in VS Code](how-to-vscode-debug-csharp-module.md)
+* [Debug a C# Function in VS Code](how-to-vscode-debug-azure-function.md)

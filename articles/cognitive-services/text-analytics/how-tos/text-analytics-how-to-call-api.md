@@ -4,9 +4,8 @@ description: Learn how to call the Text Analytics REST API.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: get-started-article
 ms.date: 03/07/2018
 ms.author: heidist

@@ -226,7 +226,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
                         regID = hub.register(FCM_token).getRegistrationId();
    
                         // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -245,7 +245,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
                         regID = hub.register(FCM_token).getRegistrationId();
    
                         // If you want to use tags...
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // regID = hub.register(token, "tag1,tag2").getRegistrationId();
    
                         resultString = "New NH Registration Successfully - RegId : " + regID;
@@ -282,7 +282,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
         import android.util.Log;
         import android.widget.TextView;
         import android.widget.Toast;
-
+    ```
 3. Add the following private members at the top of the class. You use these to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
    
     ```java

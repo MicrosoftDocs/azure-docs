@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
 
 ---
@@ -320,15 +320,15 @@ To see detailed information on each step, click on the step name to expand it. C
 ## Step 5 - View Azure Activity Log in Log Analytics
 The final step is to check the Log Analytics workspace to make sure that data is being collected as expected.
 
-1. In the Azure portal, select **Log Analytics**.
-2. Select your workspace and then the **Log Search** tile.
-3. In the search query bar, type `AzureActivity_CL` and click the search button. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
+1. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
+2. In your list of Log Analytics workspaces, select your workspace.
+3.  Click the **Log Search** tile and on the Log Search pane, in the query field type `AzureActivity_CL` and then hit enter or click the search button to the right of the query field. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
 
 >[!NOTE]
 > The first time a new custom log is sent to Log Analytics it may take up to an hour for the custom log to be searchable.
 
 >[!NOTE]
-> The activity logs are written to a custom table and do not show in the [Activity Log solution](./log-analytics-activity.md).
+> The activity logs are written to a custom table and do not appear in the [Activity Log solution](./log-analytics-activity.md).
 
 
 ![Test logic app](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)

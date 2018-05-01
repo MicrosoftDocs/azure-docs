@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Services, Computer Vision Documentation - Tutorials, API Reference | Microsoft Docs
+title: Computer Vision Documentation - Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
 description: Learn how to create visual features for your apps
 services: cognitive-services
 author: KellyDF
@@ -15,7 +15,7 @@ ms.author: kefre
 <div class="content">
     <h1>Computer Vision Documentation</h1>
     <div class="intro" style="min-width: 200px">
-        <p>The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with our quickstarts, tutorials, and samples.</p>
+        <p>The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. Learn how to analyze visual content in different ways with quickstarts, tutorials, and samples.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">5-Minute Quickstarts</h2>
 <p style="margin-top: 6px; margin-bottom: 6px;">Analyze images, generate thumbnails, and extract text from an image using:</p>
@@ -66,10 +66,12 @@ ms.author: kefre
 
 <h2 style="margin-top: 36px">Step-by-Step Tutorials</h2>
 <p>Develop applications using the Computer Vision API:</p>
-<ol>
+<ul>
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/CSharpTutorial">C&#35; Tutorial</a></li>
+    <li><a href="/azure/cognitive-services/computer-vision/tutorials/Java-Tutorial">Java Tutorial</a></li>
+    <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/Javascript-Tutorial">Javascript Tutorial</a></li>
     <li><a href="/azure/cognitive-services/Computer-vision/Tutorials/PythonTutorial">Python Tutorial</a></li>
-</ol>
+</ul>
 
 <h2 style="margin-top: 36px">Reference</h2>
 <ul class="panelContent cardsD">
@@ -79,7 +81,7 @@ ms.author: kefre
                 <div class="card">
                     <div class="cardText">
                         <h3>APIs</h3>
-                        <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">API Reference</a></p>
+                        <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API</a></p>
                     </div>
                 </div>
             </div>

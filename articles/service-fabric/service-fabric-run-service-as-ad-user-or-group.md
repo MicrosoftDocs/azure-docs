@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
 
 ---
 # Run a service as an Active Directory user or group
-By using Azure Service Fabric, you can secure applications that are running in the cluster under different user accounts. This makes running applications, even in a shared hosted environment, more secure from one another. By default, Service Fabric applications run under the account that the Fabric.exe process runs under. For a Windows Server standalone cluster, you can run a service as a [group Managed Service Account (gMSA)](service-fabric-run-service-as-gmsa.md) or an Active Directory user or group using a RunAs policy. Note that this uses Active Directory on-premises within your domain and not Azure Active Directory (Azure AD).
+On a Windows Server standalone cluster, you can run a service as an Active Directory user or group using a RunAs policy.  By default, Service Fabric applications run under the account that the Fabric.exe process runs under. Running applications under different accounts, even in a shared hosted environment, makes them more secure from one another. Note that this uses Active Directory on-premises within your domain and not Azure Active Directory (Azure AD).  You can also run a service as a [group Managed Service Account (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 By using a domain user or group, you can then access other resources in the domain (for example, file shares) that have been granted permissions.
 

@@ -4,7 +4,7 @@ description: How to scale up or scale down a Linux virtual machine, by changing 
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 
@@ -55,6 +55,6 @@ To resize a VM, you need the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) 
 For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Linux machines in a Virtual Machine Scale Set][scale-set]. 
 
 <!-- links -->
-[boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [scale-set]: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md 
 [vm-sizes]:sizes.md

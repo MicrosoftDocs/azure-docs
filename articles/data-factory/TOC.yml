@@ -116,8 +116,14 @@
     href: concepts-integration-runtime.md
 - name: How-to guides
   items:
-  - name: Visually author data factories
-    href: author-visually.md
+  - name: Author
+    items:
+    - name: Visually author data factories
+      href: author-visually.md
+    - name: Continuous integration and deployment
+      href: continuous-integration-deployment.md
+    - name: Iterative development and debugging
+      href: iterative-development-debugging.md
   - name: Copy data
     items:
     - name: Copy data using Copy Activity
@@ -358,16 +364,24 @@
       href: create-azure-ssis-integration-runtime.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Custom setup for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-custom-setup.md
+    - name: Provision Enterprise Edition for Azure-SSIS integration runtime
+      href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Join Azure-SSIS integration runtime to a VNET
       href: join-azure-ssis-integration-runtime-virtual-network.md
     - name: Manage Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
     - name: Configure performance settings of Azure-SSIS integration runtime
       href: configure-azure-ssis-integration-runtime-performance.md
-    - name: Invoke SSIS packages using stored procedure activity
+    - name: Run SSIS packages using SSIS activity
+      href: how-to-invoke-ssis-package-ssis-activity.md
+    - name: Run SSIS packages using stored procedure activity
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
+    - name: Develop licensed components for Azure-SSIS integration runtime
+      href: how-to-develop-azure-ssis-ir-licensed-components.md
   - name: Create triggers
     items:
     - name: Create a schedule trigger

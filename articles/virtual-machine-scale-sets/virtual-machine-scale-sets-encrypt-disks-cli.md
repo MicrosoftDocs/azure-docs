@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Virtual Machine Scale Sets Encrypt Disks | Microsoft Docs
 description: Learn how to encrypt attached disks in virtual machine scale sets.
 services: virtual-machine-scale-sets
@@ -39,7 +39,7 @@ Install the latest versions of [Azure Powershell](https://github.com/Azure/azure
 The Azure disk encryption for virtual machine scale sets preview requires you to self-register your subscription using the following PowerShell commands: 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 

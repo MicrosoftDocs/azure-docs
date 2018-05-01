@@ -23,11 +23,11 @@ ms.author: brenduns
 
 Before you can send network traffic between your Azure virtual network and your on-premises site, you must create a virtual network gateway for your virtual network.
 
-A VPN gateway is a type of virtual network gateway that sends encrypted traffic across a public connection. You can use VPN gateways to send traffic securely between a virtual network in Azure Stack and a virtual network in Azure, or between a virtual network and another network that is connected to a VPN device.
+A VPN gateway is a type of virtual network gateway that sends encrypted traffic across a public connection. You can use VPN gateways to send traffic securely between a virtual network in Azure Stack and a virtual network in Azure. YOu can also send traffic securely between a virtual network and another network that is connected to a VPN device.
 
 When you create a virtual network gateway, you specify the gateway type that you want to create. Azure Stack supports one type of virtual network gateway: the 'Vpn' type.
 
-Each virtual network can have two virtual network gateways, but only one of each type. Depending on the settings that you choose, you can create multiple connections to a single VPN gateway. An example of this is a Multi-Site connection configuration.
+Each virtual network can have two virtual network gateways, but only one of each type. Depending on the settings that you choose, you can create multiple connections to a single VPN gateway. An example is a Multi-Site connection configuration.
 
 > [!NOTE]
 > In Azure, the bandwidth throughput for VPN Gateway SKU you choose must be divided across all the Connections that are connected to it.  In Azure Stack, the bandwidth value for the VPN Gateway SKU is applied to each Connection resource that is connected to it.     
@@ -43,10 +43,10 @@ A VPN gateway connection relies on multiple resources that are configured with s
 The settings that you chose for each resource are critical to creating a successful connection. For information about individual resources and settings for VPN Gateway, see [About VPN gateway settings for Azure Stack](azure-stack-vpn-gateway-settings.md). You can find information to help you understand gateway types, VPN types, connection types, gateway subnets, local network gateways, and various other resource settings that you may want to consider.
 
 ### Deployment tools
-You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed.
+You can create and configure resources using one configuration tool, such as the Azure portal. Later you might switch to another tool like PowerShell to configure additional resources or modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed.
 
 ## Connection topology diagrams
-It's important to know that there are different configurations available for VPN gateway connections. You need to determine which configuration best fits your needs. In the sections below, you can view information and topology diagrams about the following VPN gateway connections: The following sections contain tables which list:
+It's important to know that there are different configurations available for VPN gateway connections. Determine which configuration best fits your needs. In the sections below, you can view information and topology diagrams about the following VPN gateway connections: The following sections contain tables which list:
 
 - Available deployment model
 - Available configuration tools
@@ -75,8 +75,8 @@ When you select a higher gateway SKU, like Standard over Basic, or HighPerforman
 
 Azure Stack does not support the UltraPerformance gateway SKU, which is used exclusively with Express Route.
 
-When selecting a SKU, consider the following:
-- Azure Stack does not support Policy based gateways.
+Consider the following when you select SKU:
+- Azure Stack does not support Policy-based gateways.
 - Border Gateway Protocol (BGP) is not supported on the Basic SKU.
 - ExpressRoute-VPN Gateway coexist configurations are not supported in Azure Stack
 - Active-active S2S VPN Gateway connections can be configured on the HighPerformance SKU only.
@@ -84,13 +84,14 @@ When selecting a SKU, consider the following:
 ## Estimated aggregate throughput by SKU
 The following table shows the gateway types and the estimated aggregate throughput by gateway SKU.
 
-|	| VPN Gateway throughput *(1)* |VPN Gateway max IPsec tunnels |
+|	| VPN Gateway throughput *(1)* | VPN Gateway max IPsec tunnels *(2)* |
 |-------|-------|-------|
-|**Basic SKU** ***(2)*** 	| 100 Mbps	| 10	|
+|**Basic SKU** ***(3)*** 	| 100 Mbps	| 10	|
 |**Standard SKU** 		| 100 Mbps 	| 10	|
-|**High Performance SKU** | 200 Mbps	| 30	|
+|**High Performance SKU** | 200 Mbps	| 5	|
 ***(1)*** The VPN throughput is not a guaranteed throughput for cross-premises connections across the Internet. It is the maximum possible throughput measurement.  
-***(2)*** BGP is not supported for the Basic SKU.
+***(2)*** Max tunnels number is the total per Azure Stack deployment for ALL subscriptions.  
+***(3)*** BGP is not supported for the Basic SKU.  
 
 ## Next steps
 Learn about [settings for VPN gateways](azure-stack-vpn-gateway-settings.md) for Azure Stack.

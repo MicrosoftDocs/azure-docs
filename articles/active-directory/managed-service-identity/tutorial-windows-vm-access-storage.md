@@ -53,7 +53,7 @@ For this tutorial, we create a new Windows VM. You can also enable MSI on an exi
 
 ## Enable MSI on your VM
 
-A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: it installs the MSI VM extension on your VM and it enables MSI for the Virtual Machine.  
+A Virtual Machine MSI enables you to get access tokens from Azure AD without you needing to put credentials into your code. Under the covers, enabling MSI does two things: registers your VM with Azure Active Directory to create its managed identity, and it configures the identity on the VM.
 
 1. Navigate to the resource group of your new virtual machine, and select the virtual machine you created in the previous step.
 2. Under the VM "Settings" on the left, click **Configuration**.
@@ -61,10 +61,6 @@ A Virtual Machine MSI enables you to get access tokens from Azure AD without you
 4. Ensure you click **Save** to save the configuration.
 
     ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. If you wish to check which extensions are on the VM, click **Extensions**. If MSI is enabled, the **ManagedIdentityExtensionforWindows** appears in the list.
-
-    ![Alt image text](../media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 ## Create a storage account 
 
@@ -116,7 +112,7 @@ You will need to use the Azure Resource Manager PowerShell cmdlets in this porti
 4. Using Powershell’s Invoke-WebRequest, make a request to the local MSI endpoint to get an access token for Azure Resource Manager.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]

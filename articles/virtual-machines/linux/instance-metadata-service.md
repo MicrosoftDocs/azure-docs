@@ -4,7 +4,7 @@ description: RESTful interface to get information about Linux VM's compute, netw
 services: virtual-machines-linux
 documentationcenter: ''
 author: harijayms
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

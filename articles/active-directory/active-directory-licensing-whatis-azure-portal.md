@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 03/20/2018
+  ms.date: 03/29/2018
   ms.author: curtand
   ms.reviewer: piotrci
 
@@ -30,6 +30,9 @@ Using Microsoft paid cloud services, such as Office 365, Enterprise Mobility + S
 Until now, licenses could only be assigned at the individual user level, which can make large-scale management difficult. For example, to add or remove user licenses based on organizational changes, such as users joining or leaving the organization or a department, an administrator often must write a complex PowerShell script. This script makes individual calls to the cloud service.
 
 To address those challenges, Azure AD now includes group-based licensing. You can assign one or more product licenses to a group. Azure AD ensures that the licenses are assigned to all members of the group. Any new members who join the group are assigned the appropriate licenses. When they leave the group, those licenses are removed. This eliminates the need for automating license management via PowerShell to reflect changes in the organization and departmental structure on a per-user basis.
+
+>[!NOTE]
+>This feature currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure Active Directory (Azure AD) subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require one or more Azure Active Directory Premium licenses.
 
 ## Features
 

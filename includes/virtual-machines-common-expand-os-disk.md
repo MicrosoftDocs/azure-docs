@@ -1,4 +1,4 @@
-## Overview
+﻿## Overview
 When you create a new virtual machine (VM) in a Resource Group by deploying an image from [Azure Marketplace](https://azure.microsoft.com/marketplace/), the default OS drive is often 127 GB (some images have smaller OS disk sizes by default). Even though it’s possible to add data disks to the VM (how many depending upon the SKU you’ve chosen) and moreover it’s recommended to install applications and CPU intensive workloads on these addendum disks, oftentimes customers need to expand the OS drive to support certain scenarios such as following:
 
 1. Support legacy applications that install components on OS drive.
@@ -22,7 +22,7 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
 1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Set your resource group name and VM name as follows:
@@ -65,7 +65,7 @@ Open your Powershell ISE or Powershell window in administrative mode and follow 
 1. Sign-in to your Microsoft Azure account in resource management mode and select your subscription as follows:
    
    ```Powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    Select-AzureRmSubscription –SubscriptionName 'my-subscription-name'
    ```
 2. Set your resource group name and VM name as follows:
@@ -109,7 +109,7 @@ In this article, we used Azure Resource Manager modules of Powershell to expand 
 Unamanged Disks:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'
@@ -122,7 +122,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 Managed Disks:
 
 ```Powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
 $vmName = 'my-vm-name'

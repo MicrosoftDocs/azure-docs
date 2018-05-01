@@ -8,7 +8,7 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 04/01/2018
 ms.author: genemi
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database

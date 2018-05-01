@@ -29,6 +29,10 @@
     href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Samples
   items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
   - name: Resource Manager templates
     href: template-samples.md
 - name: Concepts
@@ -53,6 +57,8 @@
     href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Monitor event delivery
     href: monitor-event-delivery.md
+  - name: Query event subscriptions
+    href: query-event-subscriptions.md
 - name: Reference
   items:
   - name: Azure CLI

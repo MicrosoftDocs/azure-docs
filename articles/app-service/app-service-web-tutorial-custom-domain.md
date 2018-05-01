@@ -18,7 +18,7 @@ ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Map an existing custom DNS name to Azure Web Apps
+# Tutorial: Map an existing custom DNS name to Azure Web Apps
 
 [Azure Web Apps](app-service-web-overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to map an existing custom DNS name to Azure Web Apps.
 

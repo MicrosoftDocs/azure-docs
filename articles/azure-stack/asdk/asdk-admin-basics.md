@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Development Kit Basics| Microsoft Docs
-description: Describes how to perform basic administration of the Azure Stack Development Kit.
+description: Describes how to perform basic administration tasks for the Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -24,6 +24,17 @@ There are several things you need to know if you're new to Azure Stack Developme
 First, you should review the [What is Azure Stack Development Kit?](asdk-what-is.md) article to make sure you understand the purpose of the ASDK and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack to develop and test your apps in a non-production environment. 
 
 Like Azure, Azure Stack innovates rapidly so we'll regularly release new builds of the ASDK. However, you cannot upgrade the ASDK like you can Azure Stack integrated systems deployments. So, if you want to move to the latest build, you must completely [redeploy the ASDK](asdk-redeploy.md). You cannot apply update packages. This process takes time, but the benefit is that you can try out the latest features as soon as they become available. 
+
+## What account should I use?
+There are a few account considerations you should be aware of when managing Azure Stack. Especially in deployments using Windows Server Active Directory Federation Services (AD FS) as the identity provider instead of Azure Active Directory (Azure AD). The following account considerations apply to both Azure Stack integrated systems and ASDK deployments:
+
+|Account|Azure AD|AD FS|
+|-----|-----|-----|
+|Local Administrator (.\Administrator)|ASDK host administrator|ASDK host administrator|
+|AzureStack\AzureStackAdmin|ASDK host administrator<br><br>Can be used to log in to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings|ASDK host administrator<br><br>No access to the Azure Stack administration portal<br><br>Access to view and administer Service Fabric rings<br><br>No longer owner of the Default Provider Subscription (DPS)|
+|AzureStack\CloudAdmin|Can access and run permitted commands within the Privileged Endpoint|Can access and run permitted commands within the Privileged Endpoint<br><br>Can not log in to the ASDK host<br><br>Owner of the Default Provider Subscription (DPS)|
+|Azure AD Global Administrator|Used during installation<br><br>Owner of the Default Provider Subscription (DPS)|Not applicable|
+|
 
 ## What tools do I use to manage?
 You can use the [Azure Stack Administrator Portal](https://adminportal.local.azurestack.external) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, you need to install [PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) and [download the Azure Stack tools from GitHub](asdk-post-deploy.md#download-the-azure-stack-tools).

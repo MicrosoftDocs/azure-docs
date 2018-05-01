@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
@@ -118,7 +118,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
+* Data Factory - V1 can be moved, but moving V2 (preview) is not supported
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -128,7 +128,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Logic Apps
-* Machine Learning
+* Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -145,7 +145,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs cannot be moved when in running state.
-* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
+* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This includes Azure SQL Database and Azure SQL Data Warehouse databases. 
 * Traffic Manager
 * Virtual Machines - VMs with managed disks cannot be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -160,11 +160,13 @@ The services that currently do not enable moving a resource are:
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
+* Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Container Service
-* Express Route
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Express Route
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
@@ -189,6 +191,8 @@ Virtual machines created from Marketplace resources with plans attached cannot b
 Virtual Machines with certificate stored in Key Vault can be moved to a new resource group in the same subscription, but not across subscriptions.
 
 ## Virtual Networks limitations
+
+When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 

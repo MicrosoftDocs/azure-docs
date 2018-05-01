@@ -1,4 +1,4 @@
----
+﻿---
 title: Route Azure Blob storage events to a custom web endpoint - Powershell | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
 services: storage,event-grid 
@@ -14,14 +14,12 @@ ms.service: storage
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use Azure PowerShell to subscribe to Blob storage events, trigger an event, and view the result. 
 
-Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, events are sent to a URL that merely collects the messages. You create this URL by using third-party tools from either [RequestBin](https://requestb.in/) or [Hookbin](https://hookbin.com/).
+Typically, you send events to an endpoint that responds to the event, such as a webhook or Azure Function. To simplify the example shown in this article, events are sent to a URL that merely collects the messages. You create this URL by using a third-party tool from [Hookbin](https://hookbin.com/).
 
 > [!NOTE]
-> **RequestBin** and **Hookbin** are not intended for high throughput usage. The use of these tools is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
+> **Hookbin** is not intended for high throughput usage. The use of this tool is purely demonstrative. If you push more than one event at a time, you might not see all of your events in the tool.
 
 When you complete the steps described in this article, you see that the event data has been sent to an endpoint.
-
-![Event data](./media/storage-blob-event-quickstart/request-result.png)
 
 ## Setup
 
@@ -29,10 +27,10 @@ This article requires that you are running the latest version of Azure PowerShel
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 > [!NOTE]
@@ -80,7 +78,7 @@ $ctx = $storageAccount.Context
 
 ## Create a message endpoint
 
-Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. RequestBin and Hookbin are third-party tools that enable you to create an endpoint, and view requests that are sent to it. Go to [RequestBin](https://requestb.in/), and click **Create a RequestBin**, or go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**. Copy the bin URL and replace `<bin URL>` in the following script.
+Before subscribing to the topic, let's create the endpoint for the event message. Rather than write code to respond to the event, let's create an endpoint that collects the messages so you can view them. Hookbin is a third-party tool that enables you to create an endpoint, and view requests that are sent to it. Go to [Hookbin](https://hookbin.com/) and click **Create New Endpoint**. Copy the bin URL and replace `<bin URL>` in the following script.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -88,7 +86,7 @@ $binEndPoint = "<bin URL>"
 
 ## Subscribe to your storage account
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the storage account you created, and passes the URL from RequestBin or Hookbin as the endpoint for event notification. 
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the storage account you created, and passes the URL from Hookbin as the endpoint for event notification. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

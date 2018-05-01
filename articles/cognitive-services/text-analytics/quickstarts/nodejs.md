@@ -4,13 +4,11 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: luiscabrer
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 08/24/2017
 ms.author: luisca
-
 ---
 # Quickstart for Text Analytics API with Node.js 
 <a name="HOLTop"></a>

@@ -77,7 +77,7 @@ You can use Site Recovery to migrate Azure IaaS VMs between regions or within sa
 ### Step 1: Create a Recovery Services vault
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Select **Create a resource** > **Management** > **Backup** and **Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**. 
+2. Select **Create a resource** > **Management** > **Backup and Site Recovery (OMS)**. Alternatively, you can select **Browse** > **Recovery Services Vault** > **Add**. 
 3. Specify a region that VMs will be replicated to. For the purpose of migration in the same region, select the region where your source VMs and source storage accounts are. 
 
 ### Step 2: Choose your protection goals 

@@ -235,6 +235,8 @@ In C# and C# script, you can use the following parameter types for the queue or 
 * `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody<T>()](https://msdn.microsoft.com/library/hh144211.aspx)
   method.
 
+These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+
 In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
 ## Trigger - poison messages
@@ -477,6 +479,8 @@ In C# and C# script, you can use the following parameter types for the output bi
 * `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
 
 In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
+
+These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
 In JavaScript, access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<name>`.
 
