@@ -3,7 +3,7 @@ title: Create features for data in SQL Server using SQL and Python | Microsoft D
 description: Process Data from SQL Azure
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Create features for data in SQL Server using SQL and Python

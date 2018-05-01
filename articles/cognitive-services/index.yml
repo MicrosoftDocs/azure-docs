@@ -56,7 +56,7 @@ sections:
     className: cardsD
     items:
     - title: Vision
-      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
+      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/Home"><img src="../media/index/API_Computer_Vision.svg" alt="" />Computer Vision</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>Emotion API&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>

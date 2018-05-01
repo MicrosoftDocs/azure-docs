@@ -27,12 +27,12 @@ Azure Blockchain Workbench requires several prerequisites prior to the deploymen
 Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications within an Azure AD tenant. The application registrations need to be in the subscription admin's tenant of the subscription where Workbench is deployed. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../active-directory/develop/active-directory-howto-tenant.md) and [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select your account in the top right corner, and switch to the desired Azure AD tenant.
+2. Select your account in the top right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Workbench is deployed and you have sufficient permissions to register applications.
 3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New application registration**.
 
     ![App registration](media/blockchain-workbench-deploy/app-registration.png)
 
-4. Provide a **Name** and **Sign-on URL** for the application. You can use placeholder values since they can be changed later during the deployment. 
+4. Provide a **Name** and **Sign-on URL** for the application. You can use placeholder values since the values are changed during the deployment. 
 
     ![Create app registration](media/blockchain-workbench-deploy/app-registration-create.png)
 
@@ -40,7 +40,7 @@ Blockchain Workbench deployment requires registration of an Azure AD application
     |---------|---------|
     |Name | `Blockchain API` |
     |Application type |Web app / API|
-    |Sign-on URL | `https://blockchainapi.{tenant}` |
+    |Sign-on URL | `https://blockchainapi` |
 
 5. Select **Create** to register the Azure AD application.
 
@@ -49,7 +49,8 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 Next, you need to modify the application manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../active-directory/develop/active-directory-application-manifest.md).
 
 1. For the application you registered, select **Manifest** in the registered application details pane.
-2. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with:
+2. Generate a GUID. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
+3. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
 
     ``` json
     "appRoles": [
@@ -72,7 +73,6 @@ Next, you need to modify the application manifest to use application roles withi
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
 
-3.  Generate a GUID and replace the value for the **id** field in the manifest. You can use the PowerShell command `[guid]::NewGuid()` or online tools to generate a GUID. 
 4.  Click **Save** to save the application manifest changes.
 
 ### Add Graph API key to application
@@ -265,4 +265,4 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
 
 ## Next steps
 
-Now that you have Azure Blockchain Workbench deployed, the next step is to [Manage Users in Azure Blockchain Workbench]().
+Now that you have Azure Blockchain Workbench deployed, the next step is to [manage users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).

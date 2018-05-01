@@ -25,10 +25,10 @@ You can use the information to determine next steps and determine root cause of 
 
 ## Troubleshooting script
 
-The PowerShell troubleshooting script is available on GitHub. [Download a zip file](https://github.com/Azure-Samples/blockchain-powershell/archive/master.zip) or clone the sample from GitHub.
+The PowerShell troubleshooting script is available on GitHub. [Download a zip file](https://github.com/Azure-Samples/blockchain/archive/master.zip) or clone the sample from GitHub.
 
 ```
-git clone https://github.com/Azure-Samples/blockchain-powershell.git
+git clone https://github.com/Azure-Samples/blockchain.git
 ```
 
 ## Run the script

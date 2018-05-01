@@ -82,9 +82,6 @@ To add members to an application, select an application tile in the **Applicatio
 #### Add member to application
 
 1. Select the member tile to display a list of the current members.
-
-    ![Members tile](media/blockchain-workbench-manage-users/members-tile.png)
-
 2. Select **Add members**.
 
     ![Add members](media/blockchain-workbench-manage-users/application-add-members.png)
@@ -102,9 +99,6 @@ To add members to an application, select an application tile in the **Applicatio
 #### Remove member from application
 
 1. Select the member tile to display a list of the current members.
-
-    ![Members tile](media/blockchain-workbench-manage-users/members-tile.png)
-
 2. For the user you want to remove, choose **Remove** from the role drop-down.
 
     ![Remove member](media/blockchain-workbench-manage-users/application-remove-member.png)
@@ -112,13 +106,10 @@ To add members to an application, select an application tile in the **Applicatio
 #### Change or add role
 
 1. Select the member tile to display a list of the current members.
-
-    ![Members tile](media/blockchain-workbench-manage-users/members-tile.png)
-
 2. For the user you want to change, click the drop-down and select the new role.
 
     ![Change role](media/blockchain-workbench-manage-users/application-change-role.png)
 
 ## Next steps
 
-[Create a blockchain app in Azure Blockchain Workbench]()
+[Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

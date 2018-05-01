@@ -27,8 +27,8 @@ You'll learn how to:
 ## Prerequisites
 
 * A Blockchain Workbench deployment. For more information, see [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) for details on deployment.
-* Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Manage Users in Azure Blockchain Workbench]()
-* A Blockchain Workbench administrator account. For more information, see [add Blockchain Workbench administrators in Manage Users in Azure Blockchain Workbench]()
+* Azure Active Directory users in the tenant associated with Blockchain Workbench. For more information, see [add Azure AD users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#add-azure-ad-users).
+* A Blockchain Workbench administrator account. For more information, see add [Blockchain Workbench administrators in Azure Blockchain Workbench](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
 For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
@@ -43,7 +43,7 @@ Configuration metadata defines the high-level workflows and interaction model of
     ``` json
     {
       "ApplicationName": "HelloBlockchain",
-      "DisplayName": "Hello, Blockhain!",
+      "DisplayName": "Hello, Blockchain!",
       "Description": "A simple application to send request and get response",
       "ApplicationRoles": [
         {
@@ -86,14 +86,30 @@ Configuration metadata defines the high-level workflows and interaction model of
               "Type": {
                 "Name": "Responder"
               }
+            },
+            {
+              "Name": "RequestMessage",
+              "DisplayName": "Request Message",
+              "Description": "A request message.",
+              "Type": {
+                "Name": "string"
+              }
+            },
+            {
+              "Name": "ResponseMessage",
+              "DisplayName": "Response Message",
+              "Description": "A response message.",
+              "Type": {
+                "Name": "string"
+              }
             }
           ],
           "Constructor": {
             "Parameters": [
               {
-                "Name": "Topic",
-                "Description": "Topic for discussion",
-                "DisplayName": "Topic for messages",
+                "Name": "message",
+                "Description": "...",
+                "DisplayName": "Request Message",
                 "Type": {
                   "Name": "string"
                 }
@@ -104,12 +120,12 @@ Configuration metadata defines the high-level workflows and interaction model of
             {
               "Name": "SendRequest",
               "DisplayName": "Request",
-              "Description": "Send a message",
+              "Description": "...",
               "Parameters": [
                 {
-                  "Name": "RequestMessage",
-                  "Description": "Message you want to send",
-                  "DisplayName": "Request",
+                  "Name": "requestMessage",
+                  "Description": "...",
+                  "DisplayName": "Request Message",
                   "Type": {
                     "Name": "string"
                   }
@@ -119,11 +135,11 @@ Configuration metadata defines the high-level workflows and interaction model of
             {
               "Name": "SendResponse",
               "DisplayName": "Response",
-              "Description": "Send a response",
+              "Description": "...",
               "Parameters": [
                 {
-                  "Name": "ResponseMessage",
-                  "Description": "Response you want to send",
+                  "Name": "responseMessage",
+                  "Description": "...",
                   "DisplayName": "Response Message",
                   "Type": {
                     "Name": "string"
@@ -136,18 +152,18 @@ Configuration metadata defines the high-level workflows and interaction model of
             {
               "Name": "Request",
               "DisplayName": "Request",
-              "Description": "Waiting for a message",
+              "Description": "...",
               "PercentComplete": 50,
               "Value": 0,
               "Style": "Success",
               "Transitions": [
                 {
-                  "AllowedRoles": [],
-                  "AllowedInstanceRoles": [ "Requestor" ],
-                  "Description": "Send a message",
-                  "Function": "SendRequest",
+                  "AllowedRoles": ["Responder"],
+                  "AllowedInstanceRoles": [],
+                  "Description": "...",
+                  "Function": "SendResponse",
                   "NextStates": [ "Respond" ],
-                  "DisplayName": "Send Request"
+                  "DisplayName": "Send Response"
                 }
               ]
             },
@@ -160,12 +176,12 @@ Configuration metadata defines the high-level workflows and interaction model of
               "Style": "Success",
               "Transitions": [
                 {
-                  "AllowedRoles": [ "Responder" ],
-                  "AllowedInstanceRoles": [],
-                  "Description": "Respond to message",
-                  "Function": "SendResponse",
+                  "AllowedRoles": [],
+                  "AllowedInstanceRoles": ["Requestor"],
+                  "Description": "...",
+                  "Function": "SendRequest",
                   "NextStates": [ "Request" ],
-                  "DisplayName": "Send Response"
+                  "DisplayName": "Send Request"
                 }
               ]
             }
@@ -270,8 +286,6 @@ State variables store values of the state for each contract instance. The state 
 Add the state variables to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
 ```
-contract RequestResponse is WorkbenchBase('HelloBlockchain', 'RequestResponse') {
-
     //Set of States
     enum StateType { Request, Respond }
 
@@ -356,7 +370,7 @@ Before exiting the function, call the `ContractUpdated()` function. The function
 To add a blockchain application to Blockchain Workbench, you upload the configuration and smart contract files to define the application.
 
 1. In a web browser, navigate to the Blockchain Workbench web address. For example, `https://{workbench URL}.azurewebsites.net/` The web application is created when you deploy Blockchain Workbench. For information on how to find your Blockchain Workbench web address, see [Blockchain Workbench Web URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Sign in as a Blockchain Workbench administrator. For more information on managing users, see [Manage Users in Azure Blockchain Workbench]().
+2. Sign in as a Blockchain Workbench administrator. For more information on managing users, see [Manage Users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md).
 3. Select **Applications** > **New**. The **New application** pane is displayed.
 4. Select **Upload the contract configuration** > **Browse** to locate the **HelloBlockchain.json** configuration file you created. The configuration file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
 5. Select **Upload the contract code** > **Browse** to locate the **HelloBlockchain.sol** smart contract code file. The code file is automatically validated. Select the **Show** link to display validation errors. Fix validation errors before you deploy the application.
@@ -369,17 +383,17 @@ Deployment of the blockchain application takes a few minutes. When deployment is
 
 ## Add blockchain application members
 
-Add application members to your application to initiate and take actions on contracts. To add application members, you need to be a [Blockchain Workbench administrator]().
+Add application members to your application to initiate and take actions on contracts. To add application members, you need to be a [Blockchain Workbench administrator](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 
 1. Select **Applications** > **Hello, Blockchain!**.
 2. The number of members associated to the application is displayed in the upper right corner of the page. For a new application, the number of members will be zero.
 3. Select the **members** link in the upper right corner of the page. A current list of members for the application is displayed.
 4. In the membership list, select **Add members**.
-5. Select or enter the member's name you want to add. Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [add Azure AD users]().
+5. Select or enter the member's name you want to add. Only Azure AD users that exist in the Blockchain Workbench tenant are listed. If the user is not found, you need to [add Azure AD users](blockchain-workbench-manage-users.md#add-azure-ad-users).
 6. Select the **Role** for the member. For the first member, select **Requestor** as the role.
 7. Select **Add** to add the member with the associated role to the application.
 8. Add another member to the application with the **Responder** role.
 
 ## Next steps
 
-Now that you have created an application, try [Using a blockchain application]().
+Now that you have created an application, try [using a blockchain application](blockchain-workbench-use.md).
