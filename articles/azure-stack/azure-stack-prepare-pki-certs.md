@@ -25,55 +25,58 @@ The certificate files [obtained from your CA of choice](azure-stack-get-pki-cert
 ## Prepare certificates for deployment
 Use these steps to prepare and validate the Azure Stack PKI certificates: 
 
+### Import the certificate
+
 1.	Copy the original certificate versions [obtained from your CA of choice](azure-stack-get-pki-certs.md) into a directory on the deployment host. 
   > [!WARNING]
   > Do not copy files that have already been imported, exported, or altered in any way from the files provided directly by the CA.
 
-2.	Import the certificates onto the Local Machine certificate store:
+2.	Right-click on the certificate and select **Install Certificate** or **Install PFX** depending on how the certificate was delivered from your CA.
 
-    a.	Right-click on the certificate and select **Install PFX**.
-
-    b.	In the **Certificate Import Wizard**, select **Local Machine** as the import location. Select **Next**.
+3. In the **Certificate Import Wizard**, select **Local Machine** as the import location. Select **Next**. On the following screen, click next again.
 
     ![Local machine import location](.\media\prepare-pki-certs\1.png)
 
-    c.	Select **Next** on the **Choose file to import** page.
-
-    d.	On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
-
-    ![Mark key as exportable](.\media\prepare-pki-certs\2.png)
-
-    e.	Choose **Place all certificate in the following store** and then select **Enterprise Trust** as the location. Click **OK** to close the certificate store selection dialog box and then **Next**.
+4.	Choose **Place all certificate in the following store** and then select **Enterprise Trust** as the location. Click **OK** to close the certificate store selection dialog box and then **Next**.
 
     ![Configure the certificate store](.\media\prepare-pki-certs\3.png)
 
-  f.	Click **Finish** to complete the Certificate Import Wizard.
+    a. If you are importing a PFX you will be presented with an additional dialog. On the **Private key protection** page, enter the password for your certificate files and then enable the **Mark this key as exportable. This allows you to back up or transport your keys at a later time** option. Select **Next**.
 
-  g.	Repeat the process for all certificates you are providing for your deployment.
+    ![Mark key as exportable](.\media\prepare-pki-certs\2.png)
 
-3. Export the Certificate to PFX file format with Azure Stack’s requirements:
+5. Click Finish to complete the import.
 
-  a.	Open Certificate Manager MMC console and connect to the Local Machine certificate store.
+### Export the certificate
 
-  b.	Go to the **Enterprise Trust** directory.
+Open Certificate Manager MMC console and connect to the Local Machine certificate store.
 
-  c.	Select one of the certificates you imported in step 2 above.
+1. Open the Microsoft Management Console, in Windows 10 right click on Start Menu, then click Run. Type **mmc** click ok.
 
-  d.	From the task bar of Certificate Manager console, select **Actions** > **All Tasks** > **Export**.
+2. Click File, Add/Remove Snap-In then select Certificates click Add.
 
-  e.	Select **Next**.
+    ![Add Certificates Snap-in](.\media\prepare-pki-certs\mmc-2.png)
+ 
+3. Select Computer account, click next then select Local computer then finish. Click ok to close the Add/Remove Snap-In page.
 
-  f.	Select **Yes, Export the Private Key**, and then click **Next**.
+    ![Add Certificates Snap-in](.\media\prepare-pki-certs\mmc-3.png)
 
-  g.	In the Export File Format section, select **Export all Extended Properties** and then click **Next**.
+4. Browse to Certificates > Enterprise Trust > Certificate location. Verify that you see your certificate on the right.
 
-  h.	Select **Password** and provide a password for the certificates. Remember this password as it is used as a deployment parameter. Select **Next**.
+5. From the task bar of Certificate Manager console, select **Actions** > **All Tasks** > **Export**. Select **Next**.
 
-  i.	Choose a file name and location for the pfx file to export. Select **Next**.
+  > [!NOTE]
+  > Depending on how many Azure Stack certificates you have you may need to complete this process more than once.
 
-  j.	Select **Finish**.
+4. Select **Yes, Export the Private Key**, and then click **Next**.
 
-  k.	Repeat this process for all of the certificates you imported for your deployment in step 2 above.
+5. In the Export File Format section, select **Export all Extended Properties** and then click **Next**.
+
+6. Select **Password** and provide a password for the certificates. Remember this password as it is used as a deployment parameter. Select **Next**.
+
+7. Choose a file name and location for the pfx file to export. Select **Next**.
+
+8. Select **Finish**.
 
 ## Next steps
 [Validate PKI certificates](azure-stack-validate-pki-certs.md)
