@@ -100,7 +100,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 8. Select the storage account that you created in step 3.
 9. Set **Retention (days)** to 5, and then select **Save**.
 
-## Download a flow log
+## Download flow log
 
 1. From Network Watcher, in the portal, select **NSG flow logs** under **LOGS**.
 2. Select **You can download flow logs from configured storage accounts**, as shown in the following picture:
@@ -120,7 +120,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 6. Select **...** to the right of the PT1H.json file and select **Download**.
 
-## View a flow log
+## View flow log
 
 The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
 
@@ -159,4 +159,4 @@ The value for **mac** in the previous output is the MAC address of the network i
 
 ## Next steps
 
-In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view the data in a log file. The raw data in the json file can be difficult to interpret. To visualize the data, you can use Network Watcher [traffic analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools.
+In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view data logged in a file. The raw data in the json file can be difficult to interpret. To visualize the data, you can use Network Watcher [traffic analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools.

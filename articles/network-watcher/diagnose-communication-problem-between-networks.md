@@ -23,9 +23,9 @@ ms.custom: mvc
 A virtual network gateway connects an Azure virtual network to an on-premises, or other virtual network. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Use Network Watcher's VPN diagnostics capability to diagnose a problem with a virtual network gateway
+> * Diagnose a problem with a virtual network gateway with Network Watcher's VPN diagnostics capability
 > * Diagnose a problem with a gateway connection
-> * Learn how to resolve a problem with a gateway
+> * Resolve a problem with a gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -105,7 +105,7 @@ If you created a VPN gateway using the script in the [prerequisites](#prerequisi
 
 ## Next steps
 
-In this tutorial, you learned how to diagnose a problem with a virtual network gateway. It's useful, and sometimes required by organizational policy, to review the network traffic that flows to and from VMs. To review network traffic, you first associate a network security group (NSG) to a VM network interface, a virtual network subnet, or both, and enable NSG flow logging. To learn how, advance to the next tutorial.
+In this tutorial, you learned how to diagnose a problem with a virtual network gateway. You may want to log network communication to and from a VM so that you can review the log for anomalies. To learn how, advance to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Log network traffic that flows through a network security group](network-watcher-nsg-flow-logging-portal.md)
+> [Log network traffic to and from a VM](network-watcher-nsg-flow-logging-portal.md)
