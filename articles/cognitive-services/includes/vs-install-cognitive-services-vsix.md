@@ -2,6 +2,7 @@
 title: include file
 description: include file
 author: ghogen
+services: cognitive-services
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: include
