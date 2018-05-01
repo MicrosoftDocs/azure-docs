@@ -70,7 +70,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 Once your resource group is made, create an Event Hubs namespace within that resource group. An Event Hubs namespace provides a unique fully-qualified domain name in which you can create your event hub. Replace `namespace_name` with a unique name for your namespace:
 
 ```azurepowershell
-New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup  -NamespaceName namespace_name -Location eastus
+New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
 ### Create an event hub
@@ -78,7 +78,7 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup  -NamespaceName 
 Now that you have an Event Hubs namespace, create an event hub within that namespace:
 
 ```azurepowershell
-  New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -Location eastus 
+New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
 ### Create a storage account for Event Processor Host
