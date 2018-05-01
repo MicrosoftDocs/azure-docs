@@ -1,5 +1,5 @@
 ---
-title: Machine learning in Azure Custom Decision Service (tutorial) | Microsoft Docs
+title: Machine learning | Microsoft Docs
 description: A tutorial for machine learning in Azure Custom Decision Service, a cloud-based API for contextual decision-making.
 services: cognitive-services
 author: slivkins
@@ -8,11 +8,10 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: slivkins
-ms.reviewer: marcozo, alekh
+ms.author: slivkins;marcozo;alekh
 ---
 
-# Machine learning in Custom Decision Service
+# Machine learning
 
 This tutorial addresses the advanced machine learning functionality in Custom Decision Service. The tutorial consists of two parts: [featurization](#featurization-concepts-and-implementation) and [feature specification](#feature-specification-format-and-apis). Featurization refers to representing your data as "features" for machine learning. Feature specification covers the JSON format and the ancillary APIs for specifying features.
 
@@ -46,7 +45,7 @@ The translation into internal features is as follows:
 
 Some features refer to the entire decision, and are the same for all actions. We call them *shared features*. Some other features are specific to a particular action. We call them *action-dependent features* (ADFs).
 
-In the running example, shared features could describe the user and/or the state of the world. For example, geolocation, age and gender of the user, and which major events are happening right now. Action-dependent features could describe the properties of a given article, such as the topics covered by this article.
+In the running example, shared features could describe the user and/or the state of the world. Features like geolocation, age and gender of the user, and which major events are happening right now. Action-dependent features could describe the properties of a given article, such as the topics covered by this article.
 
 ### Interacting features
 
@@ -55,9 +54,9 @@ Features often "interact": the effect of one depends on others. For example, fea
 To account for interaction between features X and Y, create a *quadratic* feature whose value is X\*Y. (We also say, "cross" X and Y.) You can choose which pairs of features are crossed.
 
 > [!TIP]
-> A shared feature should be crossed with some action-dependent features in order to influence the ranking of actions. An action-dependent feature should be crossed with some shared features in order to contribute to personalization.
+> A shared feature should be crossed with action-dependent features in order to influence their rank. An action-dependent feature should be crossed with shared features in order to contribute to personalization.
 
-In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision in the same way. However, such features may reduce the variance of reward estimates.
+In other words, a shared feature not crossed with any ADFs influences each action in the same way. An ADF not crossed with any shared feature influences each decision too. These types of features may reduce the variance of reward estimates.
 
 ### Implementation via namespaces
 
@@ -102,7 +101,7 @@ To add marginal features, write `--marginal <namespace>` in the VW command line.
 
 Insert this namespace along with other action-dependent features of a given action. Provide this definition for each decision, using the same `mf_name` and `action_id` for all decisions.
 
-The marginal feature is added for each action with `<namespace>`. The `action_id` can be any feature name that uniquely identifies the action. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features. In other words, a different weight is learned for each `mf_name`.
+The marginal feature is added for each action with `<namespace>`. The `action_id` can be any feature name that uniquely identifies the action. The feature name is set to `mf_name`. In particular, marginal features with different `mf_name` are treated as different features — a different weight is learned for each `mf_name`.
 
 The default usage is that `mf_name` is the same for all actions. Then one weight is learned for all marginal features.
 
@@ -125,7 +124,7 @@ Any string-valued feature is 1-hot encoded by default: a distinct internal featu
 
 ## Feature specification: format and APIs
 
-You can specify features via several ancillary APIs. All APIs use a common JSON format. Below we explain the APIs and the format on a conceptual level. The specification is complemented by a Swagger schema.
+You can specify features via several ancillary APIs. All APIs use a common JSON format. Below are the APIs and the format on a conceptual level. The specification is complemented by a Swagger schema.
 
 The basic JSON template for feature specification is as follows:
 
