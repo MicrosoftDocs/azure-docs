@@ -20,7 +20,7 @@ You can use Speech to Text in your applications in two different ways.
 | [SDK](speech-sdk.md) | Simplest method for C/C++, C#, and Java* developers |
 | [REST](rest-apis.md) | Recognize short utterances using an HTTP POST request | 
 
-\* *The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).*
+\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*
 
 ## Recognition modes
 

@@ -24,4 +24,4 @@ The table below describes the currently supported programming languages and oper
 |C/C++|Windows, Linux|[Browse](https://aka.ms/csspeech/cppref)
 |Java\*|Devices|[Browse](https://aka.ms/csspeech/javaref)
 
-\* *The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).*
+\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*

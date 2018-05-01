@@ -24,7 +24,7 @@ The table below the currently supported programming languages and operating syst
 |Linux|C/C++|
 |Devices|Java\*|
 
-\* *The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).*
+\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*
 
 ## Getting the Windows SDK
 
@@ -56,4 +56,4 @@ To create an application, copy/move the required binaries (and libraries) into y
 
 ## Getting the Java SDK
 
-The Java SDK is part of the [Speech Devices SDK](speech-devices.sdk).
+The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).
