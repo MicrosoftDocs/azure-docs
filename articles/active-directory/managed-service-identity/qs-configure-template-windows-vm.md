@@ -111,9 +111,12 @@ If you have a VM that no longer needs a managed service identity:
 
 In this section, you assign a user assigned identity to an Azure VM using Azure Resource Manager template.
 
+> [!Note]
+> To create a user assigned identity using an Azure Resource Manager Template, see [Create a user assigned identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+
  ### Assign a user assigned identity to an Azure VM
 
-1. Under the `resources` element, add the following entry to assign the user assigned identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
+1. Under the `resources` element, add the following entry to assign a user assigned identity to your VM.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user assigned identity you created.
     ```json
     {
         "apiVersion": "2017-12-01",
