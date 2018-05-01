@@ -29,7 +29,7 @@ Perform the following steps on a computer that can access the privileged endpoin
 - Download SQL RP Download the SQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that is running:
     - Azure Stack version 1802 (1.0.180302.1): [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
     - Azure Stack version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems)): [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
-- Provide the Default SSL certificate, generated with [Azure Stack deployment PKI certificates](.\azure-stack-get-pki-certs.md) were created, by placing the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
+- For integrated systems installations only, you must provide the SQL PaaS PKI certificate as described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates), by placing the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
 - Ensure that you have the [latest version of Azure Stack PowerShell](.\azure-stack-powershell-install.md) (v1.2.11) installed. 
 
 ## Deploy the SQL resource provider

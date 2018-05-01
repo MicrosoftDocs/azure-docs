@@ -37,7 +37,3 @@ To remove the SQL resource provider, it is essential to first remove any depende
     - The DirectoryTenantID
     - The credentials for the service administrator account
 
-
-## Next steps
-
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).

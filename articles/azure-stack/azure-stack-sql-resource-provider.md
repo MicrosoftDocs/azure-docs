@@ -42,5 +42,3 @@ You must create one (or more) instances of SQL Server and/or provide access to e
 ## Next steps
 
 [Deploy the SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md)
-
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).

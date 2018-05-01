@@ -41,16 +41,8 @@ Self-service databases are provided through the user portal experience. A user n
 
     ![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 
-## Delete SQL databases
-From the portal,
-
->[!NOTE]
->
->When a SQL AlwaysOn database is deleted from the RP, it is successfully deleted from primary and AlwaysOn availability Group but by Design SQL AG places the database in restoring state in every replica and does not drop the database unless triggered. If a database is not dropped, the secondary replicas goes to Not synchronizing state. Re-adding a new database to the AG with the same via RP still works. See
-![Removing a secondary database](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/remove-a-secondary-database-from-an-availability-group-sql-server)
-
-## Manage database credentials
-You can update database credentials (login settings).
+## Delete SQL AlwaysOn databases
+When a SQL AlwaysOn database is deleted from the resource provider, it is successfully deleted from primary and AlwaysOn availability Group, but by Design, SQL AG places the database in restoring state in every replica and does not drop the database unless triggered. If a database is not dropped, the secondary replicas goes to Not synchronizing state. Re-adding a new database to the AG with the same via RP still works.
 
 ## Verify SQL AlwaysOn databases
 AlwaysOn databases should show as synchronized and available on all instances and in the Availability group. After failover, the database should seamlessly connect. You can use SQL Server Management Studio to verify that a database is synchronizing:
