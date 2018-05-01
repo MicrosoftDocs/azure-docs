@@ -76,17 +76,21 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
 
 ## Tip 5: Expected content fails to appear
 
-Missing content could be the result of documents getting dropped during indexing. Free and Basic tiers have low limits on document size. Any file exceeding the limit is dropped during indexing.
-
-You can check for dropped documents in the Azure portal. In the search service dashboard, double-click the Indexers tile. Review the ratio of successful documents indexed. If it is not 100%, you can click the ratio to get more detail. 
+Missing content could be the result of documents getting dropped during indexing. Free and Basic tiers have low limits on document size. Any file exceeding the limit is dropped during indexing. You can check for dropped documents in the Azure portal. In the search service dashboard, double-click the Indexers tile. Review the ratio of successful documents indexed. If it is not 100%, you can click the ratio to get more detail. 
 
 If the problem is related to file size, you might see an error like this: "The blob <file-name>" has the size of <file-size> bytes, which exceeds the maximum size for document extraction for your current service tier." For more information on indexer limits, see [Service limits](search-limits-quotas-capacity.md).
 
-## Tip 6: Extend processing beyond the 24-hour window
+A second reason for content failing to appear might be related input/output mapping errors. For example, an output target name is "People" but the index field name is lower-case "people". The system could return 201 success messages for the entire pipeline so you think indexing succeeded, when in fact a field is empty. 
 
-Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
+## Tip 6: Extend processing beyond maximum run time (24-hour window)
+
+Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. 
+
+Maximum run time varies by tier: several minutes on the Free tier, 24-hour indexing on billable tiers. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
 For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+
+For portal-based indexing (as described in the quickstart), choosing the "run once" indexer option limits processing to 1 hour (`"maxRunTime": "PT1H"`). You might want to extend the processing window to something longer.
 
 ## Tip 7: Increase indexing throughput
 
@@ -94,7 +98,7 @@ For [parallel indexing](search-howto-reindex.md#parallel-indexing), place your d
 For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## See also
-+ [Quickstart: Quickstart: Create a cognitive search pipeline in the portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Create a cognitive search pipeline in the portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Learn cognitive search REST APIs](cognitive-search-tutorial-blob.md)
 + [Specifying data source credentials](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
