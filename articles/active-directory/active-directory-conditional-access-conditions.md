@@ -108,7 +108,7 @@ The device platform is characterized by the operating system that is running on 
 For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-A common use case for this condition is a policy that restricts access to your cloud apps to [trusted devices](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md).
+A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](active-directory-conditional-access-policy-connected-applications.md#managed-devices). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md).
 
 
 

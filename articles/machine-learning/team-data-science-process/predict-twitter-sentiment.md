@@ -3,7 +3,7 @@ title: Predict Twitter sentiment with word embeddings by using the Team Data Sci
 description: The steps that are needed to execute your data-science projects.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 

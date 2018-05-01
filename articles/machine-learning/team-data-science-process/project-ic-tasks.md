@@ -2,7 +2,7 @@
 title: Team Data Science Process tasks for an individual contributor - Azure  | Microsoft Docs
 description: An outline of the tasks for an individual contributor on a data science team project.
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 
