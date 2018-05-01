@@ -1,6 +1,6 @@
 ---
 title: Table design patterns | Microsoft Docs
-description: Use patterns for table service solutions
+description: Use patterns for table service solutions.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent

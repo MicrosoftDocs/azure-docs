@@ -56,4 +56,8 @@
   items:
   - name: How to use the storage emulator
     href: https://docs.microsoft.com/azure/storage/common/storage-use-emulator?toc=/azure/storage/tables/toc.json 
+- name: Resources
+  items:
+  - name: Table storage REST APIs
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
 

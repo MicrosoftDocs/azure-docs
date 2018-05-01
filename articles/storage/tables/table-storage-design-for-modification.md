@@ -1,6 +1,6 @@
 ---
 title: Designing tables for data modification | Microsoft Docs
-description: Design tables for data modification in Azure Table Storage
+description: Design tables for data modification in Azure Table Storage.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent

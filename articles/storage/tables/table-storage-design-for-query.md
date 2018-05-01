@@ -1,6 +1,6 @@
 ---
 title: Designing tables for queries | Microsoft Docs
-description: Design tables for queries in Azure Table Storage
+description: Design tables for queries in Azure Table Storage.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent

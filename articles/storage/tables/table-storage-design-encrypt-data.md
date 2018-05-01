@@ -1,6 +1,6 @@
 ---
 title: Encrypt table data | Microsoft Docs
-description: Learn about table data encryption
+description: Learn about table data encryption.
 services: storage
 documentationcenter: na
 author: MarkMcGeeAtAquent
