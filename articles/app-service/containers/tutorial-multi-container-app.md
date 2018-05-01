@@ -161,6 +161,8 @@ To set app settings, use the [az webapp config appsettings set](/cli/azure/webap
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
+When the app setting has been created, the Azure CLI shows information similar to the following example:
+
 ```json
 [
   {
