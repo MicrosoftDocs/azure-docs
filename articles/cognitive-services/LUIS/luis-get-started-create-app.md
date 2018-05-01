@@ -14,7 +14,7 @@ ms.author: v-geberr
 
 # Quickstart: Create app with prebuilt domain intents and entities
 
-In this quickstart, you create a LUIS app that uses the prebuilt domain `HomeAutomation` with intents and entities already created for you . The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
+In this quickstart, you create a LUIS app that uses the prebuilt domain `HomeAutomation` with intents and entities already created for you. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -68,7 +68,7 @@ Click on the **HomeAutomation.TurnOff** intent. You can see that the intent cont
 
 Click on **Train** in the top navigation.
 
-[![](media/luis-quickstart-new-app/trained.png "Screeeshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
+[![](media/luis-quickstart-new-app/trained.png "Screenshot of HomeAutomation.TurnOff intent with green success notification")](media/luis-quickstart-new-app/trained.png)
 
 ## Test your app
 Once you've trained your app, you can test it. Click **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 

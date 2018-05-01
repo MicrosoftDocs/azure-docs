@@ -38,7 +38,7 @@ You can import a version at the app level. That version becomes the active versi
 
 You can export a version at the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you will need to add these back once the version is imported into the new app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you need to add these back once the version is imported into the new app.
 
 ## Export each version as app backup
 In order to back up your LUIS app, export each version on the **[Settings](luis-how-to-manage-versions.md)** page.
