@@ -47,4 +47,4 @@ sections:
     - title: Languages
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Map Control API - Javascript</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/azure-maps/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/azure-maps-management/">Management API - REST</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/">Functional API - REST</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Management API - REST</a></p>

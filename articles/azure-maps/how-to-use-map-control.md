@@ -5,7 +5,7 @@ description: Learn how to use the Azure Maps Map Control client-side Javascript 
 services: azure-maps 
 author: kgremban
 ms.author: kgremban
-ms.date: 11/22/2017
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 manager: timlt
@@ -14,10 +14,8 @@ manager: timlt
 # How to use the Azure Maps Map Control
 The Map Control client-side Javascript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application. 
 
-## Prerequisites
-An Azure Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md). 
+## Create a new map in a web page
 
-## Create a new map in a web page using the Map Control API
 You can embed a map in a web page by using the Map Control client-side Javascript library.
 
 1. Create a new file and name it MapSearch.html.
@@ -38,7 +36,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
             }
     ``` 
     
-4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. 
+4. In order to initialize the map control, define a new section in the html body and create a script. Use your own Azure Maps account key in the script. If you need to create an account or find your key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md)
 
     ```html
     <div id="map">
@@ -54,3 +52,10 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     ```
     
 5. Open the file in your web browser and view the rendered map.
+
+## Next steps
+
+This article showed you how to create a basic map with your Azure Maps key. For more code examples to add to your maps, see the following articles: 
+
+* [Create a map](map-create.md)
+* [Add a pin](map-add-pin.md)

@@ -4,9 +4,9 @@ description: How to display directions between two locations on a Javascript map
 services: azure-maps
 keywords: 
 
-author: kgremban
-ms.author: kgremban
-ms.date: 04/04/2018
+author: jinzh-azureiot
+ms.author: jinzh
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 
@@ -31,7 +31,7 @@ The second block of code creates and adds pins on the map to represent the start
 
 The third block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds) function of the map class to set the bounding box of the map based on the start and end point of the route.
 
-The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/azure-maps/route/getroutedirections).
+The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
 The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each waypoint. It creates an array of lines by connecting each waypoint to its subsequent waypoint. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
 

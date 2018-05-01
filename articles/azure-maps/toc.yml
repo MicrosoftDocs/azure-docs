@@ -69,7 +69,7 @@
 - name: Reference
   items:
   - name: Services API - REST
-    href: https://docs.microsoft.com/rest/api/azure-maps/
+    href: https://docs.microsoft.com/rest/api/maps/
   - name: Map Control API - Javascript
     href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
 - name: Related
