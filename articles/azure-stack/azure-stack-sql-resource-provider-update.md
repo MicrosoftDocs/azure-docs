@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Update the SQL resource provider adapter (multi-node only, builds 1710 and later)
-A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the table in step 3 of [Deploy the resource provider](#deploy-the-resource-provider)).
+# Update the SQL resource provider adapter
+A new SQL resource provider adapter might be released when Azure Stack builds are updated. While the existing adapter continues to work, we recommend updating to the latest build as soon as possible. Updates must be installed in order: you cannot skip versions (see the versions list in [Deploy the resource provider prerequisites](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
-To update of the resource provider you use the *UpdateSQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](#deploy-the-resource-provider) section of this article. The script is included with the download of the resource provider.
+To update of the resource provider you use the *UpdateSQLProvider.ps1* script. The process is similar to the process used to install a resource provider, as described in the [Deploy the resource provider](.\azure-stack-sql-resource-provider-deploy.md) article. The script is included with the download of the resource provider.
 
 The *UpdateSQLProvider.ps1* script creates a new VM with the latest resource provider code and migrates the settings from the old VM to the new VM. The settings that migrate include database and hosting server information, and the necessary DNS record.
 

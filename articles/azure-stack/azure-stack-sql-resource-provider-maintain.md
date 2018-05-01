@@ -17,19 +17,31 @@ ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Maintenance operations (integrated systems)
-The SQL resource provider is a locked down virtual machine. Updating the resource provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_.
+# Maintenance operations 
+The SQL resource provider is a locked down virtual machine. Updating the resource provider virtual machine's security can be done through the PowerShell Just Enough Administration (JEA) endpoint _DBAdapterMaintenance_. A script is provided with the RP's installation package to facilitate these operations.
 
-A script is provided with the RP's installation package to facilitate these operations.
+## Patching and updating
+The SQL resource provider is not serviced as part of Azure Stack as it is an add-on component. Microsoft will be providing updates to the SQL resource provider as necessary. The SQL resource provider is instantiated on a _user_ virtual machine under the Default Provider Subscription. Therefore, it is necessary to provide Windows patches, anti-virus signatures, etc. The Windows update packages that are provided as part of the patch-and-update cycle can be used to apply updates to the Windows VM. When an updated adapter is released, a script is provided to apply the update. This script creates a new RP VM and migrate any state that you already have.
+
+ ## Backup/Restore/Disaster Recovery
+ The SQL resource provider is not backed up as part of Azure Stack BC-DR process, as it is an add-on component. Scripts will be provided to facilitate:
+- Backing up of necessary state information (stored in an Azure Stack storage account)
+- Restoring the RP in the event a complete stack recovery becomes necessary.
+Database servers must be recovered first (if necessary), before the resource provider is restored.
+
+## Updating SQL credentials
+You are responsible for creating and maintaining system admin accounts on your SQL servers. The resource provider needs an account with these privileges to manage databases on behalf of users - it does not need access to the data in those databases. If you need to update the sa passwords on your SQL servers, you can use the update capability of the resource provider's administrator interface to change the stored password used by the resource provider. These passwords are stored in a Key Vault on your Azure Stack instance.
+
+To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **SQL Logins** and select a login name. The change must be made on the SQL instance first (and any replicas, if necessary). In the **Settings** panel, click on **Password**.
+
+![Update the admin password](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 ## Update the virtual machine operating system
 There are several ways to update the Windows Server VM:
 * Install the latest resource provider package using a currently patched Windows Server 2016 Core image
 * Install a Windows Update package during the installation or update of the RP
 
-
 ## Update the virtual machine Windows Defender definitions
-
 Follow these steps to update the Defender definitions:
 
 1. Download the Windows Defender definitions update from [Windows Defender Definition](https://www.microsoft.com/en-us/wdsi/definitions)

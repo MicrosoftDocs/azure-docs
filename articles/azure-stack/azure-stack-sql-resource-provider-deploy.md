@@ -27,16 +27,16 @@ Perform the following steps on a computer that can access the privileged endpoin
 > [!IMPORTANT]
 > The system where the script is being run must be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed.
 
-- If you have not already done so, register Azure Stack with Azure so that you can download Azure marketplace items.
-- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the Windows Server 2016 Server core image. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
+- If you have not already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so that you can download Azure marketplace items.
+- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Server core** image. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
 - Download SQL RP Download the SQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that is running:
     - Azure Stack version 1802 (1.0.180302.1): [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
     - Azure Stack version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems)): [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
 - Provide the Default SSL certificate, generated with [Azure Stack deployment PKI certificates](.\azure-stack-get-pki-certs.md) were created, by placing the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
 - Ensure that you have the [latest version of Azure Stack PowerShell](.\azure-stack-powershell-install.md) (v1.2.11) installed. 
 
-## Deploy the resource provider
-After you have successfully prepared to install the SQL resource provider by meeting all prerequisites, you can now run the DeploySqlProvider.ps1 script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded corresponding to your Azure Stack version. 
+## Deploy the SQL resource provider
+After you have successfully prepared to install the SQL resource provider by meeting all prerequisites, you can now run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded corresponding to your Azure Stack version. 
 
 To deploy the SQL resource provider, open a new elevated (administrative) PowerShell console and change to the directory where you extracted the SQL resource provider binary files.
 

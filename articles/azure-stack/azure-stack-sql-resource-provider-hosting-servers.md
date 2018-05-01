@@ -16,10 +16,7 @@ ms.date: 05/01/2018
 ms.author: jeffgilb
 
 ---
-# Add hosting servers for use by the SQL adapter
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
+# Add hosting servers for the SQL resource provider
 You can use SQL instances on VMs inside of your [Azure Stack](azure-stack-poc.md), or an instance outside of your Azure Stack environment, provided the resource provider can connect to it. The general requirements are:
 
 * The SQL instance must be dedicated for use by the RP and user workloads. You cannot use a SQL instance that is being used by any other consumer, including App Services.
@@ -140,27 +137,6 @@ To add SQL Always On hosting servers, follow these steps:
 Create plans and offers to make SQL databases available for users. Add the Microsoft.SqlAdapter service to the plan, and add either an existing Quota, or create a new one. If you create a quota, you specify the capacity to allow the user.
 
 ![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## Maintenance of the SQL Adapter RP
-
-Maintenance of the SQL instances is not covered here, except for password rotation information. You are responsible for patching and backup/recovery of the database servers used with the SQL Adapter.
-
-### Patching and updating
- The SQL Adapter is not serviced as part of Azure Stack as it is an add-on component. Microsoft will be providing updates to the SQL Adapter as necessary. The SQL Adapter is instantiated on a _user_ virtual machine under the Default Provider Subscription. Therefore, it is necessary to provide Windows patches, anti-virus signatures, etc. The Windows update packages that are provided as part of the patch-and-update cycle can be used to apply updates to the Windows VM. When an updated adapter is released, a script is provided to apply the update. This script creates a new RP VM and migrate any state that you already have.
-
- ### Backup/Restore/Disaster Recovery
- The SQL Adapter is not backed up as part of Azure Stack BC-DR process, as it is an add-on component. Scripts will be provided to facilitate:
-- Backing up of necessary state information (stored in an Azure Stack storage account)
-- Restoring the RP in the event a complete stack recovery becomes necessary.
-Database servers must be recovered first (if necessary), before the RP is restored.
-
-### Updating SQL credentials
-
-You are responsible for creating and maintaining system admin accounts on your SQL servers. The RP needs an account with these privileges to manage databases on behalf of users - it does not need access to the data in those databases. If you need to update the sa passwords on your SQL servers, you can use the update capability of the RP's administrator interface to change the stored password used by the RP. These passwords are stored in a Key Vault on your Azure Stack instance.
-
-To modify the settings, click **Browse** &gt; **ADMINISTRATIVE RESOURCES** &gt; **SQL Hosting Servers** &gt; **SQL Logins** and select a login name. The change must be made on the SQL instance first (and any replicas, if necessary). In the **Settings** panel, click on **Password**.
-
-![Update the admin password](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 
 ## Next steps

@@ -17,9 +17,9 @@ ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 
-# Remove the SQL resource provider adapter
+# Remove the SQL resource provider
 
-To remove the resource provider, it is essential to first remove any dependencies:
+To remove the SQL resource provider, it is essential to first remove any dependencies:
 
 1. Ensure that you have the original deployment package that you downloaded for this version of the SQL resource provider adapter.
 
