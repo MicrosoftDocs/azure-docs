@@ -45,7 +45,7 @@ Follow the same directions as for starting with the sample, but do the following
 
 1. Create a Function App project.
 2. Search for the following NuGet package reference using *Manage Nuget Packages* and add it to the project: 
-Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (check *Include prerelease* to search for this package)
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0
    
 ## Visual Studio Code
 
@@ -70,12 +70,12 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 4. Install Azure Functions Twilio Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
     ```
 5. Run Azure Storage Emulator or update the *local.appsettings.json* file with real Azure Storage connection string.
 6. Open the project in Visual Studio Code. 
@@ -91,7 +91,7 @@ Visual Studio Code provides a local development experience covering all major pl
 2. Install the Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 3. Create a Function App project by running the following command:
 
