@@ -20,7 +20,7 @@ ms.author: mlearned
 # Overview of Azure DevOps Project
 
 The Azure DevOps Project makes it easy to get started on Azure. The wizard helps you launch your favorite app type on the Azure service of your choice in just a few quick steps. 
-The DevOps Project sets up everything you need for developing, deploying and monitoring your application.
+The DevOps Project sets up everything you need for developing, deploying, and monitoring your application.
 The DevOps Project dashboard lets you monitor code commits, builds, and deployments, all from a single view in the Azure portal.
 
 ## Key benefits of the Azure DevOps Project
@@ -37,7 +37,7 @@ The DevOps Project dashboard lets you monitor code commits, builds, and deployme
 DevOps Projects are powered by VSTS.  The Azure DevOps Project automatically creates a Git repository and release pipeline in your VSTS account.
 
 * Customize your build and release pipeline
-* Use pull requests to manage your codeflow & keep your quality high
+* Use pull requests to manage your code flow & keep your quality high
 * Test and build each commit before you merge your code to raise the quality bar
 * Track your Project backlog and issues right along with your application
 
