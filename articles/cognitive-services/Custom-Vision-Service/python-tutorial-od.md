@@ -191,7 +191,7 @@ with open("images/test/test_image.jpg", mode="rb") as test_data:
 
 # Display the results.
 for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.regions[0])
+    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
 ## Step 7: Run the example
