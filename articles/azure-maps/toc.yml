@@ -69,9 +69,9 @@
 - name: Reference
   items:
   - name: Services API - REST
-    href: https://docs.microsoft.com/rest/api/azure-maps/
+    href: https://docs.microsoft.com/rest/api/maps/
   - name: Map Control API - Javascript
-    href: https://docs.microsoft.com/javascript/api/location-based-services-javascript/
+    href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
 - name: Related
   items:
   - name: Solutions
@@ -87,7 +87,7 @@
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
     - name: Location Based Services
-      href: /azure/location-based-services
+      href: /azure/azure-maps
     - name: Service SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
