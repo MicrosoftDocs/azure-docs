@@ -27,7 +27,7 @@ Consider a set of data that is accessed frequently during the early stage of the
 
 ## Storage account support
 
-Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. See [Azure storage account options](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-options) to learn more.  
+Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. See [Azure storage account options](../common/storage-account-options.md) to learn more.  
 
 ## Pricing 
 
@@ -259,4 +259,4 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 
 Learn how to recover data after accidental deletion:
 
-- [Soft delete for Azure Storage blobs ](../storage/blobs/storage-blob-soft-delete.md)
+- [Soft delete for Azure Storage blobs ](../blobs/storage-blob-soft-delete.md)
