@@ -20,7 +20,7 @@ ms.author: spelluru
 This article describes how to create a lab account, view all lab accounts, or delete a lab account.
 
 ## Prerequisites
-Azure Lab Services is currently in a gated preview. To create a lab account, sign up for the preview at:  https://aka.ms/azlabspreviewsignup. 
+Azure Lab Services is currently in a gated preview. To create a lab account, [sign up for the preview](https://aka.ms/azlabspreviewsignup).
 
 ## Create a lab account
 1. Sign in to the [Azure portal](https://portal.azure.com).
