@@ -17,13 +17,19 @@ ms.date: 10/13/2017
 ms.author: klam; LADocs
 ---
 
-# Triggers and actions for logic app workflow definitions
+# Triggers and actions for workflow definitions in Azure Logic Apps
 
-All logic apps start with a trigger followed by actions. 
-This article describes the kinds of triggers and actions 
-that you can use for creating system integrations and 
-automating business workflows or processes by building logic apps. 
-  
+In [Azure Logic Apps](../logic-apps/logic-apps-overview), 
+all logic app workflows start with triggers followed by actions. 
+This article describes the triggers and actions that you can use 
+to build logic apps for automating business workflows or processes 
+in your integration solutions. 
+
+You can build logic apps either visually with the Logic Apps Designer, 
+or by directly authoring the underlying workflow definitions with the 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+You can use either the Azure portal or Visual Studio. 
+
 ## Triggers overview
 
 All logic apps start with a trigger, which defines the calls 
@@ -39,8 +45,8 @@ All triggers have these top-level elements:
 ```json
 "<triggerName>": {
     "type": "<triggerType>",
-    "inputs": { <callSettings> },
-    "recurrence": {  
+    "inputs": { "<callSettings>" },
+    "recurrence": { 
         "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
         "interval": "<recurrence-interval-based-on-frequency>"
     },
@@ -50,40 +56,46 @@ All triggers have these top-level elements:
 }
 ```
 
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| <*triggerName*> | Yes | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | Yes | String | The trigger type, for example: "Http" or "ApiConnection" | 
+| inputs | Yes | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| recurrence | Yes | JSON Object | The frequency and interval that describes how often the trigger fires |  
+| frequency | Yes | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Yes | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+||||| 
+
 ## Trigger types and inputs  
 
-Each trigger type has a different interface and 
-*inputs* that define the trigger's behavior. 
+Each trigger type has a different interface and *inputs* that define the trigger's behavior. 
 
 | Trigger type | Description | 
 | ------------ | ----------- | 
 | **Recurrence** | Fires based on a defined schedule. You can set a future date and time for firing this trigger. Based on the frequency, you can also specify times and days for running the workflow. | 
-| **Request**  | Makes your logic app into a callable endpoint, also known as a "manual" trigger. | 
+| **Request**  | Makes your logic app into a callable endpoint, also known as a "manual" trigger. For example, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md). | 
 | **HTTP** | Checks, or *polls*, an HTTP web endpoint. The HTTP endpoint must conform to a specific triggering contract either by using a "202" asynchronous pattern or by returning an array. | 
-| **ApiConnection** | Checks, or *polls*, an HTTP web endpoint, like the HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
+| **ApiConnection** | Works like the HTTP trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
 | **HTTPWebhook** | Makes your logic app into a callable endpoint, like the **Request** trigger, but calls a specified URL for registering and unregistering. |
-| **ApiConnectionWebhook** | Works like the **HTTPWebhook** trigger, but uses Microsoft-managed APIs. | 
+| **ApiConnectionWebhook** | Works like the **HTTPWebhook** trigger, but uses [Microsoft-managed APIs](../connectors/apis-list.md). | 
 ||| 
-
-For more information, see 
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 <a name="recurrence-trigger"></a>
 
 ## Recurrence trigger  
 
-This trigger runs based on the recurrence and schedule that you specify 
+This trigger runs based on your specified recurrence and schedule 
 and provides an easy way for regularly running a workflow. 
 
-Here is a basic recurrence trigger example that runs daily:
+For example, here is a basic recurrence trigger that runs daily:
 
 ```json
-"myRecurrenceTrigger": {
-    "type": "Recurrence",
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+"recurrenceTriggerName": {
+   "type": "Recurrence",
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
@@ -93,7 +105,7 @@ you can schedule the logic app to start on a specific Monday
 like this example: 
 
 ```json
-"myRecurrenceTrigger": {
+"recurrenceTriggerName": {
     "type": "Recurrence",
     "recurrence": {
         "frequency": "Week",
@@ -103,14 +115,16 @@ like this example:
 }
 ```
 
-Here is the definition for this trigger:
+Here is the trigger definition:
 
 ```json
-"myRecurrenceTrigger": {
+"Recurrence": {
     "type": "Recurrence",
     "recurrence": {
-        "frequency": "second|minute|hour|day|week|month",
+        "frequency": "Second" | "Minute" | "Hour" | "Day" | "Week" | "Month",
         "interval": <recurrence-interval-based-on-frequency>,
+        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
+        "timeZone": "<time-zone>",
         "schedule": {
             // Applies only when frequency is Day or Week. Separate values with commas.
             "hours": [ <one-or-more-hour-marks> ], 
@@ -118,22 +132,26 @@ Here is the definition for this trigger:
             "minutes": [ <one-or-more-minute-marks> ], 
             // Applies only when frequency is Week. Separate values with commas.
             "weekDays": [ "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday" ] 
-        },
-        "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
-        "timeZone": "<specify-time-zone>"
+        }
+    },
+    "runtimeConfiguration": {
+        "concurrency": {
+            "runs": <maximum-number-for-concurrently-running-workflow-instances>
+        }
     }
 }
 ```
 
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| frequency | Yes | String | The unit of time for how often the trigger fires. Use only one of these values: "second", "minute", "hour", "day", "week", or "month" | 
-| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+| frequency | Yes | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Yes | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+| startTime | No | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | timeZone | No | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
-| startTime | No | String | Specify the start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
-| weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
 | hours | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
 | minutes | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
+| weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
+| concurrency | No | Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 ||||| 
 
 For example, this recurrence trigger specifies that your logic app runs weekly 
@@ -170,59 +188,126 @@ see [Create and schedule regularly running tasks](../connectors/connectors-nativ
 
 ## Request trigger
 
-This trigger serves as an endpoint that you can use for 
-calling your logic app through an HTTP request. 
-A request trigger looks like this example:  
-  
+This trigger works as an endpoint that incoming requests 
+can use for calling your logic app. The trigger supports HTTP, 
+EventGrid, and Azure Security Center requests. 
+To call this trigger as an endpoint, you must use the `listCallbackUrl` API. 
+See [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+To learn how to use this trigger as an HTTP endpoint, see 
+[Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
+
+```json
+"manual": {
+   "type": "Request",
+   "kind": "Http | EventGrid | SecurityCenterAlert",
+   "inputs": {
+      "method": "GET | POST | PUT | PATCH | DELETE | HEAD",
+      "relativePath": "<relative-path-for-accepted-parameter>",
+      "schema": {
+         "type": "object",
+         "properties": { 
+            "<propertyName>": {
+               "type": "<property-type>"
+            }
+         }
+      }
+   }
+}
+```
+
+| Element name | Required | Type | Description | 
+| ------------ | -------- | ---- | ----------- | 
+| method | No | String | For HTTP requests, the method that requests can use to call the trigger: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" |
+| relativePath | No | String | For HTTP requests, the relative path for the parameter that your HTTP endpoint's URL accepts. | 
+| schema | No | JSON Object | The JSON schema that describes and validates the payload, or inputs, that the trigger receives from the incoming request. This schema helps subsequent workflow actions know the properties to reference. | 
+| properties | No | JSON Object | One or more properties in the JSON schema that describes the payload | 
+||||| 
+
+For example, this request trigger specifies that an incoming 
+request use the HTTP POST method to call the trigger and a 
+schema that validates input from the incoming request: 
+
 ```json
 "myRequestTrigger": {
     "type": "Request",
     "kind": "Http",
     "inputs": {
+        "method": "POST",
         "schema": {
             "type": "Object",
             "properties": {
-                "myInputProperty1": { "type" : "string" },
-                "myInputProperty2": { "type" : "number" }
-            },
-            "required": [ "myInputProperty1" ]
+                "customerName": {
+                    "type": "String"
+                },
+                "customerAddress": { 
+                    "type": "Object",
+                    "properties": {
+                        "streetAddress": {
+                            "type": "String"
+                        },
+                        "city": {
+                           "type": "String"
+                        }
+                    }
+                }
+            }    
         }
     }
 } 
 ```
 
-This trigger has an optional property called `schema`:
-  
-| Element name | Required | Type | Description |
-| ------------ | -------- | ---- | ----------- |
-| schema | No | Object | A JSON schema that validates the incoming request. Useful for helping subsequent workflow steps know which properties to reference. | 
-||||| 
-
-To invoke this trigger as an endpoint, you need to call the `listCallbackUrl` API. See 
-[Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows).
-
 ## HTTP trigger  
 
 This trigger polls a specified endpoint and checks the 
 response to determine whether the workflow should run or not. 
-Here, the `inputs` object takes these parameters 
-required for constructing an HTTP call: 
+The `inputs` JSON object specifies the `method` and `uri` 
+parameters required for constructing the HTTP call:
+
+```json
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
+      "queries": "<query-parameters>"
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+    "runtimeConfiguration": {
+        "concurrency": {
+            "runs": <maximum-number-for-concurrently-running-workflow-instances>
+        }
+    }
+}
+```
 
 | Element name | Required | Type | Description | 
 | ------------ | -------- | ---- | ----------- | 
-| method | Yes | String | Uses one of these HTTP methods: "GET", "POST", "PUT", "DELETE", "PATCH", or "HEAD" | 
-| uri | Yes| String | The HTTP or HTTPs endpoint that the trigger checks. Maximum string size: 2 KB | 
-| queries | No | Object | Represents any query parameters that you want to include in the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
-| headers | No | Object | Represents each header that's sent in the request. <p>For example, to set the language and type on a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | Object | Represents the payload that's sent to the endpoint. | 
-| retryPolicy | No | Object | Use this object for customizing the retry behavior for 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | No | Object | Represents the method that the request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
+| method | Yes | String | The HTTP method used to poll the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
+| uri | Yes| String | The HTTP or HTTPs endpoint URL that the trigger polls <p>Maximum string size: 2 KB | 
+| queries | No | Object | Any query parameters that you want to include with the URL. <p>For example, `"queries": { "api-version": "2015-02-01" }` adds `?api-version=2015-02-01` to the URL. | 
+| headers | No | Object | One or more headers to send in the request. <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | No | Object | The payload (data) to send to the endpoint | 
+| retryPolicy | No | Object | Use this object to customize the retry behavior for intermittent 4xx or 5xx errors. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| authentication | No | Object | The method that the request uses for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). <p>Beyond Scheduler, there is one more supported property: `authority`. By default, this value is `https://login.windows.net` when not specified, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
+| frequency | Yes | String | The unit of time for how often the trigger fires. Use only one of these values: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+| concurrency | No | Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 ||||| 
+
+The optional `retryPolicy` object defines the retry behavior 
+when handling intermittent failures 
+
+for handling 
+You can define this policy with the 
+
+as shown here:
 
 A *retry policy* applies to intermittent failures, 
 characterized as HTTP status codes 408, 429, and 5xx, 
 in addition to any connectivity exceptions. 
-You can define this policy with the `retryPolicy` object as shown here:
   
 ```json
 "retryPolicy": {
@@ -237,8 +322,8 @@ to conform with a specific pattern. The trigger recognizes these properties:
   
 | Response | Required | Description | 
 | -------- | -------- | ----------- |  
-| Status code | Yes | The status code 200 ("OK") causes a run. Any other status code doesn't cause a run. | 
-| Retry-after header | No | The number of seconds until the logic app polls the endpoint again. | 
+| Status code | Yes | The "200 OK" status code causes a run. Any other status code doesn't cause a run. | 
+| Retry-after header | No | The number of seconds until the logic app polls the endpoint again | 
 | Location header | No | The URL to call at the next polling interval. If not specified, the original URL is used. | 
 |||| 
 
