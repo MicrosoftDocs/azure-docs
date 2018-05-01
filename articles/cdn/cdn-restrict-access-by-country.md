@@ -34,6 +34,8 @@ For information about considerations that apply to configuring this type of rest
 > [!IMPORTANT]
 > **Azure CDN Standard from Microsoft** profiles do not support path-based geo-filtering.
 >
+
+
 Select your endpoint within the portal, and find the Geo-Filtering tab on the left-hand navigation to find this feature.
 
 When configuring a country filter, you must specify the relative path to the location to which users will be allowed or denied access. You can apply geo-filtering for all your files with a forward slash (/) or selected folders by specifying directory paths */pictures/*. You can also apply geo-filtering to a single file by specifying the file, and leaving out the trailing slash */pictures/city.png*.

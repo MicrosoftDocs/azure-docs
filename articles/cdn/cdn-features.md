@@ -36,6 +36,7 @@ Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standar
 | Cache/header settings (using [caching rules](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
 | Cache/header settings (using [rules engine](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [Query string caching](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Regional caching  |**&#x2713;** |  |  |  |
 | IPv4/IPv6 dual-stack | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 support](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||
@@ -46,6 +47,7 @@ Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standar
 | [Geo-filtering](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Token authentication](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS protection](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| Bring your own certificate  |**&#x2713;** |  |  |  |
 ||||
 | **Analytics and reporting** | **Standard Microsoft** | **Standard Akamai** | **Standard Verizon** | **Premium Verizon** | 
 | [Azure diagnostic logs](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
