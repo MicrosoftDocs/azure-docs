@@ -916,6 +916,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-storage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-storage.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-diagnostics-troubleshooting.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-troubleshooting",
             "redirect_document_id": false
