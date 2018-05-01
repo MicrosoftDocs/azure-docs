@@ -40,36 +40,17 @@ sections:
   items:
   - type: paragraph
     text: 'Learn how to create a Media Services account, start encoding your videos, and use Azure Media Player to play them back:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - text: v3
-      - text: v2
-    rows:
-      - title: Stream files
-        values:
-        - href: /azure/media-services/latest/stream-files-dotnet-quickstart
-        - href: /azure/media-services/previous/media-services-portal-vod-get-started      
+  - type: list
+    style: ordered
+    items:
+    - html: Stream files &#58; <a href="/azure/media-services/latest/stream-files-dotnet-quickstart">v3</a> | <a href="/azure/media-services/previous/media-services-portal-vod-get-started">v2</a>   
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to stream files and analyze your videos with Media Services.:'
-  - type: table
-    style: dataMatrix
-    columns:
-      - text: v3
-      - text: v2
-    rows:
-      - title: Upload, encode, stream videos
-        values:
-        - href: /azure/media-services/latest/stream-files-tutorial-with-api
-        - href: /azure/media-services/previous/media-services-dotnet-get-started
-      - title: Analyze videos
-        values:
-        - href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-        - href: /azure/media-services/previous/media-services-analytics-overview
-
-
-
- 
+  - type: list
+    style: ordered
+    items:
+    - html: Upload, encode, stream videos &#58; <a href="/azure/media-services/latest/stream-files-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-dotnet-get-started">v2</a>
+    - html: Analyze videos &#58; <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">v3</a> | <a href="/azure/media-services/previous/media-services-analytics-overview">v2</a>
