@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 05/07/2018
 ---
 
 # Understand outputs from Azure Stream Analytics
