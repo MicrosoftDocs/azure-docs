@@ -25,7 +25,7 @@ Limited Trial project resources are attached to your Custom Vision login (ie an 
 |Tags/ project|50|50|250|
 |Iterations |10|10|10|
 |Minimum labeled images per Tag, Classification (50+ reccomended) |5|5|5|
-|Minimum labeled images per Tag Object Detection (50+ reccomended)|15|15|15|
+|Minimum labeled images per Tag, Object Detection (50+ reccomended)|15|15|15|
 |How long prediction images stored|30 days|30 days|30 days|
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations with storage (Transactions Per Second)|2|2|10|
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations without storage (Transactions Per Second)|2|2|20|
