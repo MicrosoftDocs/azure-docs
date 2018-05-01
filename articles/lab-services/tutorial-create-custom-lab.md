@@ -98,5 +98,5 @@ The next tutorial shows how a lab user can claim and connect to a VM in the lab.
 In this tutorial, you created a custom lab with a VM and gave a user access to the lab. To learn about how to access the lab as a lab user, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Access the lab](tutorial-use-custom-lab.md)
+> [Tutorial: Access the custom lab](tutorial-use-custom-lab.md)
 
