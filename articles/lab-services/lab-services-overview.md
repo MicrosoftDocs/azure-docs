@@ -63,16 +63,29 @@ You can use Azure DevTest Labs to implement many key scenarios, but a primary sc
 For more information, see [Use DevTest Labs for testing](devtest-lab-test-env.md).
 
 ## User profiles
-This section describes different user profiles in Azure Lab Services. 
+This article describes different user profiles in Azure Lab Services. 
 
-### Lab account owner
-Typically, an administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner, sets up a lab account for your organization, manages and configures policies across all labs, and gives permissions to people in the organization to create a lab under the lab account.
+## Lab account owner
+Typically, and IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:   
 
-### Lab creator
-Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator creates a lab, creates virtual machines in the lab, installs the appropriate software on virtual machines, specifies who can access the lab, and provides link to the lab to lab users.
+- Sets up a lab account for your organization.
+- Manages and configures policies across all labs.
+- Gives permissions to people in the organization to create a lab under the lab account.
 
-### Lab user
-A lab user uses the registration link that the lab creator shares to register and access the lab. The lab user connects to a virtual machine in the lab and use it for development, testing, or to do class work.
+## Lab creator 
+Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator does the following tasks: 
+
+- Creates a lab.
+- Creates virtual machines in the lab. 
+- Installs the appropriate software on virtual machines.
+- Specifies who can access the lab.
+- Provides link to the lab to lab users.
+
+## Lab user
+A lab user does the following tasks:
+
+- Uses the registration link that the lab user receives from a lab creator to register with the lab. 
+- Connects to a virtual machine in the lab and use it for development, testing, or doing class work. 
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
