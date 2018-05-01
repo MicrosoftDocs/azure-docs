@@ -413,7 +413,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
 
 4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)
 
-    This process will not delete the Log Analytics workspace, copy the *Workspace Resource Id* so you have it available later if you decide you want to delete the workspace. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../log-analytics/log-analytics-manage-del-workspace.md).<br>
+    While you are on the **Properties** page, copy the **Workspace Resource Id**.  This is so you can delete the delete the Log Analytics workspace if you decide you want to delete it. This process does not automatically delete it.  If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../log-analytics/log-analytics-manage-del-workspace.md).<br>
 5. Save this file as **OptOutParam.json** to a local folder.
 6. You are ready to deploy this template. 
 
