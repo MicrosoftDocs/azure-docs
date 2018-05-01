@@ -53,9 +53,9 @@ In this section, you create a .NET console app on your simulated device that upd
 
     ![Create a visual studio project][13]
 
-2. **Install Azure IoT Hub .NET device SDK V1.17.0-preview-001** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version 1.17.0-preview-001 and install. Now you have access to all the module features. 
+2. **Install Azure IoT Hub .NET device SDK V1.16.0-preview-005** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version V1.16.0-preview-005 and install. Now you have access to all the module features. 
 
-    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-001][14]
+    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
 3. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
@@ -67,6 +67,8 @@ Add the following `using` statements at the top of the **Program.cs** file:
     ```csharp
     using Microsoft.Azure.Devices.Client;
     using Microsoft.Azure.Devices.Shared;
+    using System.Threading.Tasks;
+    using Newtonsoft.Json;
     ```
 
     Add the following fields to the **Program** class. Replace the placeholder value with the module connection string.
@@ -74,6 +76,10 @@ Add the following `using` statements at the top of the **Program.cs** file:
     ```csharp
     private const string ModuleConnectionString = "<Your module connection string>";
     private static DeviceClient Client = null;
+    static void ConnectionStatusChangeHandler(ConnectionStatus status, ConnectionStatusChangeReason reason)
+    {
+        Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", status, reason);
+    }
     ```
 
     Add the following method **OnDesiredPropertyChanged** to the **Program** class:
@@ -124,6 +130,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
         }
 
         Console.WriteLine("Waiting for Events.  Press enter to exit...");
+        Console.ReadLine();
         Client.CloseAsync().Wait();
     }
     ```
@@ -142,7 +149,7 @@ Add the following `using` statements at the top of the **Program.cs** file:
 
 ## Run the apps
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the console apps. And then press F5 to start both apps running. 
+You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start the app. 
 
 ## Next steps
 
