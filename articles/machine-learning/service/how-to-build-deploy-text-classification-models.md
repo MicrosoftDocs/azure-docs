@@ -61,15 +61,12 @@ Try it out yourself. Download the notebook and run it yourself.
 > [!div class="nextstepaction"]
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
-### Explore the sample data
-The following example uses a partial set of the [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.php%3Fid=data.html) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
+### Download and Explore the sample data
+The following example uses a partial set of the [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.html) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
 
-## Load data and explore
-
-Define and get the data needed to run the classifier.
-
-The input dataset must be a *.tsv file with the following [ID, Text, Label] format. 
-
+Download the dataset from [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.php%3Fid=data.html)
+(Section Data, Task B) <br />
+The input dataset formay must be a *.tsv file with the following [ID, Text, Label] format.
 
 ```python
 # Import Packages 
@@ -90,53 +87,34 @@ import pip
 pip.main(["show", "azureml-tatk"])
 ```
 
-Get training and test data sets from Azure blob storage and then update data paths to load your data.
-
-Set the following blob parameters using the [load_data](https://docs.microsoft.com/python/api/tatk.utils.load_data?view) module to point to your blob or set the _resource_dir_ path to read a file from a local directory.
-
-To use your own blob storage, update the following load_data module parameters: 
-|Parameter name|Parameter for sample|
-|---|---|
-|connection_string|Replace None with your connection string|
-|container_name|Replace None with your container name|
-|blob_name|Replace the subdirectory "sentiment" and the file name for training and test data, for example "SemEval2013.Train.tsv" and "SemEval2013.Test.tsv"|
-
-
-```python
-from tatk.utils import download_blob_from_storage, resources_dir, data_dir
-
-#set the working directory where to save the training data files
-resources_dir = os.path.join(os.path.expanduser("~"), "tatk", "resources")
-
-download_blob_from_storage(download_dir=resources_dir, 
-                           #connection_string=None, 
-                           #container_name=None,
-                            blob_name=os.path.join("sentiment", "SemEval2013.Train.tsv"))
-        
-download_blob_from_storage(download_dir=resources_dir, 
-                               blob_name=os.path.join("sentiment", "SemEval2013.Test.tsv"))
-```
-
-Specify the local paths to the training and test sets. Load them into pandas dataframes:
+### Set the location of the data
+Set the location where you have downloaded the data in the data dir parameter. 
+You can also use your own data, the input dataset must be a *.tsv file with the following [ID, Text, Label] format.
 
 ```python
 import pandas as pd
-# Training Dataset Location
-file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
 
-df_train = pd.read_csv(file_path,
-                        sep = '\t',                        
-                        header = 0, names= ["id","text","label"])
+#set the working directory where to save the training data files
+resources_dir = os.path.join(os.path.expanduser("~"), "tatk", "resources")
+data_dir = os.path.join(os.path.expanduser("~"), "tatk", "data")
+
+# Training Dataset Location
+training_file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
+
+df_train = pd.read_csv(training_file_path,
+                       sep = '\t',                        
+                       header = 0, names= ["id","text","label"])
 df_train.head()
 print("df_train.shape= {}".format(df_train.shape))
 
 # Test Dataset Location
-df_test = pd.read_csv(os.path.join(resources_dir,"sentiment", "SemEval2013.Test.tsv"),
-                        sep = '\t',                        
-                        header = 0, names= ["id","text","label"])
+test_file_path = os.path.join(resources_dir,"sentiment", "SemEval2013.Test.tsv")
+df_test = pd.read_csv(test_file_path,
+                      sep = '\t',                        
+                      header = 0, names= ["id","text","label"])
 
 print("df_test.shape= {}".format(df_test.shape))
-print(df_test.head())
+df_test.head()
 ```
 
     df_train.shape= (8655, 3)
