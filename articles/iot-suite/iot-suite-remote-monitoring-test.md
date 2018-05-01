@@ -474,7 +474,7 @@ You are now ready to test your new simulated lightbulb type by running the devic
 
     ![Number of connected devices](media/iot-suite-remote-monitoring-test/connecteddevices.png)
 
-1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for your two simulated devices displays on the chart:
+1. In your browser, navigate to the **Dashboard** for your remote monitoring solution. In the telemetry panel on the **Dashboard**, select **temperature**. The temperature for all your simulated devices displays on the chart:
 
     ![Temperature telemetry](media/iot-suite-remote-monitoring-test/telemetry.png)
 

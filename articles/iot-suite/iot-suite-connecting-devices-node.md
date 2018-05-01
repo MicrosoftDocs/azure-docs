@@ -172,7 +172,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following function to handle the **FirmwareUpdate** direct method calls from the solution. The function verifies the parameters passed in the direct method payload and then asynchronously runs a firmware update simulation:
 
-    ```node.js
+    ```nodejs
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -201,7 +201,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following function to simulate a long-running firmware update flow that reports progress back to the solution:
 
-    ```node.js
+    ```nodejs
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -279,7 +279,7 @@ Ensure that [Node.js](https://nodejs.org/) version 4.0.0 or later is installed o
 
 1. Add the following code to send telemetry data to the solution. The client app adds properties to the message to identify the message schema:
 
-    ```node.js
+    ```nodejs
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
