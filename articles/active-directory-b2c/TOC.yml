@@ -141,6 +141,8 @@
         href: active-directory-b2c-reference-language-customization.md
       - name: Use the reporting API
         href: active-directory-b2c-reference-usage-reporting-api.md
+      - name: Access audit logs
+        href: active-directory-b2c-reference-audit-logs.md
       - name: Migrate users
         href: active-directory-b2c-user-migration.md
       - name: Using b2clogin.com
