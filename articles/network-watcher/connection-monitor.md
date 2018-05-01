@@ -160,4 +160,4 @@ In this tutorial, you learned how to monitor a connection between two VMs. You l
 At some point, you may find that resources in a virtual network are unable to communicate with resources in other networks connected by an Azure virtual network gateway. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
 
 > [!div class="nextstepaction"]
-> [Diagnose communication problems between networks](network-watcher-troubleshoot-manage-portal.md)
+> [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
