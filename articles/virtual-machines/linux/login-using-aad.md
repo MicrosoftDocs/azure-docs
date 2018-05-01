@@ -13,28 +13,28 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: iainfou
 ---
 
 # Log in to a Linux virtual machine in Azure using Azure Active Directory authentication (Preview)
+
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (AD) authentication. When you use Azure AD authentication for Linux VMs, you centrally control and enforce policies that allow or deny access to the VMs. This article shows you how to create and configure a Linux VM to use Azure AD authentication.
 
-This feature is in preview and is not recommended for use with production virtual machines or workloads. Use this feature on a test virtual machine that you expect to discard after testing.
+> [!NOTE]
+> This feature is in preview and is not recommended for use with production virtual machines or workloads. Use this feature on a test virtual machine that you expect to discard after testing.
 
-## Benefits of using Azure AD authentication
 There are many benefits of using Azure AD authentication to log in to Linux VMs in Azure, including:
 
 - **Improved security:**
   - You can use your corporate AD credentials to log in to Azure Linux VMs. There is no need to create local administrator accounts and manage credential lifetime.
   - By reducing your reliance on local administrator accounts, you do not need to worry about credential loss/theft, users configuring weak credentials etc.
   - The password complexity and password lifetime policies configured for your Azure AD directory help secure Linux VMs as well.
-  - The VM is not susceptible to password brute force attacks on local administrator accounts.
-  - You can configure multiple factor authentication or conditional access control policies to further secure login to Azure virtual machines.
+  - To further secure login to Azure virtual machines, you can configure multi-factor authentication.
 
-- **Seamless collaboration:** Using RBAC roles you can specify who has access to a given VM, as a regular user or with administrator privileges. When users join or leave your team, you can update the RBAC policy for the VM to grant or deny access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization, they no longer have access to your resources.
+- **Seamless collaboration:** With Role-Based Access Control (RBAC), you can specify who can sign in to a given VM as a regular user or with administrator privileges. When users join or leave your team, you can update the RBAC policy for the VM to grant access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
 
-## Supported Azure regions and Linux distributions
+### Supported Azure regions and Linux distributions
 
 The following Linux distributions are currently supported during the preview of this feature:
 
@@ -84,7 +84,7 @@ az vm extension set \
 
 The *provisioningState* of *Succeeded* is shown once the extension is installed on the VM.
 
-## Configure RBAC policy for the virtual machine
+## Configure role assignments for the virtual machine
 
 Azure Role-Based Access Control (RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
 
@@ -94,7 +94,7 @@ Azure Role-Based Access Control (RBAC) policy determines who can log in to the V
 > [!NOTE]
 > To allow a user to log in to the VM over SSH, you must assign either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role. An Azure user with the *Owner* or *Contributor* roles assigned for a VM do not automatically have privileges to log in to the VM over SSH.
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show):
+The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](../../azure-resource-manager/resource-group-overview.md#access-control)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -156,9 +156,9 @@ Access denied
 
 ### Continued SSH sign-in prompts
 
-If you successfully complete the authentication step in a web browser, you may be immediately prompted to sign in again with a fresh code. This error is typically caused by a mismatch between the UPN you specified at the SSH prompt and the account you signed in to Azure AD with. To correct this issue:
+If you successfully complete the authentication step in a web browser, you may be immediately prompted to sign in again with a fresh code. This error is typically caused by a mismatch between the sign-in name you specified at the SSH prompt and the account you signed in to Azure AD with. To correct this issue:
 
-- Verify that the UPN you specified at the SSH prompt is correct. A typo in the UPN could cause a mismatch between the UPN you specified at the SSH prompt and the account you signed in to Azure AD with. For example, you typed *azuresuer@contoso.onmicrosoft.com* instead of *azureuser@contoso.onmicrosoft.com*.
+- Verify that the sign-in name you specified at the SSH prompt is correct. A typo in the sign-in name could cause a mismatch between the sign-in name you specified at the SSH prompt and the account you signed in to Azure AD with. For example, you typed *azuresuer@contoso.onmicrosoft.com* instead of *azureuser@contoso.onmicrosoft.com*.
 - If you have multiple user accounts, make sure you don't provide a different user account in the browser window when signing in to Azure AD.
 - Linux is a case-sensitive operating system. There is a difference between 'Azureuser@contoso.onmicrosoft.com' and 'azureuser@contoso.onmicrosoft.com', which can cause a mismatch. Make sure that you specify the UPN with the correct case-sensitivity at the SSH prompt.
 
