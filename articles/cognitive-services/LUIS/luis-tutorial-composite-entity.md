@@ -234,7 +234,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 This utterance returns a composite entities array including the **flightreservation** object with the data extracted.  
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a compositie entity, identified a natural language query intention and returned the extracted data. 
+This app, with just two intents and a composite entity, identified a natural language query intention and returned the extracted data. 
 
 Your chat bot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
 
