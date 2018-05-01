@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Log network traffic to and from a virtual machine using the Azure portal
+# Tutorial: Log network traffic to and from a virtual machine using the Azure portal
 
 A network security group (NSG) enables you to filter inbound traffic to, and outbound traffic from, a virtual machine (VM). You can log network traffic that flows through an NSG with Network Watcher's NSG flow log capability. In this tutorial, you learn how to:
 
@@ -158,4 +158,4 @@ The value for **mac** in the previous output is the MAC address of the network i
 
 ## Next steps
 
-In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view the data in a log file. The raw data in the json file can be difficult to interpret. To visualize the data, you can use Network Watcher [traffic analytics](traffic-analytics), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.m), and other tools.
+In this tutorial, you learned how to enable NSG flow logging for an NSG. You also learned how to download and view the data in a log file. The raw data in the json file can be difficult to interpret. To visualize the data, you can use Network Watcher [traffic analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md), and other tools.
