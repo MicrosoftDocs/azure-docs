@@ -411,9 +411,10 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
     }
     ```
 
-4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)
+4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)<br>
 
-    While you are on the **Properties** page, copy the **Workspace Resource Id**.  This is so you can delete the delete the Log Analytics workspace if you decide you want to delete it. This process does not automatically delete it.  If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../log-analytics/log-analytics-manage-del-workspace.md).<br>
+    While you are on the **Properties** page, also copy the **Workspace Resource Id**.  This value is required if you decide you want to delete the Log Analytics workspace later, which is not performed as part of this process.  
+
 5. Save this file as **OptOutParam.json** to a local folder.
 6. You are ready to deploy this template. 
 
@@ -445,7 +446,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         ProvisioningState       : Succeeded
         ```
 
-This process will not delete the Log Analytics workspace. If the workspace was created in support of monitoring the cluster and you no longer need it, you have to manually delete the workspace. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  
+If the workspace was created only in support monitoring the cluster and you no longer need it, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource Id** we copied earlier in step 4, you're going to need that.  
 
 ## Troubleshooting
 This section provides information to help troubleshoot issues with container health.
