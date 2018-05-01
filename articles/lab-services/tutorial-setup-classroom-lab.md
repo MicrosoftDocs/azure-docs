@@ -27,9 +27,6 @@ In this tutorial, you do the following actions:
 > * Configure the classroom lab
 > * Send registration link to students
 
-## Prerequisites
-Azure Lab Services is currently in a gated preview. To create a managed lab, such as a classroom lab, request access through this link:  https://aka.ms/azlabspreviewsignup. 
-
 ## Create a classroom lab
 
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
