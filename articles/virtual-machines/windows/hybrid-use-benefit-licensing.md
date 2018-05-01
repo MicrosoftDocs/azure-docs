@@ -42,7 +42,7 @@ There are few ways to use Windows virtual machines with the Azure Hybrid Benefit
 4. You can also apply Azure Hybrid Benefit for Windows Server on virtual machine scale set as well
 
 
-## How to create a VM with Azure Hybrid Benefit for Windows Server
+## Create a VM with Azure Hybrid Benefit for Windows Server
 All Windows Server OS based images are supported for Azure Hybrid Benefit for Windows Server. You can use Azure platform support images or upload your own custom Windows Server images. 
 
 ### Portal
@@ -77,7 +77,7 @@ Within your Resource Manager templates, an additional parameter `licenseType` mu
    }
 ```
 
-## How to convert an existing VM using Azure Hybrid Benefit for Windows Server
+## Convert an existing VM using Azure Hybrid Benefit for Windows Server
 If you have an existing VM that you would like to convert to take advantage of Azure Hybrid Benefit for Windows Server, you can update your VM's license type as follows:
 
 ### Portal
