@@ -102,6 +102,7 @@ The following section provides you with a complete overview of all possible erro
 |81013|Unable to find user object based on information in the user's Kerberos ticket.|
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
+|90094|Admin consent is needed.|
 
 ## Next steps
 
