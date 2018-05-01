@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Lab Services (formerly DevTest Labs) Preview Documentation
 metadata:
   title: Azure Lab Services Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs that you create with Azure Lab Services are the same as those you created with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
   services: lab-services
   author: spelluru
   manager: 
@@ -14,23 +14,29 @@ metadata:
   ms.date: 04/06/2018
   ms.author: spelluru
 abstract:
-  description: Learn how to use Azure Lab Services (formerly Azure DevTest Labs) to quickly create classroom labs, custom labs, and more. The custom labs that you create with Azure Lab Services are the same as those you created with Azure DevTest Labs. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
+  description: Learn how to use Azure Lab Services to quickly set up a development, test, hackathon, or a classroom lab for your team or students in the cloud. Azure Tutorials, samples, and more show you how to create, manage, and secure labs.
 sections:
-- title: Step-by-Step Tutorials
-  text: 'Learn how to create a lab using Lab Services:'
+- title: Step-by-step Tutorials
   items:
+  - type: paragraph
+    text: Learn how to create and use a <b>classroom lab</b> by using Azure Lab Services.
   - type: list
-    style: cards
-    className: cardsD
+    style: ordered
     items:
-    - title: Classroom labs
-      html: <p><a href="/azure/lab-services/tutorial-setup-lab-account">1. Set up a lab account</a></p><p><a href="/azure/lab-services/tutorial-setup-classroom-lab">2. Set up a classroom lab</a></p><p><a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">3. Connect to a VM in a classroom lab</a></p>   
-    - title: Custom labs
-      html: <p><a href="/azure/lab-services/tutorial-create-custom-lab">1. Set up a custom lab</a></p><p><a href="/azure/lab-services/tutorial-use-custom-lab">2. Access and use a custom lab</a></p>
+    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">Set up a lab account</a>
+    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">Set up a classroom lab</a>
+    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">Access a classroom lab</a>
+  - type: paragraph
+    text: Learn how to create and use a <b>custom lab</b> by using Azure Lab Services.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Set up a custom lab</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Access a custom lab</a>
 - title: Samples
   items:
   - type: paragraph
-    text: Use the following samples to work with Lab Services
+    text: Use the following samples to work with Lab Services.
   - type: list
     style: unordered
     className: spaced noBullet
