@@ -3,7 +3,7 @@ title: Data Science using Scala and Spark on Azure | Microsoft Docs
 description: How to use Scala for supervised machine learning tasks with the Spark scalable MLlib and Spark ML packages on an Azure HDInsight Spark cluster.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Data Science using Scala and Spark on Azure
