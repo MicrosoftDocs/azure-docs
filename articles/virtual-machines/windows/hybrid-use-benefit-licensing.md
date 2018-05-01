@@ -183,7 +183,7 @@ You can also learn more about how to [Modify a virtual machine scale set](../../
 
 ## Next steps
 - Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
-- Read more about [Frequently asked questions for Azure Hybrid Benefit](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Read more about [Frequently asked questions for Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
 - Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
 - Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
 - Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
