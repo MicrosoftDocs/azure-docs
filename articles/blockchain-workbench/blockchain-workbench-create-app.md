@@ -286,8 +286,6 @@ State variables store values of the state for each contract instance. The state 
 Add the state variables to your contract in your `HelloBlockchain.sol` smart contract code file. 
 
 ```
-contract RequestResponse is WorkbenchBase('HelloBlockchain', 'RequestResponse') {
-
     //Set of States
     enum StateType { Request, Respond }
 
