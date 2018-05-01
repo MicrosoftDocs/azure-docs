@@ -155,9 +155,6 @@ Users and administrators can revoke consent to your application at any time:
 
 If an administrator consents to an application for all users in a tenant, users cannot revoke access individually. Only the administrator can revoke access, and only for the whole application.
 
-### Consent and protocol support
-Consent is supported in Azure AD via the OAuth, OpenID Connect, WS-Federation, and SAML protocols. The SAML and WS-Federation protocols do not support the `prompt=admin_consent` parameter, so admin consent is only possible via OAuth and OpenID Connect.
-
 ## Multi-tenant applications and caching access tokens
 Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD. A common error when using the Active Directory Authentication Library (ADAL) with a multi-tenant application is to initially request a token for a user using /common, receive a response, then request a subsequent token for that same user also using /common. Because the response from Azure AD comes from a tenant, not /common, ADAL caches the token as being from the tenant. The subsequent call to /common to get an access token for the user misses the cache entry, and the user is prompted to sign in again. To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
 
