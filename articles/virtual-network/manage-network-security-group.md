@@ -76,7 +76,7 @@ In the search box at the top of the portal, enter *network security groups*. Whe
 ### Change a network security group
 
 1. In the search box at the top of the portal, enter *network security groups* in the search box. When **network security groups** appear in the search results, select it.
-2. Select the network security group you want to change. The most common changes are [adding](#create-a-security-rule) or [removing](#delete-a-security-rule) security rules and [Associating or dissociating a network security group to or from a subnet or network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource).
+2. Select the network security group you want to change. The most common changes are [adding](#create-a-security-rule) or [removing](#delete-a-security-rule) security rules and [Associating or dissociating a network security group to or from a subnet or network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface).
 
 **Commands**
 
