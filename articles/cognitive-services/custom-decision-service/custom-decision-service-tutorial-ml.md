@@ -8,7 +8,8 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: slivkins;marcozo;alekh
+ms.author: slivkins
+ms.reviewer: marcozo, alekh
 ---
 
 # Machine learning in Custom Decision Service
