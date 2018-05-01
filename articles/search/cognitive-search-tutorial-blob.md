@@ -127,7 +127,7 @@ In this step, you define a set of enrichment steps that you want to apply to you
 
 + [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-+ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less, and a few of the sample files exceed this limit.
++ [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
 + [Named Entity Recognition](cognitive-search-skill-named-entity-recognition.md) for extracting the names of organizations from content in the blob container.
 
@@ -214,7 +214,7 @@ Content-Type: application/json
       "outputs": [
         {
           "name": "keyPhrases",
-          "targetName": "keyphrases"
+          "targetName": "keyPhrases"
         }
       ]
     }
@@ -222,7 +222,7 @@ Content-Type: application/json
 }
 ```
 
-Send the request. The web test tool should return a status code of 204 confirming success. 
+Send the request. The web test tool should return a status code of 201 confirming success. 
 
 #### About the request
 
@@ -244,7 +244,7 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | id       | content   | language | keyphrases         | organizations     |
+| field-names: | id       | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -282,14 +282,14 @@ Content-Type: application/json
       "facetable": false
     },
     {
-      "name": "language",
+      "name": "languageCode",
       "type": "Edm.String",
       "searchable": true,
       "filterable": false,
       "facetable": false
     },
     {
-      "name": "keyphrases",
+      "name": "keyPhrases",
       "type": "Collection(Edm.String)",
       "searchable": true,
       "filterable": false,
@@ -358,11 +358,11 @@ Content-Type: application/json
         },
         {
           "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyphrases"
+          "targetFieldName" : "keyPhrases"
         },
         {
             "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "language"
+            "targetFieldName": "languageCode"
         }      
   ],
   "parameters":
@@ -372,7 +372,7 @@ Content-Type: application/json
   	"configuration": 
     {
     	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "embedTextInContentField"
+     	"imageAction": "generateNormalizedImages"
 		}
   }
 }
@@ -380,7 +380,7 @@ Content-Type: application/json
 
 Send the request. The web test tool should return a status code of 201 confirming successful processing. 
 
-Expect this step to take several second to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
+Expect this step to take several minutes to complete. Even though the data set is small, analytical skills are computation-intensive. Some skills, such as image analysis, are long-running.
 
 > [!TIP]
 > Creating an indexer invokes the pipeline. If there are problems reaching the data, mapping inputs and outputs, or order of operations, they appear at this stage. To re-run the pipeline with code or script changes, you might need to drop objects first. For more information, see [Reset and re-run](#reset).
@@ -391,9 +391,9 @@ The script sets ```"maxFailedItems"```  to -1, which instructs the indexing engi
 
 Also notice the ```"dataToExtract":"contentAndMetadata"``` statement in the configuration parameters. This statement tells the indexer to automatically extract the content from different file formats as well as metadata related to each file. 
 
-When content is extracted, you can set ```ImageAction``` to extract text from images found in the data source. The ```"ImageAction":"embedTextInContentField"``` tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
+When content is extracted, you can set ```ImageAction``` to extract text from images found in the data source. The ```"ImageAction":"generateNormalizedImages"``` tells the indexer to extract text from the images (for example, the word "stop" from a traffic Stop sign), and embed it as part of the content field. This behavior applies to both the images embedded in the documents (think of an image inside a PDF), as well as images found in the data source, for instance a JPG file.
 
-In this preview, ```"embedTextInContentField"``` is the only valid value for ```"ImageAction"```.
+In this preview, ```"generateNormalizedImages"``` is the only valid value for ```"ImageAction"```.
 
 ## Check indexer status
 
@@ -467,14 +467,14 @@ Repeat the previous exercise, including an `enriched` field to capture the conte
       "facetable": false
     },
     {
-      "name": "language",
+      "name": "languageCode",
       "type": "Edm.String",
       "searchable": true,
       "filterable": false,
       "facetable": false
     },
     {
-      "name": "keyphrases",
+      "name": "keyPhrases",
       "type": "Collection(Edm.String)",
       "searchable": true,
       "filterable": false,
@@ -509,7 +509,7 @@ To reindex your documents with the new definitions:
 
 1. Delete the index to remove persisted data. Delete the indexer to recreate it on your service.
 2. Modify a skillset and index definition.
-3. Recreate an indexer on the service to run the pipeline. 
+3. Recreate an index and indexer on the service to run the pipeline. 
 
 You can use the portal to delete indexes and indexers. Skillsets can only be deleted through an HTTP command, should you decide to delete it.
 

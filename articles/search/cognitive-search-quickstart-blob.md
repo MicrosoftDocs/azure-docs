@@ -17,7 +17,7 @@ In this quickstart, try the enrichment pipeline in the [Azure portal](https://po
 
 * Begin with sample data in Azure Blob storage
 * Configure the [Import data wizard](search-import-data-portal.md) for indexing and enrichment 
-* Run the wizard (entity recognition detects people, location, and organizations)
+* Run the wizard (an entity skill detects people, location, and organizations)
 * Use [Search explorer](search-explorer.md) to query the enriched data.
 
 You can try out cognitive search in an Azure Search service created in the following regions:
