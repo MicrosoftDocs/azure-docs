@@ -158,6 +158,8 @@ This view provides information on your machines, missing updates, update deploym
 
 You can run a log search that returns information on the machine, update, or deployment by selecting the item in the list. This opens the **Log Search** page with a query for the item selected.
 
+![Update management default view](media/automation-update-management/update-management-view.png)
+
 ## Installing updates
 
 Once updates have been assessed for all of the Linux and Windows computers in your workspace, you can have required updates installed by creating an *Update Deployment*. An Update Deployment is a scheduled installation of required updates for one or more computers. You specify the date and time for the deployment in addition to a computer or group of computers that should be included in the scope of a deployment. To learn more about computer groups, see [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md). When you include computer groups in your update deployment, group membership is evaluated only once at the time of schedule creation. Subsequent changes to a group are not reflected. To work around this, delete the scheduled update deployment and recreate it.

@@ -4,7 +4,7 @@ description: Learn how to onboard an Azure Virtual machine with Update Managemen
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 05/10/2018
 ms.topic: article
 ms.service: automation
 ms.custom: mvc
@@ -13,7 +13,7 @@ manager: carmonm
 
 # Onboard Update Management, Change Tracking, and Inventory solutions from an Azure Virtual Machine
 
-Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure Virtual Machine.
+Azure Automation provides solutions to manage operating system security updates, track changes, and inventory what is installed on your computers. There are multiple ways to onboard machines, you can onboard the solution from a virtual machine, [from your Automation account](automation-onboard-solutions-from-automation-account.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md), or by [runbook](automation-onboard-solutions.md). This article covers onboarding these solutions from an Azure Virtual Machine.
 
 ## Log in to Azure
 
