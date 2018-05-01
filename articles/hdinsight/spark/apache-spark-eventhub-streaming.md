@@ -9,7 +9,7 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018

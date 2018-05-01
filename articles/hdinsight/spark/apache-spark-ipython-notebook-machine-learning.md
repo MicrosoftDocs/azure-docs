@@ -10,7 +10,7 @@ tags: azure-portal
 
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018

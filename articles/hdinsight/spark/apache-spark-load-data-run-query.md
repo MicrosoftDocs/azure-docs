@@ -8,7 +8,7 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.author: jgao
