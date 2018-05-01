@@ -1,5 +1,5 @@
 ---
-title: How to trigger complex actions with Alerts and Actions Groups | Microsoft Docs
+title: How to trigger complex actions with Azure Monitor Alerts and Actions Groups | Microsoft Docs
 description: Learn how to create a Logic App action to process Azure Monitor Alerts.
 author: dkamstra
 manager: chrad
@@ -99,7 +99,7 @@ The process is similar if you want the Logic App to perform a different action.
     }
 ```
 
-9.  The Logic App Designer will display a note reminding you that request sent to the Logic App must set the Content-Type header to application/json. Go ahead and dismiss the dialog. The Azure Monitor alert will do this correctly.
+9. The Logic App Designer will display a note reminding you that request sent to the Logic App must set the Content-Type header to application/json. Go ahead and dismiss the dialog. The Azure Monitor alert will do this correctly.
 
     ![Content-Type header](media/monitoring-action-groups/content-type-header.png "Content-Type header")
 
