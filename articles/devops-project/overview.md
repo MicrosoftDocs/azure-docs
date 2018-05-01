@@ -19,9 +19,9 @@ ms.author: mlearned
 ---
 # Overview of Azure DevOps Project
 
-The Azure DevOps Project makes it easy to get started on Azure. The Azure DevOps Project wizard helps you launch your favorite app type on the Azure service of your choice in a few quick steps. 
-The DevOps Project automates everything you need for developing, deploying and monitoring your application.
-The DevOps Project dashboard lets you monitor code commits, builds and, deployments, from a single view in the Azure portal.
+The Azure DevOps Project makes it easy to get started on Azure. The wizard helps you launch your favorite app type on the Azure service of your choice in just a few quick steps. 
+The DevOps Project sets up everything you need for developing, deploying and monitoring your application.
+The DevOps Project dashboard lets you monitor code commits, builds, and deployments, all from a single view in the Azure portal.
 
 ## Key benefits of the Azure DevOps Project
 
