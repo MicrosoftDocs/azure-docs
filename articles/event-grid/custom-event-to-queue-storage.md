@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.topic: hero-article
 ms.service: event-grid
 ---
@@ -47,21 +47,30 @@ Before subscribing to the topic, let's create the endpoint for the event message
 
 ```azurecli-interactive
 storagename="<unique-storage-name>"
+queuename="eventqueue"
+
 az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku Standard_LRS
-az storage queue create --name eventqueue --account-name $storagename
+az storage queue create --name $queuename --account-name $storagename
 ```
 
 ## Subscribe to a topic
 
-You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the resource ID of the Queue storage for the endpoint. The Queue storage ID is in the format `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`.
+You subscribe to a topic to tell Event Grid which events you want to track. The following example subscribes to the topic you created, and passes the resource ID of the Queue storage for the endpoint. The Queue storage ID is in the format:
 
-Replace `<event_subscription_name>` with a name for your subscription. For `<topic_name>`, use the value you created earlier. 
+`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
+
+The following script gets the resource ID of the storage account for the queue. It constructs the ID for the queue storage, and subscribes to an event grid topic. It sets the endpoint type to `storagequeue` and uses the queue ID for the endpoint.
 
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
-queueid="$storageid/queueservices/default/queues/eventqueue"
+queueid="$storageid/queueservices/default/queues/$queuename"
 
-az eventgrid event-subscription create --topic-name <topic_name> -g gridResourceGroup --name <event_subscription_name> --endpoint-type storagequeue --endpoint $queueid
+az eventgrid event-subscription create \
+  --topic-name <topic_name> \
+  -g gridResourceGroup \
+  --name <event_subscription_name> \
+  --endpoint-type storagequeue \
+  --endpoint $queueid
 ```
 
 ## Send an event to your topic
