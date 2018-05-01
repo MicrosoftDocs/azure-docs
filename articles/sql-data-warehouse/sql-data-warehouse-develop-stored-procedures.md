@@ -72,7 +72,6 @@ They are:
 * numbered stored procedures
 * extended stored procedures
 * CLR stored procedures
-* 
 * encryption option
 * replication option
 * table-valued parameters
