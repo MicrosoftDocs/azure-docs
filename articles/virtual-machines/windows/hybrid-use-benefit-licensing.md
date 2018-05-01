@@ -46,7 +46,7 @@ All Windows Server OS based images are supported for Azure Hybrid Benefit for Wi
 To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
 
 ### Powershell
-```Powershell
+```powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
@@ -56,7 +56,7 @@ New-AzureRmVm `
 ```
 
 ### CLI
-```CLI
+```cli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -82,13 +82,13 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 
 ### Powershell
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
-    ```Powershell
+    ```powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
     ```
 - Convert Windows Server VMs with benefit back to pay-as-you-go
-    ```Powershell
+    ```powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
@@ -96,7 +96,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     
 ### CLI
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
-    ```CLI
+    ```cli
     az vm update \
         --resource-group myResourceGroup \
         --name myVM \
