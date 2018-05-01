@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2018
+ms.date: 04/30/2018
 ms.author: magoedte
 ---
 
@@ -40,7 +40,7 @@ Before starting, review the following details so you can understand the supporte
 
 ## Components 
 
-This capability relies on a containerized OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container performance monitoring. 
+This capability relies on a containerized OMS Agent for Linux to collect performance and event data from all nodes in the cluster.  The agent is automatically deployed and registered with the specified Log Analytics workspace after you enable container monitoring. 
 
 >[!NOTE] 
 >If you have already deployed an AKS cluster, you enable monitoring using a provided Azure Resource Manager template as demonstrated later in this article. You cannot use `kubectl` to upgrade, delete, re-deploy, or deploy the agent.  
@@ -50,7 +50,7 @@ This capability relies on a containerized OMS Agent for Linux to collect perform
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Enable container health monitoring for a new cluster
-You can only enable performance monitoring of your AKS cluster when you deploy it from the Azure portal.  Follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/kubernetes-walkthrough-portal.md).  When you are on the **Monitoring** page, select **Yes** for the option **Enable Monitoring** to enable, and  then select an existing or create a new Log Analytics workspace.  
+You can only enable monitoring of your AKS cluster when you deploy it from the Azure portal.  Follow the steps in the quickstart article [Deploy an Azure Kubernetes Service (AKS) cluster](../aks/kubernetes-walkthrough-portal.md).  When you are on the **Monitoring** page, select **Yes** for the option **Enable Monitoring** to enable, and  then select an existing or create a new Log Analytics workspace.  
 
 After monitoring is enabled all configuration tasks are completed successfully, you can monitor the performance of your cluster from one of two ways:
 
@@ -412,6 +412,9 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
     ```
 
 4. Edit the value for **aksResourceId** and **aksResourceLocation** with the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.<br><br> ![Container properties page](./media/monitoring-container-health/container-properties-page.png)<br>
+
+    While you are on the **Properties** page, also copy the **Workspace Resource Id**.  This value is required if you decide you want to delete the Log Analytics workspace later, which is not performed as part of this process.  
+
 5. Save this file as **OptOutParam.json** to a local folder.
 6. You are ready to deploy this template. 
 
@@ -443,7 +446,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         ProvisioningState       : Succeeded
         ```
 
-This process will not delete the Log Analytics workspace. If the workspace was created in support of monitoring the cluster and you no longer need it, you have to manually delete the workspace.  If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource Id** we copied earlier in step 4, you're going to need that.  
 
 ## Troubleshooting
 This section provides information to help troubleshoot issues with container health.
