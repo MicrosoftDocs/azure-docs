@@ -216,7 +216,7 @@ Clients will get the following response:
 ```
 
 > [!WARNING]
->  The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. Developers can use external storage if they need larger payload.
+>  The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
 ## Debugging
 
