@@ -17,8 +17,12 @@
   items:
   - name: Diagnose a VM routing problem
     href: diagnose-vm-network-routing-problem.md
-  - name: Monitor network connections
+  - name: Monitor communication between VMs
     href: connection-monitor.md
+  - name: Diagnose a communication problem between networks
+    href: diagnose-communication-problem-between-networks.md
+  - name: Log VM network traffic
+    href: network-watcher-nsg-flow-logging-portal.md  
 - name: Concepts
   items:
   - name: Diagnose VM network traffic filter problems
@@ -93,8 +97,6 @@
     items:
     - name: Configure NSG flow logs
       items:
-      - name: Azure portal
-        href: network-watcher-nsg-flow-logging-portal.md
       - name: Azure PowerShell
         href: network-watcher-nsg-flow-logging-powershell.md
       - name: Azure CLI
@@ -136,8 +138,6 @@
     items:
     - name: Troubleshoot
       items:
-      - name: Azure portal
-        href: network-watcher-troubleshoot-manage-portal.md
       - name: Azure PowerShell
         href: network-watcher-troubleshoot-manage-powershell.md
       - name: Azure CLI
