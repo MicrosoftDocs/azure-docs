@@ -115,4 +115,4 @@ In this article you learnt how to use globally distributed multi-master with Azu
 
 * [Learn about global consistency with Azure Cosmos DB](consistency-levels.md)  
 
-* Develop with multiple regions using the Azure Cosmos DB - [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API, or [Table API](tutorial-global-distribution-table.md)  
+* Develop with multiple regions using the Azure Cosmos DB - [SQL API](tutorial-global-distribution-sql-api.md), [MongoDB API](tutorial-global-distribution-mongodb.md), or [Table API](tutorial-global-distribution-table.md)  
