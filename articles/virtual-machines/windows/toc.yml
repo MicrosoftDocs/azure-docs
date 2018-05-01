@@ -105,7 +105,11 @@
     - name: How to enable write accelerator
       href: how-to-enable-write-accelerator.md
     - name: Troubleshoot attached VHDs
-      href: troubleshoot-vhds.md      
+      items:
+      - name: Storage account deletion errors in Resource Manager deployment
+        href: resource-manager-cannot-delete-storage-account-container-vhd.md  
+      - name: Unexpected reboots of VMs with attached VHDs  
+        href: unexpected-reboots-attached-vhds.md            
   - name: Networking
     href: network-overview.md
   - name: Auto-scale applications

@@ -1,37 +1,22 @@
 ---
-title: Troubleshoot attached VHDs on Azure Windows virtual machines | Microsoft Docs
-description: How to troubleshoot issues such as unexpected reboots of Windows VMs or problems deleting a storage account containing attached VHDs.
+title: Troubleshoot storage account deletion errors in a Resource Manager deployment on Linux VMs | Microsoft Docs
+description: How to troubleshoot problems deleting a storage account containing attached VHDs.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
-services: virtual-machines-windows
-author: roygara
+services: virtual-machines-linux
+author: tamram
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 
-ms.service: virtual-machines-windows
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines-linux
+ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: rogarana
+ms.date: 05/01/2018
+ms.author: tamram
 ---
 
-# Troubleshoot attached VHDs on Azure Windows virtual machines
+# Troubleshoot storage account deletion errors in a Resource Manager deployment
 
-Azure Virtual Machines rely on Virtual Hard Disks (VHDs) for the OS disk and any attached data disks. VHDs are stored as page blobs in one or more Azure Storage accounts. This article describes how to troubleshoot common issues that may arise with VHDs. 
-
-  * [Unexpected reboots of VMs with attached VHDs]
-  * [Storage deletion errors in Resource Manager deployment]
-
-## <a name="you-are-experiencing-unexpected-reboots"></a>Unexpected reboots of VMs with attached VHDs
-
-If an Azure Virtual Machine (VM) has a large number of attached VHDs that are in the same storage account, you may exceed the scalability targets for an individual storage account causing the VM to fail. Check the minute metrics for the storage account (**TotalRequests**/**TotalIngress**/**TotalEgress**) for spikes that exceed the scalability targets for a storage account. See the section "[Metrics show an increase in PercentThrottlingError]" for assistance in determining if throttling has occurred on your storage account.
-
-In general, each individual input or output operation on a VHD from a Virtual Machine translates to **Get Page** or **Put Page** operations on the underlying page blob. Therefore, you can use the estimated IOPS for your environment to tune how many VHDs you can have in a single storage account based on the specific behavior of your application. Microsoft recommends having 40 or fewer disks in a single storage account. See [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md) for details about scalability targets for storage accounts, in particular the total request rate and the total bandwidth for the type of storage account you are using.
-
-If you are exceeding the scalability targets for your storage account, place your VHDs in multiple storage accounts to reduce the activity in each individual account.
-
-## <a name="storage-delete-errors-in-rm"></a>Storage deletion errors in Resource Manager deployment
-
-This section provides troubleshooting guidance when one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in an Azure Resource Manager deployment.
+In certain scenarios, you may encounter one of the following errors occur while you are trying to delete an Azure storage account, container, or blob in an Azure Resource Manager deployment:
 
 >**Failed to delete storage account 'StorageAccountName'. Error: The storage account cannot be deleted due to its artifacts being in use.**
 
@@ -39,7 +24,9 @@ This section provides troubleshooting guidance when one of the following errors 
 
 >**Failed to delete # out of # blobs:<br>BlobName.vhd: There is currently a lease on the blob and no lease ID was specified in the request.**
 
-The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure.  More information about Azure disks can be found [here](../../virtual-machines/windows/about-disks-and-vhds.md). Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts that have a page blob that is attached to a VM. 
+The VHDs used in Azure VMs are .vhd files stored as page blobs in a standard or premium storage account in Azure. For more information about Azure disks, see [About unmanaged and managed disk storage for Microsoft Azure Linux VMs](about-disks-and-vhds.md). 
+
+Azure prevents deletion of a disk that is attached to a VM to prevent corruption. It also prevents deletion of containers and storage accounts that have a page blob that is attached to a VM. 
 
 The process to delete a storage account, container, or blob when receiving one of these errors is: 
 1. [Identify blobs attached to a VM](#step-1-identify-blobs-attached-to-a-vm)
@@ -111,5 +98,5 @@ If the VHD is a data disk, detach the VHD from the VM to remove the lease:
 
 9. Select **Save**. The disk is now detached from the VM, and the VHD is no longer leased. It may take a few minutes for the lease to be released. To verify that the lease has been released, browse to the blob location and in the **Blob properties** pane, the **Lease Status** value should be **Unlocked** or **Available**.
 
-[Unexpected reboots of VMs with attached VHDs]: #you-are-experiencing-unexpected-reboots
 [Storage deletion errors in Resource Manager deployment]: #storage-delete-errors-in-rm
+
