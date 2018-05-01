@@ -2,14 +2,14 @@
 title: Secure access to an Azure Cosmos DB account by using Azure Virtual Network service endpoint | Microsoft Docs
 description: This document describes steps required to setup Azure Cosmos DB virtual network service endpoint. 
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 
 ms.service: cosmos-db
 ms.workload: data-services
 ms.topic: article
-ms.date: 05/01/2018
-ms.author: sngun
+ms.date: 05/07/2018
+ms.author: govindk
 
 ---
 
