@@ -44,7 +44,9 @@ To complete this tutorial, you need experience with Docker Compose.
 
 ## Modify Docker Compose file
 
-For this tutorial, you use the compose file from [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml), but you need to modify it in order to run it in Web App for Containers. The following shows supported and unsupported Docker Compose options in Web App for Containers:
+For this tutorial, you use the compose file from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), but you need to modify it in order to run it in Web App for Containers. The finished compose file can be found at [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml). 
+
+The following shows supported and unsupported Docker Compose options in Web App for Containers:
 
 ### Supported Docker Compose configuration options
 - command
@@ -95,11 +97,11 @@ volumes:
     db_data:
 ```
 
+WordPress expects `mysql` for the database instead of `db` so rename the two instances. The first one is the container name and the second is defined in the `depends_on` value.
+
 Web App for Containers doesn't currently check for the `depends_on` option so it is ignored.
 
-The volumes option maps the file system to directories within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service and can be used to persist data for your app. 
-
-Make the following modifications to the file:
+The volumes option maps the file system to directories within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service and can be used to persist data for your app. Make the following modifications to the file:
 
 In the `db` section, change the `volumes` option to the following value: `- ${WEBAPP_STORAGE_HOME}/site/data:/var/lib/mysql`
 
@@ -109,7 +111,7 @@ In the `wordpress` section, add a `volumes` option as shown in the following cod
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
 ```
 
-Finally, remove the `volumes` section at the bottom.
+Finally, remove the `volumes` section at the bottom. 
 
 After you're finished, your configuration should look like the following:
 
@@ -118,7 +120,7 @@ version: '3.3'
 
 services:
 
-  db:
+  mysql:
     image: mysql:5.7
     volumes:
       - ${WEBAPP_STORAGE_HOME}/site/data:/var/lib/mysql
@@ -128,7 +130,7 @@ services:
 
   wordpress:
     depends_on:
-       - db       
+       - mysql       
     image: wordpress
     volumes:
       - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
