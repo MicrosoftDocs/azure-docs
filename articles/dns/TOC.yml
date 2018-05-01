@@ -6,11 +6,11 @@
     href: dns-overview.md
 - name: Quickstarts
   items:
-  - name: Create a DNS zone and record - portal
+  - name: Create DNS zone and record - portal
     href: dns-getstarted-portal.md
-  - name: Create a DNS zone and record - PowerShell
+  - name: Create DNS zone and record - PowerShell
     href: dns-getstarted-powershell.md
-  - name: Create a DNS zone and record - CLI
+  - name: Create DNS zone and record - CLI
     href: dns-getstarted-cli.md
 - name: Samples
   items:
@@ -18,7 +18,7 @@
     href: cli-samples.md
 - name: Tutorials
   items:
-  - name: Create a private DNS zone and record
+  - name: Create private DNS zone and record
     items:
     - name: PowerShell
       href: private-dns-getstarted-powershell.md
