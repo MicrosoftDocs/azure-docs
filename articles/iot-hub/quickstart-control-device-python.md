@@ -125,7 +125,7 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 1. In the terminal window, run the following commands to install the required libraries for the simulated device application:
 
     ```cmd/sh
-    pip install azure-iothub-service-client
+    pip install azure-iothub-service-client future
     ```
 
 1. In the terminal window, run the following commands to run the back-end application:
