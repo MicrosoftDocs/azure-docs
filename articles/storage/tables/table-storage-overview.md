@@ -16,7 +16,7 @@ ms.date: 04/23/2018
 ms.author: sngun
 
 ---
-# Introduction to object storage in Azure
+# Introduction to table storage in Azure
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
