@@ -7,7 +7,7 @@ author: asdonald
 manager: hegate
 ms.author: asdonald
 ms.service: iot-suite
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
