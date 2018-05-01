@@ -63,12 +63,12 @@ To change how long to keep job metadata and resources:
 
 ## Job-level policies
 
-With job-level policies, you can control the maximum AUs and the maximum priority that individual users (or members of specific security groups) can set on jobs that they submit. This lets you control the costs incurred by users. It also lets you control the effect that scheduled jobs might have on high-priority production jobs that are running in the same Data Lake Analytics account.
+With job-level policies, you can control the maximum AUs and the maximum priority that individual users (or members of specific security groups) can set on jobs that they submit. This policy lets you control the costs incurred by users. It also lets you control the effect that scheduled jobs might have on high-priority production jobs that are running in the same Data Lake Analytics account.
 
 Data Lake Analytics has two policies that you can set at the job level:
 
 * **AU limit per job**: Users can only submit jobs that have up to this number of AUs. By default, this limit is the same as the maximum AU limit for the account.
-* **Priority**: Users can only submit jobs that have a priority lower than or equal to this value. Note that a higher number means a lower priority. By default, this is set to 1, which is the highest possible priority.
+* **Priority**: Users can only submit jobs that have a priority lower than or equal to this value. A higher number indicates a lower priority. By default, this limit is set to 1, which is the highest possible priority.
 
 There is a default policy set on every account. The default policy applies to all users of the account. You can set additional policies for specific users and groups. 
 
@@ -95,7 +95,7 @@ There is a default policy set on every account. The default policy applies to al
 1. In the Azure portal, go to your Data Lake Analytics account.
 2. Click **Properties**.
 3. Under **Job Submission Limits**, find the policy you want to edit.
-4.  To see the **Delete** and **Edit** options, in the rightmost column of the table, click **...**.
+4.  To see the **Delete** and **Edit** options, in the rightmost column of the table, click `...`.
 
 ## Additional resources for job policies
 * [Policy overview blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
