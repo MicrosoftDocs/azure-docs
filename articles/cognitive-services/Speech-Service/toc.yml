@@ -59,3 +59,5 @@
     href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: Privacy & cookies
     href: https://aka.ms/csspech/privacy
+  - name: Support
+    href: support.md
