@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
