@@ -52,6 +52,8 @@ Event Grid sends an event to the dead-letter location if it has tried all of its
 Before setting the deadletter location, you must have a storage account with a container. You provide the endpoint for this container when creating the event subscription. The endpoint is in the format of:
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
+The following script gets the resource ID of an existing storage account, and creates an event subscription that uses a container in that storage account for the dead-letter endpoint.
+
 ```azurecli-interactive
 storagename=demostorage
 containername=testcontainer
