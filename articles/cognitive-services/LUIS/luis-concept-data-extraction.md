@@ -303,7 +303,7 @@ Another example utterance, using a synonym for Paris:
 ```
 
 ## Prebuilt entity data
-[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following is an example utterance with the returned prebuilt entities:
+[Prebuilt](luis-concept-entity-types.md) entities are discovered based on a regular expression match using the open-source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) project. Prebuilt entities are returned in the entities array and use the type name prefixed with `builtin::`. The following text is an example utterance with the returned prebuilt entities:
 
 `Dec 5th send to +1 360-555-1212`
 
@@ -387,7 +387,7 @@ Another example utterance, using a synonym for Paris:
 ``` 
 
 ## Regular expression entity data
-[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
+[Regular expression](luis-concept-entity-types.md) entities are discovered based on a regular expression match using an expression you provide when you create the entity. When using `kb[0-9]{6}` as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
 ```JSON
 {
