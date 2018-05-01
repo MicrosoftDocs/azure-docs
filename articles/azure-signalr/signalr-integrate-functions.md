@@ -64,7 +64,7 @@ In this section, you will use the Azure Cloud Shell to create a new Azure Functi
 
 When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
-Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell, to create a storage account and function app.
+Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell and press **Enter**, to create a storage account and function app.
 
 ```azurecli-interactive
 #====================================================================
@@ -73,7 +73,9 @@ Copy the script below into your text editor, and replace the values for `Resourc
 ResourceGroupName=SignalRTestResources
 location=eastus
 
-# Generate a unique suffix for a unique name
+#====================================================================
+#=== These variables should match with your values.               ===
+#====================================================================
 let randomNum=$RANDOM*$RANDOM
 functionappName=signalrfunctionapp$randomNum
 storageAccountName=funcstoraccount$randomNum
@@ -95,7 +97,7 @@ az functionapp create --resource-group $ResourceGroupName \
 
 In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local Git repository.
 
-Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section.
+Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section. Paste the updated script into your Azure Cloud Shell and press **Enter**.
 
 ```azurecli-interactive
 #========================================================================
@@ -105,9 +107,9 @@ Copy the script below and replace the value for `connstring` with the connection
 connstring="Endpoint=<service_endpoint>;AccessKey=<access_key>;"
 
 # Add the SignalR Service connection string app setting
-az functionapp config appsettings set --resource-group $ResourceGroupName 
+az functionapp config appsettings set --resource-group $ResourceGroupName \
     --name $functionappName \
-    --setting "AzureSignalRConnectionString=$connstring"
+    --setting "Azure:SignalR:ConnectionString=$connstring"
 
 # configure for deployment from a local Git repository
 az functionapp deployment source config-local-git --name $functionappName \
@@ -128,7 +130,7 @@ await serviceContext.HubContext.Clients.All.SendAsync("broadcastMessage", "_BROA
                 $"Current time is: {DateTime.Now}");
 ```
 
-This code uses the connection string to your SignalR Service resource to create a proxy to the hub. Since the function code is running server-side, there's no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
+This code uses the connection string stored with the default configuration key (*Azure:SignalR:ConnectionString*) to create a proxy to the hub. Since the function code is running server-side, there's no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
 
 The trigger for the function code is a *timerTrigger*, defined in the bindings in *TimerFunction/function.json*. It includes a [CRON expression](https://wikipedia.org/wiki/Cron#CRON_expression) to set the timer trigger to fire at the beginning of every minute.
 
@@ -168,6 +170,8 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
 ## Create and deploy the local Git repo
 
 1. In a Git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
+
+        cd AzureSignalR-samples/samples/Timer/bin/Release/net461
 
 2. Initialize the directory as a new Git repository using the following command:
 

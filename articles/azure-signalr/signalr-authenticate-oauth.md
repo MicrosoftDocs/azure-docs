@@ -397,7 +397,7 @@ az extension add -n signalr
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
-Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to set your variables:
+Update the values for the variables shown below. These variables will be reused for other operations that follow. Paste the updated script into your Azure Cloud Shell and press **Enter** to set your variables:
 
 ```azurecli-interactive
 #========================================================================
