@@ -63,13 +63,13 @@ After you have a template, you can enable the DNS service with the following ste
         ],
     ```
 
-3. Once you have updated your cluster template with the preceding changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. In Service Fabric explorer, you can find it as `fabric:/System/DnsService` under the **System** service section. 
+3. Once you have updated your cluster template with the preceding changes, apply them and let the upgrade complete. When the upgrade completes, the DNS system service starts running in your cluster. The service name is `fabric:/System/DnsService`, and you can find it under the **System** service section in Service Fabric explorer. 
 
 
 ## Setting the DNS name for your service
 Once the DNS service is running in your cluster, you can set a DNS name for your services either declaratively for default services in the `ApplicationManifest.xml` or through PowerShell commands.
 
-The DNS name for your service is resolvable throughout the cluster. It is a best practice to use a naming scheme of `<ServiceDnsName>.<AppInstanceName>` to ensure the uniqueness of the DNS name throughout the cluster; for example, `service1.application1`. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
+The DNS name for your service is resolvable throughout the cluster. It is highly recommended that you use a naming scheme of *<ServiceDnsName>.<AppInstanceName>*; for example, `service1.application1`. Doing so ensures the uniqueness of the DNS name throughout the cluster. If an application is deployed using Docker compose, services are automatically assigned DNS names using this naming scheme.
 
 ### Setting the DNS name for a default service in the ApplicationManifest.xml
 Open your project in Visual Studio, or your favorite editor, and open the `ApplicationManifest.xml` file. Go to the default services section, and for each service add the `ServiceDnsName` attribute. The following example shows how to set the DNS name of the service to `service1.application1`
