@@ -2,8 +2,8 @@
 title: Domain-joined Azure HDInsight architecture | Microsoft Docs
 description: Learn how to plan domain-joined HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: bhanupr
+documentationcenter: 
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -11,10 +11,10 @@ tags: azure-portal
 ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 03/20/2018
-ms.author: bprakash
+ms.date: 04/17/2018
+ms.author: omidm
 
 ---
 # Plan Azure domain-joined Hadoop clusters in HDInsight
@@ -46,8 +46,6 @@ The following screenshot shows an OU created in contoso.com. Some of the service
 
 - **Azure Active Directory Domain Services**: This service provides a managed Active Directory domain, which is fully compatible with Windows Server Active Directory. Microsoft takes care of managing, patching, and monitoring the AD domain. You can deploy your cluster without worrying about maintaining domain controllers. Users, groups, and passwords are synchronized from your Azure Active Directory, enabling users to sign in to the cluster using their corporate credentials. For more information, see [Configure Domain-joined HDInsight clusters using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
-> [!NOTE]
-> Active Directory on Azure IaaS VMs is no longer supported.
 
 ## Next steps
 * To manage domain-joined HDInsight clusters, see [Manage domain-joined HDInsight clusters](apache-domain-joined-manage.md).

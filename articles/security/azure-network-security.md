@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Network Security | Microsoft Docs
 description: Learn about cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise.
@@ -76,7 +76,7 @@ In this paper, will be cover the following Azure networking enterprise capabilit
 
 ### Basic network connectivity
 
-The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs￼ and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+The [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)  service enables you to securely connect Azure resources to each other with virtual networks (VNet). A VNet is a representation of your own network in the cloud. A VNet is a logical isolation of the Azure network infrastructure dedicated to your subscription. You can also connect VNets to each other and to your on-premises networks using site-to-site VPNs and dedicated [WAN links](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Basic network connectivity](media/azure-network-security/azure-network-security-fig-2.png)
 

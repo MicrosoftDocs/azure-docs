@@ -3,7 +3,7 @@ title: Azure Queue storage bindings for Azure Functions
 description: Understand how to use the Azure Queue storage trigger and output binding in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: glenga
+ms.author: tdykstra
 ms.custom: cc996988-fb4f-47
 ---
 
@@ -480,7 +480,7 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 
 | Binding |  Reference |
 |---|---|
-| Queue | [Queue Error Codes](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
+| Queue | [Queue Error Codes](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

@@ -4,9 +4,8 @@ description: Here's a list of languages supported by Content Moderator.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 Tms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: sajagtap

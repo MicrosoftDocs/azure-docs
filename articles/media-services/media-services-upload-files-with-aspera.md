@@ -23,7 +23,7 @@ ms.author: juliako
 
 **Aspera** is a high-speed file transfer software. **Aspera Server On Demand** for Azure enables high-speed upload and download of large files directly into Azure Blob object storage. For information about **Aspera On Demand**, see the [Aspera Cloud](http://cloud.asperasoft.com/) site. 
   
-**Aspera Server On Demand** for Azure is available for purchase from the [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). In order to complete a purchase of **Aspera Server On Demand** for Azure, please log into Azure Marketplace with your Windows Live ID.
+**Aspera Server On Demand** for Azure is available for purchase from the [Azure marketplace](https://azure.microsoft.com/marketplace/). In order to complete a purchase of **Aspera Server On Demand** for Azure, please log into Azure Marketplace with your Windows Live ID.
 
 This tutorial walks you through the steps of uploading files into a storage account that is associated with a Media Services account using the **Aspera Server On-Demand** service on Azure. 
 

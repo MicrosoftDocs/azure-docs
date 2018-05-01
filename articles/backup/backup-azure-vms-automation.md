@@ -1,4 +1,4 @@
----
+﻿---
 title: Deploy and manage backups for Resource Manager-deployed VMs using PowerShell | Microsoft Docs
 description: Use PowerShell to deploy and manage backups in Azure for Resource Manager-deployed VMs
 services: backup
@@ -76,9 +76,9 @@ To begin:
     Cmdlet          Unregister-AzureRmRecoveryServicesBackupManagem... 1.4.0      AzureRM.RecoveryServices.Backup
     Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      AzureRM.RecoveryServices.Backup
     ```
-3. Sign in to your Azure account using **Login-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials: 
-    - Alternately, you can include your account credentials as a parameter in the **Login-AzureRmAccount** cmdlet, using the **-Credential** parameter.
-    - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Login-AzureRmAccount -Tenant "fabrikam.com"**
+3. Sign in to your Azure account using **Connect-AzureRmAccount**. This cmdlet brings up a web page prompts you for your account credentials: 
+    - Alternately, you can include your account credentials as a parameter in the **Connect-AzureRmAccount** cmdlet, using the **-Credential** parameter.
+    - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
 4. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     ```PS

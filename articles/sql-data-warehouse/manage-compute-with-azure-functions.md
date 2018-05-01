@@ -2,19 +2,19 @@
 title: 'Tutorial: Manage compute with Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
 description: How to use Azure functions to manage the compute of your data warehouse.
 services: sql-data-warehouse
-author: hirokib
+author: kavithaj
 manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.topic: tutorial
-ms.component: manage
-ms.date: 04/11/2018
-ms.author: elbutter
-ms.reviewer: jrj
+ms.topic: conceptual
+ms.component: consume
+ms.date: 04/27/2018
+ms.author: kavithaj
+ms.reviewer: igorstan
 ---
 
 # Use Azure Functions to manage compute resources in Azure SQL Data Warehouse
 
-This tutorial uses Azure Functions to manage compute resources for a data warehouse in Azure SQL Data Warehouse. These architectures are recommended for use with SQL Data Warehouse [Optimized for Elasticity][Performance Tiers].
+This tutorial uses Azure Functions to manage compute resources for a data warehouse in Azure SQL Data Warehouse.
 
 In order to use Azure Function App with SQL Data Warehouse, you must create a [Service Principal Account](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) with contributor access under the same subscription as your data warehouse instance. 
 
@@ -179,5 +179,3 @@ Checkout the SQL Data Warehouse [samples repository](https://github.com/Microsof
 
 [Application Settings]: ../azure-functions/functions-how-to-use-azure-function-app-settings.md
 [Add a new trigger function]: manage-compute-with-azure-functions.md#add-a-new-trigger-function
-
-[Performance Tiers]: memory-and-concurrency-limits.md#performance-tiers

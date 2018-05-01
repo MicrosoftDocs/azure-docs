@@ -4,9 +4,8 @@ description: Use API V2.0 for QnA Maker to programmatically manage your knowledg
 services: cognitive-services
 author: pchoudhari
 manager: rsrikan
-
 ms.service: cognitive-services
-ms.technology: qnamaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: pchoudh

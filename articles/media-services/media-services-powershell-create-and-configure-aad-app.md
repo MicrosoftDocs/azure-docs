@@ -1,4 +1,4 @@
----
+﻿---
 title: Use PowerShell to create an Azure AD app to access the Azure Media Services API | Microsoft Docs
 description: Learn how to use PowerShell to create an Azure Active Directory (Azure AD) app and set it up to access the Azure Media Services API.
 services: media-services
@@ -31,7 +31,7 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 ## Create an Azure AD app by using PowerShell  
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Import-Module AzureRM.Resources
 Set-AzureRmContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password

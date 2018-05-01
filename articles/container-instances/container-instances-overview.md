@@ -3,7 +3,7 @@ title: Azure Container Instances overview
 description: Understand Azure Container Instances
 services: container-instances
 author: seanmck
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: overview

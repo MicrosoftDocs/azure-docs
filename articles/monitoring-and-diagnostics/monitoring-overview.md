@@ -1,7 +1,7 @@
----
+﻿---
 title: Monitoring Azure applications and resources | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-author: robb
+author: rboucher
 manager: carmonm
 editor: ''
 services: monitoring-and-diagnostics
@@ -159,6 +159,6 @@ After a reported outage, you use Service Map to perform forensics to identify th
 ## Next steps
 Learn more about:
 
-* [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) to get started with core monitoring metrics and alerts.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/) to get started with core monitoring metrics and alerts.
 * [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you're trying to diagnose problems in your App Service web app.
 * [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) for analyzing collected monitoring data and logs.

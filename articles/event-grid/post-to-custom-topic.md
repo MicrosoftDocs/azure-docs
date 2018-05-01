@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
 ---
 
@@ -70,7 +70,7 @@ For custom topics, the top-level data contains the same fields as standard resou
 ]
 ```
 
-For a description of these properties, see [Azure Event Grid event schema](event-schema.md).
+For a description of these properties, see [Azure Event Grid event schema](event-schema.md). When posting events to an event grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 64 KB.
 
 For example, a valid event data schema is:
 
@@ -95,9 +95,10 @@ After posting to the topic endpoint, you receive a response. The response is a s
 |Result  |Response  |
 |---------|---------|
 |Success  | 200 OK  |
-|Incorrect endpoint | 404 Not Found |
-|Invalid access key | 401 Unauthorized |
 |Event data has incorrect format | 400 Bad Request |
+|Invalid access key | 401 Unauthorized |
+|Incorrect endpoint | 404 Not Found |
+|Array or event exceeds size limits | 413 Payload Too Large |
 
 For errors, the message body has the following format:
 

@@ -7,7 +7,7 @@ author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-video-search
+ms.component: bing-video-search
 ms.topic: article
 ms.date: 1/25/2018
 ms.author: v-gedod

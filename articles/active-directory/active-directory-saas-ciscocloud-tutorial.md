@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -115,33 +115,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL: `https://<subdomain>.cloudapps.cisco.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Cisco Cloud Client support team](mailto:cpr-ops@cisco.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Cisco Cloud Client support team](mailto:cpr-ops@cisco.com) to get these values.
 
-5. Click **Save** button.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
+	![The Certificate download link](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-ciscocloud-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata URL**, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_endpoint.png)
-     
-    d. Now go to the property page of **Cisco Cloud** and copy the **Application ID** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-ciscocloud-tutorial/tutorial_ciscocloud_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-7. To configure single sign-on on **Cisco Cloud** side, you need to send the downloaded **Metadata URL** to [Cisco Cloud support team](mailto:cpr-ops@cisco.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **Cisco Cloud** side, you need to send the **App Federation Metadata Url** to [Cisco Cloud support team](mailto:cpr-ops@cisco.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

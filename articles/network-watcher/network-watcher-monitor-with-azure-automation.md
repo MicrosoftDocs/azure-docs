@@ -1,4 +1,4 @@
----
+﻿---
 
 title: Monitor VPN gateways with Azure Network Watcher troubleshooting | Microsoft Docs
 description: This article describes how diagnose On-premises connectivity with Azure Automation and Network Watcher
@@ -106,7 +106,7 @@ $cred = Get-AutomationPSCredential -Name $o365AutomationCredential
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
 
 "Logging in to Azure..."
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $servicePrincipalConnection.TenantId `
     -ApplicationId $servicePrincipalConnection.ApplicationId `

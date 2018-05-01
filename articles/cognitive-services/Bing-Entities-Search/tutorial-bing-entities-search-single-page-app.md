@@ -4,9 +4,8 @@ description: Shows how to use the Bing Entity Search API in a single-page Web ap
 services: cognitive-services
 author: v-jerkin
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: v-jerkin

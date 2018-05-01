@@ -1,4 +1,4 @@
----
+﻿---
 title: Get started with Azure Data Lake Analytics using Azure PowerShell | Microsoft Docs
 description: 'Use Azure PowerShell to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
@@ -36,13 +36,13 @@ This tutorial assumes you are already familiar with using Azure PowerShell. In p
 To log in with a subscription name:
 
 ```
-Login-AzureRmAccount -SubscriptionName "ContosoSubscription"
+Connect-AzureRmAccount -SubscriptionName "ContosoSubscription"
 ```
 
 Instead of the subscription name, you can also use a subscription id to log in:
 
 ```
-Login-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+Connect-AzureRmAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
 If  successful, the output of this command looks like the following text:
