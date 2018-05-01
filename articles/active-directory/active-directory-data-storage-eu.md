@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 05/01/2018
 ms.custom: it-pro
 ---
 
@@ -40,19 +40,20 @@ Most Azure AD data for European-based customers stays within the European datace
 
 - **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
 
-    Multi-factor authentication stores all user data at-rest in European datacenters. However, two-factor authentication and its related personal data might be completed in the U.S. while using MFA or SSPR (applies to all authentication types, such as what's used by the Microsoft Authenticator app). Some MFA and SSPR logs might also be stored in the U.S. for 30 days, regardless of the authentication type.
-
-- **Microsoft Azure role-based access control (RBAC)**
-
-    Azure RBAC data is globally synced and its entities include role assignments and role definitions. Role assignments can include the objectId for a customer, group, and the serviceprincipal (the principalId property for the role assignment). Personal data for the corresponding directory object is stored in the European datacenters and can't be replicated globally. To see an example of what's sent with the role assignment, see the [Role Assignments - Get](https://docs.microsoft.com/en-us/rest/api/authorization/roleassignments/get) article.
+    Multi-factor authentication stores all user data at-rest in European datacenters. However, in some cases data might be stored in the U.S., as follows:
+    
+    - Two-factor authentication and its related personal data might be stored in the U.S. if you're using MFA or SSPR.
+    - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
+    - Push notifications using the Microsoft Authenticator app require notifications from the manufacturer's notification service (Apple or Google), which might be outside Europe.
+    - OATH codes are always validated in the U.S. and some MFA and SSPR logs are stored in the U.S. for 30 days, regardless of authentication type.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C stores all user data at-rest in European datacenters. However, operational logs (with personal data removed) stay at the location from where the person is accessing the services. For example, if a B2C user accesses the service in the U.S., the operational logs stay in the U.S. Additionally, all policy configuration data is currently stored only in the U.S. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
+    Azure AD B2C stores all user data at-rest in European datacenters. However, operational logs (with personal data removed) stay at the location from where the person is accessing the services. For example, if a B2C user accesses the service in the U.S., the operational logs stay in the U.S. Additionally, all policy configuration data that doesn't contain personal data, is currently stored only in the U.S. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
-    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its metadata in tables within U.S. datacenters. This table includes fields like invitationId, redeemUrl, invitationTicket, resource tenant ID, and so on. B2B metadata doesn't include personal data.
+    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its non-personal metadata in tables within U.S. datacenters. This table includes fields like invitationId, redeemUrl, invitationTicket, resource tenant ID, and so on.
 
 - **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
 
