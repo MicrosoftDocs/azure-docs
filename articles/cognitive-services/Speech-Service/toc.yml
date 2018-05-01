@@ -21,16 +21,16 @@
       href: how-to-customize-speech-models.md
     - name: Synthesize speech # OK
       href: how-to-text-to-speech.md
-   - name: Customize voice fonts # OK
-     href: how-to-customize-voice-font.md
+    - name: Customize voice fonts # OK
+      href: how-to-customize-voice-font.md
     - name: Translate speech # OK
       href: how-to-translate-speech.md
     - name: Prepare transcripts #OK
       name: preprare-transcription.md
-   - name: Get the Speech Devices SDK
-     href: get-speech-devices-sdk.md
-   - name: Customize device wake word # OK
-     href: speech-devices-sdk-create-kws.md
+    - name: Get the Speech Devices SDK
+      href: get-speech-devices-sdk.md
+    - name: Customize device wake word # OK
+      href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
   href: samples.md
 - name: Concepts

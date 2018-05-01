@@ -69,3 +69,16 @@ The REST API is the simplest way to recognize speech if you are not using a lang
 The HTTP request must include an authorization, either your subscription key or a token. Learn [how to authenticate](how-to-authenticate.md).
 
 For more information on the Speech to Text REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
+
+## Next steps
+
+Start your free trial of the Speech service.
+
+> [!div class="nextstepaction"]
+> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)

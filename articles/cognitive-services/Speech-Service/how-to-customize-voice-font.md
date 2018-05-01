@@ -92,3 +92,13 @@ To create an endpoint, choose **Endpoints** from the Custom Speech menu at the t
 Choose the voice you wish to deploy and click **Create**. Your new endpoint may take a few minutes to provision.
 
 When your endpoint is ready, click it in the Deployments table to see its URI. You can use custom endpoints with the [Rest API](rest-apis.md#text-to-speech) in place of the standard endpoint.
+
+## Next steps
+
+Start your free trial of the Speech service.
+
+> [!div class="nextstepaction"]
+> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)

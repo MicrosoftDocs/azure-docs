@@ -81,3 +81,13 @@ North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
 ## Software Development Kits
 
 The unified Speech SDK currently supports C/C++, C#, and Java. If you are using another programming language, you may not want to migrate at this time.
+
+## Next steps
+
+Start your free trial of the Speech service.
+
+> [!div class="nextstepaction"]
+> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)

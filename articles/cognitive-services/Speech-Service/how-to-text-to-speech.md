@@ -107,3 +107,13 @@ If an error occurs, the status codes below are used. In this case, the response 
 |502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
 For more information on the Speech to Text REST API, see [REST APIs](rest-apis.md#text-to-speech).
+
+## Next steps
+
+Start your free trial of the Speech service.
+
+> [!div class="nextstepaction"]
+> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)

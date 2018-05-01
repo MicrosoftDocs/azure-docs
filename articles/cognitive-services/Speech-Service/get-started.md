@@ -20,4 +20,10 @@ Next, get a free trial of the Speech service through [Try Cognitive Services](ht
 > [!NOTE]
 > When your trial subscription expires, you can sign up for a paid subscription through your Azure dashboard.
 
-Finally, check out the [Speech SDK](speech-sdk.md), then look at some [Samples](samples.md).
+Finally, download an SDK and some sample code to play around with.
+
+> [!div class="nextstepaction"]
+> [Speech SDKs](speech-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Sample code](samples.md)
