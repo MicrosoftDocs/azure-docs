@@ -67,6 +67,8 @@ This section specifies the target content to be set in targeted device twins. Th
 
 You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
 
+If two or more configurations target the same Device Twin Path, the Content from the highest priority configuration will apply (priority is defined in Step 4).
+
 If you wish to remove a property, specify the property value to `null`.
 
 You can add additional settings by selecting **Add Device Twin Setting**
@@ -87,9 +89,9 @@ You can include a clause that the configuration was applied, for example: `SELEC
 
 Use the tags property from your device twins to target the specific devices that should receive this configuration.  You can also target devices by device twin reported properties.
 
-Since multiple configurations may target the same device, you should give each configuration a priority number. If there's ever a conflict, the configuration with the highest priority wins. If two configurations have the same priority number, the one that was created most recently wins. 
+Since multiple configurations may target the same device, you should give each configuration a priority number. If there's ever a conflict, the configuration with the highest priority wins. 
 
-1. Enter a positive integer for the configuration **Priority**.
+1. Enter a positive integer for the configuration **Priority**. Highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins. 
 1. Enter a **Target condition** to determine which devices will be targeted with this configuration. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.chillerProperties.model='4000x'`. 
 1. Select **Next** to move on to the final step.
 
