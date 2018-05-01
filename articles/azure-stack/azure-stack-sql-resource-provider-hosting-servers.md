@@ -84,7 +84,7 @@ To add a standalone hosting server that is already provisioned, follow these ste
 > [!IMPORTANT]
 > Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
 
-	An example:
+An example:
 
 ![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
