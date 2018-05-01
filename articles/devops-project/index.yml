@@ -17,7 +17,7 @@ metadata:
 abstract:
   description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
   aside:
-    image: media\fullbrowser.png
+    image: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/_img/azure-devops-project-aspnetcore/fullbrowser.png
       alt: 
       height: 110
       src:
