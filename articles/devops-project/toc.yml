@@ -1,0 +1,35 @@
+- name: Azure DevOps Project Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure DevOps Project
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: .NET 
+    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+  - name: Node.js
+    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+  - name: Java
+    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+  - name: Python
+    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-python
+  - name: PHP
+    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-php
+  - name: Ruby
+    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+  - name: Go
+    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-go
+- name: Tutorials
+  items:
+  - name: 1 - GitHub and DevOps Project
+    href: https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github
+  - name: 2 - Deploy to VMs
+    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vms
+  - name: 3 - Deploy to Azure SQL DB
+    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb
+  - name: 4 - Deploy to AKS
+    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-aks
+  - name: 5 - Deploy to Azure Service Fabric
+    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-servicefabric
