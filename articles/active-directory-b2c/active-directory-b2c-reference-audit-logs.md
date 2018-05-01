@@ -14,7 +14,7 @@ ms.date: 08/04/2017
 
 # Accessing Azure AD B2C audit logs
 
-Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity information about B2C resources, issued tokens, and administrator access. This article provides a brief overview of the information available through audit logs and instructions on how to access this data for your AAD B2C tenant.
+Azure Active Directory B2C (Azure AD B2C) emits audit logs containing activity information about B2C resources, issued tokens, and administrator access. This article provides a brief overview of the information available through audit logs and instructions on how to access this data for your Azure AD B2C tenant.
 
 > [!IMPORTANT]
 > Audit logs are only retained for seven days. Plan to download and store your logs using one of the methods shown below if you require a longer retention period. 
