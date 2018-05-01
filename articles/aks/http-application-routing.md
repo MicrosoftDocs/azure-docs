@@ -1,6 +1,6 @@
 ---
-title: HTTP Application Routing Addon on Azure Container Service (AKS)
-description: Use HTTP Application Routing Addon on Azure Container Service (AKS)
+title: HTTP Application Routing add-on on Azure Container Service (AKS)
+description: Use HTTP Application Routing add-on on Azure Container Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -15,18 +15,18 @@ ms.author: laevenso
 
 The HTTP Application Routing solution makes it easy to access applications deployed to your AKS cluster. When enabled, the solution configures an ingress controller in your AKS cluster. Additionally, as applications are deployed, the  solution also creates publically accessible DNS names for application endpoints.
 
-Enabling this addon creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
+Enabling this add-on creates a DNS Zone in your subscription. For more information about DNS cost, see [DNS pricing][dns-pricing].
 
 ## HTTP routing solution overview
 
-The addon deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
+The add-on deploys two components a [Kubernetes Ingress Controller][ingress] and an [External-DNS][external-dns] controller.
 
 - **Ingress controller** - the ingress controller is exposed to the internet using a Kubernetes service of type LoadBalancer. The ingress controller watches and implements [Kubernetes ingress resources][ingress-resource], which creates routes to application endpoints.
 - **External-DNS controller** - watches for Kubernetes ingress resources and creates DNS A records in the cluster-specific DNS Zone.
 
 ## Deploy HTTP routing
 
-The HTTP Application Routing addon can be enabled through the Azure portal when deploying an AKS cluster.
+The HTTP Application Routing add-on can be enabled through the Azure portal when deploying an AKS cluster.
 
 ![Enable the HTTP routing feature](media/http-routing/create.png)
 
@@ -36,7 +36,7 @@ Once the cluster has been deployed, browse to the auto-created AKS resource grou
 
 ## Use HTTP routing
 
-The HTTP Application routing solution is only be triggered on Ingress resources that are annotated as follows:
+The HTTP Application routing solution may only be triggered on Ingress resources that are annotated as follows:
 
 ```
 annotations:
@@ -105,7 +105,7 @@ service "party-clippy" created
 ingress "party-clippy" created
 ```
 
-Use CURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file. The application may take up to one minute before it's available via the internet.
+Use cURL or a browser to navigate to the hostname specified in the host section of the `samples-http-application-routing.yaml` file. The application may take up to one minute before it's available via the internet.
 
 ```
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
@@ -202,6 +202,7 @@ For information on installing an HTTPS secured Ingress controller in AKS, see [H
 [ingress-https]: ./ingress.md
 
 <!-- LINKS - external -->
+[dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

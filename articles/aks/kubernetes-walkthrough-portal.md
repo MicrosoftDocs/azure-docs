@@ -54,10 +54,10 @@ Complete the following steps under each heading of the create AKS cluster form.
 
 - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
 - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
-- **AUTHENTICATION**: enter the service principal ID and password from the last step of this document.
+- **AUTHENTICATION**: enter the service principal ID and password from the previous step of this document.
 - **SCALE**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed.
 
-Select **Next Networking** when complete.
+Select **Next: Networking** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-1.png)
 
@@ -66,11 +66,11 @@ Configure the following networking options:
 - **Http application routing** - configures an integrated ingress controller with automatic public DNS name creation. For more information on Http routing, see, [AKS HTTP routing and DNS][http-routing].
 - **Network configuration** - choose between basic network configuration using the [kubenet][kubenet] Kubernetes plugin, or advanced networking configuration using [Azure CNI][azure-cni]. For more information on networking options, see [AKS networking overview][aks-network].
 
-Select **Next Monitoring** when complete.
+Select **Next: Monitoring** when complete.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-2.png)
 
-When deploying an AKS cluster, Azure container insights can be configured to monitor health of the AKS cluster and pods running on the cluster. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
+When deploying an AKS cluster, Azure Container Insights can be configured to monitor health of the AKS cluster and pods running on the cluster. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
 Select **Yes** to enable container monitoring and select an existing Log Analytics workspace, or create a new one.
 
