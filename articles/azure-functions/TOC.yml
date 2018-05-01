@@ -1,3 +1,22 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @MS-Santi
+Sign out
+15
+0 1,080 CarlosSardo/azure-docs-pr Private
+forked from MicrosoftDocs/azure-docs-pr
+ Code  Pull requests 1  Projects 0  Insights
+azure-docs-pr/articles/azure-functions/TOC.yml
+5d1a1ed  3 days ago
+@CarlosSardo CarlosSardo Update TOC.yml
+@ggailey777 @tdykstra @SyntaxC4 @v-thepet @lindydonna @mattchenderson @CarlosSardo @tysonn @rmca14 @mgblythe @Lisaco88 @GitHubber17 @cephalin @czeumault @alexkarcher-msft @v-kents @jomolnar @itechedit @rloutlaw @rachelappel @kashimiz @kadimitr @gled4er @jeffhollan @jasongroce
+     
+250 lines (249 sloc)  8.74 KB
 - name: Functions Documentation
   href: index.yml
 - name: Overview
@@ -97,8 +116,6 @@
       href: durable-functions-bindings.md
     - name: Checkpoint and replay 
       href: durable-functions-checkpointing-and-replay.md
-    - name: Custom orchestration status
-      href: durable-functions-custom-orchestration-status.md
     - name: Instance management
       href: durable-functions-instance-management.md
     - name: HTTP API
@@ -123,6 +140,8 @@
       href: durable-functions-versioning.md
     - name: Performance and scale
       href: durable-functions-perf-and-scale.md
+    - name: Disaster recovery and geo-distribution
+      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: How-to guides
   items:
   - name: Develop
@@ -183,8 +202,6 @@
       href: durable-functions-phone-verification.md
     - name: Unit testing
       href: durable-functions-unit-testing.md
-    - name: Event publishing
-      href: durable-functions-event-publishing.md
 - name: Reference
   items:
   - name: Bindings
@@ -249,3 +266,16 @@
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
     href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+© 2018 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+API
+Training
+Shop
+Blog
+About
+Press h to open a hovercard with more details.
