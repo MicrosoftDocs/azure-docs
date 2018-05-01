@@ -6,7 +6,7 @@
 
 # Quickstarts
 
-## [Create a DNS zone and record - portal](dns-getstarted-portal.md()
+## [Create a DNS zone and record - portal](dns-getstarted-portal.md)
 ## [Create a DNS zone and record - PowerShell](dns-getstarted-powershell.md)
 ## [Create a DNS zone and record - CLI](dns-getstarted-cli.md)
 
