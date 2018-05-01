@@ -19,7 +19,7 @@ ms.author: sngun
 
 # Set and get throughput for Azure Cosmos DB containers
 
-You can set throughput for your Azure Cosmos DB containers in the Azure portal or by using the client SDKs. 
+You can set throughput for your Azure Cosmos DB containers or a set of containers in the Azure portal or by using the client SDKs. 
 
 The following table lists the throughput available for containers:
 
@@ -129,7 +129,7 @@ The simplest way to get a good estimate of request unit charges for your MongoDB
 ![MongoDB API portal metrics][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will preemptively end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will preemptively end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
 
 ## Throughput FAQ
 

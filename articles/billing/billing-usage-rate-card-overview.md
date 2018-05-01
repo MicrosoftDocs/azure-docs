@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/9/2017
-ms.author: mobandyo;bryanla
+ms.author: mobandyo
 
 ---
 
