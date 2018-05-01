@@ -435,6 +435,8 @@ Repeat for additional fields: content, language, keyphrases, and organizations i
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
 
+<a name="access-enriched-document"></a>
+
 ## Accessing the enriched document
 
 Cognitive search allows you to see the structure of the enriched document. Enriched documents are temporary structures created during enrichment, and then deleted when the process is complete.
