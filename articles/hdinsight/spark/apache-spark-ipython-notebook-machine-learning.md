@@ -10,10 +10,10 @@ tags: azure-portal
 
 ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/21/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
 
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to create a simple machine learning Spark application.
@@ -196,6 +196,7 @@ In this tutorial, you learned how to:
 * Develop a Spark machine learning application
 
 Advance to the next tutorial to learn how to use IntelliJ IDEA for Spark jobs. 
+
 > [!div class="nextstepaction"]
-> [Create a Scala Maven appliction for Azure HDInsight using IntelliJ](./apache-spark-create-standalone-application.md)
+> [Create a Scala Maven appliction using IntelliJ](./apache-spark-create-standalone-application.md)
 

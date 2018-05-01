@@ -8,11 +8,11 @@ editor: cgronlun
 tags: azure-portal
 
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.custom: hdinsightactive,mvc
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: jgao
-ms.date: 04/20/2018
+ms.date: 05/07/2018
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
