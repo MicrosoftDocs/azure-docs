@@ -40,7 +40,7 @@ Select the newly created application registration, and take note of the Applicat
 
 ![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
 
-Next, you must create a password for the service principal. Select **All Settings** > **Keys**, and enter any value for the key description. Select a duration, which is the time for which the service principal is valid.
+Next, you must create a password for the service principal. Select **Settings** > **Keys**, and enter any value for the key description. Select a duration, which is the time for which the service principal is valid.
 
 Click **Save**, and take note of the password value. The password is needed when creating an AKS cluster.
 
@@ -48,7 +48,7 @@ Click **Save**, and take note of the password value. The password is needed when
 
 ## Create AKS cluster
 
-Choose **Create a resource** > **Containers** > **Azure Kubernetes Service (preview)**.
+Choose **Create a resource** > search for **Kubernetes** > select **Azure Kubernetes Service (preview)** > **Create**.
 
 Complete the following steps under each heading of the create AKS cluster form.
 
@@ -115,7 +115,7 @@ aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
 
 ## Run the application
 
-Kubernetes manifest files define a desired state for the cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. These objects include two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote front end, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
+Kubernetes manifest files define a desired state for a cluster, including what container images should be running. For this example, a manifest is used to create all objects needed to run the Azure Vote application. These objects include two [Kubernetes deployments][kubernetes-deployment], one for the Azure Vote front end, and the other for a Redis instance. Also, two [Kubernetes Services][kubernetes-service] are created, an internal service for the Redis instance, and an external service for accessing the Azure Vote application from the internet.
 
 Create a file named `azure-vote.yaml` and copy into it the following YAML code. If you are working in Azure Cloud Shell, create the file using vi or Nano, as if working on a virtual or physical system.
 
@@ -226,7 +226,7 @@ Now browse to the external IP address to see the Azure Vote App.
 
 If container insights monitoring has been enabled, health metrics for both the AKS cluster and pods running on the cluster are available on the AKS cluster dashboard. For more information on container health monitoring, see [Monitor Azure Kubernetes Service health][aks-monitor].
 
-To see current status, uptime, and resource usage for the Azure Vote pods, select **Monitor Container Health** > select the **default** namespace > and select **Containers**.
+To see current status, uptime, and resource usage for the Azure Vote pods, browse back to the AKS resource, select **Monitor Container Health** > select the **default** namespace > and select **Containers**. It may take a few minutes for this data to populate in the Azure portal.
 
 ![Create AKS cluster one](media/container-service-walkthrough-portal/aks-portal-6.png)
 
