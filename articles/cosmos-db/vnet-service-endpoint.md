@@ -62,7 +62,7 @@ After Azure Virtual Network service endpoints are enabled for your Azure Cosmos 
 
 ![Allow access from portal](./media/vnet-service-endpoint/allow-access-from-portal.png)
 
-If you want to allow access from Azure portal or from other Azure services, you can do so by checking **Allow access to Azure Services** and/or **Allow access to Azure Portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
+If you want to allow access from Azure portal or from other Azure services, you can do so by checking **Allow access to Azure Services** and/or **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
 
 ## Remove a virtual network or subnet 
 
@@ -116,7 +116,7 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
      -Name $acctName
    ```
 
-5. Initialize the variables for use later. Setup all the variables from the existing account definition, if you have multiple locations, you need to add them as part of the array. In this step, you also configure VNet service endpoint by setting the "accountVNETFilterEnabled" variable to "True". This value is later assigned to the "isVirtualNetworkFilterEnabled" parameter.  
+5. Initialize the variables for use later. Set up all the variables from the existing account definition, if you have multiple locations, you need to add them as part of the array. In this step, you also configure VNet service endpoint by setting the "accountVNETFilterEnabled" variable to "True". This value is later assigned to the "isVirtualNetworkFilterEnabled" parameter.  
 
    ```powershell
    $locations = @(@{})
@@ -179,7 +179,7 @@ To check if service endpoints for Azure Cosmos DB are configured as expected use
 
 * Create two virtual machines- one in backend subnet and another in the frontend subnet.  
 
-* Try accessing the Azure Cosmos DB account from both virtual machines. You should be able to connect from virtual machine created in backend subnet but not from the one created in frontend subnet. The request will error out with 404 when you try connecting from the frontend subnet which confirms that the access to Azure Cosmos DB is secured by using the VNet service endpoint. The machine in the backend subnet will be able to work fine.
+* Try accessing the Azure Cosmos DB account from both virtual machines. You should be able to connect from virtual machine created in backend subnet but not from the one created in frontend subnet. The request will error out with 404 when you try connecting from the frontend subnet that confirms that the access to Azure Cosmos DB is secured by using the VNet service endpoint. The machine in the backend subnet will be able to work fine.
 
 ## Frequently asked questions
 
@@ -205,7 +205,7 @@ This is required only when you want your Azure Cosmos DB account to be accessed 
 
 ### What is the relationship of Service Endpoint with respect to Network Security Group (NSG) rules?  
 
-NSG has allow Azure Cosmos DB rule to control access to Azure Cosmos DB IP address range.
+NSG has allowed Azure Cosmos DB rule to control access to Azure Cosmos DB IP address range.
   
 ### What is relationship between an IP firewall and Virtual Network service endpoint capability?  
 
@@ -233,7 +233,7 @@ When VNet service endpoints are enabled, the source IP addresses of resources in
 
 ### Does Azure Cosmos DB reside in the Azure virtual network  provided by the customer?  
 
-Azure Cosmos DB is a multi-tenant service with a public IP address. When you restrict access to a subnet of a Azure Virtual network by using the service endpoint feature, access is restricted for your Azure Cosmos DB account through the given Azure Virtual Network and its subnet.  Azure Cosmos DB account does not reside in that Azure Virtual Network. 
+Azure Cosmos DB is a multi-tenant service with a public IP address. When you restrict access to a subnet of an Azure Virtual network by using the service endpoint feature, access is restricted for your Azure Cosmos DB account through the given Azure Virtual Network and its subnet.  Azure Cosmos DB account does not reside in that Azure Virtual Network. 
 
 ### What if anything will be logged in Log Analytics/OMS if it is enabled?  
 
