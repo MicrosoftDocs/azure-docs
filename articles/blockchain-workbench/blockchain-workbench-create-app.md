@@ -57,7 +57,7 @@ Configuration metadata defines the high-level workflows and interaction model of
       ],
       "Workflows": [
         {
-          "Name": "RequestResponse",
+          "Name": "HelloBlockchain",
           "DisplayName": "Request Response",
           "Description": "A simple workflow to send a request and receive a response.",
           "Initiators": [ "Requestor" ],
@@ -274,10 +274,10 @@ For Blockchain Workbench, contracts need to inherit from the **WorkbenchBase** b
 Add the **contract** header to your `HelloBlockchain.sol` smart contract code file. 
 
 ```
-contract RequestResponse is WorkbenchBase('HelloBlockchain', 'RequestResponse') {
+contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') {
 ```
 
-Your contract needs to inherit from the **WorkbenchBase** base class and pass in the parameters **ApplicationName**  and the workflow **Name** as defined in the configuration file.
+Your contract needs to inherit from the **WorkbenchBase** base class and pass in the parameters **ApplicationName**  and the workflow **Name** as defined in the configuration file. In this case, the application name and workflow name are the same.
 
 ### State variables
 
@@ -287,14 +287,13 @@ Add the state variables to your contract in your `HelloBlockchain.sol` smart con
 
 ```
     //Set of States
-    enum StateType { Request, Respond }
-
+    enum StateType { Request, Respond}
+    
     //List of properties
-    StateType public State;
-    address public Requestor;
-    address public Responder;
-
-    string public Topic;
+    StateType public  State;
+    address public  Requestor;
+    address public  Responder;
+    
     string public RequestMessage;
     string public ResponseMessage;
 ```
@@ -311,10 +310,10 @@ Add the constructor function to your contract in your `HelloBlockchain.sol` smar
 
 ```
     // constructor function
-    function RequestResponse(string Topic) public
+    function HelloBlockchain(string message) public
     {
-        Topic = Topic;
         Requestor = msg.sender;
+        RequestMessage = message;
         State = StateType.Request;
     
         // call ContractCreated() to create an instance of this workflow
@@ -334,14 +333,14 @@ Before exiting the function, call the `ContractUpdated()` function. The function
 
     ```
         // call this function to send a request
-        function SendRequest(string RequestMessage) public
+        function SendRequest(string requestMessage) public
         {
             if (Requestor != msg.sender)
             {
                 revert();
             }
     
-            RequestMessage = RequestMessage;
+            RequestMessage = requestMessage;
             State = StateType.Request;
     
             // call ContractUpdated() to record this action
@@ -349,15 +348,13 @@ Before exiting the function, call the `ContractUpdated()` function. The function
         }
     
         // call this function to send a response
-        function SendResponse(string ResponseMessage) public
+        function SendResponse(string responseMessage) public
         {
-            if (Responder != msg.sender)
-            {
-                revert();
-            }
+            Responder = msg.sender;
     
             // call ContractUpdated() to record this action
-            ResponseMessage = ResponseMessage;
+            ResponseMessage = responseMessage;
+            State = StateType.Respond;
             ContractUpdated('SendResponse');
         }
     }
@@ -393,6 +390,8 @@ Add application members to your application to initiate and take actions on cont
 6. Select the **Role** for the member. For the first member, select **Requestor** as the role.
 7. Select **Add** to add the member with the associated role to the application.
 8. Add another member to the application with the **Responder** role.
+
+For more information about managing users in Blockchain Workbench, see [managing users in Azure Blockchain Workbench](blockchain-workbench-manage-users.md)
 
 ## Next steps
 
