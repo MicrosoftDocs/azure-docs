@@ -25,7 +25,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 >
 
 > [!Important]
-> Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or any third-party marketplace Windows Server OS images. 
+> Using Azure Hybrid Benefit for Windows Server with any VMs running Windows Server OS are now supported in all regions, including VMs with additional software such as SQL Server or third-party marketplace software. 
 >
 
 > [!NOTE]
