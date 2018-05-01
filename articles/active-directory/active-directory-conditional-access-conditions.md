@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -36,8 +36,10 @@ The combination of your conditions with your access controls represents a condit
 
 ![Control](./media/active-directory-conditional-access-conditions/61.png)
 
-This article gives you an overview of the conditions and how they are used in a conditional access policy. 
 
+Conditions you have not configured in a conditional access policy are not applied. Some conditions are [mandatory](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) to apply a conditional access policy to an environment. 
+
+This article gives you an overview of the conditions and how they are used in a conditional access policy. 
 
 ## Users and groups
 
