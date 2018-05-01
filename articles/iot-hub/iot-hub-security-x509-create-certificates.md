@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2017
+ms.date: 05/01/2018
 ms.author: dkshir
 
 ---
@@ -236,7 +236,7 @@ In the PowerShell window on your local machine, run the following script to crea
    ```PowerShell
    function New-CADevice([string]$deviceName, [string]$signingCertSubject=$_rootCertSubject)
    {
-       $cnNewDeviceSubjectName = ("CN={0}" -f $deviceName)
+       $cnNewDeviceSubjectName = ("{0}" -f $deviceName)
        $newDevicePfxFileName = ("./{0}.pfx" -f $deviceName)
        $newDevicePemAllFileName      = ("./{0}-all.pem" -f $deviceName)
        $newDevicePemPrivateFileName  = ("./{0}-private.pem" -f $deviceName)
