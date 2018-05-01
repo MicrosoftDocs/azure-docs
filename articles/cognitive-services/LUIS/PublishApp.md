@@ -23,40 +23,25 @@ You can publish your app to the **Staging slot** or the **Production Slot**. By 
 
 <!-- TBD: what is the technical difference? log files, endpoint quota? -->
 
-## Settings configuration requires training and publishing model
-Train and publish to the endpoint after changes to the following settings. Train in order to see results in interactive [Test](Train-Test.md) panel.
+## Settings configuration requires publishing model
+Publish to the endpoint after changes to the following settings. 
 
 ## External services settings
-External services settings include **[Sentiment Analysis](#enable-sentiment-analysis)** and **[Speech Priming](#enable-speech-priming)**.
+External service settings include **[Sentiment Analysis](#enable-sentiment-analysis)** and **[Speech Priming](#enable-speech-priming)**.
 
 ### Enable sentiment analysis
 In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
 
-<!-- TBD: verify JSON-->
-```JSON
-{
-    "score": 0.9999237060546875,
-    "id": "1"
-}
-```
-
-<!-- TBD: verify JSON-->
-```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
-```
+For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
 ### Enable speech priming 
 In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
 
-Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own services. 
+Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own service. 
 
 In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](https://aka.ms/SpeechSDK):
 * a LUIS subscription key 
@@ -118,50 +103,8 @@ If you are constructing your own URLs for your LUIS-calling application, make su
 }
 ```
 
-### Enable sentiment analysis
-The Sentiment analysis setting is only available when the LUIS app culture is supported in [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/). 
-
-In the **External services settings**, the **Enable Sentiment Analysis** checkbox allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis. You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
-
-Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
-
-<!-- TBD: verify JSON-->
-```JSON
-{
-    "score": 0.9999237060546875,
-    "id": "1"
-}
-```
-
-<!-- TBD: verify JSON-->
-```JSON
-"keyPhrases": [
-    "places",
-    "beautiful views",
-    "favorite trail"
-]
-```
-
-### Enable speech priming 
-The Speech priming setting is only available when the LUIS app culture is supported in [Speech](https://docs.microsoft.com/azure/cognitive-services/speech/). 
-
-In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). 
-
-![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
-
-Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own services. 
-
-In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](https://aka.ms/SpeechSDK):
-* a LUIS subscription key 
-* the LUIS app ID
-* endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com" where the first subdomain is the region where the app is published.
-
-See [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial for more information.
-
-When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
-
 ## Publish your trained app to an HTTP endpoint
-Train and publish to the endpoint after changes to the following settings. Train in order to see results in interactive [Test](Train-Test.md) panel.
+Publish to the endpoint after changes to the following settings. 
 
 Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. 
 
