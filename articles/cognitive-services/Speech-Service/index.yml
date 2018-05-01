@@ -21,12 +21,13 @@ abstract:
 
 sections:
 
-- title: 5-Minute Quickstarts
+- title: Quickstarts
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="get-started.md">Start your free trial</a>
+    - html: <a href="get-started.md">Get ready to develop with the Speech service</a>
+    - html: <a href="quickstart-csharp-windows">See how to recognize speech in C# with the Speech SDK</a>
 
 - title: Reference
   items:
