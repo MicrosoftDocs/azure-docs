@@ -48,7 +48,7 @@ In order to complete the use of Speech priming, you need the following informati
 * the LUIS app ID
 * endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com" where the first subdomain is the region where the app is published.
 
-For more information, see the [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial .
+For more information, see the [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial.
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
@@ -135,7 +135,6 @@ The following query string parameters can be used with the endpoint URL:
 |Query string|Type|Example value|Purpose|
 |--|--|--|--|
 |verbose|boolean|true|Include [all intent scores](#include-all-predicted-intent-scores) for utterance|
-|sentiment|boolean|true|Include [sentiment](#enable-sentiment-analysis) score for utterance|
 |timezoneOffset|number (unit is minutes)|60|Set [timezone offset](#set-timezone) for [datetimeV2 prebuilt entities](#builtindatetimev2)|
 |spellCheck|boolean|true|[correct spelling](#enable-bing-spell-checker) of utterance -- used in conjunction with bing-spell-check-subscription-key query string parameter|
 |bing-spell-check-subscription-key|subscription ID||used in conjunction with spellCheck query string parameter|
