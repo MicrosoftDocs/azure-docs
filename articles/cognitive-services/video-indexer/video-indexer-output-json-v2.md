@@ -336,7 +336,7 @@ Example:
 |referenceType|Currently just Bing.|
 |title|In case of a celebrity, its title (for example "Microsoft's CEO").|
 |imageUrl|In case of a celebrity, its image url.|
-|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times). Each instance also has a list of thumbnailsId. These are instances of the face in the given time range.|
+|instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
 "faces": [{
@@ -374,7 +374,7 @@ Example:
 |id|The label id.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
-|instances|A list of time ranges where this label appeared (a label can appear multiple times). The instance has a confidence field. |
+|instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
 
 
 ```json
@@ -573,7 +573,7 @@ Business and product brand names detected in the speech to text transcript and/o
 
 #### sentiments
 
-Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative).
+Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative). For example, 0-0.1, 0.1-0.2.
 
 |Name|Description|
 |---|---|
