@@ -1,0 +1,46 @@
+- name: Anomaly Finder API Documentation
+  href: index.md
+- name: Overview
+  href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: cURL
+    href: quickstarts/cURL.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+  - name: Javascript
+    href: quickstarts/javascript.md    
+- name: Tutorials
+  items:
+  - name: C#
+    href: tutorials/csharptutorial.md
+  - name: Java
+    href: tutorials/javatutorial.md
+  - name: Python
+    href: tutorials/pythontutorial.md
+  - name: Javascript
+    href: tutorials/javascripttutorial.md
+
+- name: Reference
+  items:
+  - name: REST v1
+    href: https://labsportalppe.portal.azure-api.net/docs/services/anomaly-detection/operations/post-anomalydetection
+- name: Resources
+  items:
+  - name: Frequently Asked Questions
+    href: faq.md
+  - name: Subscription key
+    href: https://labs-wu-ppe.azurewebsites.net/en-US/
+  - name: Try it!
+    href: https://labs-wu-ppe.azurewebsites.net/project-anomaly-finder
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=anomaly+finder

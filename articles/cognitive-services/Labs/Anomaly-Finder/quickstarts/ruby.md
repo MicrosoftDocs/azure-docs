@@ -1,0 +1,60 @@
+# Anomaly Finder Ruby Quick Starts
+
+This article provides information and code samples to help you quickly get started using the Anomaly Finder API with Ruby to accomplish task of getting anomaly detection result of time series data.
+
+## Prerequisites
+
+[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+
+## Getting anomaly points with Anomaly Finder API using Ruby 
+[!INCLUDE [DataContract](../datacontract.md)]
+
+### Example of time series data
+The example of the time series data points is as follows,
+[!INCLUDE [Request](../request.md)]
+
+### Analyze data and get anomaly points Ruby example
+
+The steps of using the example,
+1. Install [rest-client](https://github.com/rest-client/rest-client) by running 'gem install rest-client'.
+2. Save below code as a .rb file.
+3. Replace the `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
+4. Replace the `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` with the example or your own data points.
+5. Execute and check the response.
+
+```ruby
+# https://github.com/rest-client/rest-client
+require 'rest_client'
+
+# **********************************************
+# *** Update or verify the following values. ***
+# **********************************************
+
+# Replace the subscriptionKey string value with your valid subscription key.
+subscription_key = '[YOUR_SUBSCRIPTION_KEY]';
+
+endpoint = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+
+# Replace the request data with your real data.
+requestData = '[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]';
+
+header = {
+	:content_type => 'application/json',
+	:'Ocp-Apim-Subscription-Key' => subscription_key
+}
+
+response = RestClient::Request.execute(
+	:url => endpoint,
+	:method => :post,
+	:verify_ssl => true,
+	:payload => requestData,
+	:header => header)
+
+# You will see the response with anomaly results
+puts response.body
+```
+
+### Example response
+
+A successful response is returned in JSON. Sample response is as follows.
+[!INCLUDE [Response](../response.md)]
