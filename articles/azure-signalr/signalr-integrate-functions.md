@@ -64,18 +64,17 @@ In this section, you will use the Azure Cloud Shell to create a new Azure Functi
 
 When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
-Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell and press **Enter**, to create a storage account and function app.
+Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell, and press **Enter** to create a storage account and function app.
 
 ```azurecli-interactive
 #====================================================================
-#=== These variables should match with your values.               ===
+#=== Update these variables to match your values from previous    === 
+#=== tutorials.                                                   ===
 #====================================================================
 ResourceGroupName=SignalRTestResources
 location=eastus
 
-#====================================================================
-#=== These variables should match with your values.               ===
-#====================================================================
+# Generate a random name for the new function app and storage account
 let randomNum=$RANDOM*$RANDOM
 functionappName=signalrfunctionapp$randomNum
 storageAccountName=funcstoraccount$randomNum
@@ -156,7 +155,7 @@ The trigger for the function code is a *timerTrigger*, defined in the bindings i
 
 Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) in the following steps to build the function and prepare it for deployment:
 
-1. Navigate to the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
+1. Navigate to the */samples/Timer* subdirectory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository.
 
 2. Restore the NuGet packages using the following command:
 
@@ -169,9 +168,9 @@ Use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotn
 
 ## Create and deploy the local Git repo
 
-1. In a Git shell, navigate to the */samples/Timer/bin/Release/net461* directory.
+1. In a Git shell, navigate to the build subdirectory, */samples/Timer/bin/Release/net461*.
 
-        cd AzureSignalR-samples/samples/Timer/bin/Release/net461
+        cd ./AzureSignalR-samples/samples/Timer/bin/Release/net461
 
 2. Initialize the directory as a new Git repository using the following command:
 
