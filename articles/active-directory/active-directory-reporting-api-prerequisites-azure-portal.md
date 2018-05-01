@@ -79,12 +79,16 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
 ## Grant permissions 
 
-The objective of this step is to grant your application **Read directory data** permissions to the **Windows Azure Active Directory** API.
+The objective of this step is to grant your application the following permissions:
 
-![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/16.png)
+- **Read directory data** to the **Windows Azure Active Directory** API.
+
+- **Read all audit log data** to the **Microsoft Graph** API.
+
+![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/35.png)
  
 
-**To grant your application permission to use the API:**
+**To grant your application permissions to use the API:**
 
 1. On the **App registrations** blade, in the apps list, click **Reporting API application**.
 
@@ -100,7 +104,7 @@ The objective of this step is to grant your application **Read directory data** 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. On the **Enable Access** blade, select **Read directory data**. 
+5. On the **Enable Access** blade, select **Read directory data** and deselect **Sign in and read user profile**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -108,7 +112,26 @@ The objective of this step is to grant your application **Read directory data** 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/15.png)
 
-7. Click **Grant Permissions**, and then click **Yes**.
+7. On the **Required permissions** page, in the toolbar on the top, click **Add**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/32.png)
+
+8. On the **Add API access** page, click **Select an API**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/31.png)
+
+9. On the **Select an API** page, click **Microsoft Graph**, and then click **Select**.
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/33.png)
+
+10. On the **Enable Access** page, select **Read all audit log data**, and then click **Select**.  
+
+    ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/34.png)
+
+
+11. On the **Add API access** page, click **Done**.  
+
+12. On the **Required permissions** page, in the toolbar on the top. click **Grant Permissions**, and then click **Yes**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/17.png)
 
