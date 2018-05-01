@@ -41,7 +41,7 @@ This Azure Security and Compliance Blueprint Automation automatically deploys an
 
 This solution deploys a reference architecture for an IaaS web application with a database backend. The architecture includes a web tier, data tier, Active Directory infrastructure, application gateway, and load balancer. Virtual machines deployed to the web and data tiers are configured in an availability set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A management jumpbox (bastion host) provides a secure connection for administrators to access deployed resources.
 
-![alt text](images/fedramp-iaaswa-architecture-diagram.png?raw=true "Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation")
+![alt text](images/fedramp-iaaswa-architecture.png?raw=true "Azure Security and Compliance Blueprint - FedRAMP Web Applications Automation")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 

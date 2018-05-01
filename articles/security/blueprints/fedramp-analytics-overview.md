@@ -24,7 +24,7 @@ For enhanced security, this architecture manages resources with Azure Active Dir
 
 Azure SQL Database is commonly managed through SQL Server Management Studio (SSMS), which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture resource group.**
 
-![alt text](images/fedramp-analytics-architecture-diagram.png?raw=true "Analytics for FedRAMP reference architecture diagram")
+![alt text](images/fedramp-analytics-reference-architecture.png?raw=true "Analytics for FedRAMP reference architecture diagram")
 
 ### Roles
 The analytics blueprint outlines a scenario with three general user types: the Operational User, the SQL/Data Admin, and the Systems Engineer. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) and outlining and implementing [pre-defined roles](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-built-in-roles).

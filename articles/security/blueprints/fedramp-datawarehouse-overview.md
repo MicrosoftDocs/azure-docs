@@ -22,7 +22,7 @@ This data warehouse reference architecture also includes an Active Directory (AD
 
 A virtual machine serves as a management bastion host, providing a secure connection for administrators to access deployed resources. The data loads into the staging area through this management bastion host. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![alt text](images/fedramp-datawarehouse-architecture-diagram.png?raw=true "Data Warehouse for FedRAMP reference architecture diagram")
+![alt text](images/fedramp-datawarehouse-architecture.png?raw=true "Data Warehouse for FedRAMP reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
 
