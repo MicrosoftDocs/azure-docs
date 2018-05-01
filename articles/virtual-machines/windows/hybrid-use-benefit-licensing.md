@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Hybrid Benefit for Windows Server | Microsoft Docs
 description: Learn how to maximize your Windows Software Assurance benefits to bring on-premises licenses to Azure
 services: virtual-machines-windows
@@ -56,7 +56,7 @@ New-AzureRmVm `
 ```
 
 ### CLI
-```cli
+```azurecli
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -87,6 +87,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     $vm.LicenseType = "Windows_Server"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
     ```
+    
 - Convert Windows Server VMs with benefit back to pay-as-you-go
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
@@ -96,7 +97,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     
 ### CLI
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
-    ```cli
+    ```azurecli
     az vm update \
         --resource-group myResourceGroup \
         --name myVM \
@@ -130,7 +131,7 @@ LicenseType              :
 ```
 
 ### CLI
-```cli
+```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVm --query '[?licenseType==Windows_Server]' -o table
 ```
 
@@ -147,7 +148,7 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 ```
 
 ### CLI
-```cli
+```azurecli
 az vm list --query '[?licenseType==Windows_Server]' -o table
 ```
 
