@@ -79,13 +79,13 @@ Implementing Azure AD joined devices provides you with the following benefits:
 
 - **Enterprise compliant roaming** of user settings across joined devices. Users don’t need to connect a Microsoft account (for example, Hotmail) to see settings across devices.
 
-- **Access to Windows Store for Business** using AAD account. Your users can choose from an inventory of applications pre-selected by the organization.
+- **Access to Windows Store for Business** using an Azure AD account. Your users can choose from an inventory of applications pre-selected by the organization.
 
 - **Windows Hello** support for secure and convenient access to work resources.
 
 - **Restriction of access** to apps from only devices that meet compliance policy.
 
-- **Seamless access to on-premise resources** when the device has line of sight to the on-premise domain controller.
+- **Seamless access to on-premise resources** when the device has line of sight to the on-premises domain controller.
 
 
 While Azure AD join is primarily intended for organizations that do not have an on-premises Windows Server Active Directory infrastructure, you can certainly also use it in scenarios where:
