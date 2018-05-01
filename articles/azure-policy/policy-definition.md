@@ -15,6 +15,8 @@ ms.custom:
 
 Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what action to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
 
+The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
+
 You use JSON to create a policy definition. The policy definition contains elements for:
 
 * mode
@@ -180,7 +182,7 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 
 When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  

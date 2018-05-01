@@ -229,6 +229,8 @@
         href: connector-oracle.md
       - name: Oracle Eloqua
         href: connector-oracle-eloqua.md
+      - name: Oracle Responsys
+        href: connector-oracle-responsys.md
       - name: Paypal
         href: connector-paypal.md
       - name: Phoenix
@@ -243,6 +245,8 @@
         href: connector-salesforce.md
       - name: Salesforce Service Cloud
         href: connector-salesforce.md
+      - name: Salesforce Marketing Cloud
+        href: connector-salesforce-marketing-cloud.md
       - name: SAP Business Warehouse
         href: connector-sap-business-warehouse.md
       - name: SAP Cloud for Customer
