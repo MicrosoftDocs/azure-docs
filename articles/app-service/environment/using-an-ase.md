@@ -73,9 +73,9 @@ To create a web app in an ASE:
 	
 	![Isolated pricing tiers][2]
 
-> [!NOTE]
-> Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
->
+	> [!NOTE]
+	> Linux web apps and Windows web apps cannot be in the same App Service Plan, but can be in the same App Service Environment. 
+	>
 
 6. Select **Create**.
 
