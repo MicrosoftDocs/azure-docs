@@ -20,7 +20,7 @@ Azure Blockchain Workbench simplifies blockchain application development by prov
 
 ## Identity and authentication
 
-Using Blockchain Workbench, a consortium can federate their Enterprise identities using Azure Active Directory (Azure AD). Workbench generates new user accounts for on-chain identities with the enterprise identities stored in Azure AD. The identity mapping facilitates authenticated login to client APIs and applications and uses the authentication policies of organizations. Workbench also provides the ability to associate enterprise identities to specific roles within a given smart contract. In addition, Workbench also provides a mechanism to identify the actions those roles can take and at what time.
+Using Blockchain Workbench, a consortium can federate their enterprise identities using Azure Active Directory (Azure AD). Workbench generates new user accounts for on-chain identities with the enterprise identities stored in Azure AD. The identity mapping facilitates authenticated login to client APIs and applications and uses the authentication policies of organizations. Workbench also provides the ability to associate enterprise identities to specific roles within a given smart contract. In addition, Workbench also provides a mechanism to identify the actions those roles can take and at what time.
 
 After Blockchain Workbench is deployed, users interact with Blockchain Workbench either via the client applications, REST-based client API, or Messaging API. In all cases, interactions must be authenticated, either via Azure Active Directory (Azure AD) or device-specific credentials.
 
@@ -82,7 +82,7 @@ The storage consumer takes messages from Service Bus and pushes data to an attac
 If a message on the inbound message broker needs to be written to the blockchain, it will be processed by the DLT consumer. The DLT consumer is a service, which retrieves the message containing metadata for a desired transaction to execute and then sends the information to the *transaction builder and signer*. The *transaction builder and signer* assembles a blockchain transaction based on the data and the desired blockchain destination. Once assembled, the transaction is signed. Private keys are stored in Azure Key Vault.
 
 Currently, Azure Key Vault does not support software signing of
-blockchain transactions within Key Vault. Instead, Blockchain Workbench retrieves the appropriate private key from Key Vault and signs the transaction outside of Key Vault. Once signed, the transaction is sent to *transaction routers and ledgers*.
+blockchain transactions within Key Vault. Instead, Blockchain Workbench retrieves the appropriate private key from Key Vault and signs the transaction outside of Key Vault. Once signed, the transaction is sent to transaction routers and ledgers.
 
 ## Transaction routers and ledgers
 

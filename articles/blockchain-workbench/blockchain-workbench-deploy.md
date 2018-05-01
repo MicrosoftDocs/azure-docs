@@ -92,6 +92,7 @@ Blockchain Workbench uses Azure AD as the main identity management system for us
 
 4. Select **Save**. 
 5. Copy the value of the key and store it for later. You need it for deployment.
+
     > [!IMPORTANT]
     >  If you don't save the key for the deployment, you will need to generate a new key. You can't retrieve the key value from the portal later.
 

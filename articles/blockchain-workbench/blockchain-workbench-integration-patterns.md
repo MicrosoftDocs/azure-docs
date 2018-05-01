@@ -227,7 +227,7 @@ modified, even if just one pixel is modified in an image, the hash will return a
 
 ![Storage integration](media/blockchain-workbench-integration-patterns/storage-integration.png)
 
-The pattern is realized by the process above, where:
+The pattern can be implemented where:
 
 -   An external system persists a file in a storage mechanism, such as Azure Storage.
 -   A hash is generated with the file or the file and associated metadata such as an identifier for the owner, the URL where the file is located, etc.

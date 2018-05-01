@@ -32,7 +32,3 @@
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
   - name: Messaging API
     href: blockchain-workbench-messages-overview.md
-- name: Resources
-  items:
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
