@@ -102,7 +102,11 @@
 #### [Universal Windows Platform](guidedsetups/active-directory-uwp-v2.md)
 ### Web apps
 #### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [ASP.NET Core](https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2)
 #### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Web APIs
+#### [ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)
+#### [ASP.NET Core](https://azure.microsoft.com/en-us/resources/samples/active-directory-dotnet-native-aspnetcore-v2)
 ### Single page apps
 #### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
 ### Web APIs

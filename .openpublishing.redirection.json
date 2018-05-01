@@ -19063,6 +19063,11 @@
             "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
             "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-webapp-webapi-dotnet",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet",
+            "redirect_document_id": true
         }
     ]
 }
