@@ -180,7 +180,7 @@ Done!
 
 ## Custom Status
 
-Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for long-running operation. Then the client can query the HTTP status query APIs for richer progress information. The client can be a web page checking this orchestration status periodically. And it will display the progress to the end user via friendly UI such as loading bar or workflow sequence. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP status query API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
 
 ```csharp
 public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
@@ -188,7 +188,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
     // ...do work...
 
     // update the status of the orchestration with some arbitrary data
-    var customStatus = new { nextActions = new [] {"A", "B", "C"}, foo = 2, };
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
     ctx.SetCustomStatus(customStatus);
 
     // ...do more work...
