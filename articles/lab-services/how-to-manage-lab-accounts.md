@@ -25,8 +25,6 @@ Azure Lab Services is currently in a gated preview. To create a lab account, [si
 ## Create a lab account
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **Lab Services (preview)**.
-
-	![Create a lab account window](./media/how-to-manage-lab-accounts/new-lab-account-page.png)
 1. In the **Create a lab account** window, select **Create**.
 2. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
@@ -58,8 +56,6 @@ To provide educators the permission to create labs for their classes, add them t
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** from the menu. 
 3. Select **Lab Services** for the **type**. 
-
-    ![List of lab accounts](./media/how-to-manage-lab-accounts/list-of-lab-accounts.png)
     You can also filter by subscription, resource group, locations, and tags. 
 
 ## Delete a lab account
@@ -69,7 +65,6 @@ Follow instructions from the previous section that displays lab accounts in a li
 2. Select **Delete** from the toolbar. 
 3. Type **Yes** for confirmation.
 4. Select **Delete**. 
-    ![Delete lab account](./media/how-to-manage-lab-accounts/delete-lab-account.png)
 
 ## Next steps
 Get started with setting up a lab using Azure Lab Services:
