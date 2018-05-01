@@ -193,7 +193,7 @@ Since the tables populated by the extension grows until the quota is hit, you ma
 ## Log collection configurations
 Logs from additional channels are also available for collection, here are some of the most common configurations you can make in the template for clusters running in Azure.
 
-* Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* Operational Channel - Base: Enabled by default, high-level operations performed by Service Fabric and the cluster, including events for a node coming up, a new application being deployed, or an upgrade rollback, etc. For a list of events, refer to [Operational Channel Events](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"

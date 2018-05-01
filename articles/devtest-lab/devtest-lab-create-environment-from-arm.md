@@ -1,4 +1,4 @@
----
+﻿---
 title: Create multi-VM environments and PaaS resources with Azure Resource Manager templates | Microsoft Docs
 description: Learn how to create multi-VM environments and PaaS resources in Azure DevTest Labs from an Azure Resource Manager template
 services: devtest-lab,virtual-machines,visual-studio-online
@@ -100,7 +100,7 @@ Once an Azure Resource Manager template repository has been configured in the la
 
 	![Choose a base](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/en-us/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
+1. On the **Add** pane, enter the **Environment name** value. The environment name is what is displayed to your users in the lab. The remaining input fields are defined in the Azure Resource Manager template. If default values are defined in the template or the `azuredeploy.parameter.json` file is present, default values are displayed in those input fields. For parameters of type *secure string*, you can use the secrets stored in the lab’s [personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store).
 
 	![Add pane](./media/devtest-lab-create-environment-from-arm/add.png)
 

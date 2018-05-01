@@ -3,7 +3,7 @@ title: Azure Network Watcher Agent virtual machine extension for Linux | Microso
 description: Deploy the Network Watcher Agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dennisg
+author: gurudennis
 manager: amku
 editor: ''
 tags: azure-resource-manager
@@ -36,11 +36,12 @@ The Network Watcher Agent extension can be run against these Linux distributions
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
 | Debian | 7 and 8 |
-| RedHat | 6.x and 7.x |
-| Oracle Linux | 7x |
-| Suse | 11 and 12 |
-| OpenSuse | 7.0 |
-| CentOS | 7.0 |
+| RedHat | 6 and 7 |
+| Oracle Linux | 6.8+ and 7 |
+| SUSE Linux Enterprise Server | 11 and 12 |
+| OpenSUSE Leap | 42.3+ |
+| CentOS | 6.5+ and 7 |
+| CoreOS | 899.17.0+ |
 
 Note that CoreOS is not supported at this time.
 
@@ -109,4 +110,4 @@ Extension execution output is logged to files found in the following directory:
 
 ### Support
 
-If you need more help at any point in this article, you can refer to the Network Watcher documentation or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
+If you need more help at any point in this article, you can refer to the Network Watcher documentation or contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

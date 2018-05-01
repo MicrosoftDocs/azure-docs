@@ -30,6 +30,8 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
+    - name: .NET with Active Directory MFA
+      href: active-directory-interactive-connect-azure-sql-db.md
     - name: Go
       href: sql-database-connect-query-go.md
     - name: Java
@@ -74,8 +76,10 @@
     href: sql-database-servers-databases.md
   - name: Managed instance
     href: sql-database-managed-instance.md
-  - name: Service tiers
-    href: sql-database-service-tiers.md
+  - name: DTU-based Service tiers
+    href: sql-database-service-tiers-dtu.md
+  - name: vCore-based Service tiers
+    href: sql-database-service-tiers-vcore.md
   - name: Read Scale-Out
     href: sql-database-read-scale-out.md
   - name: DTU-based resource limits
@@ -412,8 +416,12 @@
         href: saas-tenancy-schema-management.md
       - name: Cross-tenant reporting
         href: saas-tenancy-cross-tenant-reporting.md
-      - name: ETL for analytics
-        href: saas-tenancy-tenant-analytics.md
+      - name: Tenant analytics
+        items:
+        - name: With SQL DB
+          href: saas-tenancy-tenant-analytics.md
+        - name: With SQL DW
+          href: saas-tenancy-tenant-analytics-adf.md
       - name: Disaster recovery using geo-restore
         href: saas-dbpertenant-dr-geo-restore.md
       - name: Disaster recovery using database geo-replication
