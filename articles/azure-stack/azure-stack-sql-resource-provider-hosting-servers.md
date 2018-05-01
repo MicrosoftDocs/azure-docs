@@ -3,7 +3,7 @@ title: SQL Hosting Servers on Azure Stack | Microsoft Docs
 description: How to add SQL instances for provisioning through the SQL Adapter Resource Provider
 services: azure-stack
 documentationCenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,8 +12,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: mabrigg
+ms.date: 05/01/2018
+ms.author: jeffgilb
 
 ---
 # Add hosting servers for use by the SQL adapter
@@ -80,6 +80,9 @@ To add a standalone hosting server that is already provisioned, follow these ste
   - and so on.
 
   The SKU name should reflect the properties so that users can place their databases appropriately. All hosting servers in a SKU should have the same capabilities.
+
+> [!IMPORTANT]
+> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
 
 	An example:
 
