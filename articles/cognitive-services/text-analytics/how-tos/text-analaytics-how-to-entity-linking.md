@@ -24,7 +24,7 @@ Entity linking is the ability to identify and disambiguate the identity of an en
 
 ### Language support
 
-Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora vary between languages, it is expected that the entity linking functionality's recall will also vary.
+Using entity linking in various languages requires using a corresponding knowledge base in each language. For entity linking in Text Analytics, this means each language that is supported by the `entities` endpoint will link to the corresponding Wikipedia corpus in that language. Since the size of corpora varies between languages, it is expected that the entity linking functionality's recall will also vary.
 
 
 ## Preparation
@@ -147,7 +147,7 @@ In this article, you learned concepts and workflow for entity linking using Text
 + [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) is available for selected languages.
 + JSON documents in the request body include an id, text, and language code.
 + POST request is to a `/entities` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
-+ Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be be used in any application
++ Response output, which consists of linked entities (including confidence scores, offsets, and web links, for each document ID) can be used in any application
 
 ## See also 
 
