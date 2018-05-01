@@ -149,7 +149,7 @@ results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url
 #
 # Open the sample image and get back the prediction results.
 # with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data.read(), iteration.id)
+#     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
 for prediction in results.predictions:
