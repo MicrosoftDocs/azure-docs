@@ -1,6 +1,6 @@
 ---
-title: Customizing voice fonts for Text to Speech | Microsoft Docs
-description: How to create custom Text to Speech voice fonts.
+title: Creating voice fonts for Text to Speech | Microsoft Docs
+description: Create custom Text to Speech voice fonts.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Customizing voice fonts
+# Creating custom voice fonts
 
 A voice font, or voice, defines the sound of Text to Speech output and its language and dialect. The Speech service allows you to create voice fonts automatically from sample data you provide.
 
@@ -83,7 +83,7 @@ Validation performs speech recognition on all audio files (using a standard mode
 
 1. Click **Create** to begin building the new voice.
 
-## Custom custom endpoint
+## Create custom endpoint
 
 After you have created a custom voice font, you can deploy it to a custom Text to Speech endpoint. Only the account that created an endpoint is permitted to make calls to it.
 

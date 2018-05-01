@@ -1,6 +1,6 @@
 ---
 title: Customizing Speech to Text models | Microsoft Docs
-description: How to improve speech recognition by customizing Speech to Text models.
+description: Improve speech recognition by customizing Speech to Text models.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -21,7 +21,7 @@ To help you achieve better speech recognition results, the Speech service allows
 | Language model      | Text | Customize the words that are known to the service and how they are used in utterances. Add technical terms, local place names, etc. |
 | Pronunciation | Text | Improve recognition of troublesome words, compounds, and abbreviations. For example, map "see threepio" to be recognized as "C3PO" |
 
-After creating new models, you create a custom endpoint that uses your model for one or more of the above purposes. You may also choose a base model provided by the Speech service if you wish to use, for example, a custom acoustic model but a standard language model. You then use the custom endpoint in place of the standard endpoint for REST or WebSockets requests. Each endpoint has an associated Deployment ID that so it can be used with the Speech SDK.
+After creating new models, you create a custom endpoint that uses your model for one or more of the above purposes. You may also choose a base model provided by the Speech service if you wish to use, for example, a custom acoustic model but a standard language model. You then use the custom endpoint in place of the standard endpoint for REST requests. Each endpoint has an associated Deployment ID that so it can be used with the Speech SDK.
 
 Customization of all models is done through the [Custom Speech portal](https://www.cris.ai/).
 
@@ -121,4 +121,4 @@ Choose the models you want to use in the Acoustic Model and Language Model lists
 
 Click **Create** after choosing the models. Your new endpoint may take up to 30 minutes to provision.
 
-When your endpoint is ready, click it in the Deployments table to see its URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text), the [WebSockets API](websockets.md#speech-to-text, and the [Speech SDK](speech-sdk.md). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.
+When your endpoint is ready, click it in the Deployments table to see its URI and deployment ID. You can use custom endpoints with the [Rest API](rest-apis.md#speech-to-text) and the [Speech SDK](speech-sdk.md). The [code samples](samples.md) include an example of using a custom Speech to Text endpoint.

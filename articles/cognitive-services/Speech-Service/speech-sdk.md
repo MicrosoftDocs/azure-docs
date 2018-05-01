@@ -14,7 +14,7 @@ ms.author: v-jerkin
 
 # About the Speech SDK
 
-The Speech service provides native client libraries to provide your applications access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
+The Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to Speech to Text and Speech Translation. Text to Speech is not currently supported by the SDK.
 
 The table below the currently supported programming languages and operating systems.
 
@@ -22,11 +22,6 @@ The table below the currently supported programming languages and operating syst
 |-|-|
 |Windows|C/C++, C#|
 |Linux|C/C++|
-|Any|Java*|
-
-\* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.*
-
-Additional languages and platforms are currently being considered for future support.
 
 ## Getting the Windows SDK
 
@@ -41,9 +36,10 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-[!NOTE] These instructions assume you're running Ubuntu 16.04 on a PC (x86 or x64). On a different Ubuntu version, or a different Linux distribution, adapt these steps to fit your environment.
+> [!NOTE]
+> These instructions assume you're running Ubuntu 16.04 on a PC (x86 or x64). On a different Ubuntu version, or a different Linux distribution, adapt these steps to your environment.
 
-Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the files in into a directory of your choice. This table shows the 
+Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the files in into a directory of your choice. This table shows the SDK folder structure.
 
 |Path|Description|
 |-|-|
@@ -54,7 +50,3 @@ Then [download the SDK](https://aka.ms/csspeech/linuxbinary) and unpack the file
 |`lib/x86`|Native x86 library for linking with your application|
 
 To create an application, copy/move the required binaries (and libraries) into your development environment, and include them as required into your build process.
-
-## Getting the Java SDK
-
-The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.

@@ -1,6 +1,6 @@
 ---
 title: Migrating to the unified Speech service | Microsoft Docs
-description: How to migrate from separate speech services to the unified Speech service.
+description: Migrate from separate speech services to the unified Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -25,7 +25,7 @@ In the previous [Speech service](https://docs.microsoft.com/azure/cognitive-serv
 
 The previous [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) service is now an integrated part of the Speech service and no longer requires a separate subscription.
 
-The REST and WebSockets Speech to Text endpoints in the unified Speech service are shown here.
+The REST and WebSockets Speech to Text endpoints in the unified Speech service are shown here. While we recommend using the Speech SDK instead of WebSockets, if you have already written code using WebSockets, you can continue to use it with the Speech service.
 
 Method | Region|	Endpoint
 -|-|-
@@ -68,7 +68,9 @@ North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
 
 ## Speech Translation
 
-Speech Translation functionality is essentially the same as the [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech) service. Only the WebSockets endpoints are different, as shown here.
+Speech Translation functionality is essentially the same as the [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech) service. 
+
+Only the WebSockets endpoints are different, as shown here. While we recommend using the Speech SDK instead of WebSockets, if you have already written client code using WebSockets, you can continue to use it with the Speech service.
 
 Region|	Endpoint
 -|-
@@ -76,9 +78,8 @@ West US| wss://westus.s2s.speech.microsoft.com/v1.0/
 East Asia|	wss://eastasia.s2s.speech.microsoft.com/v1.0/
 North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
 
-## Native clients
 
-The unified Speech SDK currently supports C/C++, C#, and Java. If you are using a native client library with some other programming language, you might want to wait for a unified Speech SDK for your platform.
 
-> [!NOTE]
-> The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.
+## Software Development Kits
+
+The unified Speech SDK currently supports C/C++ and C#. If you are using another programming language, you may not want to migrate at this time.

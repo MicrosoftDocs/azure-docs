@@ -1,6 +1,6 @@
 ---
-title: How to use Speech to Text | Microsoft Docs
-description: How to use Speech to Text in the Speech service.
+title: Use Speech to Text | Microsoft Docs
+description: Use Speech to Text in the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -11,18 +11,14 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# How to use Speech to Text
+# Use Speech to Text
 
-You can use Speech to Text in your applications in three different ways.
+You can use Speech to Text in your applications in two different ways.
 
 | Method | Description |
 |-|-|
-| SDK | Simplest method for C/C++, C#, and Java developers |
+| SDK | Simplest method for C/C++ and C# developers |
 | REST | Recognize short utterances using an HTTP POST request | 
-| WebSockets | Allows recognition of long, streaming utterances from any language |
-
-> [!NOTE]
-> The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md) and is in restricted preview. [Apply to join](get-speech-devices-sdk.md) the preview.
 
 ## Recognition modes
 
@@ -38,7 +34,7 @@ Both conversation and dictation mode support continuous speech recognition. The 
 
 ## Using the SDK
 
-The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text in your application. The SDK gives you full functionality, with the limitations of the REST or WebSockets methods. The basic process is as follows.
+The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text in your application with full functionality.
 
 1. Create a speech factory, providing a Speech service subscription key or an authorization token. You can also configure options, such as the recognition language or a custom endpoint for your own speech recognition models, at this point.
 
@@ -68,18 +64,6 @@ The REST API is the simplest way to recognize speech if you are not using a lang
 > [!NOTE]
 > Utterances are limited to 15 seconds or less when using the REST API.
 
-The HTTP request must include an authorization, either your subscription key or a token. See [how to authenticate](how-to-authenticate.md).
+The HTTP request must include an authorization, either your subscription key or a token. Learn [how to authenticate](how-to-authenticate.md).
 
 For more information on the Speech to Text REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
-
-## Using the WebSockets API
-
-The WebSockets API is the most flexible way to work with Speech to Text if you are not using a language supported by the Speech SDK. You must, however, build all the "plumbing" yourself, including the following tasks.
-
-* Get the audio from some source, such as microphone or a file
-* Transmit the audio to the Speech to Text endpoint
-* Deal with the interim and final results returned by the Speech service
-
-The WebSockets request must include an authorization, either your subscription key or a token. See [how to authenticate](how-to-authenticate.md).
-
-See [WebSockets protocols](websockets.md#speech-to-text) for more information on the Speech to Text WebSockets API. To see it in action, download the [JavaScript WebSockets API samples](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript) from GitHub.

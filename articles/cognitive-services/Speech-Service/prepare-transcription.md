@@ -1,6 +1,6 @@
 ---
 title: Transcription guidelines for Speech training | Microsoft Docs
-description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech service
+description: Prepare text to customize acoustic and language models and voice fonts for the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -28,8 +28,8 @@ It is important to avoid the use of extended (Latin-1) or Unicode punctuation ch
 
 | Characters to avoid | Substitution |
 |----- | ----- |
-| "Hello world" (open and close double quotes) | "Hello world" (double quotes) |
-| John's day (right single quotation mark) | John's day (apostrophe) |
+| “Hello world” (open and close double quotes) | "Hello world" (double quotes) |
+| John’s day (right single quotation mark) | John's day (apostrophe) |
 | it was good—no, it was great! (em dash) | it was good--no, it was great! |
 
 ### Text normalization performed by the service
@@ -61,8 +61,8 @@ Apply the following normalization to your text transcripts.
 *   Abbreviations should be written out in words to reflect spoken form
 *   Non-standard numeric strings (such as some date or accounting forms) should be written out in words
 *   Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced
-*   Abbreviations pronounced as words (radar, laser, RAM, NATO, Mr.) can be left as a single word with nothing between the letters
-*   Abbreviations pronounced as separate letters (IBM, CPU, FBI, TBD, NaN) should be written with letters separated by spaces
+*   Leave abbreviations pronounced as words (radar, laser, RAM, NATO, Mr.) untouched
+*   Write abbreviations pronounced as separate letters (IBM, CPU, FBI, TBD, NaN) with letters separated by spaces
 
 Here are some examples:
 
@@ -70,7 +70,7 @@ Here are some examples:
 |----- | ----- |
 | 14 NE 3rd Dr. | fourteen northeast third drive |
 | Dr. Strangelove | Doctor Strangelove |
-| James Bond 007 | james bond double oh seven |
+| James Bond 007 | James Bond double oh seven |
 | Ke$ha | Kesha |
 | How long is the 2x4 | How long is the two by four |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
@@ -92,7 +92,7 @@ It is important to avoid the use of half-width punctuation characters. These cha
 
 ### Text normalization performed by the service
 
-The Speech to Text service performs the following normalization on data imported as a language data set or transcriptions for an acoustic data set.
+The Speech service performs the following text normalization on text transcripts.
 
 *   Removing all punctuation
 *   Expanding numbers to spoken form
@@ -134,7 +134,7 @@ Text data uploaded to the Speech to Text service must use UTF-8 encoding with by
 
 ### Text normalization performed by the service
 
-This service will perform the following text normalization on text imported as a language data set or transcriptions for an acoustic data set.
+The Speech service performs the following text normalization on text transcripts.
 
 *   Lower-casing all text
 *   Removing all punctuation including various types of quotes ("test", 'test', "test„ or «test» are ok)

@@ -1,6 +1,6 @@
 ---
-title: How to use Text to Speech | Microsoft Docs
-description: How to use Text to Speech in the Speech service.
+title: Use Text to Speech | Microsoft Docs
+description: Use Text to Speech in the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# How to use Text to Speech
+# Use Text to Speech
 
 The Speech service provides Text to Speech functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 

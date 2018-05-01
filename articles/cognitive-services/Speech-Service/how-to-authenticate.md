@@ -1,6 +1,6 @@
 ---
 title: Authenticate to the Speech service | Microsoft Docs
-description: How to obtain authorization to use the Speech service.
+description: Obtain authorization to use the Speech service.
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -69,7 +69,6 @@ The token service endpoint is relative to function you are using and the region.
 
 The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions, or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
 
-# [PowerShell](#tab/Powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -85,13 +84,9 @@ $OAuthToken
 
 ```
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
-
-# [C#](#tab/CSharp)
 
 ```cs
     /*
@@ -129,9 +124,9 @@ curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-for
     }
 ```
 
-# HTTP(#tab/HTTP)
+The following is how a token request looks in raw HTTP.
 
-```
+```http
 POST TOKEN_SERVICE_ENDPOINT HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: api.cognitive.microsoft.com
@@ -142,18 +137,14 @@ Connection: Keep-Alive
 
 If you cannot obtain an authorization token from the token service, make sure your subscription key is still valid and that you have not exceeded its quotas. If you are using a free trial key, go to the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page and log in using the account that you used for applying the free trial key to see the status of your subscription. For a paid subscription, consult your Azure dashboard.
 
-- - -
-
 ### Use a token in a request
 
-Each time you call the Speech API, pass the authorization token in the `Authorization` header. The `Authorization` header must contain a JWT access token.
+Each time you call the Speech API, pass the authorization token in the `Authorization` header. The header must contain the word `Bearer` followed by the token.
 
 The following examples show how to use an authorization token when you call the Speech REST API for Text to Speech. The requests use the `westus` endpoint; if your subscription is in another region, adjust the URL accordingly.
 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
-
-# [PowerShell](#tab/Powershell)
 
 ```Powershell
 
@@ -177,13 +168,9 @@ $RecoResponse
 
 ```
 
-# [curl](#tab/curl)
-
 ```
 curl -v -X POST "https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
-
-# [C#](#tab/CSharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -221,8 +208,6 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
     }
 }
 ```
-
-- - -
 
 ### Renew a token
 

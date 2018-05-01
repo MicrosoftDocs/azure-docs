@@ -15,9 +15,6 @@ ms.author: v-jerkin
 
 The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service) and the [Translator Speech service](https://docs.microsoft.com/azure/cognitive-services/translator-speech/). In general, only the endpoints used differ.
 
-> [!NOTE]
-> The Speech Translation feature does not have a REST API. See [WebSocket protocols](websockets.md).
-
 ## Speech to Text
 
 In the Speech to Text API, only the endpoints used differ from the previous Speech service Speech Recognition API. Use the one that is appropriate to your subscription. The new endpoints are shown in the table below.
@@ -33,7 +30,7 @@ North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
 
 Keep these differences in mind as you read the [REST API documentation](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the Speech service.
 
-The Speech to Text API supports REST only for short (< 15 seconds) utterances. The Speech to Text API also supports a [WebSockets protocol](websockets.md) for streaming speech recognition.
+The Speech to Text API supports REST only for short (< 15 seconds) utterances.
 
 ## Text to Speech
 

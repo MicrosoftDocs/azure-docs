@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Speech service overview (Preview)
+# About the Speech service (Preview)
 
 The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.
 
@@ -27,17 +27,16 @@ With one subscription, the unified Speech service gives developers an easy way t
 |Speech&nbsp;Translation|Provide translations of speech to other languages, with text or speech output.|
 
 > [!NOTE]
-> If you have been using the separately-available Speech services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration brings you additional functionality. If you are considering migrating, or just want to know what has changed, see [How to Migrate to the Speech Service](how-to-migrate.md).
+> If you have been using the separately-available Speech services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration brings you additional functionality. If you are considering migrating, or just want to know what has changed, see how to [migrate to the Speech service](how-to-migrate.md).
 
 ## Using the Speech service
 
-The function of the Speech service is made available in as many as three ways, depending on the function, including [native client SDKs](speech-sdk.md) that abstract away the details of the network and protocols.
+The function of the Speech service is made available in as many as three ways, depending on the function, including [an SDK](speech-sdk.md) that abstracts away the details of the network protocols.
 
-|<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|Description|
+|<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>Description|
 |-|-|-|-|-|
+|[SDKs](speech-sdk.md)|Yes|No|Yes|Libraries for specific programming languages that simplify development.|
 |[REST](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your application.|
-|[WebSockets](websockets.md)|Yes|No|Yes|Provides advanced functionality such as streaming real-time audio.|
-|[SDKs](speech-sdk.md)|Yes|No|Yes|Native clients that simplify development by doing the networking for you.|
 
 ## Speech to Text
 
@@ -82,7 +81,7 @@ Use cases for Speech Translation include the following.
  
 ## Speech Devices SDK
 
-With the introduction of the unified Speech service, Microsoft and its partners now offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
+With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](http://aka.ms/sdsdk-info). This SDK is suitable for developing smart speech devices for all types of applications.
 
 The Speech Devices SDK allows you to build your own ambient devices with a customized wake word—so the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
 
