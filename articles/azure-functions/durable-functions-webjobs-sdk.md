@@ -50,7 +50,7 @@ A WebJobs SDK project is just a console app project with the appropriate NuGet p
 
 In the Visual Studio **New Project** dialog, select **Windows Classic Desktop > Console App (.NET Framework)**. In the project file, the `TargetFrameworkVersion` should be `v4.6.1`.
 
-The WebJob template is an alternative: **Cloud > Azure WebJob (.NET Framework)**. This template installs many packages, some of which you might not need.
+Visual Studio also has a WebJob project template, which you can use by selecting **Cloud > Azure WebJob (.NET Framework)**. This template installs many packages, some of which you might not need.
 
 ## Install NuGet packages
 
@@ -77,7 +77,7 @@ Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
 
 ## JobHost code
 
-To use the Durable Functions extension, call `UseDurableTask` on the `JobHostConfiguration` object in your Main method:
+To use the Durable Functions extension, call `UseDurableTask` on the `JobHostConfiguration` object in your `Main` method:
 
 ```cs
 var config = new JobHostConfiguration();
