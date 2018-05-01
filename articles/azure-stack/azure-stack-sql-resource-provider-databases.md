@@ -17,9 +17,6 @@ ms.author: jeffgilb
 ms.reviewer: jeffgo
 ---
 # Create SQL databases
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 Self-service databases are provided through the user portal experience. A user needs a subscription that has an offer, which contains the database service.
 
 1. Sign in to the [Azure Stack](azure-stack-poc.md) user portal (service admins can also use the admin portal).

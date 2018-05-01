@@ -18,14 +18,11 @@ ms.reviewer: jeffgo
 ---
 
 # Use SQL databases on Microsoft Azure Stack
-Use the Azure Stack SQL Server resource provider to expose SQL databases as a service of Azure Stack. The SQL resource provider runs on the SQL resource provider VM, which is a Windows virtual machine that runs the provider services.
+Use the Azure Stack SQL Server resource provider to expose SQL databases as a service of Azure Stack. The SQL resource provider service runs on the SQL resource provider VM, which is a Windows Server core virtual machine.
 
 ## Prerequisites
 There are several prerequisites that need to be in place before you can deploy the Azure Stack SQL resource provider. 
 Perform the following steps on a computer that can access the privileged endpoint VM:
-
-> [!IMPORTANT]
-> The system where the script is being run must be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed.
 
 - If you have not already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so that you can download Azure marketplace items.
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Server core** image. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
@@ -37,6 +34,10 @@ Perform the following steps on a computer that can access the privileged endpoin
 
 ## Deploy the SQL resource provider
 After you have successfully prepared to install the SQL resource provider by meeting all prerequisites, you can now run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded corresponding to your Azure Stack version. 
+
+> [!IMPORTANT]
+> The system where the script is being run must be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed.
+
 
 To deploy the SQL resource provider, open a new elevated (administrative) PowerShell console and change to the directory where you extracted the SQL resource provider binary files.
 
@@ -63,7 +64,7 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) |
+| **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for integrated systems) |
 | **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
 | **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
 | **RetryDuration** | The timeout interval between retries, in seconds. | 120 |

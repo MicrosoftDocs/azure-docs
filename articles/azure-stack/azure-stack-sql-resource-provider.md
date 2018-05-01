@@ -18,9 +18,6 @@ ms.reviewer: jeffgo
 ---
 
 # Use SQL databases on Microsoft Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 Use the SQL Server resource provider adapter to expose SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
 - Databases for cloud-native apps.
 - Websites that are based on SQL.
