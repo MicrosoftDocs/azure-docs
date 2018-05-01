@@ -55,7 +55,7 @@
 #    href: websockets.md
   - name: Speech SDK API # OK
     href: speech-sdk-reference.md
-    - name: Speech synthesis markup # OK
+  - name: Speech synthesis markup # OK
     href: speech-synthesis-markup.md
 - name: Resources
   items:
