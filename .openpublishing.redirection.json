@@ -8290,11 +8290,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Computer-vision/index.md",
-            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
             "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
             "redirect_document_id": false
