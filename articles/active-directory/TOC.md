@@ -60,6 +60,7 @@
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 ##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Grant local users access to cloud apps](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B and Office 365 external sharing](active-directory-b2b-o365-external-user.md)
 #### [B2B licensing](active-directory-b2b-licensing.md)
 #### [Current limitations](active-directory-b2b-current-limitations.md)
@@ -207,6 +208,8 @@
 ##### [Remote Desktop](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Tableau](active-directory-application-proxy-tableau.md)
+
 #### [Troubleshoot](active-directory-application-proxy-troubleshoot.md)
 
 ### Manage enterprise apps
@@ -261,11 +264,12 @@
 
 ### [Integrate on-premises identities using Azure AD Connect](./connect/active-directory-aadconnect.md)
 
-## [Manage access to Azure](toc.yml)
+## [Manage access to Azure](../role-based-access-control/toc.yml)
 
 ## Delegate access to resources
 ### [Administrator roles](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assign admin roles](active-directory-users-assign-role-azure-portal.md)
+#### [Default user permissions](users-default-permissions.md)
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
@@ -282,6 +286,7 @@
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
+#### [Conditions](active-directory-conditional-access-conditions.md)
 #### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)
@@ -325,13 +330,6 @@
 ## [Integrate other services with Azure AD]()
 ### [Enable LinkedIn integration](linkedin-integration.md)
 
-## [Deploy AD DS on Azure VMs](virtual-networks-windows-server-active-directory-virtual-machines.md)
-### [Windows Server Active Directory on Azure VMs](active-directory-deploying-ws-ad-guidelines.md)
-### [Replica domain controller in an Azure virtual network](active-directory-install-replica-active-directory-domain-controller.md)
-### [New forest on an Azure virtual network](active-directory-new-forest-virtual-machine.md)
-
-
-
 ## [Deploy AD FS in Azure](active-directory-aadconnect-azure-adfs.md)
 ### [High availability](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Change signature hash algorithm](active-directory-federation-sha256-guidance.md)
@@ -347,7 +345,7 @@
 
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlets](/powershell/azure/overview)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)

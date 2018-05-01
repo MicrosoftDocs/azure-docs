@@ -65,13 +65,16 @@ The following section provides you with a complete overview of all possible erro
 |50058|No information about user's identity is found among provided credentials or User was not found in tenant or A silent sign-in request was sent but no user is signed in or Service was unable to authenticate the user.|
 |50072|Users' needs to enroll for second factor authentication (interactive)|
 |50074|User did not pass the MFA challenge.|
+|50076|User did not pass the MFA challenge (non interactive)|
 |50079|User needs to enroll for second factor authentication.|
 |50089|Flow token validation failed due to flow token expiry.|
 |50097|Device is not authenticated.|
 |50105|The signed in user is not assigned to a role for this application.|
+|50125|Sign-in was interrupted due to a password reset or password registration entry|
 |50126|Invalid username or password or Invalid on-premise username or password.|
 |50131|Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 |50133|Session is invalid due to expiration or recent password change.|
+|50140|User prompted for consent to keep them signed-in on the device|
 |50144|User's Active Directory password has expired.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource which was not specified in its required resource access list or Graph service returned bad request or resource not found.|
@@ -96,7 +99,6 @@ The following section provides you with a complete overview of all possible erro
 |81013|Unable to find user object based on information in the user's Kerberos ticket.|
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
-
 
 ## Next steps
 

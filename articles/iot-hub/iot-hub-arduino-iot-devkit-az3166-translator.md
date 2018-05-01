@@ -32,7 +32,7 @@ Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-
 
 An active Azure subscription. If you do not have one, you can register via one of these two methods:
 
-* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/en-us/free/)
+* Activate a [free 30-day trial Microsoft Azure account](https://azure.microsoft.com/free/)
 * Claim your [Azure credit](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) if you are MSDN or Visual Studio subscriber
 
 ## Step 1. Open the project folder
@@ -138,4 +138,4 @@ Now you make the IoT DevKit as a translator by using Azure Function and Cognitiv
 Advance to the other tutorials to learn:
 
 > [!div class="nextstepaction"]
-> [Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Connect IoT DevKit AZ3166 to Azure IoT Suite for remote monitoring](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
