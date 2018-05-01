@@ -208,8 +208,7 @@ You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHu
     
     val customEventhubParameters = EventHubsConf(connectionString).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    //incomingStream.printSchema
-    
+    //incomingStream.printSchema    
     
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
