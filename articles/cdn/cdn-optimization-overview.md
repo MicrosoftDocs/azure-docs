@@ -29,6 +29,18 @@ This article provides an overview of various optimization features and when you 
 
 ## Provider options
 
+**Azure CDN Standard from Microsoft** supports the following optimizations:
+
+* [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
+
+
+**Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** support the following optimizations:
+
+* [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
+
+* [Dynamic site acceleration](#dynamic-site-acceleration) 
+
+
 **Azure CDN Standard from Akamai** supports the following optimizations:
 
 * [General web delivery](#general-web-delivery) 
@@ -38,17 +50,6 @@ This article provides an overview of various optimization features and when you 
 * [Video-on-demand media streaming](#video-on-demand-media-streaming)
 
 * [Large file download](#large-file-download)
-
-* [Dynamic site acceleration](#dynamic-site-acceleration) 
-
-**Azure CDN Standard from Microsoft** supports the following optimizations:
-
-* [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
-
-
-**Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** support the following optimizations:
-
-* [General web delivery](#general-web-delivery). This optimization is also used for media streaming and large file download.
 
 * [Dynamic site acceleration](#dynamic-site-acceleration) 
 
@@ -62,7 +63,7 @@ To create a new endpoint, select an optimization type that best matches the scen
 
     ![Endpoint selection ](./media/cdn-optimization-overview/01_Akamai.png)
 
-2. Under **SETTINGS**, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
+2. Under SETTINGS, select **Optimization**. Then, select a type from the **Optimized for** drop-down list.
 
     ![Optimization and type selection](./media/cdn-optimization-overview/02_Select.png)
 
@@ -87,7 +88,7 @@ Media streaming is time sensitive, because packets that arrive late on the clien
 
 This scenario is common for Azure media service customers. When you use Azure media services, you get one streaming endpoint that can be used for both live and on-demand streaming. With this scenario, customers don't need to switch to another endpoint when they change from live to on-demand streaming. General media streaming optimization supports this type of scenario.
 
-**Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** use the general web delivery optimization type to deliver general streaming media content.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**, use the general web delivery optimization type to deliver general streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
@@ -95,7 +96,7 @@ For more information about media streaming optimization, see [Media streaming op
 
 Video-on-demand media streaming optimization improves video-on-demand streaming content. If you use an endpoint for video-on-demand streaming, you might want to use this option.
 
-**Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon** use the general web delivery optimization type to deliver video-on-demand streaming media content.
+For **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**, use the general web delivery optimization type to deliver video-on-demand streaming media content.
 
 For more information about media streaming optimization, see [Media streaming optimization](cdn-media-streaming-optimization.md).
 
