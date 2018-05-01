@@ -1,23 +1,23 @@
 ---
-title: Bing Search SDK | Microsoft Docs
+title: Bing Spell Check SDK Samples - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Bing Search SDK for applications that search the web.
+description: Bing Spell Check SDK samples for applications that perform contextual grammar and spell checking.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
-# Bing Search SDK
+# Bing Spell Check SDK Samples
 The Bing Spell Check samples include scenarios that:
 1. Search for misspelled query and parse the response.
 2. Trigger an error response from the API.
 
-The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
+The Bing Spell Check SDKs make contextual grammar and spell checking readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0)
     * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/SpellCheck) for definitions and dependencies.

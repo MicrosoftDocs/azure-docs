@@ -138,6 +138,9 @@ The properties for schedule resources are described in the following table.
 
 The schedule resource should depend on the saved search so that it's created before the schedule.
 
+> [!NOTE]
+> Schedule Name must be unique in a given workspace; two schedules cannot have the same ID even if they are associated with different saved searches. Also name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
+
 
 ### Actions
 A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria.  Some actions will define both so that the processes are performed when the threshold is met.
@@ -174,14 +177,13 @@ Alert actions have the following structure.  This includes common variables and 
 					"triggerCondition": "[variables('Alert').Threshold.Trigger.Condition]",
 					"operator": "[variables('Alert').Trigger.Operator]",
 					"value": "[variables('Alert').Trigger.Value]"
-				},
-			},
+				  },
+			  },
       "AzNsNotification": {
-          "GroupIds": [
-            "/subscriptions/3b540246-808d-4331-99aa-917b808a9166/resourcegroups/myTestGroup/providers/microsoft.insights/actiongroups/sample"
-          ],
-          "CustomEmailSubject": "Alert fired"
-        },
+        "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
+        "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
+        "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+        }
 		}
 	}
 ```
@@ -316,28 +318,10 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "Description": "Name of Log Analytics workspace"
 	        }
 	      },
-	      "accountName": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Name of Automation account"
-	        }
-	      },
 	      "workspaceregionId": {
 	        "type": "string",
 	        "metadata": {
 	          "Description": "Region of Log Analytics workspace"
-	        }
-	      },
-	      "regionId": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Region of Automation account"
-	        }
-	      },
-	      "pricingTier": {
-	        "type": "string",
-	        "metadata": {
-	          "Description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
 	        }
 	      },
 	      "actiongroup": {
@@ -353,7 +337,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	      "SolutionPublisher": "Contoso",
 	      "ProductName": "SampleSolution",
 	
-	      "LogAnalyticsApiVersion": "2015-11-01-preview",
+	      "LogAnalyticsApiVersion": "2015-03-20",
 	
 	      "MySearch": {
 	        "displayName": "Error records by hour",
@@ -407,8 +391,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          "containedResources": [
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	            "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
 	          ]
 	        },
 	        "plan": {
@@ -473,8 +456,7 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 	          },
             "AzNsNotification": {
               "GroupIds": "[variables('MyAlert').AzNsNotification.GroupIds]",
-              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]",
-              "CustomWebhookPayload": "[variables('MyAlert').AzNsNotification.CustomWebhookPayload]"
+              "CustomEmailSubject": "[variables('MyAlert').AzNsNotification.CustomEmailSubject]"
             }	          
 	        }
 	      }

@@ -4,9 +4,8 @@ description: Improve your classifier.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anroth

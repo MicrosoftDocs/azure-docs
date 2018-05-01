@@ -1,4 +1,4 @@
----
+﻿---
 title: If Condition activity in Azure Data Factory | Microsoft Docs
 description: The If Condition activity allows you to control the processing flow based on a condition.
 services: data-factory
@@ -249,7 +249,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription "<Your subscription name>"
 
 $resourceGroupName = "<Resource Group Name>"

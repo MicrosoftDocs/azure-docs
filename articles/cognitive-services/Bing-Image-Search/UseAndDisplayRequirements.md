@@ -4,9 +4,8 @@ description: Modify your implementation of content and related information by us
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: scottwhi

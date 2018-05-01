@@ -4,9 +4,8 @@ description: How to detect sentiment  using the Text Analytics REST API in Micro
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
-
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: heidist

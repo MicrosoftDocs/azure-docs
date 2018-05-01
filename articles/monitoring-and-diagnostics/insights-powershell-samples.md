@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Monitor PowerShell quick start samples. | Microsoft Docs
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
 author: rboucher
@@ -35,7 +35,7 @@ The examples in the article illustrate how you can use Azure Monitor cmdlets. Yo
 First, log in to your Azure subscription.
 
 ```PowerShell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You'll see a sign in screen. Once you sign in your Account, TenantID, and default Subscription ID are displayed. All the Azure cmdlets work in the context of your default subscription. To view the list of subscriptions you have access to, use the following command:

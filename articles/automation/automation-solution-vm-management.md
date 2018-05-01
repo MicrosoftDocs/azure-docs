@@ -49,13 +49,15 @@ Perform the following steps to add the Start/Stop VMs during off-hours solution 
    ![Azure portal](media/automation-solution-vm-management/azure-portal-01.png)
 
 1. The **Add Solution** page appears. You are prompted to configure the solution before you can import it into your Automation subscription.
+
    ![VM Management Add Solution page](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
+
 1. On the **Add Solution** page, select **Workspace**. Select a Log Analytics workspace that's linked to the same Azure subscription that the Automation account is in. If you don't have a workspace, select **Create New Workspace**. On the **OMS Workspace** page, perform the following:
    * Specify a name for the new **OMS Workspace**.
    * Select a **Subscription** to link to by selecting from the drop-down list, if the default selected is not appropriate.
    * For **Resource Group**, you can create a new resource group or select an existing one.
    * Select a **Location**. Currently, the only locations available are **Australia Southeast**, **Canada Central**, **Central India**, **East US**, **Japan East**, **Southeast Asia**, **UK South**, and **West Europe**.
-   * Select a **Pricing tier**. Choose the **Per GB (Standalone)**, Log Analytics recently updated their [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
+   * Select a **Pricing tier**. Choose the **Per GB (Standalone)** option. Log Analytics has updated [pricing](https://azure.microsoft.com/pricing/details/log-analytics/) and the Per GB tier is the only option.
 
 1. After providing the required information on the **OMS workspace** page, click **Create**. You can track its progress under **Notifications** from the menu, which returns you to the **Add Solution** page when done.
 1. On the **Add Solution** page, select **Automation account**. If you're creating a new Log Analytics workspace, you need to also create a new Automation account to be associated with it. Select **Create an Automation account**, and on the **Add Automation account** page, provide the following:
