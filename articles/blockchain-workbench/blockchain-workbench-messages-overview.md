@@ -8,7 +8,7 @@ ms.author: patricka
 ms.date: 4/16/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: mmercuri
 manager: femila
 ---
 

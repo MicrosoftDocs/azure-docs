@@ -8,6 +8,8 @@
   items:
   - name: Architecture
     href: blockchain-workbench-architecture.md
+  - name: Integration patterns
+    href: blockchain-workbench-integration-patterns.md
 - name: How-to guides
   items: 
   - name: Deploy Workbench
@@ -24,6 +26,8 @@
   items:
   - name: Configuration
     href: blockchain-workbench-configuration-overview.md
+  - name: Database views
+    href: blockchain-workbench-database-views.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
   - name: Messaging API
