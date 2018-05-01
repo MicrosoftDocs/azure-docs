@@ -67,13 +67,13 @@ Save and click the just created module identity. You can see the module identity
 
 You've successfully created the module identity in your IoT Hub. Let's try to communicate to the cloud from your simulated device. Once a module identity is created, a module twin is implicitly created in IoT Hub. In this section, you will create a .NET console app on your simulated device that updates the module twin reported properties.
 
-1. **CCreate a Visual Studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
+1. **Create a Visual Studio project** - In Visual Studio, add a Visual C# Windows Classic Desktop project to the existing solution by using the **Console App (.NET Framework)** project template. Make sure the .NET Framework version is 4.6.1 or later. Name the project **UpdateModuleTwinReportedProperties**.
 
     ![Create a visual studio project][13]
 
-2. **Install Azure IoT Hub .NET device SDK V1.17.0-preview-001** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version 1.17.0-preview-001 and install. Now you have access to all the module features. 
+2. **Install Azure IoT Hub .NET device SDK V1.16.0-preview-005** - Module identity and module twin is in public preview. It's only availble in the IoT Hub prerelease device SDKs. In Visual Studio, open tools > Nuget package manager > manage Nuget packages for solution. Search Microsoft.Azure.Devices.Client. Make sure you've checked include prerelease check box. Select version V1.16.0-preview-005 and install. Now you have access to all the module features. 
 
-    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-001][14]
+    ![Install Azure IoT Hub .NET service SDK V1.16.0-preview-005][14]
 
 3. **Get your module connection string** -- now if you login to [Azure portal][lnk-portal]. Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfuly created. Copy the module connection string. It is needed in the next step.
 
