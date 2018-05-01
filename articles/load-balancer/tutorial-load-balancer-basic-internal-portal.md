@@ -142,7 +142,7 @@ To distribute traffic to the VMs, a back-end address pool contains the IP addres
     - Click **Add a target network IP configuration** to add each virtual machine (*myVM1* & *myVM2*) that you created to the backend pool.
     - Click **OK**.
 
-    ![Adding to the backend address pool - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
+        ![Adding to the backend address pool - ](./media/tutorial-load-balancer-basic-internal-portal/3-load-balancer-backend-02.png)
 
 3. Check to make sure your load balancer backend pool setting displays both the VMs **VM1** and **VM2**.
 
