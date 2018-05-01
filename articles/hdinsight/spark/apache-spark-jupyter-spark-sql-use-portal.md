@@ -135,4 +135,4 @@ You can also select the resource group name to open the resource group page, and
 In this quickstart, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
->[Run interactive queries on an HDInsight Spark cluster](./apache-spark-load-data-run-query.md)
+>[Run interactive queries on Spark](./apache-spark-load-data-run-query.md)
