@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # Embed Video Indexer widgets into your applications
