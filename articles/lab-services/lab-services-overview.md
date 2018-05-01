@@ -65,14 +65,14 @@ For more information, see [Use DevTest Labs for testing](devtest-lab-test-env.md
 ## User profiles
 This article describes different user profiles in Azure Lab Services. 
 
-## Lab account owner
+### Lab account owner
 Typically, and IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:   
 
 - Sets up a lab account for your organization.
 - Manages and configures policies across all labs.
 - Gives permissions to people in the organization to create a lab under the lab account.
 
-## Lab creator 
+### Lab creator 
 Typically, users such as a development lead/manager, a teacher, a hackathon host, an online trainer creates labs under a lab account. A lab creator does the following tasks: 
 
 - Creates a lab.
@@ -81,7 +81,7 @@ Typically, users such as a development lead/manager, a teacher, a hackathon host
 - Specifies who can access the lab.
 - Provides link to the lab to lab users.
 
-## Lab user
+### Lab user
 A lab user does the following tasks:
 
 - Uses the registration link that the lab user receives from a lab creator to register with the lab. 
