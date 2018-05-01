@@ -48,11 +48,11 @@ We recommend getting started by watching the following video, where Azure Cosmos
 
 ## Specifying request unit capacity in Azure Cosmos DB
 
-You can specify the number of request units per second (RU per second) you want reserved both for an individual container or for a set of containers. Based on the provisioned throughput, Azure Cosmos DB will allocates physical partitions to host your container(s) and splits/rebalances data across partitions as it grows.
+You can specify the number of request units per second (RU per second) you want reserved both for an individual container or for a set of containers. Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows.
 
-When assigning RU/sec at the individual container level - the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
+When assigning RU/sec at the individual container level, the containers can be created as *fixed* or *unlimited*. Fixed-size containers have a maximum limit of 10 GB and 10,000 RU/s throughput. To create an unlimited container, you must specify a minimum throughput of 1,000 RU/s and a [partition key](partition-data.md). Since your data might have to be split across multiple partitions, it is necessary to pick a partition key that has a high cardinality (100 to millions of distinct values). By selecting a partition key with many distinct values, you ensure that your container/table/graph and requests can be scaled uniformly by Azure Cosmos DB. 
 
-When assigning RU/sec across a set of containers - the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
+When assigning RU/sec across a set of containers, the containers belonging to this set are treated as *unlimited* containers and must specify a partition key.
 
 ![Provisioning request units for individual containers and set of containers][6]
 
@@ -100,7 +100,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 ```
 
 
-Azure Cosmos DB operates on a reservation model for throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the amount of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB operates on a reservation model for throughput. That is, you are billed for the amount of throughput *reserved*, regardless of how much of that throughput is actively *used*. As your application's load, data, and usage patterns change you can easily scale up and down the number of reserved RUs through SDKs or using the [Azure Portal](https://portal.azure.com).
 
 Each container, or set of containers, is mapped to an `Offer` resource in Azure Cosmos DB, which has metadata about the provisioned throughput. You can change the allocated throughput by looking up the corresponding offer resource for a container, then updating it with the new throughput value. Here is a code snippet for changing the throughput of a container to 5,000 request units per second using the .NET SDK:
 
@@ -123,7 +123,7 @@ There is no impact to the availability of your container, or set of containers, 
 
 ## Throughput isolation in globally distributed databases
 
-When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region *A* do not take away from the RUs used for the read operation in region *B*. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full amount of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
+When you have replicated your database to more than one region, Azure Cosmos DB provides throughput isolation to ensure that RU usage in one region does not impact RU usage in another region. For example, if you write data to one region, and read data from another region, the RUs used to perform the write operation in region *A* do not take away from the RUs used for the read operation in region *B*. RUs are not split across the regions in which you've deployed. Each region in which the database is replicated has the full number of RUs provisioned. For more information about global replication, see [How to distribute data globally with Azure Cosmos DB](distribute-data-globally.md).
 
 ## Request unit considerations
 When estimating the number of request units to provision, it is important to take the following variables into consideration:
@@ -140,7 +140,7 @@ When estimating the number of request units to provision, it is important to tak
 A request unit is a normalized measure of request processing cost. A single request unit represents the processing capacity required to read (via self link or id) a single 1 KB item consisting of 10 unique property values (excluding system properties). A request to create (insert), replace or delete the same item will consume more processing from the service and thereby more request units.   
 
 > [!NOTE]
-> The baseline of 1 request unit for a 1 KB item corresponds to a simple GET by self link or id of the item.
+> The baseline of 1 request unit for a 1-KB item corresponds to a simple GET by self link or id of the item.
 > 
 > 
 
@@ -205,11 +205,11 @@ The tool also includes support for estimating data storage needs based on the sa
 
 Using the tool is simple:
 
-1. Upload one or more representative items (e.g., a sample JSON document).
+1. Upload one or more representative items (for example, a sample JSON document).
    
     ![Upload items to the request unit calculator][2]
-2. To estimate the data storage requirements, enter the total number of items (e.g., documents, tables or graphs) you expect to store.
-3. Enter the number of create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of item update operations, upload a copy of the sample item from step 1 above that includes typical field updates.  For example, if item updates typically modify two properties named *lastLogin* and *userVisits*, then simply copy a sample item, update the values for those two properties, and upload the copied item.
+2. To estimate the data storage requirements, enter the total number of items (for example, documents, rows, or vertices) you expect to store.
+3. Enter the number of create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of item update operations, upload a copy of the sample item from step 1 above that includes typical field updates.  For example, if item updates typically modify two properties named *lastLogin* and *userVisits*, then copy a sample item, update the values for those two properties, and upload the copied item.
    
     ![Enter throughput requirements in the request unit calculator][3]
 4. Click calculate and examine the results.
@@ -241,7 +241,7 @@ For example:
 6. Calculate the required request units given the estimated number of operations you anticipate to run each second.
 
 ## A request unit estimate example
-Consider the following ~1 KB document:
+Consider the following ~1-KB document:
 
 ```json
 {

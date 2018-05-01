@@ -44,7 +44,8 @@ This tutorial covers the following tasks:
 
 1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **Azure Cosmos DB** entry.
 2. In the **Subscriptions** pane, select your account name.
-3. In the **Connection String** blade, click **Connection String**.  
+3. In the **Connection String** blade, click **Connection String**.
+
 The right pane contains all the information that you need to successfully connect to your account.
 
     ![Connection String blade](./media/mongodb-migrate/ConnectionStringBlade.png)
@@ -107,7 +108,7 @@ Example:
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. Run ```db.runCommand({getLastRequestStatistics: 1})``` and you will receive a response like this one:
+    c. Run ```db.runCommand({getLastRequestStatistics: 1})``` and you'll receive a response like the following:
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -126,7 +127,7 @@ Example:
     
     a. Enable verbose logging from the MongoDB Shell by using this command: ```setVerboseShell(true)```
     
-    b. Run a simple query against the database: ```db.coll.find().limit(1)```. You will receive a response like this one:
+    b. Run a simple query against the database: ```db.coll.find().limit(1)```. You'll receive a response like the following:
 
         ```
         Fetched 1 record(s) in 100(ms)
