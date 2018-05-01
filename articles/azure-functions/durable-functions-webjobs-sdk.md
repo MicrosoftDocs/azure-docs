@@ -26,7 +26,6 @@ The chaining Durable Functions sample is available in a WebJobs SDK version: dow
 
 This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these topics, see the following resources:
 
-d
 * [Get started with the WebJobs SDK](../app-service/webjobs-sdk-get-started.md)
 * [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md)
 * [Durable Functions](durable-functions-sequence.md)
