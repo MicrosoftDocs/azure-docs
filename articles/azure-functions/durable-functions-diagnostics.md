@@ -24,7 +24,7 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 [Application Insights](../application-insights/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* which allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These can be found and queried using the [Application Insights Analytics](../application-insights/app-insights-analytics.md) tool in the Azure portal.
 
 ### Tracking data
 
@@ -177,6 +177,46 @@ Calling F2.
 Calling F3.
 Done!
 ```
+
+## Custom Status
+
+Custom orchestration status lets you set a custom status value for your orchestrator function. This status is provided via the HTTP GetStatus API or the `DurableOrchestrationClient.GetStatusAsync` API. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can include `DurableOrchestrationContext.SetCustomStatus` calls to update the progress for long-running operation. Then the client can query the HTTP status query APIs for richer progress information. The client can be a web page checking this orchestration status periodically. And it will display the progress to the end user via friendly UI such as loading bar or workflow sequence. A sample using `DurableOrchestrationContext.SetCustomStatus` is provided below:
+
+```csharp
+public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrationContext ctx)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { nextActions = new [] {"A", "B", "C"}, foo = 2, };
+    ctx.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
+
+While the orchestration is running, external clients can fetch this custom status:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/instance123
+
+```
+
+Clients will get the following response: 
+
+```http
+{
+  "runtimeStatus": "Running",
+  "input": null,
+  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
+  "output": null,
+  "createdTime": "2017-10-06T18:30:24Z",
+  "lastUpdatedTime": "2017-10-06T19:40:30Z"
+}
+```
+
+> [!WARNING]
+>  The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. Developers can use external storage if they need larger payload.
 
 ## Debugging
 
