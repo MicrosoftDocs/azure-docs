@@ -279,7 +279,7 @@ This example JSON data represents the **metrics** input data that is used in the
 ```
 
 ## Example output
-This example output JSON data shows a single alert event was produced based on the CPU threshold rule defined in the reference data. The output event contains the name of the alert as well as the aggregated (average, min, max) of the fields considered. The output event data includes field key number 2 `NodeName` value `N024` due to the rule configuration. (The JSON was altered to show line breaks for readibility.)
+This example output JSON data shows a single alert event was produced based on the CPU threshold rule defined in the reference data. The output event contains the name of the alert as well as the aggregated (average, min, max) of the fields considered. The output event data includes field key number 2 `NodeName` value `N024` due to the rule configuration. (The JSON was altered to show line breaks for readability.)
 
 ```JSON
 {"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",
