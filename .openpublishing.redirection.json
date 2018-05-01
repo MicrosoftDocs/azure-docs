@@ -19070,9 +19070,14 @@
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
         },
-        {
-            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+      {
+        "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+        "redirect_document_id": false
+      },
+          {
+            "source_path": "articles/active-directory/privilegd-identity-management/active-directory-securing-privileged-access.md",
+            "redirect_url": "/azure/active-directory/admin-roles-best-practices",
             "redirect_document_id": false
         }
     ]
