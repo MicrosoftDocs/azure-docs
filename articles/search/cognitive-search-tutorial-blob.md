@@ -196,16 +196,16 @@ Content-Type: application/json
     "outputs": [
       {
             "name": "textItems",
-            "targetName": "mypages"
+            "targetName": "pages"
       }
     ]
   },
   {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
-      "context": "/document/mypages/*",
+      "context": "/document/pages/*",
       "inputs": [
         {
-          "name": "text", "source": "/document/mypages/*"
+          "name": "text", "source": "/document/pages/*"
         },
         {
           "name":"languageCode", "source": "/document/languageCode"
@@ -406,6 +406,8 @@ Content-Type: application/json
 ```
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
+
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during index.
  
 ## Verify content
 
