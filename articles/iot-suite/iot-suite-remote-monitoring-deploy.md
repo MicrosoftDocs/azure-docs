@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Deploy the remote monitoring solution accelerator
 
-This tutorial shows you how to provision the remote monitoring solution accelerator. You deploy the solution from azureiotsuite.com. You can also deploy the solution using the CLI, to learn about this option see [Deploy a solution accelerator from the command line](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#deploy-a-pcs-from-the-command-line).
+This tutorial shows you how to provision the remote monitoring solution accelerator. You deploy the solution from azureiotsuite.com. You can also deploy the solution using the CLI, to learn about this option see [Deploy a solution accelerator from the command line](iot-suite-remote-monitoring-deploy-cli.md).
 
 In this tutorial, you learn how to:
 
