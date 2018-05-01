@@ -45,5 +45,5 @@ Azure Blockchain Workbench makes it easier to analyze blockchain events and data
 
 ## Next steps
 
-[Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
-[Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)
+* [Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+* [Create a blockchain application in Azure Blockchain Workbench](blockchain-workbench-create-app.md)

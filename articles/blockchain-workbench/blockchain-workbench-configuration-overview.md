@@ -66,6 +66,7 @@ For an example, see [configuration file example](#configuration-file-example).
 Supported data types.
 
 | Type | Description |
+|-------|-------------|
 | address  | Blockchain address type, such as *contracts* or *users* |
 | bool     | Boolean data type |
 | contract | Address of type contract |
