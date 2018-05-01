@@ -80,7 +80,7 @@ Once the bot is registered, select **Test in Web Chat** to open the Web Chat pan
 
   ![Test the bot in Web Chat](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
-The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
+The bot responds by saying "You have reached Greeting. You said: hello". This confirms that the bot has received your message and passed it to a default LUIS app that it created. This default LUIS app detected a Greeting intent. In the next step, you'll connect the bot to the LUIS app you previously created instead of the default LUIS app.
 
 ## Connect your LUIS app to the bot
 
@@ -238,7 +238,7 @@ Learn more about [Bot Framework](https://dev.botframework.com/) and the [3.x](ht
 ## Next steps
 
 <!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS app. Then add dialogs for the new intents and and test them using the bot. 
+You can try to add other intents, like Help, Cancel, and Greeting, to the LUIS app. Then add dialogs for the new intents and test them using the bot. 
 
 <!-- 
 > [!NOTE] 
