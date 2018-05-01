@@ -46,7 +46,7 @@ SEA to NYC next Monday
 LA to MCO spring break
 ```
  
-The hierarchical entity matches origin and destination location. If only one child (origin or destination) of an hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
+The hierarchical entity matches origin and destination location. If only one child (origin or destination) of a hierarchical entity is present, it is still extracted. All children do not need to be found for just one, or some, to be extracted. 
 
 ## What LUIS does
 When the intent and entities of the utterance are identified, [extracted](luis-concept-data-extraction.md#list-entity-data), and returned in JSON from the [endpoint](https://aka.ms/luis-endpoint-apis), LUIS is done. The calling application or chat bot takes that JSON response and fulfills the request -- in whatever way the app or chat bot is designed to do. 

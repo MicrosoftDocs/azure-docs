@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Javascript. 
 ---
 # Quickstart: Add utterances to app using JavaScript
-In this quickstart, you will write a program to add an utterance to an intent using the Authoring APIs in Javascript.
+In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Javascript.
 
 For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 
