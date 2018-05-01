@@ -1,0 +1,17 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Project Personality Chat Documentation
+metadata:
+  document_id: 
+  title: Project Personality Chat
+  description: Learn about Project Personality Chat.
+  author: v-jaswel
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/27/2018
+  ms.author: v-jaswel
+abstract:
+  description: Project Personality Chat enhances your bot’s conversational capabilities, by handling small talk & chit chat, in line with a distinct chosen personality.
