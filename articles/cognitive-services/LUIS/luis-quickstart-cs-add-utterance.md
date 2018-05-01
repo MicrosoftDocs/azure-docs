@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Quickstart: Add utterances to a LUIS app using C# 
-In this quickstart, you will write a program to add an utterance to an intent using the Authoring APIs in C#.
+In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in C#.
 
 For more information, see the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
 

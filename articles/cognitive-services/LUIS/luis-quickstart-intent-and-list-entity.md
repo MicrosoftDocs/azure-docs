@@ -241,7 +241,7 @@ This app, with just two intents and a list entity, identified a natural language
 Your chat bot now has enough information to determine the primary action, `OrderDrinks`, and what types of drinks were ordered from the Drink list entity. 
 
 ## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application.  LUIS only determines what the user's intention is. 
+LUIS is done with this request. The calling application, such as a chat bot, can take the topScoringIntent result and the data from the entity to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.

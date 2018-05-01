@@ -13,7 +13,7 @@ ms.author: v-geberr
 ---
 
 # Quickstart: Add utterances app using Node.js 
-In this quickstart, you will write a program to add an utterance to an intent using the Authoring APIs in Node.js.
+In this quickstart, you write a program to add an utterance to an intent using the Authoring APIs in Node.js.
 
 
 For more information, 
