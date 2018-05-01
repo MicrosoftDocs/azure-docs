@@ -21,18 +21,20 @@ ms.custom: mvc
 
 # Tutorial: Configure message routing with IoT Hub
 
-In this tutorial, you learn how to set up and use routing with IoT Hub to route messages from an IoT device to one of multiple services, such as a storage account or a Service Bus queue. 
+Message Routing enables sending telemetry data from your IoT devices to built-in Event Hub-compatible endpoints or custom endpoints such as blob storage, Service Bus Queue, Service Bus Topic, and Event Hubs. While configuring Message Routing, you can create routing rules to customize the route that matches a certain rule. Once set up, the incoming data is automatically routed to the endpoints by the IoT Hub. 
 
-In this tutorial, you learn how to:
+In this tutorial, you learn how to set up and use routing rules with IoT Hub. You will route messages from an IoT device to one of multiple services, including blob storage and a Service Bus queue. Messages to the Service Bus queue will be picked up by a Logic App and sent via e-mail. Messages that do not have routing specifically set up are sent to the default endpoint, and viewed in a PowerBI visualization.
+
+In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
 > * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
-> * Configure endpoints and routes in IoT hub. 
-> * Create a Logic App that is triggered when a message is added to the Service Bus queue.
-> * Download and run an app that simulates an IoT Device sending messages to the hub. 
-> * Create a PowerBI visualization for the default endpoint.
+> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
+> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
+> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
+> * Create a PowerBI visualization for data sent to the default endpoint.
 > * View the results ...
-> * ...in the Service Bus queue/e-mails.
+> * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
 > * ...in the PowerBI visualization.
 
