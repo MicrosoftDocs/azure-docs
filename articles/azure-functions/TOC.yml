@@ -123,6 +123,8 @@
       href: durable-functions-versioning.md
     - name: Performance and scale
       href: durable-functions-perf-and-scale.md
+    - name: Disaster recovery and geo-distribution
+      href: durable-functions-disaster-recovery-geo-distribution.md      
 - name: How-to guides
   items:
   - name: Develop
@@ -183,6 +185,8 @@
       href: durable-functions-phone-verification.md
     - name: Unit testing
       href: durable-functions-unit-testing.md
+    - name: Event publishing
+      href: durable-functions-event-publishing.md
 - name: Reference
   items:
   - name: Bindings

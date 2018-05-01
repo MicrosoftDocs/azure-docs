@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > * Filter the devices in the dashboard
 > * View real-time telemetry
 > * View device details
-> * View alarms from your devices
+> * View alerts from your devices
 > * View the system KPIs
 
 ## Prerequisites
@@ -61,39 +61,41 @@ To select the telemetry values to view, choose the telemetry type at the top of 
 
 ![Truck telemetry plot](media/iot-suite-remote-monitoring-monitor/dashboardselecttelemetry.png)
 
+<!-- 05/01 - this features appears to have been removed
 To pause the live telemetry display, choose **Flowing**. To re-enable the live display, choose **Pause**:
 
-![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)
+![Pause and restart telemetry display](media/iot-suite-remote-monitoring-monitor/dashboardtelemetrypause.png)-->
 
 ## Use the map
 
-The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alarms** or **Warnings** that are active for the device. A summary of the number of **Alarms** and **Warnings** displays to the left of the map.
+The map displays information about the simulated trucks selected by the current filter. You can zoom and pan the map to display locations in more or less detail. The device icons on the map indicate any **Alerts** or **Warnings** that are active for the device. A summary of the number of **Alerts** and **Warnings** displays to the left of the map.
 
+<!-- 05/01 - cannot select a deice on the map
 To view the device details, pan and zoom the map to locate the devices, then click the device on the map. The details include:
 
 * Recent telemetry values
 * Methods the device supports
 * Device properties
 
-![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)
+![View device details on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboarddevicedetail.png)-->
 
-## View alarms from your devices
+## View alerts from your devices
 
-The map highlights the devices in the current filter with **Alarms** and **Warnings**. The **System alarms** panel displays detailed information about the most recent alarms from your devices:
+The map highlights the devices in the current filter with **Alerts** and **Warnings**. The **Alerts** panel displays detailed information about the most recent alerts from your devices:
 
-![View system alarms on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
+![View system alerts on the dashboard](media/iot-suite-remote-monitoring-monitor/dashboardsystemalarms.png)
 
-You can use the **System alarms** filter to adjust the time span for recent alarms. By default, the panel displays alarms from the last hour:
+You can use the **Dashboard** filter to adjust the time span for recent alerts. By default, the panel displays alerts from the last hour:
 
-![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
+![Filter the alerts by time](media/iot-suite-remote-monitoring-monitor/dashboardalarmsfilter.png)
 
 ## View the system KPIs
 
 The **Dashboard** page displays system KPIs:
 
-![Filter the alarms by time](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
+![Dashboard KPIs](media/iot-suite-remote-monitoring-monitor/dashboardkpis.png)
 
-You can use the **System KPI** filter to adjust the time span for the KPI aggregation. By default, the panel displays KPIs aggregated over the last hour.
+You can use the **Dashboard** filter to adjust the time span for the KPI aggregation. By default, the panel displays KPIs aggregated over the last hour.
 
 ## Next steps
 
@@ -104,7 +106,7 @@ This tutorial showed you how to use the **Dashboard** page to filter and monitor
 > * Filter the devices in the dashboard
 > * View real-time telemetry
 > * View device details
-> * View alarms from your devices
+> * View alerts from your devices
 > * View the system KPIs
 
 Now that you have learned how to monitor your devices, the suggested next steps are to learn how to:
