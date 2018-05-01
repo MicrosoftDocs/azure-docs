@@ -41,7 +41,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Central US |  | X |
+| Central US | X |  |
 | East US | X | X |
 | East US 2 | X | X |
 | North Central US | X |  |
@@ -52,7 +52,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Canada East | X | X |
 | Brazil South | X | X |
 | North Europe | X | X |
-| West Europe | X | X |
+| West Europe |  | X |
 | UK West |  | X |
 | UK South |  | X |
 | East Asia | X |  |

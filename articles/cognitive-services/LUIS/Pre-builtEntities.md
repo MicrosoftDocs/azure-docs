@@ -8,7 +8,8 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann;v-geberr;
+ms.author: cahann
+ms.reviewer: v-geberr
 ---
 
 # Prebuilt entities

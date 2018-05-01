@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/28/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -73,13 +73,13 @@ Using multi-factor authentication helps protect resources from being accessed by
 
 ### Compliant device
 
-You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from trusted devices. Requiring a compliant device is one option you have to define what a trusted device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are joined to your Azure Active Directory and are marked as compliant by your MDM solution.
+You can configure conditional access policies that are device-based. The objective of a device-based conditional access policy is to grant access to the configured resources only from [managed devices](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Requiring a compliant device is one option you have to define what a managed device is. If this option is selected, your conditional access policy grants access to access attempts made with devices that are [registered](device-management-introduction.md) to your Azure Active Directory and are marked as compliant by your MDM solution.
 
 For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 
-### Domain-joined device
+### Hybrid Azure AD joined device
 
-Requiring a domain-joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your conditional access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
+Requiring a Hybrid Azure AD joined device is another option you have to configure device-based conditional access policies. This requirement refers to Windows desktops, laptops, and enterprise tablets that are joined to an on-premises Active Directory. If this option is selected, your conditional access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
 
 For more information, see [set up Azure Active Directory device-based conditional access policies](active-directory-conditional-access-policy-connected-applications.md).
 

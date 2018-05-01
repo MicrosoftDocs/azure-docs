@@ -3,7 +3,7 @@ title: Introduction to Azure Security Center security policies | Microsoft Docs
 description: Learn about Azure Security Center security policies and key capabilities.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: MBaldwin
 editor: ''
 
