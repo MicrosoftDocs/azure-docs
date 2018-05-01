@@ -6,10 +6,9 @@ author: wolfma61
 manager: onano
 
 ms.service: cognitive-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 05/07/2018
+ms.component: speech-service
+ms.topic: article
+ms.date: 05/01/2018
 ms.author: wolfma
 ---
 

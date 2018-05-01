@@ -1,11 +1,11 @@
 - name: Speech service documentation (Preview)
-#  href: index.yml
+  href: index.yml
 - name: Overview
   href: overview.md
   expanded: true
 - name: Quickstarts
   items:
-  - name: Start your free trial # OK
+  - name: Get set up # OK
     href: get-started.md
 - name: How-to guides
   items:

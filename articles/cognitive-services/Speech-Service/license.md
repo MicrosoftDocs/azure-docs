@@ -4,13 +4,11 @@ description: License page for the Cognitive Services Speech SDK
 services: cognitive-services
 author: wolfma61
 manager: onano
-uid: csspeech/license
 
 ms.service: cognitive-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 05/07/2018
+ms.topic: article
+ms.component: speech-service
+ms.date: 05/01/2018
 ms.author: wolfma
 ---
 # Microsoft Software License Terms

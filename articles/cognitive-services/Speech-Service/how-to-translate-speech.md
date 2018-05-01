@@ -6,7 +6,7 @@ author: v-jerkin
 manager: noellelacharite
 
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin

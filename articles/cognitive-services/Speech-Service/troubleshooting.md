@@ -6,9 +6,9 @@ author: wolfma61
 manager: onano
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/01/2018
 ms.author: wolfma
 ---
 # Troubleshooting
@@ -44,6 +44,8 @@ You can check to make sure you have a valid subscription key by running one of t
 > [!NOTE]
 > Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
 
+#### PowerShell
+
 ```Powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
@@ -53,6 +55,8 @@ $FetchTokenHeader = @{
 $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
 $OAuthToken
 ```
+
+#### cURL
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -64,6 +68,8 @@ If you use an authorization token for authentication, run one of the following c
 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step.
+
+### PowerShell
 
 ```Powershell
 ToDo : Check URL in this sample and in the next Curl sample
@@ -86,6 +92,8 @@ $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $
 $RecoResponse
 ```
 
+#### cURL
+
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
@@ -102,8 +110,8 @@ The error is most likely because no audio data is being sent to the service. Cou
 
 ## The `RecognitionStatus` in the response is `InitialSilenceTimeout`
 
-Audio data is usually the reason causing the issue. For example,
+Audio data is usually the reason causing the issue. For example:
 
-* there is a long stretch of silence at the beginning of the audio. The service will stop the recognition after a few seconds and return `InitialSilenceTimeout`.
-* the audio uses an unsupported codec format, which makes the audio data be treated as silence.
+* There is a long stretch of silence at the beginning of the audio. The service will stop the recognition after a few seconds and return `InitialSilenceTimeout`.
+* The audio uses an unsupported codec format, which causes the audio data to be treated as silence.
 
