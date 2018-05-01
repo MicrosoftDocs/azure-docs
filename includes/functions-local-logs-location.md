@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: functions
+author: ggailey777
+manager: cfowler
+ms.service: functions
+ms.topic: include
+ms.date: 05/01/2018
+ms.author: glenga
+ms.custom: include file
+---
+
 When the Functions host runs locally, it writes logs to the following path:
 
 ```
