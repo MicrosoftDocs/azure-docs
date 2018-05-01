@@ -446,7 +446,7 @@ If you chose to use Azure CLI, you first need to install and use CLI locally.  I
         ProvisioningState       : Succeeded
         ```
 
-If the workspace was created only in support monitoring the cluster and you no longer need it, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource Id** we copied earlier in step 4, you're going to need that.  
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md).  Don't forget about the **Workspace Resource Id** we copied earlier in step 4, you're going to need that.  
 
 ## Troubleshooting
 This section provides information to help troubleshoot issues with container health.
