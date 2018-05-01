@@ -29,7 +29,7 @@ The authentication initially used in the quickstart's chat room application is t
 
 For more information on the OAuth authentication APIs provided through GitHub, see [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/).
 
-You can use use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
+You can use any code editor to complete the steps in this quickstart. However, [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
@@ -397,7 +397,7 @@ az extension add -n signalr
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
 
-Update the values for the variables shown below. These variables will be reused for other operations that follow. In the Azure Cloud Shell, execute the following commands to set your variables:
+Update the values for the variables shown below. These variables will be reused for other operations that follow. Paste the updated script into your Azure Cloud Shell and press **Enter** to set your variables:
 
 ```azurecli-interactive
 #========================================================================
