@@ -13,11 +13,13 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** to train, test, and deploy an image classification model. 
+In this article, learn how to use **Azure Machine Learning Package for Computer Vision** (AMLPCV) to train, test, and deploy an image classification model. 
 
-A large number of problems in the computer vision domain can be solved using image classification approaches. These include building models that answer questions such as, "Is an OBJECT present in the image?" (OBJECT can be "dog", "car", "ship", etc.) as well as more complex questions, like "What class of eye disease severity is evinced by this patient's retinal scan?"
+A large number of problems in the computer vision domain can be solved using image classification. These problems include building models that answer questions such as:
++ _Is an OBJECT present in the image? For example, "dog", "car", "ship", and so on_
++ _What class of eye disease severity is evinced by this patient's retinal scan?_
 
-When building and deploying this model, you go through the following steps:
+When building and deploying this model with AMLPCV, you go through the following steps:
 1. Dataset Creation
 2. Image Visualization and annotation
 3. Image Augmentation
