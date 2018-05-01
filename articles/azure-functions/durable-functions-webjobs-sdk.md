@@ -26,7 +26,8 @@ The chaining Durable Functions sample is available in a WebJobs SDK version: dow
 
 This article assumes you're familiar with the basics of the WebJobs SDK, C# class library development for Azure Functions, and Durable Functions. If you need an introduction to these topics, see the following resources:
 
-* [Get started with the WebJobs SDK](../app-service/webjobs-get-started.md)
+d
+* [Get started with the WebJobs SDK](../app-service/webjobs-sdk-get-started.md)
 * [Create your first function using Visual Studio](functions-create-your-first-function-visual-studio.md)
 * [Durable Functions](durable-functions-sequence.md)
 
@@ -256,5 +257,5 @@ The main change introduced by 3.x is the use of .NET Core instead of .NET Framew
 
 ## Next steps
 
-To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](webjobs-sdk-how-to.md).
+To learn more about the WebJobs SDK, see [How to use the WebJobs SDK](../app-service/webjobs-sdk-how-to.md).
 
