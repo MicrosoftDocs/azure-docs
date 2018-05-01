@@ -34,7 +34,7 @@ The DevOps Project dashboard lets you monitor code commits, builds, and deployme
 
 ## Azure DevOps Project and VSTS
 
-DevOps Projects are powered by VSTS.
+DevOps Projects are powered by VSTS.  The Azure DevOps Project automatically creates a Git repository and release pipeline in your VSTS account.
 
 * Customize your build and release pipeline
 * Use pull requests to manage your codeflow & keep your quality high
