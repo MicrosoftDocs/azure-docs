@@ -10181,7 +10181,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericldap.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericldap",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap",
             "redirect_document_id": false
         },
         {
