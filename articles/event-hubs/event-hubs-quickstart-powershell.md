@@ -33,7 +33,7 @@ If you're using PowerShell locally, you must run the latest version of PowerShel
 
 ## Log on to Azure
 
-Once PowerShell is installed, install the Event Hubs PowerShell module and log on to Azure.
+Once PowerShell is installed, install the Event Hubs PowerShell module and log on to Azure. Note that the following steps 1 and 2 are not required if you're running commands in Cloud Shell:
 
 1. Install the Event Hubs PowerShell module:
 
@@ -59,50 +59,46 @@ Once PowerShell is installed, install the Event Hubs PowerShell module and log o
 
 A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups) is a logical collection of Azure resources, and you need a resource group to create an event hub. 
 
-The following example creates a resource group named `eventhubsResourceGroup` in the East US region:
+The following example creates a resource group in the East US region. Replace `myResourceGroup` with the name of the resource group you want to use:
 
-```powershell
-New-AzureRmResourceGroup –Name eventhubsResourceGroup –Location east
+```azurepowershell
+New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 ```
 
 ### Create an Event Hubs namespace
 
-Once your resource group is made, create an Event Hubs namespace within that resource group. An Event Hubs namespace provides a unique fully-qualified domain name in which you can create your event hub. Replace `<namespace_name>` with a unique name for your namespace.
+Once your resource group is made, create an Event Hubs namespace within that resource group. An Event Hubs namespace provides a unique fully-qualified domain name in which you can create your event hub. Replace `namespace_name` with a unique name for your namespace:
 
-```powershell
-New-AzureRmEventHubNamespace -ResourceGroupName eventhubsResourceGroup  -NamespaceName <namespace_name> -Location eastus
+```azurepowershell
+New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup  -NamespaceName namespace_name -Location eastus
 ```
 
 ### Create an event hub
 
-Now that you have an Event Hubs namespace, it's time to create an event hub within that namespace.
+Now that you have an Event Hubs namespace, create an event hub within that namespace:
 
-```powershell
-  New-AzureRmEventHub -ResourceGroupName eventhubsResourceGroup   -NamespaceName <eventhubs_namespace_name> -EventHubName <eventhub_name> -Location eastus 
+```azurepowershell
+  New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -Location eastus 
 ```
 
 ### Create a storage account for Event Processor Host
 
-Event Processor Host simplifies receiving events from Event Hubs by managing checkpoints and parallel receivers. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run:
+Event Processor Host simplifies receiving events from Event Hubs by managing checkpoints and parallel receivers. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run the following commands:
 
-```powershell
-# create a standard general-purpose storage account 
-New-AzureRmStorageAccount -ResourceGroupName eventhubsResourceGroup   
-  -Name <storage_account_name>
-  -Location eastus
-  -SkuName Standard_LRS 
-
-# retrieve the storage account key for accessing it
-Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup -Name $storageAccountName).Value[0]
-
+```azurepowershell
+# Create a standard general purpose storage account 
+New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location eastus -SkuName Standard_LRS 
+e
+# Retrieve the storage account key for accessing it
+Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_account_name
 ```
 
 ### Get the connection string
 
 A connection string is required to connect to your event hub and process events. To get your connection string, run:
 
-```powershell
-Get-AzureRmEventHubKey -ResourceGroupName eventhubsResourceGroup -NamespaceName <namespace_name> -EventHubName <eventhub_name> -Name RootManageSharedAccessKey
+```azurepowershell
+Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -Name RootManageSharedAccessKey
 ```
 
 ## Stream into Event Hubs
