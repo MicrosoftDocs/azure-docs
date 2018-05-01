@@ -42,7 +42,7 @@
     href: dns-reverse-dns-overview.md
 - name: How to
   items:
-  - name: Azure CLI
+  - name: Create custom DNS zone and record - Azure CLI
     href: private-dns-getstarted-cli.md
   - name: Manage DNS zones
     items:
