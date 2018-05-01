@@ -439,6 +439,8 @@ items:
       href: set-throughput.md
     - name: Firewall support
       href: firewall-support.md
+    - name: Setup Virtual network service endpoint
+      href: vnet-service-endpoint.md
     - name: Metrics
       href: use-metrics.md
     - name: Monitor SLAs
