@@ -8,7 +8,7 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 4/30/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
 
@@ -63,7 +63,7 @@ However, the static IP approach can become difficult to manage, and it is costly
 
 If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for PostgreSQL server. In this case, your VMs could communicate with Azure Database for PostgreSQL without needing any virtual network rules or IP rules.
 
-However as of January 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
+However as of May 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -103,16 +103,13 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure Database for PostgreSQL, the virtual network rules feature has the following limitations:
 
-- At present, an Azure Web App in a subnet that has **Service Endpoints** turned on does not yet function as expected. We are working on enabling this functionality.
-    - Until this feature is fully implemented, we recommend that you move your Web App to a different subnet that does not have service endpoints turned on for Azure Database for PostgreSQL.
-
 - In the firewall for your Azure Database for PostgreSQL, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure Database for PostgreSQL.
 
 - Each Azure Database for PostgreSQL server can have up to 128 ACL entries for any given virtual network.
 
 - Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
 
-- Turning ON virtual network service endpoints to Azure Database for PostgreSQL also enables the endpoints for the Azure Database for MySQL and Azure SQL Database services.
+- Turning ON virtual network service endpoints to Azure Database for PostgreSQL using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
