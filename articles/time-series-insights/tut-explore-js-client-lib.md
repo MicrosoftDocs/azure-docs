@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bryanla
-# Customer intent: As a developer, I want learn about the TSI JavaScript library, so I can use the APIs in my own applications.
+# Customer intent: As a developer, I want learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
 
 # Tutorial: Explore the Time Series Insights JavaScript client library
@@ -57,27 +57,29 @@ Throughout this tutorial, you use a Time Series Insights sample application to e
 3. After successful sign-in, you should see a page similar to the following, containing several styles of charts, populated with TSI data:
    ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
 
-### Page source code and structure
+### Page source and structure
 
-Now let's view the source code behind the page that rendered in your browser as the TSI sample application. We won't walk through everything, but we discuss the major sections of the code, and give you sense of what the page is doing:
+Now let's view the source code behind the page that rendered in your browser as the TSI sample application. You won't walk through everything, but you'll learn about the major sections of the code, giving you sense of what the page is doing:
 
 1. Open "Developer Tools" in your browser, and inspect the elements that make up the current page, also known as the HTML or DOM tree:
 
-2. The page contains, among many other things, the following major sections:
+   ![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts.png)
+
+2. You can see in the image above that the page contains, among many other things, the following major sections:
    - The \<head\> element, which pulls in additional files to assist in the functioning of the page:
-     - Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides  OAuth 2.0 authentication (sign-in) and acquisition of an OAuth access token for accessing APIs.
-     - Additional style sheets (sampleStyles.css, tsiclient.css) - also known as CSS, these are used to control page styling, such as colors, fonts, spacing, etc.
-     - TSI Client library (tsiclient.js) - this is the JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - Log In dialog
-   - Main page 
-     - layout for the chart controls
-     - JavaScript that manages TSI environment API calls, and rendering of the chart controls.
+     - Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+     - Additional style sheets (`sampleStyles.css`, `tsiclient.css`) - also known as CSS, these are used to control page styling details, such as colors, fonts, spacing, etc.
+     - TSI Client library (`tsiclient.js`) - this is the TSI JavaScript library. used by the page to call TSI APIs and render chart controls on the page.
+   - The \<div\> section that contains the Log In dialog (`id="loginModal"`)
+   - The \<div\> section that contains the header row, used for status messages and sign-in information (`class="header"`)
+   - The \<div\> section that contains the rendering of the chart controls (`class="chartsWrapper"`)
+   - The \<script\> section which contains all of the JavaScript used to control the page.
 
 ### TSI JavaScript library
 
 Fundamentally, the library provides an abstraction for two important categories :
-- the TSI environment REST APIs used for querying data
-- the charting controls used for rendering data in a web page
+- wrappers for calling the TSI environment REST APIs to query data
+- several types of charting controls used for rendering data in a web page
 
 As you explore more of the source code below, and walk through specific examples, you will see the programming model and API patterns take shape.
 
