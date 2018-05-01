@@ -92,8 +92,6 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 
 When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. **Azure CDN Standard/Premium from Verizon** supports both `ETag` and `Last-Modified` validators by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** supports only `Last-Modified` by default.
 
-For **Azure CDN Standard from Microsoft** caching to work, the origin server must support HTTP HEAD requests and the content length must be the same length for HEAD and GET responses.  
-
 **ETag:**
 - **Azure CDN Standard/Premium from Verizon** supports `ETag` by default, while **Azure CDN Standard from Microsoft** and **Azure CDN Standard from Akamai** do not.
 - `ETag` defines a string that is unique for every file and version of a file. For example, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
@@ -110,20 +108,22 @@ For **Azure CDN Standard from Microsoft** caching to work, the origin server mus
 
 Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN Premium from Verizon** only, you can use the rules engine to customize some of these conditions.
 
-|                   | Azure CDN from Verizon | Azure CDN from Akamai            |
-|------------------ |------------------------|----------------------------------|
-| HTTP status codes | 200                    | 200, 203, 300, 301, 302, and 401 |
-| HTTP method       | GET                    | GET                              |
-| File size         | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+|                   | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
+|-------------------|-----------------------------------|------------------------|------------------------------|
+| HTTP status codes | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| HTTP methods      | GET, HEAD                         | GET                    | GET                          |
+| File size limits  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+
+For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it had received a GET request.
 
 ## Default caching behavior
 
 The following table describes the default caching behavior for the Azure CDN products and their optimizations.
 
-|                    | Verizon: general web delivery | Verizon: DSA | Akamai: general web delivery | Akamai: DSA | Akamai: large file download | Akamai: general or VOD media streaming |
-|--------------------|--------|------|-----|----|-----|-----|
-| **Honor origin**   | Yes    | No   | Yes | No | Yes | Yes |
-| **CDN cache duration** | 7 days | None | 7 days | None | 1 day | 1 year |
+|    | Microsoft: General web delivery | Verizon: General web delivery | Verizon: DSA | Akamai: General web delivery | Akamai: DSA | Akamai: Large file download | Akamai: general or VOD media streaming |
+|------------------------|--------|-------|------|--------|------|-------|--------|
+| **Honor origin**       | Yes    | Yes   | No   | Yes    | No   | Yes   | Yes    |
+| **CDN cache duration** | 2 days |7 days | None | 7 days | None | 1 day | 1 year |
 
 **Honor origin**: Specifies whether to honor the [supported cache-directive headers](#http-cache-directive-headers) if they exist in the HTTP response from the origin server.
 
