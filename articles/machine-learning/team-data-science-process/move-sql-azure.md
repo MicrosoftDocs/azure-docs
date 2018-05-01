@@ -3,7 +3,7 @@ title: Move data to an Azure SQL Database for Azure Machine Learning | Microsoft
 description: Create SQL Table and load data to SQL Table
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Move data to an Azure SQL Database for Azure Machine Learning

@@ -71,6 +71,7 @@
 #### [Manage device identities](iot-hub-devguide-identity-registry.md)
 #### [Control access to IoT Hub](iot-hub-devguide-security.md)
 #### [Understand device twins](iot-hub-devguide-device-twins.md)
+#### [Understand module twins](iot-hub-devguide-module-twins.md)
 #### [Invoke direct methods on a device](iot-hub-devguide-direct-methods.md)
 #### [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
 #### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
@@ -106,6 +107,9 @@
 #### [.NET back end/.NET device](iot-hub-csharp-csharp-twin-getstarted.md)
 #### [Java back end/Java device](iot-hub-java-java-twin-getstarted.md)
 #### [Python back end/Python device](iot-hub-python-twin-getstarted.md)
+### Get started with module twins
+#### [Portal back end/.NET device](iot-hub-portal-csharp-module-twin-getstarted.md)
+#### [.NET back end/.NET device](iot-hub-csharp-csharp-module-twin-getstarted.md)
 ### Use direct methods
 #### [Node.js back end/Node.js device](iot-hub-node-node-direct-methods.md)
 #### [.NET back end/Node.js device](iot-hub-csharp-node-direct-methods.md)
