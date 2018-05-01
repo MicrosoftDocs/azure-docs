@@ -19076,7 +19076,7 @@
         "redirect_document_id": false
       },
           {
-            "source_path": "articles/active-directory/privilegd-identity-management/active-directory-securing-privileged-access.md",
+            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
             "redirect_url": "/azure/active-directory/admin-roles-best-practices",
             "redirect_document_id": false
         }
