@@ -127,5 +127,5 @@ For more information about specific questions or problems, see [Troubleshooting 
 ## Next steps
 
 + [Cognitive search documentation](cognitive-search-resources-documentation.md)
-+ [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
-+ [Tutorial: Enriched indexing of Azure blob content](cognitive-search-tutorial-blob.md)
++ [Quickstart: Try cognitive search in a portal walkthrough](cognitive-search-quickstart-blob.md)
++ [Tutorial: Learn the cognitive search APIs](cognitive-search-tutorial-blob.md)
