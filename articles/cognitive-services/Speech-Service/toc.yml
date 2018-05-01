@@ -3,6 +3,30 @@
 - name: Overview
   href: overview.md
   expanded: true
+- name: Quickstarts
+  items:
+  - name: Start your free trial # OK
+    href: get-started.md
+- name: How-to guides
+  items:
+    - name: Authenticate with the Speech service # OK
+      href: how-to-authenticate.md
+    - name: Migrate to the Speech service # OK
+      href: how-to-migrate.md
+    - name: Recognize speech # OK
+      href: how-to-speech-to-text.md
+    - name: Customize speech models # OK
+      href: how-to-customize-speech-models.md
+    - name: Synthesize speech # OK
+      href: how-to-text-to-speech.md
+    - name: Customize voice fonts # OK
+      href: how-to-customize-voice-font.md
+    - name: Translate speech # OK
+      href: how-to-translate-speech.md
+#    - name: Customize device wake word # OK
+#      href: speech-devices-sdk-create-kws.md
+- name: Samples # OK
+  href: samples.md
 - name: Concepts
   items:
   - name: Speech to Text # OK
@@ -15,28 +39,6 @@
     href: speech-sdk.md
 #  - name: Speech Devices SDK # OK
 #    href: speech-devices-sdk.md
-- name: How-to guides
-  items:
-    - name: Get started # OK
-      href: get-started.md
-    - name: Authenticate # OK
-      href: how-to-authenticate.md
-    - name: Migrate to the Speech service # OK
-      href: how-to-migrate.md
-    - name: Speech to Text # OK
-      href: how-to-speech-to-text.md
-    - name: Custom Speech to Text models # OK
-      href: how-to-customize-speech-models.md
-    - name: Text to Speech # OK
-      href: how-to-text-to-speech.md
-    - name: Custom voice fonts # OK
-      href: how-to-customize-voice-font.md
-    - name: Speech Translation # OK
-      href: how-to-translate-speech.md
-#    - name: Customize device wake word # OK
-#      href: speech-devices-sdk-create-kws.md
-- name: Samples # OK
-  href: samples.md
 - name: Reference
   items:
   - name: Supported languages # OK
