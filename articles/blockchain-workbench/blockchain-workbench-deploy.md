@@ -128,7 +128,7 @@ The application ID and tenant information are required for deployment. Collect a
 
     | Setting to store  | Use in deployment |
     |------------------|-------------------|
-    | Application ID | Active Directory Blockchain client app registration application ID |
+    | Application ID | Azure Active Directory setup > Application ID |
 
 ### Create an Azure AD Key Vault application
 
@@ -143,7 +143,7 @@ Blockchain Workbench deployment requires registration of an Azure AD Key Vault a
     |---------|---------|
     | Name | `Blockchain Key Vault app` |
     | Application type | Web app / API |
-    | Sign-on URL | `https://keyvaultclient.{tenant}` |
+    | Sign-on URL | `https://keyvaultclient |
 
 5. Select **Create** to register the Azure AD Key Vault application.
 
@@ -151,9 +151,9 @@ Blockchain Workbench deployment requires registration of an Azure AD Key Vault a
 
 Collect and store the Active Directory tenant domain name where the applications are registered. 
 
-3. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Custom domain names**. Copy and store the domain name.
+In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Custom domain names**. Copy and store the domain name.
 
-    ![Domain name](media/blockchain-workbench-deploy/domain-name.png)
+![Domain name](media/blockchain-workbench-deploy/domain-name.png)
 
 ## Deploy Blockchain Workbench
 
@@ -188,15 +188,16 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
 6.  Select **OK** to finish the basic setting configuration section.
 
-7.  Complete the **AAD Parameters** settings.
+7.  Complete the **Azure Active Directory setup**.
 
-    ![AAD Parameters](media/blockchain-workbench-deploy/blockchain-workbench-settings-aad.png)
+    ![Azure AD Setup](media/blockchain-workbench-deploy/blockchain-workbench-settings-aad.png)
 
     | Setting | Description  |
     |---------|--------------|
-    | Active Directory Blockchain Client App Registration Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
-    | Active Directory Blockchain Client App Registration Application Key | Use the Application key from the Blockchain client app registration collected in the [Add Graph API key to application](#add-graph-api-key-to-application) prerequisite section. |
-    | Active Directory Tenant Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
+    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
+    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | Application Key | Use the Application key from the Blockchain client app registration collected in the [Add Graph API key to application](#add-graph-api-key-to-application) prerequisite section. |
+
 
 8.  Click **OK** to finish the Azure AD Parameters configuration section.
 
@@ -206,25 +207,24 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Number of nodes | Choose the number of Ethereum PoA validator nodes to be deployed in your network. |
-    | Storage Performance | Choose the preferred VM storage performance for your blockchain network. |
-    | Virtual Machine Size | Choose the preferred VM size for your blockchain network. |
+    | Number of blockchain nodes | Choose the number of Ethereum PoA validator nodes to be deployed in your network. |
+    | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
+    | Virtual machine size | Choose the preferred VM size for your blockchain network. |
 
 10. Click **OK** to finish the network size and performance section.
 
-11. Complete the **Operations Management Suite (OMS)** settings.
+11. Complete the **Azure Monitor** settings.
 
-    ![OMS settings](media/blockchain-workbench-deploy/blockchain-workbench-settings-oms.png)
+    ![Azure Monitor](media/blockchain-workbench-deploy/blockchain-workbench-settings-oms.png)
 
     | Setting | Description  |
     |---------|--------------|
-    | Monitoring | Choose whether you want OMS to be used to monitor your blockchain network. |
-    | Connect to existing OMS instance | Choose whether you want to use an existing OMS instance or create a new one. 
-    | OMS Workspace Location | If creating a new OMS workspace, choose the l location to create the instance.
+    | Monitoring | Choose whether you want Azure Monitor to be used to monitor your blockchain network. |
+    | Connect to existing OMS instance | Choose whether you want to use an existing Operations Management Suite instance or create a new one. 
 
-12. Click **OK** to finish the OMS section.
+12. Click **OK** to finish the Azure Monitor section.
 
-13. Review the summary to make sure all your parameters are accurate.
+13. Review the summary to verify your parameters are accurate.
 
     ![Summary](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
 
