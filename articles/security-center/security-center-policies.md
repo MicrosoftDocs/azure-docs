@@ -3,7 +3,7 @@ title: Set security policies in Azure Security Center | Microsoft Docs
 description: This article helps you configure security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
