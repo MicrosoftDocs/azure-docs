@@ -395,59 +395,44 @@ The steps in this section use the *signalr* extension for the Azure CLI. Execute
 az extension add -n signalr
 ```
 
-When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the recommended group name, *SignalRTestResources*.
-
-Update the values for the variables shown below. These variables will be reused for other operations that follow. Paste the updated script into your Azure Cloud Shell and press **Enter** to set your variables:
-
-```azurecli-interactive
-#========================================================================
-#=== Update this with the actual name of your SignalR Service         ===
-#=== resource. For example, signalrtestsvc48778624.                   ===
-#========================================================================
-ResourceName=mySignalRresourcename
-
-#========================================================================
-#=== Update myWebAppName with a unique name for your web app.         ===
-#=== For example, signalrtestwebapp22665120.                          ===
-#========================================================================
-WebAppName=myWebAppName
-WebAppPlanName=$WebAppName"Plan"
-
-#========================================================================
-#=== Update these values based on your GitHub OAuth App registration. ===
-#========================================================================
-GitHubClientId=1234567890
-GitHubClientSecret=1234567890
-
-#========================================================================
-#=== Update these values based to the desired deployment username and ===
-#=== password. This deployment user will be used to deploy your code. ===
-#========================================================================
-deploymentUser=myUserName
-deploymentUserPassword=myPassword
-
-#========================================================================
-#=== Update this group name if you did not use the recommended group  ===
-#=== name, SignalRTestResources.                                      ===
-#========================================================================
-ResourceGroupName=SignalRTestResources
-
-```
+When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the group name recommended in previous tutorials, *SignalRTestResources*.
 
 
 ### Create the web app and plan
 
-In the Azure Cloud Shell, paste the following script to create a new App Service plan and web app.
+Copy the text for the commands below and update the parameters. Paste the updated script into the Azure Cloud Shell, and press **Enter** to create a new App Service plan and web app.
 
 ```azurecli-interactive
+#========================================================================
+#=== Update these variable for your resource group name.              ===
+#========================================================================
+ResourceGroupName=SignalRTestResources
+
+#========================================================================
+#=== Update these variable for your web app.                          ===
+#========================================================================
+WebAppName=myWebAppName
+WebAppPlan=myAppServicePlanName
+
 # Create an App Service plan.
-az appservice plan create --name $WebAppPlanName --resource-group $ResourceGroupName --sku FREE
+az appservice plan create --name $WebAppPlan --resource-group $ResourceGroupName \
+    --sku FREE
 
 # Create the new Web App
-az webapp create --name $WebAppName --resource-group $ResourceGroupName --plan $WebAppPlanName
+az webapp create --name $WebAppName --resource-group $ResourceGroupName \
+    --plan $WebAppPlan
 
 
 ```
+
+
+| Parameter | Description |
+| -------------------- | --------------- |
+| ResourceGroupName | This resource group name was suggested in previous tutorials. It is a good idea to keep all tutorial resources grouped together. Use the same resource group you used in the previous tutorials. | 
+| WebAppPlan | Enter a new, unique, App Service Plan name. | 
+| WebAppName | This will be the name of the new web app and part of the URL. Use a unique name. For example, signalrtestwebapp22665120.   | 
+
+
 
 ### Add app settings to the web app
 
@@ -457,29 +442,56 @@ In this section, you will add app settings for the following components:
 * GitHub OAuth app client ID
 * GitHub OAuth app client secret
 
-In the Azure Cloud Shell, paste the following script to add the app settings:
+Copy the text for the commands below and update the parameters. Paste the updated script into the Azure Cloud Shell, and press **Enter** to add the app settings:
 
 ```azurecli-interactive
+#========================================================================
+#=== Update these variables for your GitHub OAuth App.                ===
+#========================================================================
+GitHubClientId=1234567890
+GitHubClientSecret=1234567890
+
+#========================================================================
+#=== Update these variables for your resources.                       ===
+#========================================================================
+ResourceGroupName=SignalRTestResources
+SignalRServiceResource=mySignalRresourcename
+WebAppName=myWebAppName
+
 # Get the SignalR Service resource hostName
-signalRhostname=$(az signalr show --name $ResourceName --resource-group $ResourceGroupName --query hostName -o tsv)
+signalRhostname=$(az signalr show --name $SignalRServiceResource \
+    --resource-group $ResourceGroupName --query hostName -o tsv)
 
 # Get the SignalR primary key 
-signalRprimarykey=$(az signalr key list --name $ResourceName --resource-group $ResourceGroupName --query primaryKey -o tsv)
+signalRprimarykey=$(az signalr key list --name $SignalRServiceResource \
+    --resource-group $ResourceGroupName --query primaryKey -o tsv)
 
 # Form the connection string to the service resource
 connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 
 #Add an app setting to the web app for the SignalR connection
-az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
-  --settings "Azure:SignalR:ConnectionString=$connstring" 
+az webapp config appsettings set --name $WebAppName \
+    --resource-group $ResourceGroupName \
+    --settings "Azure:SignalR:ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
-az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
-  --settings "GitHubClientId=$GitHubClientId" 
-az webapp config appsettings set --name $WebAppName --resource-group $ResourceGroupName \
-  --settings "GitHubClientSecret=$GitHubClientSecret" 
+az webapp config appsettings set --name $WebAppName \
+    --resource-group $ResourceGroupName \
+    --settings "GitHubClientId=$GitHubClientId" 
+az webapp config appsettings set --name $WebAppName \
+    --resource-group $ResourceGroupName \
+    --settings "GitHubClientSecret=$GitHubClientSecret" 
 
 ```
+
+| Parameter | Description |
+| -------------------- | --------------- |
+| GitHubClientId | Assign this variable the secret Client Id for your GitHub OAuth App. |
+| GitHubClientSecret | Assign this variable the secret password for your GitHub OAuth App. |
+| ResourceGroupName | Update this variable to be the same resource group name you used in the previous section. | 
+| SignalRServiceResource | Update this variable with the name of the SignalR Service resource you created in the quickstart. For example, signalrtestsvc48778624. | 
+| WebAppName | Update this variable with the name of the new web app you created in the previous section. | 
+
 
 
 ### Configure the web app for local Git deployment
@@ -487,14 +499,36 @@ az webapp config appsettings set --name $WebAppName --resource-group $ResourceGr
 In the Azure Cloud Shell, paste the following script. This script creates a new deployment user name and password that you will use when deploying your code to the web app with Git. The script also configures the web app for deployment with a local Git repository, and returns the Git deployment URL.
 
 ```azurecli-interactive
+#========================================================================
+#=== Update these variables for your resources.                       ===
+#========================================================================
+ResourceGroupName=SignalRTestResources
+WebAppName=myWebAppName
+
+#========================================================================
+#=== Update these variables for your deployment user.                 ===
+#========================================================================
+DeploymentUserName=myUserName
+DeploymentUserPassword=myPassword
+
 # Add the desired deployment user name and password
-az webapp deployment user set --user-name $deploymentUser --password $deploymentUserPassword
+az webapp deployment user set --user-name $DeploymentUserName \
+    --password $DeploymentUserPassword
 
 # Configure Git deployment and note the deployment URL in the output
-az webapp deployment source config-local-git --name $WebAppName --resource-group $ResourceGroupName \
-  --query [url] -o tsv
+az webapp deployment source config-local-git --name $WebAppName \
+    --resource-group $ResourceGroupName \
+    --query [url] -o tsv
 
 ```
+
+| Parameter | Description |
+| -------------------- | --------------- |
+| DeploymentUserName | Choose a new deployment user name. |
+| DeploymentUserPassword | Choose a password for the new deployment user. |
+| ResourceGroupName | Use the same resource group name you used in the previous section. | 
+| WebAppName | This will be the name of the new web app you created previously. | 
+
 
 Make a note the Git deployment URL returned from this command. You will use this URL later.
 
