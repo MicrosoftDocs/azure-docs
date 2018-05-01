@@ -20,6 +20,9 @@ ms.author: xujing-ms
 # Azure Hybrid Benefit for Windows Server
 For customers with Software Assurance, Azure Hybrid Benefit for Windows Server allows you to use your on-premises Windows Server licenses and run Windows virtual machines on Azure at a reduced cost. You can use Azure Hybrid Benefit for Windows Server to deploy new virtual machines with Windows OS. This article goes over the steps on how to deploy new VMs with Azure Hybrid Benefit for Windows Server and how you can update existing running VMs. For more information about Azure Hybrid Benefit for Windows Server licensing and cost savings, see the [Azure Hybrid Benefit for Windows Server licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
+> [!NOTE]
+> Each 2-processor license or each set of 16-core licenses are entitled to two instances of up to 8 cores, or one instance of up to 16 cores. The Azure Hybrid Benefit for Standard Edition licenses can only be used once either on-premises or in Azure. Datacenter Edition benefits allow for simultaneous usage both on-premises and in Azure.
+>
 
 > [!Important]
 > Using Azure Hybrid Benefit for Windows Server with VMs that are charged for additional software such as SQL Server or any of the third-party marketplace images is now available in all regions.
@@ -34,7 +37,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 There are few ways to use Windows virtual machines with the Azure Hybrid Benefit:
 
 1. You can deploy VMs from one of the provided  [Windows Server images on the Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
-2. You can  [upload a custom VM](#upload-a-windows-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+2. You can  upload a custom VM and deploy using a Resource Manager template or Azure PowerShell
 3. You can toggle and convert existing VM between running with Azure Hybrid Benefit or pay on-demand cost for Windows Server
 4. You can also apply Azure Hybrid Benefit for Windows Server on virtual machine scale set as well
 
