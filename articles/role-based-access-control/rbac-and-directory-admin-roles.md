@@ -101,6 +101,8 @@ At a high level, Azure RBAC roles control permissions to manage Azure resources,
 > | Cannot be used for classic Azure deployments | Can manage classic Azure deployments |
 > | Role information can be accessed in Azure portal, Azure PowerShell, REST API | Role information can be accessed in Azure admin portal, Office 365 admin portal, Microsoft Graph, AzureAD PowerShell |
 
+![Azure RBAC versus Azure AD administrator roles](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
+
 ## What are the different types of roles?
 
 Roles are always evolving, but here is a list of roles to help you understand the different types.
