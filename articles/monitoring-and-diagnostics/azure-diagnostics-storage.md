@@ -80,5 +80,5 @@ Several tools are available to view the data after it is transferred to storage.
 * [Azure Management Studio](http://www.cerebrata.com/products/azure-management-studio/introduction) includes Azure Diagnostics Manager which allows you to view, download and manage the diagnostics data collected by the applications running on Azure.
 
 ## Next Steps
-[Trace the flow in a Cloud Services application with Azure Diagnostics](cloud-services-dotnet-diagnostics-trace-flow.md)
+[Trace the flow in a Cloud Services application with Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 
