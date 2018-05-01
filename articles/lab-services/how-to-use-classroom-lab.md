@@ -22,13 +22,15 @@ This article describes how to access a classroom lab, connect to the VM in the l
 
 ## View all the classroom labs
 
-Navigate to the **registration URL** that you received from the professor/educator. Confirm that you see the labs that you have access to.     
+1. Navigate to the **registration URL** that you received from the professor/educator. 
+2. Sign in to the service using your school account to complete the registration. 
+3. Once registered, confirm that you see the virtual machines for the labs you have access to. 
 
-![View all labs](./media/how-to-use-classroom-lab/all-labs.png)
+    ![View all labs](./media/how-to-use-classroom-lab/all-labs.png)
 
 ## Connect to the virtual machine in a classroom lab
 
-1. Select **Connect** on the tile that represents the classroom lab. It takes sometime for the virtual machine to be ready.
+1. Select **Connect** on the tile that represents the virtual machine of the lab that you want to access.
 
     ![View all labs](./media/how-to-use-classroom-lab/connect-button.png)
 2. It takes a few minutes for the virtual machine to be ready.
@@ -37,7 +39,7 @@ Navigate to the **registration URL** that you received from the professor/educat
 3. Save the RDP file to the hard disk and open it. 
     
     ![Save the RDP file](./media/how-to-use-classroom-lab/save-rdp-file.png)
-4. Use the **user name** and **password** you get from your educator/professor to log in to the machine. 
+4. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
 
 ## Stop the virtual machine in a classroom lab
 
