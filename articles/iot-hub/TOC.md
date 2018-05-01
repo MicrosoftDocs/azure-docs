@@ -17,11 +17,7 @@
 # Tutorials
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
-## Routing messages
-### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-### [Java](iot-hub-java-java-process-d2c.md)
-### [Node.js](iot-hub-node-node-process-d2c.md)
-### [Python](iot-hub-python-python-process-d2c.md)
+## [Routing messages](tutorial-routing.md)
 ## Send cloud-to-device messages
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
