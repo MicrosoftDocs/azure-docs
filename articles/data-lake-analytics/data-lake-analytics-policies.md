@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/05/2016
+ms.date: 04/30/2018
 ms.author: saveenr
 
 ---
 # Manage Azure Data Lake Analytics using policies
+
+Using account policies, you can control how resources an Azure Data Lake Analytics account are used. These policies allow you to control the cost of using Azure Data Lake Analytics. For example, with these policies you can prevent unexpected cost spikes by limiting how many AUs the account can simultaneously use.
 
 ## Account-level policies
 
