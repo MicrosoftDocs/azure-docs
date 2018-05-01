@@ -74,13 +74,21 @@ Add an ```enriched``` field as part of your index definition for debugging purpo
 }
 ```
 
-## Tip 5: Extend processing beyond the 24-hour window
+## Tip 5: Expected content fails to appear
+
+Missing content could be the result of documents getting dropped during indexing. Free and Basic tiers have low limits on document size. Any file exceeding the limit is dropped during indexing.
+
+You can check for dropped documents in the Azure portal. In the search service dashboard, double-click the Indexers tile. Review the ratio of successful documents indexed. If it is not 100%, you can click the ratio to get more detail. 
+
+If the problem is related to file size, you might see an error like this: "The blob <file-name>" has the size of <file-size> bytes, which exceeds the maximum size for document extraction for your current service tier." For more information on indexer limits, see [Service limits](search-limits-quotas-capacity.md).
+
+## Tip 6: Extend processing beyond the 24-hour window
 
 Image analysis is computationally-intensive for even simple cases, so when images are especially large or complex, processing times can exceed the maximum time allowed. If processing fails to complete within a 24-hour period for on-demand processing, switch to a schedule to have the indexer pick up processing where it left off. 
 
 For scheduled indexers, indexing resumes on schedule at the last known good document. By using a recurring schedule, the indexer can work its way through the image backlog over a series of hours or days, until all un-processed images are processed. For more information on schedule syntax, see [Step 3: Create-an-indexer](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 
-## Tip 6: Increase indexing throughput
+## Tip 7: Increase indexing throughput
 
 For [parallel indexing](search-howto-reindex.md#parallel-indexing), place your data into multiple containers or multiple virtual folders inside the same container. Then create multiple datasource and indexer pairs. All indexers can use the same skillset and write into the same target search index, so your search app doesn’t need to be aware of this partitioning.
 For more information, see [Indexing Large Datasets](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
