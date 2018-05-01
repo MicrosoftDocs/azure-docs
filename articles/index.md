@@ -934,6 +934,12 @@ featureFlags:
                                                 <p>Power BI Embedded</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/azure-netapp-files/">
+                                                <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                <p>Azure NetApp Files</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
@@ -1858,6 +1864,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Site Recovery</h3>
                                                     <p>Orchestrate protection and recovery of private clouds</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-netapp-files/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="/azure/azure-netapp-files/media/index/netapp.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure NetApp Files</h3>
+                                                    <p>Enterprise-grade NFS file service powered by NetApp</p>
                                                 </div>
                                             </div>
                                         </div>
