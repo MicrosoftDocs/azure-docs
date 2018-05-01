@@ -35,7 +35,7 @@ Here are some of the **use cases for managed labs**:
 
 
 ## Custom labs
-You may have scenarios where you want to manage all infrastructure and configuration yourself, within your own subscription. To do so, you can create a custom with Azure DevTest Labs in the Azure portal. For these labs, you do not need to create a lab account. These labs do not show up in the lab account (which exists for the managed labs).  
+You may have scenarios where you want to manage all infrastructure and configuration yourself, within your own subscription. To do so, you can create a custom lab with Azure DevTest Labs in the Azure portal. For these labs, you do not need to create a lab account. These labs do not show up in the lab account (which exists for the managed labs).  
 
 Here are some of the **use cases for using custom labs**: 
 
