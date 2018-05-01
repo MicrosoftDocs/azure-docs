@@ -386,7 +386,7 @@ The Service Bus queue is to be used for receiving messages designated as critica
 
 ## Set up Azure Stream Analytics
 
-To see the data in a PowerBI visualization, first set up a Stream Analytics job to retrieve the data. 
+To see the data in a PowerBI visualization, first set up a Stream Analytics job to retrieve the data. Remember that only the messages where the **level** is **normal** are sent to the default endpoint, and will be retrieved by the Stream Analytics job for the PowerBI visualization.
 
 ### Create the Stream Analytics job
 
@@ -470,9 +470,9 @@ To set up the PowerBI report, you need data, so you'll set up PowerBI after crea
 
 Earlier in the script setup section, you set up a device to simulate using an IoT device. In this section, you download a .NET console app that simulates a device that sends device-to-cloud messages to an IoT hub. This application sends messages for each of the different routing methods. 
 
-Download the solution for [IoT Device Simulation](http://wikipedia.org). 
+Download the solution for the [IoT Device Simulation](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). This downloads a repo with several applications in it; the solution you are looking for is in Tutorials/Routing/SimulatedDevice/.
 
-After opening the app, open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
+Double-click on the solution file (SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{iot hub hostname}` with the IoT hub host name. The format of the IoT hub host name is **{iot-hub-name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHub.azure-devices.net**. Next, substitute `{device key}` with the device key you saved earlier when setting up the simulated device. 
 
    ```csharp
         static string myDeviceId = "contoso-test-device";
