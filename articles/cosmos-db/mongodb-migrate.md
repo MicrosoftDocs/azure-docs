@@ -48,7 +48,7 @@ This tutorial covers the following tasks:
 
    The right pane contains all the information that you need to successfully connect to your account.
 
-       ![Connection String blade](./media/mongodb-migrate/ConnectionStringBlade.png)
+   ![Connection String blade](./media/mongodb-migrate/ConnectionStringBlade.png)
 
 ## Import data to the API for MongoDB by using mongoimport
 
