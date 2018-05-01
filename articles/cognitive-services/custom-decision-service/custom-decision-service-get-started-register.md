@@ -8,7 +8,8 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
+ms.reviewer: marcozo;alekh;marossi
 ---
 
 # Register your app with Custom Decision Service
