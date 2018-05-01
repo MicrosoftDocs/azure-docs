@@ -29,6 +29,8 @@ The Speech to Text API offers the following features:
 
 - Natural-language understanding. Through integration with [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
 
+## API capabilities
+
 Some capabilities of the Speech to Text API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
 
 | Use case | REST | WebSockets | SDKs |
@@ -40,10 +42,10 @@ Some capabilities of the Speech to Text API are not available via REST. The foll
 
 \* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.*
 
-## Next steps
+## Next steps:
 
 > [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
+> [Start your free trial](https://azure.microsoft.com/try/cognitive-services/)
 
 > [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/en-us/try/cognitive-services/)
+> [Start your free trial](https://azure.microsoft.com/try/cognitive-services/)

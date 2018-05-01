@@ -40,12 +40,12 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text 
 
 2. Get a recognizer from the factory. Three different types of recognizers are available. Each type can use your device's default microphone, an audio stream, or audio from a file.
 
-Recognizer | Function
--|-
-Speech recognizer|Provides text transcription of speech
-Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition
-Translation recognizer|Translates the transcribed text to another language (see [Speech Translation](how-to-translate-speech.md))
-
+    Recognizer | Function
+    -|-
+    Speech recognizer|Provides text transcription of speech
+    Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition
+    Translation recognizer|Translates the transcribed text to another language (see [Speech Translation](how-to-translate-speech.md))
+    
 4. Hook up events for asynchronous operation, if desired. The recognizer will then call your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
 
 5. Start recognition.
