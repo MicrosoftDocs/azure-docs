@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/08/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # Use Azure Video Indexer API
