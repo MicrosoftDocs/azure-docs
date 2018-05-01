@@ -8,7 +8,8 @@ manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/13/2017
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
+ms.reviewer: marcozo, alekh, marossi
 ---
 
 # Article personalization with Custom Decision Service
