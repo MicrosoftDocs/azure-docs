@@ -176,7 +176,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint.|
 |EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.
 
-Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).|
+Many of these are for optimizing performance. For more information, see [Performance and scale](durable-functions-perf-and-scale.md).
 
 ## eventHub
 
