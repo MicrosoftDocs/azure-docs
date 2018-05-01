@@ -1,0 +1,18 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Project Answer Search Documentation
+metadata:
+  title: Project Answer Search Documentation
+  description: How to build applications that use Project Answer Search.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-answer-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/13/2018
+  ms.author: rosh, v-gedod
+abstract:
+  description: The Project Answer Search gets information about an event, or a person, place, or thing idenified by a query. Answers are returned as facts or entities.
+ 
