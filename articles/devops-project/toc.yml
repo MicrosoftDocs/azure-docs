@@ -31,5 +31,5 @@
     href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb
   - name: 4 - Deploy to AKS
     href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-aks
-  - name: 5 - Deploy to Service Fabric
+  - name: 5 - Deploy to Azure Service Fabric
     href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-servicefabric
