@@ -19,9 +19,6 @@ ms.author: spelluru
 # Manage classroom labs in Azure Lab Services (formerly Azure DevTest Labs)
 This article describes how to create and configure a classroom lab, view all classroom labs, or delete a classroom lab.
 
-## Prerequisites
-Azure Lab Services is currently in a gated preview. To create a managed lab, such as a classroom lab, request access through this link:  https://aka.ms/azlabspreviewsignup. 
-
 ## Create a classroom lab
 
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
