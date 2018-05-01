@@ -21,7 +21,7 @@ Self-service databases are provided through the user portal experience. A user n
 
 1. Sign in to the [Azure Stack](azure-stack-poc.md) user portal (service admins can also use the admin portal).
 
-2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**.
+2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database** &gt; **Add**.
 
 3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. You are asked to pick a SKU for your database. As hosting servers are added, they're assigned a SKU. Databases are created in that pool of hosting servers that make up the SKU.
 

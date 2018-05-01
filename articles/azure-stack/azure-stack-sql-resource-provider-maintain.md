@@ -58,7 +58,7 @@ Follow these steps to update the Defender definitions:
 
 Here is a sample script to update the Defender definitions (substitute the address or name of the virtual machine with the actual value):
 
-```
+```powershell
 # Set credentials for the diagnostic user
 $diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $diagCreds = New-Object System.Management.Automation.PSCredential `
