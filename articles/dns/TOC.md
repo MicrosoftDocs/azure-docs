@@ -14,9 +14,7 @@
 ## [Azure CLI](cli-samples.md)
 
 #Tutorials
-## Create a private DNS zone and record
-### [PowerShell](private-dns-getstarted-powershell.md)
-### [Azure CLI](private-dns-getstarted-cli.md)
+## [Create a private DNS zone and record](private-dns-getstarted-powershell.md)
 ## [Delegate your domain to Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
 
@@ -30,7 +28,7 @@
 ## [Reverse DNS](dns-reverse-dns-overview.md)
 
 # How to
-
+## [Create a private DNS zone and record - CLI](private-dns-getstarted-cli.md)
 ## Manage DNS zones
 ### [Azure portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
