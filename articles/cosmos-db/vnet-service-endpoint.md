@@ -15,9 +15,9 @@ ms.author: sngun
 
 # Secure access to an Azure Cosmos DB account by using Azure Virtual Network service endpoint
 
-Azure CosmosDB accounts can be configured to allow access only from specific Azure Virtual Network’s subnet. By enabling a [Service Endpoint]() for Azure Cosmos DB from a Virtual Network and its subnet, traffic is ensured an optimal and secure route to the Azure Cosmos DB.  
+Azure CosmosDB accounts can be configured to allow access only from specific Azure Virtual Network’s subnet. By enabling a [Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Cosmos DB from a Virtual Network and its subnet, traffic is ensured an optimal and secure route to the Azure Cosmos DB.  
 
-Once an Azure Cosmos DB account is configured with a VNet service endpoint, it can be accessed only from the specified subnet, all public/internet access is removed. To learn in detailed about service endpoints, refer to the Azure [Virtual network service endpoints overview]() article.
+Once an Azure Cosmos DB account is configured with a VNet service endpoint, it can be accessed only from the specified subnet, all public/internet access is removed. To learn in detailed about service endpoints, refer to the Azure [Virtual network service endpoints overview](../virtual-network/virtual-network-service-endpoints-overview.md) article.
 
 Azure Cosmos DB is a globally distributed, multi-model database service. You can replicate the data present in Azure Cosmos DB account to multiple regions. When Azure Cosmos DB is configured with a VNet service endpoint, each region is secure and allow access from IPs that belong to the subnet only. The following image shows an illustration of an Azure Cosmos DB that has VNet service endpoint enabled:
 
