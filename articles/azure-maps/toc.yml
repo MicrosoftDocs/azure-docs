@@ -34,15 +34,15 @@
     href: supported-languages.md
 - name: How-to guides
   items:
-  - name: Account Management
+  - name: Manage Maps accounts
     items:
-    - name: Manage account and keys
+    - name: Manage accounts and keys
       href: how-to-manage-account-keys.md
-  - name: Services REST APIs
+  - name: Get map data from REST APIs
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
-  - name: Map Control JavaScript API
+  - name: Create JavaScript maps
     items:
     - name: Use the map control
       href: how-to-use-map-control.md
@@ -64,7 +64,7 @@
       href: map-route.md   
     - name: Show traffic 
       href: map-show-traffic.md
-    - name: Interacting with the map - mouse events
+    - name: Interacting with mouse events
       href: map-events.md   
 - name: Reference
   items:
@@ -86,7 +86,7 @@
       href: /azure/iot-hub
     - name: IoT Hub Device Provisioning Service
       href: /azure/iot-dps
-    - name: Location Based Services
+    - name: Maps
       href: /azure/azure-maps
     - name: Service SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
