@@ -18,7 +18,7 @@ ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
 ---
 
-# Introduction
+# Run a CNTK training job using the Azure CLI
 
 Azure CLI 2.0 allows you to create and manage Batch AI resources - create/delete Batch AI file servers and clusters,
 and submit/terminate/delete/monitor training jobs.
