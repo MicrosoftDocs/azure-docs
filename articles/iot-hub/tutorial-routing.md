@@ -580,17 +580,16 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## Next steps
 
-In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by following each of these steps. 
+In this tutorial, you learned how to use message routing to route IoT Hub messages to different destinations by performing the following tasks.  
 
 > [!div class="checklist"]
-> * Using Azure CLI or PowerShell, create an IoT hub, storage account, and Service Bus queue. 
-> * Configure endpoints and routes in the IoT hub. 
-> * Create a Logic App to send e-mail when a message is received by the Service Bus queue. 
-> * Using Azure CL Ior PowerShell, register a device with the IoT hub.
-> * Download and run an app that simulates an IoT Device sending messages to the hub. 
-> * Create a PowerBI visualization for the default endpoint.
-> * Run the device simulator and view the results...
-> * ...in the Service Bus queue/e-mails.
+> * Using Azure CLI or PowerShell, set up the base resources -- an IoT hub, a storage account, a Service Bus queue, and a simulated device.
+> * Configure endpoints and routes in IoT hub for the storage account and Service Bus queue.
+> * Create a Logic App that is triggered and sends e-mail when a message is added to the Service Bus queue.
+> * Download and run an app that simulates an IoT Device sending messages to the hub for the different routing options.
+> * Create a PowerBI visualization for data sent to the default endpoint.
+> * View the results ...
+> * ...in the Service Bus queue and e-mails.
 > * ...in the storage account.
 > * ...in the PowerBI visualization.
 
