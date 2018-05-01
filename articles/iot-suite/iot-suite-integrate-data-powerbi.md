@@ -37,7 +37,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 4. On that overview page click the item, which has type "Azure Cosmos DB Account", you will then be taken to the overview page of the Cosmos DB stream for that IoT Solution.
 
-    ![Resource Group](media/iot-suite-remote-monitoring-powerbi/resource_group.png)
+    ![Resource Group](media/iot-suite-remote-monitoring-powerbi/resource_groups.png)
 
 5. On the panel to the left, click the "Keys" section and take note of the following values to be used in PowerBi:
 
@@ -48,7 +48,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
 
 ## Setting up the Stream in Power BI
   
-1.Open up the Power BI desktop app and click "Get Data" from the top left corner. 
+1. Open up the Power BI desktop app and click "Get Data" from the top left corner. 
 
     ![Get Data](media/iot-suite-remote-monitoring-powerbi/get_data.png)
 
@@ -58,8 +58,8 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
   
 3. Enter the information, which you have recorded above:
 
-* URI
-* Primary Key
+    * URI
+    * Primary Key
 
 4. Select all the tables to be imported into Power BI. This action will kick off the loading of the data. The longer your solution has been running, the longer it can take for the data to load (up to a few hours). 
 

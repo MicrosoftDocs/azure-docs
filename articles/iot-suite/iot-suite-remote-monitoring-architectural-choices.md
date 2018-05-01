@@ -50,7 +50,7 @@ The web UI is built with JavaScript React.  React offers a commonly used industr
 ### Runtime and orchestration
 The Application Runtime chosen for subsystem implementation in RM is Docker containers with Kubernetes (K8s) as the orchestrator for horizontal scale.  This architecture allows for individual scale definition per subsystem however incurs DevOps costs in keeping VMs and containers up-to-date from a security perspective.  Alternatives to Docker & K8s include hosting microservices in PaaS services (for example, Azure App Service) or using Service Fabric, DCOS, Swarm, etc. as an orchestrator.
 
-## Next steps:
+## Next steps
 * Deploy your RM solution [here](https://www.azureiotsuite.com/).
 * Explore GitHub code in [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) and [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * Learn more about the IoT Reference Architecture [here](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/).
