@@ -51,11 +51,11 @@ The following Azure regions are currently supported during the preview of this f
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a Linux virtual machine
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create), then create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distro and in a supported region. The following example deploys an *Ubuntu 16.04 LTS* VM into the *southcentralus* region:
+Create a resource group with [az group create](/cli/azure/group#az-group-create), then create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distro and in a supported region. The following example deploys a VM named *myVM* that uses *Ubuntu 16.04 LTS* into a resource group named *myResourceGroup* in the *southcentralus* region. In the following examples, you can provide your own resource group and VM names as needed.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -84,7 +84,7 @@ az vm extension set \
 
 The *provisioningState* of *Succeeded* is shown once the extension is installed on the VM.
 
-## Configure role assignments for the virtual machine
+## Configure role assignments for the VM
 
 Azure Role-Based Access Control (RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
 
@@ -106,9 +106,9 @@ az role assignment create \
     --scope $vm
 ```
 
-For more information on how to use Role-Based Access Control to manage access to your Azure subscription resources, see using the [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+For more information on how to use RBAC to manage access to your Azure subscription resources, see using the [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Getting started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+You can also configure Azure AD to require multi-factor authentication for a specific user to sign in to the Linux virtual machine. For more information, see [Get started with Azure Multi-Factor Authentication in the cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## Log in to the Linux virtual machine
 
@@ -118,7 +118,7 @@ First, view the public IP address of your VM with [az vm show](/cli/azure/vm#az-
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Log in to the Azure Linux virtual machine using your Azure AD credentials. The *-l* parameter lets you specify your own Azure AD account address. Specify the public IP address of your VM as output in the previous command:
+Log in to the Azure Linux virtual machine using your Azure AD credentials. The `-l` parameter lets you specify your own Azure AD account address. Specify the public IP address of your VM as output in the previous command:
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps
@@ -131,7 +131,7 @@ You are prompted to sign in to Azure AD with a one-time use code at [https://mic
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code FJS3K6X4D to authenticate. Press ENTER when ready.
 ```
 
-When prompted, enter your Azure AD login credentials. The following message is shown in the web browser when you have successfully authenticated:
+When prompted, enter your Azure AD login credentials at the login page. The following message is shown in the web browser when you have successfully authenticated:
 
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
