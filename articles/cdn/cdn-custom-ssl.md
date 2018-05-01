@@ -41,6 +41,7 @@ In this tutorial, you learn how to:
 > - Enable the HTTPS protocol on your custom domain.
 > - Use a CDN-managed certificate 
 > - Use your own certificate
+> - Validate the domain
 > - Disable the HTTPS protocol on your custom domain.
 
 ## Prerequisites
@@ -74,6 +75,55 @@ To enable HTTPS on a custom domain, follow these steps:
 4. Select **On** to enable HTTPS.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
+
+
+## Option 2: Enable the HTTPS feature with your own certificate 
+ 
+You can use your own certificate on Azure CDN to deliver content via HTTPS. This process is done through an integration with Azure Key Vault. Azure Key Vault allows customers to store their certificates securely. Azure CDN service leverages this secure mechanism to get the certificate. Using your own certificate requires a few additional steps.
+
+### Step 1: Prepare your Azure Key vault account and certificate
+ 
+1. Azure Key Vault: You must have a running Azure Key Vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create an Azure Key Vault account if you don’t have one.
+ 
+2. Azure Key Vault certificates: If you already have a certificate, you can upload it directly to your Azure Key Vault account or you can create a new certificate directly through Azure Key Vault from one of the partner Certificate Authorities (CA) that Azure Key Vault integrates with. 
+
+### Step 2: Grant Azure CDN access to your key vault
+ 
+You must grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
+
+    ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
+
+    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+
+2. In **Select principal**, search, and select **Azure CDN**.
+
+3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
+
+4. Select **OK**. 
+
+    Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
+ 
+### Step 3: Select the certificate for Azure CDN to deploy
+ 
+1. Return to the Azure CDN portal and select the profile and CDN endpoint you want to enable custom HTTPS. 
+
+2. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
+
+    The **Custom domain** page appears.
+
+3. Under Certificate management type, select **Use my own certificate**. 
+
+    ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
+
+4. Select a key vault, certificate (secret), and certificate version.
+
+    Azure CDN lists the following information: 
+    - The key vault accounts for your subscription ID. 
+    - The certificates (secrets) under the selected key vault. 
+    - The available certificate versions. 
+ 
+5. Select **On** to enable HTTPS.
 
 
 ## Validate the domain
@@ -165,56 +215,6 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 </code>
 
 
-## Option 2: Enable the HTTPS feature with your own certificate 
- 
-You can use your own certificate on Azure CDN to deliver content via HTTPS. This process is done through an integration with Azure Key vault. Azure Key vault allows customers to store their certificates securely. Azure CDN service leverages this secure mechanism to get the certificate. Using your own certificate requires a few additional steps.
-
-### Step 1: Prepare your Azure Key vault account and certificate
- 
-1. Azure Key vault: You must have a running key vault account under the same subscription as the Azure CDN profile and CDN endpoints that you want to enable custom HTTPS. Create a key vault account if you don’t have one.
- 
-2. Key vault certificates: If you already have a certificate, you can upload it directly to your key vault account or you can create a new certificate directly through Key vault from one of the partner Certificate Authorities (CA) that key vault integrates with. 
-
-### Step 2: Grant Azure CDN access to your key vault
- 
-You must grant Azure CDN permission to access the certificates (secrets) in your key vault account.
-1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
-
-    ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
-
-    ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
-
-2. In **Select principal**, search, and select **Azure CDN**.
-
-3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
-
-4. Select **OK**. 
-
-    Azure CDN can now access this key vault and certificates (secrets) that are stored in this key vault.
- 
-### Step 3: Select the certificate for Azure CDN to deploy
- 
-1. Return to the Azure CDN portal and select the profile and CDN endpoint you want to enable custom HTTPS. 
-
-2. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
-
-    The **Custom domain** page appears.
-
-3. Under Certificate management type, select **Use my own certificate**. 
-
-    ![Configure your certificate](./media/cdn-custom-ssl/cdn-configure-your-certificate.png)
-
-4. Select a key vault, certificate (secret), and certificate version.
-
-    Azure CDN lists the following information: 
-    - The key vault accounts for your subscription ID. 
-    - The certificates (secrets) under the selected key vault. 
-    - The available certificate versions. 
- 
-5. Wait for propagation
-
-    After the certificate is submitted to CDN service, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process is complete, the custom HTTPS status in the Azure portal is set to **Enabled** and the four operation steps in the custom domain dialog are marked as complete. Your custom domain is now ready to use HTTPS.
-
 
 ## Clean up resources - disable HTTPS
 
@@ -283,6 +283,8 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > - Enable the HTTPS protocol on your custom domain.
+> - Use a CDN-managed certificate 
+> - Use your own certificate
 > - Validate the domain.
 > - Disable the HTTPS protocol on your custom domain.
 
