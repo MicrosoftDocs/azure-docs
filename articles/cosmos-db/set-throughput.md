@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 05/01/2018
 ms.author: sngun
 
 ---
@@ -29,15 +29,18 @@ The following table lists the throughput available for containers:
             <td valign="top"><p></p></td>
             <td valign="top"><p><strong>Single Partition Container</strong></p></td>
             <td valign="top"><p><strong>Partitioned Container</strong></p></td>
+            <td valign="top"><p><strong>Set of Containers</strong></p></td>
         </tr>
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
             <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>1000 request units per second</p></td>
+            <td valign="top"><p>1,000 request units per second</p></td>
+            <td valign="top"><p>50,000 request units per second</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
             <td valign="top"><p>10,000 request units per second</p></td>
+            <td valign="top"><p>Unlimited</p></td>
             <td valign="top"><p>Unlimited</p></td>
         </tr>
     </tbody>
@@ -60,6 +63,7 @@ The following code snippet retrieves the current throughput and changes it to 50
 
 ```csharp
 // Fetch the offer of the collection whose throughput needs to be updated
+// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
@@ -80,6 +84,7 @@ The following code snippet retrieves the current throughput and changes it to 50
 
 ```Java
 // find offer associated with this collection
+// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
 Iterator < Offer > it = client.queryOffers(
     String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
 assertThat(it.hasNext(), equalTo(true));

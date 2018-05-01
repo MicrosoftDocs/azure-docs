@@ -3,7 +3,7 @@ title: Use mongoimport and mongorestore with the Azure Cosmos DB API for MongoDB
 description: 'Learn how to use mongoimport and mongorestore to import data to an API for MongoDB account'
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 documentationcenter: ''
 
@@ -13,8 +13,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2017
-ms.author: anhoh
+ms.date: 05/01/2018
+ms.author: sngun
 ms.custom: mvc
 ---
 
@@ -25,7 +25,7 @@ To migrate data from MongoDB to an Azure Cosmos DB account for use with the API 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
 * Get your [API for MongoDB connection string](connect-mongodb-account.md).
 
-If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB, you should use the [Data Migration tool](import-data.md) to import data.
+If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB SQL API, you should use the [Data Migration tool](import-data.md) to import data.
 
 This tutorial covers the following tasks:
 
@@ -36,7 +36,7 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual container or a set of containers. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in Azure Cosmos DB](performance-levels.md).
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual collection or a set of collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in Azure Cosmos DB](performance-levels.md).
 
 * Enable SSL: Azure Cosmos DB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for mongoimport and mongorestore.
 
@@ -77,9 +77,27 @@ Example:
 
 1. Pre-create and scale your collections:
         
-    * By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units (RUs). Before you start the migration by using mongoimport, mongorestore, or mongomirror, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If your collection is greater than 10 GB, make sure to create a [sharded/partitioned collection](partition-data.md) with an appropriate shard key.
+    * By default, Azure Cosmos DB provisions a new MongoDB collection with 1,000 request units (RUs/sec). Before you start the migration by using mongoimport, mongorestore, or mongomirror, pre-create all your collections from the [Azure portal](https://portal.azure.com) or from MongoDB drivers and tools. If your collection is greater than 10 GB, make sure to create a [sharded/partitioned collection](partition-data.md) with an appropriate shard key.
 
-    * From the [Azure portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs for a single partition collection and 2,500 RUs for a sharded collection just for the migration. With the higher throughput, you can avoid throttling and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
+    * From the [Azure portal](https://portal.azure.com), increase your collections' throughput from 1,000 RUs/sec for a single partition collection and 2,500 RUs/sec for a sharded collection just for the migration. With the higher throughput, you can avoid throttling and migrate in less time. With hourly billing in Azure Cosmos DB, you can reduce the throughput immediately after the migration to save costs.
+
+    * In addition to provisioning RUs/sec at the collection level, you may also provision RU/sec for a set of collections at the parent database level. This requires pre-creating the database and collections, as well as defining a shard key for each collection.
+
+    * You can create sharded collections through your favorite tool, driver, or SDK. In this example, we use the Mongo Shell to create a sharded collection:
+
+        ```
+        db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
+        ```
+    
+        Results:
+
+        ```JSON
+        {
+            "_t" : "ShardCollectionResponse",
+            "ok" : 1,
+            "collectionsharded" : "admin.people"
+        
+        ```
 
 2. Calculate the approximate RU charge for a single document write:
 
