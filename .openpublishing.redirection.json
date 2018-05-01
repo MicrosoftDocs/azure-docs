@@ -10191,7 +10191,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-powershell.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-powershell",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell",
             "redirect_document_id": false
         },
         {
