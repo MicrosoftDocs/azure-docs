@@ -44,7 +44,7 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
 
 ## High availability
 
-Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack which were deployed prior to the release of the 1802 update, please see the [documentation](azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
+Due to the 1802 release of Azure Stack, which added support for fault domains, new deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.  For existing deployments of Azure App Service on Azure Stack, which were deployed prior to the release of the 1802 update, see the [documentation](azure-stack-app-service-fault-domain-update.md) for how to rebalance the deployment.
 
 In addition Azure App Service on Azure Stack for high availability, deploy the required file server and SQL Server instance in a highly available configuration.
 
@@ -52,7 +52,7 @@ In addition Azure App Service on Azure Stack for high availability, deploy the r
 
 ### Azure Resource Manager root certificate for Azure Stack
 
-In a PowerShell session running as azurestack\CloudAdmin on a machine which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script create a root certificate in the same folder as the script that App Service needs for creating certificates.
+In a PowerShell session running as azurestack\CloudAdmin on a machine, which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script create a root certificate in the same folder as the script that App Service needs for creating certificates.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -98,7 +98,7 @@ To operate the resource provider in production, you must provide the following f
 
 The default domain certificate is placed on the Front End role. User applications for wildcard or default domain requests to Azure App Service use this certificate. The certificate is also used for source control operations (Kudu).
 
-The certificate must be in .pfx format and should be a three-subject wildcard certificate. This allows one certificate to cover both the default domain and the SCM endpoint for source control operations.
+The certificate must be in .pfx format and should be a three-subject wildcard certificate. This requirement allows one certificate to cover both the default domain and the SCM endpoint for source control operations.
 
 | Format | Example |
 | --- | --- |
