@@ -23,26 +23,24 @@ POST https://[service name].search.windows.net/indexers?api-version=[api-version
     Content-Type: application/json  
     api-key: [admin key]  
 ```  
+The **api-key** must be an admin key (as opposed to a query key). Refer to the authentication section in [Security in Azure Search](search-security-overview.md) to learn more about keys. [Create an Azure Search service in the portal](search-create-service-portal.md) explains how to get the service URL and key properties used in the request.
 
- Alternatively, you can use PUT and specify the data source name on the URI. If the data source does not exist, it will be created.  
+Alternatively, you can use PUT and specify the data source name on the URI. If the data source does not exist, it will be created.  
 
 ```http
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]  
 ```  
+The **api-version** is required. The current version is `2016-09-01`. See [API versions in Azure Search](search-api-versions.md) for details.
 
 For data-platform-specific guidance on creating indexers, start with [Indexers overview](search-indexer-overview.md), which includes the complete list of [related articles](search-indexer-overview.md#next-steps).
 
 > [!NOTE]  
->  The maximum number of indexers allowed varies by pricing tier. The free service allows up to 3 indexers. Standard service allows 50 indexers. See [Service Limits](search-limits-quotas-capacity.md) for details.  
-
- The **api-version** is required. The current version is `2016-09-01`. See [API versions in Azure Search](search-api-versions.md) for details.  
-
- The **api-key** must be an admin key (as opposed to a query key). Refer to the authentication section in [Security in Azure Search](search-security-overview.md) to learn more about keys. [Create an Azure Search service in the portal](search-create-service-portal.md) explains how to get the service URL and key properties used in the request.  
+>  The maximum number of indexers allowed varies by pricing tier. The free service allows up to 3 indexers. Standard service allows 50 indexers. See [Service Limits](search-limits-quotas-capacity.md) for details.    
 
 ## Request  
  The body of the request contains an indexer definition, which specifies the data source and the target index for indexing, as well as optional indexing schedule and parameters.  
 
- The syntax for structuring the request payload is as follows. A sample request is provided further on in this topic.  
+ The syntax for structuring the request payload is as follows. A sample request is provided later in this topic.  
 
 ```json
 {   
@@ -59,14 +57,14 @@ For data-platform-specific guidance on creating indexers, start with [Indexers o
 ```
 
 ### Indexer schedule  
- An indexer can optionally specify a schedule. If a schedule is present, the indexer will run periodically as per schedule. The scheduler is built-in; you cannot use an external scheduler. **Schedule** has the following attributes:  
+An indexer can optionally specify a schedule. If a schedule is present, the indexer runs periodically as per schedule. The scheduler is built-in; you cannot use an external scheduler. **Schedule** has the following attributes: 
 
 -   **interval**: Required. A duration value that specifies an interval or period for indexer runs. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `"P[nD][T[nH][nM]]".` Examples:  `PT15M` for every 15 minutes, `PT2H` for every 2 hours.  
 
 -   **startTime**: Optional. A UTC datetime when the indexer should start running.  
 
 ### Indexer parameters  
- An indexer can optionally specify several parameters that affect its behavior. All of the parameters are optional.  
+ An indexer can optionally specify several parameters that affect its behavior. All the parameters listed below are optional.  
 
 -   **maxFailedItems**: The number of items that can fail to be indexed before an indexer run is considered a failure. Default is 0. Information about failed items is returned by the [Get Indexer Status &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) operation.  
 
@@ -149,3 +147,8 @@ To learn more about when and how to use field mapping functions, see [Field Mapp
 ## Response  
  201 Created for a successful request.  
 
+## See also
+
++ [Cognitive search overview](cognitive-search-concept-intro.md)
++ [Quickstart: Try cognitive search](cognitive-search-quickstart-blob.md)
++ [How to map fields](cognitive-search-output-field-mapping.md)
