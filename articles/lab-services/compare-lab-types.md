@@ -16,7 +16,7 @@ ms.date: 04/30/2018
 ms.author: spelluru
 
 ---
-# Compare managed and custom labs
+# Compare managed and custom labs in Azure Lab Services
 You can create two types of labs, **managed labs** with Azure Lab Services, and **custom labs** with Azure DevTest Labs. 
 
 If you want to just input what you need in a lab and let the service set up and manage infrastructure required for the lab, choose from one of the **managed labs**. Currently, **classroom lab** is the only type of managed lab that you can create with Azure Lab Services. If you want to manage your own infrastructure, create a **custom lab** by using Azure DevTest Labs.
