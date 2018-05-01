@@ -74,9 +74,9 @@ To create an ASE while you create an App Service plan:
 
 6. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-> [!NOTE]
-> Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
->
+    > [!NOTE]
+    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
+    >
 
 7. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
 
@@ -116,9 +116,9 @@ To create an ASE while you create an App Service plan:
 
 5. In the **Location** drop-down list, select the region where you want to create the ASE. If you select an existing ASE, a new ASE isn't created. The App Service plan is created in the ASE that you selected. 
 
-> [!NOTE]
-> Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
->
+    > [!NOTE]
+    > Linux on ASE is only enabled in 6 regions, at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** Because Linux on ASE is a preview feature, do NOT select an ASE that you had created before this preview.
+    >
 
 6. Select **Pricing tier**, and choose one of the **Isolated** pricing SKUs. If you choose an **Isolated** SKU card and a location that's not an ASE, a new ASE is created in that location. To start the process to create an ASE, select **Select**. The **Isolated** SKU is available only in conjunction with an ASE. You also can't use any other pricing SKU in an ASE other than **Isolated**. 
 
