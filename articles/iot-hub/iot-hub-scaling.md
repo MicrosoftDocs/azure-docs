@@ -45,7 +45,7 @@ Once you create your IoT hub you can upgrade from the basic tier to the standard
 | [Device Provisioning Service](../iot-dps/about-iot-dps.md) | Yes | Yes |
 | [Monitoring and diagnostics](iot-hub-monitor-resource-health.md) | Yes | Yes |
 | [Cloud-to-device messaging](iot-hub-devguide-c2d-guidance.md) |   | Yes |
-| [Device twins](iot-hub-devguide-device-twins.md) and [Device management](iot-hub-device-management-overview.md) |   | Yes |
+| [Device twins](iot-hub-devguide-device-twins.md), [Module twins](iot-hub-devguide-module-twins.md) and [Device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
@@ -58,19 +58,26 @@ The difference in supported capabilities between the basic and standard tiers of
 | --- | ---------- | ------------- |
 | [Delete device](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Yes | Yes |
 | [Get device](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Yes | Yes |
+| Delete module | Yes | Yes |
+| Get module | Yes | Yes |
 | [Get registry statistics](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Yes | Yes |
 | [Get services statistics](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Yes | Yes |
 | [Put device](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Yes | Yes |
+| Put module | Yes | Yes |
 | [Query devices](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Yes | Yes |
+| Query modules | Yes | Yes |
 | [Create file upload SAS URI](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Yes | Yes |
 | [Receive device bound notification](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Yes | Yes |
 | [Send device event](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Yes | Yes |
+| Send module event | Yes | Yes |
 | [Update file upload status](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Yes | Yes |
 | [Bulk device operation](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Yes, except for IoT Edge capabilites | Yes | 
 | [Purge command queue](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Yes |
 | [Get device twin](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Yes |
+| Get module twin |   | Yes |
 | [Invoke device method](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Yes |
 | [Update device twin](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Yes | 
+| Update module twin |   | Yes | 
 | [Abandon device bound notification](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Yes |
 | [Complete device bound notification](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Yes |
 | [Cancel job](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Yes |
