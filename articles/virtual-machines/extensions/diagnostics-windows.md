@@ -18,7 +18,6 @@ ms.author: saurabh
 
 ---
 # Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Azure Diagnostics is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension to collect diagnostic data like application logs or performance counters from an Azure virtual machine (VM) that is running Windows. This article describes how to use Windows PowerShell to enable the diagnostics extension for a VM. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for the prerequisites needed for this article.
 
