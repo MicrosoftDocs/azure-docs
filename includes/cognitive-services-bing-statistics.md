@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Bing Statistics provides analytics for Bing Search APIs. Analytics includes call volume, top query strings, device types used, and more. To get access to Bing Statistics, enable Bing Statistics in your Bing Search paid subscription. Navigate to your Azure dashboard, select your paid subscription, and click Enable Bing Statistics.
+Bing Statistics provides analytics for Bing Search APIs. Analytics includes call volume, top query strings, geographic distribution, and more. To enable Bing Statistics in your Bing Search paid subscription, navigate to your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), select your paid subscription, and click Enable Bing Statistics. Enabling Bing Statistics increases your subscription rate slightly (see [pricing](https://aka.ms/bingstatisticspricing)).
 
 
 > [!NOTE]
