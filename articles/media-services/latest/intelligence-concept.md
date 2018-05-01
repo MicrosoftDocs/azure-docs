@@ -42,7 +42,7 @@ Azure Media Services REST v3 API enables you to analyze audio and video content.
 
 The output includes a JSON file (insights.json) with all the insights that were found in the video or audio. The json may contain the following elements:
 
-### Transcript
+### transcript
 
 |Name|Description|
 |---|---|
@@ -80,7 +80,7 @@ Example:
 ] 
 ```
 
-### Ocr
+### ocr
 
 |Name|Description|
 |---|---|
@@ -123,7 +123,7 @@ Example:
   ],
 ```
 
-### Keywords
+### keywords
 
 |Name|Description|
 |---|---|
@@ -171,75 +171,60 @@ Example:
 
 ```
 
-### Faces
+### faces
 
 |Name|Description|
 |---|---|
 |id|The face id.|
 |name|The face name. It can be ‘Unknown #0’, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
-|description|If the face is of a celebrity, its description ("Satya Nadella was born at..."). |
-|thumbnalId|The id of the thumbnail of that face (in VI).|
-|knownPersonId|If the faces is a of a known person, its internal id.|
-|referenceId|If the face is ofa Bing celebrity, its Bing id.|
+|description|In case of a celebrity, its description ("Satya Nadella was born at..."). |
+|thumbnalId|The id of the thumbnail of that face.|
+|knownPersonId|In case of a known person, its internal id.|
+|referenceId|In case of a Bing celebrity, its Bing id.|
 |referenceType|Currently just Bing.|
-|title|If the face is of a celebrity, its title (for example "Microsoft's CEO").|
-|imageUrl|If the face is of a celebrity, its image url.|
-|instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
+|title|In case of a celebrity, its title (for example "Microsoft's CEO").|
+|imageUrl|In case of a celebrity, its image url.|
+|instances|These are instances of where the face appeared in the given time range. Each instance also has a thumbnailsId. |
 
 ```json
-"Faces": [
-    {
-      "id": 1002,
-      "name": "Satya Nadella",
-      "confidence": 0.911,
-
-      "description": "Satya Nadella is Microsoft...",
-      "thumbnailId": "12345678-0000-0000-0000-000000000000",
-      "knownPersonId": "00000000-0000-0000-0000-000000000000",
-      "bingId": 39835678 - 0000 - 0000 - 0000 - 000000000000,
-      "title": "Microsoft's CEO",
-      "imageUrl": "http://www.bing.com/images/...",
-      "instances": [
-        {
-          "start": "00: 00: 00",
-          "end": "00: 00: 26.8000000"
-        }
-      ]
-    },
-    {
-      "id": 2508,
-      "name": "My brother", 
-      "confidence": 0.881,
-      "description": null,
-      "thumbnailId": "87654321-0000-0000-0000-000000000000",
-      "knownPersonId": "11111122-0000-0000-0000-000000000000",
-      "referenceId": null,
-      "referenceType": null,
-      "title": null,
-      "imageUrl": "http://www.bing.com/images/...",
-      "instances": [
-        {
-          "start": "00: 00: 00",
-          "end": "00: 00: 14.6330000"
-        },
-        {
-          "start": "00: 01: 33.3670000",
-          "end": "00: 01: 38.3660000"
-        }
-      ]
-    }
-  ]
+"faces": [{
+	"id": 2002,
+	"name": "Xam 007",
+	"confidence": 0.93844,
+	"description": null,
+	"thumbnailId": "00000000-aee4-4be2-a4d5-d01817c07955",
+	"knownPersonId": "8340004b-5cf5-4611-9cc4-3b13cca10634",
+	"referenceId": null,
+	"title": null,
+	"imageUrl": null,
+	"instances": [{
+		"thumbnailsIds": ["00000000-9f68-4bb2-ab27-3b4d9f2d998e",
+		"cef03f24-b0c7-4145-94d4-a84f81bb588c"],
+		"adjustedStart": "00:00:07.2400000",
+		"adjustedEnd": "00:00:45.6780000",
+		"start": "00:00:07.2400000",
+		"end": "00:00:45.6780000"
+	},
+	{
+		"thumbnailsIds": ["00000000-51e5-4260-91a5-890fa05c68b0"],
+		"adjustedStart": "00:10:23.9570000",
+		"adjustedEnd": "00:10:39.2390000",
+		"start": "00:10:23.9570000",
+		"end": "00:10:39.2390000"
+	}]
+}]
 ```
 
-### Labels
+### labels
 
 |Name|Description|
 |---|---|
 |id|The label id.|
 |name|The label name (for example, 'Computer', 'TV').|
 |language|The label name language (when translated). BCP-47|
-|instances|A list of time ranges where this label appeared (a label can appear multiple times).|
+|instances|A list of time ranges where this label appeared (a label can appear multiple times). Each instance has a confidence field. |
+
 
 ```json
 "labels": [
@@ -249,10 +234,12 @@ Example:
       "language": "en-US",
       "instances": [
         {
+          "confidence": 1.0,
           "start": "00: 00: 00.0000000",
           "end": "00: 00: 25.6000000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 01: 33.8670000",
           "end": "00: 01: 39.2000000"
         }
@@ -264,18 +251,22 @@ Example:
       "id": 1,
       "instances": [
         {
+          "confidence": 1.0,
           "start": "00: 00: 06.4000000",
           "end": "00: 00: 07.4670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 09.6000000",
           "end": "00: 00: 10.6670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 11.7330000",
           "end": "00: 00: 20.2670000"
         },
         {
+          "confidence": 1.0,
           "start": "00: 00: 21.3330000",
           "end": "00: 00: 25.6000000"
         }
@@ -284,7 +275,7 @@ Example:
   ] 
 ```
 
-### Shots
+### shots
 
 |Name|Description|
 |---|---|
@@ -337,7 +328,7 @@ Example:
   ]
 ```
 
-### AudioEffects
+### audioEffects
 
 |Name|Description|
 |---|---|
@@ -364,21 +355,22 @@ Example:
 ]
 ```
 
-### Sentiments
 
- Sentiments are aggregated by their score (for example, 0-0.1, 0.1-0.2).
+### sentiments
+
+Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative). For example, 0-0.1, 0.1-0.2.
 
 |Name|Description|
 |---|---|
 |id|The sentiment ID.|
-|score|The sentiment score (0 = Negative, 1 = Positive).|
+|averageScore |The average of all scores of all instances of that sentiment type - Positive/Neutral/Negative|
 |instances|A list of time ranges where this sentiment appeared.|
 
 ```json
 "sentiments": [
 {
     "id": 0,
-    "score": 0.87,
+    "averageScore": 0.87,
     "instances": [
     {
         "start": "00:00:23",
@@ -387,7 +379,7 @@ Example:
     ]
 }, {
     "id": 1,
-    "score": 0.11,
+    "averageScore": 0.11,
     "instances": [
     {
         "start": "00:00:13",
