@@ -20,14 +20,13 @@ ms.author: jeffgilb
 You can use SQL instances on VMs inside of your [Azure Stack](azure-stack-poc.md), or an instance outside of your Azure Stack environment, provided the resource provider can connect to it. The general requirements are:
 
 * The SQL instance must be dedicated for use by the RP and user workloads. You cannot use a SQL instance that is being used by any other consumer, including App Services.
-* The RP adapter is not domain joined and can only connect using SQL authentication.
-* You must configure an account with appropriate privileges for use by the RP.
-* The RP and users such as Web Apps use the user network, so connectivity to the SQL instance on this network is required. This requirement typically means the IP for your SQL instances must be on a public network.
-* Management of the SQL instances and their hosts is up to you; the RP does not perform patching, backup, credential rotation, etc.
+* The SQL resource provider VM is not domain joined and can only connect using SQL authentication.
+* You must configure an account with appropriate privileges for use by the resource provider.
+* The resource provider and users, such as Web Apps, use the user network, so connectivity to the SQL instance on this network is required. This requirement typically means the IP for your SQL instances must be on a public network.
+* Management of the SQL instances and their hosts is up to you; the resource provider does not perform patching, backup, credential rotation, etc.
 * SKUs can be used to create different classes of SQL abilities, such as performance, Always On, etc.
 
-
-A number of SQL IaaS virtual machine images are available through the Marketplace Management feature. Make sure you always download the latest version of the SQL IaaS Extension before you deploy a VM using a Marketplace item. The SQL images are the same as the SQL VMs that are available in Azure. For SQL VMs created from these images, the IaaS extension and corresponding portal enhancements provide features such as automatic patching and backup capabilities.
+A number of SQL IaaS virtual machine images are available through the Marketplace Management feature. Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a VM using a Marketplace item. The SQL images are the same as the SQL VMs that are available in Azure. For SQL VMs created from these images, the IaaS extension and corresponding portal enhancements provide features such as automatic patching and backup capabilities.
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 

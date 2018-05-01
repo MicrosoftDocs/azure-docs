@@ -26,7 +26,7 @@ Perform the following steps on a computer that can access the privileged endpoin
 
 - If you have not already done so, [register Azure Stack](.\azure-stack-registration.md) with Azure so that you can download Azure marketplace items.
 - Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Server core** image. If you need to install an update, you can place a single .MSU package in the local dependency path. If more than one .MSU file is found, SQL resource provider installation will fail.
-- Download SQL RP Download the SQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that is running:
+- Download SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build. Be sure to download the correct binary for the version of Azure Stack that you are running:
     - Azure Stack version 1802 (1.0.180302.1): [SQL RP version 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
     - Azure Stack version 1712 (1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (integrated systems)): [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
 - For integrated systems installations only, you must provide the SQL PaaS PKI certificate as described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates), by placing the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter.
