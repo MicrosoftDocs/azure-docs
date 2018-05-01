@@ -48,7 +48,7 @@ In order to complete the use of Speech priming, you need the following informati
 * the LUIS app ID
 * endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com" where the first subdomain is the region where the app is published.
 
-See [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial for more information.
+For more information, see the [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial .
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
@@ -104,8 +104,6 @@ If you are constructing your own URLs for your LUIS-calling application, make su
 ```
 
 ## Publish your trained app to an HTTP endpoint
-Publish to the endpoint after changes to the following settings. 
-
 Open your app by clicking its name on the **My Apps** page, and then click **Publish** in the top panel. 
 
 ![Publish page-](./media/luis-how-to-publish-app/publish-to-production.png)
