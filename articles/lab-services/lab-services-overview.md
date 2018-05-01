@@ -33,7 +33,8 @@ Azure Lab Services supports the following key capabilities/features:
 - **Embedded security**. A lab owner can set up a private virtual networks and a subnet for a lab, and enable a shared public IP address. Lab users can securely access resources using the virtual network configured with ExpressRoute or site-to-site VPN. (currently available in DevTest Labs only)
 - **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
 
-## What you can do with Azure Lab Services? 
+## Scenarios
+Here are some of the scenarios that Azure Lab Services supports: 
 
 ### Set up a resizable computer lab in the cloud for your classroom  
 
