@@ -25,21 +25,21 @@ The DevOps Project dashboard lets you monitor code commits, builds, and deployme
 
 ## Key benefits of the Azure DevOps Project
 
-1. Easily deploy your app to a variety of Azure services such as App Service, AKS, and Virtual Machines
-1. Get up and running with a new app and a full DevOps pipeline in just a few minutes
-1. Support for a wide range of popular languages and frameworks such as .NET, Java, PHP, Node, Ruby, Python, and Go
-1. Start with a sample application or bring your own application from Github
-1. Built-in Application Insights integration for instant analytics and actionable insights
-1. Cloud-powered CI/CD using Visual Studio Team Services (VSTS)
+* Easily deploy your app to a variety of Azure services such as App Service, AKS, and Virtual Machines
+* Get up and running with a new app and a full DevOps pipeline in just a few minutes
+* Support for a wide range of popular languages and frameworks such as .NET, Java, PHP, Node, Ruby, Python, and Go
+* Start with a sample application or bring your own application from Github
+* Built-in Application Insights integration for instant analytics and actionable insights
+* Cloud-powered CI/CD using Visual Studio Team Services (VSTS)
 
 ## Azure DevOps Project and VSTS
 
 DevOps Projects are powered by VSTS.
 
-1. Customize your build and release pipeline
-1. Use pull requests to manage your codeflow & keep your quality high
-1. Test and build each commit before you merge your code to raise the quality bar
-1. Track your Project backlog and issues right along with your application
+* Customize your build and release pipeline
+* Use pull requests to manage your codeflow & keep your quality high
+* Test and build each commit before you merge your code to raise the quality bar
+* Track your Project backlog and issues right along with your application
 
 ## How do I start using the Azure DevOps Project?
 
