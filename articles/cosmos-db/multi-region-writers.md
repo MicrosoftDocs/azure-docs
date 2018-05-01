@@ -47,7 +47,7 @@ Multi-master support is essential for globally distributed applications. Multi-m
 
 Implementing multi-master on your own adds burden on developers. Large-scale customers who try to implement multi-master on their own may spend hundreds of hours configuring and testing a worldwide multi-master configuration, and many have a dedicated set of engineers whose sole job is to monitor and maintain the multi-master replication. Creating and managing multi-master setup on your own  takes the time, resources away from innovating in the application itself and results in much higher costs. Azure Cosmos DB provides multi-master support “out-of-the-box” and removes this overhead from developers.  
 
-1. In summary, multi-master provides the following benefits:  
+In summary, multi-master provides the following benefits:
 
 * **Better disaster recovery, write availability and failover**- Multi-master can be used to preserve the high-availability of a mission-critical database to a greater extent. For example, a multi-master database can replicate data from one region to a failover region when the primary region becomes unavailable due to an outage or a regional disaster. Such a failover region will serve as a fully functional master region to support application. Multi-master provides greater “survivability” protection with regards to natural disasters, power outages, or sabotage, or both because remaining regions can be in a geographically different multi-masters with a guaranteed write availability > 99.999%. 
 
