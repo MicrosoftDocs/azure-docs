@@ -166,8 +166,6 @@ If you completed the previous tutorial (and didn't delete the registry), you sho
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 ----------  ---------------  ----------  ---------  ------------  --------------------  ----------
-eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
-eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
 eastus6     buildhelloworld  Linux       Succeeded  Manual        2018-04-22T00:03:46Z  00:00:40
 eastus5                                  Succeeded  Manual        2018-04-22T00:01:45Z  00:00:25
 eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-21T23:52:33Z  00:00:30
@@ -206,6 +204,8 @@ Output is similar to the following. The TRIGGER for the last-executed build shou
 $ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER       STARTED               DURATION
 ----------  ---------------  ----------  ---------  ----------    --------------------  ----------
+eastus8     buildhelloworld  Linux       Succeeded  Image Update  2018-04-22T00:09:24Z  00:00:50
+eastus7                                  Succeeded  Manual        2018-04-22T00:08:49Z  00:00:40
 eastus6     buildhelloworld  Linux       Succeeded  Image Update  2018-04-20T00:15:30Z  00:00:43
 eastus5     buildhelloworld  Linux       Succeeded  Manual        2018-04-20T00:10:05Z  00:00:45
 eastus4     buildhelloworld  Linux       Succeeded  Git Commit    2018-04-19T23:40:38Z  00:00:40
