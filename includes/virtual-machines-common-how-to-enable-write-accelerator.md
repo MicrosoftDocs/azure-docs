@@ -38,7 +38,7 @@ When using Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
 - The Premium disk caching needs to be set to 'None' or 'Read Only'. All other caching modes are not supported.
 - Snapshot on the Write Accelerator enabled disk is not supported yet. This restriction blocks Azure Backup Service ability to perform an application consistent snapshot of all disks of the virtual machine.
-- Only smaller I/O sizes are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
+- Only smaller I/O sizes (<32KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Write Accelerator. The current limits are:
 
@@ -101,7 +101,7 @@ Get-AzureRmVmss | Update-AzureRmVmss -OsDiskWriteAccelerator:$false
 
 Two main scenarios can be scripted as shown in the following sections.
 
-#### Adding  new disk supported by Write Accelerator
+#### Adding a new disk supported by Write Accelerator
 You can use this script to add a new disk to your VM. The disk created with this script is going to use Write Accelerator.
 
 ```
@@ -153,6 +153,13 @@ You need to adapt the names of VM, disk, and resource group. The script above ad
 
 > [!Note]
 > Executing the script above will detach the disk specified, enable Write Accelerator against the disk, and then attach the disk again
+
+### Enabling through Azure Portal
+
+You can enable Write Accelerator via the Portal where you specify your disk caching settings: 
+
+![Write Accelerator on the Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
+
 
 ### Enabling through Rest APIs
 In order to deploy through Azure Rest API, you need to install the Azure armclient
