@@ -46,7 +46,7 @@ All Windows Server OS based images are supported for Azure Hybrid Benefit for Wi
 To create a VM with Azure Hybrid Benefit for Windows Server, use the toggle under the "Save money" section.
 
 ### Powershell
-```Azure Powershell
+```Powershell
 New-AzureRmVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVM" `
@@ -56,7 +56,7 @@ New-AzureRmVm `
 ```
 
 ### CLI
-```Azure CLI
+```CLI
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
@@ -82,13 +82,13 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 
 ### Powershell
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
-    ```Azure Powershell
+    ```Powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
     ```
 - Convert Windows Server VMs with benefit back to pay-as-you-go
-    ```Azure Powershell
+    ```Powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
     Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
@@ -96,7 +96,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     
 ### CLI
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
-    ```Azure CLI
+    ```CLI
     az vm update \
         --resource-group myResourceGroup \
         --name myVM \
@@ -130,7 +130,7 @@ LicenseType              :
 ```
 
 ### CLI
-```Azure CLI
+```cli
 az vm get-instance-view -g MyResourceGroup -n MyVm --query '[?licenseType==Windows_Server]' -o table
 ```
 
@@ -141,13 +141,13 @@ To see and count all virtual machines deployed with Azure Hybrid Benefit for Win
 From the Virtual Machine or Virtual machine scale sets resource blade, you can view a list of all your VM(s) and licensing type by configuring the table column to include "Azure Hybrid Benefit". The VM setting can either be in "Enabled", "Not enabled" or "Not supported" state.
 
 ### Powershell
-```Azure Powershell
+```powershell
 $vms = Get-AzureRMVM 
 $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name, LicenseType
 ```
 
 ### CLI
-```Azure CLI
+```cli
 az vm list --query '[?licenseType==Windows_Server]' -o table
 ```
 
