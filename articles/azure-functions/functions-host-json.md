@@ -146,18 +146,16 @@ Configuration settings for [Durable Functions](durable-functions-overview.md).
 {
   "durableTask": {
     "HubName": "MyTaskHub",
-    "ControlQueueBatchSize": 20,
+    "ControlQueueBatchSize": 32,
     "PartitionCount": 4,
     "ControlQueueVisibilityTimeout": "00:05:00",
     "WorkItemQueueVisibilityTimeout": "00:05:00",
     "MaxConcurrentActivityFunctions": 10,
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
-    "NotificationUrl": "https://contoso.com",
     "TraceInputsAndOutputs": false,
-    "DisableHttpManagementApis": false,
-    "EventGridTopicEndpoint": "https://contoso.com",
-    "EventGridKeySettingName":  "EGAppSetting"
+    "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
+    "EventGridKeySettingName":  "EventGridKey"
   }
 }
 ```
@@ -174,9 +172,7 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |MaxConcurrentActivityFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
 |MaxConcurrentOrchestratorFunctions |10X the number of processors on the current machine|The maximum number of activity functions that can be processed concurrently on a single host instance.|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|The name of the app setting that has the Azure Storage connection string used to manage the underlying Azure Storage resources.|
-|NotificationUrl ||A URL pointing to the hosted function app that responds to status polling requests.|
 |TraceInputsAndOutputs |false|A value indicating whether to trace the inputs and outputs of function calls. The default behavior when tracing function execution events is to include the number of bytes in the serialized inputs and outputs for function calls. This provides minimal information about what the inputs and outputs look like without bloating the logs or inadvertently exposing sensitive information to the logs. Setting this property to true causes the default function logging to log the entire contents of function inputs and outputs.|
-|DisableHttpManagementApis|false|A value indicating whether to expose HTTP APIs for managing orchestration instances. Orchestration instances can be managed using HTTP APIs implemented by the Durable Functions extension. This includes checking status, raising events, and terminating instances. These APIs do not require any authentication and therefore the instance IDs for these URLs should not be shared externally.
 |EventGridTopicEndpoint ||The URL of an Azure Event Grid custom topic endpoint. When this property is set, orchestration life cycle notification events are published to this endpoint.|
 |EventGridKeySettingName ||The name of the app setting containing the key used for authenticating with the Azure Event Grid custom topic at `EventGridTopicEndpoint`.
 

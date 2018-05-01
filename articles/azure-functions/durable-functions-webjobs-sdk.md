@@ -60,7 +60,7 @@ You need NuGet packages for the WebJobs SDK, core bindings, the logging framewor
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.3.1-rc
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.4.0
 ```
 
 You also need logging providers. The following commands install the Application Insights provider and the `ConfigurationManager`. The `ConfigurationManager` lets you get the Application Insights instrumentation key from app settings.
