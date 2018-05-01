@@ -28,7 +28,7 @@ A skillset must have at least one skill. There is no theoretical limit on maximu
 > [!NOTE]
 > Cognitive Search is in public preview, and skillset execution is currently offered for free. At a later time, the pricing for this capability will be announced.
 
-```  
+```http  
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
 api-key: [admin key]
 Content-Type: application/json
@@ -37,9 +37,16 @@ Content-Type: application/json
 ## Request  
  HTTPS is required for all service requests. The **Create Skillset** request can be constructed using a PUT method, with the skillset name as part of the URL. If the skillset doesn't exist, it is created. If it already exists, it is updated to the new definition. Notice that you can only PUT one skillset at a time.  
 
- The skillset name must be lower case, start and end with a letter or number, have no slashes or dots, and be fewer than 128 characters. After starting the skillset name with a letter or number, the rest of the name can include any letter, number, and dashes as long as the dashes are not consecutive.  
+ The skillset name must meet the following requirements:
 
- The **api-version** parameter is required. The only available version is `2017-11-11-Preview`. See [API versions in Azure Search](https://go.microsoft.com/fwlink/?linkid=834796) for a list of all versions. 
+- Be in lower case
+- Start and end with a letter or number
+- Have no slashes or dots
+- Have fewer than 128 characters 
+
+After starting the skillset name with a letter or number, the rest of the name can include any letter, number, and dashes as long as the dashes are not consecutive.  
+
+The **api-version** parameter is required. The only available version is `2017-11-11-Preview`. See [API versions in Azure Search](https://go.microsoft.com/fwlink/?linkid=834796) for a list of all versions. 
 
 
 ### Request headers  
@@ -51,13 +58,13 @@ Content-Type: application/json
 |*Content-Type:*|Required. Set this to `application/json`|  
 |*api-key:*|Required. The `api-key` is used to authenticate the request to your Search service. It is a string value, unique to your service. The **Create Skillset** request must include an `api-key` header set to your admin key (as opposed to a query key).|  
 
- You will also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure portal. See [Create an Azure Search service in the portal](https://azure.microsoft.com/documentation/articles/search-create-service-portal/) for page navigation help.  
+You also need the service name to construct the request URL. You can get both the service name and `api-key` from your service dashboard in the Azure portal. See [Create an Azure Search service in the portal](search-create-service-portal.md) for page navigation help.  
 
 ### Request body syntax  
 
- The body of the request contains the skillset definition, consisting of one or more fully specified skills, as well as optional name and description parameters.  
+The body of the request contains the skillset definition, consisting of one or more fully specified skills, as well as optional name and description parameters.  
 
- The syntax for structuring the request payload is as follows. A sample request is provided further on in this article and also in [How to define a skillset](cognitive-search-defining-skillset.md).  
+The syntax for structuring the request payload is as follows. A sample request is provided later in this article and also in [How to define a skillset](cognitive-search-defining-skillset.md).  
 
 ```
 {   
