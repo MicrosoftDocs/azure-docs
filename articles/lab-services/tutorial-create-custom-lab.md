@@ -51,9 +51,7 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 1. On the **DevTest Lab** page, select **+ Add** on the toolbar. 
 
 	![Add button](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. On the **Choose a base** page, search with **Windows 10** keyword, and select **Windows 10 Pro**. 
-
-	![Choose a base](./media/tutorial-create-custom-lab/choose-a-base.png)
+1. On the **Choose a base** page, search with **Ubuntu** keyword, and select one of the base images in the list. 
 1. On the **Virtual machine** page, do the following actions: 
     1. For **Virtual machine name**, enter a name for the virtual machine. 
     2. For **User name**, enter a name for the user that has access to the virtual machine. 
