@@ -3,7 +3,7 @@ title: Security Playbook in Azure Security Center | Microsoft Docs
 description: This document helps you to use security playbooks in Azure Security Center to automate your response to security incidents.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
