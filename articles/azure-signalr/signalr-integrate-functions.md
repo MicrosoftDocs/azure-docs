@@ -74,9 +74,11 @@ Copy the script below into your text editor, and replace the values for `Resourc
 ResourceGroupName=SignalRTestResources
 location=eastus
 
-# Generate a random name for the new function app and storage account
-let randomNum=$RANDOM*$RANDOM
-functionappName=signalrfunctionapp$randomNum
+#====================================================================
+#=== Update these variables for the new function app and storage  ===
+#=== account.                                                     ===
+#====================================================================
+functionappName=mysignalfunctionapp
 storageAccountName=funcstoraccount$randomNum
 
 # Create a storage account to hold function app code and settings
@@ -92,6 +94,15 @@ az functionapp create --resource-group $ResourceGroupName \
 
 ```
 
+| Parameter | Description |
+| -------------------- | --------------- |
+| ResourceGroupName | This resource group name was suggested in previous tutorials. It is a good idea to keep all tutorial resources grouped together. Use the same resource group you used in the previous tutorials. | 
+| location | Update this variable to the same location you used to create the resource group in the previous tutorials. | 
+| functionappName | Update this variable with a unique name for your new function app. For example, signalrfunctionapp22665120. | 
+| storageAccountName | Enter a name for the new storage account to hold function app code and settings. | 
+
+
+
 ## Configure the function app
 
 In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local Git repository.
@@ -99,6 +110,12 @@ In this section, you will configure the function app with an app setting contain
 Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section. Paste the updated script into your Azure Cloud Shell and press **Enter**.
 
 ```azurecli-interactive
+#====================================================================
+#=== Update these variables to match your resources.              === 
+#====================================================================
+ResourceGroupName=SignalRTestResources
+functionappName=mysignalfunctionapp
+
 #========================================================================
 #=== Replace this value with the connection string for your           ===
 #=== SignalR Service resource.                                        ===
@@ -115,6 +132,14 @@ az functionapp deployment source config-local-git --name $functionappName \
     --resource-group $ResourceGroupName
 
 ```
+
+| Parameter | Description |
+| -------------------- | --------------- |
+| ResourceGroupName | This resource group name was suggested in previous tutorials. It is a good idea to keep all tutorial resources grouped together. Use the same resource group you used in the previous tutorials. | 
+| functionappName | Update this variable with a unique name for your new function app. For example, signalrfunctionapp22665120. | 
+| connstring | Enter connection string for your SignalR Service resource. You can retrieve this connection string from your SignalR Service resource page in the Azure portal by clicking **Keys** under **SETTINGS**. | 
+
+
 
 Make a note the Git deployment URL returned from the last command. You will use this URL for deploying the function code.
 
