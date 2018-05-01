@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -64,11 +64,11 @@ To view detailed diagnostics, scroll down to view **Diagnostics**.
 
 ## Act on a device
 
-To act on one or more devices, select them in the list of devices and then choose **Schedule**. The **Engine** device model specifies four methods a device must support:
+To act on one or more devices, select them in the list of devices and then choose **Jobs**. The **Engine** device model specifies three methods a device must support:
 
 ![Engine methods](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
-Choose **Restart**, set the job name to **RestartEngine**, and then choose **Apply**:
+Choose **FillTank**, set the job name to **FillEngineTank**, and then choose **Apply**:
 
 ![Schedule the restart method](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
@@ -80,11 +80,11 @@ To track the status of the job on the **Maintenance** page, choose **Jobs**:
 
 When you explore the different simulated device types, you see that other device types support different methods. In a deployment with physical devices, the device model specifies the methods the device should support. Typically, the device developer is responsible for developing the code that makes the device act in response to a method call.
 
-To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Schedule** panel shows the types of method common to all the selected devices.
+To schedule a method to run on multiple devices, you can select multiple devices in the list on the **Devices** page. The **Jobs** panel shows the types of method common to all the selected devices.
 
 ## Reconfigure a device
 
-To change the configuration of a device, select it in the device list on the **Devices** page and then choose **Reconfigure**. The reconfigure panel shows the property values for the selected device that you can change:
+To change the configuration of a device, select it in the device list on the **Devices** page, then choose **Jobs**, and then choose **Reconfigure**. The jobs panel shows the property values for the selected device that you can change:
 
 ![Reconfigure a device](media/iot-suite-remote-monitoring-manage/devicesreconfigure.png)
 
