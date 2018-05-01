@@ -11,8 +11,9 @@
   - name: Explore Time Series Insights
     href: time-series-quickstart.md
 - name: Tutorials
+  items:
   - name: Explore TSI JavaScript controls
-    href: tut-explore-js-client-lib
+    href: tut-explore-js-client-lib.md
 - name: Concepts
   items:
   - name: Plan your environment
