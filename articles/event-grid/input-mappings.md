@@ -35,11 +35,11 @@ Although that format doesn't match the required schema, Event Grid enables you t
 
 When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three properties you use to customize the mapping:
 
-* **--input-schema** - use this parameter to specify the type of schema. The available options are **cloudeventv01schema**, **customeventschema**, and **eventgridschema**. The default value is eventgridschema. When creating custom mapping between your schema and the event grid schema, use customeventschema. When events are in the CloudEvents schema, use cloudeventv01schema.
+* The `--input-schema` parameter specifies the type of schema. The available options are *cloudeventv01schema*, *customeventschema*, and *eventgridschema*. The default value is eventgridschema. When creating custom mapping between your schema and the event grid schema, use customeventschema. When events are in the CloudEvents schema, use cloudeventv01schema.
 
-* **--input-mapping-default-values** - use this parameter to specify default values for fields in the Event Grid schema. You can set default values for **subject**, **eventtype**, and **dataversion**. Typically, you use this parameter when your custom schema does not include a field that corresponds to one of those three fields. For example, you can specify that dataversion is always set to **1.0**.
+* The `--input-mapping-default-values` parameter specifies default values for fields in the Event Grid schema. You can set default values for *subject*, *eventtype*, and *dataversion*. Typically, you use this parameter when your custom schema does not include a field that corresponds to one of those three fields. For example, you can specify that dataversion is always set to **1.0**.
 
-* **--input-mapping-fields** - use this parameter to map fields from your schema to the event grid schema. You specify values in space-separated key/value pairs. For the key name, use the name of the event grid field. For the value, use the name of your field. You can use key names for **id**, **topic**, **eventtime**, **subject**, **eventtype**, and **dataversion**.
+* The `--input-mapping-fields` parameter maps fields from your schema to the event grid schema. You specify values in space-separated key/value pairs. For the key name, use the name of the event grid field. For the value, use the name of your field. You can use key names for *id*, *topic*, *eventtime*, *subject*, *eventtype*, and *dataversion*.
 
 The following example creates a custom topic with some mapped and default fields:
 
@@ -55,7 +55,7 @@ az eventgrid topic create \
 
 ## Subscribe to event grid topic
 
-When subscribing to the custom topic, you specify the schema you would like to use for receiving the events. You use the `--event-delivery-schema` parameter and set it to **cloudeventv01schema**, **eventgridschema**, or **inputeventschema**. The default value is eventgridschema.
+When subscribing to the custom topic, you specify the schema you would like to use for receiving the events. You use the `--event-delivery-schema` parameter and set it to *cloudeventv01schema*, *eventgridschema*, or *inputeventschema*. The default value is eventgridschema.
 
 The examples in this section use a Queue storage for the event handler. For more information, see [Route custom events to Azure Queue storage](custom-event-to-queue-storage.md).
 
