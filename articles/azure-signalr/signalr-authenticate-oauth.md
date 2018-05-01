@@ -422,6 +422,7 @@ az appservice plan create --name $WebAppPlan --resource-group $ResourceGroupName
 az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 
+
 ```
 
 
@@ -429,7 +430,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
 | -------------------- | --------------- |
 | ResourceGroupName | This resource group name was suggested in previous tutorials. It is a good idea to keep all tutorial resources grouped together. Use the same resource group you used in the previous tutorials. | 
 | WebAppPlan | Enter a new, unique, App Service Plan name. | 
-| myWebAppName | This will be the name of the new web app and part of the URL. Use a unique name. For example, signalrtestwebapp22665120.   | 
+| WebAppName | This will be the name of the new web app and part of the URL. Use a unique name. For example, signalrtestwebapp22665120.   | 
 
 
 
@@ -526,7 +527,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 | DeploymentUserName | Choose a new deployment user name. |
 | DeploymentUserPassword | Choose a password for the new deployment user. |
 | ResourceGroupName | Use the same resource group name you used in the previous section. | 
-| myWebAppName | This will be the name of the new web app you created previously. | 
+| WebAppName | This will be the name of the new web app you created previously. | 
 
 
 Make a note the Git deployment URL returned from this command. You will use this URL later.
