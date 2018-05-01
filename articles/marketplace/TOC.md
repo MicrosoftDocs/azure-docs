@@ -1,7 +1,7 @@
 # [Azure Marketplace documentation](index.md)
 ## [Azure Marketplace and AppSource publisher guide](marketplace-publishers-guide.md)
 ## [Grow your business with Azure Marketplace](grow-your-business-azure-marketplace.md)
-## [What is Appsource](marketplace-what-is-appsource.md)
+## [AppSource Technical Publishing Guide](marketplace-what-is-appsource.md)
 ## [Grow your business with AppSource](marketplace-grow-your-business-with-appsource.md)
 ## [Azure Marketplace Consulting Services](consulting-services.md)
 ## [Azure Marketplace SaaS application technical publishing guide](marketplace-saas-applications-technical-publishing-guide.md)
