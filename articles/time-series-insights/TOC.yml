@@ -12,7 +12,7 @@
     href: time-series-quickstart.md
 - name: Tutorials
   items:
-  - name: Explore TSI JavaScript controls
+  - name: Explore TSI JavaScript client library
     href: tut-explore-js-client-lib.md
 - name: Concepts
   items:

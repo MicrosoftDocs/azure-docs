@@ -44,57 +44,66 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 -->
 This tutorial makes heavy use of the "Developer Tools" feature (also known as DevTools or F12), found in most browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern web browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
-## TSI sample application
+## The Time Series Insights Sample Application
 
-Throughout this tutorial, you use a Time Series Insights sample application to explore the TSI JavaScript library. The sample application is a Single-Page web Application (SPA), which showcases the use of the library for querying and visualizing data from a sample TSI environment. 
+Throughout this tutorial, the Time Series Insights Sample Application is used to explore the source code behind the application, including the TSI JavaScript client library. The application is a Single-Page web Application (SPA), showcasing the use of the library for querying and visualizing data from a sample TSI environment. 
 
-1. Navigate to the [Time Series Insights sample application](https://tsiclientsample.azurewebsites.net/)
+1. Navigate to the [Time Series Insights sample application](https://tsiclientsample.azurewebsites.net/). You see a page similar to the following, prompting you for sign-in:
    ![TSI Client Sample sign-in prompt](media/tut-explore-js-client-lib/tcs-sign-in.png)
 
 2. Click the "Log in" button. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
    ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-consent.png)
 
-3. After successful sign-in, you should see a page similar to the following, containing several styles of charts, populated with TSI data:
+3. After successful sign-in, you should see a page similar to the following, containing several styles of charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
    ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
 
 ### Page source and structure
 
-Now let's view the source code behind the page that rendered in your browser as the TSI sample application. You won't walk through everything, but you'll learn about the major sections of the code, giving you sense of what the page is doing:
+First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We won't walk through all of the elements, but you learn about the major sections of the code, giving you a sense of what the page is doing:
 
-1. Open "Developer Tools" in your browser, and inspect the elements that make up the current page, also known as the HTML or DOM tree:
+1. Open "Developer Tools" in your browser, and inspect the elements that make up the current page, also known as the HTML or DOM tree. Expand the `<head>` and `<body>` elements similar to the following :
 
-   ![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts.png)
+   ![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)
 
-2. You can see in the previous image that the page contains, among many other things, the following major sections:
-   - The \<head\> element, which pulls in additional files to assist in the functioning of the page:
-     - a \<script\> element for the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+2. You can see in the previous image that the page contains, among many other things, the following major elements:
+   - The **\<head\>** element, which pulls in additional files to assist in the functioning of the page via:
+     - the \<script\> element for the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+
+       >[!NOTE]
+       > The source code for the ADAL JavaScript library is available from the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
+
      - \<link\> elements for style sheets (`sampleStyles.css`, `tsiclient.css`) - used to control page styling details, such as colors, fonts, spacing, etc.
-     - a \<script\> element for the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - The \<body\> element, which defines the layout of the page:
-     - The \<div\> section that contains the Log In dialog (`id="loginModal"`).
-     - The \<div\> section that controls the placement of the header row, used for status messages and sign-in information (`class="header"`).
-     - The \<div\> section that controls the placement of all of the chart controls (`class="chartsWrapper"`).
-     - The \<script\> section which contains all of the JavaScript used to control the page .
+     - the \<script\> element for the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
+   - The **\<body\> element**, which defines the layout of the page via:
+     - the \<div\> element that contains the "Log In" dialog (`id="loginModal"`).
+     - the \<div\> element that controls the placement of the header row, used for status messages and sign-in information (`class="header"`).
+     - the \<div\> element that controls the placement of the remainder of the page elements (more below).
+     - the \<script\> section, which contains all of the JavaScript used to control the page.
+
+3. Expand the `<div class="chartsWrapper">` element, under the second `<div>` element of the `<body>` element. Here you'll find all of the `<div>` elements used to position all of the sample chart controls. Each is essentially a "container" for contents, specifying a name and page placement. The visual styling and all other attributes are specified in the style sheet files (CSS):
+
+4. Expand the `<script>` element, under the second `<div>` element of the `<body>` element. You will see the page level JavaScript, that is used for authentication and rendering of the controls on the page:
 
 ### TSI Client JavaScript library
 
-Although we won't review it in detail, fundamentally the library provides an abstraction for two important categories :
-- wrappers for calling the TSI environment REST APIs to query data
-- several types of charting controls used for rendering data in a web page
+Although we won't review it in detail, fundamentally the TSI Client library provides an abstraction for two important categories:
 
-As you explore more of the source code below, and walk through specific examples, you will see the programming model and API patterns take shape through the use of the library.
+- Wrapper methods for calling the TSI Query APIs. These are REST APIs that allow you to query for TSI aggregates, and are organized under the `TsiClient.Server` namespace of the library. 
+- Methods for creating and populating several types of charting controls. These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
-## Explore pie, line, and bar charts
+In the following sections, we will explore the JavaScript source code. There you will see the programming model and API patterns take shape through the use of these methods discussed.
+
+## Authentication
+
+## Pie, line, and bar charts
 
 First, lets look at some of the standard chart controls as demonstrated in the TSI Client Sample application. 
 
-1.   
+TODO: Go through the steps from the video.
 
-Go through the steps from the video.
+## States and events
 
-## Explore states and events
-
-Go through teh steps from the video.
+TODO: Go through the steps from the video.
 
 ## Next steps
 
@@ -106,7 +115,7 @@ In this tutorial, you learned how to:
 > * 3
 > * 4
 
-As discussed, the TSI Sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the next article below.
+As discussed, the TSI Sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the following article.
 
 > [!div class="nextstepaction"]
 > [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md)
