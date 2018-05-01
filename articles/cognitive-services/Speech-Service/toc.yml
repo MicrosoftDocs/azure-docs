@@ -56,8 +56,22 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-speech-service/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555934-custom-speech-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies
     href: https://aka.ms/csspech/privacy
-  - name: Support
-    href: support.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: Shipping your application
+    href: ship-application.md
+  - name: Release notes
+    hraf: release-notes.md
+  - name: License
+    href: license.md
+  - name: Third party notices
+    href: third-party-notices.md

@@ -1,0 +1,47 @@
+---
+title: Azure Cognitive Services, CarCognitive Services Speech SDKbon API Documentation - Tutorials, API Reference | Microsoft Docs
+description: Learn how to create and develop apps with the Cognitive Services Speech SDK
+services: cognitive-services
+author: wolfma61
+manager: onano
+
+ms.service: cognitive-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 05/07/2018
+ms.author: wolfma
+---
+
+# Shipping an application
+
+Please observe the [Speech SDK license](license.md), as well as the [third party software notices](third-party-notices.md) when distributing the Cognitive Services Speech SDK. Please see also the [Microsoft Privacy Statement](https://aka.ms/csspech/privacy).
+
+Depending on the platform you are distributing you application on, different files are required.
+
+## Windows
+
+On Windows, you can just deploy the required files next to your application, which guarantees that your application can access them. Make sure you select the version (Win32/x64) matching your application.
+
+| Name | Function
+|:-----|:----|
+| `carbon.dll` | core SDK, required for native and managed deployment
+| `carbon_csharp_bindings.dll` | managed wrapper in C# onto of the core SDK
+
+## Linux
+
+For a native application you need to ship the Speech SDK library, `libcarbon.so`. Depending on the Linux version or distro you are targeting, you may also need include the following dependencies:
+
+* The shared libraries of the GNU C Library (including the POSIX Threads Programming library, `libpthreads`)
+* The OpenSSL library (`libssl.so.1.0.0`)
+* The cURL library (`libcurl.so.4`)
+* The shared library for ALSA applications (`libasound.so.2`)
+
+On Ubuntu 16.04, for example, the GNU C libraries should already be installed by default. The last three can be installed using these commands:
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
+```
+
+If you need to support multiple Linux versions or distros, consider simply shipping all the dependencies with your application.
