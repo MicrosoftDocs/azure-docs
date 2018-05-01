@@ -39,7 +39,7 @@ Advanced networking provides the following benefits:
 * A pod can connect to other services in a peered VNet, and to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
 * Expose a Kubernetes service externally or internally through the Azure Load Balancer. Also a feature of Basic networking.
 * Pods in a subnet that have service endpoints enabled can securely connect to Azure services, for example Azure Storage and SQL DB.
-* You can use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
+* Use user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
 * Pods can access resources on the public Internet. Also a feature of Basic networking.
 
 > [!IMPORTANT]
