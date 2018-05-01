@@ -19,7 +19,7 @@ sections:
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create and use a <b>classroom lab</b> using by using Azure Lab Services.
+    text: Learn how to create and use a <b>classroom lab</b> by using Azure Lab Services.
   - type: list
     style: ordered
     items:
@@ -27,7 +27,7 @@ sections:
     - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">Set up a classroom lab</a>
     - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">Access a classroom lab</a>
   - type: paragraph
-    text: Learn how to create and use a <b>custom lab</b> using by using Azure DevTest Labs.
+    text: Learn how to create and use a <b>custom lab</b> by using Azure DevTest Labs.
   - type: list
     style: ordered
     items:
