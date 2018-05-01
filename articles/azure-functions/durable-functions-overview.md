@@ -1,5 +1,5 @@
 ---
-title: Durable Functions Overview - Azure (preview)
+title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 services: functions
 author: cgillum
@@ -16,7 +16,7 @@ ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
 
-# Durable Functions overview (preview)
+# Durable Functions overview
 
 *Durable Functions* is an extension of [Azure Functions](functions-overview.md) and [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
@@ -27,7 +27,7 @@ The extension lets you define stateful workflows in a new type of function calle
 * They automatically checkpoint their progress whenever the function awaits. Local state is never lost if the process recycles or the VM reboots.
 
 > [!NOTE]
-> Durable Functions is in preview and is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
+> Durable Functions is an advanced extension for Azure Functions that is not appropriate for all applications. The rest of this article assumes that you have a strong familiarity with [Azure Functions](functions-overview.md) concepts and the challenges involved in serverless application development.
 
 The primary use case for Durable Functions is simplifying complex, stateful coordination problems in serverless applications. The following sections describe some typical application patterns that can benefit from Durable Functions.
 
@@ -66,7 +66,7 @@ The `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure
 
 ![Fan-out/fan-in diagram](media/durable-functions-overview/fan-out-fan-in.png)
 
-With normal functions, fanning out can be done by having the function send multiple messages to a queue. However, fanning back in is much more challenging. You'd have to write code to to track when the queue-triggered functions end and store function outputs. The Durable Functions extension handles this pattern with relatively simple code.
+With normal functions, fanning out can be done by having the function send multiple messages to a queue. However, fanning back in is much more challenging. You'd have to write code to track when the queue-triggered functions end and store function outputs. The Durable Functions extension handles this pattern with relatively simple code.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
