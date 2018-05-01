@@ -5,7 +5,9 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
+tags: azure-resource-manager
+Customer intent: I need to monitor communication between a VM and an endpoint if the communication fails, learn why it failed. 
 
 ms.service: network-watcher
 ms.devlang: na

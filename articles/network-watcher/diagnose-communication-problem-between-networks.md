@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Network Watcher
 
-If you already have a network watcher enabled in at least one region, skip to [Diagnose a gateway](#diagnose-a-gateway).
+If you already have a network watcher enabled in the East US region, skip to [Diagnose a gateway](#diagnose-a-gateway).
 
 1. In the portal, select **All services**. In the **Filter box**, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 2. Select **Regions**, to expand it, and then select **...** to the right of **East US**, as shown in the following picture:

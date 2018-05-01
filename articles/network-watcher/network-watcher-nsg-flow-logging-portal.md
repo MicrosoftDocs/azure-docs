@@ -5,7 +5,9 @@ services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
+editor: ''
+tags: azure-resource-manager
+Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
@@ -26,8 +28,7 @@ A network security group (NSG) enables you to filter inbound traffic to, and out
 > [!div class="checklist"]
 > * Create a VM with a network security group
 > * Enable Network Watcher and register the Microsoft.Insights provider
-> * Enable an NSG flow log for an NSG
-> * Communicate to and from a VM to generate flow data
+> * Enable a traffic flow log for an NSG, using Network Watcher's NSG flow log capability
 > * Download logged data
 > * View logged data
 
@@ -119,7 +120,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 6. Select **...** to the right of the PT1H.json file and select **Download**.
 
-## View logged data
+## View a flow log
 
 The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
 
