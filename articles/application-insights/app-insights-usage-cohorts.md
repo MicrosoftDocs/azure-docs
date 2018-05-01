@@ -1,5 +1,5 @@
 ---
-title:  Azure Application Insights usage cohorts | Microsoft docs
+title:  Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 services: application-insights
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mbullwin ; daviste
 
 # Application Insights cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. If you find yourself analyzing a specific set of users or events repeatedly, cohorts can give you even more flexibility to express exactly the set you’re interested in.
+A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. If you analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
 
 ![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
 
 ## Cohorts versus basic filters
 
-Cohorts are used in ways similar to filters. But cohorts' definitions are built from custom analytics queries, so they can be much more adaptable and complex. You can save cohorts, unlike filters, so other members of your team can reuse them.
+Cohorts are used in ways similar to filters. But cohorts' definitions build from custom analytics queries, so they're much more adaptable and complex. You can save cohorts, unlike filters, so other members of your team can reuse them.
 
-You might define a cohort of users who have all tried a new feature in your app. When this cohort is saved in your Application Insights resource, it's easy to analyze this specific group of users in the future.
+You might define a cohort of users who have all tried a new feature in your app. When you save this cohort in your Application Insights resource, it's easy to analyze this specific group of users in the future.
 
 > [!NOTE]
-> After they're created, cohorts are available from the Users, Sessions, Events, and User Flows tools.
+> After they're created, cohorts are available from the **Users**, **Sessions**, **Events**, and **User Flows** tools.
 
 ## Example: engaged users
 
@@ -35,29 +35,29 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 1. Open the **Cohorts** tool.
 
-2. Select the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
+2. Select the **Template Gallery** tab. You’ll see a collection of templates for various cohorts.
 
 3. Select **Engaged Users –- by Days Used**.
 
     There are three parameters for this cohort:
-    * **Activities**, where you choose which events and page views should count as “usage.”
+    * **Activities**, where you choose which events and page views count as “usage.”
     * **Period**, the definition of a month.
     * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
 
 4. Change **UsedAtleastCustom** to “5+ days,” and leave **Period** on the default of 28 days.
 
-    ![Image](.\media\app-insights-usage-cohorts\003.png)
+    ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
 
     Now this cohort represents all user IDs that were sent with any custom event or page view on 5 separate days in the past 28 days.
 
 5. Select **Save**.
 
    > [!TIP]
-   >  Give your cohort a name, like “Engaged Users (5+ Days),” and save it to “My reports” or “Shared reports,” depending on whether you want other people with access to this Appication Insights resource to see this cohort.
+   >  Give your cohort a name, like “Engaged Users (5+ Days),” and save it to “My reports” or “Shared reports,” depending on whether you want other people who have access to this Application Insights resource to see this cohort.
 
 6. Select **Back to Gallery**.
 
-### What can you do with this cohort?
+### What can you do by using this cohort?
 
 Open the **Users** tool > In the **Show** dropdown > Choose the cohort you created under **Users who belong to…**
 
@@ -66,71 +66,71 @@ Now the **Users** tool is filtered to this cohort of users:
 ![Users pane filtered to a particular cohort](.\media\app-insights-usage-cohorts\004.png)
 
 A few important things to notice:
-* This is a set you could not have created through normal filters. The date logic is more advanced.
-* You can further filter this cohort using the normal filters in the Users tool. So while the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days. 
+* You can't create this set through normal filters. The date logic is more advanced.
+* You can further filter this cohort using the normal filters in the **Users** tool. So while the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days. 
 
-These filters lets you ask more sophisticated questions like: _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_ that would otherwise be impossible to express through the query builder.
+These filters support more sophisticated questions, like _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_, which are impossible to express through the query builder.
 
-## Example: events cohort
+## Example: Events cohort
 
-You can also make cohorts of events. Let’s define a cohort of the events and page views, and then see how to use them from the other tools. This might be useful to define a set of events that your team considers _active usage_, or to define a set of events related to a certain new feature.
+You can also make cohorts of events. We'll define a cohort of the events and page views, and then see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
 1. Open the **Cohorts** tool.
 
-2. Select the **Template Gallery** tab. Here you’ll find a collection of templates for various cohorts.
+2. Select the **Template Gallery** tab. You’ll see a collection of templates for various cohorts.
 
 3. Select **Events Picker**.
 
-    ![Screenshot of Events picker](.\media\app-insights-usage-cohorts\006.png)
+    ![Events picker screenshot](.\media\app-insights-usage-cohorts\006.png)
 
-4. In the **Activities** dropdown, select the events you’d like to be in the cohort.
+4. In the **Activities** drop-down box, select the events you’d like to be in the cohort.
 
 5. Save the cohort and give it a name.
 
-## Example: active users where you modify query
+## Example: Active users where you modify a query
 
-The previous two cohorts were defined using dropdowns. But we can also define cohorts with Analytics queries for total flexibility. Let’s see how by creating a cohort of users from the United Kingdom.
+The previous two cohorts were defined using dropdowns. But we can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
 
 ![Animated image walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts0001.gif)
 
-1. Open the **Cohorts** tool > Click **Template Gallery** tab > Choose **Blank Users cohort**.
+1. Open the **Cohorts** tool, select the **Template Gallery** tab, and select **Blank Users cohort**.
 
-    ![Blank Users Cohort](.\media\app-insights-usage-cohorts\001.png)
+    ![Blank users cohort](.\media\app-insights-usage-cohorts\001.png)
 
     There are three sections:
-    * A Markdown text section where you can describe the cohort in more detail for others on your team.
+    * A markdown text section, where you describe the cohort in more detail for others on your team.
 
-    * A parameters section you can use to make your own parameters, like the **Activities** and other dropdowns from the previous two examples.
+    * A parameters section, where you make your own parameters, like **Activities** and other drop-down boxes from the previous two examples.
 
-    * A query section that you use to define the cohort using an Analytics query.
+    * A query section, where you define the cohort using an analytics query.
 
-    In the query section, you [write an Analytics query](https://docs.loganalytics.io/index) that selects the certain set of rows that describe the cohort you want to define. The Cohorts tool then implicitly adds a “| summarize by user_Id” clause to the query. This is previewed below the query in a table so you can make sure your query is returning results.
+    In the query section, you [write an analytics query](https://docs.loganalytics.io/index). The query selects the certain set of rows that describe the cohort you want to define. The **Cohorts** tool then implicitly adds a “| summarize by user_Id” clause to the query. This data previews below the query in a table, so you can make sure your query is returning results.
 
     > [!NOTE]
     > If you don’t see the query, try resizing the section to make it taller and reveal the query. The animated .gif at the beginning of this section illustrates the resizing behavior.
 
-2. Copy-paste the following into the query editor:
+2. Copy and paste the following text into the query editor:
 
     ```KQL
     union customEvents, pageViews
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Click **Run Query**. You should see user IDs appear in the table. If not, change to a country where your application has users.
+3. Select **Run Query**. If you don't see user IDs appear in the table, change to a country where your application has users.
 
 4. Save and name the cohort.
 
 ## Frequently asked questions
 
-_I’ve defined a cohort of users from a certain country. When I compare this cohort in the Users tool to just setting a filter on that country in the Users tool, I see different results. Why?_
+_I’ve defined a cohort of users from a certain country. When I compare this cohort in the **Users** tool to just setting a filter on that country in the **Users** tool, I see different results. Why?_
 
-Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the above example) and you compare its results to setting the filter “Country or region = United Kingdom.”
+Cohorts and filters are different. Suppose you have a cohort of users from the United Kingdom (defined like the previous example), and you compare its results to setting the filter “Country or region = United Kingdom.”
 
-* The cohort version will show all events from users who have sent at least one event from the United Kingdom in the current time range. If you split by country or region, you’ll likely see many countries and regions.
-* The filters version will only show events from the United Kingdom. Whereas if you split by country or region, you’ll only see the United Kingdom.
+* The cohort version shows all events from users who sent at least one event from the United Kingdom in the current time range. If you split by country or region, you’ll likely see many countries and regions.
+* The filters version only shows events from the United Kingdom. But if you split by country or region, you see only the United Kingdom.
 
 ## Learn more
 - [Analytics query language](https://go.microsoft.com/fwlink/?linkid=856587)
-- [Users, Sessions, Events](app-insights-usage-segmentation.md)
-- [User Flows](app-insights-usage-flows.md)
+- [Users, sessions, events](app-insights-usage-segmentation.md)
+- [User flows](app-insights-usage-flows.md)
 - [Usage overview](app-insights-usage-overview.md)
