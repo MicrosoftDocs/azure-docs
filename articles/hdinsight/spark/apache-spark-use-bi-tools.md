@@ -12,8 +12,8 @@ ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 04/21/2018
+ms.topic: tutorial
+ms.date: 05/07/2018
 ms.author: jgao
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
