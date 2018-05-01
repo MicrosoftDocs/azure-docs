@@ -22,7 +22,7 @@ For more information about the components of Azure Blockchain Workbench, see [Az
 
 ## Ingestion
 
-To ingest message data into Blockchain Workbench, you use Service Bus. In order to send messages to Service Bus, you need to create a Service Bus client. To get started developing a Service Bus client, see [Get started with Service Bus queues](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues#3-send-messages-to-the-queue).
+To ingest message data into Blockchain Workbench, you use Service Bus. In order to send messages to Service Bus, you need to create a Service Bus client. To get started developing a Service Bus client, see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#3-send-messages-to-the-queue)
 
 > [!IMPORTANT]
 > Your Service Bus client requires an access key to the **activityhub** Service Bus in your Workbench deployment.
@@ -41,7 +41,7 @@ Use the `CreateUser` operation to create users. Send a message using the followi
 | UserName | string | The name of the user. For example,  `DOMAIN\user` |
 
 > [!NOTE]
-> You can also use the [REST API to create users](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/users/userspost?branch=master). 
+> You can also use the [REST API to create users](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/users/userspost). 
 
 ## Create new contract instance
 
@@ -57,7 +57,7 @@ Use the `CreateWorkflowInstance` operation to create a new instance of a contrac
 | Parameters | object | A JSON list of key value pairs. |
 
 > [!NOTE]
-> You can also use the [REST API to create a contract instance](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstancepost?branch=master).
+> You can also use the [REST API to create a contract instance](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstancepost).
 
 ## Take action on a contract 
 
@@ -77,7 +77,7 @@ Use the `CreateWorkflowInstanceAction` operation to take an action on a contract
 | WorkflowInstanceActionParameters | object | A JSON list of key value pairs. |
 
 > [!NOTE]
-> You can also use the [REST API to take an action on a contract](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstanceactionpost?branch=master). 
+> You can also use the [REST API to take an action on a contract](https://docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstanceactionpost). 
 
 ## Events
 
