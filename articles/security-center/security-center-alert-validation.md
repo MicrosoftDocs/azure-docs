@@ -3,7 +3,7 @@ title: Alerts Validation in Azure Security Center | Microsoft Docs
 description: This document helps you to validate the security alerts in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/02/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # How to sign up and upload your first video
