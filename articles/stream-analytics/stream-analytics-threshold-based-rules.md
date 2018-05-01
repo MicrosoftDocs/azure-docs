@@ -139,7 +139,7 @@ This example JSON data represents the **metrics** input data that is used in the
 
 ```json
 {
-    "eventTime": "2017-03-08T14:50:23.1324132Z",
+    "eventTime": "2018-04-30T14:50:23.1324132Z",
     "deviceId": "978648",
     "custom": {
         "dimensions": {
@@ -185,7 +185,7 @@ This example JSON data represents the **metrics** input data that is used in the
     }
 }
 {
-    "eventTime": "2015-03-08T14:50:24.1324138Z",
+    "eventTime": "2018-04-30T14:50:24.1324138Z",
     "deviceId": "978648",
     "custom": {
         "dimensions": {
@@ -231,7 +231,7 @@ This example JSON data represents the **metrics** input data that is used in the
     }
 }
 {
-    "eventTime": "2015-03-08T14:50:37.1324130Z",
+    "eventTime": "2018-04-30T14:50:37.1324130Z",
     "deviceId": "978648",
     "custom": {
         "dimensions": {
@@ -279,8 +279,10 @@ This example JSON data represents the **metrics** input data that is used in the
 ```
 
 ## Example output
-This example output JSON data shows a single alert event was produced based on the CPU threshold rule defined in the reference data. The output event contains the name of the alert as well as the aggregated (average, min, max) of the fields considered. The output event data includes field key number 2 `NodeName` value `N024` due to the rule configuration.
+This example output JSON data shows a single alert event was produced based on the CPU threshold rule defined in the reference data. The output event contains the name of the alert as well as the aggregated (average, min, max) of the fields considered. The output event data includes field key number 2 `NodeName` value `N024` due to the rule configuration. (The JSON was altered to show line breaks for readibility.)
 
 ```JSON
-{"time":"2017-01-15T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU","alert":"hot node AVG CPU over 90","avg":98.0,"min":98.0,"max":98.0,"dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
+{"time":"2018-05-01T02:03:00.0000000Z","deviceid":"978648","ruleid":1234,"metric":"CPU",
+"alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
+"dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
