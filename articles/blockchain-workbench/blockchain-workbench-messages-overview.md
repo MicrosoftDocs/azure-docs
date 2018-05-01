@@ -14,88 +14,38 @@ manager: femila
 
 # Azure Blockchain Workbench messages overview
 
-You can use Azure Blockchain Workbench messaging API to integrate with other applications and systems. Developers can create Azure Message Bus applications to ingest data or perform actions in Blockchain Workbench. Service Bus is used for reliable message delivery. For example, ingesting messages from IoT devices into Service Bus.
+In addition to providing a REST API, Azure Blockchain Workbench also provides messaging-based integration. Workbench publishes ledger-centric events via Azure Event Grid, enabling downstream consumers to ingest data or take action based on these events. For those clients that require reliable messaging, Azure Blockchain Workbench delivers messages to an Azure Service Bus endpoint as well.
 
-Developers can register to be notified about events that happen in blockchain applications. Event notifications are available using Azure Service Bus or Azure Event Grid in your Workbench deployment. For example, you can use Event Grid to notify a logic app to perform a task based on a subscribed event.
+Developers have also expressed interest in the ability to have external systems communicate initiate transactions to create users, create contracts, and update contracts on a ledger. While this functionality is not currently exposed in public preview, a sample that delivers that capability can be found at [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
 
-For more information about the components of Azure Blockchain Workbench, see [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md).
 
-## Ingestion
+## Event notifications
 
-To ingest message data into Blockchain Workbench, you use Service Bus. In order to send messages to Service Bus, you need to create a Service Bus client. To get started developing a Service Bus client, see [Get started with Service Bus queues](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues#3-send-messages-to-the-queue).
+Event notifications can be used to notify users and downstream systems of events that happen in Workbench and the blockchain network it is connected to. Event notifications can be consumed directly in code or
+used with tools such as Logic Apps and Flow to trigger flow of data to downstream systems.
 
-> [!IMPORTANT]
-> Your Service Bus client requires an access key to the **activityhub** Service Bus in your Workbench deployment.
+See [Notification message reference](#notification-message-reference)
+for details of various messages that can be received.
 
-The following scenarios are examples of how you can use Service Bus in Blockchain Workbench.
+### Consuming Event Grid Events with Azure Functions
 
-## Create users
+If a user wants to use Event Grid to be notified about events that happen in Blockchain Workbench, you can consume events from Event Grid by using Azure Functions.
 
-Use the `CreateUser` operation to create users. Send a message using the following values:
-
-| Name | Type  | Description  |
-|---------|---------|---------|
-| OperationName | string | For creating users, set OperationName to `CreateUser` |
-| RequestId | string | Request ID for tracking. Randomly generated unique ID (GUID) per request |
-| UserId | string | The ID of the user. For example, the ObjectID of the user in Azure Active Directory |
-| UserName | string | The name of the user. For example,  `DOMAIN\user` |
-
-> [!NOTE]
-> You can also use the [REST API to create users](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/users/userspost?branch=master). 
-
-## Create new contract instance
-
-Use the `CreateWorkflowInstance` operation to create a new instance of a contract. Send a message using the following values:
-
-| Name | Type  | Description  |
-|---------|---------|---------|
-| OperationName | string | For creating a new instance of a contract, set OperationName to `CreateWorkflowInstance`|
-| RequestId | string | Request ID for tracking. Randomly generated unique ID (GUID) per request |
-| WorkflowName | string | The name of the workflow to create a new instance of the contract. |
-| LedgerImplementationBlobStorageURL | string | The URL to the ledger implementation. For example, a Solidity smart contract (.sol) file. |
-| UserChainIdentifier | string | The identifier for the user on the chain. For example, an Ethereum address. |
-| Parameters | object | A JSON list of key value pairs. |
-
-> [!NOTE]
-> You can also use the [REST API to create a contract instance](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstancepost?branch=master).
-
-## Take action on a contract 
-
-Use the `CreateWorkflowInstanceAction` operation to take an action on a contract. Send a message using the following values:
-
-| Name | Type  | Description  |
-|---------|---------|---------|
-| OperationName | string | For taking an action on a contract, set OperationName to `CreateWorkflowInstanceAction`|
-| RequestId | string | Request ID for tracking. Randomly generated unique ID (GUID) per request |
-| WorkflowInstanceActionId | int | The action ID defined in Blockchain Workbench database for the action to take. |
-| ChainInstanceId | int | The chain instance ID from the Workbench database |
-| LedgerImplementationBlobStorageURL | string | The URL to the ledger implementation. For example, a Solidity smart contract (.sol) file. |
-| UserChainIdentifier | string | The identifier for the user on the chain. For example, an Ethereum address |
-| WorkflowInstanceLedgerIdentifier | string | The identity of the contract on-chain For example, the smart contract address. |
-| WorkflowFunctionName | string | The name of the function to call in the workflow |
-| WorkflowName | string | The name of the workflow |
-| WorkflowInstanceActionParameters | object | A JSON list of key value pairs. |
-
-> [!NOTE]
-> You can also use the [REST API to take an action on a contract](https://review.docs.microsoft.com/en-us/rest/api/azure-blockchain-workbench/workflowinstances/workflowinstanceactionpost?branch=master). 
-
-## Events
-
-Event notifications can be used to notify users of events that happen in Blockchain Workbench. Event notifications can also be used to trigger flow of data to downstream systems.
-
-## Using Event grid for notifications
-
-If a user wants to use Event Grid to be notified about events that happen in workbench, one example to consume events from Event Grid is by using Azure Functions. 
-
-1. Create an **Azure Function App** in Azure portal.
+1. Create an **Azure Function App** in the Azure portal.
 2. Create a new function.
 3. Locate the template for Event Grid. Basic template code for reading the message is shown. Modify the code as needed.
 4. Save the Function. 
 5. Select the Event Grid from Blockchain Workbench’s resource group.
 
-See [Notification message reference](#notification-message-reference) for details of various messages that can be received.
+### Consuming Event Grid Events with Logic Apps
 
-## Using Service Bus for notifications
+1.  Create a new **Azure Logic App** in the Azure portal.
+2.  When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Select **Azure Event Grid -- When a resource event occurs**.
+3. When the workflow designer is displayed, you will be prompted to sign in.
+4. Select the Subscription. Resource as **Microsoft.EventGrid.Topics**. Select the **Resource Name** from the name of the resource from the Azure Blockchain Workbench resource group.
+5. Select the Event Grid from Blockchain Workbench's resource group.
+
+## Using Service Bus Topics for notifications
 
 Service Bus Topics can be used to notify users about events that happen in Blockchain Workbench. 
 
@@ -103,40 +53,56 @@ Service Bus Topics can be used to notify users about events that happen in Block
 2.	Select **Topics**.
 3.	Select **workbench-external**.
 4.	Create a new subscription to this topic. Obtain a key for it.
-5.	Create a program, which subscribes to events from this subscription
+5.	Create a program, which subscribes to events from this subscription.
 
-See [Notification message reference](#notification-message-reference) for details of various messages that can be received.
+### Consuming Service Bus Messages with Logic Apps
+
+1. Create a new **Azure Logic App** in the Azure portal.
+2.  When opening the Azure Logic App in the portal, you will be prompted to select a trigger. Type **Service Bus** into the search box and select the trigger appropriate for the type of interaction you want to have with the Service Bus. For example, **Service Bus -- When a message is received in
+a topic subscription (auto-complete)**.
+3. When the workflow designer is displayed, specify the connection information for the Service Bus.
+4. Select your subscription and specify the topic of **workbench-external**.
+5. Develop the logic for your application that utilizes the message from
+this trigger.
 
 ## Notification message reference
 
+Depending on the OperationName, the notification messages have one of
+the following message types.
 
-###  Base Type for all messages
-
-``` csharp
-public class MessageModelBase
-{
-    public string OperationName { get; set; }
-    public string RequestId { get; set; }
-}
-```
-Depending on the OperationName, the notification messages have one of the following message types.
-	
 ### AccountCreated
 
-``` csharp
-public class NewAccountRequest : MessageModelBase
-{
-    public int UserID { get; set; }
-    public string ChainIdentifier { get; set; }
-}
-```
+Indicates that a new account has been requested to be added to the specified chain.
 
 | Name    | Description  |
 |----------|--------------|
 | UserId  | ID of the user that was created |
-| ChainIdentifier | Address of the user that was created on the blockchain network |
+| ChainIdentifier | Address of the user that was created on the blockchain network. In Ethereum, this would be the user's "on chain" address. |
+
+``` csharp
+public class NewAccountRequest : MessageModelBase
+{
+  public int UserID { get; set; }
+  public string ChainIdentifier { get; set; }
+}
+```
 
 ### ContractInsertedOrUpdated
+
+Indicates that a request has been made to insert or update a contract on a distributed ledger.
+
+| Name | Description |
+|-----|--------------|
+| ChainID | A unique identifier for the chain associated with the request.|
+  BlockId | The unique identifier for a block on the ledger.|
+  ContractId | A unique identifier for the contract.|
+  ContractAddress |       The address of the contract on the ledger.|
+  TransactionHash  |     The hash of the transaction on the ledger.|
+  OriginatingAddress |   The address of the originator of the transaction.|
+  ActionName       |     The name of the action.|
+  IsUpdate        |      Identifies if this is an update.|
+  Parameters       |     A list of objects that identify the name, value, and data type of parameters sent to an action.|
+  TopLevelInputParams |  In scenarios where a contract is connected to one or more other contracts, these are the parameters from the top-level contract. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -155,25 +121,55 @@ public class ContractInsertOrUpdateRequest : MessageModelBase
 }
 ```
 
-### UpdateWorkflowInstanceAction
+#### UpdateContractAction
 
-``` csharp
-public class WorkflowInstanceActionRequest : MessageModelBase
+Indicates that a request has been made to execution an action on a specific contract on a distributed ledger.
+
+| Name                     | Description                                                                                                                                                                   |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ContractActionId         | The unique identifier for this contract action                                                                                                                                |
+| ChainIdentifier          | The unique identifier for the chain                                                                                                                                           |
+| ConnectionId             | The unique identifier for the connection                                                                                                                                      |
+| UserChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this would be the user’s “on chain” address.                                                     |
+| ContractLedgerIdentifier | Address of the contract on the ledger.                                                                                                                                        |
+| WorkflowFunctionName     | Name of the workflow function.                                                                                                                                                |
+| WorkflowName             | Name of the workflow.                                                                                                                                                         |
+| WorkflowBlobStorageURL   | The url of the contract in blob storage.                                                                                                                                      |
+| ContractActionParameters | Parameters for the contract action.                                                                                                                                           |
+| TransactionHash          | The hash of the transaction on the ledger.                                                                                                                                    |
+| Provisioning Status      | The current provisioning status of the action.</br>0 – Created</br>1 – In Process</br>2 – Complete</br> Complete indicates a confirmation from the ledger that this as been successfully added.                                               |
+|                          |                                                                                                                                                                               |
+
+```csharp
+public class ContractActionRequest : MessageModelBase
 {
-    public int WorkflowInstanceActionId { get; set; }
-    public int ChainInstanceId { get; set; }
+    public int ContractActionId { get; set; }
+    public int ConnectionId { get; set; }
     public string UserChainIdentifier { get; set; }
-    public string WorkflowInstanceLedgerIdentifier { get; set; }
+    public string ContractLedgerIdentifier { get; set; }
     public string WorkflowFunctionName { get; set; }
     public string WorkflowName { get; set; }
     public string WorkflowBlobStorageURL { get; set; }
-    public IEnumerable<WorkflowInstanceActionParameter> WorkflowInstanceActionParameters { get; set; }
+    public IEnumerable<ContractActionParameter> ContractActionParameters { get; set; }
     public string TransactionHash { get; set; }
     public int ProvisioningStatus { get; set; }
 }
 ```
 
 ### UpdateUserBalance
+
+Indicates that a request has been made to update the user balance on a specific distributed ledger.
+
+> [!NOTE]
+> This message is generated only for those ledgers that require the funding of accounts.
+> 
+
+| Name    | Description                              |
+|---------|------------------------------------------|
+| Address | The address of the user that was funded. |
+| Balance | The balance of the user balance.         |
+| ChainID | The unique identifier for the chain.     |
+
 
 ``` csharp
 public class UpdateUserBalanceRequest : MessageModelBase
@@ -186,6 +182,15 @@ public class UpdateUserBalanceRequest : MessageModelBase
 
 ### InsertBlock
 
+Message indicates that a request has been made to add a block on a distributed ledger.
+
+| Name           | Description                                                            |
+|----------------|------------------------------------------------------------------------|
+| ChainId        | The unique identifier of the chain to which the block was added.             |
+| BlockId        | The unique identifier for the block inside Azure Blockchain Workbench. |
+| BlockHash      | The hash of the block.                                                 |
+| BlockTimeStamp | The timestamp of the block.                                            |
+
 ``` csharp
 public class InsertBlockRequest : MessageModelBase
 {
@@ -197,6 +202,18 @@ public class InsertBlockRequest : MessageModelBase
 ```
 
 ### InsertTransaction
+
+Message provides details on a request to add a transaction on a distributed ledger.
+
+| Name            | Description                                                            |
+|-----------------|------------------------------------------------------------------------|
+| ChainId         | The unique identifier of the chain to which the block was added.             |
+| BlockId         | The unique identifier for the block inside Azure Blockchain Workbench. |
+| TransactionHash | The hash of the transaction.                                           |
+| From            | The address of the originator of the transaction.                      |
+| To              | The address of the intended recipient of the transaction.              |
+| Value           | The value included in the transaction.                                 |
+| IsAppBuilderTx  | Identifies if this is a Blockchain Workbench transaction.                         |
 
 ``` csharp
 public class InsertTransactionRequest : MessageModelBase
@@ -211,12 +228,19 @@ public class InsertTransactionRequest : MessageModelBase
 }
 ```
 
-### AssignWorkflowInstanceChainIdentifier
+### AssignContractChainIdentifier
+
+Provides details on the assignment of a chain identifier for a contract. For example, in Ethereum blockchain, the address of a contract on the ledger.
+
+| Name            | Description                                                                       |
+|-----------------|-----------------------------------------------------------------------------------|
+| ContractId      | This is the unique identifier for the contract inside Azure Blockchain Workbench. |
+| ChainIdentifier | This is the identifier for the contract on the chain.                             |
 
 ``` csharp
-public class AssignWorkflowInstanceChainIdentifierRequest : MessageModelBase
+public class AssignContractChainIdentifierRequest : MessageModelBase
 {
-    public int WorkflowInstanceId { get; set; }
+    public int ContractId { get; set; }
     public string ChainIdentifier { get; set; }
 }
 ```
