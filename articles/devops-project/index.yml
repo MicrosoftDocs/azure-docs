@@ -17,13 +17,13 @@ metadata:
 abstract:
   description: The Azure DevOps Project presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
   aside:
-    image:
+    image: media\fullbrowser.png
       alt: 
       height: 110
       src:
       width: 250  
-    title: 
-    href: 
+    title: Create CI/CD with the Azure DevOps Project (8:53)
+    href: https://channel9.msdn.com/Events/Connect/2017/T174/player
     width: 250
 sections:
 - title: 5-Minute Quickstarts
