@@ -28,7 +28,7 @@ The following are the insights that Visual Search lets you discover.
 - Web pages that include the image&mdash;A list of webpages that include the input image
 - Recipes&mdash;A list of webpages that include recipes for making the dish shown in the input image
 
-In addition to these insights, Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags allow users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags might be Sports, which contains links to images of sports. Or, if the input image is of an apple pie, one of the tags might be Desserts, which contains links to other types desserts the user can explore.
+In addition to these insights, Visual Search also returns a diverse set of terms (tags) derived from the input image. These tags allow users to explore concepts found in the image. For example, if the input image is of a famous athlete, one of the tags could be the name of the athlete, another tag could be Sports. Or, if the input image is of an apple pie, the tags could be Apple Pie, Pies, Desserts, so users can explore related concepts.
 
 The Visual Search results also include bounding boxes for regions of interest in the image. For example, if the image contains several celebrities, the results may include bounding boxes for each of the recognized celebrities in the image. Or, if Bing recognizes a product or clothing in the image, the result may include a bounding box for the recognized product or clothing item.
 
