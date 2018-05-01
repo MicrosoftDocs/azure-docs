@@ -101,12 +101,9 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
 
     ```azurecli
-    az vm update \
-        --resource-group myResourceGroup \
-        --name myVM \
-        --set licenseType=Windows_Server
+    az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-
+    
 ### How to verify your VM is utilizing the licensing benefit
 Once you have deployed your VM through either PowerShell, Resource Manager template or portal, you can verify the setting in the following methods.
 
@@ -135,7 +132,7 @@ LicenseType              :
 
 ### CLI
 ```azurecli
-az vm get-instance-view -g MyResourceGroup -n MyVm --query '[?licenseType==Windows_Server]' -o table
+az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
 
 ## List all VMs with Azure Hybrid Benefit for Windows Server in a subscription
@@ -179,7 +176,7 @@ The following example uses ARM template with a Windows Server 2016 Datacenter im
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-You can also learn more about how to [Modify a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set) for more ways to update your scale set.
+You can also learn more about how to [Modify a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md) for more ways to update your scale set.
 
 ## Next steps
 - Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
