@@ -64,7 +64,7 @@ In this section, you will use the Azure Cloud Shell to create a new Azure Functi
 
 When creating the function app resources, create them in the same resource group you used in the previous tutorials. This approach makes managing all tutorial resources easier.
 
-Copy the script below into your text editor, and replace the values for `ResourceGroupName`, and `location` with the values for the resource group you used in the previous tutorials. Copy and paste the updated script into your Azure Cloud Shell, and press **Enter** to create a storage account and function app.
+Copy the script below into your text editor, and replace the values of the variable parameters with the values for your resources. Copy and paste the updated script into your Azure Cloud Shell, and press **Enter** to create a storage account and function app.
 
 ```azurecli-interactive
 #====================================================================
@@ -79,7 +79,7 @@ location=eastus
 #=== account.                                                     ===
 #====================================================================
 functionappName=mysignalfunctionapp
-storageAccountName=funcstoraccount$randomNum
+storageAccountName=mystorageaccount
 
 # Create a storage account to hold function app code and settings
 az storage account create --resource-group $ResourceGroupName \
@@ -107,7 +107,7 @@ az functionapp create --resource-group $ResourceGroupName \
 
 In this section, you will configure the function app with an app setting containing the connection string for your Azure SignalR Service resource. Your function code will use this setting to connect and publish messages to the chat room. You will also configure the function app for deployment from a local Git repository.
 
-Copy the script below and replace the value for `connstring` with the connection string for your SignalR Service resource. This script also uses the variables you initialized in the previous section. Paste the updated script into your Azure Cloud Shell and press **Enter**.
+Copy the script below and replace the values of the parameters. Paste the updated script into your Azure Cloud Shell and press **Enter**.
 
 ```azurecli-interactive
 #====================================================================

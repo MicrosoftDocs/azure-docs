@@ -508,11 +508,11 @@ WebAppName=myWebAppName
 #=== Update these variables for your deployment user.                 ===
 #========================================================================
 DeploymentUserName=myUserName
-DeployemntUserPassword=myPassword
+DeploymentUserPassword=myPassword
 
 # Add the desired deployment user name and password
 az webapp deployment user set --user-name $DeploymentUserName \
-    --password $DeployemntUserPassword
+    --password $DeploymentUserPassword
 
 # Configure Git deployment and note the deployment URL in the output
 az webapp deployment source config-local-git --name $WebAppName \
