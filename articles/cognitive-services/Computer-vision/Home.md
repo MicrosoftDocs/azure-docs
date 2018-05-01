@@ -1,4 +1,4 @@
---- 
+---
 title: Computer Vision API for Microsoft Cognitive Services | Microsoft Docs 
 description: Use advanced algorithms in the Computer Vision API to help you process images and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
@@ -7,18 +7,23 @@ manager: corncar
  
 ms.service: cognitive-services 
 ms.component: computer-vision 
-ms.topic: article
-ms.date: 08/10/2017 
+ms.topic: conceptual
+ms.date: 05/01/2018 
 ms.author: kefre 
---- 
- 
-# What is Computer Vision API Version 1.0?
+---
+# What is Computer Vision API Version 2.0?
+
+> [!NOTE]
+> For the previous version of Computer Vision API see:
+>- [Overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home-v1)
+>- [Computer Vision API Version 1.0](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739)
 
 The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. With the Computer Vision API users can analyze images to:
+
 * [Tag images based on content.](#Tagging)
 * [Categorize images.](#Categorizing)
 * [Identify the type and quality of images.](#Identifying)
-* [Detect human faces and return their coordinates. ](#Faces)
+* [Detect human faces and return their coordinates.](#Faces)
 * [Recognize domain-specific content.](#Domain-Specific)
 * [Generate descriptions of the content.](#Descriptions)
 * [Use optical character recognition to identify printed text found in images.](#OCR)
@@ -80,6 +85,7 @@ Returned Json
    ],
 }
 ```
+
 ## Categorizing Images
 In addition to tagging and descriptions, Computer Vision API returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new models.
 
@@ -88,7 +94,7 @@ Based on a list of 86 concepts seen in the following diagram, visual features fo
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
-Image		                                           | Response
+Image                                                  | Response
 ------------------------------------------------------ | ----------------
 ![Woman Roof](./Images/woman_roof.jpg)                 | people
 ![Family Photo](./Images/family_photo.jpg)             | people_crowd
@@ -97,7 +103,7 @@ Image		                                           | Response
 ![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
 ## Identifying Image Types
-There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. It can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality as such on a scale of 0-3.
+There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. The API can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality on a scale of 0-3.
 
 ### Clip-art type
 Detects whether an image is clip art or not.  
@@ -131,9 +137,7 @@ Image|Response
 ![Vision Analyze Mom Daughter Face](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
 ![Vision Analyze Family Phot Face](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
-
 ## Domain-Specific Content
-
 In addition to tagging and top-level categorization, Computer Vision API also supports specialized (or domain-specific) information. Specialized information can be implemented as a standalone method or with the high-level categorization. It functions as a means to further refine the 86-category taxonomy through the addition of domain-specific models.
 
 Currently, the only specialized information supported are celebrity recognition and landmark recognition. They are domain-specific refinements for the people and people group categories, and landmarks around the world.
@@ -141,7 +145,7 @@ Currently, the only specialized information supported are celebrity recognition 
 There are two options for using the domain-specific models:
 
 ### Option One - Scoped Analysis
-Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model's name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
+Analyze only a chosen model by invoking an HTTP POST call. If you know which model you want to use, specify the model's name. You only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
 
 ### Option Two - Enhanced Analysis
 Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if 'details=all' or "details" include 'celebrities', the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with 'people_'.
@@ -150,7 +154,9 @@ Analyze to provide additional details related to categories from the 86-category
 Computer Vision API's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### Example Description Generation
+
 ![B&W Buildings](./Images/bw_buildings.jpg) '
+
 ```json
  Returned Json
 
@@ -189,7 +195,7 @@ Computer Vision API's algorithms analyze the content in an image. This analysis 
 ```
 
 ## Perceiving Color Schemes
-The Computer Vision algorithm extracts colors from an image. The colors are analyzed in three different contexts: foreground, background, and whole. They are grouped into twelve 12 dominant accent colors. Those accent colors are black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. Depending on the colors in an image, simple black and white or accent colors may be returned in hexadecimal color codes.
+The Computer Vision algorithm extracts colors from an image. The colors are analyzed in three different contexts: foreground, background, and whole. They are grouped into 12 dominant accent colors. Those accent colors are black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. Depending on the colors in an image, simple black and white, or accent colors may be returned in hexadecimal color codes.
 
 Image                                                       | Foreground |Background| Colors
 ----------------------------------------------------------- | --------- | ------- | ------
@@ -206,7 +212,6 @@ Image                                                       | Response
 ![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
 ![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
 
-
 ### Black & White
 Boolean flag that indicates whether an image is black&white or not.
 
@@ -219,6 +224,7 @@ Image                                                      | Response
 Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.
 
 ## Optical Character Recognition (OCR)
+
 OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
 
 OCR supports 25 languages. These languages are: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish.
@@ -230,7 +236,7 @@ Requirements for OCR:
 - The size of the input image must be between 40 x 40 and 3200 x 3200 pixels.
 - The image cannot be bigger than 10 megapixels.
 
-Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
+The input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
 
 The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
 - Blurry images.
@@ -243,12 +249,13 @@ The accuracy of text recognition depends on the quality of the image. An inaccur
 
 Limitations: On photos where text is dominant, false positives may come from partially recognized words. On some photos, especially photos without any text, precision can vary a lot depending on the type of image.
 
-## Recognize Handwritten Text
-This technology allows you to detect and extract handwritten text from notes, letters, essays, whiteboards, forms, etc. It works with different surfaces and backgrounds, such as white paper, yellow sticky notes, and whiteboards.
+## Recognize Text
+This technology allows you to detect and extract printed or handwritten text from images of various objects with different surfaces and backgrounds, such as receipts, posters, business cards, letters, and whiteboards.
 
-Handwritten text recognition saves time and effort and can make you more productive by allowing you to take images of text, rather than having to transcribe it. It makes it possible to digitize notes. This digitization allows you to implement quick and easy search. It also reduces paper clutter.
+Text recognition saves time and effort. You can be more productive by taking an image of text rather than transcribing it. Text recognition makes it possible to digitize notes. This digitization allows you to implement quick and easy search. It also reduces paper clutter.
 
 Input requirements:
+
 - Supported image formats: JPEG, PNG, and BMP.
 - Image file size must be less than 4 MB.
 - Image dimensions must be at least 40 x 40, at most 3200 x 3200.

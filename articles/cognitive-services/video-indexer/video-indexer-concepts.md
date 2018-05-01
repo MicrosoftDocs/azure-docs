@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/17/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # Video Indexer concepts

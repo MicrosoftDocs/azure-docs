@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
 ms.date: 05/01/2018
-ms.author: Noelle.LaCharite;
+ms.author: nolachar
 
 ---
 # What is Video Indexer? (preview)
