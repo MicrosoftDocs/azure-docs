@@ -4,11 +4,8 @@
   items:
     - name: What is Bing Custom Search?
       href: overview.md
-    - name: Custom Search endpoint
-      href: endpoint-custom.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create first instance
       href: quick-start.md
@@ -26,29 +23,23 @@
       href: ./tutorials/custom-search-web-page.md
 - name: How-to guides 
   items:        
-    - name: Configure your custom search experience
+    - name: Define your custom view
       href: define-your-custom-view.md
-    - name: Configure your hosted UI experience
-      href: hosted-ui.md
-    - name: Call your custom search
+    - name: Search your custom view
       href: search-your-custom-view.md
-    - name: Share your custom search
-      href: share-your-custom-search.md
-    - name: Configure your custom autosuggest experience
-      href: define-custom-suggestions.md
-    - name: Get custom suggestions
-      href: get-custom-suggestions.md
-- name: References
+    - name: Configure hosted UI
+      href: hosted-ui.md
+    - name: Handle hit highlighting
+      href: hit-highlighting.md
+    - name: Page webpages
+      href: page-webpages.md 
+- name: Reference
   items:
     - name: Bing Custom Search API v7
       href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
     - name: Bing Search API use and display requirements
       href: use-and-display-requirements.md
-    - name: Handle hit highlighting
-      href: hit-highlighting.md
-    - name: Page webpages
-      href: page-webpages.md
-    - name: SDK
+    - name: Bing Search SDK
       items:
       - name: SDK samples overview 
         href: sdk.md
@@ -56,14 +47,8 @@
         href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Subscription key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search
-  - name: Try it!
-    href: https://aka.ms/bingcustomsearchtryit
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
   - name: Stack Overflow
@@ -72,6 +57,12 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Try it!
+    href: https://aka.ms/bingcustomsearchtryit
   - name: Custom Search endpoint
     href: endpoint-custom.md
   - name: Supported countries and markets
