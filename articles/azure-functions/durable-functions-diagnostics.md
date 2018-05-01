@@ -208,7 +208,7 @@ Clients will get the following response:
 {
   "runtimeStatus": "Running",
   "input": null,
-  "customStatus": { "nextActions": ["A", "B", "C"], "foo": 2 },
+  "customStatus": { "completionPercentage": 90.0, "status": "Updating database records" },
   "output": null,
   "createdTime": "2017-10-06T18:30:24Z",
   "lastUpdatedTime": "2017-10-06T19:40:30Z"
