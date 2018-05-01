@@ -69,6 +69,21 @@ Authentication Attempts (used for reporting and troubleshooting):
 - Result
 - Used Check for Notification
 
+Activations (attempts to activate an account in the Microsoft Authenticator mobile app)
+- Username
+- Account Name
+- Get Activation Code Timestamp
+- Get Activation Code Result
+- Activate Timestamp
+- Activate Success
+- Activate Error
+- Activation Status Timestamp
+- Activation Status Result
+- Device  Name
+- Device Type
+- App Version
+- OATH Token Enabled
+
 Blocks (used to determine blocked state and for reporting):
 
 - Block Timestamp
