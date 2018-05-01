@@ -70,10 +70,11 @@ Now let's view the source code behind the page that rendered in your browser as 
      - a \<script\> element for the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
      - \<link\> elements for style sheets (`sampleStyles.css`, `tsiclient.css`) - used to control page styling details, such as colors, fonts, spacing, etc.
      - a \<script\> element for the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - The \<div\> section that contains the Log In dialog (`id="loginModal"`).
-   - The \<div\> section that controls the placement of the header row, used for status messages and sign-in information (`class="header"`).
-   - The \<div\> section that controls the placement of all of the chart controls (`class="chartsWrapper"`).
-   - The \<script\> section which contains all of the JavaScript used to control the page.
+   - The \<body\> element, which defines the layout of the page:
+     - The \<div\> section that contains the Log In dialog (`id="loginModal"`).
+     - The \<div\> section that controls the placement of the header row, used for status messages and sign-in information (`class="header"`).
+     - The \<div\> section that controls the placement of all of the chart controls (`class="chartsWrapper"`).
+     - The \<script\> section which contains all of the JavaScript used to control the page .
 
 ### TSI Client JavaScript library
 
