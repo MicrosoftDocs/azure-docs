@@ -7,7 +7,7 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -35,11 +35,9 @@ If you don’t have an account, you can create a free trial account in just a co
 
 Before you deploy the solution accelerator to your Azure subscription, you must choose some configuration options:
 
-1. Log on to [azureiotsuite.com](https://www.azureiotsuite.com) using your Azure account credentials, and click **+** to create a new solution:
+1. Log on to [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) using your Azure account credentials.
 
-    ![Create a new solution](media/iot-suite-remote-monitoring-deploy/createnewsolution.png)
-
-1. Click **Select** on the **Remote Monitoring preview** tile.
+1. Click **Try Now** on the **Remote Monitoring** tile.
 
     ![Choose remote monitoring](media/iot-suite-remote-monitoring-deploy/remotemonitoring.png)
 
