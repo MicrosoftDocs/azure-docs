@@ -14,6 +14,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.date: 03/23/2017
 
 ---
 # Walkthrough Step 2: Upload existing data into an Azure Machine Learning experiment
