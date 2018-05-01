@@ -1,6 +1,6 @@
 ---
-title: Using multiple containers (preview) on Web App for Containers - Azure | Microsoft Docs
-description: How to use a multi-container app for Web App for Containers.
+title: Create a multi-container (preview) app using Web App for Containers
+description: Learn how to use multiple containers on Azure with Docker Compose, with a WordPress and MySQL app.
 keywords: azure app service, web app, linux, docker, compose, multi-container, container
 services: app-service
 documentationcenter: ''
@@ -13,26 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 05/01/2018
 ms.author: msangapu
 ms.custom: mvc
 #Customer intent: As an Azure customer, I want to show how to use the multiple containers so customer can deploy their own containers into Web App for Containers.
 ---
-#Create a multi-container (preview) app using Web App for Containers
+#Tutorial: Create a multi-container (preview) app in Web App for Containers
 
 > [!NOTE]
-> Deployment to multiple containers is currently in preview. In this tutorial, you will learn how to take an existing .yaml configuration (Docker Compose) and deploy to Web App for Containers using the Azure Cloud Shell.
+> Deployment to multiple containers is currently in preview.
 
-[Web App for Containers](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom Docker image and deploy it to Web App for Containers. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. Web App for Containers uses the Docker container technology to host both built-in images and custom images as a platform as a service.  In this tutorial, you will learn how to create a multiple container app using....
+
+<!----  hello -->
+
+In this tutorial, you will learn how to:
+> [!div class="checklist"]
+> * Convert a Docker Compose configuration
+> * Deploy multi-container app to Azure
+> * Configure environment variables
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Prerequisites
-
-To complete this tutorial, you need:
-
-* An active [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* Experience with Docker Compose or Kubernetes
 
 [!INCLUDE [Try Cloud Shell](../../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +43,30 @@ To complete this tutorial, you need:
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
 
-## Using a Docker Compose configuration
+## Modify Docker Compose file
+
+For this tutorial, you use the compose file from [Azure Samples](https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml), but you need to modify it in order to run it in Web App for Containers. The following shows supported and unsupported Docker Compose options in Web App for Containers:
+
+### Supported Docker Compose syntax
+- command
+- entrypoint
+- environment
+- image
+- ports
+- restart
+- services
+- volumes
+
+### Unsupported Docker Compose syntax
+- build
+- depends_on
+- networks
+- secrets
+
+Any other syntax not explicitly called out isn't supported in Public Preview.
+
+<!-- don't lead customers to beleive this is the working yaml -->
+
 
 In this section, you will learn how to use a Docker Compose configuration in Web App for Containers. <!--To use a Kuberentes configuration, follow the steps at [Use a Kubernetes configuration](#using-a-kubernetes-configuration-optional) instead for the rest of the tutorial.-->
 
@@ -72,33 +96,27 @@ volumes:
 ```
 
 > [!NOTE]
-> If your app requires a database, [Azure Database services](https://azure.microsoft.com/en-us/product-categories/databases/) is strongly recommended for production environments, instead of a container. If you want to use a database in container for development or testing purposes, make sure to use the persisted share storage to store your database files, so the database can be persisted during app restarts. 
+> If your app requires a database, [Azure Database services](https://azure.microsoft.com/en-us/product-categories/databases/) is strongly recommended for production environments, instead of a database container. If you want to use a database in container for development or testing purposes, make sure to use the persisted share storage to store your database files, so the database can be persisted during app restarts. 
 
 This sample is based on WordPress and MySQL from [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). It needs to be modified in order to work with multiple containers. Listed below are both supported and unsupported options.
 
-### Supported compose options for multi-container 
-- command
-- entrypoint
-- environment
-- image
-- ports
-- restart
-- services
-- volumes
-
-### Unsupported compose options for multi-container
-- build
-- depends_on
-- networks
-- secrets
 
 ## Multi-container configuration
 
 ### Removing dependencies
 This sample states that WP is dependent on the MySQL container. However, `depends_on` is not supported so it will be removed from the configuration.
 
+<!-- doesn't break the app, may add it later -->
+<!-- will not be honored -->
+
 ### Persistent storage
 If you want to persist the data, you need to map the container directory to  shared storage.You can utilize *WEBAPP_STORAGE_HOME* variable to access this shared directory. The volumes option maps the file system to directories within the container.  Once the app is enabled, you also need to enable an app setting to enable persistent storage which you will do later.
+
+### Ports
+
+<!-- only host port 80 or 8080 will be honored, any others will be disregarded.-->
+
+
 
 ```yaml
 version: '3.3'
@@ -127,7 +145,7 @@ services:
 ```
 
 
-## Create a multi-container app (Docker)
+## Create a multi-container app (Docker Compose)
 
 <!--Change this to a create command 
 az webapp config container set --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file https://raw.githubusercontent.com/Azure-Samples/multi-container/master/docker-compose-wordpress.yaml 
@@ -268,6 +286,11 @@ az webapp config container set --resource-group myResourceGroup --plan myAppServ
 -->
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
+In this tutorial, you learned how to:
+> [!div class="checklist"]
+> * Convert a Docker Compose configuration
+> * Add application settings
+> * Deploy multi-container app to Azure
 
 ## Next steps
 
