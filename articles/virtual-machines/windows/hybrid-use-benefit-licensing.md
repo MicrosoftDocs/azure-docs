@@ -82,6 +82,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
 
 ### Powershell
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
+
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "Windows_Server"
@@ -89,6 +90,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     ```
     
 - Convert Windows Server VMs with benefit back to pay-as-you-go
+
     ```powershell
     $vm = Get-AzureRmVM -ResourceGroup "rg-name" -Name "vm-name"
     $vm.LicenseType = "None"
@@ -97,6 +99,7 @@ From portal VM blade, you can update the VM to use Azure Hybrid Benefit by selec
     
 ### CLI
 - Convert existing Windows Server VMs to Azure Hybrid Benefit for Windows Server
+
     ```azurecli
     az vm update \
         --resource-group myResourceGroup \
@@ -152,8 +155,10 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 az vm list --query '[?licenseType==Windows_Server]' -o table
 ```
 
-## Deploy a virtual machine scale set with Azure Hybrid Benefit for Windows Server
-Within your virtual machine scale set Resource Manager templates, an additional parameter `licenseType` must be specified. You can read more about [authoring Azure Resource Manager templates](../../resource-group-authoring-templates.md). Edit your Resource Manager template to include the licenseType property as part of the scale set’s virtualMachineProfile and deploy your template as normal - see following example using 2016 Windows Server image:
+## Deploy a Virtual Machine Scale Set with Azure Hybrid Benefit for Windows Server
+Within your virtual machine scale set Resource Manager templates, an additional parameter `licenseType` must be specified within your VirtualMachineProfile property. You can do this during create or update for your scale set through ARM template, Powershell, Azure CLI or REST.
+
+The following example uses ARM template with a Windows Server 2016 Datacenter image:
 ```json
 "virtualMachineProfile": {
     "storageProfile": {
@@ -174,17 +179,12 @@ Within your virtual machine scale set Resource Manager templates, an additional 
             "adminPassword": "[parameters('adminPassword')]"
     }
 ```
-You can also [Create and deploy a virtual machine scale set](#https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) and set the LicenseType property
+You can also learn more about how to [Modify a virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set) for more ways to update your scale set.
 
 ## Next steps
-Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
-
-Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
-
-Learn more about [Using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md)
-
-Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
-
-Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
-
-Read more about [Frequently asked questions](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Read more about [How to save money with the Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+- Read more about [Frequently asked questions for Azure Hybrid Benefit](#https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/)
+- Learn more about [Azure Hybrid Benefit for Windows Server licensing detailed guidance](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit)
+- Learn more about [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+- Learn more about [Windows 10 on Azure with Multitenant Hosting Right](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
+- Learn more about [Using Resource Manager templates](../../azure-resource-manager/resource-group-overview.md)
