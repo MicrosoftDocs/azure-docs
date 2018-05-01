@@ -407,7 +407,7 @@ Content-Type: application/json
 
 The response tells you whether the indexer is running. After indexing is finished, use another HTTP GET to the STATUS endpoint (as above) to see reports of any errors and warnings that occurred during enrichment.  
 
-Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during index.
+Warnings are common with some source file and skill combinations and do not always indicate a problem. In this tutorial, the warnings are benign (for example, no text inputs from the JPEG files). You can review the status reponse for verbose information about warnings emitted during indexing.
  
 ## Verify content
 
@@ -434,6 +434,8 @@ Content-Type: application/json
 Repeat for additional fields: content, language, keyphrases, and organizations in this exercise. You can return multiple fields via `$select` using a comma-delimited list.
 
 You can use GET or POST, depending on query string complexity and length. For more information, see [Query using the REST API](https://docs.microsoft.com/azure/search/search-query-rest-api).
+
+<a name="access-enriched-document"></a>
 
 ## Accessing the enriched document
 
