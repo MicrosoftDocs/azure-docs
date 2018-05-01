@@ -97,11 +97,11 @@ volumes:
 
 Web App for Containers doesn't currently check for the `depends_on` option so it is ignored.
 
-Make the following modifications to the file.
+The volumes option maps the file system to directories within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service and can be used to persist data for your app. 
+
+Make the following modifications to the file:
 
 In the `db` section, change the `volumes` option to the following value: `- ${WEBAPP_STORAGE_HOME}/site/data:/var/lib/mysql`
-
-The volumes option maps the file system to directories within the container. `${WEBAPP_STORAGE_HOME}` is an environment variable in App Service that contains the path to persistent storage for your app. 
 
 In the `wordpress` section, add a `volumes` option as shown in the following code: 
 ```yaml
@@ -111,7 +111,7 @@ In the `wordpress` section, add a `volumes` option as shown in the following cod
 
 Finally, remove the `volumes` section at the bottom.
 
-After you're finished, your configuration should look like the following code:
+After you're finished, your configuration should look like the following:
 
 ```yaml
 version: '3.3'
@@ -159,7 +159,6 @@ When the web app has been created, the Azure CLI shows output similar to the fol
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
   < JSON data removed for brevity. >
 }
@@ -167,7 +166,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ## Configure environment variables
 
-This sample is utilizing persistent storage, however it isn't yet enabled. To make this change, you need to update an app setting.
+This sample specifies persistent storage, however you also need to enable this setting within App Service. To make this change, do the following:
 
 To set app settings, use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set)  command in the Cloud Shell. App settings are case-sensitive and space-separated.
 
