@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 05/01/2018
 ms.author: tomfitz
 ---
 
@@ -29,30 +29,54 @@ Let's suppose you have an application that sends events in the following format:
 ]
 ```
 
-Although that format doesn't match the required schema, Event Grid enables you to map your fields to the schema.
+Although that format doesn't match the required schema, Event Grid enables you to map your fields to the schema. Or, you can receive the values in the original schema.
 
 ## Create custom topic with mapped fields
 
-When creating a custom topic, specify how to map fields from your original event to the Event Grid schema. In the **input-mapping-default-values** parameter, provide default values that are used for all events. You can specify default values for `subject`, `eventtype`, and `dataversion`. In the **input-mapping-fields** parameter, provide the one-to-one mapping between the two schemas. You can specify values for `id`, `topic`, `eventtime`, `subject`, `eventtype`, and `dataversion`.
+When creating a custom topic, specify how to map fields from your original event to the event grid schema. There are three properties you use to customize the mapping:
+
+* **--input-schema** - use this parameter to specify the type of schema. The available options are **cloudeventv01schema**, **customeventschema**, and **eventgridschema**. The default value is eventgridschema. When creating custom mapping between your schema and the event grid schema, use customeventschema. When events are in the CloudEvents schema, use cloudeventv01schema.
+
+* **--input-mapping-default-values** - use this parameter to specify default values for fields in the Event Grid schema. You can set default values for **subject**, **eventtype**, and **dataversion**. Typically, you use this parameter when your custom schema does not include a field that corresponds to one of those three fields. For example, you can specify that dataversion is always set to **1.0**.
+
+* **--input-mapping-fields** - use this parameter to map fields from your schema to the event grid schema. You specify values in space-separated key/value pairs. For the key name, use the name of the event grid field. For the value, use the name of your field. You can use key names for **id**, **topic**, **eventtime**, **subject**, **eventtype**, and **dataversion**.
+
+The following example creates a custom topic with some mapped and default fields:
 
 ```azurecli-interactive
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-mapping-fields topic=myTopicField eventType=myEventTypeField \
+  --input-schema customeventschema
+  --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
 
-## Subscribe to custom topic
+## Subscribe to event grid topic
 
-When subscribing to the custom topic, specify `inputeventschema` for the **event-delivery-schema** parameter.
+When subscribing to the custom topic, you specify the schema you would like to use for receiving the events. You use the `--event-delivery-schema` parameter and set it to **cloudeventv01schema**, **eventgridschema**, or **inputeventschema**. The default value is eventgridschema.
+
+The examples in this section use a Queue storage for the event handler. For more information, see [Route custom events to Azure Queue storage](custom-event-to-queue-storage.md).
+
+The following example subscribes to an event grid topic and uses the default event grid schema:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --endpoint-type storagequeue \
+  --endpoint <storage-queue-url>
+```
+
+The next example uses the input schema of the event:
+
+```azurecli-interactive
+az eventgrid event-subscription create \
+  --topic-name demotopic \
+  -g myResourceGroup \
+  --name eventsub2 \
   --event-delivery-schema inputeventschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
@@ -60,18 +84,51 @@ az eventgrid event-subscription create \
 
 ## Publish event to topic
 
-You are now ready to send an event to the custom topic, and see the result of the mapping. Use the following script to post an event:
+You are now ready to send an event to the custom topic, and see the result of the mapping. The following script to post an event in the [example schema](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
 
 curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
 ```
 
-Notice that the event data has been transformed from its original to schema to the event grid schema.
+Now, look at your Queue storage. The two subscriptions delivered events in different schemas.
+
+The first subscription used event grid schema. The format of the delivered event is:
+
+```json
+{
+  "Id": "016b3d68-881f-4ea3-8a9c-ed9246582abe",
+  "EventTime": "2018-05-01T20:00:25.2606434Z",
+  "EventType": "Created",
+  "DataVersion": "1.0",
+  "MetadataVersion": "1",
+  "Topic": "/subscriptions/<subscription-id>/resourceGroups/myResourceGroup/providers/Microsoft.EventGrid/topics/demotopic",
+  "Subject": "DefaultSubject",
+  "Data": {
+    "myEventTypeField": "Created",
+    "resource": "Users/example/Messages/1000",
+    "resourceData": { "someDataField1": "SomeDataFieldValue" } 
+  }
+}
+```
+
+These fields contain the mappings from the custom topic. **myEventTypeField** is mapped to **EventType**. The default values for **DataVersion** and **Subject** are used. The **Data** object contains the original event schema fields.
+
+The second subscription used the input event schema. The format of the delivered event is:
+
+```json
+{
+  "myEventTypeField": "Created",
+  "resource": "Users/example/Messages/1000",
+  "resourceData": { "someDataField1": "SomeDataFieldValue" }
+}
+```
+
+Notice that the original fields were delivered.
 
 ## Next steps
 
