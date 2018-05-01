@@ -43,9 +43,10 @@ Most Azure AD data for European-based customers stays within the European datace
     Multi-factor authentication stores all user data at-rest in European datacenters. However, in some cases data might be stored in the U.S., as follows:
     
     - Two-factor authentication and its related personal data might be stored in the U.S. if you're using MFA or SSPR.
-    - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
-    - Push notifications using the Microsoft Authenticator app require notifications from the manufacturer's notification service (Apple or Google), which might be outside Europe.
-    - OATH codes are always validated in the U.S. and some MFA and SSPR logs are stored in the U.S. for 30 days, regardless of authentication type.
+        - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
+        - Push notifications using the Microsoft Authenticator app require notifications from the manufacturer's notification service (Apple or Google), which might be outside Europe.
+        - OATH codes are always validated in the U.S. 
+    - Some MFA and SSPR logs are stored in the U.S. for 30 days, regardless of authentication type.
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
