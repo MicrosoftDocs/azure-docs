@@ -130,7 +130,7 @@ Now that you've added tags and images to the project, you can train it:
             var iteration = trainingApi.TrainProject(project.Id);
 
             // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-            while (iteration.Status == "Training")
+            while (iteration.Status != "Completed")
             {
                 Thread.Sleep(1000);
 
@@ -168,7 +168,7 @@ You're now ready to use the model for prediction:
             // Loop over each prediction and write out the results
             foreach (var c in result.Predictions)
             {
-                Console.WriteLine($"\t{c.Tag}: {c.Probability:P1}");
+                Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
             }
 
             Console.ReadKey();

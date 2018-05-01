@@ -39,8 +39,9 @@ In this step, you create a console application and prepare the training key and 
 4. Replace the contents of **Program.cs** with the code that follows.
 
 ```csharp
+using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
+using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training;
 using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training.Models;
-using Microsoft.Azure.Test.HttpRecorder;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,10 +54,6 @@ namespace SampleObjectDetection
 {
     class Program
     {
-        private static List<string> forkImages;
-        private static List<string> scissorsImages;
-        private static MemoryStream testImage;
-
         static void Main(string[] args)
         {
             // Add your training key from the settings page of the portal
@@ -75,7 +72,7 @@ To create a new Custom Vision Service project, add the following code to the end
 
 ```csharp
     // Find the object detection domain
-    var domains = client.GetDomains();
+    var domains = trainingApi.GetDomains();
     var objDetectionDomain = domains.FirstOrDefault(d => d.Type == "ObjectDetection");
 
     // Create a new project
@@ -151,7 +148,7 @@ For object detection projects we need to identify the region of the object using
         var region = fileToRegionMap[Path.GetFileNameWithoutExtension(fileName)];
         imageFileEntries.Add(new ImageFileCreateEntry(fileName, File.ReadAllBytes(fileName), null, new List<Region>(new Region[] { new Region(forkTag.Id, region[0], region[1], region[2], region[3]) })));
     }
-    client.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
+    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
 
     // Add all images for scissors
     imagePath = Path.Combine("Images", "scissors");
@@ -161,7 +158,7 @@ For object detection projects we need to identify the region of the object using
         var region = fileToRegionMap[Path.GetFileNameWithoutExtension(fileName)];
         imageFileEntries.Add(new ImageFileCreateEntry(fileName, File.ReadAllBytes(fileName), null, new List<Region>(new Region[] { new Region(scissorsTag.Id, region[0], region[1], region[2], region[3]) })));
     }
-    client.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
+    trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
 ```
 
 ## Step 5: Train the project
@@ -177,7 +174,7 @@ Now that you've added tags and images to the project, you can train it:
     var iteration = trainingApi.TrainProject(project.Id);
 
     // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-    while (iteration.Status == "Training")
+    while (iteration.Status != "Completed")
     {
         Thread.Sleep(1000);
 
@@ -211,12 +208,15 @@ You're now ready to use the model for prediction:
     // Make a prediction against the new project
     Console.WriteLine("Making a prediction:");
     var imageFile = Path.Combine("Images", "test", "test_image.jpg");
-    var result = endpoint.PredictImage(project.Id, File.ReadAllBytes(imageFile));
-
-    // Loop over each prediction and write out the results
-    foreach (var c in result.Predictions)
+    using (var stream = File.OpenRead(imageFile))
     {
-        Console.WriteLine($"\t{c.Tag}: {c.Probability:P1} [ {c.BoundingBox.left}, {c.BoundingBox.top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
+        var result = endpoint.PredictImage(project.Id, File.OpenRead(imageFile));
+
+        // Loop over each prediction and write out the results
+        foreach (var c in result.Predictions)
+        {
+            Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
+        }
     }
 ```
 

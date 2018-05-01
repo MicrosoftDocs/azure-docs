@@ -95,12 +95,12 @@ for image_num in range(1,10):
 #hemlock_dir = "Images\\Hemlock"
 #for image in os.listdir(os.fsencode("Images\\Hemlock")):
 #    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ hemlock_tag.id ])
+#        trainer.create_images_from_data(project.id, img_data, [ hemlock_tag.id ])
 #
 #cherry_dir = "Images\\Japanese Cherry"
 #for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
 #    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ cherry_tag.id ])
+#        trainer.create_images_from_data(project.id, img_data, [ cherry_tag.id ])
 ```
 
 ## Step 5: Train the project
@@ -115,7 +115,7 @@ import time
 
 print ("Training...")
 iteration = trainer.train_project(project.id)
-while (iteration.status == "Training"):
+while (iteration.status != "Completed"):
     iteration = trainer.get_iteration(project.id, iteration.id)
     print ("Training status: " + iteration.status)
     time.sleep(1)
@@ -148,7 +148,7 @@ results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url
 #
 # Open the sample image and get back the prediction results.
 # with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data.read(), iteration.id)
+#     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
 for prediction in results.predictions:
