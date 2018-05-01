@@ -42,6 +42,8 @@
      href: How-tos/text-analytics-how-to-sentiment-analysis.md
    - name: Extract key phrases
      href: How-tos/text-analytics-how-to-keyword-extraction.md
+   - name: Recognize linked entities
+     href: How-tos/text-analytics-how-to-entity-linking.md   
 - name: Reference
   items: 
   - name: Text Analytics API
