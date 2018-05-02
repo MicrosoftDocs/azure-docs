@@ -143,7 +143,7 @@ The following environments are supported:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
+       "IsEnabledInDeveloperMode": false,
        "ThresholdForSnapshotting": 5,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
