@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Launch an interactive search map using Azure Maps
 
-This article demonstrates the capabilities of Azure Maps to create a map that gives users an an interactive search experience. It also walks you through the basic steps of creating your own Maps account and getting your account's key to use in the demo web application. 
+This article demonstrates the capabilities of Azure Maps to create a map that gives users an interactive search experience. It walks you through the basic steps of creating your own Maps account and getting your account key to use in the demo web application. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,11 +30,11 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), click **Create a resource**.
 2. In the *Search the Marketplace* box, type **Maps**.
-3. From the *Results*, select **Azure Maps**. Click **Create** button that appears below the map. 
+3. From the *Results*, select **Maps**. Click **Create** button that appears below the map. 
 4. On the **Create Maps Account** page, enter the following values:
     - The *Name* of your new account. 
     - The *Subscription* that you want to use for this account.
-    - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
+    - The *Resource group* for this account. You may choose to *Create new* or *Use existing* resource group.
     - Select the *Resource group location*.
     - Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms. 
     - Finally, click the **Create** button.
@@ -63,14 +63,14 @@ Log in to the [Azure portal](https://portal.azure.com/).
 
 ## Clean up resources
 
-The tutorials go in details about how to use and configure Maps with your account. If you plan to continue on to work with the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
+The tutorials go into detail about how to use and configure Maps with your account. If you plan to continue to the tutorials, do not clean up the resources created in this Quickstart. If you do not plan to continue, use the following steps to delete all resources created by this Quickstart.
 
 1. Close the browser running the **AzureMapDemo.html** web application.
 2. From the left-hand menu in the Azure portal, click **All resources** and then select your Maps account. At the top of the **All resources** blade, click **Delete**.
 
 ## Next steps
 
-In this Quickstart, you’ve created your Azure Maps account, and launched a demo app using your account. To learn how to create your own application using the Maps APIs, continue to the following tutorial.
+In this Quickstart, you created your Maps account and launched a demo app. To learn how to create your own application using the Maps APIs, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Search points of interest](./tutorial-search-location.md)
+> [Search for points of interest with Maps](./tutorial-search-location.md)

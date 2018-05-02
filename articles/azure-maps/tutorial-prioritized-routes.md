@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # Find routes for different modes of travel using Azure Maps
 
-This tutorial shows how to use your Azure Maps account and the route service, to find the route to your point of interest, prioritized by your mode of travel. You display two different routes on your map, one for cars and one for trucks that may have route restrictions because of height, weight, or hazardous cargo. In this tutorial, you learn how to:
+This tutorial shows how to use your Azure Maps account and the route service to find the route to your point of interest, prioritized by your mode of travel. You display two different routes on your map, one for cars and one for trucks that may have route restrictions because of height, weight, or hazardous cargo. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a new web page using the map control API
@@ -71,7 +71,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     </html>
     ```
-    The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. Notice also the *script* segment added to the body of the HTML, to contain the inline JavaScript code to access the Azure Map Control API.
+    The HTML header embeds the resource locations for CSS and JavaScript files for the Azure Maps library. The *script* segment in the body of the HTML will contain the inline JavaScript code for the map.
 3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account.
 
     ```JavaScript
@@ -83,13 +83,13 @@ The following steps show you how to create a static HTML page embedded with the 
     ```
     The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
-4. Save the file and open it in your browser. At this point, you have a basic map that you can add components to and build on top of. 
+4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further. 
 
    ![View basic map](./media/tutorial-prioritized-routes/basic-map.png)
 
 ## Visualize traffic flow
 
-1. If you don't tell the map where to focus, you see the whole world view. To be able to view the traffic data, set a center point and a zoom level on your map. Replace the map declaration code with the following JavaScript code: 
+1. If you don't tell the map where to focus, you see the whole world view. To be able to view the traffic data, set a center point and a zoom level on your map. Replace the code that declares a `new atlas.Map` with the following JavaScript code: 
     
     ```JavaScript
     var map = new atlas.Map("map", {
@@ -98,6 +98,8 @@ The following steps show you how to create a static HTML page embedded with the 
         zoom: 12
     });
     ```
+
+    This code sets the center point for the map, and declares a zoom level so that you can focus on a particular area by default. 
 
 1. Add the traffic flow display to the map:
 
@@ -168,9 +170,10 @@ For this tutorial, set the start point as a fictitious company in Seattle called
 
 ## Render routes prioritized by mode of travel
 
-This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination, based on your mode of transport. The route service provides APIs to plan the fastest, shortest, or eco route between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. 
+This section shows how to use the Maps route service API to find multiple routes from a given start point to a destination based on your mode of transport. The route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes between two locations, considering the current traffic conditions. It also allows users to plan routes in the future by using Azure's extensive historic traffic database and predicting route durations for any day and time. For more information, see [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
-1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, that get their own styling. Add the following JavaScript code to the *script* block:
+
+1. First, add a new layer on the map to display the route path, or *linestring*. In this tutorial, there are two different routes, **car-route** and **truck-route**, each with their own styling. Add the following JavaScript code to the *script* block:
 
     ```JavaScript
     // Place route layers on the map
@@ -234,10 +237,7 @@ This section shows how to use the Maps route service API to find multiple routes
     ```
     This code snippet creates an [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `truckRouteLayerName` layer. 
     
-    This code snippet also sends the query to the Route Service, to get the route for specified start and end point, for your account key. The following optional parameters are used to indicate the route for a heavy truck:
-   - The parameter `travelMode=truck` specifies the mode of travel as *truck*. Other modes of travel supported are *taxi*, *bus*, *van*, *motorcycle*, and the default *car*.
-   - The parameters `vehicleWidth`, `vehicleHeight`, and `vehicleLength` specify the dimensions of the vehicle in meters, and are considered only if the mode of travel is *truck*.
-   - The `vehicleLoadType` classifies the cargo as hazardous and restricted on some roads. This is also currently considered only for the *truck* mode.
+    This code snippet also creates the query for the Maps route service using your account key. The query includes the start point coordinates, end point coordinates, and optional parameters to indicate that the route is for a heavy truck.
 
 2. Add the following JavaScript code to request the route for a car and display the results:
 
@@ -271,9 +271,9 @@ This section shows how to use the Maps route service API to find multiple routes
     xhttpCar.open("GET", carRouteUrl, true);
     xhttpCar.send();
     ```
-    This code snippet creates another [XMLHttpRequest](https://xhr.spec.whatwg.org/), and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned, and adds it the map's `carRouteLayerName` layer. 
+    This code snippet creates another [XMLHttpRequest](https://xhr.spec.whatwg.org/) and adds an event handler to parse the incoming response. For a successful response, it creates an array of coordinates for the route returned and adds it to the map's `carRouteLayerName` layer. 
     
-    This code snippet also sends the query to the Route Service, to get the route for the specified start and end point, for your account key. Since no other parameters are used, the route for the default mode of travel *car* is returned. 
+    This code snippet also creates the query for the Maps route service using your account key. The query includes the start point coordinates and end point coordinates. Since no additional parameters are provided, the route service defaults to *car* as the travel mode. 
 
 3. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following. 
 
