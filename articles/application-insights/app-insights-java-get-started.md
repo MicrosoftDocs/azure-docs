@@ -1,4 +1,4 @@
-﻿---
+---
 title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
