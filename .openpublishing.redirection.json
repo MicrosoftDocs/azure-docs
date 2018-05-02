@@ -13691,7 +13691,17 @@
         },
         {
             "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
-            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
             "redirect_document_id": false
         },
         {
@@ -19104,6 +19114,111 @@
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-webapp-webapi-dotnet.md",
             "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-java.md",
+            "redirect_url": "https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-headless-java.md",
+            "redirect_url": "https://github.com/Azure-Samples/active-directory-java-native-headless",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-controls-overview.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-controls-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-access-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-access-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-audit-accountability-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-audit-accountability-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-awareness-training-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-awareness-training-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-configuration-manager-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-configuration-management-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-contingency-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/cfedramp-iaaswa-ontingency-planning-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-identification-authentication-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-identification-authentication-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-incident-response-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-incident-response-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-maintenance-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-maintenance-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-media-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-media-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-personnel-security-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-personnel-security-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-physical-environmental-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-physical-environmental-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-planning-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-risk-assessment-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-risk-assessment-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-security-assessment-authorization-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-security-assessment-authorization-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-communications-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-communications-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-information-integrity-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-information-integrity-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
+            "redirect_document_id": true
         }
     ]
 }
