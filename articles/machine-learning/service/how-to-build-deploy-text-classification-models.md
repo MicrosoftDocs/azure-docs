@@ -643,9 +643,8 @@ evaluator.plot_confusion_matrix(normalize=False,
 
 Confusion matrix, without normalization
     
+When running the notebook the confusion matrix will be displayed
 
-
-![png](output_28_1.png)
 
 
 Plot the normalized confusion matrix for visualization.
@@ -660,8 +659,8 @@ evaluator.plot_confusion_matrix(normalize=True,
 ```
 
     Normalized confusion matrix
-    
-![png](output_30_1.png)
+   
+When running the notebook the confusion matrix will be displayed
 
 ## Save the pipeline
 Save the classification pipeline into a zip file. Also, save the word-ngrams and character n-grams as text files.
