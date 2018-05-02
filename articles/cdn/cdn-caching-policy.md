@@ -27,7 +27,7 @@ By default streaming-endpoints apply 3 day cache headers for on-demand streaming
 Azure Media Services provides [integrated CDN](https://azure.microsoft.com/updates/azure-media-services-now-fully-integrated-with-azure-cdn/) for streaming-endpoints. Cache-control headers applies in the same way as streaming endpoints to CDN enabled streaming endpoints. Azure CDN uses streaming endpoint configured cache values to define the life time of the internally cached objects and also uses this value to set the delivery cache headers. When using CDN enabled streaming endpoints it is not recommended to set small cache values. Setting small values decrease the performance and reduce the benefit of CDN. It is not allowed to set cache headers smaller than 600 seconds for CDN enabled streaming endpoints.
 
 > [!IMPORTANT]
->Azure Media Services has complete integration with Azure CDN. With a single click, you can integrate all the available Azure CDN providers (Akamai and Verizon) to your streaming endpoint including CDN Standard and Premium products. For more information, see this [announcement](https://azure.microsoft.com/blog/standardstreamingendpoint/).
+>Azure Media Services has complete integration with Azure CDN. With a single click, you can integrate all the available Azure CDN providers to your streaming endpoint including standard and premium products. For more information, see this [announcement](https://azure.microsoft.com/blog/standardstreamingendpoint/).
 > 
 > Data charges from streaming endpoint to CDN only gets disabled if the CDN is enabled over streaming endpoint APIs or using Azure portal's streaming endpoint section. Manual integration or directly creating a CDN endpoint using CDN APIs or portal section doesn't disable the data charges.
 
