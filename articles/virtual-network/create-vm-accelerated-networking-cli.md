@@ -223,7 +223,7 @@ If you have created a VM without Accelerated Networking, it is possible to enabl
 First stop/deallocate the VM or, if an Availability Set, all the VMs in the Set:
 
 ```azurecli
-az vm stop \
+az vm deallocate \
     --resource-group myResourceGroup \
     --name myVM
 ```
