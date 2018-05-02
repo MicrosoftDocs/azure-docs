@@ -32,9 +32,9 @@ In this step, you create a console application and prepare the training key and 
 1. Start Visual Studio 2015, Community Edition. 
 2. Create a new console application.
 3. Add references to the two nuget packages:
+    * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
+    * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 
-* Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
-* Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 4. Replace the contents of **Program.cs** with the code that follows.
 
 ```csharp

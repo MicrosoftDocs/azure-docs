@@ -166,7 +166,7 @@ The results of running the image tensor through the model will then need to be m
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
-## Next Steps
+## Next steps
 
 You can also wrap the model into a mobile application:
 * [Use your exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
