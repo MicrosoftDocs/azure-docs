@@ -17,7 +17,7 @@ metadata:
   ms.author: v-wiazur
   
 abstract:
-  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <ul><li><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts, SDKs, and API references show you how.
+  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <ul><li><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts and references show you how.
 
 sections:
 
