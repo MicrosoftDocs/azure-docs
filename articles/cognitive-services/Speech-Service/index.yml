@@ -38,6 +38,4 @@ sections:
     - title: SDK
       html: <p><a href="speech-sdk-reference.md">Speech SDK Reference</a></p>
     - title: Other
-      html: <p><a href="rest-apis.md">REST APIs</a></p>
-      html: <p><a href="speech-services/supported-languages">Supported languages</a></p>
-      html: <p><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>
+      html: <p><a href="rest-apis.md">REST APIs</a></p><p><a href="supported-languages.md">Supported languages</a></p><p><a href="speech-synthesis-markup.md">Speech Synthesis Markup</a></p>
