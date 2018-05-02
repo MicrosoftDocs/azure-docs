@@ -53,9 +53,9 @@ See [how to remove a service instance from Azure AD Connect Health](active-direc
 ### Disable data collection and monitoring for a monitored server
 See [how to remove a server from Azure AD Connect Health](active-directory-aadconnect-health-operations.md#delete-a-server-from-the-azure-ad-connect-health-service).
 
-### Stop data collection and monitoring for all monitored services in Azure AD Connect Health
-Azure AD Connect Health also provides the option to stop data collection of all registered services in the tenant. Once the process begins, Connect Health service will stop receiving, processing, and reporting any data of all your services. Existing data in Connect Health service will be retained for no more than 30 days.
-If you want to stop data collection of specific server, please follow steps at deletion of specific servers. To stop tenant wise data collection, follow the following steps to stop data collection and delete all services of the tenant.
+### Disable data collection and monitoring for all monitored services in Azure AD Connect Health
+Azure AD Connect Health also provides the option to stop data collection of **all** registered services in the tenant. We recommend careful consideration and full acknowledgement of all global admins before taking the action. Once the process begins, Connect Health service will stop receiving, processing, and reporting any data of all your services. Existing data in Connect Health service will be retained for no more than 30 days.
+If you want to stop data collection of specific server, please follow steps at deletion of specific servers. To stop tenant-wise data collection, follow the following steps to stop data collection and delete all services of the tenant.
 
 1.	Click on **General Settings** under configuration in the main blade. 
 2.	Click on **Stop Data Collection** button on the top of the blade. The other options of tenant configuration settings will be disabled once the process starts.  
@@ -72,7 +72,10 @@ If you want to stop data collection of specific server, please follow steps at d
 ## Re-enable data collection and monitoring in Azure AD Connect Health
 To re-enable monitoring in Azure AD Connect Health for a previously deleted monitored service, you must uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers.
 
-### Re-enable data collection and monitoring for all monitored services in Azure AD Connect Health
+### Re-enable data collection and monitoring for all monitored services
+
+Tenant-wise data collection can be resumed in Azure AD Connect Health. We recommend careful consideration and full acknowledgement of all global admins before taking the action.
+
 >[!IMPORTANT]
 > The following steps will be available after 24 hours of disable action.
 > After enabling of data collection, the presented insight and monitoring data in Connect Health will not show any legacy data collected before. 
@@ -82,9 +85,9 @@ To re-enable monitoring in Azure AD Connect Health for a previously deleted moni
  
  ![Enable data collection](./media/active-directory-aadconnect-health-gdpr/gdpr6.png)
  
-3.	Enter the exact tenant name to activate the “Enable” button.
-4.	Click on “Enable” button to grant permission of data collection in Connect Health service. The change will be applied shortly. 
-5.	Follow the [install process](active-directory-aadconnect-health-agent-install.md) to reinstall the agent in the servers to be monitored and the services will be present in the portal.  
+3.	Enter the exact tenant name to activate the **Enable** button.
+4.	Click on **Enable** button to grant permission of data collection in Connect Health service. The change will be applied shortly. 
+5.	Follow the [installation process](active-directory-aadconnect-health-agent-install.md) to reinstall the agent in the servers to be monitored and the services will be present in the portal.  
 
 
 ## Next steps
