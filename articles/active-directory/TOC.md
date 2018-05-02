@@ -273,6 +273,7 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
+### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
