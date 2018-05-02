@@ -24,11 +24,9 @@ sections:
     className: cardsA
     items:
     - html: <a href="/azure/media-services/latest/">
-            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v3">
             <br><strong>Azure Media Services v3 (preview)</strong></a>
             <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v3.</p>
     - html: <a href="/azure/media-services/previous/">
-            <img height="48" width="48" src="/azure/media-services/media/index/media-services.svg" alt="Azure Media Services v2" (GA)>
             <br><strong>Azure Media Services v2 (GA)</strong></a>
             <p>Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services v2.</p>
 - title: 5-Minute Quickstarts
