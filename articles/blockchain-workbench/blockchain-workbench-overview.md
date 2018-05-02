@@ -25,7 +25,7 @@ Azure Blockchain Workbench provides a web application and REST APIs for managing
 
 ## Integrate blockchain with applications
 
-The Blockchain Workbench REST API and message-based API to integrate with existing systems. The APIs provide an interface to allow for replacing or using multiple distributed ledger technologies, storage, and database offerings.
+You can use the Blockchain Workbench REST APIs and message-based APIs to integrate with existing systems. The APIs provide an interface to allow for replacing or using multiple distributed ledger technologies, storage, and database offerings.
 
 Blockchain Workbench can transform messages sent to its message-based API to build transactions in a format expected by that blockchain’s native API.  Workbench can sign and route transactions to the appropriate blockchain. 
 
@@ -41,7 +41,7 @@ With existing blockchain protocols, blockchain identities are represented as an 
 
 ## Synchronize on-chain data with off-chain storage
 
-Azure Blockchain Workbench makes it easier to analyze blockchain events and data by automatically synchronizing data on the blockchain to off-chain storage. Instead of extracting data directly from the blockchain, you can query off-chain database systems. For example, SQL Server. Blockchain specific expertise is not required for end users who are doing data analysis tasks. 
+Azure Blockchain Workbench makes it easier to analyze blockchain events and data by automatically synchronizing data on the blockchain to off-chain storage. Instead of extracting data directly from the blockchain, you can query off-chain database systems such as SQL Server. Blockchain specific expertise is not required for end users who are doing data analysis tasks. 
 
 ## Next steps
 
