@@ -17,7 +17,7 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: deploy apps to Azure and Azure Stack
+# Tutorial: Deploy apps to Azure and Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -423,7 +423,7 @@ In this section, you will see how you can monitor and track deployments - in thi
 
 1. In the release summary page, choose the **Logs** link. While the deployment is taking place, this page shows the live log from the agent and, in the left pane, an indication of the status of each operation in the deployment process for each environment.
 
-Choose the icon in the **Action** column for a pre-deployment or post-deployment approval to see details of who approved (or rejected) the deployment, and the message that user provided.
+    Choose the icon in the **Action** column for a pre-deployment or post-deployment approval to see details of who approved (or rejected) the deployment, and the message that user provided.
 
 2. After the deployment is complete, the entire log file is displayed in the right pane. Select any of the **process steps** in the left pane to show just the log file contents for that step. This makes it easier to trace and debug individual parts of the overall deployment. Alternatively, download the individual log files, or a zip of all the log files, from the icons and links in the page.
 
