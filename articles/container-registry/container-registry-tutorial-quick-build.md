@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/27/2018
+ms.date: 05/02/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -24,7 +24,6 @@ All your Dockerfile expertise is directly transferrable to ACR Build. You don't 
 In this tutorial, part one of a series:
 
 > [!div class="checklist"]
-> * Get ACR Build
 > * Get the sample application source code
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances

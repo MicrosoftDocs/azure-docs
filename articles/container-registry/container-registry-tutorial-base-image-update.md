@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/27/2018
+ms.date: 05/02/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want container
@@ -41,7 +41,6 @@ If you'd like to use the Azure CLI locally, you must have the Azure CLI version 
 
 This tutorial assumes you've already completed the steps in the first two tutorials in the series, in which you:
 
-* Install ACR Build extension in Azure CLI
 * Create Azure container registry
 * Fork sample repository
 * Clone sample repository
