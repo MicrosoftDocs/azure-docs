@@ -17,7 +17,7 @@ metadata:
   ms.author: v-wiazur
   
 abstract:
-  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. **Speech to Text** converts continuous human speech to text. **Text to Speech** converts text to audio files of natural-sounding, synthesized speech. **Speech Translation** provides translations of speech to other languages, with text or speech output. Quickstarts, SDKs, and API references show you how.
+  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <li><ul><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts, SDKs, and API references show you how.
 
 sections:
 
@@ -36,10 +36,6 @@ sections:
     className: cardsD
     items:
     - title: SDK
-      html: <p><a href="rest-apis.md">C# SDK</a></p>
-      html: <p><a href="rest-apis.md">C/C++ SDK</a></p>
-      html: <p><a href="rest-apis.md">Java SDK</a></p>
+      html: <p><a href="rest-apis.md">C# SDK</a><br><a href="rest-apis.md">C/C++ SDK</a><br><a href="rest-apis.md">Java SDK</a></p>
     - title: Other
-      html: <p><a href="rest-apis.md">REST APIs</a></p>
-      html: <p><a href="speech-services/supported-languages">Supported languages</a></p>
-      html: <p><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>
+      html: <p><a href="rest-apis.md">REST APIs</a><br><a href="speech-services/supported-languages">Supported languages</a><br><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>
