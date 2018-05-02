@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/01/2018
+ms.author: andret
+ms.custom: include file 
+---
+
 | Mobile and native apps | Web apps and web APIs | Integrate directly with protocols |
 | --- | --- | --- |
 | [Add sign-in to an iOS application](../articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [Add sign-in to a JavaScript Single Page Application (SPA)](../articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) |[Register an application](../articles/active-directory/develop/active-directory-v2-app-registration.md) | 
