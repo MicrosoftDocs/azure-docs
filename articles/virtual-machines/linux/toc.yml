@@ -191,6 +191,11 @@
       href: tag.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
+      items:
+        - name: Custom Script Extension
+          href: extensions-customscript.md
+        - name: Run Command
+          href: run-command.md
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory

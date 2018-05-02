@@ -195,6 +195,11 @@
       href: tag.md
     - name: Run scripts on a VM
       href: extensions-customscript.md
+      items:
+        - name: Custom Script Extension
+          href: extensions-customscript.md
+        - name: Run Command
+          href: run-command.md
     - name: Change temp drive letter
       href: change-drive-letter.md
     - name: Change availability set
