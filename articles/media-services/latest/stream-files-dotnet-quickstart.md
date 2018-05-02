@@ -69,6 +69,9 @@ In the sample's [source code](https://github.com/Azure-Samples/media-services-v3
 
 To test the stream, this article uses Azure Media Player. 
 
+> [!NOTE]
+> If a player is hosted on an https site, make sure to update the URL to "https".
+
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
 3. Press **Update Player**.
