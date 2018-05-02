@@ -45,9 +45,9 @@
 #### [Export U-SQL database](data-lake-analytics-data-lake-tools-export-database.md)
 
 ### Visual Studio Code
-#### [U-SQL for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-#### [U-SQL custom code for Visual Studio Code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-#### [Local run and local debug in VSCode](data-lake-tools-for-vscode-local-run-and-debug.md)
+#### [Authoring](data-lake-analytics-data-lake-tools-for-vscode.md)
+#### [Custom code](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
+#### [Local run & debug](data-lake-tools-for-vscode-local-run-and-debug.md)
 
 # Reference
 ## [Code samples](https://azure.microsoft.com/resources/samples/?service=data-lake-analytics)
