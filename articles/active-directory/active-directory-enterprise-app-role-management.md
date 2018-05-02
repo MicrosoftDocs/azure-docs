@@ -117,7 +117,7 @@ If your application expects custom roles to be passed in SAML response, you need
             "origin": "ServicePrincipal",
             "value": "Administrator"
         }
-    ],
+    ]
 	}
 	```
 	> [!Note]
