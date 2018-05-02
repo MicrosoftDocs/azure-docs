@@ -28,7 +28,7 @@ To build a classifier, you must first have:
 
 - A few images to test your classifier after the classifier is trained.
 
-- Optional: An Azure subscription associated with your Microsoft Account or OrgID. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Optional: An Azure subscription associated with your Microsoft Account or OrgID. If you don’t have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
     >! [IMPORTANT]
     > Without an Azure subscription, you will only be able to create __limited trial__ projects. If you have an Azure subscription, you will be prompted to create Custom Vision Service Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) during project creation.   
