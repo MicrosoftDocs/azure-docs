@@ -93,6 +93,8 @@ With multi-master, the challenge is often that two (or more) replicas of the sam
 
 Azure Cosmos DB implements the logic for handling conflicting writes inside the database engine itself. Azure Cosmos DB offers **comprehensive and flexible conflict resolution support** by offering several conflict resolution models, including Automatic (CRDT- conflict-free replicated data types), Last Write Wins (LWW), Custom (Stored Procedure) and Manual for automatic conflict resolution. The conflict resolution models provide correctness and consistency guarantees and remove the burden from developers to have to think about consistency, availability, performance, replication latency, and complex combinations of events under geo-failovers and cross-region write conflicts.  
 
+  ![Mult-master conflict resolution](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
+
 The semantics of the conflict resolution models offered by Azure Cosmos DB is as follows: 
 
 **Automatic** - This is the default conflict resolution policy. Selecting this policy causes Azure Cosmos DB to automatically resolve the conflicting updates on the server side and provide strong-eventual-consistency guarantees. Internally, Azure Cosmos DB implements automatic conflict resolution by leveraging Conflict-Free-Replicated-Data Types (CRDTs) inside the database engine.  
