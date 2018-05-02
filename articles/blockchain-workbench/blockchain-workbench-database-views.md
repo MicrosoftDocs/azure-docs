@@ -102,7 +102,7 @@ This view provides details on the connections defined in Azure Blockchain Workbe
 | UserLastName             | nvarchar(255) | Yes         | The last name of the user who is associated with the connection.                                                                                                                                                                      |
 | UserEmailAddress         | nvarchar(255) | Yes         | The email address of the user who is associated with the connection.                                                                                                                                                                  |
 
-#vwContract
+## vwContract
 
 This view provides details about deployed contracts. For each contract, this view contains the following data:
 

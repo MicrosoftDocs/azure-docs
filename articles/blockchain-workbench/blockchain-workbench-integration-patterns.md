@@ -13,9 +13,9 @@ manager: femila
 ---
 # Smart contract integration patterns
 
-Smart contracts will often represent a business workflow that need to integrate with external systems and devices.
+Smart contracts will often represent a business workflow that needs to integrate with external systems and devices.
 
-The requirements of these workflows include a need to initiate transactions on a distributed ledger that include data from an external system, service or device. They also need to have external systems react to events originating from smart contracts on a distributed ledger.
+The requirements of these workflows include a need to initiate transactions on a distributed ledger that include data from an external system, service, or device. They also need to have external systems react to events originating from smart contracts on a distributed ledger.
 
 The REST API and messaging integration provide the ability to both send transactions from external systems to smart contracts included in an Azure Blockchain Workbench application, as well as send event notifications to external systems based on changes that take place
 within an application.
@@ -234,7 +234,7 @@ The pattern can be implemented where:
 -   The hash and any metadata is sent to a function on a smart contract, such as *FileAdded*
 -   In future, the file and meta-data can be hashed again and compared against the values stored on the ledger.
 
-## Pre-requisites for implementing integration patterns using the REST and message APIs
+## Prerequisites for implementing integration patterns using the REST and message APIs
 
 To facilitate the ability for an external system or device to interact with the smart contract using either the REST or message API, the following must occur -
 
