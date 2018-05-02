@@ -41,7 +41,7 @@ For questions, issues or feedback, [file a support ticket](https://docs.microsof
 
 ## Register an Azure Active Directory application
 
-You need to register an app even if you are accessing the reporting API using a script. This gives you an **Application ID**, which is required for an authorization call and it enables your code to receive tokens.
+You need to register an app even if you're accessing the reporting API using a script. This gives you an **Application ID**, which is required for an authorization call and it enables your code to receive tokens.
 
 To configure your directory to access the Azure AD reporting API, you must sign in to the Azure portal with an Azure administrator account that is also a member of the **Global Administrator** directory role in your Azure AD tenant.
 
