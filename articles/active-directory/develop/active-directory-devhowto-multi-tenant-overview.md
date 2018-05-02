@@ -54,7 +54,7 @@ When Azure AD receives a request on the /common endpoint, it signs the user in a
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the /common endpoint, the issuer value in the token corresponds to the user’s tenant. 
 
-> [!IMPORTANTNT]
+> [!IMPORTANT]
 > The /common endpoint is not a tenant and is not an issuer, it’s just a multiplexer. When using /common, the logic in your application to validate tokens needs to be updated to take this into account. 
 
 ## Update your code to handle multiple issuer values
