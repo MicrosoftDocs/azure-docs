@@ -90,17 +90,20 @@ The following function performs these actions:
 ```csharp
 private static Asset CreateInputAsset(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string assetName, string fileToUpload)
 {
-    // Check if an Asset already exists
+    // Check if an Asset already exists.
     Asset asset = client.Assets.Get(resourceGroupName, accountName, assetName);
 
     if (asset == null)
     {
         asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
-        var response = client.Assets.ListContainerSas(resourceGroupName, accountName, assetName, new ListContainerSasInput()
-        {
-             Permissions = AssetContainerPermission.ReadWrite,
-             ExpiryTime = DateTimeOffset.Now.AddHours(4)
-         });
+
+        var response = client.Assets.ListContainerSas(
+                resourceGroupName,
+                accountName,
+                assetName,
+                permissions: AssetContainerPermission.ReadWrite,
+                expiryTime: DateTime.UtcNow.AddHours(4).ToUniversalTime()
+            );
 
         var sasUri = new Uri(response.AssetContainerSasUrls.First());
         CloudBlobContainer container = new CloudBlobContainer(sasUri);
@@ -108,7 +111,8 @@ private static Asset CreateInputAsset(IAzureMediaServicesClient client, string r
         blob.UploadFromFile(fileToUpload);
     }
 
-    // In this sample method, we are going to assume that if an Asset already exists with the desired name, then we can go ahead an use it for encoding or analyzing.
+    // In this sample method, we are going to assume that if an Asset already exists with the desired name, 
+    // then we can go ahead an use it for encoding or analyzing.
 
     return asset;
 }
@@ -128,11 +132,11 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
     if (outputAsset != null)
     {
-         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-         // Note that the returned Asset can have a different name than the one specified as an input parameter!
-         // You may want to update this part to throw an Exception instead, and handle name collisions differently
-         string uniqueness = @"-" + Guid.NewGuid().ToString();
-         outputAssetName += uniqueness;
+        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+        // Note that the returned Asset can have a different name than the one specified as an input parameter.
+        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        outputAssetName += uniqueness;
     }
 
     return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
@@ -151,15 +155,18 @@ You can use other built-in EncoderNamedPreset or use custom presets.
 When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 ```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName)
+private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName)
 {
     // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
-    // also uses the same recipe or Preset for processing content
+    // also uses the same recipe or Preset for processing content.
     Transform transform = client.Transforms.Get(resourceGroupName, accountName, transformName);
 
     if (transform == null)
     {
-        // Start by defining the desired outputs
+        // Start by defining the desired outputs.
         TransformOutput[] outputs = new TransformOutput[]
         {
             new TransformOutput
@@ -171,9 +178,7 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
             }
         };
 
-        transform = new Transform(outputs);
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, transform);
+        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
     }
 
     return transform;
@@ -187,16 +192,22 @@ As mentioned above, the **Transform** object is the recipe and a **Job** is the 
 In this example, the input video has been uploaded from your local machine. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.
 
 ```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName, JobInput jobInput, string outputAssetName)
+private static Job SubmitJob(IAzureMediaServicesClient client, 
+    string resourceGroupName, 
+    string accountName, 
+    string transformName, 
+    string jobName, 
+    JobInput jobInput, 
+    string outputAssetName)
 {
     string uniqueJobName = jobName;
     Job job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
 
     if (job != null)
     {
-         // Job already exists with the same name, so let's append a GUID
-         string uniqueness = @"-" + Guid.NewGuid().ToString();
-         uniqueJobName += uniqueness;
+        // Job already exists with the same name, so let's append a GUID
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        uniqueJobName += uniqueness;
     }
 
     JobOutput[] jobOutputs =
@@ -205,17 +216,17 @@ private static Job SubmitJob(IAzureMediaServicesClient client, string resourceGr
     };
 
     job = client.Jobs.Create(
-             resourceGroupName,
-             accountName,
-             transformName,
-             uniqueJobName,
-             new Job
-             {
-                 Input = jobInput,
-                 Outputs = jobOutputs,
-              });
+        resourceGroupName,
+        accountName,
+        transformName,
+        jobName,
+        new Job
+        {
+            Input = jobInput,
+            Outputs = jobOutputs,
+        });
 
-     return job;
+    return job;
 }
 ```
 
@@ -228,9 +239,16 @@ Event Grid is designed for high availability, consistent performance, and dynami
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 ```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
+private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName,
+    string jobName)
 {
+    int SleepInterval = 60 * 1000;
+
     Job job = null;
+
     while (true)
     {
         job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
@@ -266,9 +284,7 @@ The process of creating a **StreamingLocator** is called publishing. By default,
 
 When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedClearStreamingOnly**, can be used.
 
-Note that the code below assumes that you are calling it with a unique locatorName.
-
-Note that while the sample here discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
+The following code assumes that you are calling it with a unique locatorName.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
@@ -291,11 +307,14 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 }
 ```
 
+While the sample in this topic discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
+
 ### Get streaming URLs
 
 Now that a StreamingLocator has been created, you can get the streaming URLs, as shown in **GetStreamingURLs**. To build a URL, you need to concatenate the **StreamingEndpoint** host name and the **StreamingLocator** path. In this sample, the *default* **StreamingEndpoint** is used. When you first create a Media Service account, this *default* **StreamingEndpoint** will be in a stopped state, so you need to call **Start**.
 
-Note: in this method, you will need the locatorName that was used when creating the **StreamingLocator** for the output Asset
+> [!NOTE]
+> In this method, you  need the locatorName that was used when creating the **StreamingLocator** for the output Asset.
 
 ```csharp
 static IList<string> GetStreamingURLs(
@@ -320,7 +339,7 @@ static IList<string> GetStreamingURLs(
 
     foreach (var path in client.StreamingLocators.ListPaths(resourceGroupName, accountName, locatorName).StreamingPaths)
     {
-        streamingURLs.Add("https://" + streamingUrlPrefx + path.Paths[0].ToString());
+        streamingURLs.Add("http://" + streamingUrlPrefx + path.Paths[0].ToString());
     }
 
     return streamingURLs;
@@ -332,11 +351,19 @@ static IList<string> GetStreamingURLs(
 Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
 
 ```csharp
-static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
+static void CleanUp(IAzureMediaServicesClient client,
+        string resourceGroupName,
+        string accountName,
+        string transformName)
 {
-    foreach(var job in client.Jobs.List(resourceGroupName, accountName, transformName))
+    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
     {
         client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
+    }
+
+    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
+    {
+        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
     }
 }
 ```
@@ -353,6 +380,9 @@ This example displays URLs that can be used to play back the video using differe
 ## Test the streaming URL
 
 To test the stream, this article uses Azure Media Player. 
+
+> [!NOTE]
+> If a player is hosted on an https site, make sure to update the URL to "https".
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
