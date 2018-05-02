@@ -27,7 +27,7 @@ Stored procedures are a great way for encapsulating your SQL code; storing it cl
 
 SQL Data Warehouse provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
 
-When SQL Data Warehouse executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is y executed against the data is different than the query submitted.
+When SQL Data Warehouse executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
 
 ## Nesting stored procedures
 When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
@@ -72,7 +72,6 @@ They are:
 * numbered stored procedures
 * extended stored procedures
 * CLR stored procedures
-* 
 * encryption option
 * replication option
 * table-valued parameters
