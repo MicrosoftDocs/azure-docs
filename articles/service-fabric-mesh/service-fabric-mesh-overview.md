@@ -32,7 +32,7 @@ You worry about your code, Azure takes care of the hardware.
 
 ## Microservices
 
-Service Fabric Mesh runs **Service Frabic Applications**, a set of resource definitions that make up one or more microservices. Each microservice is defined by a container image, CPU and memory requirements, and the network settings. You only need to specify the limits of the resources your applications and microservices need; Azure handles all of the infrastructure setup for you.
+Service Fabric Mesh runs **Service Farbic Applications**, a set of resource definitions that make up one or more microservices. Each microservice is defined by a container image, CPU and memory requirements, and the network settings. You only need to specify the limits of the resources your applications and microservices need; Azure handles all of the infrastructure setup for you.
 
 You can deploy your Service Fabric Application locally to the Service Fabric Mesh cluster emulator, or to Service Fabric Mesh on Azure. **Visual Studio** can be used to develop and debug your application locally and on Azure. The **Azure CLI** can be used to deploy your microservices to Azure.
 
