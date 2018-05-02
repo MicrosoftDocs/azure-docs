@@ -37,8 +37,8 @@ Additional information about working with the Table API is available in the [FAQ
 
 Azure Table storage has these SDKs available for development:
 
-- [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) .NET SDK. This library enables you to work with the storage Table service.
-- [Python SDK](table-sdk-python.md) The Azure Cosmos DB Table SDK for Python also supports the storage Table service.
+- [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). This library enables you to work with the storage Table service.
+- [Python SDK](table-sdk-python.md). The Azure Cosmos DB Table SDK for Python also supports the storage Table service.
 - [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java). This Azure Storage SDK provides a client library in Java to consume Azure Table storage.
 - [Node.js SDK](table-sdk-nodejs.md). This SDK provides a Node.js package and a browser-compatible JavaScript client library to consume the storage Table service.
 - [AzureRmStorageTable PowerShell module](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). This PowerShell module has cmdlets to work with storage Tables.
