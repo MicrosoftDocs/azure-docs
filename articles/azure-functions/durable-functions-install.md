@@ -45,7 +45,7 @@ Follow the same directions as for starting with the sample, but do the following
 
 1. Create a Function App project.
 2. Search for the following NuGet package reference using *Manage NuGet Packages* and add it to the project: 
-Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (check *Include prerelease* to search for this package)
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 (check *Include prerelease* to search for this package)
    
 ## Visual Studio Code
 
@@ -97,7 +97,7 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.3.3-rc -s https://www.myget.org/F/azure-appservice/api/v3/index.json
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
     ```
 4. Restore the npm packages by running the following in a command prompt / terminal window:
     

@@ -156,7 +156,7 @@ module.exports = df(function*(context) {
 > [!NOTE]
 > If your function app uses the Consumption Plan, no billing charges are incurred while an orchestrator function is awaiting a task from `WaitForExternalEvent`, no matter how long it waits.
 
-In C3, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
+In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
 ## Send events
 
