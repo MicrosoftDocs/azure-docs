@@ -13,6 +13,10 @@ manager: carmonm
 
 Run command allows you to run scripts within a VM regardless of network connectivity. For Linux it runs shell scripts, that allow general machine management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
+## Prerequisites
+
+The account using the serial console must have [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM.
+
 ## Benefits
 
 There are multiple options that can be used to access your virtual machines. Run command can run scripts on your VMs regardless of network connectivity and is available by default on your virtual machines.
@@ -21,13 +25,13 @@ This capability is useful in scenarios when you are unable to access a VM due to
 
 ## Configuration constraints
 
-The follow are a list of configuration constaints that are present when using run command.
+The follow list of configuration constaints that are present when using run command.
 
-* Output limited to last 4096 bytes
-* Minimum time to run a script about 20 seconds
-* Scripts run as System on Windows and as elevated user on Linux
-* Can only run one script at a time
-* Cannot cancel running script (current default timeout is 90 minutes)
+* Output limited to last 4096 bytes of the output returned in the script.
+* Minimum time to run a script is about 20 seconds.
+* Scripts run as Local System on Windows and as elevated user on Linux.
+* Only one script can beran at a time on a VM.
+* You cannot cancel a running script (The current default timeout is 90 minutes)
 
 ## Run a command
 
