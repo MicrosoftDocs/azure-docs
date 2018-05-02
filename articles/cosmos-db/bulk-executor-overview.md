@@ -50,4 +50,5 @@ The Bulk Executor library makes sure to maximally utilize the throughput allocat
   
 * Learn more by trying out the sample applications consuming the Bulk Executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md).  
 * Check out the BulkExecutor SDK information and release notes in [.NET](sql-api-sdk-bulk-executor-dot-net.md) and [Java](sql-api-sdk-bulk-executor-java.md).
-* The Bulk Executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article. 
+* The Bulk Executor library is integrated into the Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](spark-connector.md) article.  
+* The BulkExecutor library is also integrated into a new version of [Azure Cosmos DB connector](https://aka.ms/bulkexecutor-adf-v2) for Azure Data Factory to copy data.
