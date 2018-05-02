@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech service (Preview) 
+title: Speech Service Documentation (Preview)
 metadata:
-  title: Speech service (preview) documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
-  meta.description: Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, dialog using natural speech conversation, speech transcription and dictation, and speech translation.
+  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  meta.description: Speech API provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: wiazur
   manager: noellelacharite 
@@ -17,7 +17,7 @@ metadata:
   ms.author: v-wiazur
   
 abstract:
-  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <ul><li><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts and references show you how.
+  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <b>Speech to Text</b> converts continuous human speech to text. <b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech. <b>Speech Translation</b> provides translations of speech to other languages, with text or speech output. Quickstarts, SDKs, and API references show you how to perform these tasks.
 
 sections:
 
@@ -26,8 +26,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="get-started.md">Get set up to develop with the Speech service and SDK</a>
-    - html: <a href="quickstart-csharp-windows">See how to recognize speech in C# with the Speech SDK</a>
+    - html: <a href="get-started.md">Get started with Speech service</a>
+    - html: <a href="quickstart-csharp-windows">Recognize speech using the Speech SDK for C#</a>
 
 - title: Reference
   items:
@@ -35,7 +35,9 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: SDK References
-      html: <p><a href="https://aka.ms/csspeech/csharpref">C# SDK</a><br><a href="https://aka.ms/csspeech/cppref">C/C++ SDK</a><br><a href="https://aka.ms/csspeech/javaref">Java SDK</a></p>
+    - title: SDK
+      html: <p><a href="speech-sdk-reference.md">Speech SDK Reference</a></p>
+    - title: REST
+      html: <p><a href="rest-apis.md">REST APIs</a></p><p>
     - title: Other
-      html: <p><a href="rest-apis.md">REST APIs</a><br><a href="supported-languages.md">Supported languages</a><br><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>
+      html: <a href="supported-languages.md">Supported languages</a></p><p><a href="speech-synthesis-markup.md">Speech Synthesis Markup</a></p>
