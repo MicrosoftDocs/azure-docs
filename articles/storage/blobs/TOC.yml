@@ -146,13 +146,13 @@
           - name: Linux
             items: 
             - name: Storage resource deletion errors
-              href: ../../virtual-machines/linux/resource-manager-cannot-delete-storage-account-container-vhd.md  
+              href: ../../virtual-machines/linux/storage-resource-deletion-errors.md  
             - name: Unexpected reboots of VMs with attached VHDs  
               href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md            
           - name: Windows
             items: 
             - name: Storage resource deletion errors
-              href: ../../virtual-machines/windows/resource-manager-cannot-delete-storage-account-container-vhd.md  
+              href: ../../virtual-machines/windows/storage-resource-deletion-errors.md  
             - name: Unexpected reboots of VMs with attached VHDs  
               href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md            
   - name: Secure

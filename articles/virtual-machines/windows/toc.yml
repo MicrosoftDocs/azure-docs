@@ -107,7 +107,7 @@
     - name: Troubleshoot attached VHDs
       items:
       - name: Storage resource deletion errors
-        href: resource-manager-cannot-delete-storage-account-container-vhd.md  
+        href: storage-resource-deletion-errors.md  
       - name: Unexpected reboots of VMs with attached VHDs  
         href: unexpected-reboots-attached-vhds.md            
   - name: Networking
