@@ -79,7 +79,7 @@ Use cases for Speech Translation include the following.
  
 ## Speech Devices SDK
 
-With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](speech-devices-sdk.md). This SDK is suitable for developing smart speech devices for all types of applications.
+With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](http://aka.ms/sdsdk-info). This SDK is suitable for developing smart speech devices for all types of applications.
 
 The Speech Devices SDK allows you to build your own ambient devices with a customized wake word, so that the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
 
