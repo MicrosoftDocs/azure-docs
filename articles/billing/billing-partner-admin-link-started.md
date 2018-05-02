@@ -7,7 +7,7 @@ ms.author: dhgandhi
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
