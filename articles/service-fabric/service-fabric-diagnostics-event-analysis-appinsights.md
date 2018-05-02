@@ -30,7 +30,7 @@ The purpose of this article is to show how to gain insights and troubleshoot fro
 
 ## Monitoring in App Insights
 
-Application Insights has a rich out of the box with Service Fabric. In the overview page, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button at the top, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred.
+Application Insights has a rich out of the box experience when using Service Fabric. In the overview page, AI provides key information about your service such as the response time and number of requests processed. By clicking the 'Search' button at the top, you can see a list of recent requests in your application. Additionally, you would be able to see failed requests here and diagnose what errors may have occurred.
 
 ![AI Overview](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 

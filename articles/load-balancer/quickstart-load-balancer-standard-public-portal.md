@@ -9,10 +9,10 @@ editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 
-ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
+ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/18
