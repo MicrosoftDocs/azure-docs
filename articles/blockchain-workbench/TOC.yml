@@ -20,6 +20,8 @@
     href: blockchain-workbench-create-app.md
   - name: Use blockchain app
     href: blockchain-workbench-use.md
+  - name: Use Workbench API
+    href: blockchain-workbench-use-API.md
   - name: Troubleshoot apps
     href: blockchain-workbench-troubleshooting.md
 - name: Reference
