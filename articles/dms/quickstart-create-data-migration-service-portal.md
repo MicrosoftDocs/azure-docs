@@ -23,8 +23,6 @@ Open your web browser, navigate to the [Microsoft Azure portal](https://portal.a
 
 The default view is your service dashboard.
 
-# tier info goes in here somewhere
-
 ## Register the resource provider
 Register the Microsoft.DataMigration resource provider before you create your first instance of the Database Migration Service.
 
