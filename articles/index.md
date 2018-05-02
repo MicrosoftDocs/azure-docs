@@ -429,7 +429,7 @@ featureFlags:
                                                 <img src="media/index/MySQL.svg" alt="" />
                                                 <p>Azure Database for MySQL</p>
                                             </a>
-                                        </li>>
+                                        </li>
                                         <li>
                                             <a href="/azure/dms/dms-overview">
                                                 <img src="media/index/database-migration.svg" alt="" />
@@ -1238,7 +1238,7 @@ featureFlags:
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>App Service - Mobile Apps</p>
                                             </a>
-                                        </li>>
+                                        </li>
                                         <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
@@ -1263,6 +1263,7 @@ featureFlags:
                                                 <p>Azure Location Based Services</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="https://azure.microsoft.com/features/xamarin">
                                                 <img src="media/index/logo_xamarin.svg" alt="" />
                                                 <p>Xamarin</p>
@@ -1319,6 +1320,7 @@ featureFlags:
                                                 <p>Azure DDOS protection</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/security/azure-threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure Advanced Threat Protection</p>
