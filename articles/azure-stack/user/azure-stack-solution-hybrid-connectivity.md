@@ -125,8 +125,10 @@ In the [portal](http://portal.azure.com/), navigate to the Resource Manager vir
         - Click the **Create gateway IP configuration** and this will take you to the **Choose public IP address** page.
         - Click **+Create new** to open the **Create public IP address** page.
         - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, then select **OK** at the bottom of this page to save your changes.
+
     > [!note]  
     > VPN Gateway currently only supports Dynamic Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
+
 4. Verify the settings. 
 5. Click **Create** to begin creating the VPN gateway. The settings are validated and you'll see the "Deploying Virtual network gateway" tile on the dashboard. Creating a gateway can take up to 45 minutes. You may need to refresh your portal page to see the completed status.
 
