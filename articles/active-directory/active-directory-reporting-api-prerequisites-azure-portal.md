@@ -87,13 +87,13 @@ Depending on API you want to access, you need to grant your app the following pe
 | Microsoft Graph | Read all audit log data |
 
 
-![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/35.png)
+![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/36.png)
 
 
 The following section lists the steps for both APIs. If you don't want to access one of the APIs, you can skip the related steps.
  
 
-**To grant your application permissions to use the API:**
+**To grant your application permissions to use the APIs:**
 
 1. On the **App registrations** blade, in the apps list, click **Reporting API application**.
 
