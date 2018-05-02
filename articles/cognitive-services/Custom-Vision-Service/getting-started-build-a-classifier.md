@@ -30,7 +30,7 @@ To build a classifier, you must first have:
 
 - Optional: An Azure subscription associated with your Microsoft Account or OrgID. If you don’t have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-    >! [IMPORTANT]
+    > [!IMPORTANT]
     > Without an Azure subscription, you will only be able to create __limited trial__ projects. If you have an Azure subscription, you will be prompted to create Custom Vision Service Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) during project creation.   
 
 ## Create a new project
@@ -63,7 +63,7 @@ To create a new project, use the following steps:
 
 4. Select a Resource Group. The Resource Group dropdown shows you all of your Azure Resource Groups that include a Custom Vision Service Resource. You can also create select __limited trial__. The limited trial entry is the only resource group a non-Azure user will be able to choose from.
 
-    Select __Create project__ to create the project.
+    To create the project, select __Create project__.
 
 ## Upload and tag images
 
