@@ -72,9 +72,9 @@ After Azure Virtual Network service endpoints are enabled for your Azure Cosmos 
 
 ![Allow access from portal](./media/vnet-service-endpoint/allow-access-from-portal.png)
 
-If your Azure Cosmos DB account is used by other Azure services like Azure Search, or accessed from Stream analytics or Power BI, you allow access by checking **Accept connections from global Azure datacenter**.
+If your Azure Cosmos DB account is used by other Azure services like Azure Search, or accessed from Stream analytics or Power BI, you allow access by checking **Allow access to Azure Services**.
 
-To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access from Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
+To ensure you have access to Azure Cosmos DB metrics from the portal, you need to enable **Allow access to Azure portal** options. To learn more about these options, see [connections from Azure portal](firewall-support.md#connections-from-the-azure-portal) and [connections from Azure PaaS services](firewall-support.md#connections-from-other-azure-paas-services) sections. After selecting access, select **Save** to save the settings.
 
 ## Remove a virtual network or subnet 
 
