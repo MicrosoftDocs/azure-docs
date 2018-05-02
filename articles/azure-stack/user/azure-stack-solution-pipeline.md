@@ -133,7 +133,7 @@ A Service Principal requires a key for authentication, follow the steps in this 
 
 ### Get tenant ID
 
-When programmatically logging in, you need to pass the **tenant ID** with your authentication request.
+As part of the service endpoint configuration, VSTS requires the **Tenant ID** that corresponds to the AAD Directory that your Azure Stack stamp was deployed to. Follow the steps in this section to gather the Tenant Id.
 
 1. Select **Azure Active Directory**.
 
@@ -175,11 +175,9 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 6. By default, Azure Active Directory applications aren't displayed in the available options. To find your application, you must **provide the name** in the search field. Select it.
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_15.png)
+    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_16.png)
 
 7. Select **Save** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
-
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_16.png)
 
 ### Role-Based Access Control
 
@@ -256,7 +254,9 @@ Users can create endpoints so VSTO builds can deploy Azure Service apps to the s
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
-    The build agent in Azure Stack gains instructions from VSTS, which then conveys endpoint information for communication with the Azure Stack. VSTS to Azure Stack connection is now ready.
+    The build agent in Azure Stack gains instructions from VSTS, which then conveys endpoint information for communication with the Azure Stack. 
+    
+    VSTS to Azure Stack connection is now ready.
 
 ## Develop your application
 
@@ -269,7 +269,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. Sign in to Visual Studio with an account that has project creation rights on Azure Stack.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to both clouds.
+    Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to both clouds.
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -307,7 +307,7 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 
 ### Create release definition
 
-    ![Alt Text](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+![Alt Text](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 1. Select the **\[ + ]** to add a new Release under the **Releases tab** in the Build and Release page of VSO.
 
@@ -400,11 +400,11 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 
 Now that you have completed the modifications to the release definition, it's time to start the deployment. To do this, you create a release from the release definition. A release may be created automatically; for example, the continuous deployment trigger is set in the release definition. This means that modifying the source code will start a new build and, from that, a new release. However, in this section you will create a new release manually.
 
-1. Open the Release drop-down list and choose Create release.
+1. Open the **Release** drop-down list and choose **Create release**.
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\200.png)
  
-2. Enter a description for the release, check that the correct artifacts are selected, and then choose Create. After a few moments, a banner appears indicating that the new release was created. Choose the link (the name of the release).
+2. Enter a description for the release, check that the correct artifacts are selected, and then choose **Create**. After a few moments, a banner appears indicating that the new release was created. Choose the link (the name of the release).
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\201.png)
  
