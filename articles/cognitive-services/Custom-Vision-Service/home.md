@@ -7,7 +7,7 @@ manager: corncar
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 05/03/2017
+ms.date: 05/02/2018
 ms.author: anroth
 #Customer intent: As a data scientist/developer, I want to understand what the Custom Vision Service provides so that I can determine if it's suitable for my project/solution.
 ---
