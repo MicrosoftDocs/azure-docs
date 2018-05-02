@@ -85,11 +85,11 @@ private static Asset CreateOutputAsset(IAzureMediaServicesClient client, string 
 
     if (outputAsset != null)
     {
-         // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
-         // Note that the returned Asset can have a different name than the one specified as an input parameter!
-         // You may want to update this part to throw an Exception instead, and handle name collisions differently
-         string uniqueness = @"-" + Guid.NewGuid().ToString();
-         outputAssetName += uniqueness;
+        // Name collision! In order to get the sample to work, let's just go ahead and create a unique asset name
+        // Note that the returned Asset can have a different name than the one specified as an input parameter.
+        // You may want to update this part to throw an Exception instead, and handle name collisions differently.
+        string uniqueness = @"-" + Guid.NewGuid().ToString();
+        outputAssetName += uniqueness;
     }
 
     return client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, asset);
@@ -106,7 +106,11 @@ When creating a new **Transform** instance, you need to specify what you want it
 When creating a **Transform**, you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 ```csharp
-private static Transform EnsureTransformExists(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, Preset preset)
+private static Transform EnsureTransformExists(IAzureMediaServicesClient client, 
+    string resourceGroupName, 
+    string accountName, 
+    string transformName, 
+    Preset preset)
 {
     // Does a Transform already exist with the desired name? Assume that an existing Transform with the desired name
     // also uses the same recipe or Preset for processing content.
@@ -114,15 +118,13 @@ private static Transform EnsureTransformExists(IAzureMediaServicesClient client,
 
     if (transform == null)
     {
-        // Start by defining the desired outputs    
+        // Start by defining the desired outputs.
         TransformOutput[] outputs = new TransformOutput[]
         {
             new TransformOutput(preset),
         };
 
-        transform = new Transform(outputs);
-
-        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, transform);
+        transform = client.Transforms.CreateOrUpdate(resourceGroupName, accountName, transformName, outputs);
     }
 
     return transform;
@@ -182,11 +184,17 @@ Event Grid is designed for high availability, consistent performance, and dynami
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
 ```csharp
-private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string resourceGroupName, string accountName, string transformName, string jobName)
+private static Job WaitForJobToFinish(IAzureMediaServicesClient client,
+    string resourceGroupName,
+    string accountName,
+    string transformName,
+    string jobName)
 {
+    int SleepInterval = 60 * 1000;
+
     Job job = null;
-    
-    while(true)
+
+    while (true)
     {
         job = client.Jobs.Get(resourceGroupName, accountName, transformName, jobName);
 
@@ -218,18 +226,27 @@ private static Job WaitForJobToFinish(IAzureMediaServicesClient client, string r
  The following function downloads the results from the output asset into the "output" folder, so you can examine the results of the job. 
 
 ```csharp
-private static void DownloadResults(IAzureMediaServicesClient client, string resourceGroup, string accountName, string assetName, string resultsFolder)
+private static void DownloadResults(IAzureMediaServicesClient client,
+    string resourceGroup,
+    string accountName,
+    string assetName,
+    string resultsFolder)
 {
-    ListContainerSasInput parameters = new ListContainerSasInput(permissions: AssetContainerPermission.Read, expiryTime: DateTimeOffset.UtcNow.AddHours(1));
-    AssetContainerSas assetContainerSas = client.Assets.ListContainerSas(resourceGroup, accountName, assetName, parameters);
+    AssetContainerSas assetContainerSas = client.Assets.ListContainerSas(
+            resourceGroup,
+            accountName,
+            assetName,
+            permissions: AssetContainerPermission.Read,
+            expiryTime: DateTime.UtcNow.AddHours(1).ToUniversalTime()
+            );
 
-    Uri containerSasUrl = new Uri (assetContainerSas.AssetContainerSasUrls.FirstOrDefault());
+    Uri containerSasUrl = new Uri(assetContainerSas.AssetContainerSasUrls.FirstOrDefault());
     CloudBlobContainer container = new CloudBlobContainer(containerSasUrl);
 
     string directory = Path.Combine(resultsFolder, assetName);
     Directory.CreateDirectory(directory);
 
-    Console.WriteLine("Downloading results of VideoAnalyzerPreset to {0}.", directory);
+    Console.WriteLine("Downloading results to {0}.", directory);
 
     foreach (IListBlobItem blobItem in container.ListBlobs(null, true, BlobListingDetails.None))
     {
@@ -239,8 +256,6 @@ private static void DownloadResults(IAzureMediaServicesClient client, string res
             string filename = Path.Combine(directory, blob.Name);
 
             blob.DownloadToFile(filename, FileMode.Create);
-
-            Console.WriteLine("file: {0}", filename);
         }
     }
 
@@ -253,11 +268,19 @@ private static void DownloadResults(IAzureMediaServicesClient client, string res
 Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse. For example, the following code deletes Jobs.
 
 ```csharp
-static void CleanUp(IAzureMediaServicesClient client, string resourceGroupName, string accountName, String transformName)
+static void CleanUp(IAzureMediaServicesClient client,
+        string resourceGroupName,
+        string accountName, 
+        string transformName)
 {
-    foreach(var job in client.Jobs.List(resourceGroupName, accountName, transformName))
+    foreach (var job in client.Jobs.List(resourceGroupName, accountName, transformName))
     {
         client.Jobs.Delete(resourceGroupName, accountName, transformName, job.Name);
+    }
+
+    foreach (var asset in client.Assets.List(resourceGroupName, accountName))
+    {
+        client.Assets.Delete(resourceGroupName, accountName, asset.Name);
     }
 }
 ```
