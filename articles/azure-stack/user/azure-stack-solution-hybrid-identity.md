@@ -17,7 +17,7 @@ ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
 
-# Tutorial: configure hybrid cloud identity with Azure and Azure Stack applications
+# Tutorial: Configure hybrid cloud identity with Azure and Azure Stack applications
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
