@@ -29,6 +29,9 @@ The Batch Rendering service currently supports the following applications:
 •	Chaos Group V-Ray for Maya (version 3.52.03)
 •	Chaos Group V-Ray for 3ds Max (version 3.60.02)
 
+> [!NOTE]
+> If your solution modifies environment variables, make sure that the values of `AZ_BATCH_ACCOUNT_URL` and `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` are kept intact and present when any of application above is called. Otherwise, you are likely to encounter software activation issues.
+>
 
 ## Prerequisites
 
