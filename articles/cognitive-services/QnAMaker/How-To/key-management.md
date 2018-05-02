@@ -1,5 +1,5 @@
 ---
-title: Key management | Microsoft Docs
+title: Key management - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to manage your QnAMaker keys
 services: cognitive-services

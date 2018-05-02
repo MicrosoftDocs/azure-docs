@@ -1,5 +1,5 @@
 ---
-title: Create a business continuty plan for your QnAMaker service | Microsoft Docs
+title: Create a business continuty plan for your QnAMaker service - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to create a business continuity plan for your QnAMaker service
 services: cognitive-services

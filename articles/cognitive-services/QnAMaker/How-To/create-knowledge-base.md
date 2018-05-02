@@ -1,5 +1,5 @@
 ---
-title: How to create a knowledge base | Microsoft Docs
+title: How to create a knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to create a knowledge base 
 services: cognitive-services

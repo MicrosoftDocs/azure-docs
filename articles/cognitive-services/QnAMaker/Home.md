@@ -1,5 +1,5 @@
 ---
-title: Overview of QnA Maker | Microsoft Docs
+title: Overview of QnA Maker - Microsoft Cognitive Services | Microsoft Docs
 description: Use the QnA Maker tool to train AI to respond to users' questions in a more natural, conversational way.
 services: cognitive-services
 author: pchoudhari

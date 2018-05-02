@@ -1,5 +1,5 @@
 ---
-title: Authentication and subscription keys for QnA Maker | Microsoft Docs
+title: Authentication and subscription keys for QnA Maker - Microsoft Cognitive Services | Microsoft Docs
 description: Get authentication and subscription keys that are used to track your QnA Maker tool usage.
 services: cognitive-services
 author: pchoudhari

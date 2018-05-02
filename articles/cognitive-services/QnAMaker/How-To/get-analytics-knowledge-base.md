@@ -1,5 +1,5 @@
 ---
-title: How to get analytics on your knowledge base | Microsoft Docs
+title: How to get analytics on your knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to get analytics on your knowledge base 
 services: cognitive-services

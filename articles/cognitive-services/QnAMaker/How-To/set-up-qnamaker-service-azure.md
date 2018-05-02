@@ -1,5 +1,5 @@
 ---
-title: How to setup a QnAMaker service | Microsoft Docs
+title: How to setup a QnAMaker service - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to setup a QnAMaker service 
 services: cognitive-services

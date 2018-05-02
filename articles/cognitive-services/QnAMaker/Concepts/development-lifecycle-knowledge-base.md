@@ -1,5 +1,5 @@
 ---
-title: Developement lifecycle of a knowledge base | Microsoft Docs
+title: Developement lifecycle of a knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Developement lifecycle of a knowledge base 
 services: cognitive-services

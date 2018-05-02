@@ -1,5 +1,5 @@
 ---
-title: Learn about QnAMaker | Microsoft Docs
+title: Learn about QnAMaker - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn about QnAMaker and how it works.
 services: cognitive-services

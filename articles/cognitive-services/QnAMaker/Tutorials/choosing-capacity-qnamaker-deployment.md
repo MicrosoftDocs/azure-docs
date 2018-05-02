@@ -1,5 +1,5 @@
 ---
-title: Choosing capacity for your QnAMaker deployment | Microsoft Docs
+title: Choosing capacity for your QnAMaker deployment - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a guide to choosing capacity for your QnAMaker deployment
 services: cognitive-services

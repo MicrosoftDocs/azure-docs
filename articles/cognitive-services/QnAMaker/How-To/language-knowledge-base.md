@@ -1,5 +1,5 @@
 ---
-title: How to create a non-english knowledge base | Microsoft Docs
+title: How to create a non-english knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to create a non-en knowledge base 
 services: cognitive-services

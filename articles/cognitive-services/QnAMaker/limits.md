@@ -1,5 +1,5 @@
 ---
-title: QnAMaker Limits | Microsoft Docs
+title: QnAMaker Limits - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: QnAMaker Limits
 services: cognitive-services

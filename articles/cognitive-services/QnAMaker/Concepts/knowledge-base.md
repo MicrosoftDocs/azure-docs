@@ -1,5 +1,5 @@
 ---
-title: Knowledge base | Microsoft Docs
+title: Knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: About a knowledge base
 services: cognitive-services

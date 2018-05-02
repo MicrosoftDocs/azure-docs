@@ -1,5 +1,5 @@
 ---
-title: How to publish a knowledge base | Microsoft Docs
+title: How to publish a knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to publish a knowledge base 
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: Java Quickstart for Azure Cognitive Services, Microsoft QnA Maker API (V4) | Microsoft Docs
+title: Java Quickstart for Microsoft QnA Maker API (V4) - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''

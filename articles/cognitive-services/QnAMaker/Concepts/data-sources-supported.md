@@ -1,5 +1,5 @@
 ---
-title: Data sources supported | Microsoft Docs
+title: Data sources supported - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Data sources supported
 services: cognitive-services

@@ -1,7 +1,7 @@
 ---
-title: FAQ | Microsoft Docs
+title: Glossary - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: FAQs
+description: Glossary
 services: cognitive-services
 author: nstulasi
 manager: sangitap

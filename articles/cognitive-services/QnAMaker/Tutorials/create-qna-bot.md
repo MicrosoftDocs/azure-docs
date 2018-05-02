@@ -1,5 +1,5 @@
 ---
-title: Create a QnA bot with Azure Bot Service | Microsoft Docs
+title: Create a QnA bot with Azure Bot Service - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a step-by-step tutorial on creating a QnA bot
 services: cognitive-services

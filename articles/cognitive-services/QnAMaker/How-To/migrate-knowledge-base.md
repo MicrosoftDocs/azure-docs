@@ -1,5 +1,5 @@
 ---
-title: How to import a knowledge base | Microsoft Docs
+title: How to import a knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to import a knowledge base
 services: cognitive-services

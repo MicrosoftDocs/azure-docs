@@ -1,5 +1,5 @@
 ---
-title: Integrate QnAMaker and LUIS | Microsoft Docs
+title: Integrate QnAMaker and LUIS - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a step-by-step tutorial on integrating QnAMaker and LUIS
 services: cognitive-services

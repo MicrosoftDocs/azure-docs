@@ -1,5 +1,5 @@
 ---
-title: How to test a knowledge base | Microsoft Docs
+title: How to test a knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Test your knowledge base before publishing it.
 services: cognitive-services

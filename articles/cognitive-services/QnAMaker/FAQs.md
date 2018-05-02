@@ -1,5 +1,5 @@
 ---
-title: FAQ | Microsoft Docs
+title: FAQ - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: FAQs
 services: cognitive-services

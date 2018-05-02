@@ -1,5 +1,5 @@
 ---
-title: Confidence Score | Microsoft Docs
+title: Confidence Score - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Explaining confidence score
 services: cognitive-services

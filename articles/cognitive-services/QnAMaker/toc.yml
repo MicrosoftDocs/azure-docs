@@ -1,9 +1,7 @@
 - name: QnAMaker API Documentation
-  href: index.yml
+  href: Overview/overview.md
 - name: Overview
   items:
-  - name: What is QnAMaker?
-    href: Overview/overview.md
   - name: Supported languages
     href: Overview/languages-supported.md
 - name: Concepts

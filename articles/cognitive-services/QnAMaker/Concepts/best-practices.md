@@ -1,5 +1,5 @@
 ---
-title: Best practices | Microsoft Docs
+title: Best practices - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Best practices when using QnAMaker
 services: cognitive-services

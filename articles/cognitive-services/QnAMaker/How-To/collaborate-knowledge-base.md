@@ -1,5 +1,5 @@
 ---
-title: Collaborating on your knowledge base | Microsoft Docs
+title: Collaborating on your knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to collaborate on your QnAMaker knowledge base
 services: cognitive-services

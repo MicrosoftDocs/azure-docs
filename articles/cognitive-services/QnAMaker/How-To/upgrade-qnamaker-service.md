@@ -1,5 +1,5 @@
 ---
-title: Upgrade your QnAMaker service | Microsoft Docs
+title: Upgrade your QnAMaker service - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: How to upgrade your QnAMaker service
 services: cognitive-services
