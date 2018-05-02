@@ -1,6 +1,2 @@
 - name: Project Personality Chat Documentation
-  href: index.yml
-- name: Overview
-  items: 
-  - name: Learn about Project Personality Chat
-    href: overview.md
+  href: overview.md
