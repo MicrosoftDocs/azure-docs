@@ -1,37 +1,33 @@
 - name: Anomaly Finder API Documentation
-  href: index.md
-- name: Overview
-  items:
-  - name: What is the Anomaly Finder API?
-    href: overview.md
-- name: Quickstarts
+  href: overview.md
+- name: How-to
   expanded: true
   items:
-  - name: cURL
-    href: quickstarts/cURL.md
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-  - name: Javascript
-    href: quickstarts/javascript.md    
-- name: Tutorials
-  items:
-  - name: C#
+  - name: Use the Anomaly Finder API
+    items:
+    - name: cURL
+      href: quickstarts/cURL.md
+    - name: C#
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+    - name: Javascript
+      href: quickstarts/javascript.md    
+- name: Examples
+  - name: C# app
     href: tutorials/csharptutorial.md
-  - name: Java
+  - name: Java app
     href: tutorials/javatutorial.md
-  - name: Python
+  - name: Python app
     href: tutorials/pythontutorial.md
-  - name: Javascript
+  - name: Javascript Web app
     href: tutorials/javascripttutorial.md
-
 - name: Reference
   items:
   - name: REST v1
