@@ -61,12 +61,10 @@ Throughout this tutorial, the Time Series Insights Sample Application is used to
 
 First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We won't walk through all of the elements, but you learn about the major sections of the code, giving you a sense of what the page is doing:
 
-1. Open "Developer Tools" in your browser, and inspect the elements that make up the current page, also known as the HTML or DOM tree. Expand the `<head>` and `<body>` elements similar to the following :
+1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
-   ![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)
-
-2. You can see in the previous image that the page contains, among many other things, the following major elements:
-   - The **\<head\>** element, which pulls in additional files to assist in the functioning of the page via:
+2. Expand the `<head>` and `<body>` elements and notice:
+   - Under **\<head\>**, elements that pull in additional files to assist in the functioning of the page:
      - the \<script\> element for the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
 
        >[!NOTE]
@@ -74,11 +72,13 @@ First let's view the HTML and JavaScript source code behind the page that render
 
      - \<link\> elements for style sheets (`sampleStyles.css`, `tsiclient.css`) - used to control page styling details, such as colors, fonts, spacing, etc.
      - the \<script\> element for the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - The **\<body\> element**, which defines the layout of the page via:
-     - the \<div\> element that contains the "Log In" dialog (`id="loginModal"`).
-     - the \<div\> element that controls the placement of the header row, used for status messages and sign-in information (`class="header"`).
-     - the \<div\> element that controls the placement of the remainder of the page elements (more below).
-     - the \<script\> section, which contains all of the JavaScript used to control the page.
+   - Under **\<body\>**, elements that define the layout of items on the page:
+     - a \<div\> element that contains the "Log In" dialog (`id="loginModal"`).
+     - a \<div\> element that controls the placement of the header row, used for status messages and sign-in information near the top of the page (`class="header"`).
+     - a \<div\> element that controls the placement of the remainder of the page elements (`class="chartsWrapper"`).
+     - a \<script\> section, which contains all of the JavaScript used to control the page.
+
+   ![[TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
 3. Expand the `<div class="chartsWrapper">` element, under the second `<div>` element of the `<body>` element. Here you'll find all of the `<div>` elements used to position all of the sample chart controls. Each is essentially a "container" for contents, specifying a name and page placement. The visual styling and all other attributes are specified in the style sheet files (CSS):
 
