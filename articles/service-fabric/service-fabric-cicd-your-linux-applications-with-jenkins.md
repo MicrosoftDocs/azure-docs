@@ -107,7 +107,7 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
    ```
 
-   Additionally, add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Update the thumbprint value with that of the cluster certificate.
+   Additionally, add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file and update the thumbprint value with that of the cluster certificate.
 
    ```xml
    <Certificates>
