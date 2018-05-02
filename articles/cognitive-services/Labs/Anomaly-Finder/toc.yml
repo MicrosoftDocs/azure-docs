@@ -1,7 +1,9 @@
 - name: Anomaly Finder API Documentation
   href: index.md
 - name: Overview
-  href: overview.md
+  items:
+  - name: What is the Anomaly Finder API?
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
