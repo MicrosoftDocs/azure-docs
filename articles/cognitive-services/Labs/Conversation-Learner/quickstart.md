@@ -47,7 +47,8 @@ Conversation Learner reduces the complexity of building bots. It enables a hybri
     npm run build
     ```
 
-    Note: during `npm install`, you can ignore this error if it occurs: `gyp ERR! stack Error: Can't find Python executable`
+    > [!NOTE]
+	> During `npm install`, you can ignore this error if it occurs: `gyp ERR! stack Error: Can't find Python executable`
 
 2. Configure:
 

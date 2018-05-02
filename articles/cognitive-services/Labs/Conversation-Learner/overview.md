@@ -40,7 +40,3 @@ Summary and highlights:
 
 - Can call domain-specific and third-party APIs to complete tasks​.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Languages supported](./languages-supported.md)
