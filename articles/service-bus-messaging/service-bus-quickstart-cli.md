@@ -76,7 +76,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java`. Note that in the Bash shell, the commands are case sensitive and the path separators must be forward slashes.
+2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java`. Note that in the Bash shell, commands are case sensitive and the path separators must be forward slashes.
 3. Issue the following command to build the application:
    
    ```bash
