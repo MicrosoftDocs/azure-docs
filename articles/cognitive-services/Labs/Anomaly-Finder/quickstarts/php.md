@@ -37,7 +37,7 @@ The example of the time series data is as follows.
 # This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)
 require_once 'HTTP/Request2.php';
 
-$request = new HTTP_Request2('https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection');
+$request = new HTTP_Request2('https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection');
 $url = $request->getUrl();
 
 $requestData = '[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]';

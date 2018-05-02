@@ -37,7 +37,7 @@ The steps of using the example,
 
 ```cURL
 
-curl -v -X POST "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection"
+curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection"
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: [YOUR_SUBSCRIPTION_KEY]"
 --data-ascii "[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]" 

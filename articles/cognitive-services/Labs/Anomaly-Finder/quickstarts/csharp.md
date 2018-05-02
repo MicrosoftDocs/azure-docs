@@ -56,7 +56,7 @@ namespace Console
         // Replace the subscriptionKey string value with your valid subscription key.
         const string subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
 
-        const string endpoint = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+        const string endpoint = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection";
 
         // Replace the request data with your real data.
         const string requestData = "[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]";

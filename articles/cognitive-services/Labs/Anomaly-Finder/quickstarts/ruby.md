@@ -47,7 +47,7 @@ require 'rest_client'
 # Replace the subscriptionKey string value with your valid subscription key.
 subscription_key = '[YOUR_SUBSCRIPTION_KEY]';
 
-endpoint = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+endpoint = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection";
 
 # Replace the request data with your real data.
 requestData = '[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]';

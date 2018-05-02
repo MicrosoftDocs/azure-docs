@@ -1,4 +1,4 @@
-With the [Anomaly Finder API](https://labs-wu-ppe.azurewebsites.net/project-anomaly-finder), you can upload time series data in JSON format to the API endpoint, and then read the result from the API response. You can upload the time series data, each data point includes:  
+With the [Anomaly Finder API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), you can upload time series data in JSON format to the API endpoint, and then read the result from the API response. You can upload the time series data, each data point includes:  
 * Timestamp - The timestamp for the data point. Make sure it uses a UTC date time string, for example, "2017-08-01T00:00:00Z"
 * Value - The measurement of that data point
 

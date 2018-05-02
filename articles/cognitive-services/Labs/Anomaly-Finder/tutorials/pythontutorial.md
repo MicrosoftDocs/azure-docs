@@ -38,7 +38,7 @@ Make sure to enclose the key in quotes to make it a string.
 ```Python
 
             # Variables
-            endpoint = 'https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection'
+            endpoint = 'https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection'
             subscription_key = None #Here you have to paste your primary key
 
 ```

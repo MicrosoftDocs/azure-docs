@@ -53,7 +53,7 @@ And also you need to install [Java Development Kit (JDK)](http://www.oracle.com/
 // Replace the subscriptionKey string value with your valid subscription key.
 public static final String subscriptionKey = "<Subscription Key>";
 
-public static final String uriBase = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+public static final String uriBase = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection";
 
 ```
 

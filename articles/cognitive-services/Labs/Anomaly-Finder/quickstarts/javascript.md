@@ -54,7 +54,7 @@ The steps of using the example:
             // Replace the subscriptionKey string value with your valid subscription key.
             var subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
 
-            var uriBase = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+            var uriBase = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection";
 
             var body = document.getElementById("requestTextArea").value;
             // Perform the REST API call.

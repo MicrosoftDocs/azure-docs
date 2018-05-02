@@ -56,7 +56,7 @@ public class Main {
     // Replace the subscriptionKey string value with your valid subscription key.
     public static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
 
-    public static final String uriBase = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection";
+    public static final String uriBase = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection";
 
     public static void main(String[] args) {
         final String content = "[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]";

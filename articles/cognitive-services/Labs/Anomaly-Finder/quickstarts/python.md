@@ -49,7 +49,7 @@ def detect(url, subscription_key, request_data):
 
 
 sample_data = "[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]"
-endpont = "https://labsportalppe.azure-api.net/anomalyfinder/v1.0/anomalydetection"
+endpont = "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/anomalydetection"
 subscription_key = "[YOUR_SUBSCRIPTION_KEY]"
 
 result = detect(endpont, subscription_key, sample_data)
