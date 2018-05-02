@@ -100,19 +100,20 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 3 above.
 
 5. **Secure Cluster Only:** 
-   1. To configure the deployment of applications on a secure cluster from Jenkins, the certificate used to connect to the cluster must be accessible within the Jenkins container. In development, test, and OneBox environments, this is generally the cluster certificate. In production environments, this is generally a client certificate configured for the cluster. In the *ApplicationManifest.xml* file, under the **ContainerHostPolicies** tag add this certificate reference and update the thumbprint value for your certificate.
+   
+   To configure the deployment of applications on a secure cluster from Jenkins, the cluster certificate must be accessible within the Jenkins container. In the *ApplicationManifest.xml* file, under the **ContainerHostPolicies** tag add this certificate reference and update the thumbprint value with that of the cluster certificate.
 
-      ```xml
-      <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
-      ```
+   ```xml
+   <CertificateRef Name="MyCert" X509FindValue="[Thumbprint]"/>
+   ```
 
-   2. For the container application to communicate with the runtime and the file system, the cluster certificate must be accessible within the Jenkins container. Add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Update the thumbprint value for your cluster certificate.
+   Additionally, add the following lines under the **ApplicationManifest** (root) tag in the *ApplicationManifest.xml* file. Update the thumbprint value with that of the cluster certificate.
 
-      ```xml
-      <Certificates>
-        <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="[Thumbprint]" />
-      </Certificates> 
-      ```
+   ```xml
+   <Certificates>
+     <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="[Thumbprint]" />
+   </Certificates> 
+   ```
 
 6. Connect to the cluster and install the container application.
 
