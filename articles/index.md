@@ -1001,6 +1001,45 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>DevOps</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/vsts/">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
+                                                <p>Visual Studio Team Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/application-insights/">
+                                                <img src="media/index/ApplicationInsights.svg" alt="" />
+                                                <p>Application Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/devtest-lab/">
+                                                <img src="media/index/DevTestLabs.svg" alt="" />
+                                                <p>Azure DevTest Labs</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/appcenter/">
+                                                <img src="https://docs.microsoft.com/media/logos/logo_vs-mobile-center.svg" alt="" />
+                                                <p>Visual Studio App Center</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/integrations">
+                                                <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
+                                                <p>Developer Tool Integrations</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://support.hockeyapp.net/kb">
+                                                <img src="media/index/HockeyApp.svg" alt="" />
+                                                <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
                                         <li>
@@ -1030,7 +1069,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/integrations">
                                                 <img src="https://docs.microsoft.com/media/common/i_extensions.svg" alt="" />
-                                                <p>Developer Tool integrations</p>
+                                                <p>Developer Tool Integrations</p>
                                             </a>
                                         </li>
                                         <li>
@@ -4199,7 +4238,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>DevOps Tool Integrations</h3>
+                                                    <h3>Developer Tool Integrations</h3>
                                                     <p>Extend Azure with popular extensions</p>
                                                 </div>
                                             </div>
