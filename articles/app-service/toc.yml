@@ -71,6 +71,8 @@
     href: azure-web-sites-web-hosting-plans-in-depth-overview.md
   - name: OS functionality
     href: web-sites-available-operating-system-functionality.md
+  - name: Inbound and outbound IPs
+    href: app-service-ip-addresses.md
   - name: Authentication and authorization
     href: app-service-authentication-overview.md
   - name: Hybrid connections
@@ -185,6 +187,10 @@
       href: web-sites-create-web-jobs.md
     - name: Develop WebJobs using VS
       href: websites-dotnet-deploy-webjobs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -251,6 +257,8 @@
       href: app-service-web-troubleshoot-http-502-http-503.md
     - name: Troubleshoot performance issues
       href: app-service-web-troubleshoot-performance-degradation.md
+    - name: Troubleshoot domain and certificate issues
+      href: app-service-web-troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
