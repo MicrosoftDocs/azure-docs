@@ -30,7 +30,7 @@ Browse the control families below to see how this Azure Security and Compliance 
 | [AC](fedramp-iaaswa-access-controls.md ) | Access Control |
 | [AU](fedramp-iaaswa-audit-accountability-controls.md ) | Audit and Accountability |
 | [AT](fedramp-iaaswa-awareness-training-controls.md ) | Awareness and Training |
-| [CM](fedramp-iaaswa-configuration-manager-controls.md ) | Configuration Management |
+| [CM](fedramp-iaaswa-configuration-management-controls.md ) | Configuration Management |
 | [CP](fedramp-iaaswa-contingency-planning-controls.md ) | Contingency Planning |
 | [IA](fedramp-iaaswa-identification-authentication-controls.md ) | Identification and Authentication |
 | [IR](fedramp-iaaswa-incident-response-controls.md ) | Incident Response |
