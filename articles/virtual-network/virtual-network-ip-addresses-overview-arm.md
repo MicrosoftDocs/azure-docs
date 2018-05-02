@@ -68,7 +68,7 @@ All public IP addresses created before the introduction of SKUs are Basic SKU pu
 Standard SKU public IP addresses are:
 
 - Assigned with the static allocation method only.
-- Are secure by default and closed to inbound traffi. You must explicit whitelist allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
+- Are secure by default and closed to inbound traffic. You must explicit whitelist allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
 - Assigned to network interfaces or public standard load balancers. For more information about Azure standard load balancers, see [Azure standard load balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
