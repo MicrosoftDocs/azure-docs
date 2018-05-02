@@ -327,11 +327,8 @@ plt.grid(True)
 plt.show()
 ```
 
-```
- 
-Plots will be displayed when running the notebook
+When running the Jupypter notebook, plots are displayed after the preceding code block is run.
 
-```
 
 ## Train the model
 
@@ -822,64 +819,65 @@ You only need to set your deployment environment once. If you don't have one yet
 
 1. Test the web service with the body of two emails taken from the 20 newsgrpoups dataset:
 
-```python
-# Example input data for scoring
-import json
-dict1 ={}
-dict1["recordId"] = "a1" 
-dict1["data"]= {}
-dict1["data"]["text"] = """
-I'd be interested in a copy of this code if you run across it.
-(Mail to the author bounced)
- > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,
- 1993 /
- > I fooled around with this problem a few years ago, and implemented a
- > simple method that ran on a PC.
- > was very simple - about 40 or 50 lines of code.
- . . .
- > Somewhere I still have it
- > and could dig it out if there was interest.
-"""
+   ```python
+   # Example input data for scoring
+   import json
+   dict1 ={}
+   dict1["recordId"] = "a1" 
+   dict1["data"]= {}
+   dict1["data"]["text"] = """
+   I'd be interested in a copy of this code if you run across it.
+   (Mail to the author bounced)
+    > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,
+    1993 /
+    > I fooled around with this problem a few years ago, and implemented a
+    > simple method that ran on a PC.
+    > was very simple - about 40 or 50 lines of code.
+    . . .
+    > Somewhere I still have it
+    > and could dig it out if there was interest.
+   """
+   
+   dict2 ={}
+   dict2["recordId"] = "b2"
+   dict2["data"] ={}
+   dict2["data"]["text"] = """
+   >>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,
+   >>take their discussions to alt.drugs? Their discussions will receive greatest
+   >>contribution and readership there. The people interested in strictly
+   >>"smart drugs" (i.e. Nootropics) should post to this group. The two groups
+   >>(alt.drugs & alt.psychoactives) have been used interchangably lately.
+   >>I do think that alt.psychoactives is a deceiving name. alt.psychoactives
+   >>is supposedly the "smart drug" newsgroup according to newsgroup lists on
+   >>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &
+   >>nutrients)? I have noticed some posts in sci.med.nutrition regarding
+   >>"smart nutrients." We may lower that groups burden as well.
+   >   
 
-dict2 ={}
-dict2["recordId"] = "b2"
-dict2["data"] ={}
-dict2["data"]["text"] = """
->>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,
->>take their discussions to alt.drugs? Their discussions will receive greatest
->>contribution and readership there. The people interested in strictly
->>"smart drugs" (i.e. Nootropics) should post to this group. The two groups
->>(alt.drugs & alt.psychoactives) have been used interchangably lately.
->>I do think that alt.psychoactives is a deceiving name. alt.psychoactives
->>is supposedly the "smart drug" newsgroup according to newsgroup lists on
->>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &
->>nutrients)? I have noticed some posts in sci.med.nutrition regarding
->>"smart nutrients." We may lower that groups burden as well.
->
+   I was wondering if a group called 'sci.pharmacology' would be relevent.
+   This would be used for a more formal discussion about pharmacological
+   issues (pharmacodynamics, neuropharmacology, etc.)      
 
-I was wondering if a group called 'sci.pharmacology' would be relevent.
-This would be used for a more formal discussion about pharmacological
-issues (pharmacodynamics, neuropharmacology, etc.)
+   Just an informal proposal (I don't know anything about the net.politics
+   for adding a newsgroup, etc.)
 
-Just an informal proposal (I don't know anything about the net.politics
-for adding a newsgroup, etc.)
+   """
 
-"""
+   dict_list =[dict1, dict2]
+   data ={}
+   data["values"] = dict_list
+   input_data_json_str = json.dumps(data)
+   print (input_data_json_str)
+   prediction = web_service.score(input_data_json_str)
+   prediction
+   ```
 
-dict_list =[dict1, dict2]
-data ={}
-data["values"] = dict_list
-input_data_json_str = json.dumps(data)
-print (input_data_json_str)
-prediction = web_service.score(input_data_json_str)
-prediction
-```
-
-    {"values": [{"recordId": "a1", "data": {"text": "\nI'd be interested in a copy of this code if you run across it.\n(Mail to the author bounced)\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\n 1993 /\n > I fooled around with this problem a few years ago, and implemented a\n > simple method that ran on a PC.\n > was very simple - about 40 or 50 lines of code.\n . . .\n > Somewhere I still have it\n > and could dig it out if there was interest.\n"}}, {"recordId": "b2", "data": {"text": "\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\n>>take their discussions to alt.drugs? Their discussions will receive greatest\n>>contribution and readership there. The people interested in strictly\n>>\"smart drugs\" (i.e. Nootropics) should post to this group. The two groups\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\n>>is supposedly the \"smart drug\" newsgroup according to newsgroup lists on\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\n>>\"smart nutrients.\" We may lower that groups burden as well.\n>\n\nI was wondering if a group called 'sci.pharmacology' would be relevent.\nThis would be used for a more formal discussion about pharmacological\nissues (pharmacodynamics, neuropharmacology, etc.)\n\nJust an informal proposal (I don't know anything about the net.politics\nfor adding a newsgroup, etc.)\n\n"}}]}
-    F1 2018-05-02 00:10:58,272 INFO Web service scored. 
+   ```
+   {"values": [{"recordId": "a1", "data": {"text": "\nI'd be interested in a copy of this code if you run across it.\n(Mail to the author bounced)\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\n 1993 /\n > I fooled around with this problem a few years ago, and implemented a\n > simple method that ran on a PC.\n > was very simple - about 40 or 50 lines of code.\n . . .\n > Somewhere I still have it\n > and could dig it out if there was interest.\n"}}, {"recordId": "b2", "data": {"text": "\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\n>>take their discussions to alt.drugs? Their discussions will receive greatest\n>>contribution and readership there. The people interested in strictly\n>>\"smart drugs\" (i.e. Nootropics) should post to this group. The two groups\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\n>>is supposedly the \"smart drug\" newsgroup according to newsgroup lists on\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\n>>\"smart nutrients.\" We may lower that groups burden as well.\n>\n\nI was wondering if a group called 'sci.pharmacology' would be relevent.\nThis would be used for a more formal discussion about pharmacological\nissues (pharmacodynamics, neuropharmacology, etc.)\n\nJust an informal proposal (I don't know anything about the net.politics\nfor adding a newsgroup, etc.)\n\n"}}]}
+   F1 2018-05-02 00:10:58,272 INFO Web service scored. 
     
-    '{"values": [{"recordId": "b2", "data": {"text": "\\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\\n>>take their discussions to alt.drugs? Their discussions will receive greatest\\n>>contribution and readership there. The people interested in strictly\\n>>\\"smart drugs\\" (i.e. Nootropics) should post to this group. The two groups\\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\\n>>is supposedly the \\"smart drug\\" newsgroup according to newsgroup lists on\\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\\n>>\\"smart nutrients.\\" We may lower that groups burden as well.\\n>\\n\\nI was wondering if a group called \'sci.pharmacology\' would be relevent.\\nThis would be used for a more formal discussion about pharmacological\\nissues (pharmacodynamics, neuropharmacology, etc.)\\n\\nJust an informal proposal (I don\'t know anything about the net.politics\\nfor adding a newsgroup, etc.)\\n\\n", "class": 13}}, {"recordId": "a1", "data": {"text": "\\nI\'d be interested in a copy of this code if you run across it.\\n(Mail to the author bounced)\\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\\n 1993 /\\n > I fooled around with this problem a few years ago, and implemented a\\n > simple method that ran on a PC.\\n > was very simple - about 40 or 50 lines of code.\\n . . .\\n > Somewhere I still have it\\n > and could dig it out if there was interest.\\n", "class": 1}}]}'
-
+   '{"values": [{"recordId": "b2", "data": {"text": "\\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\\n>>take their discussions to alt.drugs? Their discussions will receive greatest\\n>>contribution and readership there. The people interested in strictly\\n>>\\"smart drugs\\" (i.e. Nootropics) should post to this group. The two groups\\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\\n>>is supposedly the \\"smart drug\\" newsgroup according to newsgroup lists on\\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\\n>>\\"smart nutrients.\\" We may lower that groups burden as well.\\n>\\n\\nI was wondering if a group called \'sci.pharmacology\' would be relevent.\\nThis would be used for a more formal discussion about pharmacological\\nissues (pharmacodynamics, neuropharmacology, etc.)\\n\\nJust an informal proposal (I don\'t know anything about the net.politics\\nfor adding a newsgroup, etc.)\\n\\n", "class": 13}}, {"recordId": "a1", "data": {"text": "\\nI\'d be interested in a copy of this code if you run across it.\\n(Mail to the author bounced)\\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\\n 1993 /\\n > I fooled around with this problem a few years ago, and implemented a\\n > simple method that ran on a PC.\\n > was very simple - about 40 or 50 lines of code.\\n . . .\\n > Somewhere I still have it\\n > and could dig it out if there was interest.\\n", "class": 1}}]}'
+   ```
 
 
 ## Next steps
