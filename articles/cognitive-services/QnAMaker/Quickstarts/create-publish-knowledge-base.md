@@ -26,16 +26,19 @@ A QnAMaker knowledge base can be created from pre-existing semi-structured conte
 1. Log in to QnAMaker.ai with your Azure credentials
 
 2. On the QnAMaker website, select **Create new knowledge base**.
+
 ![Create new KB](../media/qnamaker-quickstart-kb/just-signed-in.png)
 
 3. In the create page, step 1, select **Create a QnA service**. This will direct you to Azure portal where you need to set up a QnAMaker service in your subscription. Learn about how to do that here.
 
 4. Once you've successfully created a new QnAMaker service in Azure, select it from the drop-downs.
+
 ![Select a QnA service KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
 5. Name your KB "My Sample QnA KB"
 
 6. Next, to add content to your KB, we will select three types of data sources. Add the [BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions) URL in the URL box.
+
 ![Select a QnA service KB](../media/qnamaker-quickstart-kb/add-datasources.png)
 
 7. Click on **Create your KB**.
@@ -45,6 +48,7 @@ A QnAMaker knowledge base can be created from pre-existing semi-structured conte
 9. Once the KB is successfully created, it opens the 'Knowledge Base' page where you can edit the contents of the knowledge base.
 
 10. Click on **Add QnA Pair** to add a new row in the Editorial section of the Knowledge Base. Enter the following:
+
 ![Add a QnA Pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. Edits will not be retained unless they are saved. Select **Save and train** on the top right to save the edits your just made and to train the QnAMaker model.
@@ -53,6 +57,7 @@ A QnAMaker knowledge base can be created from pre-existing semi-structured conte
 Type in 'hi there' in the box and press enter.
 
 13. Select **Inspect** to examine the response in more details. The test window is used to test your changes to the KB before they are published.
+
 ![Test Panel](../media/qnamaker-quickstart-kb/test.png)
 
 14. Dismiss the Test pop-out by clicking on 'Test' again. Open the Publish tab.
@@ -60,6 +65,7 @@ Type in 'hi there' in the box and press enter.
 14. Click on **Publish**
 
 15. The QnAMaker service has now been successfully published. The endpoint can be used in your application or bot code.
+
 ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## Next steps

@@ -20,8 +20,10 @@ Before you build, follow the steps in [Create a knowledge base]() to create a Qn
 The bot responds to questions from the knowledge base you created, via the QnAMakerDialog.
 ## Create a QnA Bot
 1. In the [Azure portal](https://portal.azure.com), select Create new resource in the menu blade and click **See all**.
+
 ![bot service creation](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
 2. In the search box, search for **Web App Bot**.
+
 ![bot service selection](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 3. In the **Bot Service blade**, provide the required information, and click Create. This creates and deploys the bot service with QnAMakerDialog to Azure.
 

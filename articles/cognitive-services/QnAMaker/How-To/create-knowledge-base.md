@@ -16,12 +16,15 @@ QnAMaker makes it very simple to onboard your existing data sources to create a 
 
 
 1. To get started, sign into to the [QnAMaker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**
+
     ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
 
 2. If you have not already created a QnAMaker service, click on the **Create a QnA service**. Otherwise, choose a QnAMaker service from the drop-downs in Step 2. Select the QnAMaker service that will host the Knowledge Base
+
     ![Setup QnA service](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
 3. Enter the following information in order to create the knowledge base
+
     ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
 - Give your service a **name.** Duplicate names are supported and special characters are supported as well.

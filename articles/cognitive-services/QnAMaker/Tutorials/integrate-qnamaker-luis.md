@@ -18,6 +18,7 @@ As your QnAMaker knowledge base grows large, it becomes difficult to maintain it
 While it is straightforward to create multiple knowledge bases in QnAMaker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
 
 ## Architecture
+
 ![QnAMaker luis architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 In the above scenario, QnAMaker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnAMaker knowledge base.
@@ -112,6 +113,7 @@ using Newtonsoft.Json;
     /* END - QnAMaker Response Class */
 ```
 3. Go to https://qnamaker.ai -> My knowledge bases -> View code, of your corresponding knowledge base. Get the following information:
+
 ![QnAMaker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 4. Instantiate the QnAMakerService class for each of your knowledge bases:
 ```
@@ -149,6 +151,7 @@ using Newtonsoft.Json;
 
 ## Build the bot
 In the code editor, right-click on `build.cmd` and select **Run from Console**.
+
 ![run from console](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
 The code view is replaced with a terminal window showing the progress and results of the build.

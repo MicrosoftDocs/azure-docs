@@ -20,12 +20,15 @@ This setup deploys a few Azure resources. Together, these resources manage the k
 1. Log in to the [Azure portal](<https://portal.azure.com>).
 
 2.  Click on **Add new resource**, and type "qna maker" in search, and select the QnA Maker resource
+
 ![Create a new QnAMaker service](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  Click on **Create** after reading the terms and conditions.
+
 ![Create a new QnAMaker service](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
 4. In **QnA Maker**, select the appropriate tiers and regions.
+
 ![Create a new QnAMaker service](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
 * Fill the **Name** with a unique name to identify this QnAMaker service. This name also identifies the QnAMaker endpoint to which your knowledge bases will be associated.

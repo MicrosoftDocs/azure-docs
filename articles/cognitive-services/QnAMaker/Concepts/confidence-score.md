@@ -47,12 +47,15 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 1. Go to the [Azure portal](http://portal.azure.com) and navigate to the resource group that represents the QnAMaker service you created.
 2. Click to open the **App Service**.
+
 ![Access App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. Click on **Application Settings** and edit the **DefaultAnswer** field to the desired default response. Click **Save**.
+
 ![Change default response](../media/qnamaker-concepts-confidencescore/change-response.png)
 
 4. Restart your App service
+
 ![QnAMaker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 

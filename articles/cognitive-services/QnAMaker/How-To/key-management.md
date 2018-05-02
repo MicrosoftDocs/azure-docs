@@ -23,15 +23,19 @@ Your QnAMaker service deals with two kinds of keys, **subscription keys** and **
 ## Subscription Keys
 You can view and reset your subscription keys from the Azure portal where you created the QnAMaker resource. 
 1. Go to the QnAMaker resource in the Azure portal
+
 ![QnAMaker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 2. Go to **Keys**.
+
 ![subscription key](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
 ## Endpoint Keys
 Endpoint keys can be managed from the [QnAMaker portal](https://qnamaker.ai).
 1. Log in to the [QnAMaker portal](https://qnamaker.ai), and go to **Manage keys**.
+
 ![endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 2. View or reset your keys
+
 ![endpoint key manage](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]

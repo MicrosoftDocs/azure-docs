@@ -16,6 +16,7 @@ ms.author: saneppal
 Publishing your knowledge base is the final step in making your knowledge base available as a question-answering endpoint. 
 
 When you publish a knowledge base, the QnA contents of your knowledge base moves from the test index to a production index in Azure search.
+
 ![Publish prod test index](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
 1. Once done with the changes in your KB, click on **Publish** in the top navigation bar. You can publish up to the allotted number of knowledge bases for the Azure Search. 

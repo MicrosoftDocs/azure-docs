@@ -19,6 +19,7 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 
 1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
 2.  To access the Test slide-out panel, select **Test** in your application's top panel
+
 ![Access Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Enter a query in the text box and select Enter.
@@ -37,6 +38,7 @@ To close the Test panel, select the **Test** button again. While the Test pa
 You inspect details of the test result in the Inspect panel.
 
 1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
+
 ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
@@ -45,11 +47,13 @@ You inspect details of the test result in the Inspect panel.
 ## Correct the top scoring answer
 
 1.  If the top scoring answer is incorrect, select the correct answer from the list and click on Save and Train.
+
 ![Access Test](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## Add alternate questions
 
 You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and click enter to add them. Click Save and train to store the updates.
+
 ![Access Test](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## Add a new answer
@@ -59,6 +63,7 @@ You can add a new answer if any of the existing answers that were matched are in
 Enter the new answer to current question in the text box and press enter to add it. 
 
 Click on **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+
 ![Access Test](../media/qnamaker-how-to-test-kb/add-answer.png)
 
     >[!NOTE]

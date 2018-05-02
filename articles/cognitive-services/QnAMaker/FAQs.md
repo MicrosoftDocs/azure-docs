@@ -33,11 +33,14 @@ Sharing works at the level of a QnAMaker service, i.e. all knowledge bases in th
 
 The default message is part of the settings in your App service.
 - Go to the your App service resource in the Azure portal
+
 ![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
 - Click on the **Settings** option
+
 ![qnamaker appservice settings](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - Change the value of the **DefaultAnswer** setting
 - Restart your App service
+
 ![qnamaker appservice restart](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 ## Why is my SharePoint link not getting extracted?
