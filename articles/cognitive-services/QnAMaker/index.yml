@@ -24,15 +24,15 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: Images/Quickstarts/logo_csharp.svg
+          src: media/Quickstarts/logo_csharp.svg
       - image:
-          src: Images/Quickstarts/logo_java.svg
+          src: media/Quickstarts/logo_java.svg
       - image:
-          src: Images/Quickstarts/logo_nodejs.svg
+          src: media/Quickstarts/logo_nodejs.svg
       - image:
-          src: Images/Quickstarts/logo_python.svg
+          src: media/Quickstarts/logo_python.svg
       - image:
-          src: Images/Quickstarts/logo_go.svg
+          src: media/Quickstarts/logo_go.svg
     rows:
       - title: 'Use the Microsoft QnA Maker REST API'
         values:

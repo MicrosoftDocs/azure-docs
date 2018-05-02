@@ -18,4 +18,4 @@ One of the basic requirements in writing your own Bot service is to seed it with
 
 With optimized machine learning logic and the ability to integrate industry-leading language processing with ease, QnA Maker distills masses of information into distinct, helpful answers.
 
-![alt text](./Images/botFrameworkArch.png)
+![alt text](./media/botFrameworkArch.png)

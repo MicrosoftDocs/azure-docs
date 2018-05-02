@@ -19,10 +19,10 @@ You will receive a unique pair of keys. The second one is just a spare. Please d
 These subscription keys are used to track your usage of the service and need to be part of every request, as mentioned in the API section.
 To view your subscription keys, go to Settings.
 
-![alt text](./Images/kbSubscription.png)
+![alt text](./media/kbSubscription.png)
 
 Here you can view and also refresh your subscription keys, if you suspect they have been compromised.
 
-![alt text](./Images/kbSubscriptionKey.png)
+![alt text](./media/kbSubscriptionKey.png)
 
 Since currently the QnA Maker is a free to use tool, we have the following restrictions of usage per subscription key: **10,000 transactions per month, 10 per minute.** Beyond this your requests will be throttled.

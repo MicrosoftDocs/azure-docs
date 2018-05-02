@@ -19,7 +19,7 @@ There are two ways you can improve the relevance of the responses.
 ## Chat with your KB
 Chat with your knowledge base, to see the relevance of the responses. You can add a variation to an existing question as well as choose a different answer for a question
 
-![alt text](../Images/kbTest.png)
+![alt text](../media/kbTest.png)
 
 To bulk upload questions (so you don't need to type every time), click on Upload chat logs. It expects one question per line.
 
@@ -28,11 +28,11 @@ Once uploaded, you can play the questions in order by clicking Show next questio
 >[!WARNING]
 >Only one file can be uploaded at a time. Uploading multiple file will overwrite the previous one.
 
-![alt text](../Images/uploadChatLogs.png)
+![alt text](../media/uploadChatLogs.png)
 
 Make sure you press Save and retrain, to reflect any changes/inputs you have provided.
 
-![alt text](../Images/kbSaveRetrain.png)
+![alt text](../media/kbSaveRetrain.png)
 
 ## Replay live chat logs
 A very useful feature is to see what responses the service returns for live traffic, and then train it appropriately.
@@ -41,4 +41,4 @@ You can download the live chat traffic hitting your published end-point by click
 
 Looking at the chat logs, you can decide which questions you want to test and train your knowledge base on, as described in the above section.
 
-![alt text](../Images/downloadChatLogs.png)
+![alt text](../media/downloadChatLogs.png)

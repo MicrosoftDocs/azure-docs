@@ -20,21 +20,21 @@ Share your knowledge base only with people you know or trust. Users can edit/pub
 ## Add users to your KB ##
 Go to the settings tab and add users.
 
-![alt text](../Images/addUserToService.png)
+![alt text](../media/addUserToService.png)
 
 To save your changes, press Save and retrain button.
 
-![alt text](../Images/kbSaveRetrain.png)
+![alt text](../media/kbSaveRetrain.png)
 
 ## Merge changes ##
 In case you have unsaved changes, and another user updates the knowledge base, you will be asked to refresh before you can save your changes.
 
-![alt text](../Images/refreshKb.png)
+![alt text](../media/refreshKb.png)
 
 When you refresh, you will be able to see the merged changes in orange.
 
-![alt text](../Images/mergedKb.png)
+![alt text](../media/mergedKb.png)
 
 Now, you can continue to work on your changes or Save & Retrain the merged changes.
 
-![alt text](../Images/kbSaveRetrain.png)
+![alt text](../media/kbSaveRetrain.png)
