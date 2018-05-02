@@ -1,3 +1,17 @@
+---
+title: Anomaly Detection Javascript app - Microsoft Cognitive Services | Microsoft Docs
+description: Explore a Javascript Web app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
+services: cognitive-services
+author: wenya
+manager: bix
+
+ms.service: cognitive-services
+ms.technology: anomaly-detection
+ms.topic: article
+ms.date: 04/20/2018
+ms.author: wenya
+---
+
 # Anomaly Detection Javascript Tutorial
 Explore a Web application that uses the Anomaly Detection REST API to detect an anomaly. The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and the expected value for each data point from the API.
 

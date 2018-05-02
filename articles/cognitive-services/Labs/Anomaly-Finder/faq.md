@@ -1,5 +1,5 @@
 ---
-title: Frequently Asked Questions (FAQ) about Azure Anomaly Finder API | Microsoft Docs
+title: Frequently Asked Questions (FAQ) about Azure Anomaly Finder API - Microsoft Cognitive Services | Microsoft Docs
 description: Get answers to common questions about Microsoft Cognitive Services Anomaly Finder API on Azure.
 services: cognitive-services
 author: chliang

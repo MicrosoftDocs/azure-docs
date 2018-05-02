@@ -1,3 +1,17 @@
+--- 
+title: How to use the Anomaly Finder API with Ruby - Microsoft Cognitive Services | Microsoft Docs
+description: Get information and code samples to help you quickly get started using Ruby and the Anomaly Finder API in Cognitive Services.
+services: cognitive-services
+author: chliang
+manager: bix
+
+ms.service: cognitive-services
+ms.technology: anomaly-detection
+ms.topic: article
+ms.date: 06/12/2018
+ms.author: chliang
+---
+
 # Anomaly Finder Ruby Quick Starts
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with Ruby to accomplish task of getting anomaly detection result of time series data.

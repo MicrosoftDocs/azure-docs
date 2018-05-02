@@ -1,5 +1,5 @@
 --- 
-title: Anomaly Finder API cURL Quick Starts | Microsoft Docs
+title: How to use the Anomaly Finder API with cURL - Microsoft Cognitive Services | Microsoft Docs
 description: Get information to help you quickly get started using cURL and the Anomaly Finder API in Cognitive Services.
 services: cognitive-services
 author: chliang

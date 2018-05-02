@@ -1,5 +1,5 @@
 --- 
-title: Anomaly Finder C# quick starts | Microsoft Docs
+title: How to use the Anomaly Finder API with C# - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using C# and the Anomaly Finder API in Cognitive Services.
 services: cognitive-services
 author: chliang

@@ -1,5 +1,5 @@
 ---
-title: Anomaly Detection API Python tutorial | Microsoft Docs
+title: Anomaly Detection Python app - Microsoft Cognitive Services | Microsoft Docs
 description: Explore a Python notebook that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
 services: cognitive-services
 author: chliang

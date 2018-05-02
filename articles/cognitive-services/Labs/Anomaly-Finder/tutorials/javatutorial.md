@@ -1,6 +1,6 @@
 ---
-title: Anomaly Detection API C# tutorial | Microsoft Docs
-description: Explore a basic Windows app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
+title: Anomaly Detection Java app - Microsoft Cognitive Services | Microsoft Docs
+description: Explore a Java app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
 services: cognitive-services
 author: wenya
 manager: bix

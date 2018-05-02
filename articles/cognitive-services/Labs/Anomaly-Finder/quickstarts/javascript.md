@@ -1,3 +1,17 @@
+--- 
+title: How to use the Anomaly Finder API with Javascript - Microsoft Cognitive Services | Microsoft Docs
+description: Get information and code samples to help you quickly get started using Anomaly Finder with Javascript in Cognitive Services.
+services: cognitive-services
+author: chliang
+manager: bix
+
+ms.service: cognitive-services
+ms.technology: anomaly-detection
+ms.topic: article
+ms.date: 06/12/2018
+ms.author: chliang
+---
+
 # Anomaly Detection Javascript Quick Starts
 
 This article provides information and code samples to help you quickly get started using the Anomaly Detection API with Javascript to accomplish the task of getting anomaly detection result of time series data.

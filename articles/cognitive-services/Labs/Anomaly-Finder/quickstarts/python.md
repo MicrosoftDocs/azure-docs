@@ -1,5 +1,5 @@
 --- 
-title: Anomaly Finder Python Quick Starts | Microsoft Docs
+title: How to use the Anomaly Finder API with Python - Microsoft Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using Anomaly Finder with Python in Cognitive Services.
 services: cognitive-services
 author: chliang
