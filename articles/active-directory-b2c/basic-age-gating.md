@@ -18,7 +18,7 @@ ms.author: davidmu
 #Using age gating in Azure AD B2C
 
 >[!IMPORTANT]
->This feature is in private preview and only accessible through a separate URL.  Do NOT use this on production directories, using these new features can result in data loss and may have unexpected changes in behavior until we go into general availability.  
+>This feature is in private preview, please contact AADB2CFeedback@microsoft.com.  Do NOT use this on production directories, using these new features can result in data loss and may have unexpected changes in behavior until we go into general availability.  
 >
 
 ##Age gating
