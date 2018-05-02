@@ -1,14 +1,28 @@
+---
+title: Managing user data with Conversation Learner | Microsoft Docs
+titleSuffix: Azure
+description: Learn how to manage user data with Conversation Learner.
+services: cognitive-services
+author: v-jaswel
+manager: nolachar
+ms.service: cognitive-services
+ms.component: conversation-learner
+ms.topic: article
+ms.date: 04/30/2018
+ms.author: v-jaswel
+---
+
 # Managing user data
 
 This page describes what the Conversation Learner cloud service logs when conducting dialogs with end users.  It also describes how to associate Conversation Learner logs with user IDs, so that you can retrieve or delete all logs associated with a particular user.
 
 ## Overview of end-user data logging
 
-By default, the Conversation Learner cloud service logs interactions between end users and your bot.  These logs are important for improving your bot, enabling you to identify cases where your bot extracted the incorrect entity or selected the incorrect action.  These errors can then be corrected by going to the "Log Dialogs" page of the UI, making corrections, and storing this corrected dialog as a new train dialog.  See the tutorial on "Log Dialogs" for further details.
+By default, the Conversation Learner cloud service logs interactions between end users and your bot.  These logs are important for improving your bot, enabling you to identify cases where your bot extracted the incorrect entity or selected the incorrect action.  These errors can then be corrected by going to the "Log Dialogs" page of the UI, making corrections, and storing this corrected dialog as a new train dialog. For more information, see the tutorial on "Log Dialogs."
 
 ## How to disable logging
 
-You can control whether conversations with end users are on the "Settings" page for your Conversation Learner application.  There is a checkbox for "Log Conversations".  By un-checking this box, conversations with end users will not be logged.
+You can control whether conversations with end users are on the "Settings" page for your Conversation Learner application.  There is a checkbox for "Log Conversations."  By unchecking this box, conversations with end users will not be logged.
 
 ## What is logged 
 
@@ -20,7 +34,7 @@ Conversation Learner creates a unique ID for each logged dialog.  Conversation L
 
 It is often important to be able to associate logged dialogs with the ID of the user -- for example, to be able to retrieve or delete logged dialogs from a particular user.  Since Conversation Learner does not store a user identifier, this association needs to be maintained by the developer's code.  
 
-To create this mapping, obtain the ID of the logged dialog in `EntityDetectionCallback`; then in you bot's storage, store the association between the user ID and this logged dialog.  
+To create this mapping, obtain the ID of the logged dialog in `EntityDetectionCallback`; then in your bot's storage, store the association between the user ID and this logged dialog.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {
@@ -78,13 +92,13 @@ Where `<appId>` is the GUID for this Conversation Learner application.
 
 This returns all train dialogs.  Search this list for the associated `sourceLogDialogId`, and note the associated `trainDialogId`. 
 
-To a single train dialog by id:
+To a single train dialog by ID:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Where `<appId>` is the GUID for this Conversation Learner application, and `<trainDialogId>` is the Id of the train dialog you want to retrieve.  
+Where `<appId>` is the GUID for this Conversation Learner application, and `<trainDialogId>` is the ID of the train dialog you want to retrieve.  
 
 ## How to delete a logged dialog
 
