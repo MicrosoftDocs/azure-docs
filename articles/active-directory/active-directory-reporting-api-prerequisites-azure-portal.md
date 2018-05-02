@@ -56,15 +56,15 @@ To configure your directory to access the Azure AD reporting API, you must sign 
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. On the **Azure Active Directory** blade, click **App registrations**.
+2. On the **Azure Active Directory** page, click **App registrations**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/02.png) 
 
-3. On the **App registrations** blade, in the toolbar on the top, click **New application registration**.
+3. On the **App registrations** page, in the toolbar on the top, click **New application registration**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/03.png)
 
-4. On the **Create** blade, perform the following steps:
+4. On the **Create** page, perform the following steps:
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/04.png)
 
@@ -95,21 +95,21 @@ The following section lists the steps for both APIs. If you don't want to access
 
 **To grant your application permissions to use the APIs:**
 
-1. On the **App registrations** blade, in the apps list, click **Reporting API application**.
+1. On the **App registrations** page, in the apps list, click **Reporting API application**.
 
-2. On the **Reporting API application** blade, in the toolbar on the top, click **Settings**. 
+2. On the **Reporting API application** page, in the toolbar on the top, click **Settings**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-3. On the **Settings** blade, click **Required permissions**. 
+3. On the **Settings** page, click **Required permissions**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/06.png)
 
-4. On the **Required permissions** blade, in the **API** list, click **Windows Azure Active Directory**. 
+4. On the **Required permissions** page, in the **API** list, click **Windows Azure Active Directory**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. On the **Enable Access** blade, select **Read directory data** and deselect **Sign in and read user profile**. 
+5. On the **Enable Access** page, select **Read directory data** and deselect **Sign in and read user profile**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
@@ -158,7 +158,7 @@ You need these values when configuring calls to the reporting API.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. On the **Azure Active Directory** blade, click **Custom domain names**.
+2. On the **Azure Active Directory** page, click **Custom domain names**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -173,9 +173,9 @@ You need these values when configuring calls to the reporting API.
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. On the **App registrations** blade, in the apps list, click **Reporting API application**.
+2. On the **App registrations** page, in the apps list, click **Reporting API application**.
 
-3. On the **Reporting API application** blade, at the **Application ID**, click **Click to copy**.
+3. On the **Reporting API application** page, at the **Application ID**, click **Click to copy**.
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/11.png) 
 
@@ -190,19 +190,19 @@ To get your application's client secret, you need to create a new key and save i
    
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. On the **App registrations** blade, in the apps list, click **Reporting API application**.
+2. On the **App registrations** page, in the apps list, click **Reporting API application**.
 
 
-3. On the **Reporting API application** blade, in the toolbar on the top, click **Settings**. 
+3. On the **Reporting API application** page, in the toolbar on the top, click **Settings**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/05.png)
 
-4. On the **Settings** blade, in the **APIR Access** section, click **Keys**. 
+4. On the **Settings** page, in the **APIR Access** section, click **Keys**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/12.png)
 
 
-5. On the **Keys** blade, perform the following steps:
+5. On the **Keys** page, perform the following steps:
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/14.png)
 
