@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Speech service (Preview) 
 metadata:
-  title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
+  title: Speech service (preview) documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
   meta.description: Speech API provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, dialog using natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: wiazur
