@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 5/4/2018
+ms.date: 5/8/2018
 ms.author: klam; LADocs
 ---
 
@@ -42,12 +42,13 @@ Here are the types of triggers that you can use:
 * A *push* trigger, which calls the 
 [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows)
  
-All triggers have these top-level elements:  
+All triggers have these top-level elements, 
+although some are optional:  
   
 ```json
 "<triggerName>": {
    "type": "<triggerType>",
-   "inputs": { "<callSettings>" },
+   "inputs": { "<trigger-behavior-settings>" },
    "recurrence": { 
       "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
       "interval": "<recurrence-interval-based-on-frequency>"
@@ -58,17 +59,25 @@ All triggers have these top-level elements:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| <*triggerName*> | Yes | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
-| type | Yes | String | The trigger type, for example: "Http" or "ApiConnection" | 
-| inputs | Yes | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| recurrence | Yes | JSON Object | The frequency and interval that describes how often the trigger fires |  
-| frequency | Yes | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Yes | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-| [conditions](#trigger-conditions) | No | Array | One or more conditions that determine whether or not to run the workflow | 
-| [splitOn](#split-on-debatch) | No | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
-| [operationOptions](#trigger-operation-options) | No | String | An additional option that lets you change default trigger behavior | 
+*Required*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*triggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, for example: "Http" or "ApiConnection" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
+| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+|||| 
+
+*Optional*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| [conditions](#trigger-conditions) | Array | One or more conditions that determine whether or not to run the workflow | 
+| [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
+| [operationOptions](#trigger-operation-options) | String | An additional option that lets you change default trigger behavior | 
 ||||| 
 
 ## Trigger types and details  
@@ -118,17 +127,28 @@ Here is the trigger definition:
    }
 }
 ```
+*Required*
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| frequency | Yes | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Yes | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-| startTime | No | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
-| timeZone | No | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
-| hours | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
-| minutes | No | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
-| weekDays | No | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
-| concurrency | No | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| Recurrence | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "Recurrence" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
+| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+|||| 
+
+*Optional*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| startTime | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
+| timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
+| hours | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
+| minutes | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
+| weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
+| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
 ||||| 
 
 *Example 1*
@@ -155,7 +175,7 @@ This recurrence trigger starts on the specified date and then fires daily:
    "type": "Recurrence",
    "recurrence": {
       "frequency": "Day",
-      "interval": "1",
+      "interval": 1,
       "startTime": "2017-09-18T00:00:00Z"
    }
 }
@@ -211,19 +231,33 @@ To learn how to use this trigger as an HTTP endpoint, see
             "<propertyName>": {
                "type": "<property-type>"
             }
-         }
+         },
+         "required": [ "<required-properties>" ]
       }
    }
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| method | No | String | The method that requests must use to call the trigger: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" |
-| relativePath | No | String | The relative path for the parameter that your HTTP endpoint's URL accepts | 
-| schema | No | JSON Object | The JSON schema that describes and validates the payload, or inputs, that the trigger receives from the incoming request. This schema helps subsequent workflow actions know the properties to reference. | 
-| properties | No | JSON Object | One or more properties in the JSON schema that describes the payload | 
-||||| 
+*Required*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| manual | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "Request" | 
+| kind | String | The type of request, which is "Http" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+|||| 
+
+*Optional*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| method | String | The method that requests must use to call the trigger: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" |
+| relativePath | String | The relative path for the parameter that your HTTP endpoint's URL accepts | 
+| schema | JSON Object | The JSON schema that describes and validates the payload, or inputs, that the trigger receives from the incoming request. This schema helps subsequent workflow actions know the properties to reference. | 
+| properties | JSON Object | One or more properties in the JSON schema that describes the payload | 
+| required | Array | One or more properties that require values | 
+|||| 
 
 *Example*
 
@@ -264,10 +298,10 @@ schema that validates input from the incoming request:
 
 ## HTTP trigger  
 
-This trigger polls a specified endpoint and checks the response, 
-which determines whether the workflow should run or not. 
-The `inputs` JSON object specifies the `method` and `uri` 
-parameters required for constructing the HTTP call:
+This trigger regularly polls a specified endpoint and checks the response. 
+The response determines whether the workflow should run or not. 
+The `inputs` JSON object includes and requires the `method` 
+and `uri` parameters required for constructing the HTTP call:
 
 ```json
 "HTTP": {
@@ -275,11 +309,19 @@ parameters required for constructing the HTTP call:
    "inputs": {
       "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
       "uri": "<HTTP-or-HTTPS-endpoint-to-poll>",
-      "queries": "<query-parameters>"
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
+      }
    },
    "recurrence": {
       "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
-      "interval": "<recurrence-interval-based-on-frequency>"
+      "interval": <recurrence-interval-based-on-frequency>
    },
    "runtimeConfiguration": {
       "concurrency": {
@@ -289,19 +331,31 @@ parameters required for constructing the HTTP call:
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| method | Yes | String | The HTTP method used to poll the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
+*Required*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| HTTP | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "Http" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| method | Yes | String | The HTTP method for polling the specified endpoint: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | Yes| String | The HTTP or HTTPS endpoint URL that the trigger checks or polls <p>Maximum string size: 2 KB | 
-| queries | No | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
-| headers | No | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | The payload (data) to send to the endpoint | 
-| retryPolicy | No | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | No | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
-| frequency | Yes | String | The unit of time for how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
-| interval | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
-| concurrency | No | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: <p>`"concurrency": { "runs": 10 }` | 
-||||| 
+| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
+| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
+|||| 
+
+*Optional*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON Object | The payload (data) to send to the endpoint | 
+| authentication | JSON Object | The method that the incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
+| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: <p>`"concurrency": { "runs": 10 }` | 
+|||| 
 
 To work well with your logic app, the HTTP trigger requires that the HTTP API 
 conform to a specific pattern. The HTTP trigger recognizes these properties:  
@@ -324,12 +378,12 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 | 500 | {none}| Server error, don't run the workflow. If no `retryPolicy` is defined, then the default policy is used. After the number of retries has been reached, the trigger checks again for data after the defined recurrence. | 
 |||| 
 
-*HTTP trigger outputs*
+### HTTP trigger outputs
 
 | Element name | Type | Description |
 | ------------ | ---- | ----------- |
-| headers | JSON Object | The headers of the HTTP response | 
-| body | JSON Object | The body of the HTTP response | 
+| headers | JSON Object | The headers from the HTTP response | 
+| body | JSON Object | The body from the HTTP response | 
 |||| 
 
 <a name="apiconnection-trigger"></a>
@@ -338,7 +392,10 @@ conform to a specific pattern. The HTTP trigger recognizes these properties:
 
 This trigger works like the [HTTP trigger](#http-trigger), 
 but uses [Microsoft-managed APIs](../connectors/apis-list.md) 
-so that the parameters that identify the action are different. 
+so the parameters for this trigger differ. 
+
+Here is the trigger definition, although many sections are optional, 
+so the trigger's behavior depends on whether or not sections are included:
 
 ```json
 "<APIConnectionTriggerName>": {
@@ -346,187 +403,259 @@ so that the parameters that identify the action are different.
    "inputs": {
       "host": {
          "api": {
-            "runtimeUrl": "<managed-API-URL>"
-         }
+            "runtimeUrl": "<managed-API-endpoint-URL>"
+         },
+         "connection": {
+            "name": "@parameters('$connections')['myconnection'].name"
+         },
       },
-      "connection": {
-         "name": "@parameters('$connections')['myconnection'].name"
+      "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
+      "queries": "<query-parameters>",
+      "headers": { "<headers-for-request>" },
+      "body": { "<payload-to-send>" },
+      "authentication": { "<authentication-method>" },
+      "retryPolicy": {
+          "type": "<retry-policy-type>",
+          "interval": "<retry-interval>",
+          "count": <number-retry-attempts>
       }
-   },  
-   "method": "GET | PUT | POST | PATCH | DELETE | HEAD"
+   },
+   "recurrence": {
+      "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
+      "interval": "<recurrence-interval-based-on-frequency>"
+   },
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   }
 }
 ```
 
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| host | Yes | JSON Object | The JSON object that describes the hosted gateway and ID for the managed API | 
-| method | Yes | String | Uses one of these HTTP methods: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
-| queries | No | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
-| headers | No | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
-| body | No | JSON Object | The JSON object that describes the payload (data) to send to the endpoint | 
-| retryPolicy | No | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
-| authentication | No | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
-||||| 
+*Required*
 
-Here are the `host` JSON object's properties:  
-  
-| Element name | Required | Type | Description | 
-| ------------ | -------- | ---- | ----------- | 
-| api | Yes | JSON Object | The endpoint URL for the managed API: <p>`"runtimeUrl": "<api-endpoint-URL>"` | 
-| connection | Yes | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['myconnection'].name"` |
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| *APIConnectionTriggerName* | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "ApiConnection" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| host | JSON Object | The JSON object that describes the host gateway and ID for the managed API <p>The `host` JSON object has these elements: `api` and `connection` | 
+| api | JSON Object | The endpoint URL for the managed API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
+| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['myconnection'].name"` | 
+| method | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
+| recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
+| frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
+| interval | Integer | A positive integer that describes how often the trigger fires based on the frequency. <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "month", then the recurrence is every 6 months. | 
 |||| 
 
-*APIConnection trigger outputs*
-  
-| Element name | Type | Description |
-| ------------ | ---- | ----------- |
-| headers | JSON Object | The headers of the HTTP response | 
-| body | JSON Object | The body of the HTTP response | 
-|||| 
+*Optional*
 
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?api-version=2015-02-01` query string to the URL: <p>`"queries": { "api-version": "2015-02-01" }` <p>Result: `https://contoso.com?api-version=2015-02-01` | 
+| headers | JSON Object | One or more headers to send with the request <p>For example, to set the language and type for a request: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
+| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
+| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+| concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+||||
 
-Here is an example:   
-  
+*Example*
+
 ```json
-"myDailyReportTrigger": {
+"Create_daily_report": {
    "type": "ApiConnection",
    "inputs": {
       "host": {
          "api": {
             "runtimeUrl": "https://myReportsRepo.example.com/"
-         }
+         },
+         "connection": {
+            "name": "@parameters('$connections')['myconnection'].name"
+         }     
       },
-      "connection": {
-         "name": "@parameters('$connections')['myconnection'].name"
-      }
-   },  
-   "method": "POST",
-   "body": {
-      "category": "statusReports"
+      "method": "POST",
+      "body": {
+         "category": "statusReports"
+      }  
+   },
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
    }
 }
 ```
+
+### APIConnection trigger outputs
+ 
+| Element name | Type | Description |
+| ------------ | ---- | ----------- |
+| headers | JSON Object | The headers from the HTTP response | 
+| body | JSON Object | The body from the HTTP response | 
+|||| 
 
 <a name="httpwebhook-trigger"></a>
 
 ## HTTPWebhook trigger  
 
-This trigger provides a callable endpoint for your logic app, 
-similar to the [Request trigger](#request-trigger), 
-but the HTTPWebhook trigger also calls a specified URL for registering and unregistering. 
-Here is an example of what an HTTPWebhook trigger might look like:
+This trigger works like the [Request trigger](#request-trigger) by 
+creating a callable endpoint for your logic app. However,  
+this trigger also calls a specified endpoint URL for registerting 
+or unregistering a subscription. You can specify limits on a 
+webhook trigger in the same way as [HTTP Asynchronous Limits](#asynchronous-limits). 
+
+Here is the trigger definition, though many sections are optional, 
+and the trigger's behavior depends on the sections that you use or omit:
 
 ```json
-"myAppsSpotTrigger": {
+"HTTP_Webhook": {
     "type": "HttpWebhook",
     "inputs": {
         "subscribe": {
             "method": "POST",
-            "uri": "https://pubsubhubbub.appspot.com/subscribe",
-            "headers": {},
+            "uri": "<subscribe-to-endpoint-URL>",
+            "headers": { "<headers-for-request>" },
             "body": {
                 "hub.callback": "@{listCallbackUrl()}",
                 "hub.mode": "subscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {},
             "retryPolicy": {}
         },
         "unsubscribe": {
             "method": "POST",
-            "url": "https://pubsubhubbub.appspot.com/subscribe",
+            "url": "<unsubscribe-from-endpoint-URL>",
             "body": {
                 "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
                 "hub.mode": "unsubscribe",
-                "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+                "hub.topic": "<subscription-topic>"
             },
             "authentication": {}
         }
     },
-    "conditions": []
 }
 ```
 
-Many of these sections are optional, and the HTTPWebhook trigger 
-behavior depends on the sections that you provide or omit. 
-Here are the properties for the HTTPWebhook trigger:
-  
-| Element name | Required | Description | 
-| ------------ | -------- | ----------- |  
-| subscribe | No | Specifies the outgoing request to call when the trigger is created and performs the initial registration. | 
-| unsubscribe | No | Specifies the outgoing request to call when the trigger is deleted. | 
+*Required*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| HTTP_Webhook | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "HttpWebhook" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more details, see [`subscribe` and `unsubscribe`](#subscribe-unsubscribe). | 
+| method | String | The HTTP method used for the subscription request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
+| uri | String | The endpoint URL for where to send the subscription request | 
 |||| 
 
-You can specify limits on a webhook trigger in the same way as 
-[HTTP Asynchronous Limits](#asynchronous-limits). 
-Here is more information about the `subscribe` and `unsubscribe` actions:
+*Optional*
 
-* `subscribe` is called so that the trigger can start listening to events. 
-This outgoing call starts with the same parameters as standard HTTP actions. 
-This call happens when the workflow changes in any way, 
-for example, when the credentials are rolled, or the trigger's input parameters change. 
-  
-  To support this call, the `@listCallbackUrl()` function returns a unique URL 
-  for this specific trigger in the workflow. This URL represents the unique 
-  identifier for the endpoints that use the service's REST API.
-  
-* `unsubscribe` is automatically called when an operation renders this trigger invalid, 
-including these operations:
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more details, see [`subscribe` and `unsubscribe`](#subscribe-unsubscribe). | 
+| method | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
+| uri | String | The endpoint URL for where to send the cancellation request | 
+| body | JSON Object | The JSON object that describes the payload (data) for the subscription or cancellation request | 
+| authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
+| retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
+|||| 
 
-  * Deleting or disabling the trigger. 
-  * Deleting or disabling the workflow. 
-  * Deleting or disabling the subscription. 
-  
-  The parameters for this function are the same as the HTTP trigger.
+*Example*
 
-Here are the outputs from the HTTPWebhook trigger and are the contents of the incoming request:
-  
+```json
+"myAppSpotTrigger": {
+   "type": "HttpWebhook",
+   "inputs": {
+      "subscribe": {
+         "method": "POST",
+         "uri": "https://pubsubhubbub.appspot.com/subscribe",
+         "headers": {},
+         "body": {
+            "hub.callback": "@{listCallbackUrl()}",
+            "hub.mode": "subscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      },
+      "unsubscribe": {
+         "method": "POST",
+         "url": "https://pubsubhubbub.appspot.com/subscribe",
+         "body": {
+            "hub.callback": "@{workflow().endpoint}@{listCallbackUrl()}",
+            "hub.mode": "unsubscribe",
+            "hub.topic": "https://pubsubhubbub.appspot.com/articleCategories/technology"
+         },
+      }
+   },
+}
+```
+
+<a name="subscribe-unsubscribe"></a>
+
+### `subscribe` and `unsubscribe`
+
+The `subscribe` call happens when the workflow changes in any way, 
+for example, when credentials are renewed, or the trigger's input parameters change. 
+The call uses the same parameters as standard HTTP actions. 
+ 
+The `unsubscribe` call automatically happens when an operation 
+makes the HTTPWebhook trigger invalid, for example:
+
+* Deleting or disabling the trigger. 
+* Deleting or disabling the workflow. 
+* Deleting or disabling the subscription. 
+
+To support these calls, the `@listCallbackUrl()` function returns a 
+unique "callback URL" for this trigger. This URL represents a unique 
+identifier for the endpoints that use the service's REST API. 
+The parameters for this function are the same as the HTTP trigger.
+
+### HTTPWebhook trigger outputs
+
 | Element name | Type | Description |
 | ------------ | ---- | ----------- |
-| headers | JSON Object | The headers of the HTTP response | 
-| body | JSON Object | The body of the HTTP response | 
+| headers | JSON Object | The headers from the HTTP response | 
+| body | JSON Object | The body from the HTTP response | 
 |||| 
 
 <a name="trigger-conditions"></a>
 
 ## Triggers: Conditions
 
-For any trigger, you can use one or more conditions 
-to determine whether the workflow should run or not. 
-In this example, the report only triggers while the 
-workflow's `sendReports` parameter is set to true. 
+For any trigger, you can include an array with one or more 
+conditions that determine whether the workflow should run or not. 
+In this example, the report trigger fires only while 
+the workflow's `sendReports` parameter is set to true. 
 
 ```json
 "myDailyReportTrigger": {
-    "type": "Recurrence",
-    "conditions": [ 
-        {
-            "expression": "@parameters('sendReports')"
-        } 
-    ],
-    "recurrence": {
-        "frequency": "Day",
-        "interval": 1
-    }
+   "type": "Recurrence",
+   "conditions": [ {
+      "expression": "@parameters('sendReports')"
+   } ],
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 1
+   }
 }
 ```
 
-Finally, conditions can reference the status code of the trigger. For example, 
-you can start a workflow only when your website returns a status code 500:
-  
+Also, conditions can reference the trigger's status code. 
+For example, suppose you want to start a workflow only 
+when your website returns a "500" status code:
+
 ``` json
-"conditions": [ 
-    {  
-      "expression": "@equals(triggers().code, 'InternalServerError')"  
-    }  
-]  
+"conditions": [ {
+   "expression": "@equals(triggers().code, 'InternalServerError')"  
+} ]  
 ```  
 
 > [!NOTE]
 > By default, a trigger fires only on receiving a "200 OK" response. 
 > When an expression references a trigger's status code in any way, 
-> the trigger's default behavior is replaced. So, if you want the trigger 
-> to fire based on multiple status codes, for example, status code 200 and status code 201, 
+> the trigger's default behavior is replaced. So, if you want the 
+> trigger to fire for multiple status codes, for example, 
+> status code 200 and status code 201, 
 > you must include this statement as your condition: 
 >
 > `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
@@ -583,7 +712,7 @@ so you can create a trigger like this example.
     "type": "Http",
     "recurrence": {
         "frequency": "Second",
-        "interval": "1"
+        "interval": 1
     },
     "inputs": {
         "uri": "https://mydomain.com/myAPI",
