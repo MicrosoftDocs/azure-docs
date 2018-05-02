@@ -20,6 +20,7 @@
     - name: Javascript
       href: quickstarts/javascript.md    
 - name: Examples
+  items:
   - name: C# app
     href: tutorials/csharptutorial.md
   - name: Java app
