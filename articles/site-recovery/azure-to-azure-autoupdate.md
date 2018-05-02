@@ -20,7 +20,7 @@ Azure Site Recovery has a monthly release cadence where enhancements to existing
  
 ## How does automatic update work
 
-Once you allow Site Recovery to manage updates, a global runbook(which is used by Azure services) is deployed via an automation account, which is created in the same subscription as the vault. One automation account is used for a specific vault. The runbook checks for each VM in a vault for which auto-updates are turned ON and initiates an upgrade of the Mobility Service extension if a newer version is available. The default schedule of the runbook recurrs daily at 12:00 AM as per the time zone of the replicated virtual machine's geo. 
+Once you allow Site Recovery to manage updates, a global runbook (which is used by Azure services) is deployed via an automation account, which is created in the same subscription as the vault. One automation account is used for a specific vault. The runbook checks for each VM in a vault for which auto-updates are turned ON and initiates an upgrade of the Mobility Service extension if a newer version is available. The default schedule of the runbook recurrs daily at 12:00 AM as per the time zone of the replicated virtual machine's geo. 
 The runbook schedule can also be modified via the automation account by the user, if necessary. 
 
 ## Enable automatic updates
