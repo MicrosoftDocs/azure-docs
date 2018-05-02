@@ -82,25 +82,26 @@ If you use a proxy server for communication between the agent and the Log Analyt
 The following port and URLs are required for the Hybrid Runbook Worker role to communicate with Automation:
 
 * Port: Only TCP 443 is required for outbound internet access.
-* Global URL: *.azure-automation.net.
+* Global URL: *.azure-automation.net
+* Global URL of US Gov Virginia: *.azure-automation.us
 * Agent Service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region.
 
 | **Region** | **DNS record** |
 | --- | --- |
-| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net |
-| South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
-| East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net |
-| West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
-| North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
-| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net|
-| Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Japan East |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net |
-| UK South | uks-jobruntimedata-prod-su1.azure-automation.net |
-| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us |
+| West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| South Central US |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
+| West Europe |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| North Europe |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| Central India |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Japan East |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| Australia South East |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
+| UK South | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
+| US Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 For a list of region IP addresses instead of region names, download the [Azure Datacenter IP address](https://www.microsoft.com/download/details.aspx?id=41653) XML file from the Microsoft Download Center.
 
@@ -122,7 +123,7 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 
 ## Troubleshooting
 
-The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If  registration of the worker fails, here are some possible causes for the error:
+The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
 
 1. The hybrid worker is behind a proxy or firewall.
 
@@ -142,6 +143,8 @@ The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communica
     This can be caused by your proxy or network firewall blocking communication to Microsoft Azure. Verify the computer has outbound access to *.azure-automation.net on ports 443.
 
 Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can check if there are any warning or error events written to the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event log that would indicate a connectivity or other issue affecting onboarding of the role to Azure Automation or issue while performing normal operations.
+
+For additional steps on how to troubleshoot issues with Update Management, see [Update Management - troubleshooting](automation-update-management.md#troubleshooting)
 
 ## Next steps
 
