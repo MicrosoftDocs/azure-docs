@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author:  chliang
 ---
 
-# Anomaly Detection API Python Tutorial
+# Anomaly Detection Python application
 
 The tutorial shows how to use the Anomaly Detection API in Python and how to visualize your results using popular libraries. Using Jupyter to run the tutorial and trying your own data with your subscription key. To learn how to get started
 with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupyter.readthedocs.io/en/latest/index.html). 

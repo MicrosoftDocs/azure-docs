@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Finder cURL Quick Starts
+# Use the Anomaly Finder API with cURL
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with cURL to accomplish task of getting anomaly result of time series data.
 

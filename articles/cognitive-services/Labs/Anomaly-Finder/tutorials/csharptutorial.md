@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Detection C# Tutorial
+# Anomaly Detection C# application
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.

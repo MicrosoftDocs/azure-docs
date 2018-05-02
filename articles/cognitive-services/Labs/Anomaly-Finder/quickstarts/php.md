@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 05/01/2018
 ms.author: chliang
 ---
 
-# Anomaly Finder PHP Quick Starts
+# Use the Anomaly Finder API with PHP
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with PHP to accomplish the task of getting anomaly result for time series data.
 

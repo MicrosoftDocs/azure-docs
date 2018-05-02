@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 05/01/2018
 ms.author: kefre
 ---
 
-# Anomaly Detection API Java Quick Starts
+# Use the Anomaly Finder API with Java
 
 This article provides information and code samples to help you quickly get started using the Anomaly Detection API with Java to accomplish task of getting anomaly detection result for time series data.
 

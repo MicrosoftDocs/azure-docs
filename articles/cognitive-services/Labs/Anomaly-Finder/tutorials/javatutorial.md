@@ -8,11 +8,11 @@ manager: bix
 ms.service: cognitive-services
 ms.technology: anomaly-detection
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/01/2018
 ms.author: wenya
 ---
 
-# Anomaly Detection API Java Tutorial
+# Anomaly Detection Java application
 
 This article demonstrates using a simple Java application to invoke the Anomaly Detection API.  
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
