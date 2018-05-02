@@ -3,9 +3,9 @@ title: Schema updates August-1-2015 preview - Azure Logic Apps | Microsoft Docs
 description: Create JSON definitions for Azure Logic Apps with schema version 2015-08-01-preview
 author: stepsic-microsoft-com
 manager: SyntaxC4
-editor: ''
+editor: 
 services: logic-apps
-documentationcenter: ''
+documentationcenter: 
 
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
@@ -229,17 +229,15 @@ Without Swagger, the designer can only show the inputs and outputs as opaque JSO
 Here is an example showing the new `metadata.apiDefinitionUrl` property:
 
 ``` json
-{
-   "actions": {
-      "mycustomAPI": {
-         "type": "Http",
-         "metadata": {
-            "apiDefinitionUrl": "https://mysite.azurewebsites.net/api/apidef/"  
-         },
-         "inputs": {
-            "uri": "https://mysite.azurewebsites.net/api/getsomedata",
-            "method": "GET"
-         }
+"actions": {
+   "mycustomAPI": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://mysite.azurewebsites.net/api/apidef/"  
+      },
+      "inputs": {
+         "uri": "https://mysite.azurewebsites.net/api/getsomedata",
+         "method": "GET"
       }
    }
 }
@@ -257,7 +255,7 @@ For example, if you use Dropbox to list files,
 your **2014-12-01-preview** schema version definition might have something like:
 
 ``` json
-{
+"definition": {
    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
    "contentVersion": "1.0.0.0",
    "parameters": {
@@ -295,28 +293,26 @@ your **2014-12-01-preview** schema version definition might have something like:
 }
 ```
 
-You can construct the equivalent HTTP action like this example, 
-while the parameters section of the Logic app definition remains unchanged:
+Now, you can now construct the equivalent HTTP action like the following example, 
+while leaving the parameters section for the logic app definition unchanged:
 
 ``` json
-{
-   "actions": {
-      "dropboxconnector": {
-         "type": "Http",
-         "metadata": {
-            "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
+"actions": {
+   "dropboxconnector": {
+      "type": "Http",
+      "metadata": {
+         "apiDefinitionUrl": "https://avdemo.azurewebsites.net/api/service/apidef/dropboxconnector/?api-version=2015-01-14&format=swagger-2.0-standard"  
+      },
+      "inputs": {
+         "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
+         "method": "POST",
+         "body": {
+            "FolderPath": "/myfolder"
          },
-         "inputs": {
-            "uri": "https://avdemo.azurewebsites.net/api/service/invoke/dropboxconnector/ListFiles?api-version=2015-01-14",
-            "method": "POST",
-            "body": {
-               "FolderPath": "/myfolder"
-            },
-            "authentication": {
-               "type": "Raw",
-               "scheme": "Zumo",
-               "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
-            }
+         "authentication": {
+            "type": "Raw",
+            "scheme": "Zumo",
+            "parameter": "@parameters('/subscriptions/<Azure-subscription-ID>/resourcegroups/avdemo/providers/Microsoft.AppService/apiapps/dropboxconnector/token')"
          }
       }
    }
@@ -334,133 +330,125 @@ Walking through these properties one-by-one:
 | `inputs.body` | Identical to the API App parameters |
 | `inputs.authentication` | Identical to the API App authentication |
 
-This approach should work for all API App actions. However, remember that these previous API Apps are no longer supported. 
-So you should move to one of the two other previous options, a managed API or hosting your custom Web API.
+This approach should work for all API App actions. However, 
+remember that these previous API Apps are no longer supported. 
+So you should move to one of the two other previous options, 
+a managed API or hosting your custom Web API.
 
 <a name="foreach"></a>
+
 ## Renamed 'repeat' to 'foreach'
 
-For the previous schema version, we received much customer feedback that **Repeat** was confusing 
-and didn't properly capture that **Repeat** was really a for-each loop. 
-As a result, we have renamed `repeat` to `foreach`. For example, previously you would write:
+For the previous schema version, we received much customer feedback that the **Repeat** action 
+name was confusing and didn't properly capture that **Repeat** was really a for-each loop. 
+So, we renamed `repeat` to `foreach`. Previously you'd write this action like this example:
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "repeat": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{repeatItem()}"
-            }
-        }
-    }
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "repeat": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{repeatItem()}"
+      }
+   }
 }
 ```
 
-Now you would write:
+Now you'd write this version instead:
 
-```
-{
-    "actions": {
-        "pingBing": {
-            "type": "Http",
-            "foreach": "@range(0,2)",
-            "inputs": {
-                "method": "GET",
-                "uri": "https://www.bing.com/search?q=@{item()}"
-            }
-        }
-    }
+``` json
+"actions": {
+   "pingBing": {
+      "type": "Http",
+      "foreach": "@range(0,2)",
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.bing.com/search?q=@{item()}"
+      }
+   }
 }
 ```
 
-The function `@repeatItem()` was previously used to reference the current item being iterated over. 
-This function is now simplified to `@item()`. 
+Also, the `repeatItem()` function, which referenced the item that the 
+loop is processing during the current iteration, is now renamed `item()`. 
 
 ### Reference outputs from 'foreach'
 
-For simplification, the outputs from `foreach` actions are not wrapped in an object called `repeatItems`. 
-While the outputs from the previous `repeat` example were:
+For simplification, the outputs from `foreach` actions are 
+no longer wrapped in an object named `repeatItems`. 
+Also, with these changes, the `repeatItem()`, 
+`repeatBody()`, and `repeatOutputs()` functions are removed.
 
+So, using the previous `repeat` example, you get these outputs:
+
+``` json
+"repeatItems": [ {
+   "name": "pingBing",
+   "inputs": {
+      "uri": "https://www.bing.com/search?q=0",
+      "method": "GET"
+   },
+   "outputs": {
+      "headers": { },
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+   },
+   "status": "Succeeded"
+} ]
 ```
-{
-    "repeatItems": [
-        {
-            "name": "pingBing",
-            "inputs": {
-                "uri": "https://www.bing.com/search?q=0",
-                "method": "GET"
-            },
-            "outputs": {
-                "headers": { },
-                "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-            }
-            "status": "Succeeded"
-        }
-    ]
+
+Now you get these outputs instead:
+
+``` json
+[ {
+   "name": "pingBing",
+      "inputs": {
+         "uri": "https://www.bing.com/search?q=0",
+         "method": "GET"
+      },
+      "outputs": {
+         "headers": { },
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      },
+      "status": "Succeeded"
+} ]
+```
+
+Previously, to get the `body` from the action when referencing these outputs:
+
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "repeat": "@outputs('pingBing').repeatItems",
+      "inputs": {
+         "method": "POST",
+         "uri": "http://www.example.com",
+         "body": "@repeatItem().outputs.body"
+      }
+   }
 }
 ```
 
-Now these outputs are:
+Now you can use this version instead:
 
-```
-[
-    {
-        "name": "pingBing",
-        "inputs": {
-            "uri": "https://www.bing.com/search?q=0",
-            "method": "GET"
-        },
-        "outputs": {
-            "headers": { },
-            "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
-        }
-        "status": "Succeeded"
-    }
-]
-```
-
-Previously, to get to the body of the action when referencing these outputs:
-
-```
-{
-    "actions": {
-        "secondAction": {
-            "type": "Http",
-            "repeat": "@outputs('pingBing').repeatItems",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com",
-                "body": "@repeatItem().outputs.body"
-            }
-        }
-    }
+``` json
+"actions": {
+   "secondAction": {
+      "type": "Http",
+      "foreach": "@outputs('pingBing')",
+      "inputs": {
+         "method": "POST",
+         "uri": "http://www.example.com",
+         "body": "@item().outputs.body"
+      }
+   }
 }
 ```
-
-Now you can do instead:
-
-```
-{
-    "actions": {
-        "secondAction": {
-            "type": "Http",
-            "foreach": "@outputs('pingBing')",
-            "inputs": {
-                "method": "POST",
-                "uri": "http://www.example.com",
-                "body": "@item().outputs.body"
-            }
-        }
-    }
-}
-```
-
-With these changes, the functions `@repeatItem()`, `@repeatBody()`, and `@repeatOutputs()` are removed.
 
 <a name="http-listener"></a>
+
 ## Native HTTP listener
 
 The HTTP Listener capabilities are now built in. So you no longer need to deploy an HTTP Listener API App. 
@@ -472,6 +460,7 @@ If you want to `/run` the workflow, you must have one of these triggers: `manual
 or `httpWebhook`.
 
 <a name="child-workflows"></a>
+
 ## Call child workflows
 
 Previously, calling child workflows required going to the workflow, 
@@ -481,27 +470,27 @@ With the new schema, the Logic Apps engine automatically generates
 a SAS at runtime for the child workflow so you don't have to 
 paste any secrets into the definition. Here is an example:
 
-```
-"mynestedwf": {
-    "type": "workflow",
-    "inputs": {
-        "host": {
-            "id": "/subscriptions/xxxxyyyyzzz/resourceGroups/rg001/providers/Microsoft.Logic/mywf001",
-            "triggerName": "myendpointtrigger"
-        },
-        "queries": {
-            "extrafield": "specialValue"
-        },
-        "headers": {
-            "x-ms-date": "@utcnow()",
-            "Content-type": "application/json"
-        },
-        "body": {
-            "contentFieldOne": "value100",
-            "anotherField": 10.001
-        }
-    },
-    "conditions": []
+``` json
+"myNestedWorkflow": {
+   "type": "Workflow",
+   "inputs": {
+      "host": {
+         "id": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/myWorkflow001",
+         "triggerName": "myEndpointTrigger"
+      },
+      "queries": {
+         "extrafield": "specialValue"
+      },
+      "headers": {
+         "x-ms-date": "@utcnow()",
+         "Content-type": "application/json"
+      },
+      "body": {
+         "contentFieldOne": "value100",
+         "anotherField": 10.001
+      }
+   },
+   "conditions": []
 }
 ```
 
