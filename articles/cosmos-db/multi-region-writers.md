@@ -95,7 +95,7 @@ Azure Cosmos DB implements the logic for handling conflicting writes inside the 
 
   ![Mult-master conflict resolution](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
 
-The semantics of the conflict resolution models offered by Azure Cosmos DB is as follows: 
+You will have 3 types of conflict resolution models offered by Azure Cosmos DB. The semantics of the conflict resolution models are as follows: 
 
 **Automatic** - This is the default conflict resolution policy. Selecting this policy causes Azure Cosmos DB to automatically resolve the conflicting updates on the server side and provide strong-eventual-consistency guarantees. Internally, Azure Cosmos DB implements automatic conflict resolution by leveraging Conflict-Free-Replicated-Data Types (CRDTs) inside the database engine.  
 
