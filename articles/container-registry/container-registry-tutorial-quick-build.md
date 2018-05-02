@@ -36,41 +36,9 @@ In subsequent tutorials, you learn to use ACR Build's build tasks for automated 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.31 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.32 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
-
-### Get ACR Build
-
-While ACR Build is in preview, you must manually install the **acrbuildext** Azure CLI extension using the following steps.
-
-Uninstall any previous version of the extension:
-
-```azurecli-interactive
-az extension remove -n acrbuildext
-```
-
-Install the current version of the extension:
-
-```azurecli-interactive
-az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y
-```
-
-Execute `az acr build --help` to verify successful installation:
-
-```console
-$ az acr build --help
-This command is from the following extension: acrbuildex
-tCommand
-    az acr build: Queues a new build based on the specified parameters
-.Arguments
-    --context -c  [Required]: The local source code directory path (eg, './src') or the url to a git
-                              repository (eg, 'https://github.com/docker/rootfs.git') or a remote
-                              tarball (eg, 'http://server/context.tar.gz').
-    --registry -r [Required]: The name of the container registry. You can configure the default
-                              registry name using `az configure --defaults acr=<registry name>`.
-[...]
-```
 
 ### GitHub account
 
