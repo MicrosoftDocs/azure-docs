@@ -146,13 +146,7 @@ Make a note the Git deployment URL returned from the last command. You will use 
 
 ## The timer function
 
-The timer function sample is located in the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) github repository. The logic is contained in the following lines of code in *TimerFunction.cs*:
-
-```csharp
-var serviceContext = AzureSignalR.CreateServiceContext("chat");
-await serviceContext.HubContext.Clients.All.SendAsync("broadcastMessage", "_BROADCAST_",
-                $"Current time is: {DateTime.Now}");
-```
+The timer function sample is located in the */samples/Timer* directory of your download, or clone of the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Timer) github repository. The logic is contained in the code in *TimerFunction.cs*.
 
 This code uses the connection string stored with the default configuration key (*Azure:SignalR:ConnectionString*) to create a proxy to the hub. Since the function code is running server-side, there's no reason to require it to authenticate as a regular client. The code is trusted to use the connection string. Using this hub proxy, the function code can call any of the methods you have defined on your hub. The code calls the `BroadcastMessage` method to publish a message containing the time when the trigger fired.
 
