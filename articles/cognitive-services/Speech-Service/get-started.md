@@ -1,6 +1,6 @@
 ---
-title: Get Started with the Speech service | Microsoft Docs
-description: How to get started with the Speech service.
+title: Prepare to use Speech service | Microsoft Docs
+description: Learn how to prepare your Azure and development environment to start using Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
