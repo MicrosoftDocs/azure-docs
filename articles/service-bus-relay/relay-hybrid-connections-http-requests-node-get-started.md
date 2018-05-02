@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure Relay Hybrid Connections Websockets in Node | Microsoft Docs
-description: Write a Node.js console application for Azure Relay Hybrid Connections Websockets
+title: Get started with Azure Relay Hybrid Connections HTTP Requests in Node | Microsoft Docs
+description: Write a Node.js console application for Azure Relay Hybrid Connections HTTP Requests.
 services: service-bus-relay
 documentationcenter: node
-author: sethmanheim
+author: clemensv
 manager: timlt
 editor: ''
 
@@ -14,14 +14,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
+ms.author: clemensv
 
 ---
-# Get started with Relay Hybrid Connections Websockets
+# Get started with Relay Hybrid Connections HTTP Requests
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
-This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections) Websockets feature, and shows how to use Node.js to create a client application that sends Websockets messages to a corresponding listener application.
+This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections) HTTP Requests, and shows how to use Node.js to create a client application that sends messages to a corresponding listener application.
 
 ## What will be accomplished
 
@@ -55,13 +55,13 @@ If you already have a hybrid connection created, jump to the [Create a server ap
 
 To listen and receive messages from the Relay, write a Node.js console application.
 
-[!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-http-requests-node-get-started-server.md)]
 
 ## 4. Create a client application (sender)
 
-To send messages to the Relay, write a Node.js console application.
+To send messages to the Relay, you can use any HTTP client, or write a Node.js console application.
 
-[!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-http-requests-node-get-started-client.md)]
 
 ## 5. Run the applications
 
