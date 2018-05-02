@@ -41,7 +41,7 @@ sections:
   - type: paragraph
     text: Learn how to create a load balancer and load balance services across VMs.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">Create a zone redundant public Standard Load Balancer</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">Load balance VMs within a zone</a>
