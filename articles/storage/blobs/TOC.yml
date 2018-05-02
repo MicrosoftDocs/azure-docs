@@ -117,41 +117,41 @@
           - name: Linux
             items: 
               - name: High-performance Premium Storage for VM Disks
-                href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage
+                href: ../../virtual-machines/linux/premium-storage
               - name: Migrating to Premium Storage using Azure Site Recovery
-                href: https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
+                href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
               - name: Design for high performance
-                href: https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance
+                href: ../../virtual-machines/linux/premium-storage-performance
           - name: Windows
             items: 
               - name: High-performance Premium Storage for VM Disks
-                href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage
+                href: ../../virtual-machines/windows/premium-storage
               - name: Migrating to Premium Storage using Azure Site Recovery
-                href: https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
+                href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
               - name: Design for high performance
-                href: https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance
+                href: ../../virtual-machines/windows/premium-storage-performance
       - name: Standard Storage 
         items:
           - name: Linux
             items: 
               - name: Standard Storage for VM Disks
-                href: https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage
+                href: ../../virtual-machines/linux/standard-storage
           - name: Windows
             items: 
               - name: Standard Storage for VM Disks
-                href: https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage
+                href: ../../virtual-machines/windows/standard-storage
       - name: Troubleshoot attached VHDs
         href: storage-troubleshoot-vhds.md 
         items:
           - name: Linux
             items: 
-            - name: Storage account deletion errors in Resource Manager deployment
+            - name: Storage resource deletion errors
               href: ../../virtual-machines/linux/resource-manager-cannot-delete-storage-account-container-vhd.md  
             - name: Unexpected reboots of VMs with attached VHDs  
               href: ../../virtual-machines/linux/unexpected-reboots-attached-vhds.md            
           - name: Windows
             items: 
-            - name: Storage account deletion errors in Resource Manager deployment
+            - name: Storage resource deletion errors
               href: ../../virtual-machines/windows/resource-manager-cannot-delete-storage-account-container-vhd.md  
             - name: Unexpected reboots of VMs with attached VHDs  
               href: ../../virtual-machines/windows/unexpected-reboots-attached-vhds.md            
