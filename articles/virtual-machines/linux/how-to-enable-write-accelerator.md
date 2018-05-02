@@ -1,9 +1,9 @@
 ---
-title: Azure Write Accelerator | Microsoft Docs
+title: Write Accelerator | Microsoft Docs
 description: Documentation on how to enable and use Write Accelerator
 services: virtual-machines-linux
 documentationcenter: ''
-author: msjuergent
+author: raiye
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -14,8 +14,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/23/2018
-ms.author: juergent
+ms.date: 5/2/2018
+ms.author: raiye
 ms.custom: H1Hack27Feb2017
 
 ---
