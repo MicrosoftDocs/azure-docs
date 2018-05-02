@@ -1,5 +1,5 @@
 ---
-title: Custom Vision API C# tutorial | Microsoft Docs
+title: Custom Vision API C# tutorial - Microsoft Cognitive Services | Microsoft Docs
 description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
 author: areddish
@@ -35,7 +35,6 @@ In this step, you create a console application and prepare the training key and 
 
 * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
 * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
-
 4. Replace the contents of **Program.cs** with the code that follows.
 
 ```csharp

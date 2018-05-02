@@ -1,5 +1,5 @@
 ---
-title: Run TensorFlow model in Python  | Microsoft Docs
+title: Run TensorFlow model in Python - Microsoft Cognitive Services | Microsoft Docs
 description: Run TensorFlow model in Python
 services: cognitive-services
 author: areddish
@@ -26,7 +26,7 @@ To use the tutorial, you need to do the following:
 
 Also you will need to install the following packages:
 
-```Python
+```
 pip install tensorflow
 pip install pillow
 pip install numpy
@@ -108,7 +108,7 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```Python
 # RGB -> BGR
-r,g,b = np.array(augmented_image).T            
+r,g,b = np.array(augmented_image).T
 bgr_image = np.array([b,g,r]).transpose()
 ```
 
@@ -126,7 +126,7 @@ def resize_down_to_1600_max_dim(image):
     if (h < 1600 and w < 1600):
         return image
 
-    new_size = (1600 * w / h, 1600) if (h > w) else (1600, 1600 * h / w)
+    new_size = (1600 * w // h, 1600) if (h > w) else (1600, 1600 * h // w)
     return image.resize(new_size, Image.BILINEAR)   
 
 def resize_to_256_square(image):    

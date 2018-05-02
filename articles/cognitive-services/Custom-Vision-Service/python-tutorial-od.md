@@ -1,5 +1,5 @@
 ---
-title: Custom Vision API Python tutorial | Microsoft Docs
+title: Custom Vision API Python tutorial - Microsoft Cognitive Services | Microsoft Docs
 description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
 author: areddish
