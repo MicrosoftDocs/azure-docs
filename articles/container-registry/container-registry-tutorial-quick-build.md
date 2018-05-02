@@ -35,7 +35,7 @@ In subsequent tutorials, you learn to use ACR Build's build tasks for automated 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.32 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.33 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
 
@@ -93,13 +93,13 @@ az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --loca
 Now that you have a registry, use ACR Build to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *Quick Build*:
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
 ```
 
 Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud. Because ACR Build uses `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Build immediately.
 
 ```console
-$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
 Sending build context (41.042 KiB) to ACR
 Queued a build with ID: eastus1
 Sending build context to Docker daemon  191.5kB

@@ -33,7 +33,7 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.32 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.33 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
 
