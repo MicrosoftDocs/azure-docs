@@ -1,5 +1,5 @@
 ---
-title: Python quickstart for Azure Cognitive Services, Project URL Preview | Microsoft Docs
+title: Python quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
 description: Script sample to quickly get started using the Project URL Preview in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro

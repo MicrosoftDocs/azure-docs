@@ -1,5 +1,5 @@
 ---
-title: C# quickstart for Azure Cognitive Services, Project URL Preview | Microsoft Docs
+title: C# quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
 description: Get started using Project URL Preview in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro
@@ -8,7 +8,6 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-
 ---
 
 # URL Preview query in C#

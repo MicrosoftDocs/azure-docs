@@ -1,5 +1,5 @@
 ---
-title: JavaScript quickstart for Azure Cognitive Services, URL Preview | Microsoft Docs
+title: JavaScript quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
 description: Script sample to quickly get started using the Bing URL Preview API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro

@@ -1,5 +1,5 @@
 ---
-title: Project URL Preview reference | Microsoft Docs
+title: Project URL Preview reference - Microsoft Cognitive Services | Microsoft Docs
 description: Reference for Project URL Preview endpoint.
 services: cognitive-services
 author: mikedodaro

@@ -1,5 +1,5 @@
 ---
-title: What is Project URL Preview? | Microsoft Docs
+title: What is Project URL Preview? - Microsoft Cognitive Services | Microsoft Docs
 description: Introduction to the Project URL Preview.
 services: cognitive-services
 author: mikedodaro

@@ -1,5 +1,5 @@
 ---
-title: Node quickstart for Azure Cognitive Services, Bing URL Preview API | Microsoft Docs
+title: Node.js quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
 description: Get started using the URL Preview in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro
