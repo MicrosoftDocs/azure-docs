@@ -284,9 +284,7 @@ The process of creating a **StreamingLocator** is called publishing. By default,
 
 When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedClearStreamingOnly**, can be used.
 
-Note that the code below assumes that you are calling it with a unique locatorName.
-
-Note that while the sample here discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
+The following code assumes that you are calling it with a unique locatorName.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
@@ -308,6 +306,8 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
     return locator;
 }
 ```
+
+Note that while the sample here discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
 
 ### Get streaming URLs
 
