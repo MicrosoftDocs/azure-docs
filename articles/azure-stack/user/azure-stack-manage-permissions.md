@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/02/2018
 ms.author: brenduns
 ms.reviewer: 
 
@@ -22,11 +22,11 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Azure Stack supports role-based access control (RBAC), which you can use to manage user, group, or application access to subscriptions, resources, and services.
+Azure Stack supports role-based access control (RBAC), the same [security model for access management](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) that Microsoft Azure uses. You can use RBAC to manage user, group, or application access to subscriptions, resources, and services.
 
 ## Basics of access management
 
-Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning a RBAC role at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource.
+Role-based access control provides fine-grained access control that you can use to secure your environment. You give users the exact permissions they need by assigning a RBAC role at a certain scope. The scope of the role assignment can be a subscription, a resource group, or a single resource. Read the [Role-Based Access Control in the Azure portal](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) article to get more detailed information about access management.
 
 ### Built-in roles
 
@@ -49,21 +49,31 @@ Access that you grant at a parent scope is inherited at child scopes. For exampl
 * You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
 * You assign the Contributor role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
-### Multiple role assignments
+### Assigning roles
 
-You can grant a user more than one role and each role can be associated with a different scope. For example:
+You can assign more than one role to a user and each role can be associated with a different scope. For example:
 
 * You assign TestUser-A the Reader role to Subscription-1.
 * You assign TestUser-A the Owner role to TestVM-1.
+
+The Azure [role assignments](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
 
 ## Set access permissions for a user
 
 The following steps describe how to configure permissions for a user.
 
 1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon.
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+2. In the left navigation pane, choose **Resource groups**.
+3. Choose the name of the resource group that you want to set permissions for.
+4. In the resource group navigation pane, choose **Access control (IAM)**. The **Access control** view lists the Items that have access to the resource group. You can filter these results, and use a menu bar to Add or Remove permissions.
+5. On the **Access control** menu bar, choose **+ Add**.
+6. On **Add permissions**:
+
+   * Choose the role you want to assign from the **Role** drop-down list.
+   * Choose the resource you want to assign from the **Assign access to** drop-down list.
+   * Select the user, group, or application in your directory that you wish to grant access to. You can search the directory with display names, email addresses, and object identifiers.
+
+7. Select **Save**.
 
 ## Next steps
 
