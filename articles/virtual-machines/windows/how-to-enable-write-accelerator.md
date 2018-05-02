@@ -1,10 +1,10 @@
 ---
-title: Write Accelerator | Microsoft Docs
+title: Azure Write Accelerator | Microsoft Docs
 description: Documentation on how to enable and use Write Accelerator
 services: virtual-machines-windows
 documentationcenter: ''
 author: raiye
-manager: patfilot
+manager: markkie
 editor: ''
 tags: azure-resource-manager
 keywords: ''
