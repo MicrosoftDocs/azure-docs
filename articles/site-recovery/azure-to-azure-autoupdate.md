@@ -2,7 +2,7 @@
 title: Automatic update of Mobility Service in Azure to Azure disaster recovery | Microsoft Docs
 description: Provides an overview of Automatic update of Mobility Service, which is used for replication of Azure VMs using Azure Site Recovery.
 services: site-recovery
-author: rajan-janaki-ram 
+author: rajani-janaki-ram 
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
@@ -12,9 +12,9 @@ ms.author: rajanaki
 ---
 # Automatic update of Mobility Service extension in Azure to Azure replication
 
-Azure Site Recovery has a monthly release cadence where enhancements to existing features or new ones are added, and known issues if any are fixed. This would mean that to remain current with the service, you need to plan for deployment of these patches on a monthly cadence. In order to avoid the over head associated with the upgrade, users can instead choose to allow Site Recovery to manage updates of the components. As detailed in the [architecture reference](../Documents/GitHub/azure-docs-pr/articles/site-recovery/azure-to-azure-architecture.md) for Azure to Azure disaster recovery, Mobility Service gets installed on all Azure virtual machines for which replication is enabled while replicating virtual machines from one Azure region to another. This document details the following:
+Azure Site Recovery has a monthly release cadence where enhancements to existing features or new ones are added, and known issues if any are fixed. This would mean that to remain current with the service, you need to plan for deployment of these patches on a monthly cadence. In order to avoid the over head associated with the upgrade, users can instead choose to allow Site Recovery to manage updates of the components. As detailed in the [architecture reference](azure-to-azure-architecture.md) for Azure to Azure disaster recovery, Mobility Service gets installed on all Azure virtual machines for which replication is enabled while replicating virtual machines from one Azure region to another. This document details the following:
 
-- How does automatic updates work?
+- How does automatic update work?
 - Enable automatic updates
 - Common issues & troubleshooting
  
@@ -32,16 +32,16 @@ You can choose to allow Site Recovery to manage updates in the following ways:-
 
 ### As part of the enable replication step:
 
-When you enable replication for a virtual machine either starting [from the virtual machine view](../Documents/GitHub/azure-docs-pr/articles/site-recovery/azure-to-azure-quickstart.md), or [from the recovery services vault](../Documents/GitHub/azure-docs-pr/articles/site-recovery/azure-to-azure-how-to-enable-replication.md), you will get an option to choose to either allow Site Recovery to manage updates for the Site Recovery extension or to manually manage the same.
+When you enable replication for a virtual machine either starting [from the virtual machine view](azure-to-azure-quickstart.md), or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you will get an option to choose to either allow Site Recovery to manage updates for the Site Recovery extension or to manually manage the same.
 
-![enable-replication-auto-update](../Documents/GitHub/azure-docs-pr/articles/site-recovery/media/azure-to-azure-autoupdate/enable-rep.PNG)
+![enable-replication-auto-update](../media/azure-to-azure-autoupdate/enable-rep.PNG)
 
 ### Toggle the extension update settings inside the vault
 
 1. Inside the vault, navigate to **Manage**-> **Site Recovery Infrastructure**
 2. Under **For Azure virtual Machines**-> **Extension Update Settings**, click the toggle to choose whether you want to allow *ASR to manage updates* or *manage manually*. Click **Save**.
 
-![vault-toggle-autuo-update](../Documents/GitHub/azure-docs-pr/articles/site-recovery/media/azure-to-azure-autoupdate/vault-toggle.PNG)
+![vault-toggle-autuo-update](../media/azure-to-azure-autoupdate/vault-toggle.PNG)
 
 > [!Important] 
 > When you choose *Allow ASR to manage*, the setting is applied to all virtual machines in the corresponding vault.
@@ -61,7 +61,7 @@ In case you tried to enable automatic updates and it failed, refer below for tro
  
 Once automatic updates are turned ON, most of the issues can be healed by the Site Recovery service and requires you to click on the '**Repair**' button.
 
-![repair-button](../Documents/GitHub/azure-docs-pr/articles/site-recovery/media/azure-to-azure-autoupdate/repair.PNG)
+![repair-button](../media/azure-to-azure-autoupdate/repair.PNG)
 
 In case the repair button isn't available, refer to the error message displayed under extension settings pane.
 
