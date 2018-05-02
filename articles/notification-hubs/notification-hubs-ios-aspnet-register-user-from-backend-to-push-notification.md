@@ -95,7 +95,7 @@ This topic shows you how to request push notification registration with Azure No
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present is you have already completed the [Get Started with Notification Hubs] tutorial.
+    The first line initializes the **DeviceInfo** singleton. The second line starts the registration for push notifications, which is already present if you have already completed the [Get Started with Notification Hubs] tutorial.
 7. In PushToUserAppDelegate.m, implement the method **didRegisterForRemoteNotificationsWithDeviceToken** in your AppDelegate and add the following code:
    
         self.deviceInfo.deviceToken = deviceToken;
