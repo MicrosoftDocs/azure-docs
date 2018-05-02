@@ -67,8 +67,10 @@ Azure Stack
  - Use an Azure Stack integrated system or deploy Azure Stack Development Kit (ASDK) linked below:
     - You can find detailed instructions about deploying the ASDK at "[Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - You can automate many of your ASDK post-deployment steps with the following PowerShell script, [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
+
     > ![note]  
     > The ASDK installation takes a seven hours to complete, so plan accordingly.
+
  - Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack. 
  - Create [Plan/Offers](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) within the Azure Stack environment. 
  - Create [tenant subscription](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) within the Azure Stack environment. 
@@ -81,10 +83,10 @@ Azure Stack
  - Create a [VSTS workspace](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services). The sign-up process creates a project named **MyFirstProject**.
  - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Connect to the project and [clone locally](https://www.visualstudio.com/docs/git/gitquickstart).
-
-> ![note]  
-> You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed. 
- 
+ 
+ > ![note]  
+ > You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed.
+ 
 ## Prepare the private build and release agent for Visual Studio Team Services integration
 
 ### Prerequisites
@@ -201,11 +203,12 @@ Instead of managing each agent individually, you organize agents into agent pool
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
 
 3. Copy the token.
-
+    
     > ![note]  
     > Obtain the token information. It will not be shown again after leaving this screen. 
-
+    
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    
 
 ### Install the VSTS build agent on the Azure Stack hosted Build Server
 
