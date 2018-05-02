@@ -71,7 +71,7 @@ The following section provides you with a complete overview of all possible erro
 |50097|Device is not authenticated.|
 |50105|The signed in user is not assigned to a role for this application.|
 |50125|Sign-in was interrupted due to a password reset or password registration entry|
-|50126|Invalid username or password or Invalid on-premise username or password.|
+|50126|Invalid username or password or Invalid on-premises username or password.|
 |50131|Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
 |50133|Session is invalid due to expiration or recent password change.|
 |50140|User prompted for consent to keep them signed-in on the device|
