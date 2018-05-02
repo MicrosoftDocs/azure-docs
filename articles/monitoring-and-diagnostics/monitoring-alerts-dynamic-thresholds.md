@@ -72,7 +72,7 @@ Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
        - Med – Less sensitive than high, fewer alerts than with high sensitivity (default)
        - Low – The least sensitive threshold.
 
-    ![Alert logic settings](./media/monitoring-alerts-dynamic-thresholds/0007.png)
+    ![Alert logic settings](./media/monitoring-alerts-dynamic-thresholds/00007.png)
 
 7. Evaluated based on:
     -  What time duration, the Alert should look for the specified condition by choosing from the **Period**.
