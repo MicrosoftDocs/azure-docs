@@ -101,7 +101,44 @@ sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt
 ```
 Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
 
-<Python code example here>
+The following Python example shows how to configure a Linux pool to mount the share in a start task. The mount point, file share endpoint, and storage credentials are passed as defined constants:
+
+```python
+pool = batch.models.PoolAddParameter(
+    id=pool_id,
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+    	        publisher="Canonical",
+    	        offer="UbuntuServer",
+    	        sku="16.04.0-LTS",
+    	        version="latest"
+            ),
+    node_agent_sku_id="batch.node.ubuntu 16.04"),
+    vm_size=_POOL_VM_SIZE,
+    target_dedicated_nodes=_POOL_NODE_COUNT,
+    start_task=batchmodels.StartTask(
+    command_line="/bin/bash -c \"sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p {} && sudo mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+    wait_for_success=True,
+    user_identity=batchmodels.UserIdentity(
+        auto_user=batchmodels.AutoUserSpecification(
+            scope=batchmodels.AutoUserScope.pool,
+            elevation_level=batchmodels.ElevationLevel.admin)),
+    )
+)
+batch_service_client.pool.add(pool)
+```
+
+After mounting the share and defining a job, you can reference the share in your task command lines to read or write data. For example, the following command lists files in the file share:
+
+```python
+...
+task=batch.models.TaskAddParameter(
+    id='mytask',
+    command_line="/bin/bash -c \"ls {}\"".format(_COMPUTE_NODE_MOUNT_POINT)
+)
+batch_service_client.task.add(job_id, task)
+```
+
 
  
 
