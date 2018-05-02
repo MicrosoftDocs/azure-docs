@@ -281,11 +281,11 @@ parameters required for constructing the HTTP call:
       "frequency": "Second | Minute | Hour | Day | Week | Month | Year",
       "interval": "<recurrence-interval-based-on-frequency>"
    },
-    "runtimeConfiguration": {
-        "concurrency": {
-            "runs": <maximum-number-for-concurrently-running-workflow-instances>
-        }
-    }
+   "runtimeConfiguration": {
+      "concurrency": {
+         "runs": <maximum-number-for-concurrently-running-workflow-instances>
+      }
+   }
 }
 ```
 
@@ -389,21 +389,21 @@ Here is an example:
   
 ```json
 "myDailyReportTrigger": {
-    "type": "ApiConnection",
-    "inputs": {
-        "host": {
-            "api": {
-                "runtimeUrl": "https://myReportsRepo.example.com/"
-            }
-        },
-        "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
-        }
-    },  
-    "method": "POST",
-    "body": {
-        "category": "statusReports"
-    }
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "api": {
+            "runtimeUrl": "https://myReportsRepo.example.com/"
+         }
+      },
+      "connection": {
+         "name": "@parameters('$connections')['myconnection'].name"
+      }
+   },  
+   "method": "POST",
+   "body": {
+      "category": "statusReports"
+   }
 }
 ```
 
@@ -411,7 +411,8 @@ Here is an example:
 
 ## HTTPWebhook trigger  
 
-This trigger provides an endpoint, similar to the [Request trigger](#request-trigger), 
+This trigger provides a callable endpoint for your logic app, 
+similar to the [Request trigger](#request-trigger), 
 but the HTTPWebhook trigger also calls a specified URL for registering and unregistering. 
 Here is an example of what an HTTPWebhook trigger might look like:
 
