@@ -86,11 +86,11 @@ Alerts with dynamic thresholds can be configured through Alerts in Azure Monitor
 
     To trigger an alert when the issue continuous for 15 minutes, 3 consecutive times in a given period of 5 minutes, use the following settings:
 
-   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/008.png)
+   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/0008.png)
 
     To trigger an alert when there was a violation from a Dynamic threshold in 15 minutes out of the last 30 minutes with period of 5 minutes, use the following settings:
 
-   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/009.png)
+   ![Evaluated based on](./media/monitoring-alerts-dynamic-thresholds/0009.png)
 
 8. Currently users can have alerts with dynamic threshold criteria as a single criteria.
 
