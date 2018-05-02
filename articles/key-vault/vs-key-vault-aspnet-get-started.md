@@ -38,51 +38,33 @@ See [What happened to my ASP.NET project?](vs-key-vault-aspnet-core-what-happene
  
 1. (optional) Enter another secret, but this time put it into a category by naming it **Secrets--MySecret**. This syntax specifies a category **Secrets** that contains a secret **MySecret**.
 
-1. Add the following lines to web.config. These values are keys that you will use to get the values of secrets in Key Vault.
+1. Modify web.config as follows. The keys are placeholders that will be replaced by the AzureKeyVault ConfigurationBuilder with the values of secrets in Key Vault.
 
    ```xml
-   <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
-    <add key="ClientId" value="clientid" />
-    <add key="ClientSecret" value="clientsecret" />
-
-    <!-- SecretUri is the URI for the secret in Azure Key Vault -->
-    <add key="SecretUri" value="secreturi" />
+     <appSettings configBuilders="AzureKeyVault">
+       <add key="webpages:Version" value="3.0.0.0" />
+       <add key="webpages:Enabled" value="false" />
+       <add key="ClientValidationEnabled" value="true" />
+       <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+       <add key="MySecret" value="dummy1"/>
+       <add key="Secrets--MySecret" value="dummy2"/>
+     </appSettings>
    ```
 
-1. Add a new class such as Utils to get a Token for Key Vault. Use the following code in the new class:
-
+1. In the HomeController, in the About controller method, add the following lines to retrieve the secret and store it in the ViewBag.
+ 
    ```csharp
-   public class Utils
-    {
-        //this is an optional property to hold the secret after it is retrieved
-        public static string EncryptSecret { get; set; }
-
-        //the method that will be provided to the KeyVaultClient
-        public static async Task<string> GetToken(string authority, string resource, string scope)
-        {
-            var authContext = new AuthenticationContext(authority);
-            ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
-                        WebConfigurationManager.AppSettings["ClientSecret"]);
-            AuthenticationResult result = await authContext.AcquireTokenAsync(resource, clientCred);
-
-            if (result == null)
-                throw new InvalidOperationException("Failed to obtain token.");
-
-            return result.AccessToken;
-        }
-    }
+            var secret = ConfigurationManager.AppSettings["MySecret"];
+            var secret2 = ConfigurationManager.AppSettings["Secrets--MySecret"];
+            ViewBag.Secret = $"Secret: {secret}";
+            ViewBag.Secret2 = $"Secret2: {secret2}";
    ```
 
-    The GetToken method uses the values from the local appSettings file.
-
-1. Add code to get secrets using Key Vault, using the GetToken callback you just added.
+1. In the About.cshtml view, add the following to display the value of the secret (for testing only).
 
    ```csharp
-            var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
-            var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
-
-            //I put a variable in a Utils class to hold the secret for general application use.
-            Utils.EncryptSecret = sec.Value;
+      <h3>@ViewBag.Secret</h3>
+      <h3>@ViewBag.Secret2</h3>
    ```
 
 Congratulations, you have now enabled your web app to use Key Vault to access securely stored secrets.
