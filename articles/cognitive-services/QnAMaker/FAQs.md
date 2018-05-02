@@ -15,19 +15,19 @@ ms.author: saneppal
 
 ## Why is my URL(s)/file(s) is not extracting question-answer pairs?
 
-It's possible that QnAMaker can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base.
+It's possible that QnA Maker can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base.
 
 ## How large a knowledge base can I create?
 
-The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnAMaker service. Read [here](./Tutorials/choosing-capacity-qnamaker-deployment.md) for more details.
+The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](./Tutorials/choosing-capacity-qnamaker-deployment.md) for more details.
 
 ## Why do I not see anything in the drop-down for when I try to create a new knowledge base?
 
-You haven't created any QnAMaker services in Azure yet. Read [here](./How-To/set-up-qnamaker-service-azure.md) how to do that.
+You haven't created any QnA Maker services in Azure yet. Read [here](./How-To/set-up-qnamaker-service-azure.md) how to do that.
 
 ## How do I share a knowledge base with other?
 
-Sharing works at the level of a QnAMaker service, i.e. all knowledge bases in the services will be shared. Read [here](./How-To/collaborate-knowledge-base.md) how to collaborate on a knowledge base.
+Sharing works at the level of a QnA Maker service, i.e. all knowledge bases in the services will be shared. Read [here](./How-To/collaborate-knowledge-base.md) how to collaborate on a knowledge base.
 
 ## How can I change the default message when no good match is found?
 
@@ -70,9 +70,9 @@ If you have content from multiple languages, be sure to create a separate servic
 
 ## Do I need to use Bot Framework in order to use QnA Maker?
 
-No, you do not need to use the Bot Framework with QnAMaker. However, QnA Maker is offered as one of several templates in Azure Bot Service. Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server less environment.
+No, you do not need to use the Bot Framework with QnA Maker. However, QnA Maker is offered as one of several templates in Azure Bot Service. Bot Service enables rapid intelligent bot development through Microsoft Bot Framework, and it runs in a server less environment.
 
-## How can I create a bot with QnAMaker?
+## How can I create a bot with QnA Maker?
 
 Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation to create your Bot with Azure Bot.
 

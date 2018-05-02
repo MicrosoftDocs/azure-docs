@@ -13,7 +13,7 @@ ms.author: saneppal
 ---
 # Edit a knowledge base
 
-QnAMaker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 
 ## Edit your knowledge base content
 
@@ -60,7 +60,8 @@ Add metadata pairs by selecting the filter icon
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
-TIP: Make sure to periodically Save and train the knowledge base after making edits to avoid losing changes.
+> [!TIP]
+> Make sure to periodically Save and train the knowledge base after making edits to avoid losing changes.
 
 Managing large knowledge bases
 ------------------------------

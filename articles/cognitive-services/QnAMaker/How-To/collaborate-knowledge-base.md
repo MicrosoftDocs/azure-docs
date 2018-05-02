@@ -1,7 +1,7 @@
 ---
 title: Collaborating on your knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: How to collaborate on your QnAMaker knowledge base
+description: How to collaborate on your QnA Maker knowledge base
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -16,30 +16,30 @@ ms.author: saneppal
 
 QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
 
-To share your QnAMaker service with someone:
-1. Log in to the Azure portal, and go to your QnAMaker resource.
+To share your QnA Maker service with someone:
+1. Log in to the Azure portal, and go to your QnA Maker resource.
 
-    ![QnAMaker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
+    ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
 2. Go to the **Access Control (IAM)** tab.
 
-    ![QnAMaker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
+    ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 
 3. Click on **Add**
 
-    ![QnAMaker IAM add](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
+    ![QnA Maker IAM add](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
 4. Select the **Owner** or the **Contributor** role.
 
-    ![QnAMaker IAM add role](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
+    ![QnA Maker IAM add role](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
 5. Enter the email you want to share with, and press save.
 
-    ![QnAMaker IAM add email](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
+    ![QnA Maker IAM add email](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-Now when the person you shared your QnAMaker service with, logs into the [QnAMaker portal](https://qnamaker.ai) they can see all the knowledge bases in that service.
+Now when the person you shared your QnA Maker service with, logs into the [QnA Maker portal](https://qnamaker.ai) they can see all the knowledge bases in that service.
 
-Remember, you cannot share a particular knowledge base in a QnAMaker service. If you want more granular access control, consider distributing your knowledge bases across different QnAMaker services.
+Remember, you cannot share a particular knowledge base in a QnA Maker service. If you want more granular access control, consider distributing your knowledge bases across different QnA Maker services.
 
 ## Next steps
 

@@ -14,13 +14,13 @@ ms.author: saneppal
 
 # Get analytics on your knowledge base
 
-QnAMaker stores all chat logs and other telemetry, if you have enabled App Insights during the [creation of your QnAMaker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from App Insights.
+QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the [creation of your QnA Maker service](./set-up-qnamaker-service-azure.md). Run the sample queries to get your chat logs from App Insights.
 
 1. Go to your App Insights resource.
 
     ![Click on your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Click on **Analytics**. A new window opens where you can query QnAMaker telemetry.
+2. Click on **Analytics**. A new window opens where you can query QnA Maker telemetry.
 
     ![Click on Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
@@ -40,7 +40,7 @@ QnAMaker stores all chat logs and other telemetry, if you have enabled App Insig
         | project KbId, timestamp, resultCode, duration, question, answer
     ```
 
-## Run queries for other analytics on your QnAMaker knowledge base
+## Run queries for other analytics on your QnA Maker knowledge base
 
 ### Total 90-day traffic
 

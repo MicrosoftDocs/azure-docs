@@ -1,7 +1,7 @@
 ---
 title: Key management - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: How to manage your QnAMaker keys
+description: How to manage your QnA Maker keys
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -14,17 +14,17 @@ ms.author: saneppal
 
 # Key Management
 
-Your QnAMaker service deals with two kinds of keys, **subscription keys** and **endpoint keys**.
+Your QnA Maker service deals with two kinds of keys, **subscription keys** and **endpoint keys**.
 
 ![key management](../media/qnamaker-how-to-key-management/key-management.png)
-1. **Subscription Keys**: These keys are used to access the [QnAMaker management service APIs](). These APIs let you perform various CRUD operations on your knowledge base.  
-2. **Endpoint Keys**: These keys are used to access the knowledge base endpoint to get a response for a user question. You would typically use this endpoint in your chat bot/App code that consumes the QnAMaker service.
+1. **Subscription Keys**: These keys are used to access the [QnA Maker management service APIs](). These APIs let you perform various CRUD operations on your knowledge base.  
+2. **Endpoint Keys**: These keys are used to access the knowledge base endpoint to get a response for a user question. You would typically use this endpoint in your chat bot/App code that consumes the QnA Maker service.
  
 ## Subscription Keys
-You can view and reset your subscription keys from the Azure portal where you created the QnAMaker resource. 
-1. Go to the QnAMaker resource in the Azure portal
+You can view and reset your subscription keys from the Azure portal where you created the QnA Maker resource. 
+1. Go to the QnA Maker resource in the Azure portal
 
-    ![QnAMaker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+    ![QnA Maker resource list](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
 2. Go to **Keys**.
 
@@ -32,9 +32,9 @@ You can view and reset your subscription keys from the Azure portal where you cr
 
 ## Endpoint Keys
 
-Endpoint keys can be managed from the [QnAMaker portal](https://qnamaker.ai).
+Endpoint keys can be managed from the [QnA Maker portal](https://qnamaker.ai).
 
-1. Log in to the [QnAMaker portal](https://qnamaker.ai), and go to **Manage keys**.
+1. Log in to the [QnA Maker portal](https://qnamaker.ai), and go to **Manage keys**.
 
     ![endpoint key](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 

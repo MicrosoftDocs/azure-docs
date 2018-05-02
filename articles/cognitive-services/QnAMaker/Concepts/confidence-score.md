@@ -43,9 +43,9 @@ See here how the [publish](../How-To/publish-knowledge-base.md) operation works.
 
 
 ## No match found
-When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this default response in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnAMaker service.
+When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this default response in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
 
-1. Go to the [Azure portal](http://portal.azure.com) and navigate to the resource group that represents the QnAMaker service you created.
+1. Go to the [Azure portal](http://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
 2. Click to open the **App Service**.
 
 ![Access App service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
@@ -56,7 +56,7 @@ When no good match is found by the ranker, the confidence score of 0.0 or "None"
 
 4. Restart your App service
 
-![QnAMaker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+![QnA Maker appservice restart](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## Next steps

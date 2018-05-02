@@ -15,7 +15,7 @@ ms.author: saneppal
 # Create a QnA Bot with Azure Bot Service
 This tutorial walks you through building a QnA bot with Azure Bot service on the Azure portal
 ## Prerequisite
-Before you build, follow the steps in [Create a knowledge base]() to create a QnAMaker service with questions and answers.
+Before you build, follow the steps in [Create a knowledge base]() to create a QnA Maker service with questions and answers.
 
 The bot responds to questions from the knowledge base you created, via the QnAMakerDialog.
 ## Create a QnA Bot
@@ -46,32 +46,32 @@ Once the bot is registered, click **Test in Web Chat** to open the Web Chat pane
 
 ![QnA bot web chat](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
 
-The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Get them at https://qnamaker.ai". This response confirms that your QnA Bot has received the message, but there is no QnAMaker knowledge base associated with it yet. Do that in the next step.
+The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in App Settings. Get them at https://qnamaker.ai". This response confirms that your QnA Bot has received the message, but there is no QnA Maker knowledge base associated with it yet. Do that in the next step.
 
-## Connect your QnAMaker knowledge base to the bot
-Open **Application Settings** and edit the **QnAKnowledgebaseId**, **QnAAuthKey**, and the **QnAEndpointHostName** fields to contain the values of your QnAMaker knowledge base.
+## Connect your QnA Maker knowledge base to the bot
+Open **Application Settings** and edit the **QnAKnowledgebaseId**, **QnAAuthKey**, and the **QnAEndpointHostName** fields to contain the values of your QnA Maker knowledge base.
 
 ![app settings](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
 
 Get your knowledge base ID, host url, and the endpoint key from the settings tab of your knowledge base in https://qnamaker.ai.
-- Log in to [QnAMaker](https://qnamaker.ai)
+- Log in to [QnA Maker](https://qnamaker.ai)
 - Go to your knowledge base
 - Click on the **Settings** tab
 - **Publish** your knowledge base, if not already done so
 
-![QnAMaker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 ## Test the bot
 In the Azure portal, click on **Test in Web Chat** to test the bot. 
 
-![QnAMaker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
+![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Your QnA Bot is now answering from your knowledge base.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Integrate QnAMaker and LUIS](./integrate-qnamaker-luis.md)
+> [Integrate QnA Maker and LUIS](./integrate-qnamaker-luis.md)
 
 ## See also
 

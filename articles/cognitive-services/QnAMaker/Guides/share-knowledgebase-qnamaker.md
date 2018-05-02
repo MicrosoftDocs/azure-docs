@@ -1,5 +1,6 @@
 ---
-title: Share your knowledge base with others with QnAMaker | Microsoft Docs
+title: Share your knowledge base with others with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Add other users to your knowledge base, so they can contribute to it as well.
 services: cognitive-services
 author: pchoudhari

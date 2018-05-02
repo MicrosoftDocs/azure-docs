@@ -1,5 +1,6 @@
 ---
-title: Update your knowledge base with QnA Maker | Microsoft Docs
+title: Update your knowledge base with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to update your knowledge base in a variety of ways.
 services: cognitive-services
 author: pchoudhari

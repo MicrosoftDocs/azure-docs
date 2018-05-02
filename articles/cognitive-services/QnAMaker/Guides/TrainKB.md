@@ -1,5 +1,6 @@
 ---
-title: Test and train with QnA Maker | Microsoft Docs
+title: Test and train with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to evaluate the correctness of the responses and correct them and re-train the knowledge base.
 services: cognitive-services
 author: pchoudhari

@@ -1,7 +1,7 @@
 ---
 title: Quickstart on creating a KB - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: a step-by-step tutorial on creating a knowledge base in QnAMaker
+description: a step-by-step tutorial on creating a knowledge base in QnA Maker
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -14,24 +14,24 @@ ms.author: saneppal
 
 # Create-Train-Publish your knowledge base
 
-A QnAMaker knowledge base can be created from pre-existing semi-structured content such as FAQs or product manuals. This QnAMaker knowledge base is created from a simple FAQ webpage and is able to answer questions on BitLocker key recovery.
+A QnA Maker knowledge base can be created from pre-existing semi-structured content such as FAQs or product manuals. This QnA Maker knowledge base is created from a simple FAQ webpage and is able to answer questions on BitLocker key recovery.
 
 ## Prerequisite
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
-## Create a QnAMaker Knowledge Base
+## Create a QnA Maker Knowledge Base
 
 1. Log in to QnAMaker.ai with your Azure credentials
 
-2. On the QnAMaker website, select **Create new knowledge base**.
+2. On the QnA Maker website, select **Create new knowledge base**.
 
 ![Create new KB](../media/qnamaker-quickstart-kb/just-signed-in.png)
 
-3. In the create page, step 1, select **Create a QnA service**. This will direct you to Azure portal where you need to set up a QnAMaker service in your subscription. Learn about how to do that here.
+3. In the create page, step 1, select **Create a QnA service**. This will direct you to Azure portal where you need to set up a QnA Maker service in your subscription. Learn about how to do that here.
 
-4. Once you've successfully created a new QnAMaker service in Azure, select it from the drop-downs.
+4. Once you've successfully created a new QnA Maker service in Azure, select it from the drop-downs.
 
 ![Select a QnA service KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
@@ -51,7 +51,7 @@ A QnAMaker knowledge base can be created from pre-existing semi-structured conte
 
 ![Add a QnA Pair](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. Edits will not be retained unless they are saved. Select **Save and train** on the top right to save the edits your just made and to train the QnAMaker model.
+11. Edits will not be retained unless they are saved. Select **Save and train** on the top right to save the edits your just made and to train the QnA Maker model.
 
 12. Select **Test** on the top right corner to test that the changes made have taken effect.
 Type in 'hi there' in the box and press enter.
@@ -64,7 +64,7 @@ Type in 'hi there' in the box and press enter.
 
 14. Click on **Publish**
 
-15. The QnAMaker service has now been successfully published. The endpoint can be used in your application or bot code.
+15. The QnA Maker service has now been successfully published. The endpoint can be used in your application or bot code.
 
 ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 

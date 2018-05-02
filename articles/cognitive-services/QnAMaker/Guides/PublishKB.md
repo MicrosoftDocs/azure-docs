@@ -1,5 +1,6 @@
 ---
-title: Publish your knowledge base with QnA Maker | Microsoft Docs
+title: Publish your knowledge base with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to publish your knowledge base as a service.
 services: cognitive-services
 author: pchoudhari

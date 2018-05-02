@@ -13,7 +13,7 @@ ms.author: saneppal
 ---
 
 # Data sources 
-QnAMaker can automatically extract question-answer pairs from common semi-structured content formats such as FAQs and product manuals. Content can also be added to the knowledge base from structured files.
+QnA Maker can automatically extract question-answer pairs from common semi-structured content formats such as FAQs and product manuals. Content can also be added to the knowledge base from structured files.
 
 ## Plain FAQ pages
 This is the most common type of FAQ page, in which the answers immediately follow the questions in the same page. 
@@ -29,7 +29,7 @@ In this type of FAQ page, questions are aggregated together and are linked to an
 
 
 ## FAQ pages with links to different pages 
-This type of FAQ page is similar to a section-linked FAQ page, except that the links redirect to a different page. QnAMaker crawls all the linked pages to extract the corresponding answers.
+This type of FAQ page is similar to a section-linked FAQ page, except that the links redirect to a different page. QnA Maker crawls all the linked pages to extract the corresponding answers.
 
  ![Deep link FAQ page](../media/qnamaker-concepts-datasources/deeplink-faq.png) 
 
@@ -38,12 +38,13 @@ This type of FAQ page is similar to a section-linked FAQ page, except that the l
 
 A manual is typically guidance material that accompanies a product. It helps the user to set up, use, maintain, and troubleshoot the product. When QnA Maker processes a manual, it extracts the headings and subheadings as questions and the subsequent content as answers. See an example [here](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
->![NOTE]: Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
+> [!NOTE]
+> Extraction works best on manuals that have a table of contents and/or an index page, and a clear structure with hierarchical headings.
 
 
 ## Structured data format through file upload
 
-Structured files such as .tsv, .xlsx with formatted columns can also be uploaded to QnAMaker during knowledge base creation. You can also upload files from the **Settings** tab of a knowledge base
+Structured files such as .tsv, .xlsx with formatted columns can also be uploaded to QnA Maker during knowledge base creation. You can also upload files from the **Settings** tab of a knowledge base
 
 | Question  | Answer  | Metadata                |
 |-----------|---------|-------------------------|
@@ -60,12 +61,12 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 | Question2 | Answer2 | Editorial|    Key:Value       |
 
 ## Editorial
-If you do not have pre-existing content to populate the knowledge base, you can also add them editorially in QnAMaker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
+If you do not have pre-existing content to populate the knowledge base, you can also add them editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a QnAMaker service](../How-To/set-up-qnamaker-service-azure.md)
+> [Set up a QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
 
 ## See also 
 

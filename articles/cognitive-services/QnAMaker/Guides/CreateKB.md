@@ -1,5 +1,6 @@
 ---
-title: Create your knowledge base for QnA content | Microsoft Docs
+title: Create your knowledge base for QnA content - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to auto-extract question-and-answer pairs from most FAQ URLs and documents.
 services: cognitive-services
 author: pchoudhari

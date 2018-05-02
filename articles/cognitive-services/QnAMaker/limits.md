@@ -1,7 +1,7 @@
 ---
-title: QnAMaker Limits - Microsoft Cognitive Services | Microsoft Docs
+title: QnA Maker Limits - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: QnAMaker Limits
+description: QnA Maker Limits
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -12,8 +12,8 @@ ms.date: 04/21/2018
 ms.author: saneppal
 ---
 
-# QnAMaker Limits
-Comprehensive list of limits across QnAMaker
+# QnA Maker Limits
+Comprehensive list of limits across QnA Maker
 
 ## Knowledge Bases
 
@@ -33,7 +33,7 @@ Comprehensive list of limits across QnAMaker
 
 |**Azure Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Maximum metadata fields per QnAMaker service (across all KBs)|1000|100*|1000|1000|1000|1000|
+|Maximum metadata fields per QnA Maker service (across all KBs)|1000|100*|1000|1000|1000|1000|
 
 ## Knowledge Base content limits
 Overall limits on the content in the knowledge base:

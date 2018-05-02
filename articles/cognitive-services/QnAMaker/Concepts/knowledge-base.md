@@ -14,7 +14,7 @@ ms.author: saneppal
 
 # Knowledge Base
 
-A QnAMaker knowledge base consists of a set of question/answer (QnA) pairs and optional metadata associated with each QnA pair.
+A QnA Maker knowledge base consists of a set of question/answer (QnA) pairs and optional metadata associated with each QnA pair.
 
 ## Key knowledge base concepts
 
@@ -24,10 +24,10 @@ A QnAMaker knowledge base consists of a set of question/answer (QnA) pairs and o
 
 A single QnA, represented by a numeric QnAId, consists of multiple variants of a question (alternate questions) that all map to a single answer. Additionally, each such pair can have multiple metadata fields associated. 
 
-![QnAMaker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
+![QnA Maker knowledge bases](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
 
 ## Knowledge base content format
-When you ingest rich content into a knowledge base, QnAMaker attempts to convert the content to markdown. Read [this](https://aka.ms/qnamaker-docs-markdown-support) blog to understand the markdown formats understandable by most chat clients.
+When you ingest rich content into a knowledge base, QnA Maker attempts to convert the content to markdown. Read [this](https://aka.ms/qnamaker-docs-markdown-support) blog to understand the markdown formats understandable by most chat clients.
 
 Metadata fields consist of key-value pairs separated by a colon **(Product:Shredder)**. Both key and value must be text-only. The metadata key must not contain any spaces.
 

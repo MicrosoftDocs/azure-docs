@@ -1,7 +1,7 @@
 ---
-title: How to create a non-english knowledge base - Microsoft Cognitive Services | Microsoft Docs
+title: How to create a non-English knowledge base - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: How to create a non-en knowledge base 
+description: How to create a non-English knowledge base 
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
 ---
-# Language support for QnAMaker 
-QnAMaker supports knowledge base content in many languages. However, each QnAMaker service should be reserved for a single language. The first knowledge base created targeting a particular QnAMaker service sets the language of that service. See [here](../Overview/languages-supported.md) for the list of supported languages.
+# Language support for QnA Maker
+QnA Maker supports knowledge base content in many languages. However, each QnA Maker service should be reserved for a single language. The first knowledge base created targeting a particular QnA Maker service sets the language of that service. See [here](../Overview/languages-supported.md) for the list of supported languages.
 
-The language is automatically recognized from the content of the data sources being extracted. Once you create a new QnAMaker Service and a new Knowledge Base in that service, you can verify that the language has been set correctly.
+The language is automatically recognized from the content of the data sources being extracted. Once you create a new QnA Maker Service and a new Knowledge Base in that service, you can verify that the language has been set correctly.
 
 1. Navigate to the [Azure Portal](https://portal.azure.com/)
-2. Click on **resource groups** and navigate to the resource group where the QnAMaker service is deployed and click on the **Azure Search** resource
+2. Click on **resource groups** and navigate to the resource group where the QnA Maker service is deployed and click on the **Azure Search** resource
 
     ![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 

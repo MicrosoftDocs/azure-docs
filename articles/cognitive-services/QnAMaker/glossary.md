@@ -14,11 +14,11 @@ ms.author: saneppal
 
 # Glossary
 
-## QnAMaker Service
-A QnAMaker service is a pre-requisite to start using QnAMaker. Purchasing a QnAMaker tier sets up resources in your Azure subscription for creating and managing your knowledge base. Each QnAMaker user account can create multiple QnAMaker services in their Azure subscription.
+## QnA Maker Service
+A QnA Maker service is a pre-requisite to start using QnA Maker. Purchasing a QnA Maker tier sets up resources in your Azure subscription for creating and managing your knowledge base. Each QnA Maker user account can create multiple QnA Maker services in their Azure subscription.
 
 ## Knowledge Base
-A Knowledge base is the repository of questions and answers created, maintained, and used through QnAMaker. Each QnAMaker tier can be used for multiple Knowledge bases.
+A Knowledge base is the repository of questions and answers created, maintained, and used through QnA Maker. Each QnA Maker tier can be used for multiple Knowledge bases.
 
 ## Endpoint
 A REST-based HTTP endpoint servicing your knowledge base content that can be integrated into your application, commonly a chat bot. 

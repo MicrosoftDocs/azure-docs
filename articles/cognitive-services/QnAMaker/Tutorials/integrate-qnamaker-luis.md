@@ -1,7 +1,7 @@
 ---
-title: Integrate QnAMaker and LUIS - Microsoft Cognitive Services | Microsoft Docs
+title: Integrate QnA Maker and LUIS - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: a step-by-step tutorial on integrating QnAMaker and LUIS
+description: a step-by-step tutorial on integrating QnA Maker and LUIS
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -12,25 +12,25 @@ ms.date: 04/21/2018
 ms.author: saneppal
 ---
 
-# Integrate QnAMaker and LUIS to distribute your knowledge base
-As your QnAMaker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
+# Integrate QnA Maker and LUIS to distribute your knowledge base
+As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 
-While it is straightforward to create multiple knowledge bases in QnAMaker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
+While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
 
 ## Architecture
 
-![QnAMaker luis architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker luis architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-In the above scenario, QnAMaker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnAMaker knowledge base.
+In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
 
 ## Prerequisites
 - Log in to the [LUIS](https://www.luis.ai/) portal and [create an app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
 - [Add intents](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) as per your scenario.
 - [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) and [publish](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) your LUIS App.
-- Log in to [QnAMaker](https://qnamaker.ai) and [create knowledge]() bases as per your scenario.
+- Log in to [QnA Maker](https://qnamaker.ai) and [create knowledge]() bases as per your scenario.
 - [Test]() and [publish]() the knowledge bases.
 
-## QnAMaker + LUIS Bot
+## QnA Maker + LUIS Bot
 1. First create a Web App bot with the LUIS template, link it with the LUIS app you created above, and modify the intents. See detailed steps [here](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 2. Add dependencies to the top of the file, with the other dependencies:
 ```
@@ -38,10 +38,10 @@ using RestSharp;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 ```
-3. Add the below class for calling your QnAMaker service:
+3. Add the below class for calling your QnA Maker service:
 ```
     /// <summary>
-    /// QnAMakerService is a wrapper over the QnAMaker REST endpoint
+    /// QnAMakerService is a wrapper over the QnA Maker REST endpoint
     /// </summary>
     [Serializable]
     public class QnAMakerService
@@ -64,7 +64,7 @@ using Newtonsoft.Json;
         }
 
         /// <summary>
-        /// Call the QnAMaker endpoint and get a response
+        /// Call the QnA Maker endpoint and get a response
         /// </summary>
         /// <param name="query">User question</param>
         /// <returns></returns>
@@ -88,7 +88,7 @@ using Newtonsoft.Json;
         }
     }
 
-    /* START - QnAMaker Response Class */
+    /* START - QnA Maker Response Class */
     public class Metadata
     {
         public string name { get; set; }
@@ -110,11 +110,11 @@ using Newtonsoft.Json;
     {
         public IList<Answer> answers { get; set; }
     }
-    /* END - QnAMaker Response Class */
+    /* END - QnA Maker Response Class */
 ```
 3. Go to https://qnamaker.ai -> My knowledge bases -> View code, of your corresponding knowledge base. Get the following information:
 
-![QnAMaker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
+![QnA Maker HTTP request](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 4. Instantiate the QnAMakerService class for each of your knowledge bases:
 ```
         // Instantiate the knowledge bases
@@ -166,4 +166,4 @@ In the Azure portal, click on **Test in Web Chat** to test the bot. Type message
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a business continuity plan for QnAMaker](../How-To/business-continuity-plan.md)
+> [Create a business continuity plan for QnA Maker](../How-To/business-continuity-plan.md)
