@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: misainat
 
@@ -26,8 +26,8 @@ These release notes provide information about improvements, fixes, and known iss
 
 ## Build 2020180423.1
 
-### New features and fixes
-This build includes the following improvements and fixes for Azure Stack.
+<!-- ### New features 
+This build includes the following improvements and fixes for Azure Stack.-->
 
 
 
@@ -48,6 +48,9 @@ This build includes the following improvements and fixes for Azure Stack.
 #### Portal
 - <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
     - For Azure Stack Development Kit, use https://aka.ms/azurestackforum.    
+
+- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+  ![Breadcrumb](media/asdk-release-notes/breadcrumb.png)
 
 - <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
 
