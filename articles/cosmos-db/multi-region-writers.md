@@ -93,17 +93,13 @@ With multi-master, the challenge is often that two (or more) replicas of the sam
 
 Azure Cosmos DB implements the logic for handling conflicting writes inside the database engine itself. Azure Cosmos DB offers **comprehensive and flexible conflict resolution support** by offering several conflict resolution models, including Automatic (CRDT- conflict-free replicated data types), Last Write Wins (LWW), Custom (Stored Procedure) and Manual for automatic conflict resolution. The conflict resolution models provide correctness and consistency guarantees and remove the burden from developers to have to think about consistency, availability, performance, replication latency, and complex combinations of events under geo-failovers and cross-region write conflicts.  
 
-![Multi-master conflict resolution blade](./media/multi-region-writers/multi-master-conflict-resolution-blade.png)
-
 The semantics of the conflict resolution models offered by Azure Cosmos DB is as follows: 
 
-**Automatic (CRDTs)** - This conflict resolution model provides automatic conflict resolution using Conflict-free Replicated Data Type (CRDT). CRDTs offer 'Strong Eventual Consistency' that ensures conflicts can be merged automatically to produce a value that is guaranteed to be correct/consistent.  
+**Automatic** - This is the default conflict resolution policy. Selecting this policy causes Azure Cosmos DB to automatically resolve the conflicting updates on the server side and provide strong-eventual-consistency guarantees. Internally, Azure Cosmos DB implements automatic conflict resolution by leveraging Conflict-Free-Replicated-Data Types (CRDTs) inside the database engine.  
 
-**Last Write Wins (LWW)** - This conflict resolution model implements a so-called last-write-wins (LWW) strategy where the use of all internal conflict resolution strategies is foregone when making writes, effectively disregarding all previous writes. LWW can be useful—and safe—if you are certain that there will be no concurrent updates.  
+**Last-Write-Wins (LWW)** - Choosing this policy will allow you to resolve conflicts based on either the system defined synchronized timestamp property or a custom property defined on the conflicting version of the records. The conflict resolution happens on the server side and the version with the latest timestamp is selected as the winner.  
 
-**Custom (Stored Procedure)** - This conflict resolution model allows you to provide custom logic in the form of a stored procedure to perform conflict resolution. 
-
-**Manual** - A manual conflict resolution model. If you don’t expect conflicting writes to happen in first place, and you can use this model for explicit control. 
+**Custom** - You can register an application defined conflict resolution logic by registering a stored-procedure. The stored-procedure will get invoked upon detection of update conflicts under the auspices of a database transaction, on the server side. If you select the option but fail to register a stored procedure (or if the stored procedure throws an exception at runtime), you can access all of the conflicting versions via the Conflicts Feed and resolve them individually.  
 
 ## Next steps  
 
