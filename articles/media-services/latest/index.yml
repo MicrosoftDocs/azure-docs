@@ -44,7 +44,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Azure CLI</a></p>
     - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/media/">REST API</a></p>
       
