@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -71,7 +71,7 @@ The following section provides you with a complete overview of all possible erro
 |50097|Device is not authenticated.|
 |50105|The signed in user is not assigned to a role for this application.|
 |50125|Sign-in was interrupted due to a password reset or password registration entry|
-|50126|Invalid username or password or Invalid on-premises username or password.|
+|50126|Invalid username or password or Invalid on-premise username or password.|
 |50127|User needs to install a broker app to gain access to this content.|
 |50129|Device is not Workplace joined - Workplace join is required to register the device.|
 |50131|Used in various conditional access errors. E.g Bad Windows device state, request blocked due to suspicious activity, access policy and security policy decisions.|
@@ -79,6 +79,7 @@ The following section provides you with a complete overview of all possible erro
 |50140|User prompted for consent to keep them signed-in on the device|
 |50144|User's Active Directory password has expired.|
 |53000|Conditional Access policy requires a compliant device, and the device is not compliant.|
+|53003|Access has been blocked due to conditional access policies.|
 |65001|Application X doesn't have permission to access application Y or the permission has been revoked. Or The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. Or The user or administrator has not consented to use the application with ID X. Send an authorization request to your tenant admin to act on behalf of the App : Y for Resource : Z.|
 |65005|The application required resource access list does not contain applications discoverable by the resource or The client application has requested access to resource which was not specified in its required resource access list or Graph service returned bad request or resource not found.|
 |70001|The application named X was not found in the tenant named Y. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.|
@@ -103,7 +104,6 @@ The following section provides you with a complete overview of all possible erro
 |90014|Used in various cases when an expected field is not present in the credential.|
 |90093|Graph returned with forbidden error code for the request.|
 |90094|Admin consent is needed.|
-
 ## Next steps
 
 For more details, see the [Sign-in activity reports in the Azure Active Directory portal](active-directory-reporting-activity-sign-ins.md).
