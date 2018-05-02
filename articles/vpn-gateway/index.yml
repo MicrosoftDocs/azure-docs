@@ -4,7 +4,7 @@ title: Azure VPN Gateway Documentation
 metadata:
   document_id:
   title: VPN Gateway Documentation - Tutorials, API references | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted connections to your virtual network from on-premises locations, or to other Azure VNets.
+  meta.description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
   services: vpn-gateway
   author: cherylmc
   manager: jeconnoc
@@ -15,7 +15,7 @@ metadata:
   ms.date: 04/26/2018
   ms.author: cherylmc
 abstract:
-  description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted connections to your virtual network from on-premises locations, or to other Azure VNets.
+  description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
 sections:
 - title: Step-by-Step Tutorials
   items:
@@ -23,6 +23,7 @@ sections:
     text: Learn how to create, configure, and manage Azure VPN gateways.
   - type: list
     style: unordered
+    className: spaced noBullet
     items:
     - html: <a href="/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">Create and manage a VPN gateway</a>
 - title: Free Pluralsight Video Training
