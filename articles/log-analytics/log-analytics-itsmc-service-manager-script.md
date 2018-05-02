@@ -144,6 +144,8 @@ if(!$resourceProvider -or $resourceProvider[0].RegistrationState -ne "Registered
 }
 do
 {
+    $clientSecret = $clientSecret | ConvertTo-SecureString -AsPlainText -Force 
+
     $rand = Get-Random -Maximum 32000
 
     $siteName = $siteNamePrefix + $rand
