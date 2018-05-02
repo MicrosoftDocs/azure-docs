@@ -1,27 +1,31 @@
 ---
-title: Run scripts in a Windows VM
-description: This topic describes how to run scripts within a virtual machine
+title: Run PowerShell scripts in an Windows VM in Azure
+description: This topic describes how to run PowerShell scripts within a virtual machine using Run command
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/30/2018
+ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
 ---
-# Run scripts in your Windows VM with Run command
+# Run PowerShell scripts in your Windows VM with Run command
 
-Run command allows you to run scripts within a VM regardless of network connectivity. For Windows tt runs PowerShell scripts, that allow general machine management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+Run command allows you to run PowerShell scripts within a VM regardless of network connectivity. These scripts can be used for general machine management, and can be used to quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+
+## Prerequisites
+
+The account using run command must have the [Contributor role](../../role-based-access-control/built-in-roles.md) for the VM.
 
 ## Benefits
 
-There are multiple options that can be used to access your virtual machines. Run command can run scripts on your VMs regardless of network connectivity and is available by default on your virtual machines.
+There are multiple options that can be used to access your virtual machines. Run command can run scripts on your VMs regardless of network connectivity and is available by default on your virtual machines. Run command can be used through the Azure portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-This capability is useful in scenarios when you are unable to access a VM due to improper network or administrative user configuration. 
+This capability is useful in scenarios when you are unable to access a VM due to improper network or administrative user configuration.
 
-## Configuration constraints
+## Restrictions
 
-The follow are a list of configuration constaints that are present when using run command.
+The following are a list of restrictions that are present when using run command.
 
 * Output limited to last 4096 bytes
 * Minimum time to run a script about 20 seconds
@@ -35,13 +39,18 @@ Navigate to a VM in the [Azure portal](https://portal.azure.com) and select **Ru
 
 ![Run command list](./media/run-command/run-command-list.png)
 
-Choose a command to run. Some commands have parameters, and the **RunPowerShellScript** allows you to provide your own script. When done, click **Run** to run the script. The script runs and when complete, returns the output in the output window. The following screenshot shows an example output from the **RDPSettings** command.
+Choose a command to run. Some of the default commands may contain parameters. For those commands the parameters are presented to you as text fields to provide the input. For each command you can view the script that is being ran by expanding **View script**. **RunPowerShellScript** is different from the others as it allows you to provide your own script.
+
+> [!NOTE]
+> Default commands are not editable.
+
+Once the command is chosen, click **Run** to run the script. The script runs and when complete, returns the results in the output window. The following screenshot shows an example output from running the **RDPSettings** command.
 
 ![Run command script output](./media/run-command/run-command-script-output.png)
 
 ## Default commands
 
-The follow table shows the list of default commands available. The **RunPowerShellScript** command can be used to run any custom script you need.
+The follow table shows the list of default commands available for Windows VMs. The **RunPowerShellScript** command can be used to run any custom script you need.
 
 |**Name**|**Description**|
 |---|---|
@@ -54,10 +63,17 @@ The follow table shows the list of default commands available. The **RunPowerShe
 |**SetRDPPort**|Sets the default or user specified port number for Remote Desktop connections. Enables firewall rule for inbound access to the port.|
 |**ResetRDPCert**|Removes the SSL certificate tied to the RDP listener and restores the RDP listerner security to default. Use this script if you see any issues with the certificate.|
 
+## PowerShell
+
+The following is an example using the [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet to run a PowerShell script on an Azure VM.
+
+```azurepowershell-interactive
+Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+```
+
 ## Limiting access to run command
 
 Run command is available for users with the VM Contributor or higher permissions. In order to limit the access to this feature remove the VM Contributor or higher role from the user's roles.
 
 ## Next steps
-
 
