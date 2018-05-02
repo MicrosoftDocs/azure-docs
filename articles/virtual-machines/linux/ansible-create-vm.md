@@ -4,7 +4,7 @@ description: Learn how to use Ansible to create and manage a basic Linux virtual
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/25/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ---
 
@@ -26,7 +26,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 To manage Azure resources with Ansible, you need the following:
 
 - Ansible and the Azure Python SDK modules installed on your host system.
-    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12.2 SP2](ansible-install-configure.md#sles-122-sp2)
+    - Install Ansible on [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), [CentOS 7.3](ansible-install-configure.md#centos-73), and [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
 - Azure credentials, and Ansible configured to use them.
     - [Create Azure credentials and configure Ansible](ansible-install-configure.md#create-azure-credentials)
 - Azure CLI version 2.0.4 or later. Run `az --version` to find the version. 
@@ -34,13 +34,13 @@ To manage Azure resources with Ansible, you need the following:
 
 
 ## Create supporting Azure resources
-In this example, we create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/vm#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+In this example, you create a runbook that deploys a VM into an existing infrastructure. First, create resource group with [az group create](/cli/azure/vm#az_vm_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual network for your VM with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named *myVnet* and a subnet named *mySubnet*:
+Create a virtual network for your VM with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* and a subnet named *mySubnet*:
 
 ```azurecli
 az network vnet create \
@@ -53,7 +53,7 @@ az network vnet create \
 
 
 ## Create and run Ansible playbook
-Create an Ansible playbook named **azure_create_vm.yml** and paste the following contents. This example creates a single VM and configures SSH credentials. Enter your own public key data in the *key_data* pair as follows:
+Create an Ansible playbook named *azure_create_vm.yml* and paste the following contents. This example creates a single VM and configures SSH credentials. Enter your own complete public key data in the *key_data* pair as follows:
 
 ```yaml
 - name: Create Azure VM

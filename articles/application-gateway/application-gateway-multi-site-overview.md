@@ -23,6 +23,9 @@ Multiple site hosting enables you to configure more than one web application on 
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
+> [!IMPORTANT]
+> Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This will ensure that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
+
 Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool.
 
 Similarly two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.

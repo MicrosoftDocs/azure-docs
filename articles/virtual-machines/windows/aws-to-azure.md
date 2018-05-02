@@ -4,7 +4,7 @@ description: Move an Amazon Web Services (AWS) EC2 Windows instance to Azure Vir
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -18,6 +18,7 @@ ms.date: 06/01/2017
 ms.author: cynthn
 
 ---
+
 
 # Move a Windows VM from Amazon Web Services (AWS) to Azure using PowerShell
 
@@ -52,7 +53,7 @@ aws ec2 create-instance-export-task --instance-id <instanceID> --target-environm
   --export-to-s3-task DiskImageFormat=VHD,ContainerFormat=ova,S3Bucket=<bucket>,S3Prefix=<prefix>
 ```
 
-Once the VHD has been eported, follow the instructions in [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) to download the VHD file from the S3 bucket. 
+Once the VHD has been exported, follow the instructions in [How Do I Download an Object from an S3 Bucket?](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/download-objects.html) to download the VHD file from the S3 bucket. 
 
 > [!IMPORTANT]
 > AWS charges data transfer fees for downloading the VHD. See [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/) for more information.

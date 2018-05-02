@@ -1,154 +1,135 @@
 ---
-title: Create an application gateway using the portal | Microsoft Docs
-description: Learn how to create an Application Gateway by using the portal
+title: Create an Application Gateway - Azure Portal | Microsoft Docs
+description: Learn how to create an Application Gateway by using the Azure portal.
 services: application-gateway
-documentationcenter: na
-author: georgewallace
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2017
-ms.author: gwallace
+ms.date: 01/25/2018
+ms.author: victorh
 
 ---
-# Create an application gateway by using the portal
+# Create an application gateway using the Azure portal
 
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
+You can use the Azure portal to create or manage application gateways. This quickstart shows you how to create network resources, backend servers, and an application gateway.
 
-Learn how to create an application gateway using SSL offload.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-![Scenario example][scenario]
+## Log in to Azure
 
-Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application.
-
-This scenario will:
-
-1. [Create a medium application gateway](#create-an-application-gateway) using SSL offload with two instances in its own subnet.
-1. [Add servers to the back-end pool](#add-servers-to-backend-pools)
-1. [Delete all resources](#delete-all-resources). You incur charges for some of the resources created in this exercise while they're provisioned. To minimize the charges, after you complete the exercise, be sure to complete the steps in this section to delete the resources you create.
-
-
-
-> [!IMPORTANT]
-> Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create an application gateway
 
-To create an application gateway, complete the steps that follow. Application gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet, only additional application gateways are able to be added to the subnet.
+A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Log in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
-1. In the Favorites pane of the portal, click **New**
-1. In the **New** blade, click **Networking**. In the **Networking** blade, click **Application Gateway**, as shown in the following image:
+1. Click **New** found on the upper left-hand corner of the Azure portal.
+2. Select **Networking** and then select **Application Gateway** in the Featured list.
+3. Enter these values for the application gateway:
 
-    ![Creating Application Gateway][1]
+    - *myAppGateway* - for the name of the application gateway.
+    - *myResourceGroupAG* - for the new resource group.
 
-1. In the **Basics** blade that appears, eneter the following values, then click **OK**:
+    ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-   | **Setting** | **Value** | **Details**
-   |---|---|---|
-   |**Name**|AdatumAppGateway|The name of the application gateway|
-   |**Tier**|Standard|Available values are Standard and WAF. Visit [web application firewall](application-gateway-web-application-firewall-overview.md) to learn more about WAF.|
-   |**SKU Size**|Medium|Choices when choosing Standard tier are Small, Medium and Large. When choosing WAF tier, options are Medium and Large only.|
-   |**Instance count**|2|Number of instances of the application gateway for high availability. Instance counts of 1 should only be used for testing purposes.|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
-   |**Resource group**|**Create new:** AdatumAppGatewayRG|Create a resource group. The resource group name must be unique within the subscription you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#resource-groups) overview article.|
-   |**Location**|West US||
+4. Accept the default values for the other settings and then click **OK**.
+5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
 
-1. In the **Settings** blade that appears under **Virtual network**, click **Choose a virtual network**. This will open enter the **Choose virtual network** blade.  Click **Create new** to open the **Create virtual network** blade.
+    - *myVNet* - for the name of the virtual network.
+    - *10.0.0.0/16* - for the virtual network address space.
+    - *myAGSubnet* - for the subnet name.
+    - *10.0.0.0/24* - for the subnet address space.
 
- ![choose a virtual network][2]
+    ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
-1. On the **Create virtual network blade** enter the following values, then click **OK**. This will close the **Create virtual network** and **Choose virtual network** blades. This will also populate the **Subnet** field on the **Settings** blade with the subnet chosen.
+6. Click **OK** to create the virtual network and subnet.
+6. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
+8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
+9. Review the settings on the summary page, and then click **OK** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for the application gateway to be created, wait until
+the deployment finishes successfully before moving on to the next section.
 
-   |**Setting** | **Value** | **Details** |
-   |---|---|---|
-   |**Name**|AdatumAppGatewayVNET|Name of the application gateway|
-   |**Address Space**|10.0.0.0/16| This is the address space for the virtual network|
-   |**Subnet name**|AppGatewaySubnet|Name of the subnet for the application gateway|
-   |**Subnet address range**|10.0.0.0/28| This subnet allows more additional subnets in the virtual network for backend pool members|
+### Add a subnet
 
-1. On the **Settings** blade under **Frontend IP configuration** choose **Public** as the **IP address type**
+1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
+2. Click **Subnets**, and then click **Subnet**.
 
-1. On the **Settings** blade under **Public IP address** click **Choose a public IP address**, this opens the **Choose public IP address** blade, click **Create new**.
+    ![Create subnet](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
- ![choose public ip][3]
+3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
 
-1. On the **Create public IP address** blade, accept the default value and click **OK**. This will close the **Choose public IP address** blade, the **Create public IP address** blade, and populate **Public IP address** with the public IP address chosen.
+## Create backend servers
 
-1. On the **Settings** blade under **Listener configuration** click **HTTPS** under **Protocol**. Doing this adds additional fields. Click the folder icon for the **Upload PFX certificate** field and choose the appropriate .pfx certificate. Enter the following information in the additional **Listener configuration** fields:
+In this example, you create two virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
 
-   |**Setting** | **Value** | **Details** |
-   |---|---|---|
-   |Name|Name of the certificate|This value is a friendly name used to reference the certificate|
-   |Password|Password for .pfx| This is the password used for the private key|
+### Create a virtual machine
 
-1. Click **OK** on the **Settings** blade to continue.
+1. Click **New**.
+2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+3. Enter these values for the virtual machine:
 
-1. Review the settings on the **Summary** blade and click **OK** to start creation of the application gateway. Creating an application gateway is a long running task and will take time to complete.
+    - *myVM* - for the name of the virtual machine.
+    - *azureuser* - for the administrator user name.
+    - *Azure123456!* for the password.
+    - Select **Use existing**, and then select *myResourceGroupAG*.
 
-## Add servers to backend pools
+4. Click **OK**.
+5. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
+7. Click **Disabled** to disable boot diagnostics.
+8. Click **OK**, review the settings on the summary page, and then click **Create**.
 
-Once the application gateway is created, the systems that host the application to be load balanced still need to be added to the application gateway. The IP addresses, FQDN, or NICs of these servers are added to the backend address pools.
+### Install IIS
 
-### IP Address or FQDN
+1. Open the interactive shell and make sure that it is set to **PowerShell**.
 
-1. With the application gateway created, in the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
+    ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
-1. The application gateway you created is displayed. Click **Backend pools**, and select the current backend pool **appGatewayBackendPool**, this will open the **appGatewayBackendPool** blade.
+2. Run the following command to install IIS on the virtual machine: 
 
-   ![Application Gateway backend pools][4]
+    ```azurepowershell-interactive
+    Set-AzureRmVMExtension `
+      -ResourceGroupName myResourceGroupAG `
+      -ExtensionName IIS `
+      -VMName myVM `
+      -Publisher Microsoft.Compute `
+      -ExtensionType CustomScriptExtension `
+      -TypeHandlerVersion 1.4 `
+      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+      -Location EastUS
+    ```
 
-1. Click **Add Target** to add IP addresses of FQDN values. Choose **IP address or FQDN** as the **Type** and enter your IP address or FQDN in the field. Repeat this for additional backend pool memebers. When done click **Save**.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter *myVM2* for its name and for VMName in Set-AzureRmVMExtension.
 
-### Virtual Machine and NIC
+### Add backend servers
 
-You can also add Virtual Machine NICs as backend pool members. Only virtual machines within the same virtual network as the Application Gateway are available through the dropdown.
+3. Click **All resources**, and then click **myAppGateway**.
+4. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
+5. Click **Add target** to add each virtual machine that you created to the backend pool.
 
-1. With the application gateway created, in the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGateway** application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGateway** in the **Filter by name…** box to easily access the application gateway.
+    ![Add backend servers](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-1. The application gateway you created is displayed. Click **Backend pools**, and select the current backend pool **appGatewayBackendPool**, this will open the **appGatewayBackendPool** blade.
+6. Click **Save**.
 
-   ![Application Gateway backend pools][5]
+## Test the application gateway
 
-1. Click **Add Target** to add IP addresses of FQDN values. Choose **Virtual Machine** as the **Type** and select the virtual machine and NIC to use. When done click **Save**
+1. Find the public IP address for the application gateway on the Overview screen. Click **All resources** and then click **myAGPublicIPAddress**.
 
-   > [!NOTE]
-   > Only virtual machines in the same virtual network as the application gateway are available in the drop down box.
+    ![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)
 
-## Delete all resources
+2. Copy the public IP address, and then paste it into the address bar of your browser.
 
-To delete all resources created in this article, complete the following steps:
+    ![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-1. In the Azure portal **Favorites** pane, click **All resources**. Click the **AdatumAppGatewayRG** resource group in the All resources blade. If the subscription you selected already has several resources in it, you can enter **AdatumAppGatewayRG** in the **Filter by name…** box to easily access the resource group.
-1. In the **AdatumAppGatewayRG** blade, click the **Delete** button.
-1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Click **Delete**, Type AdatumAppGateway for the resource group name, then click **Delete**. Deleting a resource group deletes all resources within the resource group, so always be sure to confirm the contents of a resource group before deleting it. The portal deletes all resources contained within the resource group, then deletes the resource group itself. This process takes several minutes.
+
+## Clean up resources
+
+When no longer needed, delete the resource group, application gateway, and all related resources. To do so, select the resource group that contains the application gateway and click **Delete**.
 
 ## Next steps
 
-This scenario creates a default application gateway. The next steps are to configure the application gateway by modifying settings, and adjusting rules in the gateway. These steps can be found by visiting the following articles:
-
-Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
-
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-portal.md)
-
-Learn how to protect your applications with [Web Application Firewall](application-gateway-webapplicationfirewall-overview.md) a feature of application gateway.
-
-<!--Image references-->
-[1]: ./media/application-gateway-create-gateway-portal/figure1.png
-[2]: ./media/application-gateway-create-gateway-portal/figure2.png
-[3]: ./media/application-gateway-create-gateway-portal/figure3.png
-[4]: ./media/application-gateway-create-gateway-portal/figure4.png
-[5]: ./media/application-gateway-create-gateway-portal/figure5.png
-[scenario]: ./media/application-gateway-create-gateway-portal/scenario.png
+In this quickstart, you created a resource group, network resources, and backend servers. You then used those resources to create an application gateway. To learn more about application gateways and their associated resources, continue to the how-to articles.

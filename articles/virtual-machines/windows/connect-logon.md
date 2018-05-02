@@ -4,7 +4,7 @@ description: Learn how to connect and log on to a Windows VM using the Azure por
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -13,8 +13,8 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.topic: article
+ms.date: 04/11/2018
 ms.author: cynthn
 
 ---
@@ -25,11 +25,9 @@ If you are trying to connect to a Windows VM from a Mac, you need to install an 
 
 ## Connect to the virtual machine
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
-2. On the Hub menu, click **Virtual Machines**.
+2. In the left menu, click **Virtual Machines**.
 3. Select the virtual machine from the list.
-4. On the blade for the virtual machine, click **Connect**.
-   
-    ![Screenshot of the Azure portal showing how to connect to your VM.](./media/connect-logon/connect.png)
+4. On the top of the page for the virtual machine, click the ![Image of the connect button.](./media/connect-logon/connect.png) button.
    
    > [!TIP]
    > If the **Connect** button in the portal is greyed out and you are not connected to Azure via an [Express Route](../../expressroute/expressroute-introduction.md) or [Site-to-Site VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) connection, you need to create and assign your VM a public IP address before you can use RDP. You can read more about [public IP addresses in Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).

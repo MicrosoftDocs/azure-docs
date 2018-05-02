@@ -1,19 +1,13 @@
 ---
 title: Indexing Azure Table storage with Azure Search | Microsoft Docs
 description: Learn how to index data stored in Azure Table storage with Azure Search
-services: search
-documentationcenter: ''
 author: chaosrealm
-manager: pablocas
-editor: ''
-
-ms.assetid: 1cc27411-d0cc-40ed-8aed-c7cb9ab402b9
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.topic: conceptual
+ms.date: 04/20/2018
 ms.author: eugenesh
 ---
 
@@ -49,7 +43,7 @@ For table indexing, the datasource must have the following properties:
 
 To create a datasource:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -71,7 +65,7 @@ You can provide the credentials for the table in one of these ways:
 - **Storage account shared access signature connection string**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` The shared access signature should have the list and read permissions on containers (tables in this case) and objects (table rows).
 -  **Table shared access signature**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` The shared access signature should have query (read) permissions on the table.
 
-For more information on storage shared access signatures, see [Using shared access signatures](../storage/storage-dotnet-shared-access-signature-part-1.md).
+For more information on storage shared access signatures, see [Using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > If you use shared access signature credentials, you will need to update the datasource credentials periodically with renewed signatures to prevent their expiration. If shared access signature credentials expire, the indexer fails with an error message similar to "Credentials provided in the connection string are invalid or have expired."  
@@ -81,7 +75,7 @@ The index specifies the fields in a document, the attributes, and other construc
 
 To create an index:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +94,7 @@ An indexer connects a datasource with a target search index and provides a sched
 
 After the index and datasource are created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2016-09-01
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +127,7 @@ When you set up a table indexer to run on a schedule, it reindexes only new or u
 
 To indicate that certain documents must be removed from the index, you can use a soft delete strategy. Instead of deleting a row, add a property to indicate that it's deleted, and set up a soft deletion detection policy on the datasource. For example, the following policy considers that a row is deleted if the row has a property `IsDeleted` with the value `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2016-09-01
+    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

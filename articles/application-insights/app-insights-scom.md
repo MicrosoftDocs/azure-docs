@@ -1,9 +1,9 @@
----
+﻿---
 title: SCOM integration with Application Insights | Microsoft Docs
 description: If you're an SCOM user, monitor performance and diagnose issues with Application Insights. Comprehensive dashboards, smart alerts, powerful diagnostic tools and analysis queries.
 services: application-insights
 documentationcenter: ''
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
-ms.author: cfreeman
+ms.author: mbullwin
 
 ---
 # Application Performance Monitoring using Application Insights for SCOM

@@ -3,8 +3,8 @@ title: How to Use Azure Redis Cache | Microsoft Docs
 description: Learn how to improve the performance of your Azure applications with Azure Redis Cache
 services: redis-cache,app-service
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/30/2017
-ms.author: sdanie
+ms.date: 07/27/2017
+ms.author: wesmc
 
 ---
 # How to Use Azure Redis Cache
@@ -164,6 +164,17 @@ When calling `StringGet`, if the object exists, it is returned, and if it does n
 
         cache.StringSet("key1", value);
     }
+
+You can also use `RedisValue`, as shown in the following example. `RedisValue` has implicit operators for working with integral data types, and can be useful if `null` is an expected value for a cached item.
+
+
+	RedisValue value = cache.StringGet("key1");
+	if (!value.HasValue)
+	{
+	    value = GetValueFromDataSource();
+	    cache.StringSet("key1", value);
+	}
+
 
 To specify the expiration of an item in the cache, use the `TimeSpan` parameter of `StringSet`.
 

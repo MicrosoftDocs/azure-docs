@@ -4,8 +4,8 @@ title: Azure Active Directory B2B collaboration invitation redemption | Microsof
 description: Azure Active Directory B2B collaboration invitation redemption experience
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: femila
+author: twooley
+manager: mtillman
 editor: ''
 tags: ''
 
@@ -16,7 +16,8 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
-ms.author: sasubram
+ms.author: twooley
+ms.reviewer: sasubram
 
 ---
 

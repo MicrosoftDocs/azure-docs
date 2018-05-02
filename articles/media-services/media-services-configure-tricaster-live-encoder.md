@@ -4,7 +4,7 @@ description: This topic shows how to configure the Tricaster live encoder to sen
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
@@ -26,12 +26,12 @@ ms.author: juliako;cenkd;anilmur
 >
 >
 
-This topic shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This article shows how to configure the [NewTek TriCaster](http://newtek.com/products/tricaster-40.html) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
 > [!NOTE]
-> When using Tricaster for sending in a contribution feed to AMS channels that are enabled for live encoding, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommend to use these features.
+> When using Tricaster for sending in a contribution feed to AMS channels that are enabled for live encoding, there can be video/audio glitches in your live event if you use certain features of Tricaster, such as rapid cutting between feeds, or switching to/from slates. The AMS team is working on fixing these issues, until then, it is not recommended to use these features.
 >
 >
 
@@ -43,11 +43,11 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 
 ## Tips
 * Whenever possible, use a hardwired internet connection.
-* A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it will help mitigate the impact of network congestion.
-* When using software based encoders, close out any unnecessary programs.
+* A good rule of thumb when determining bandwidth requirements is to double the streaming bitrates. While this is not a mandatory requirement, it helps mitigate the impact of network congestion.
+* When using software-based encoders, close out any unnecessary programs.
 
 ## Create a channel
-1. In the AMSE tool, navigate to the **Live** tab, and right click within the channel area. Select **Create channel…** from the menu.
+1. In the AMSE tool, navigate to the **Live** tab, and right-click within the channel area. Select **Create channel…** from the menu.
 
 	![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
@@ -64,15 +64,15 @@ This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Se
 >
 >
 
-While the channel is starting you can [configure the encoder](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+While the channel is starting, you can [configure the encoder](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
-> Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
+> Billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
 ## <a id=configure_tricaster_rtmp></a>Configure the NewTek TriCaster encoder
-In this tutorial the following output settings are used. The rest of this section describes configuration steps in more detail.
+In this tutorial, the following output settings are used. The rest of this section describes configuration steps in more detail.
 
 **Video**:
 
@@ -128,32 +128,32 @@ In this tutorial the following output settings are used. The rest of this sectio
 >
 
 ## Test playback
-Navigate to the AMSE tool, and right click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
+Navigate to the AMSE tool, and right-click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS.
 
-If an error is received, the channel will need to be reset and encoder settings adjusted. Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.  
+If an error is received, the channel will need to be reset and encoder settings adjusted. See the [troubleshooting](media-services-troubleshooting-live-streaming.md) article for guidance.  
 
 ## Create a program
-1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right click within the program area and select **Create New Program**.  
+1. Once channel playback is confirmed, create a program. Under the **Live** tab in the AMSE tool, right-click within the program area and select **Create New Program**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to 4 hours). You can also specify a storage location or leave as the default.  
+2. Name the program and, if needed, adjust the **Archive Window Length** (which defaults to four hours). You can also specify a storage location or leave as the default.  
 3. Check the **Start the Program now** box.
 4. Click **Create Program**.  
 
     >[!NOTE]
     >Program creation takes less time than channel creation.
         
-5. Once the program is running, confirm playback by right clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
-6. Once confirmed, right click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu).
+5. Once the program is running, confirm playback by right-clicking the program and navigating to **Playback the program(s)** and then selecting **with Azure Media Player**.  
+6. Once confirmed, right-click the program again and select **Copy the Output URL to Clipboard** (or retrieve this information from the **Program information and settings** option from the menu).
 
 The stream is now ready to be embedded in a player, or distributed to an audience for live viewing.  
 
 ## Troubleshooting
-Please see the [troubleshooting](media-services-troubleshooting-live-streaming.md) topic for guidance.
+See the [troubleshooting](media-services-troubleshooting-live-streaming.md) article for guidance.
 
 ## Next step
 Review Media Services learning paths.

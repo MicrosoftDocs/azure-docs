@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2017
+ms.date: 03/16/2018
 ms.author: alkohli
 
 ---
@@ -35,7 +35,7 @@ Implement the following best practices when provisioning the virtual array:
 
 |  | Hyper-V | VMware |
 | --- | --- | --- |
-| **Virtual machine type** |**Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image. |Use virtual machine version 8 - 11 when using *.vmdk* image. |
+| **Virtual machine type** |**Generation 2** VM for use with Windows Server 2012 or later and a *.vhdx* image. <br></br> **Generation 1** VM for use with a Windows Server 2008 or later and a *.vhd* image. |Use virtual machine version 8 when using *.vmdk* image. |
 | **Memory type** |Configure as **static memory**. <br></br> Do not use the **dynamic memory** option. | |
 | **Data disk type** |Provision as **dynamically expanding**.<br></br> **Fixed size** takes a long time. <br></br> Do not use the **differencing** option. |Use the **thin provision** option. |
 | **Data disk modification** |Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |Expansion or shrinking is not allowed. An attempt to do so results in the loss of all the local data on device. |
@@ -141,7 +141,7 @@ Use the following recommendations for storage accounts associated with your virt
   
   * We recommend that you create it in the region closest to the remote office/branch office where your StorSimple Virtual Array is deployed to minimize latencies.
   * Bear in mind that you cannot move a storage account across different regions. Also you cannot move a service across subscriptions.
-  * Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/storage-redundancy.md).
+  * Use a storage account that implements redundancy between the datacenters. Geo-Redundant Storage (GRS), Zone Redundant Storage (ZRS), and Locally Redundant Storage (LRS) are all supported for use with your virtual array. For more information on the different types of storage accounts, go to [Azure storage replication](../storage/common/storage-redundancy.md).
 
 ### Shares and volumes
 For your StorSimple Virtual Array, you can provision shares when it is configured as a file server and volumes when configured as an iSCSI server. The best practices for creating shares and volumes are related to the size and the type configured.
@@ -159,7 +159,7 @@ Keep in mind the following best practices when provisioning shares or volumes on
 * For disaster recovery use cases, as the number of allowable shares/volumes is 16 and the maximum number of shares/volumes that can be processed in parallel is also 16, the number of shares/volumes does not have a bearing on your RPO and RTOs.
 
 #### Volume/Share type
-StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. 
+StorSimple supports two volume/share types based on the usage: locally pinned and tiered. Locally pinned volumes/shares are thickly provisioned whereas the tiered volumes/shares are thinly provisioned. You cannot convert a locally pinned volume/share to tiered or *vice versa* once created.
 
 We recommend that you implement the following best practices when configuring StorSimple volumes/shares:
 

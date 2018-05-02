@@ -1,5 +1,4 @@
 - name: QnAMaker API Documentation
-  href: ../index.md
 - name: Overview
   items:
   - name: Learn about QnAMaker
@@ -21,6 +20,8 @@
     href: Guides/UpdateKB.md
   - name: Publish a knowledge base
     href: Guides/PublishKB.md
+  - name: Active Learning
+    href: Guides/active-learning-qnamaker.md
   - name: Authentication
     href: SubscriptionKeys.md
 - name: Reference
@@ -29,3 +30,7 @@
     href: HTTPEndPoint.md
   - name: FAQ
     href: FAQs.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

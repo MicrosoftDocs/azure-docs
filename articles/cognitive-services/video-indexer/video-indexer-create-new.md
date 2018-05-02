@@ -6,10 +6,10 @@ documentationcenter: ''
 author: juliako
 manager: erikre
 
-ms.service: video-indexer
+ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/02/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # Create video insights from existing videos

@@ -1,20 +1,17 @@
 ---
-title: 'Azure Active Directory B2C: Acquiring a token using an iOS application | Microsoft Docs'
-description: This article will show you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
+title: Using AppAuth in an iOS application - Azure Active Directory B2C
+description: This article shows you how to create an iOS app that uses AppAuth with Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 documentationcenter: ios
-author: saeeda
-manager: krassk
+author: davidmu1
+manager: mtillman
 editor: ''
 
-ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: mobile-ios
-ms.devlang: objectivec
 ms.topic: article
 ms.date: 03/07/2017
-ms.author: saeeda
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Sign-in using an iOS application
@@ -37,8 +34,6 @@ Next, you need to create an app in your B2C directory. The app registration give
 * Include a **Native client** in the application.
 * Copy the **Application ID** that is assigned to your app. You need this GUID later.
 * Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains one identity experience: a combined sign-in and sign-up. Create this policy as described in the
@@ -129,8 +124,8 @@ To set up your application to handle the redirect to the URI with the custom sch
 * Click the arrow to the left of 'Item 0' to open the tree.
 * Rename first item underneath Item 0 to 'URL Schemes'.
 * Click the arrow to the left of 'URL Schemes' to open the tree.
-* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In our sample, we used the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+* In the 'Value' column, there is a blank field to the left of 'Item 0' underneath 'URL Schemes'.  Set the value to your application's unique scheme.  The value must match the scheme used in redirectURL when creating the OIDAuthorizationRequest object.  In the sample,  the scheme 'com.onmicrosoft.fabrikamb2c.exampleapp' is used.
 
-Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [our sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
+Refer to the [AppAuth guide](https://openid.github.io/AppAuth-iOS/) on how to complete the rest of the process. If you need to quickly get started with a working app, check out [the sample](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Follow the steps in the [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) to enter your own Azure AD B2C configuration.
 
-We are always open to feedback and suggestions! If you have any difficulties with this topic, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+We are always open to feedback and suggestions! If you have any difficulties with this article, or have recommendations for improving this content, we would appreciate your feedback at the bottom of the page. For feature requests, add them to [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

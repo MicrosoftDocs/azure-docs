@@ -1,10 +1,10 @@
----
+﻿---
 title: Create an unmanaged image of a generalized VM in Azure | Microsoft Docs
 description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
+ROBOTS: NOINDEX
 
 ---
 
@@ -59,7 +60,7 @@ You can also generalize a Linux VM using `sudo waagent -deprovision+user` and th
 1. Open Azure PowerShell and sign in to your Azure account.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
    
     A pop-up window opens for you to enter your Azure account credentials.
@@ -250,6 +251,6 @@ When complete, you should see the newly created VM in the [Azure portal](https:/
 ```
 
 ## Next steps
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 

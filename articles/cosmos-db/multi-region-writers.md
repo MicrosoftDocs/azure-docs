@@ -3,9 +3,8 @@ title: Multi-master database architectures with Azure Cosmos DB | Microsoft Docs
 description: Learn about how to design application architectures with local reads and writes across multiple geographic regions with Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: ''
-author: arramac
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
-ms.author: arramac
+ms.author: sngun
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -315,6 +314,6 @@ In this article, we described how you can use globally distributed multi-region 
 * Learn about how Azure Cosmos DB supports [global distribution](distribute-data-globally.md)
 * Learn about [automatic and manual failovers in Azure Cosmos DB](regional-failover.md)
 * Learn about [global consistency with Azure Cosmos DB](consistency-levels.md)
-* Develop with multiple regions using the [Azure Cosmos DB - DocumentDB API](tutorial-global-distribution-documentdb.md)
+* Develop with multiple regions using the [Azure Cosmos DB - SQL API](tutorial-global-distribution-sql-api.md)
 * Develop with multiple regions using the [Azure Cosmos DB - MongoDB API](tutorial-global-distribution-MongoDB.md)
 * Develop with multiple regions using the [Azure Cosmos DB - Table API](tutorial-global-distribution-table.md)

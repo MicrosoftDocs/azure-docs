@@ -1,11 +1,10 @@
-﻿---
-title: Create Azure web and worker roles for PHP | Microsoft Docs
+---
+title: Create Azure web and worker roles for PHP
 description: A guide to creating PHP web and worker roles in an Azure cloud service, and configuring the PHP runtime.
 services: ''
 documentationcenter: php
-author: rmcmurray
-manager: erikre
-editor: ''
+author: msangapu
+manager: cfowler
 
 ms.assetid: 9f7ccda0-bd96-4f7b-a7af-fb279a9e975b
 ms.service: cloud-services
@@ -13,8 +12,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: robmcm
+ms.date: 04/11/2018
+ms.author: msangapu
 
 ---
 # How to create PHP web and worker roles
@@ -175,7 +174,7 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
 6. Publish your application as described in the [Publish your application](#publish-your-application) section below.
 
 ## Run your application in the compute and storage emulators
-The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](storage/storage-use-emulator.md).
+The Azure emulators provide a local environment in which you can test your Azure application before you deploy it to the cloud. There are some differences between the emulators and the Azure environment. To understand this better, see [Use the Azure storage emulator for development and testing](storage/common/storage-use-emulator.md).
 
 Note that you must have PHP installed locally to use the compute emulator. The compute emulator will use your local PHP installation to run your application.
 

@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 01/29/2018
 ms.author: elioda
 
 ---
@@ -24,6 +24,8 @@ IoT Hub provides three options for device apps to expose functionality to a back
 * [Twin's desired properties][lnk-twins] for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.
 * [Cloud-to-device messages][lnk-c2d] for one-way notifications to the device app.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Here is a detailed comparison of the various cloud-to-device communication options.
 
 |  | Direct methods | Twin's desired properties | Cloud-to-device messages |
@@ -32,9 +34,9 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 | Data flow | Two-way. The device app can respond to the method right away. The solution back end receives the outcome contextually to the request. | One-way. The device app receives a notification with the property change. | One-way. The device app receives the message
 | Durability | Disconnected devices are not contacted. The solution back end is notified that the device is not connected. | Property values are preserved in the device twin. Device will read it at next reconnection. Property values are retrievable with the [IoT Hub query language][lnk-query]. | Messages can be retained by IoT Hub for up to 48 hours. |
 | Targets | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device using **deviceId**, or multiple devices using [jobs][lnk-jobs]. | Single device by **deviceId**. |
-| Size | Up to 8KB requests and 8KB responses. | Maximum desired properties size is 8KB. | Up to 64KB messages. |
+| Size | Up to 8 KB requests and 8 KB responses. | Maximum desired properties size is 8 KB. | Up to 64 KB messages. |
 | Frequency | High. For more information, see [IoT Hub limits][lnk-quotas]. | Medium. For more information, see [IoT Hub limits][lnk-quotas]. | Low. For more information, see [IoT Hub limits][lnk-quotas]. |
-| Protocol | Currently available only when using MQTT. | Currently available only when using MQTT. | Available on all protocols. Device must poll when using HTTP. |
+| Protocol | Available using MQTT or AMQP. | Available using MQTT or AMQP. | Available on all protocols. Device must poll when using HTTPS. |
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 

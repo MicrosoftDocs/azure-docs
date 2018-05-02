@@ -1,5 +1,4 @@
 - name: Entity Linking Documentation
-  href: ../index.md
 - name: Overview
   href: Home.md
 - name: Get started
@@ -8,5 +7,11 @@
   items: 
   - name: API reference
     href: https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c
+  - name: Labs API reference
+    href: https://dev.labs.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c
   - name: Windows SDK
     href: https://github.com/Microsoft/Cognitive-EntityLinking-Windows
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

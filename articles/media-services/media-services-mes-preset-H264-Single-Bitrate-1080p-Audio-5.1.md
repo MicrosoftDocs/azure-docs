@@ -2,7 +2,7 @@
 title: H264 Single Bitrate 1080p Audio 5.1 | Microsoft Docs
 description: The topic gives an overview of the **H264 Single Bitrate 1080p Audio 5.1** task preset.
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 07/21/2017
 ms.author: juliako
 
 ---

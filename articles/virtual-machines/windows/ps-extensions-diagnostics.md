@@ -4,7 +4,7 @@ services: virtual-machines-windows
 documentationcenter: ''
 description: Learn how to use PowerShell to enable Azure Diagnostics in a virtual machine running Windows
 author: sbtron
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 2e6d88f2-1980-4a24-827e-a81616a0d247
@@ -48,7 +48,7 @@ Once the diagnostics extension is enabled on a VM, you can get the current setti
 
     Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name
 
-The cmdlet returns *PublicSettings*, which contains the XML configuration in a Base64-encoded format. To read the XML, you need to decode it.
+The cmdlet returns *PublicSettings*, which contains the diagnostics configuration. There are two kinds of configuration supported, WadCfg and xmlCfg. WadCfg is JSON configuration, and xmlCfg is XML configuration in a Base64-encoded format. To read the XML, you need to decode it.
 
     $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup -VMName $vm_name).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg

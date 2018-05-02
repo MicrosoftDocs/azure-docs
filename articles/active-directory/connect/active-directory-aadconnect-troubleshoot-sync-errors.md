@@ -3,8 +3,8 @@ title: 'Azure AD Connect: Troubleshooting Errors during synchronization | Micros
 description: Explains how to troubleshoot errors encountered during synchronization with Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: karavar
-manager: samueld
+author: billmath
+manager: mtillman
 editor: curtand
 
 ms.assetid: 2209d5ce-0a64-447b-be3a-6f06d47995f8
@@ -13,8 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/31/2017
-ms.author: vakarand
+ms.date: 07/17/2017
+ms.author: billmath
 
 ---
 # Troubleshooting Errors during synchronization

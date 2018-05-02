@@ -1,4 +1,4 @@
----
+﻿---
 title: Log Analytics Features for Service Providers | Microsoft Docs
 description: Log Analytics can help Managed Service Providers (MSPs), Large Enterprises, Independent Sofware Vendors (ISVs) and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 services: log-analytics
@@ -23,7 +23,7 @@ Log Analytics can help managed service providers (MSPs), large enterprises, inde
 Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this document uses the term *service provider* but the same functionality is also available for enterprises and other customers.
 
 ## Cloud Solution Provider
-For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available on a CSP subscription. 
+For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available in [Azure CSP subscription](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
 For Log Analytics, the following capabilities are enabled in *Cloud Solution Provider* subscriptions.
 
@@ -37,7 +37,7 @@ As a *Cloud Solution Provider* you can:
 To log in to a tenant’s subscription, you need to specify the tenant identifier. The tenant identifier is often that last part of the e-mail address used to sign in.
 
 * In the OMS portal, add `?tenant=contoso.com` in the URL for the portal. For example, `mms.microsoft.com/?tenant=contoso.com`
-* In PowerShell, use the `-Tenant contoso.com` parameter when using `Add-AzureRmAccount` cmdlet
+* In PowerShell, use the `-Tenant contoso.com` parameter when using `Connect-AzureRmAccount` cmdlet
 * The tenant identifier is automatically added when you use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace
 
 As a *customer* of a Cloud Solution Provider you can:

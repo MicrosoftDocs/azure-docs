@@ -3,8 +3,8 @@ title: Create and upload an OpenBSD VM image to Azure | Microsoft Docs
 description: Learn how to create and upload a virtual hard disk (VHD) that contains the OpenBSD operating system to create an Azure virtual machine through Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
-author: KylieLiang
-manager: timlt
+author: thomas1206
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: kyliel
+ms.author: huishao
 
 ---
 # Create and Upload an OpenBSD disk image to Azure
@@ -26,8 +26,8 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 This article assumes that you have the following items:
 
 * **An Azure subscription** - If you don't have an account, you can create one in just a couple of minutes. If you have an MSDN subscription, see [Monthly Azure credit for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Otherwise, learn how to [create a free trial account](https://azure.microsoft.com/pricing/free-trial/).  
-* **Azure CLI 2.0** - Make sure you have the latest [Azure CLI 2.0](/cli/azure/install-azure-cli) installed and logged in to your Azure account with [az login](/cli/azure/#login).
-* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system (6.1 version) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
+* **Azure CLI 2.0** - Make sure you have the latest [Azure CLI 2.0](/cli/azure/install-azure-cli) installed and logged in to your Azure account with [az login](/cli/azure/reference-index#az_login).
+* **OpenBSD operating system installed in a .vhd file** - A supported OpenBSD operating system ([6.1 version AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)) must be installed to a virtual hard disk. Multiple tools exist to create .vhd files. For example, you can use a virtualization solution such as Hyper-V to create the .vhd file and install the operating system. For instructions about how to install and use Hyper-V, see [Install Hyper-V and create a virtual machine](http://technet.microsoft.com/library/hh846766.aspx).
 
 
 ## Prepare OpenBSD image for Azure
@@ -99,13 +99,13 @@ Convert-VHD OpenBSD61.vhdx OpenBSD61.vhd -VHDType Fixed
 ```
 
 ## Create storage resources and upload
-First, create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+First, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-To upload your VHD, create a storage account with [az storage account create](/cli/azure/storage/account#create). Storage account names must be unique, so provide your own name. The following example creates a storage account named *mystorageaccount*:
+To upload your VHD, create a storage account with [az storage account create](/cli/azure/storage/account#az_storage_account_create). Storage account names must be unique, so provide your own name. The following example creates a storage account named *mystorageaccount*:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup \
@@ -114,7 +114,7 @@ az storage account create --resource-group myResourceGroup \
     --sku Premium_LRS
 ```
 
-To control access to the storage account, obtain the storage key with [az storage account key list](/cli/azure/storage/account/key#list) as follows:
+To control access to the storage account, obtain the storage key with [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) as follows:
 
 ```azurecli
 STORAGE_KEY=$(az storage account keys list \
@@ -123,7 +123,7 @@ STORAGE_KEY=$(az storage account keys list \
     --query "[?keyName=='key1']  | [0].value" -o tsv)
 ```
 
-To logically separate the VHDs you upload, create a container within the storage account with [az storage container create](/cli/azure/storage/container#create):
+To logically separate the VHDs you upload, create a container within the storage account with [az storage container create](/cli/azure/storage/container#az_storage_container_create):
 
 ```azurecli
 az storage container create \
@@ -132,7 +132,7 @@ az storage container create \
     --account-key ${STORAGE_KEY}
 ```
 
-Finally, upload your VHD with [az storage blob upload](/cli/azure/storage/blob#upload) as follows:
+Finally, upload your VHD with [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) as follows:
 
 ```azurecli
 az storage blob upload \
@@ -145,7 +145,7 @@ az storage blob upload \
 
 
 ## Create VM from your VHD
-You can create a VM with a [sample script](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) or directly with [az vm create](/cli/azure/vm#create). To specify the OpenBSD VHD you uploaded, use the `--image` parameter as follows:
+You can create a VM with a [sample script](../scripts/virtual-machines-linux-cli-sample-create-vm-vhd.md) or directly with [az vm create](/cli/azure/vm#az_vm_create). To specify the OpenBSD VHD you uploaded, use the `--image` parameter as follows:
 
 ```azurecli
 az vm create \

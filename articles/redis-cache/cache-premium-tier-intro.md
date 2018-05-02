@@ -3,8 +3,8 @@ title: Introduction to the Azure Redis Cache Premium tier | Microsoft Docs
 description: Learn how to create and manage Redis Persistence, Redis clustering, and VNET support for your Premium tier Azure Redis Cache instances
 services: redis-cache
 documentationcenter: ''
-author: steved0x
-manager: douge
+author: wesmc7777
+manager: cfowler
 editor: ''
 
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2017
-ms.author: sdanie
+ms.date: 07/05/2017
+ms.author: wesmc
 
 ---
 # Introduction to the Azure Redis Cache Premium tier
@@ -65,6 +65,11 @@ The premium tier allows you to reboot one or more nodes of your cache on-demand.
 
 For more information, see [Reboot](cache-administration.md#reboot) and [Reboot FAQ](cache-administration.md#reboot-faq).
 
+>[!NOTE]
+>Reboot functionality is now enabled for all Azure Redis Cache tiers.
+>
+>
+
 ## Schedule updates
 The scheduled updates feature allows you to designate a maintenance window for your cache. When the maintenance window is specified, any Redis server updates are made during this window. To designate a maintenance window, select the desired days and specify the maintenance window start hour for each day. Note that the maintenance window time is in UTC. 
 
@@ -74,6 +79,13 @@ For more information, see [Schedule updates](cache-administration.md#schedule-up
 > Only Redis server updates are made during the scheduled maintenance window. The maintenance window does not apply to Azure updates or updates to the VM operating system.
 > 
 > 
+
+## Geo-replication
+
+**Geo-replication** provides a mechanism for linking two Premium tier Azure Redis Cache instances. One cache is designated as the primary linked cache, and the other as the secondary linked cache. The secondary linked cache becomes read-only, and data written to the primary cache is replicated to the secondary linked cache. This functionality can be used to replicate a cache across Azure regions.
+
+For more information, see [How to configure Geo-replication for Azure Redis Cache](cache-how-to-geo-replication.md).
+
 
 ## To scale to the premium tier
 To scale to the premium tier, simply choose one of the premium tiers in the **Change pricing tier** blade. You can also scale your cache to the premium tier using PowerShell and CLI. For step-by-step instructions, see [How to Scale Azure Redis Cache](cache-how-to-scale.md) and [How to automate a scaling operation](cache-how-to-scale.md#how-to-automate-a-scaling-operation).

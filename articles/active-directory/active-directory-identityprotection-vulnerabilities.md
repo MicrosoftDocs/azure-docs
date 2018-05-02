@@ -5,7 +5,7 @@ services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
 author: MarkusVi
-manager: femila
+manager: mtillman
 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
@@ -13,8 +13,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/24/2017
+ms.date: 01/15/2018
 ms.author: markvi
+ms.reviewer: nigu
 
 ---
 # Vulnerabilities detected by Azure Active Directory Identity Protection
@@ -34,7 +35,7 @@ Azure multi-factor authentication provides a second layer of security to user au
 
 We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
 
-For more details, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+For more details, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 
 ## Unmanaged cloud apps
 This vulnerability helps you identify unmanaged cloud apps in your organization.

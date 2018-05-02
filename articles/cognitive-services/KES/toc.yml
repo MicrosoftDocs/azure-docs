@@ -1,6 +1,6 @@
 - name: Knowledge Exploration Service Documentation
-  href: ../index.md
 - name: Overview
+  expanded: true
   items: 
   - name: Learn about the Knowledge Exploration Service 
     href: Overview.md
@@ -29,3 +29,7 @@
       href: interpretMethod.md
   - name: Structured query expressions
     href: Expressions.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/

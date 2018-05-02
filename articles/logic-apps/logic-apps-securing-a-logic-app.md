@@ -39,7 +39,7 @@ All requests into a logic app are encrypted and secured via SSL.
 ### Shared Access Signature
 
 Every request endpoint for a logic app includes a 
-[Shared Access Signature (SAS)](../storage/storage-dotnet-shared-access-signature-part-1.md) 
+[Shared Access Signature (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 
 as part of the URL. Each URL contains a `sp`, `sv`, and `sig` query parameter. 
 Permissions are specified by `sp`, 
 and correspond to HTTP methods allowed, 
@@ -96,7 +96,7 @@ In addition to the Shared Access Signature, you may wish to restrict calling a l
 This setting can be configured within the logic app settings:
 
 1. In the Azure portal, open the logic app you want to add IP address restrictions
-1. Click the **Access control configuration** menu item under **Settings**
+1. Click the **Workflow Settings** menu item under **Settings**
 1. Specify the list of IP address ranges to be accepted by the trigger
 
 A valid IP range takes the format `192.168.1.1/255`. 
@@ -156,7 +156,7 @@ to be triggered from API Management.
 ## Secure access to manage or edit logic apps
 
 You can restrict access to management operations on a logic app so that only specific users or groups are able to perform operations on the resource. 
-Logic apps use the Azure [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) feature, and can be customized with the same tools.  There are a few built-in roles you can assign members of your subscription to as well:
+Logic apps use the Azure [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md) feature, and can be customized with the same tools.  There are a few built-in roles you can assign members of your subscription to as well:
 
 * **Logic App Contributor** - Provides access to view, edit, and update a logic app.  Cannot remove the resource or perform admin operations.
 * **Logic App Operator** - Can view the logic app and run history, and enable/disable.  Cannot edit or update the definition.
@@ -340,10 +340,6 @@ Learn more about [how the data gateway works](logic-apps-gateway-install.md#gate
 [Azure API Management](https://azure.microsoft.com/services/api-management/) 
 has on-premises connectivity options, including site-to-site VPN and ExpressRoute integration for secured proxy and communication to on-premises systems. 
 In the Logic App Designer, you can quickly select an API exposed from Azure API Management within a workflow, providing quick access to on-premises systems.
-
-#### Hybrid connections from Azure App Service
-
-You can use the on-premises hybrid connection feature for Azure API and Web apps to communicate on-premises.  Details on hybrid connections and how to configure can be found [in this article](../app-service-web/web-sites-hybrid-connection-get-started.md).
 
 ## Next steps
 [Create a deployment template](logic-apps-create-deploy-template.md)  

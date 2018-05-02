@@ -1,39 +1,40 @@
 ---
-title: Review moderated images in Content Moderator | Microsoft Docs
-description: After Content Moderator provides auto-moderated imaged, you can review images, adjust tags, and submit reviews.
+title: Review images in Azure Content Moderator | Microsoft Docs
+description: The review tool allows human moderators to review images.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
-
 ms.service: cognitive-services
-ms.technology: content-moderator
+ms.component: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 08/06/2017
 ms.author: sajagtap
 ---
 
-# Review moderated images #
+# Review moderated images
 
-Click the **Review** TAB to browse the auto-moderated images that are ready for review. Any labels assigned to the images are based on the default score thresholds for tagging the images. These thresholds are configurable.
+After you have signed up for Content Moderation and obtained a subscription key, you can try out the image review features.
 
-Note that the images that you see on your screen are not available to other reviewers in your team while you are reviewing them.
+1.	Open the [human review tool](https://contentmoderator.cognitive.microsoft.com/) and sign in. 
+2.	Click the Try tab, and upload some images to review.
+3.	Click the Review tab and select Image.
 
-## Zoom in/Zoom out to adjust the number of images ##
+  ![Review Images Option](images/review-images-1.png)
 
-You can move the Reviews to display slider at the top of the screen to adjust the number of images displayed on the screen. Click on the tagged or untagged links to sort the images by tagged or untagged status respectively. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
+  The images display with any labels that have been assigned by the review tool. The images are not available to other reviewers in your team while you are reviewing them.
 
-![Zoom in/Zoom out](images/4-review-2.png)
+4.	Move the “Reviews to display” slider (1) to adjust the number of images displayed on the screen. Click on the tagged or untagged buttons (2) to sort the images accordingly. Click on a tag (3) to toggle it on or off.
 
-## Click a thumbnail to view details ##
+  ![Browse Image Reviews](images/review-images-2.png)
+ 
+5.	To see more information about an image, click on the ellipsis on a thumbnail, followed by the **View details** option. To assign the image to a subteam, select the **Move to** option.
+ 
+  ![View details and Move to subteam option](images/review-images-3.png)
 
-If you have thumbnails showing on your screen, click a thumbnail to bring up the detailed view. Click the tags to toggle their selection status. You can also select any custom tags that you may have created.
+6. Browse the image moderation information on the details page.
 
-![Use Thumbnail](images/4-review-3.png)
+  ![View Image Details](images/review-images-4.png)
+ 
+7.	Once you have reviewed and updated the tag assignments as needed, click **Next** to submit your reviews.
 
-## Submit image reviews ##
-
-Once you have reviewed and updated the tag selections, click the **Next** button to submit your reviews.
-
-![Submit Image Reviews](images/5-submit-1.png)
-
-After you submit, you have about 5 seconds to use the Previous button to go back to your previous screen if you wanted to review them again. After that, the images will be out of the Submit queue and the **Previous** button will disappear from the screen.
+After you submit, you have about five seconds to click the **Prev** button to return to the previous screen and review images again. After that, the images are no longer in the Submit queue and the **Prev** button is no longer available.

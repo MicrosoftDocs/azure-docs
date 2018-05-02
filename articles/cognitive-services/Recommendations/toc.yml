@@ -1,11 +1,2 @@
-- name: Recommendations Documentation
-  href: ../index.md 
-- name: Overview
-  items: 
-  - name: Learn about Recommendations
-    href: overview.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db
-    
+- name: Recommendations API preview (discontinued)
+  href: overview.md

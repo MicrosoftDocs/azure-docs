@@ -1,10 +1,10 @@
----
+﻿---
 title: Redact faces with Azure Media Analytics walkthrough | Microsoft Docs
 description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
 documentationcenter: ''
 author: Lichard
-manager: erikre
+manager: cfowler
 editor: ''
 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/03/2017
+ms.date: 09/03/2017
 ms.author: rli; juliako;
 
 ---
@@ -27,9 +27,7 @@ For details about  **Azure Media Redactor**, see the [Face redaction overview](m
 
 This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 
-The **Azure Media Redactor** MP is currently in Preview. It is available in all public Azure regions as well as US Government and China data centers. This preview is currently free of charge. In the current release, there is a 10 minute limit on processed video length.
-
-For more information, see [this](https://azure.microsoft.com/en-us/blog/redaction-preview-available-globally) blog.
+For more information, see [this](https://azure.microsoft.com/blog/redaction-preview-available-globally) blog.
 
 ## Azure Media Services Explorer workflow
 
@@ -58,7 +56,7 @@ The output will include an annotations json file with face location data, as wel
 
 ![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-###Second pass – redact mode
+### Second pass – redact mode
 
 1. Upload your original video asset to the output from the first pass and set as a primary asset. 
 
@@ -77,7 +75,7 @@ The output will include an annotations json file with face location data, as wel
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-##Azure Media Redactor Visualizer open source tool
+## Azure Media Redactor Visualizer open source tool
 
 An open source [visualizer tool](https://github.com/Microsoft/azure-media-redactor-visualizer) is designed to help developers just starting with the annotations format with parsing and using the output.
 

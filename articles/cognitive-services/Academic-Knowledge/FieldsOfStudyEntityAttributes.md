@@ -4,9 +4,8 @@ description: Learn the attributes you can use with the Field of Study entity in 
 services: cognitive-services
 author: alch-msft
 manager: kuansanw
-
 ms.service: cognitive-services
-ms.technology: academic-knowledge
+ms.component: academic-knowledge
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: alch
@@ -28,3 +27,5 @@ ECC		|Field of total estimated citation count|Int32		|none
 FL		|Level in fields of study hierarchy 	|Int32		|Equals, <br/>IsBetween
 FP.FN	|Parent field of study name 			|String		|Equals
 FP.FId 	|Parent field of study ID 				|Int64 		|Equals
+FC.FN	|Child field of study name 		    	|String		|Equals
+FC.FId 	|Child field of study ID 				|Int64 		|Equals

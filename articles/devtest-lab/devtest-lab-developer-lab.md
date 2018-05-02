@@ -3,7 +3,7 @@ title: Use Azure DevTest Labs for developers | Microsoft Docs
 description: Learn how to use Azure DevTest Labs for developer scenarios.
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: tarcher
+ms.author: v-craic
 
 ---
 # Use Azure DevTest Labs for developers
@@ -94,7 +94,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | Task | What you learn |
    | --- | --- |
    | [Define lab policies](devtest-lab-set-lab-policy.md) |Control costs by setting policies in the lab. |
-   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when development is complete.|
+   | [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |Delete all the labs in one operation when development is complete.|
 
 1. **Add a virtual network to a VM** 
    
@@ -128,7 +128,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
+   | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

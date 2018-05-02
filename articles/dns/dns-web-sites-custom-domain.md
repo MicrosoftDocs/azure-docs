@@ -3,8 +3,8 @@ title: Create custom DNS records for a web app | Microsoft Docs
 description: How to create custom domain DNS records for web app using Azure DNS.
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 
 ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: gwallace
+ms.author: kumud
 ---
 
 # Create DNS records for a web app in a custom domain
@@ -52,7 +52,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 Add the IPv4 value to the previously created record set "@" using the $rs variable assigned. The IPv4 value assigned will be the IP address for your web app.
 
-To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service-web/app-service-web-tutorial-custom-domain.md).
+To find the IP address for a web app, follow the steps in [Configure a custom domain name in Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
 
 ```powershell
 Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
@@ -197,4 +197,4 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## Next steps
 
-Follow the steps in [Configuring a custom domain name for App Service](../app-service-web/web-sites-custom-domain-name.md) to configure your web app to use a custom domain.
+Follow the steps in [Configuring a custom domain name for App Service](../app-service/app-service-web-tutorial-custom-domain.md) to configure your web app to use a custom domain.

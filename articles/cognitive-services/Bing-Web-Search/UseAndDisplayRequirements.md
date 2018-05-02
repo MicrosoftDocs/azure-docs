@@ -4,9 +4,8 @@ description: Use data from the Bing Web Search APIs to improve results from sear
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
-
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: scottwhi

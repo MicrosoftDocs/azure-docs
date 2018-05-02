@@ -167,16 +167,16 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 
 <!-- links -->
 
-[audit-logs]: https://azure.microsoft.com/en-us/blog/analyze-azure-audit-logs-in-powerbi-more/
+[audit-logs]: https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/
 [availability-set]:../articles/virtual-machines/windows/create-availability-set.md
 [azure-cli]: /cli/azure/get-started-with-az-cli2
 [azure-linux]:../articles/virtual-machines/linux/overview.md
-[azure-storage]: ../articles/storage/storage-introduction.md
-[blob-snapshot]: ../articles/storage/storage-blob-snapshots.md
-[blob-storage]: ../articles/storage/storage-introduction.md
-[boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
+[azure-storage]:../articles/storage/common/storage-introduction.md
+[blob-snapshot]:../articles/storage/blobs/storage-blob-snapshots.md
+[blob-storage]:../articles/storage/common/storage-introduction.md
+[boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
-[data-disk]: ../articles/storage/storage-about-disks-and-vhds-linux.md
+[data-disk]:../articles/virtual-machines/linux/about-disks-and-vhds.md
 [disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/monitoring-and-diagnostics/insights-how-to-use-diagnostics.md
 [fqdn]:../articles/virtual-machines/linux/portal-create-fqdn.md
@@ -189,18 +189,18 @@ For higher availability, deploy two or more VMs behind a load balancer. For more
 [nsg-default-rules]: ../articles/virtual-network/virtual-networks-nsg.md#default-rules
 [OSPatching]: https://github.com/Azure/azure-linux-extensions/tree/master/OSPatching
 [planned-maintenance]:../articles/virtual-machines/linux/planned-maintenance.md
-[premium-storage]: ../articles/storage/storage-premium-storage.md
-[rbac]: ../articles/active-directory/role-based-access-control-what-is.md
-[rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
-[rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
-[rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
-[reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
-[Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx
-[Resize virtual machines]: https://azure.microsoft.com/en-us/blog/resize-virtual-machines/
+[premium-storage]:../articles/virtual-machines/windows/premium-storage.md
+[rbac]: ../articles/role-based-access-control/overview.md
+[rbac-roles]:../articles/role-based-access-control/built-in-roles.md
+[rbac-devtest]:../articles/role-based-access-control/built-in-roles.md#devtest-labs-user
+[rbac-network]:../articles/role-based-access-control/built-in-roles.md#network-contributor
+[reboot-logs]: https://azure.microsoft.com/blog/viewing-vm-reboot-logs/
+[Resize-VHD]: https://technet.microsoft.com/library/hh848535.aspx
+[Resize virtual machines]: https://azure.microsoft.com/blog/resize-virtual-machines/
 [resource-lock]: ../articles/resource-group-lock-resources.md
 [resource-manager-overview]: ../articles/azure-resource-manager/resource-group-overview.md
 [select-vm-image]:../articles/virtual-machines/linux/cli-ps-findimage.md
-[services-by-region]: https://azure.microsoft.com/en-us/regions/#services
+[services-by-region]: https://azure.microsoft.com/regions/#services
 [ssh-linux]:../articles/virtual-machines/linux/mac-create-ssh-keys.md
 [static-ip]: ../articles/virtual-network/virtual-networks-reserved-public-ip.md
 [storage-account-limits]: ../articles/azure-subscription-service-limits.md#storage-limits
