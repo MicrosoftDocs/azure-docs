@@ -11,12 +11,11 @@ ms.date: 02/07/2017
 ms.author: panosper
 ---
 
-# Custom Speech Service
+# What is Custom Speech Service?
 
-Welcome to Microsoft's Custom Speech Service. Custom Speech Service is a cloud-based service that provides users with the ability to customize speech models for Speech-to-Text transcription.
-To use the Custom Speech Service refer to the [Custom Speech Service Portal](https://cris.ai)
+Custom Speech Service is a cloud-based service that provides users with the ability to customize speech models for Speech-to-Text transcription.
+To use the Custom Speech Service refer to the [Custom Speech Service Portal](https://cris.ai).
 
-## What is the Custom Speech Service
 The Custom Speech Service enables you to create customized language models and acoustic models tailored to your application and your users. By uploading your specific speech and/or text data to the Custom Speech Service, you can create custom models that can be used in conjunction with Microsoft’s existing state-of-the-art speech models.
 
 For example, if you’re adding voice interaction to a mobile phone, tablet or PC app, you can create a custom language model that can be combined with Microsoft’s acoustic model to create a speech-to-text endpoint designed especially for your app. If your application is designed for use in a particular environment or by a particular user population, you can also create and deploy a custom acoustic model with this service.
