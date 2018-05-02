@@ -1,5 +1,5 @@
 ---
-title: Project Answer Search Java quick start | Microsoft Docs
+title: Project Answer Search Java quick start - Microsoft Cognitive Services | Microsoft Docs
 description: Start using Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro

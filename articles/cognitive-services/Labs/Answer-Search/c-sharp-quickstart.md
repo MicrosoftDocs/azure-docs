@@ -1,5 +1,5 @@
 ---
-title: C# quickstart for Azure Cognitive Services, Project Answer Search | Microsoft Docs
+title: C# quickstart for Microsoft Cognitive Services, Project Answer Search | Microsoft Docs
 description: Code sample to get started using the Project Answer Search, Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro

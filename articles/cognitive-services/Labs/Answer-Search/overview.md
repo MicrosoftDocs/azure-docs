@@ -1,5 +1,5 @@
 ﻿---
-title: Project Answer Search overview | Microsoft Docs
+title: Project Answer Search overview - Microsoft Cognitive Services | Microsoft Docs
 description: Introduction to the Project Answer Search.
 services: cognitive-services
 author: mikedodaro

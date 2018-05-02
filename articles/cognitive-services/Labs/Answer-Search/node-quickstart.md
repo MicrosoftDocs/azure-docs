@@ -1,5 +1,5 @@
 ---
-title: Node quickstart for Azure Cognitive Services, Project Answer Search | Microsoft Docs
+title: Node quickstart for Microsoft Cognitive Services, Project Answer Search | Microsoft Docs
 description: Get started using Project Answer Search, Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro

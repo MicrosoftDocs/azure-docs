@@ -1,5 +1,5 @@
 ---
-title: Project Answer Search reference | Microsoft Docs
+title: Project Answer Search reference - Microsoft Cognitive Services | Microsoft Docs
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro

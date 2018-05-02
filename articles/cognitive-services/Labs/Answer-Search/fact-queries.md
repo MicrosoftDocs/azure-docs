@@ -1,5 +1,5 @@
 ---
-title: Project Answer Search fact query | Microsoft Docs
+title: Project Answer Search fact query - Microsoft Cognitive Services | Microsoft Docs
 description: Queries for facts using Project Answer Search
 services: cognitive-services
 author: mikedodaro

@@ -1,5 +1,5 @@
 ---
-title: Project Answer Search Entity query | Microsoft Docs
+title: Project Answer Search Entity query - Microsoft Cognitive Services | Microsoft Docs
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro

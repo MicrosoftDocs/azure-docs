@@ -1,5 +1,5 @@
 ---
-title: Python quickstart for Azure Cognitive Services, Project Answer Search | Microsoft Docs
+title: Python quickstart for Microsoft Cognitive Services, Project Answer Search | Microsoft Docs
 description: Python example get started using Project Answer Search, Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: mikedodaro
