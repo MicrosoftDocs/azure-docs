@@ -20,20 +20,20 @@ ms.custom:
 # Azure IoT technologies and solutions: PaaS and SaaS
 
 Microsoft has built a portfolio that supports the needs of all customers, enabling everyone to access the benefits of digital transformation. The Azure IoT product portfolio is an overview of the available PaaS/SaaS technologies and solutions. It presents the two paths that are available for building your own solution:
-- Platform as a Service (PaaS): build your application using [Azure IoT Suite](https://www.azureiotsuite.com/), a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
+- Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsuite.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Solutions
 
-Get started quickly with Azure IoT Suite and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
+Get started quickly with solution accelerators and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
 
-### Azure IoT Suite (PaaS)
+### Azure IoT solution accelerators (PaaS)
 
-Azure IoT Suite is an enterprise-grade collection of customizable PaaS solutions that provide a high level of control over your IoT solution. If your business is implementing IoT for connected operations or has specific customization requirements for connected products, Azure IoT Suite provides the control you need. 
+Azure IoT solution accelerators are customizable PaaS solutions that provide a high level of control over your IoT solution. If your business is implementing IoT for connected operations or has specific customization requirements for connected products, Azure IoT solution accelerators provide the control you need. 
 
-Organizations with a large number of devices or device models, and manufacturers seeking connected factory solutions, are examples of companies that can benefit from Azure IoT Suite. Creating highly customizable solutions tailored to complex needs, IoT Suite provides:
+Organizations with a large number of devices or device models, and manufacturers seeking connected factory solutions, are examples of companies that can benefit from IoT solution accelerators. Creating highly customizable solutions tailored to complex needs, IoT solution accelerators provide: 
 
 - Preconfigured solutions
     - Remote monitoring
@@ -55,20 +55,20 @@ Organizations with fewer device models, more predictable scenarios, and limited 
 - Configurable to your needs
 - Ideal for straightforward IoT needs
 
-### Compare Azure IoT Suite and Azure IoT Central
+### Compare Azure IoT solution accelerators and Azure IoT Central
 
-To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), Azure IoT offers several options, [Azure IoT Suite](/azure/iot-suite) and [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), each appropriate for different sets of customer requirements.
+To implement a typical [IoT solution architecture](/azure/iot-fundamentals/iot-introduction#iot-solution-architecture), Azure IoT offers several options, [Azure IoT solution accelerators](/azure/iot-suite) and [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), each appropriate for different sets of customer requirements.
 
-[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is the core Azure PaaS that both Azure IoT Central and Azure IoT Suite use. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
+[Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) is the core Azure PaaS that both Azure IoT Central and Azure IoT solution accelerators use. IoT Hub enables reliable and securely bidirectional communications between millions of IoT devices and a cloud solution. IoT Hub helps you meet IoT implementation challenges such as:
 
 * High-volume device connectivity and management.
 * High-volume telemetry ingestion.
 * Command and control of devices.
 * Device security enforcement.
 
-Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT Suite or Azure IoT Central to use it. Both Azure IoT Suite and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between Azure IoT Suite and Azure IoT Central to help you choose the correct one for your requirements:
+Choosing your Azure IoT product is a critical part of planning your IoT solution. IoT Hub is an individual Azure service that doesn't, by itself, provide an end-to-end IoT solution. IoT Hub can be used as a starting point for any IoT solution, and you don’t need to use Azure IoT solution accelerators or Azure IoT Central to use it. Both Azure IoT solution accelerators and Azure IoT Central use IoT Hub along with other Azure services. The following table summarizes the key differences between Azure IoT solution accelerators and Azure IoT Central to help you choose the correct one for your requirements:
 
-|                        | Azure IoT Suite | Azure IoT Central |
+|                        | Azure IoT solution accelerators | Azure IoT Central |
 | ---------------------- | --------- | ----------- |
 | Primary usage | To accelerate development of a custom IoT solution that needs maximum flexibility. | To accelerate time to market for straightforward IoT solutions that don’t require deep service customization. |
 | Access to underlying PaaS services          | You have access to the underlying Azure services to manage them, or replace them as needed. | SaaS. Fully managed solution, the underlying services aren't exposed. |
