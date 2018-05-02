@@ -39,7 +39,7 @@ The following steps show an example of how to create the X.509 root certificates
     $errorActionPreference    = "stop"
 
     # Note that these values are for test purpose only
-    $_rootCertCommonName      = "Azure IoT CA TestOnly Root CA"
+    $_rootCertCommonName      = "Azure IoT Root CA"
     $_rootCertSubject         = "CN=$_rootCertCommonName"
     $_intermediateCertSubject = "Azure IoT Intermediate {0} CA"
     $_privateKeyPassword      = "123"
