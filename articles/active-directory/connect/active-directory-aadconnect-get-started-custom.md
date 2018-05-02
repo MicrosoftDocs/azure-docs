@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/27/2018
+ms.date: 05/02/2018
 ms.author: billmath
 
 ---
@@ -41,13 +41,14 @@ When you install the synchronization services, you can leave the optional config
 ### User sign-in
 After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
-![User Sign in](./media/active-directory-aadconnect-get-started-custom/usersignin2.png)
+![User Sign in](./media/active-directory-aadconnect-get-started-custom/usersignin3.png)
 
 | Single Sign On option | Description |
 | --- | --- |
 | Password Hash Sync |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network. The users passwords are synchronized to Azure AD as a password hash and authentication occurs in the cloud. See [Password hash synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) for more information. |
 |Pass-through Authentication|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users password is passed through to the on-premises Active Directory domain controller to be validated.
 | Federation with AD FS |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises AD FS instance to sign in and authentication occurs on-premises. |
+| Federation with PingFederate|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises PingFederate instance to sign in and authentication occurs on-premises. |
 | Do not configure |No user sign-in feature is installed and configured. Choose this option if you already have a 3rd party federation server or another existing solution in place. |
 |Enable Single Sign on|This options is available with both password sync and Pass-through authentication and provides a single sign on experience for desktop users on the corporate network. See [Single sign-on](active-directory-aadconnect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>
 
@@ -298,6 +299,33 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 >
 >
 
+## Configuring federation with PingFederate
+Configuring PingFederate with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
+
+### Verify the domain
+After selecting Federation with PingFederate, and proceeding through the other options, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
+
+![Verify Domain](./media/active-directory-aadconnect-get-started-custom/ping1.png)
+
+### Export the PingFederate settings
+Next, you will need to export the PingFederate settings and share them with your PingFederate administrator.  Click the **Export Settings** button.
+This generates the text file that they will need to provide to their PingFederate administrator. The PingFederate administrator can then provide you with the PingFederate Server URL.
+
+Enter the PingFederate Server URL in the box provided.
+
+Check the **My PingFederate administrator has enabled federation for the &lt;my domain&gt; domain.** and click on **Next**.
+
+![Verify Domain](./media/active-directory-aadconnect-get-started-custom/ping2.png)
+
+### Verify federation connectivity
+Next you will be asked to verify connectivity and that you have provided the correct DNS information so that the PingFederate server can be reached.
+
+![Verify Connectivity](./media/active-directory-aadconnect-get-started-custom/ping3.png)
+
+### Verify federation login
+Finally, you can verify the newly configured federated login flow by signing in to the federated domain. When this succeeds, the federation with PingFederate is successfully configured.
+![Verify login](./media/active-directory-aadconnect-get-started-custom/ping4.png)
+
 ## Configure and verify pages
 The configuration happens on this page.
 
@@ -305,6 +333,7 @@ The configuration happens on this page.
 > Before you continue installation and if you configured federation, make sure that you have configured [Name resolution for federation servers](active-directory-aadconnect-prerequisites.md#name-resolution-for-federation-servers).
 >
 >
+
 
 ![Ready to configure](./media/active-directory-aadconnect-get-started-custom/readytoconfigure2.png)
 
