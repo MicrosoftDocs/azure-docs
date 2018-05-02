@@ -79,13 +79,18 @@ To configure your directory to access the Azure AD reporting API, you must sign 
 
 ## Grant permissions 
 
-The objective of this step is to grant your application the following permissions:
+Depending on API you want to access, you need to grant your app the following permissions:  
 
-- **Read directory data** to the **Windows Azure Active Directory** API.
+| API | Permission |
+| --- | --- |
+| Windows Azure Active Directory | Read directory data |
+| Microsoft Graph | Read all audit log data |
 
-- **Read all audit log data** to the **Microsoft Graph** API.
 
 ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/35.png)
+
+
+The following section lists the steps for both APIs. If you don't want to access one of the APIs, you can skip the related steps.
  
 
 **To grant your application permissions to use the API:**
