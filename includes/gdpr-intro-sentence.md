@@ -12,4 +12,4 @@ ms.service: azure-policy
 ---
 
 >[!Note] 
-> This article provides steps for how to delete personal data from the device and can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+> This article provides steps for how to delete personal data from the device and can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
