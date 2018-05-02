@@ -194,7 +194,7 @@
     - name: Tag a VM
       href: tag.md
     - name: Run scripts on a VM
-      href: extensions-customscript.md
+      href: run-scripts-in-vm.md
       items:
         - name: Custom Script Extension
           href: extensions-customscript.md
