@@ -38,7 +38,7 @@ When using Write Accelerator for an Azure disk/VHD, these restrictions apply:
 
 - The Premium disk caching needs to be set to 'None' or 'Read Only'. All other caching modes are not supported.
 - Snapshot on the Write Accelerator enabled disk is not supported yet. This restriction blocks Azure Backup Service ability to perform an application consistent snapshot of all disks of the virtual machine.
-- Only smaller I/O sizes (<32KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
+- Only smaller I/O sizes (<=32KiB) are taking the accelerated path. In workload situations where data is getting bulk loaded or where the transaction log buffers of the different DBMS are filled to a larger degree before getting persisted to the storage, chances are that the I/O written to disk is not taking the accelerated path.
 
 There are limits of Azure Premium Storage VHDs per VM that can be supported by Write Accelerator. The current limits are:
 
