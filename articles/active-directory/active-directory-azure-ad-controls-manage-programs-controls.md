@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/02/2018
 ms.author: billmath
 ---
 
@@ -30,5 +30,5 @@ If you no longer need a program and it doesn't have any controls linked to it, y
 
 ## Next steps
 
-[Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
-
+- [Create an access review for members of a group or access to an application](active-directory-azure-ad-controls-create-access-review.md)
+- [Retrieve the results of an access review](active-directory-azure-ad-controls-retrieve-access-review.md)
