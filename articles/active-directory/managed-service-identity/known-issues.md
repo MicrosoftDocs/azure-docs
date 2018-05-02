@@ -117,6 +117,7 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 ## Known issues with User Assigned Identities
 
+- User Assigned Identity assignments are only avaialble for VM and VMSS. IMPORTANT: User Assigned Identity assignments will change in the upcoming months.
 - Duplicate User Assigned Identities on the same VM/VMSS, will cause the VM/VMSS to fail. This includes identities that are added with different casing. e.g. MyUserAssignedIdentity and myuserassignedidentity. 
 - Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
 - Adding a 'non-existent' user assigned identity will cause the VM to fail. 
