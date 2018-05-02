@@ -70,8 +70,6 @@ General-purpose v1 (GPv1) storage accounts are the oldest type of storage accoun
 
 Blob storage accounts support all the same block blob features as GPv2, but are limited to supporting only block blobs. Pricing is broadly similar to pricing for general-purpose v2 accounts. Customers should review the pricing differences between Blob storage accounts and GPv2, and consider upgrading to GPv2. This upgrade cannot be undone.
 
-The ability to upgrade Blob storage Accounts to GPv2 is coming soon.
-
 > [!NOTE]
 > Blob storage accounts support only block and append blobs, and not page blobs.
 
