@@ -3,8 +3,8 @@ title: Troubleshoot Azure Load Balancer | Microsoft Docs
 description: Troubleshoot known issues with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
-author: RamanDhillon
-manager: timlt
+author: chadmath
+manager: cshepard
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
+ms.author: genli
 ---
 
 # Troubleshoot Azure Load Balancer
