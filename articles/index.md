@@ -2341,8 +2341,10 @@ featureFlags:
                                 </a>
                             </li>
                         </ul>
-                        <h3>Mobile</h3>
-                        <ul>
+                    </li>
+                    <li>
+                        <a href="#mobile">Mobile</a>
+                        <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
                                     <div class="cardSize">
