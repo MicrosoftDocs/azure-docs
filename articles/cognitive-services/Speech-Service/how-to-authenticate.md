@@ -1,6 +1,7 @@
 ---
 title: Authenticate to the Speech service | Microsoft Docs
 description: Obtain authorization to use the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

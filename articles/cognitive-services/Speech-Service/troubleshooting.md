@@ -1,6 +1,7 @@
 ---
 title: Cognitive Services Speech SDK Trouble Shooting | Microsoft Docs
 description: Trouble Shooting Cognitive Services Speech SDK
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
 manager: onano

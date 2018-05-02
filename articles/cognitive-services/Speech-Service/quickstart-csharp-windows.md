@@ -1,6 +1,7 @@
 ---
 title: Speech SDK Quickstart for C# and Windows | Microsoft Docs
 description: Quickly get started with the Speech SDK with Windows and C#.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
 manager: onano

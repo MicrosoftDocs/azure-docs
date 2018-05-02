@@ -1,6 +1,7 @@
 ---
 title: Customizing Speech to Text models | Microsoft Docs
 description: Improve speech recognition by customizing Speech to Text models.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -51,7 +52,7 @@ Each type of model requires slightly different data and formatting, as described
 | Language | A text file containing one utterance per line. |
 | Pronunciation | A text file containing a pronunciation hint on each line. Each hint is a display form (a word or abbreviation), followed by a tab (ASCII 9) and the spoken form (the desired pronunciation).  |
 
-Text files should follow the [text transcription guidelines)[prepare-transcription.md] for the model's language.
+Text files should follow the [text transcription guidelines](prepare-transcription.md)for the model's language.
 
 ## Preparing audio files
 
@@ -128,7 +129,7 @@ When your endpoint is ready, click it in the Deployments table to see its URI an
 Start your free trial of the Speech service.
 
 > [!div class="nextstepaction"]
-> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+> [Get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 
 > [!div class="nextstepaction"]
 > [See how to recognize speech in C#](quickstart-csharp-windows.md)

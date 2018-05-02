@@ -1,6 +1,7 @@
 ---
 title: Speech service REST APIs | Microsoft Docs
 description: Reference for REST APIs for the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

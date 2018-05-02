@@ -1,6 +1,7 @@
 ---
 title: Creating a custom wake word | Microsoft Docs
 description: Creating a custom wake word for the Speech Devices SDK.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

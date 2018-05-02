@@ -1,6 +1,7 @@
 ---
 title: Cognitive Services Speech SDK License | Microsoft Docs
 description: License page for the Cognitive Services Speech SDK
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -11,9 +12,7 @@ ms.component: speech-service
 ms.date: 05/01/2018
 ms.author: wolfma
 ---
-# Microsoft Software License Terms
-
-# Microsoft Cognitive Services Speech SDK Preview
+# Microsoft Software License Terms<br>Microsoft Cognitive Services Speech SDK Preview
 
 IF YOU LIVE IN (OR ARE A BUSINESS WITH YOUR PRINCIPAL PLACE OF BUSINESS IN) THE UNITED STATES, PLEASE READ THE “BINDING ARBITRATION AND CLASS ACTION WAIVER” SECTION BELOW. IT AFFECTS HOW DISPUTES ARE RESOLVED.
 

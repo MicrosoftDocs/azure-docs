@@ -1,6 +1,7 @@
 ---
 title: Migrating to the unified Speech service | Microsoft Docs
 description: Migrate from separate speech services to the unified Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

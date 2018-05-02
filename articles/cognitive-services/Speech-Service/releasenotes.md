@@ -1,6 +1,7 @@
 ---
 title: Cognitive Services Speech SDK Documentation | Microsoft Docs
 description: Release notes - what has changed in the most recent releases
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
 manager: onano

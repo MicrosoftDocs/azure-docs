@@ -1,6 +1,7 @@
 ---
 title: Translate speech | Microsoft Docs
 description: Use Speech Translation in the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

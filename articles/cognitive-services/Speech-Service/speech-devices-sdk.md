@@ -1,6 +1,7 @@
 ---
 title: About the Speech Devices SDK | Microsoft Docs
 description: An introduction to the Speech Devices SDK.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

@@ -1,5 +1,6 @@
 ---
 title: Cognitive Services Speech SDK Third Party Notice
+titleSuffix: "Microsoft Cognitive Services"
 description: Information about third party tools
 services: cognitive-services
 author: wolfma61

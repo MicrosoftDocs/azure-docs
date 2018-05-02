@@ -1,6 +1,7 @@
 ---
 title: Get Started with the Speech service | Microsoft Docs
 description: How to get started with the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

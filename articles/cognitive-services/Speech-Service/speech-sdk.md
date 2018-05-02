@@ -1,6 +1,7 @@
 ---
 title: About the Speech SDK | Microsoft Docs
 description: An overview of the SDKs available for the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

@@ -1,6 +1,7 @@
 ---
 title: Speech service sample code | Microsoft Docs
 description: Code samples for using the Microsoft Speech service
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

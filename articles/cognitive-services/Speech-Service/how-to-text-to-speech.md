@@ -1,6 +1,7 @@
 ---
 title: Use Text to Speech | Microsoft Docs
 description: Use Text to Speech in the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -21,9 +22,9 @@ The regional Speech to Text endpoints are shown here. Use the one appropriate to
 
 Region|	Endpoint
 -|-
-West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
-East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
-North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
+West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
+East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
+North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
 > If you have created a custom voice font, use the endpoint you created for it instead of the ones above.
@@ -49,7 +50,7 @@ A Speech to Text HTTP request is made in POST mode with the text to be spoken in
 
 Header|Values|Comments
 -|-|-
-|`Content-Type` | application/ssml+xml | The input text format.
+|`Content-Type` | `application/ssml+xml` | The input text format.
 |`X-Microsoft-OutputFormat`|	 `raw-16khz-16bit-mono-pcm` | The output audio format.
 || `audio-16khz-16kbps-mono-siren`
 || `riff-16khz-16kbps-mono-siren`

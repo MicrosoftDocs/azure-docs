@@ -1,6 +1,7 @@
 ---
 title: About Text to Speech | Microsoft Docs
 description: An overview of the capabilities of Text to Speech.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
@@ -27,6 +28,18 @@ Scenarios in which speech synthesis is being adopted include:
 
 * *Delivering intuitive bots or assistants:* The ability to talk can be an integral part of an intelligent chat bot or a virtual assistant. More and more companies are developing chat bots to provide engaging customer service experiences for their customers. Voice adds another dimension by allows the bot's responses to be received aurally (for example, by phone).
 
+## Voice support
+
 The Microsoft Text-to-Speech (TTS) service offers more than 75 voices in more than 45 languages and locales. To use these standard "voice fonts," you just specify the voice name with a few other parameters when you call the service's REST API. For the details of the voices supported, see [Supported Languages](supported-languages.md). 
 
 If you want a unique voice for your application, you can create [custom voice fonts](how-to-customize-voice-font.md) from your own speech samples.
+
+## Next steps
+
+Start your free trial of the Speech service.
+
+> [!div class="nextstepaction"]
+> [Get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+
+> [!div class="nextstepaction"]
+> [See how to recognize speech in C#](quickstart-csharp-windows.md)

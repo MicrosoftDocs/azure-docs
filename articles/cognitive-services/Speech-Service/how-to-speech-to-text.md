@@ -1,6 +1,7 @@
 ---
 title: Use Speech to Text | Microsoft Docs
 description: Use Speech to Text in the Speech service.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite

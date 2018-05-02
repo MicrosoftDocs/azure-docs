@@ -1,6 +1,7 @@
 ---
 title: Creating voice fonts for Text to Speech | Microsoft Docs
 description: Create custom Text to Speech voice fonts.
+titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
 manager: noellelacharite
