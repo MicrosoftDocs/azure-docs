@@ -31,6 +31,8 @@ With Azure Active Directory (Azure AD) self-service password reset (SSPR), users
    * Answer their security questions.
 * **Self-service account unlock**: The user is unable to sign in with their password and has been locked out. The user wants to unlock their account without administrator intervention by using their authentication methods.
 
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
+
 ## Why choose Azure AD SSPR
 
 Azure AD SSPR helps you to:
