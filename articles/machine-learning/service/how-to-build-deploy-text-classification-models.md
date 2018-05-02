@@ -783,44 +783,44 @@ You only need to set your deployment environment once. If you don't have one yet
 
 1. Make sure your Azure Machine Learning environment, model management account, and resource group are located in the same region.
 
-2. Download the deployment configuration file from Blob storage and save it locally:
+1. Download the deployment configuration file from Blob storage and save it locally:
 
-```python
-# Download the deployment config file from Blob storage `url` and save it locally under `file_name`:
-deployment_config_file_url = 'https://aztatksa.blob.core.windows.net/dailyrelease/tatk_deploy_config.yaml'
-deployment_config_file_path=os.path.join(resources_dir, 'tatk_deploy_config.yaml')
-import urllib.request
-urllib.request.urlretrieve(deployment_config_file_url, deployment_config_file_path)
-```
+   ```python
+   # Download the deployment config file from Blob storage `url` and save it locally under `file_name`:
+   deployment_config_file_url = 'https://aztatksa.blob.core.windows.net/dailyrelease/tatk_deploy_config.yaml'
+   deployment_config_file_path=os.path.join(resources_dir, 'tatk_deploy_config.yaml')
+   import urllib.request
+   urllib.request.urlretrieve(deployment_config_file_url, deployment_config_file_path)
+   ```
 
-3. Update the deployment configuration file you downloaded to reflect your resources:
+1. Update the deployment configuration file you downloaded to reflect your resources:
 
-```python
-web_service_name = 'please type your web service name'
-working_directory= os.path.join(resources_dir, 'deployment') 
+   ```python
+   web_service_name = 'please type your web service name'
+   working_directory= os.path.join(resources_dir, 'deployment') 
 
-web_service = text_classifier.deploy(web_service_name= web_service_name, 
-                       config_file_path=deployment_config_file_path,
-                       working_directory= working_directory)  
-```
+   web_service = text_classifier.deploy(web_service_name= web_service_name, 
+                          config_file_path=deployment_config_file_path,
+                          working_directory= working_directory)  
+   ```
 
-4. Given that the trained model is deployed successfully, invoke the scoring web service on new dataset:
+1. Given that the trained model is deployed successfully, invoke the scoring web service on new dataset:
 
-```python
-print("Service URL: {}".format(web_service._service_url))
-print("Service Key: {}".format(web_service._api_key))
-```
+   ```python
+   print("Service URL: {}".format(web_service._service_url))
+   print("Service Key: {}".format(web_service._api_key))
+   ```
 
-5. Load the web service at any time using its name:
+1. Load the web service at any time using its name:
 
-```python
-from tatk.operationalization.csi.csi_web_service import CsiWebService
-url = "<please type the service URL here>"
-key = "<please type the service Key here>"
-web_service = CsiWebService(url, key)
-```
+   ```python
+   from tatk.operationalization.csi.csi_web_service import CsiWebService
+   url = "<please type the service URL here>"
+   key = "<please type the service Key here>"
+   web_service = CsiWebService(url, key)
+   ```
 
-6. Test the web service with the body of two emails taken from the 20 newsgrpoups dataset:
+1. Test the web service with the body of two emails taken from the 20 newsgrpoups dataset:
 
 ```python
 # Example input data for scoring
