@@ -117,29 +117,29 @@
           - name: Linux
             items: 
               - name: High-performance Premium Storage for VM Disks
-                href: ../../virtual-machines/linux/premium-storage
+                href: ../../virtual-machines/linux/premium-storage.md
               - name: Migrating to Premium Storage using Azure Site Recovery
-                href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery
+                href: ../../virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery.md
               - name: Design for high performance
-                href: ../../virtual-machines/linux/premium-storage-performance
+                href: ../../virtual-machines/linux/premium-storage-performance.md
           - name: Windows
             items: 
               - name: High-performance Premium Storage for VM Disks
-                href: ../../virtual-machines/windows/premium-storage
+                href: ../../virtual-machines/windows/premium-storage.md
               - name: Migrating to Premium Storage using Azure Site Recovery
-                href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery
+                href: ../../virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery.md
               - name: Design for high performance
-                href: ../../virtual-machines/windows/premium-storage-performance
+                href: ../../virtual-machines/windows/premium-storage-performance.md
       - name: Standard Storage 
         items:
           - name: Linux
             items: 
               - name: Standard Storage for VM Disks
-                href: ../../virtual-machines/linux/standard-storage
+                href: ../../virtual-machines/linux/standard-storage.md
           - name: Windows
             items: 
               - name: Standard Storage for VM Disks
-                href: ../../virtual-machines/windows/standard-storage
+                href: ../../virtual-machines/windows/standard-storage.md
       - name: Troubleshoot attached VHDs
         href: storage-troubleshoot-vhds.md 
         items:
