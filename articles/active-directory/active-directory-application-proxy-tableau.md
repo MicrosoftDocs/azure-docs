@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -28,7 +28,7 @@ Azure Active Directory Application Proxy and Tableau have partnered to ensure yo
 
 The scenario in this article assumes that you have:
 
-- [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#reverse-proxy-server) configured. 
+- [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) configured. 
 
 - An [Application Proxy connector](active-directory-application-proxy-enable.md) installed. 
 

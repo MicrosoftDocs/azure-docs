@@ -1,4 +1,7 @@
-﻿# Prepay for Virtual Machines with Reserved VM Instances
+﻿---
+ms.topic: include
+---
+# Prepay for Virtual Machines with Reserved VM Instances
 
 Prepay for virtual machines and save money with Reserved Virtual Machine Instances. For more information, see [Reserved Virtual Machine Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
