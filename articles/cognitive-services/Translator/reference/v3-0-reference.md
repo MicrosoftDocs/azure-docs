@@ -15,9 +15,6 @@ ms.author: v-jansko
 
 #Translator Text API v3.0
 
-> [!IMPORTANT]
-> Pre-release documentation - subject to change
- 
 ## What's new?
 
 Version 3 of the Microsoft Translator Text API provides a modern JSON-based Web API. It improves usability and performance by consolidating existing features into fewer operations and it provides new features.
