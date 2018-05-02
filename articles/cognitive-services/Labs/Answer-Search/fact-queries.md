@@ -13,7 +13,7 @@ ms.author: rosh, v-gedod
 
 # Query for facts
 
-If the query is for a fact such as a date or identifiable knowledge, the response can contain `facts` answers. Fact answers contain relevant results extracted from paragraphs in web documents.  These queries always return webpages, and [facts](fact-queries.md) and/or [entities](entity-queries.md) are query dependent.
+If the query is for a fact such as a date or identifiable knowledge, the response can contain `facts` answers. Fact answers contain relevant results extracted from paragraphs in web documents.  These queries always return webpages, and [facts](fact-queries.md) and/or [entities](entity-queries.md) are query-dependent.
 
 Queries such as valentines+2016, when+is+ramadan are considered date-related queries. If Bing determines that the query is date-related, the response contains a `facts` answer. 
 
@@ -54,7 +54,7 @@ The `subjectName` field contains a display version of the user's query that you 
 
 ````
 
-The query "Why is the sky blue?" returns an example of a knowledge-related answser.
+The query "Why is the sky blue?" returns an example of a knowledge-related answer.
 
 **Query:**
 
@@ -111,7 +111,7 @@ The `value/description` field contains the knowledge or information requested by
 ````
 
 ## Tabular data
-In some cases facts can be returned as `_type: StructuredValue/TabularData`. The following query gets tabular data with contrasting informatoin about coffee and tea.
+In some cases, facts can be returned as `_type: StructuredValue/TabularData`. The following query gets tabular data with contrasting information about coffee and tea.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
