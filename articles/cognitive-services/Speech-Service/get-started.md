@@ -12,9 +12,9 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# Set up the Speech service
+# Prepare to use Speech service
 
-In this article, you learn how to get set up for using Speech service.
+In this article, you learn how to set up your development environment to use Speech service.
 
 ## Where do I begin?
 
