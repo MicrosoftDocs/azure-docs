@@ -17,7 +17,7 @@ metadata:
   ms.author: v-wiazur
   
 abstract:
-  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <li><ul><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts, SDKs, and API references show you how.
+  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <ul><li><b>Speech to Text</b> converts continuous human speech to text.<li><b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech.<li><b>Speech Translation</b> provides translations of speech to other languages, with text or speech output.</ul> Quickstarts, SDKs, and API references show you how.
 
 sections:
 
@@ -26,7 +26,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="get-started.md">Get ready to develop with the Speech service</a>
+    - html: <a href="get-started.md">Get set up to develop with the Speech service and SDK</a>
     - html: <a href="quickstart-csharp-windows">See how to recognize speech in C# with the Speech SDK</a>
 
 - title: Reference
@@ -35,7 +35,7 @@ sections:
     style: cards
     className: cardsD
     items:
-    - title: SDK
-      html: <p><a href="rest-apis.md">C# SDK</a><br><a href="rest-apis.md">C/C++ SDK</a><br><a href="rest-apis.md">Java SDK</a></p>
+    - title: SDK References
+      html: <p><a href="https://aka.ms/csspeech/csharpref">C# SDK</a><br><a href="https://aka.ms/csspeech/cppref">C/C++ SDK</a><br><a href="https://aka.ms/csspeech/javaref">Java SDK</a></p>
     - title: Other
-      html: <p><a href="rest-apis.md">REST APIs</a><br><a href="speech-services/supported-languages">Supported languages</a><br><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>
+      html: <p><a href="rest-apis.md">REST APIs</a><br><a href="supported-languages.md">Supported languages</a><br><a href="speech-services/speech-synthesis-markup">Speech Synthesis Markup</a></p>

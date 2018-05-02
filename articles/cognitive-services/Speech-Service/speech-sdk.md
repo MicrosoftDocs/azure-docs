@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 # About the Speech SDK
 
-The Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop software. Currently, the SDK provides access to Speech to Text and Speech Translation. Text to Speech is not currently supported by the SDK.
+The Speech Software Development Kit (SDK) provides your applications native access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
 
 The table below the currently supported programming languages and operating systems.
 
