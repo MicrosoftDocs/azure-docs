@@ -1,6 +1,6 @@
 ---
-title: Speech service overview | Microsoft Docs
-description: Introduction to the capabilities of the Speech service.
+title: What is the Speech service (preview)? | Microsoft Docs
+description: 'The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation.'
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -9,10 +9,10 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# About the Speech service (Preview)
+# What is the Speech service (preview)?
 
 The Speech service, part of Microsoft's Cognitive Services, unites several Azure speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation. Like its precursors, the Speech service is powered by the technologies used in other Microsoft products, including Cortana and Microsoft Office.
 
@@ -45,11 +45,10 @@ The [Speech to Text](speech-to-text.md) (STT), or speech recognition, API transc
 
 Speech to Text has been separately optimized for interactive, conversation, and dictation scenarios. The following are common use cases for the Speech to Text API. 
 
-> [!div class="checklist"]
-> * Recognize brief a utterance, such as a command, without interim results
-> * Transcribe a long, previously-recorded utterance, such as a voicemail message
-> * Transcribe streaming speech in real-time, with partial results, for dictation
-> * Determine what users want to do based on a spoken natural-language request
+ * Recognize brief a utterance, such as a command, without interim results
+ * Transcribe a long, previously-recorded utterance, such as a voicemail message
+ * Transcribe streaming speech in real-time, with partial results, for dictation
+ * Determine what users want to do based on a spoken natural-language request
 
 The Speech to Text API supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
 
@@ -63,10 +62,9 @@ The API supports Speech Synthesis Markup Language (SSML) tags, so you can specif
 
 The following are common use cases for the Text to Speech API.
 
-> [!div class="checklist"]
-> * Speech output as an alternative screen output for visually-impaired users
-> * Voice prompting for in-car applications such as navigation
-> * Conversational user interfaces in concert with the Speech to Text API
+* Speech output as an alternative screen output for visually-impaired users
+* Voice prompting for in-car applications such as navigation
+* Conversational user interfaces in concert with the Speech to Text API
 
 If you need to an unsupported dialect or just want a unique voice for your application, the Text to Speech API supports custom voice models.
 
@@ -76,27 +74,18 @@ The [Speech Translation](speech-translation.md) API can be used either to transl
 
 Use cases for Speech Translation include the following.
 
-> [!div class="checklist"] 
-> * Implement a "conversational" translation mobile app or device for travelers 
-> * Provide automatic translations for subtitling of audio and video recordings
+* Implement a "conversational" translation mobile app or device for travelers 
+* Provide automatic translations for subtitling of audio and video recordings
  
 ## Speech Devices SDK
 
 With the introduction of the unified Speech service, Microsoft and its partners offer an integrated hardware/software platform optimized for developing speech-enabled devices: the [Speech Devices SDK](http://aka.ms/sdsdk-info). This SDK is suitable for developing smart speech devices for all types of applications.
 
-The Speech Devices SDK allows you to build your own ambient devices with a customized wake word—so the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
+The Speech Devices SDK allows you to build your own ambient devices with a customized wake word, so that the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
 
 ## Next steps
 
-Start your free trial of the Speech service.
-
-> [!div class="nextstepaction"]
-> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-
-Download an SDK and some sample code to play around with.
-
-> [!div class="nextstepaction"]
-> [Speech SDKs](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Sample code](samples.md)
+- [Get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- Download an SDK and try some sample code:
+    - [Speech SDKs](speech-sdk.md)
+    - [Sample code](samples.md)
