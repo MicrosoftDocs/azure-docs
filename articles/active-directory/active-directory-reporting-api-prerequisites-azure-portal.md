@@ -1,5 +1,5 @@
 ---
-title: Prerequisites to access the Azure AD reporting API | Microsoft Docs
+title: Prerequisites to access the Azure Active Directory reporting API | Microsoft Docs
 description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 05/03/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 
 ---
-# Prerequisites to access the Azure AD reporting API
+# Prerequisites to access the Azure Active Directory reporting API
 
-The [Azure AD reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
+The [Azure Active Directory (Azure AD) reporting APIs](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) provide you with programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
 The reporting API uses [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) to authorize access to the web APIs. 
 
@@ -109,7 +109,7 @@ The following section lists the steps for both APIs. If you don't want to access
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/07.png)
 
-5. On the **Enable Access** page, select **Read directory data** and deselect **Sign in and read user profile**. 
+5. On the **Enable Access** page, select **Read directory data** and, deselect **Sign in and read user profile**. 
 
     ![Register application](./media/active-directory-reporting-api-prerequisites-azure-portal/08.png)
 
