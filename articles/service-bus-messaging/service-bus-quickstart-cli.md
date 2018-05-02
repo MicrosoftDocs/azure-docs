@@ -19,21 +19,11 @@ Microsoft Azure Service Bus is an enterprise integration message broker that pro
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java library.
+This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java library. Finally, if you're interested in more details, you can read a summary of the key parts of the code sample.
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
-## Prerequisites
-
-To develop a Service Bus app with Java, you must have the following installed:
-
--  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
@@ -53,13 +43,13 @@ In Cloud Shell, from the Bash prompt issue the following commands to provision S
 # Create a resource group
 az group create --name my-resourcegroup --location eastus
 
-# Create a Messaging namespace
+# Create a Service Bus messaging namespace
 az servicebus namespace create --name namespace-name --resource-group my-resourcegroup -l eastus2
 
-# Create a queue
+# Create a Service Bus queue
 az servicebus queue create --resource-group my-resourcegroup --namespace-name namespace_name --name queue-name
 
-# Get the connection string
+# Get the connection string for the namespace
 az servicebus namespace authorization-rule keys list --resource-group my-resourcegroup --namespace-name namespace-name --name RootManageSharedAccessKey
 ```
 
