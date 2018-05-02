@@ -1,6 +1,6 @@
 ---
 title: Configure and monitor IoT devices at scale with Azure IoT Hub | Microsoft Docs
-description: Use Azure IoT Hub over-the-air configuration to assign a configuration to multiple devices
+description: Use Azure IoT Hub automatic device configurations to assign a configuration to multiple devices
 services: iot-hub
 documentationcenter: ''
 author: ChrisGMsft
@@ -18,9 +18,14 @@ ms.author: chrisgre
 
 # Configure and monitor IoT devices at scale - preview
 
-Over-the-air configuration in Azure IoT Hub provides the ability to perform IoT device configuration at scale.  You can build the set of standard configurations for your IoT solution, configure sets of devices, summarize completion and compliance, ensure devices are configured as they go in and out of scope, and roll out configurations in a phased approach.
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
 
-Over-the-air configuration works by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
+>[!NOTE]
+>The features described in this article is not available on IoT Hubs created in the US East, US West, North Europe and West Europe Azure regions.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Automatic device configurations work by updating a set of device twins with desired properties and reporting a summary based on device twin reported properties.  It introduces a new class and JSON document called a _Configuration_ which has three parts:
 
 * The **target condition** defines the scope of device twins to be updated. The target condition is specified as a query on device twin tags and/or reported properties.
 
@@ -30,7 +35,7 @@ Over-the-air configuration works by updating a set of device twins with desired 
 
 ## Implement device twins to configure devices
 
-Over the air configuration requires the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub][lnk-device-twin] for guidance on using device twins.
+Automatic device configurations require the use of device twins to synchronize state between the cloud and devices.  Refer to [Understand and use device twins in IoT Hub][lnk-device-twin] for guidance on using device twins.
 
 ## Identify devices using tags
 
@@ -48,7 +53,7 @@ Before you can create a configuration, you must specify which devices you want t
 ## Create a configuration
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Over-the-air configuration (preview)**.
+1. Select **Device configuration (preview)**.
 1. Select **Add Configuration**.
 
 There are five steps to create a configuration. The following sections walk through each one. 
@@ -63,7 +68,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path and Content to the following:
 
-![Set the Device Twin Path and Content](media/iot-hub-ota-config/create-configuration-full-browser.png)
+![Set the Device Twin Path and Content](media/iot-hub-auto-device-config/create-configuration-full-browser.png)
 
 You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
 
@@ -104,7 +109,7 @@ Review your configuration information, then select **Submit**.
 To view the details of a configuration and monitor the devices running it, use the following steps:
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Over-the-air configuration (preview)**.
+1. Select **Device configuration (preview)**.
 1. Inspect the configuration list. For each configuration, you can view the following details:
    * **ID** - the name of the configuration.
    * **Target condition** - the query used to define targeted devices.
@@ -132,7 +137,7 @@ If you update the target condition, the following updates occur:
 To modify a configuration, use the following steps: 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Over-the-air configuration (preview)**. 
+1. Select **Device configuration (preview)**. 
 1. Select the configuration that you want to modify. 
 1. Make updates to the following fields: 
    * Target condition 
@@ -147,7 +152,7 @@ To modify a configuration, use the following steps:
 When you delete a configuration, any device twins take on their next highest priority configuration. If device twins don't meet the target condition of any other configuration, then no other settings are applied. 
 
 1. In the [Azure portal][lnk-portal], go to your IoT hub. 
-1. Select **Over-the-air configuration (preview)**. 
+1. Select **Device configuration (preview)**. 
 1. Use the checkbox to select the configuration that you want to delete. 
 1. Select **Delete**.
 1. A prompt will ask you to confirm.
