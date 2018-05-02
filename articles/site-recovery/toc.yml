@@ -140,7 +140,7 @@
       - name: Troubleshoot Azure to Azure replication
         href: azure-to-azure-troubleshoot-errors.md
       - name: Troubleshoot Azure Site Recovery extension 
-        href: siterecovery-extension-troubleshoot.md
+        href: site-recovery-extension-troubleshoot.md
   - name: VMware/physical to Azure
     items:
     - name: Networking
