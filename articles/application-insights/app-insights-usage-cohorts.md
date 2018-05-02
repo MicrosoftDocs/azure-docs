@@ -22,7 +22,7 @@ A cohort is a set of users, sessions, events, or operations that have something 
 
 ## Cohorts versus basic filters
 
-Cohorts are used in ways similar to filters. But cohorts' definitions build from custom analytics queries, so they're much more adaptable and complex. You can save cohorts, unlike filters, so other members of your team can reuse them.
+Cohorts are used in ways similar to filters. But cohorts' definitions are built from custom analytics queries, so they're much more adaptable and complex. You can save cohorts, unlike filters, so other members of your team can reuse them.
 
 You might define a cohort of users who have all tried a new feature in your app. When you save this cohort in your Application Insights resource, it's easy to analyze this specific group of users in the future.
 
@@ -31,11 +31,11 @@ You might define a cohort of users who have all tried a new feature in your app.
 
 ## Example: engaged users
 
-Your team defines an engaged user as anyone who uses your app five or more times in a given month. We'll define a cohort of these engaged users.
+Your team defines an engaged user as anyone who uses your app five or more times in a given month. In this section, we define a cohort of these engaged users.
 
 1. Open the **Cohorts** tool.
 
-2. Select the **Template Gallery** tab. You’ll see a collection of templates for various cohorts.
+2. Select the **Template Gallery** tab. You see a collection of templates for various cohorts.
 
 3. Select **Engaged Users –- by Days Used**.
 
@@ -59,7 +59,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
 ### What can you do by using this cohort?
 
-Open the **Users** tool > In the **Show** dropdown > Choose the cohort you created under **Users who belong to…**
+Open the **Users** tool. In the **Show** drop-down box, choose the cohort you created under **Users who belong to…**.
 
 Now the **Users** tool is filtered to this cohort of users:
 
@@ -73,7 +73,7 @@ These filters support more sophisticated questions, like _for people who were en
 
 ## Example: Events cohort
 
-You can also make cohorts of events. We'll define a cohort of the events and page views, and then see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
+You can also make cohorts of events. In this section, we define a cohort of the events and page views, and then see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
 1. Open the **Cohorts** tool.
 
