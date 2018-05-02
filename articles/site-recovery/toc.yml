@@ -145,6 +145,10 @@
       items:
       - name: Troubleshoot Azure to Azure replication
         href: azure-to-azure-troubleshoot-errors.md
+    - name: Manage
+      items:
+      - name: Automatic update of mobility service extension
+        href: azure-to-azure-autoupdate.md
   - name: VMware/physical to Azure
     items:
     - name: Networking
