@@ -269,7 +269,7 @@ Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push ch
 
 1. Sign in to Visual Studio with an account that has project creation rights on Azure Stack.
 
-Hybrid CI/CD can apply to both application code and infrastructure code. Use [ARM templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to both clouds.
+Hybrid CI/CD can apply to both application code and infrastructure code. Use [Azure Resource Manager templates like web ](https://azure.microsoft.com/resources/templates/) app code from VSTS to both clouds.
 
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
