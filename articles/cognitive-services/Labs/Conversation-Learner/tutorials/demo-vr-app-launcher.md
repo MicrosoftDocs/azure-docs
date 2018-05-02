@@ -1,5 +1,5 @@
 ---
-title: Demo Conversation Learner application, virtual reality app launcher | Microsoft Docs
+title: Demo Conversation Learner application, virtual reality app launcher - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to create a demo Conversation Learner application.
 services: cognitive-services

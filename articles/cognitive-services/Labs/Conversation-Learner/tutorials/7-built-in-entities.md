@@ -1,5 +1,5 @@
 ---
-title: How to add pre-built entities to a Conversation Learner application | Microsoft Docs
+title: How to add pre-built entities to a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to add pre-built entities to a Conversation Learner application.
 services: cognitive-services

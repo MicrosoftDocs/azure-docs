@@ -1,8 +1,7 @@
 - name: Conversation Learner API Documentation
+  href: overview.md
 - name: Overview
   items:
-  - name: Learn about Conversation Learner
-    href: overview.md
   - name: Supported languages
     href: languages-supported.md
 - name: Concepts

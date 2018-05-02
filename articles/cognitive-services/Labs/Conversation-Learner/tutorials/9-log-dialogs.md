@@ -1,5 +1,5 @@
 ---
-title: How to log dialogs in a Conversation Learner application | Microsoft Docs
+title: How to log dialogs in a Conversation Learner application - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to log dialogs in a Conversation Learner application.
 services: cognitive-services

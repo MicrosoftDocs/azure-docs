@@ -1,5 +1,5 @@
 ---
-title: Demo Conversation Learner application, pizza order | Microsoft Docs
+title: Demo Conversation Learner application, pizza order - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to create a demo Conversation Learner application.
 services: cognitive-services

@@ -1,5 +1,5 @@
 ---
-title: How to use cards with a Conversation Learner application, part 2 | Microsoft Docs
+title: How to use cards with a Conversation Learner application, part 2 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn how to use cards with a Conversation Learner application.
 services: cognitive-services
