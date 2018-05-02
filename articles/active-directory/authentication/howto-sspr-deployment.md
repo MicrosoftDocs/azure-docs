@@ -23,6 +23,8 @@ ms.custom: it-pro;seohack1
 
 To ensure a smooth rollout of the Azure Active directory (Azure AD) self-service password reset (SSPR) functionality, most customers complete the following steps:
 
+> [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
+
 1. [Enable password reset in your directory](quickstart-sspr.md).
 2. [Configure on-premises Active Directory permissions for password writeback](howto-sspr-writeback.md#active-directory-permissions).
 3. [Configure password writeback](howto-sspr-writeback.md#configure-password-writeback) to write passwords from Azure AD back to your on-premises directory.
