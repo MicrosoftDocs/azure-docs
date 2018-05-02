@@ -12,5 +12,5 @@ The results consist of:
 * UpperMargin - The sum of ExpectedValue and UpperMargin determines the upper bound that data point is still thought as normal
 * LowerMargin - (ExpectedValue - LowerMargin) determines the lower bound that data point is still thought as normal
 
-Details of the data contract can be found [here](apiref.md).
+Details of the data contract can be found [here](../apiref.md).
 

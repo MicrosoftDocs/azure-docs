@@ -23,11 +23,11 @@ See what you can build with this API:
 * Tell whether a data point is an anomaly out of historical pattern
 * Generate a band to visualize the range of "normal" value
 
-![Anomaly_Finder](./Images/anomaly_detection1.png) 
+![Anomaly_Finder](./media/anomaly_detection1.png) 
 
 Fig. 1: Detect anomalies in sales revenues
 
-![Anomaly_Finder](./Images/anomaly_detection2.png)
+![Anomaly_Finder](./media/anomaly_detection2.png)
 Fig. 2: Detect pattern changes in service requests
 
 ## Requirements
@@ -52,11 +52,11 @@ Anomaly detection API returns result that whether any given data points are anom
 Anomaly detection API returns default result on whether a data point is anomaly or not, and the upper and lower bound can be calculated from ExpectedValue and UpperMargin/LowerMargin. Those default values should work just fine for most cases. However, some scenarios require different bounds than the default ones. The recommend practice is applying a coefficiency on the UpperMargin or LowerMargin to adjust the dynamic bounds.
 
 ### Examples when 1/1.5/2 as coefficiency
-![Default Sensitivity](./images/sensitivity_1.png)
+![Default Sensitivity](./media/sensitivity_1.png)
 
-![1.5 Sensitivity](./images/sensitivity_1.5.png)
+![1.5 Sensitivity](./media/sensitivity_1.5.png)
 
-![2 Sensitivity](./images/sensitivity_2.png)
+![2 Sensitivity](./media/sensitivity_2.png)
 
 
 Request with sample data
