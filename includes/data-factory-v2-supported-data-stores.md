@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 03/19/2018
+ms.date: 04/20/2018
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -68,10 +68,12 @@ ms.custom: include file
 | &nbsp; |[Magento (Beta)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (Beta)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (Beta)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle Responsys (Beta)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
 | &nbsp; |[Paypal (Beta)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (Beta)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Salesforce Marketing Cloud (Beta)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |✓ | |✓ |✓  |
