@@ -147,6 +147,10 @@
         href: azure-to-azure-troubleshoot-errors.md
       - name: Troubleshoot Azure Site Recovery extension 
         href: site-recovery-extension-troubleshoot.md
+    - name: Manage
+      items:
+      - name: Automatic update of mobility service extension
+        href: azure-to-azure-autoupdate.md
   - name: VMware/physical to Azure
     items:
     - name: Networking
