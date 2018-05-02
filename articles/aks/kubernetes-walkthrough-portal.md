@@ -24,27 +24,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For detail
 
 Sign in to the Azure portal at http://portal.azure.com.
 
-## Create service principal
 
-Before creating the AKS cluster in the Azure portal, you need to create a service principal. Azure uses this service principal to manage the infrastructure associated with the AKS cluster.
-
-Select **Azure Active Directory** > **App registrations** > **New application registration**.
-
-Enter a name for the application, which can be any value. Select **Web app / API** for the application type. Enter a value for the **Sign-on URL**, which can be any value in a valid URL format, but does not need to be a real endpoint.
-
-Select **Create** when finished.
-
-![Create service principal one](media/container-service-walkthrough-portal/create-sp-one.png)
-
-Select the newly created application registration, and take note of the Application ID. This value is needed when creating the AKS cluster.
-
-![Create service principal two](media/container-service-walkthrough-portal/create-sp-two.png)
-
-Next, you must create a password for the service principal. Select **Settings** > **Keys**, and enter any value for the key description. Select a duration, which is the time for which the service principal is valid.
-
-Click **Save**, and take note of the password value. The password is needed when creating an AKS cluster.
-
-![Create service principal three](media/container-service-walkthrough-portal/create-sp-three.png)
 
 ## Create AKS cluster
 
@@ -54,7 +34,7 @@ Complete the following steps under each heading of the create AKS cluster form.
 
 - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
 - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
-- **AUTHENTICATION**: enter the service principal ID and password from the previous step of this document.
+- **AUTHENTICATION**: create a new service principal or use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
 - **SCALE**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed.
 
 Select **Next: Networking** when complete.
