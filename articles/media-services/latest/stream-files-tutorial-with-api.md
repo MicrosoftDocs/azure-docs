@@ -307,7 +307,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
 }
 ```
 
-Note that while the sample here discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
+While the sample in this topic discusses streaming, you can use the same call to create a StreamingLocator for delivering video via progressive download.
 
 ### Get streaming URLs
 
