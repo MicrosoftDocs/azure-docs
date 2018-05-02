@@ -120,8 +120,8 @@ The qualities of the classifier results are displayed.
 
 |Term|Definition|
 |---|---|
-|Precision|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images that are used to train the classifier (dogs and ponies), what percent did the model get correct? 99 correct tags out of 100 images gives a precision of 99%.|
-|Recall|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A recall of 100% means that if there are 38 dog images in the images that were used to train the classifier, the classifier found 38 dogs.|
+|__Precision__|When you classify an image, how likely is your classifier to correctly classify the image? Out of all images that are used to train the classifier (dogs and ponies), what percent did the model get correct? 99 correct tags out of 100 images gives a precision of 99%.|
+|__Recall__|Out of all images that should have been classified correctly, how many did your classifier identify correctly? A recall of 100% means that if there are 38 dog images in the images that were used to train the classifier, the classifier found 38 dogs.|
 
 ## Next steps
 
