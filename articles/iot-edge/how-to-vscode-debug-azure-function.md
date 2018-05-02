@@ -20,6 +20,9 @@ This article provides detailed instructions for using [Visual Studio Code](https
 ## Prerequisites
 This article assumes that you are using a computer or virtual machine running Windows or Linux as your development machine. Your IoT Edge device could be another physical device or you can simulate your IoT Edge device on your development machine.
 
+> [!NOTE]
+> You can only debug C# Functions in linux-amd64 containers.
+
 Before following the guidance in this article, complete the steps in  [Develop an IoT Edge solution with multiple modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md). After that, you should have the following items ready:
 - A local Docker registry running on your development machine. It is suggested to use a local Docker registry for prototype and testing purpose. You can update the container registry in the `module.json` file in each module folder.
 - An IoT Edge solution project workspace with an Azure Function module subfolder in it.
