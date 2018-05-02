@@ -74,7 +74,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### UpdateSQLProvider.ps1 parameters
+## UpdateSQLProvider.ps1 parameters
 You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
 
 | Parameter name | Description | Comment or default value |
