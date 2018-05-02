@@ -98,16 +98,16 @@ When you add an agent to Log Analytics, the Automation solution pushes down the 
 
 Open a PowerShell session in Administrator mode and run the following commands to import the module.
 
-    ```powershell-interactive
-    cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
-    Import-Module HybridRegistration.psd1
-    ```
+```powershell-interactive
+cd "C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\<version>\HybridRegistration"
+Import-Module HybridRegistration.psd1
+```
 
 Then run the **Add-HybridRunbookWorker** cmdlet using the following syntax:
 
-    ```powershell-interactive
-    Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
-    ```
+```powershell-interactive
+Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
+```
 
 You can get the information required for this cmdlet from the **Manage Keys** page in the Azure portal. Open this page by selecting the **Keys** option from the **Settings** page in your Automation account.
 
