@@ -203,7 +203,7 @@
       topicHref: /azure/cognitive-services/Speech/home
     - name: Speech Service (preview)
       tocHref: /azure/cognitive-services/Speech-Service/
-      topicHref: /azure/cognitive-services/Speech-Service/
+      topicHref: /azure/cognitive-services/Speech-Service/cognitive-services-custom-speech-home
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
