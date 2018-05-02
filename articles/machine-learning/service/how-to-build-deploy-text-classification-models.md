@@ -62,18 +62,16 @@ Try it out yourself. Download the notebook and run it yourself.
 > [Get the Jupyter notebook](https://aka.ms/aml-packages/text/notebooks/text_classification_sentiment_data)
 
 ### Download and Explore the sample data
-The following example uses a partial set of the [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.html) dataset to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics and scikit-learn. 
+The following example uses the [20 newsgroups dataset](http://qwone.com/~jason/20Newsgroups/)  that is available through the scikit-learn library to demonstrate how to create a text classifier with Azure Machine Learning Package for Text Analytics. 
 
-Download the dataset from [Sentiment Analysis Semval-2013](https://www.cs.york.ac.uk/semeval-2013/task2/index.php%3Fid=data.html)
-(Section Data, Task B) <br />
-The input dataset formay must be a *.tsv file with the following [ID, Text, Label] format.
+The 20 newsgroups dataset has around 18,000 newsgroups posts on 20 different topics divided into two subsets: one for training and the other one for performance evaluation. The split into train and test is based upon each message post date whether before or after a specific date.
 
 ```python
 # Import Packages 
 # Use Azure Machine Learning history magic to control history collection
 # History is off by default, options are "on", "off", or "show"
 #%azureml history on
-
+%matplotlib inline
 # Use the Azure Machine Learning data collector to log various metrics
 from azureml.logging import get_azureml_logger
 import os
@@ -89,44 +87,209 @@ pip.main(["show", "azureml-tatk"])
 
 ### Set the location of the data
 Set the location where you have downloaded the data in the data dir parameter. 
-You can also use your own data, the input dataset must be a *.tsv file with the following [ID, Text, Label] format.
+You can also use your own data, the input dataset must be a *.tsv file format.
 
 ```python
+import os
 import pandas as pd
 
 #set the working directory where to save the training data files
 resources_dir = os.path.join(os.path.expanduser("~"), "tatk", "resources")
 data_dir = os.path.join(os.path.expanduser("~"), "tatk", "data")
 
-# Training Dataset Location
-training_file_path = os.path.join(resources_dir, "sentiment", "SemEval2013.Train.tsv")
+from sklearn.datasets import fetch_20newsgroups
+twenty_train = fetch_20newsgroups(data_home=data_dir, subset='train')
+X_train, y_train = twenty_train.data, twenty_train.target
+df_train = pd.DataFrame({"text":X_train, "label":y_train})
 
-df_train = pd.read_csv(training_file_path,
-                       sep = '\t',                        
-                       header = 0, names= ["id","text","label"])
+twenty_test = fetch_20newsgroups(data_home=data_dir, subset='test')
+X_test, y_test = twenty_test.data, twenty_test.target   
+df_test = pd.DataFrame({"text":X_test, "label":y_test})
+    
+# Training Dataset Location
+#training_file_path = <specify-your-own-training-data-file-path-here>
+# df_train = pd.read_csv(training_file_path,
+#                        sep = '\t',                        
+#                        header = 0, names= <specify-your-column-name-list-here>)
 df_train.head()
 print("df_train.shape= {}".format(df_train.shape))
 
 # Test Dataset Location
-test_file_path = os.path.join(resources_dir,"sentiment", "SemEval2013.Test.tsv")
-df_test = pd.read_csv(test_file_path,
-                      sep = '\t',                        
-                      header = 0, names= ["id","text","label"])
+#test_file_path = <specify-your-own-test-data-file-path-here>
+# df_test = pd.read_csv(test_file_path,
+#                       sep = '\t',                        
+#                       header = 0, names= <specify-your-column-name-list-here>)
 
 print("df_test.shape= {}".format(df_test.shape))
 df_test.head()
 ```
-
-    df_train.shape= (8655, 3)
-    df_test.shape= (3809, 3)
-       id                                               text     label
-    0   1  @killa_1983 - If you ain't doing nothing Satur...  positive
-    1   2  - Pop bottles , make love , thug passion , RED...  positive
-    2   3  @TheScript_Danny @thescript - St Patricks Day ...  positive
-    3   4  @TheScript_Danny @thescript - St Patricks Day ...  positive
-    4   5  @DJT103 - You know what the holidays alright w...  positive
+    df_train.shape= (11314, 2)
+    df_test.shape= (7532, 2)
+ 
+ The data consists of label and text
     
-The data consists of ID, text, and the labels 'Positive', 'Neutral', or 'Negative'. 
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7</td>
+      <td>From: v064mb9k@ubvmsd.cc.buffalo.edu (NEIL B. ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>From: Rick Miller &lt;rick@ee.uwm.edu&gt;\nSubject: ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>From: mathew &lt;mathew@mantis.co.uk&gt;\nSubject: R...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17</td>
+      <td>From: bakken@cs.arizona.edu (Dave Bakken)\nSub...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19</td>
+      <td>From: livesey@solntze.wpd.sgi.com (Jon Livesey...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+Get the correspondance between categories and their name.
+
+```python
+int_to_categories = pd.DataFrame({'category':range(20), 'category_name': list(twenty_train.target_names)})
+int_to_categories 
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>category_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>alt.atheism</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>comp.graphics</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>comp.os.ms-windows.misc</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>comp.sys.ibm.pc.hardware</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>comp.sys.mac.hardware</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>comp.windows.x</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>misc.forsale</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>rec.autos</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>rec.motorcycles</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>rec.sport.baseball</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>rec.sport.hockey</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>sci.crypt</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>sci.electronics</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>sci.med</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>14</td>
+      <td>sci.space</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>15</td>
+      <td>soc.religion.christian</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>talk.politics.guns</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>17</td>
+      <td>talk.politics.mideast</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>18</td>
+      <td>talk.politics.misc</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>19</td>
+      <td>talk.religion.misc</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 Now, you can create a preliminary exploration plot histogram of the class frequency in training and test data sets. 
 
@@ -165,25 +328,16 @@ plt.show()
 ```
 
 ```
-    {'negative', 'neutral', 'positive'}
-    
+ 
+Plots will be displayed when running the notebook
 
-
-    <matplotlib.figure.Figure at 0x1cce9385b38>
-
-
-    {'negative', 'neutral', 'positive'}
-    
-
-
-    <matplotlib.figure.Figure at 0x1cce90ea128>
 ```
 
 ## Train the model
 
 ### Specify scikit-learn algorithm and define the text classifier
 
-This step involves training a scikit-learn text classification model using One-versus-Rest LogisticRegression learning algorithm.
+This step involves training a scikit-learn text classification model using One-versus-Rest Logistic Regression learning algorithm.
 
 For the full list of learnings, refer to the [Scikit Learners](http://scikit-learn.org/stable/supervised_learning) documentation.
 
@@ -209,7 +363,7 @@ text_classifier = TextClassifier(estimator=log_reg_learner,
 ```
 
     TextClassifier::create_pipeline ==> start
-    :: number of jobs for the pipeline : 6
+    :: number of jobs for the pipeline : 12
     0	text_nltk_preprocessor
     1	text_word_ngrams
     2	text_char_ngrams
@@ -226,42 +380,40 @@ Use the default parameters of the package. By default, the text classifier extra
 ```python
 text_classifier.fit(df_train)        
 ```
+   
     TextClassifier::fit ==> start
-    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 header+
+    schema: col=label:I4:0 col=text:TX:1 header+
     NltkPreprocessor::tatk_fit_transform ==> start
-    NltkPreprocessor::tatk_fit_transform ==> end 	 Time taken: 0.0 mins
+    NltkPreprocessor::tatk_fit_transform ==> end 	 Time taken: 0.08 mins
     NGramsVectorizer::tatk_fit_transform ==> startNGramsVectorizer::tatk_fit_transform ==> start
     
-    			vocabulary size=12839
-    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.03 mins
-    			vocabulary size=14635
-    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.03 mins
-    VectorAssembler::transform ==> start, num of input records=8655
-    (8655, 12839)
-    (8655, 14635)
+    			vocabulary size=216393
+    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.41 mins
+    			vocabulary size=67230
+    NGramsVectorizer::tatk_fit_transform ==> end 	 Time taken: 0.49 mins
+    VectorAssembler::transform ==> start, num of input records=11314
+    (11314, 216393)
+    (11314, 67230)
     all_features::
-    (8655, 27474)
-    Time taken: 0.0 mins
+    (11314, 283623)
+    Time taken: 0.06 mins
     VectorAssembler::transform ==> end
     LogisticRegression::tatk_fit ==> start
     
-    [Parallel(n_jobs=3)]: Done   3 out of   3 | elapsed:    2.1s finished
-   
-    LogisticRegression::tatk_fit ==> end 	 Time taken: 0.04 mins
-    Time taken: 0.08 mins
-    TextClassifier::fit ==> end
+    [Parallel(n_jobs=3)]: Done  20 out of  20 | elapsed:  2.4min finished
     
+    LogisticRegression::tatk_fit ==> end 	 Time taken: 2.4 mins
+    Time taken: 3.04 mins
+    TextClassifier::fit ==> end
+
     TextClassifier(add_index_col=False, callable_proprocessors_list=None,
             cat_cols=None, char_hashing_original=False, col_prefix='tmp_00_',
             decompose_n_grams=False, detect_phrases=False,
             dictionary_categories=None, dictionary_file_path=None,
-            embedding_file_path=None, embedding_file_path_fasttext=None,
-            estimator=LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
-              intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=3,
-              penalty='l2', random_state=None, solver='lbfgs', tol=0.0001,
-              verbose=1, warm_start=False),
-            estimator_vectorizers_list=None, extract_char_ngrams=True,
-            extract_word_ngrams=True, label_cols=['label'], numeric_cols=None,
+            embedding_file_path=None, embedding_file_path_fastText=None,
+            estimator=None, estimator_vectorizers_list=None,
+            extract_char_ngrams=True, extract_word_ngrams=True,
+            label_cols=['label'], numeric_cols=None,
             pos_tagger_vectorizer=False,
             preprocessor_dictionary_file_path=None, regex_replcaement='',
             replace_regex_pattern=None, scale_numeric_cols=False,
@@ -284,32 +436,32 @@ To see what parameters are included for "text_word_ngrams", use [get_step_param_
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
 ```
 
-    ['input',
-     'max_features',
-     'output_col',
-     'min_df',
-     'binary',
-     'tokenizer',
-     'save_overwrite',
-     'n_hashing_features',
-     'max_df',
-     'vocabulary',
-     'hashing',
-     'lowercase',
-     'analyzer',
-     'stop_words',
-     'smooth_idf',
-     'input_col',
-     'dtype',
-     'preprocessor',
-     'token_pattern',
-     'use_idf',
-     'ngram_range',
-     'sublinear_tf',
-     'encoding',
+    ['min_df',
      'strip_accents',
+     'max_df',
+     'decode_error',
+     'max_features',
+     'binary',
+     'input',
+     'vocabulary',
+     'analyzer',
+     'token_pattern',
+     'encoding',
+     'use_idf',
+     'save_overwrite',
+     'output_col',
+     'stop_words',
+     'sublinear_tf',
+     'input_col',
+     'lowercase',
+     'ngram_range',
+     'preprocessor',
+     'tokenizer',
+     'hashing',
+     'dtype',
      'norm',
-     'decode_error']
+     'smooth_idf',
+     'n_hashing_features']
 
 Next, check the parameter values for "text_char_ngrams":
 
@@ -393,24 +545,78 @@ Apply the trained text classifier on the test dataset to generate class predicti
  df_test = text_classifier.predict(df_test)
 ```
 
-    TextClassifier::predict ==> start
+    TextClassifier ::predict ==> start
     NltkPreprocessor::tatk_transform ==> start
-    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.05 mins
     NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
     
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
-    VectorAssembler::transform ==> start, num of input records=3809
-    (3809, 12839)
-    (3809, 14635)
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.15 mins
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.37 mins
+    VectorAssembler::transform ==> start, num of input records=7532
+    (7532, 216393)
+    (7532, 67230)
     all_features::
-    (3809, 27474)
-    Time taken: 0.0 mins
+    (7532, 283623)
+    Time taken: 0.03 mins
     VectorAssembler::transform ==> end
+    LogisticRegression::tatk_predict_proba ==> start
+    LogisticRegression::tatk_predict_proba ==> end 	 Time taken: 0.01 mins
     LogisticRegression::tatk_predict ==> start
-    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
-    Time taken: 0.02 mins
-    TextClassifier::predict ==> end
+    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.01 mins
+    Time taken: 0.46 mins
+    TextClassifier ::predict ==> end
+    Order of Labels in predicted probabilities saved to attribute label_order of the class object
+    
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+      <th>text</th>
+      <th>probabilities</th>
+      <th>prediction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7</td>
+      <td>From: v064mb9k@ubvmsd.cc.buffalo.edu (NEIL B. ...</td>
+      <td>[0.0165036341329, 0.0548664746458, 0.020549685...</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>From: Rick Miller &lt;rick@ee.uwm.edu&gt;\nSubject: ...</td>
+      <td>[0.025145498995, 0.125877400021, 0.03947047877...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>From: mathew &lt;mathew@mantis.co.uk&gt;\nSubject: R...</td>
+      <td>[0.67566338235, 0.0150749738583, 0.00992439163...</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>17</td>
+      <td>From: bakken@cs.arizona.edu (Dave Bakken)\nSub...</td>
+      <td>[0.146063943868, 0.00232465192179, 0.002442807...</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>19</td>
+      <td>From: livesey@solntze.wpd.sgi.com (Jon Livesey...</td>
+      <td>[0.670712265297, 0.017332269703, 0.01062429663...</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ## Evaluate model performance
 The [evaluation module](https://docs.microsoft.com/python/api/tatk.evaluation) evaluates the accuracy of the trained text classifier on the test dataset. The evaluate function generates a confusion matrix and provides a macro-F1 score.
@@ -419,113 +625,43 @@ The [evaluation module](https://docs.microsoft.com/python/api/tatk.evaluation) e
  text_classifier.evaluate(df_test)          
 ```
 
-    TextClassifier::evaluate ==> start
-    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 col=prediction:TX:3 header+
-    NltkPreprocessor::tatk_transform ==> start
-    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
-    NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
-    
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
-    VectorAssembler::transform ==> start, num of input records=3809
-    (3809, 12839)
-    (3809, 14635)
-    all_features::
-    (3809, 27474)
+    TextClassifier ::evaluate ==> start
     Time taken: 0.0 mins
-    VectorAssembler::transform ==> end
-    LogisticRegression::tatk_predict ==> start
-    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
-    [[ 188  338   75]
-     [  34 1443  161]
-     [  44  594  932]]
-    macro_f1 = 0.6112103240853114
-    Time taken: 0.02 mins
-    TextClassifier::evaluate ==> end
-  
-    (array([[ 188,  338,   75],
-            [  34, 1443,  161],
-            [  44,  594,  932]], dtype=int64), 0.6112103240853114)
+    TextClassifier ::evaluate ==> end
+    
 
-Plot the confusion matrix for visualization.
+Plot the confusion without normalization matrix for visualization.
+
 
 ```python
-# Confusion Matrix UI 
-from sklearn.metrics import confusion_matrix
-import matplotlib.pyplot as plt
-import itertools
-def plot_confusion_matrix(cm, classes,
-                          normalize=False,
-                          title='Confusion matrix',
-                          cmap=plt.cm.Blues):
-    """
-    This function prints and plots the confusion matrix.
-    Normalization can be applied by setting `normalize=True`.
-    """
-    if normalize:
-        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-        print("Normalized confusion matrix")
-    else:
-        print('Confusion matrix, without normalization')
-
-    print(cm)
-
-    plt.imshow(cm, interpolation='nearest', cmap=cmap)
-    plt.title(title)
-    plt.colorbar()
-    tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
-    plt.yticks(tick_marks, classes)
-
-    fmt = '.2f' if normalize else 'd'
-    thresh = cm.max() / 2.
-    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
-        plt.text(j, i, format(cm[i, j], fmt),
-                 horizontalalignment="center",
-                 color="white" if cm[i, j] > thresh else "black")
-
-    plt.tight_layout()
-    plt.ylabel('True label')
-    plt.xlabel('Predicted label')
-    
-class_labels = set(df_train['label'].values)
-print(class_labels)
+evaluator.plot_confusion_matrix(normalize=False,
+                                title='Confusion matrix, without normalization', 
+                                print_confusion_matrix=False,
+                                figsize=(8,8),
+                                colors=None)
 ```
-    {'negative', 'neutral', 'positive'}
+
+Confusion matrix, without normalization
     
+
+
+![png](output_28_1.png)
+
+
+Plot the normalized confusion matrix for visualization.
+
+
 ```python
-import numpy as np
-np.set_printoptions(precision=2)
-
-#create the confusion matrix
-cnf_matrix = confusion_matrix(y_pred=df_test['prediction'].values, y_true=df_test['label'].values)
-
-# Plot non-normalized confusion matrix
-plt.figure()
-plot_confusion_matrix(cnf_matrix, classes = class_labels,
-                      title='Confusion matrix, without normalization')
-
-# Plot normalized confusion matrix
-plt.figure()
-plot_confusion_matrix(cnf_matrix, classes = class_labels, normalize=True,
-                      title='Normalized confusion matrix')
-
-plt.show()
+evaluator.plot_confusion_matrix(normalize=True,
+                                title='Normalized Confusion matrix', 
+                                print_confusion_matrix=False,
+                                figsize=(8,8),
+                                colors=None)
 ```
 
-    Confusion matrix, without normalization
-    [[ 188  338   75]
-     [  34 1443  161]
-     [  44  594  932]]
     Normalized confusion matrix
-    [[0.31 0.56 0.12]
-     [0.02 0.88 0.1 ]
-     [0.03 0.38 0.59]]
-   
-![png](./media/how-to-build-deploy-text-classification-models/output_28_1.png)
-
-![png](./media/how-to-build-deploy-text-classification-models/output_28_2.png)
-
+    
+![png](output_30_1.png)
 
 ## Save the pipeline
 Save the classification pipeline into a zip file. Also, save the word-ngrams and character n-grams as text files.
@@ -544,9 +680,9 @@ text_classifier.save(model_file)
 ```
     BaseTextModel::save ==> start
     TatkPipeline::save ==> start
-    Time taken: 0.03 mins
+    Time taken: 0.28 mins
     TatkPipeline::save ==> end
-    Time taken: 0.04 mins
+    Time taken: 0.38 mins
     BaseTextModel::save ==> end
     
 ```python
@@ -562,11 +698,11 @@ text_classifier.get_step_by_name("text_char_ngrams").save_vocabulary(char_vocab_
 ```
 
     save_vocabulary ==> start
-    saving 12839 n-grams ...
-    Time taken: 0.0 mins
+    saving 216393 n-grams ...
+    Time taken: 0.01 mins
     save_vocabulary ==> end
     save_vocabulary ==> start
-    saving 14635 n-grams ...
+    saving 67230 n-grams ...
     Time taken: 0.0 mins
     save_vocabulary ==> end
  
@@ -581,15 +717,14 @@ from tatk.feature_extraction import NGramsVectorizer
 word_ngram_vocab = NGramsVectorizer.load_vocabulary(word_vocab_file_path)
 char_ngram_vocab = NGramsVectorizer.load_vocabulary(char_vocab_file_path)
 ```
-
     BaseTextModel::load ==> start
     TatkPipeline::load ==> start
-    Time taken: 0.01 mins
+    Time taken: 0.14 mins
     TatkPipeline::load ==> end
-    Time taken: 0.02 mins
+    Time taken: 0.15 mins
     BaseTextModel::load ==> end
-    loading 12839 n-grams ...
-    loading 14635 n-grams ...
+    loading 216393 n-grams ...
+    loading 67230 n-grams ...
     
 
 ## Test the pipeline
@@ -597,35 +732,36 @@ char_ngram_vocab = NGramsVectorizer.load_vocabulary(char_vocab_file_path)
 To evaluate a test dataset, apply the loaded text classification pipeline:
 
 ```python
-loaded_text_classifier.evaluate(df_test)
+predictions = loaded_text_classifier.predict(df_test)
+loaded_evaluator = loaded_text_classifier.evaluate(predictions)
+loaded_evaluator.get_metrics('macro_f1')
 ```
-    TextClassifier::evaluate ==> start
-    schema: col=id:I8:0 col=text:TX:1 col=label:TX:2 col=prediction:TX:3 header+
+    TextClassifier ::predict ==> start
     NltkPreprocessor::tatk_transform ==> start
-    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.0 mins
+    NltkPreprocessor::tatk_transform ==> end 	 Time taken: 0.05 mins
     NGramsVectorizer::tatk_transform ==> startNGramsVectorizer::tatk_transform ==> start
     
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.0 mins
-    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.01 mins
-    VectorAssembler::transform ==> start, num of input records=3809
-    (3809, 12839)
-    (3809, 14635)
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.14 mins
+    NGramsVectorizer::tatk_transform ==> end 	 Time taken: 0.36 mins
+    VectorAssembler::transform ==> start, num of input records=7532
+    (7532, 216393)
+    (7532, 67230)
     all_features::
-    (3809, 27474)
-    Time taken: 0.0 mins
+    (7532, 283623)
+    Time taken: 0.03 mins
     VectorAssembler::transform ==> end
+    LogisticRegression::tatk_predict_proba ==> start
+    LogisticRegression::tatk_predict_proba ==> end 	 Time taken: 0.01 mins
     LogisticRegression::tatk_predict ==> start
-    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.0 mins
-    [[ 188  338   75]
-     [  34 1443  161]
-     [  44  594  932]]
-    macro_f1 = 0.6112103240853114
-    Time taken: 0.02 mins
-    TextClassifier::evaluate ==> end
+    LogisticRegression::tatk_predict ==> end 	 Time taken: 0.01 mins
+    Time taken: 0.45 mins
+    TextClassifier ::predict ==> end
+    Order of Labels in predicted probabilities saved to attribute label_order of the class object
+    TextClassifier ::evaluate ==> start
+    Time taken: 0.0 mins
+    TextClassifier ::evaluate ==> en
     
-    (array([[ 188,  338,   75],
-            [  34, 1443,  161],
-            [  44,  594,  932]], dtype=int64), 0.6112103240853114)
+    0.82727029243808903
 
 ## Operationalization: deploy and consume
 
@@ -673,46 +809,78 @@ web_service = text_classifier.deploy(web_service_name= web_service_name,
 
 ```python
 print("Service URL: {}".format(web_service._service_url))
-print("Service URL: {}".format(web_service._api_key))
-print("Service Id: {}".format(web_service._id))
-
+print("Service Key: {}".format(web_service._api_key))
 ```
 
 5. Load the web service at any time using its name:
 
 ```python
 from tatk.operationalization.csi.csi_web_service import CsiWebService
-tatk_web_service = CsiWebService(web_service_name)
+url = "<please type the service URL here>"
+key = "<please type the service Key here>"
+web_service = CsiWebService(url, key)
 ```
 
-6. Test the web service with sample sentiment data:
+6. Test the web service with the body of two emails taken from the 20 newsgrpoups dataset:
 
 ```python
 # Example input data for scoring
-# input_data_json_str = "{\"input_data\": [{\"text\": \"@caplannfl - Another example of a good college player who had a great week at Senior Bowl to ease concerns about toughs & get into first round\"}]}"
 import json
 dict1 ={}
 dict1["recordId"] = "a1" 
 dict1["data"]= {}
-dict1["data"]["text"] = "a good college player who had a great week"
+dict1["data"]["text"] = """
+I'd be interested in a copy of this code if you run across it.
+(Mail to the author bounced)
+ > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,
+ 1993 /
+ > I fooled around with this problem a few years ago, and implemented a
+ > simple method that ran on a PC.
+ > was very simple - about 40 or 50 lines of code.
+ . . .
+ > Somewhere I still have it
+ > and could dig it out if there was interest.
+"""
 
 dict2 ={}
 dict2["recordId"] = "b2"
 dict2["data"] ={}
-dict2["data"]["text"] = "a bad college player who had a awful week"
+dict2["data"]["text"] = """
+>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,
+>>take their discussions to alt.drugs? Their discussions will receive greatest
+>>contribution and readership there. The people interested in strictly
+>>"smart drugs" (i.e. Nootropics) should post to this group. The two groups
+>>(alt.drugs & alt.psychoactives) have been used interchangably lately.
+>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives
+>>is supposedly the "smart drug" newsgroup according to newsgroup lists on
+>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &
+>>nutrients)? I have noticed some posts in sci.med.nutrition regarding
+>>"smart nutrients." We may lower that groups burden as well.
+>
+
+I was wondering if a group called 'sci.pharmacology' would be relevent.
+This would be used for a more formal discussion about pharmacological
+issues (pharmacodynamics, neuropharmacology, etc.)
+
+Just an informal proposal (I don't know anything about the net.politics
+for adding a newsgroup, etc.)
+
+"""
+
 dict_list =[dict1, dict2]
 data ={}
 data["values"] = dict_list
 input_data_json_str = json.dumps(data)
 print (input_data_json_str)
-prediction = tatk_web_service.score(input_data_json_str)
+prediction = web_service.score(input_data_json_str)
 prediction
 ```
 
-    {"values": [{"data": {"text": "a good college player who had a great week"}, "recordId": "a1"}, {"data": {"text": "a bad college player who had a awful week"}, "recordId": "b2"}]}
-    F1 2018-04-24 00:32:42,971 INFO Web service scored. 
+    {"values": [{"recordId": "a1", "data": {"text": "\nI'd be interested in a copy of this code if you run across it.\n(Mail to the author bounced)\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\n 1993 /\n > I fooled around with this problem a few years ago, and implemented a\n > simple method that ran on a PC.\n > was very simple - about 40 or 50 lines of code.\n . . .\n > Somewhere I still have it\n > and could dig it out if there was interest.\n"}}, {"recordId": "b2", "data": {"text": "\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\n>>take their discussions to alt.drugs? Their discussions will receive greatest\n>>contribution and readership there. The people interested in strictly\n>>\"smart drugs\" (i.e. Nootropics) should post to this group. The two groups\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\n>>is supposedly the \"smart drug\" newsgroup according to newsgroup lists on\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\n>>\"smart nutrients.\" We may lower that groups burden as well.\n>\n\nI was wondering if a group called 'sci.pharmacology' would be relevent.\nThis would be used for a more formal discussion about pharmacological\nissues (pharmacodynamics, neuropharmacology, etc.)\n\nJust an informal proposal (I don't know anything about the net.politics\nfor adding a newsgroup, etc.)\n\n"}}]}
+    F1 2018-05-02 00:10:58,272 INFO Web service scored. 
     
-    '{"values": [{"recordId": "b2", "data": {"class": "neutral", "text": "a bad college player who had a awful week"}}, {"recordId": "a1", "data": {"class": "positive", "text": "a good college player who had a great week"}}]}'
+    '{"values": [{"recordId": "b2", "data": {"text": "\\n>>Could the people discussing recreational drugs such as mj, lsd, mdma, etc.,\\n>>take their discussions to alt.drugs? Their discussions will receive greatest\\n>>contribution and readership there. The people interested in strictly\\n>>\\"smart drugs\\" (i.e. Nootropics) should post to this group. The two groups\\n>>(alt.drugs & alt.psychoactives) have been used interchangably lately.\\n>>I do think that alt.psychoactives is a deceiving name. alt.psychoactives\\n>>is supposedly the \\"smart drug\\" newsgroup according to newsgroup lists on\\n>>the Usenet. Should we establish an alt.nootropics or alt.sdn (smart drugs &\\n>>nutrients)? I have noticed some posts in sci.med.nutrition regarding\\n>>\\"smart nutrients.\\" We may lower that groups burden as well.\\n>\\n\\nI was wondering if a group called \'sci.pharmacology\' would be relevent.\\nThis would be used for a more formal discussion about pharmacological\\nissues (pharmacodynamics, neuropharmacology, etc.)\\n\\nJust an informal proposal (I don\'t know anything about the net.politics\\nfor adding a newsgroup, etc.)\\n\\n", "class": 13}}, {"recordId": "a1", "data": {"text": "\\nI\'d be interested in a copy of this code if you run across it.\\n(Mail to the author bounced)\\n > / hpldsla:comp.graphics / email-address-removed / 12:53 am  May 13,\\n 1993 /\\n > I fooled around with this problem a few years ago, and implemented a\\n > simple method that ran on a PC.\\n > was very simple - about 40 or 50 lines of code.\\n . . .\\n > Somewhere I still have it\\n > and could dig it out if there was interest.\\n", "class": 1}}]}'
+
 
 
 ## Next steps
