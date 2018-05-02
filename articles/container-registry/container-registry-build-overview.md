@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/01/2018
 ms.author: marsma
 ---
 
@@ -55,7 +55,7 @@ Because ACR Build dynamically discovers base image dependencies when it builds a
 Learn about OS and framework patching in the third ACR Build tutorial, [Automate image builds on base image update with Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> While ACR Build is in preview, base image updates trigger builds only when both the base and application images reside in the same Azure container registry.
+> For the initial preview, base image updates trigger builds only when both the base and application images reside in the same Azure container registry.
 
 ## Next steps
 
