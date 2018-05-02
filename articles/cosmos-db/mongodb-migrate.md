@@ -22,7 +22,8 @@ ms.custom: mvc
 
 To migrate data from MongoDB to an Azure Cosmos DB account for use with the API for MongoDB, you must:
 
-* Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
+* Download community server from the [MongoDB Download Center](https://www.mongodb.com/download-center) and install it.
+* You would find *mongoimport.exe* and *mongorestore.exe* in "installation folder/bin" 
 * Get your [API for MongoDB connection string](connect-mongodb-account.md).
 
 If you are importing data from MongoDB and plan to use it with the Azure Cosmos DB, you should use the [Data Migration tool](import-data.md) to import data.
