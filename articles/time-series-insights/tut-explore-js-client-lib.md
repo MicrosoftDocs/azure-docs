@@ -63,26 +63,33 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
-2. Expand the `<head>` and `<body>` elements and notice:
+2. Expand the `<head>` and `<body>` elements similar to the layout in the following image, and notice:
    - Under **\<head\>**, elements that pull in additional files to assist in the functioning of the page:
-     - the \<script\> element for the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+     - the \<script\> element for referencing the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
 
        >[!NOTE]
        > The source code for the ADAL JavaScript library is available from the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
      - \<link\> elements for style sheets (`sampleStyles.css`, `tsiclient.css`) - used to control page styling details, such as colors, fonts, spacing, etc.
-     - the \<script\> element for the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - Under **\<body\>**, elements that define the layout of items on the page:
-     - a \<div\> element that contains the "Log In" dialog (`id="loginModal"`).
-     - a \<div\> element that controls the placement of the header row, used for status messages and sign-in information near the top of the page (`class="header"`).
-     - a \<div\> element that controls the placement of the remainder of the page elements (`class="chartsWrapper"`).
+     - the \<script\> element for referencing the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
+   - Under **\<body\>**, elements that define the layout of items on the page. You can think of the `<div>` elements as "containers" for content, specifying the ordering and placement on the page. The visual styling and all other attributes are specified in the style sheet files (CSS):
+     - the first \<div\> contains the "Log In" dialog (`id="loginModal"`).
+     - the second \<div\> controls the placement of the items on the main page:
+       - a header row, used for status messages and sign-in information near the top of the page (`class="header"`).
+       - the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
      - a \<script\> section, which contains all of the JavaScript used to control the page.
 
-   ![[TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+   [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-3. Expand the `<div class="chartsWrapper">` element, under the second `<div>` element of the `<body>` element. Here you'll find all of the `<div>` elements used to position all of the sample chart controls. Each is essentially a "container" for contents, specifying a name and page placement. The visual styling and all other attributes are specified in the style sheet files (CSS):
+3. As mentioned, the `<div class="chartsWrapper">` element is used to lay out the main page body. Expand this element, and you'll find the `<div>` elements used to position the sample chart controls. You will notice there are actually several pairs of `<div>` elements, one pair for each chart example:
+   - The first contains a title (`class="rowOfCardsTitle"`), which summarizes what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
+   - The second is a parent (`class="rowOfCards"`), which contains additionl child `<div>` elements that position the actual chart control(s)
+
+  ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
 4. Expand the `<script>` element, under the second `<div>` element of the `<body>` element. You will see the page level JavaScript, that is used for authentication and rendering of the controls on the page:
+
+  ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
 ### TSI Client JavaScript library
 
