@@ -4,9 +4,8 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 author: KellyDF
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: kefre

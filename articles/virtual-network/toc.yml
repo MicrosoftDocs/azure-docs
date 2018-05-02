@@ -5,6 +5,7 @@
   - name: About Virtual Network
     href: virtual-networks-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create virtual network - Portal
     href: quick-create-portal.md
@@ -327,7 +328,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/azure-virtual-network
-  - name: Network resource provider
-    href: resource-groups-networking.md
   - name: FAQ
     href: virtual-networks-faq.md

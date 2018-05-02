@@ -3,7 +3,7 @@ title: Quickstart - Create your first Azure Container Instances container with P
 description: In this quickstart, you use Azure PowerShell to deploy a Windows container in Azure Container Instances
 services: container-instances
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart

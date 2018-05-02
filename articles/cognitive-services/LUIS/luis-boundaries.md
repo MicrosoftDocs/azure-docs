@@ -1,13 +1,12 @@
 ---
 title: Language Understanding (LUIS) boundaries | Microsoft Docs
 titleSuffix: Azure
-description:  This article contains known limits of LUIS.
+description: This article contains known limits of LUIS.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: v-geberr

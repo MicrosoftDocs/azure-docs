@@ -5,9 +5,8 @@ description: Create a simple Windows app that uses the Cognitive Services Emotio
 services: cognitive-services
 author: SteveMSFT
 manager: corncar
-
 ms.service: cognitive-services
-ms.technology: face
+ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
@@ -27,7 +26,7 @@ To use the tutorial, you need the following prerequisites:
 
 ## <a name="step1"></a>Step 1: Subscribe to Face API and get your subscription key
 
-Before using the Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/en-us/try/cognitive-services/). Either the primary or secondary subscription key can be used in this tutorial.
+Before using the Face API, you must sign up to subscribe to Face API in the Microsoft Cognitive Services portal. See [subscriptions](https://azure.microsoft.com/try/cognitive-services/). Either the primary or secondary subscription key can be used in this tutorial.
 
 ## <a name="step2"></a>Step 2: Create the Visual Studio Solution
 

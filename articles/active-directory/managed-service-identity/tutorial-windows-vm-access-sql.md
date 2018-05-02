@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use a Windows VM MSI to access Azure SQL
 description: A tutorial that walks you through the process of using a Windows VM Managed Service Identity (MSI) to access Azure SQL. 
 services: active-directory
@@ -228,7 +228,7 @@ Alternatively, a quick way to test the end to end setup without having to write 
 4.	Using PowerShell’s `Invoke-WebRequest`, make a request to the local MSI endpoint to get an access token for Azure SQL.
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F -Method GET -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     Convert the response from a JSON object to a PowerShell object. 
