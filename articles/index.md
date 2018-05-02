@@ -1050,7 +1050,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/iot-central/">
-                                                <img src="media/index/IoT-centralsvg" alt="" />
+                                                <img src="media/index/IoT-central.svg" alt="" />
                                                 <p>IoT Central</p>
                                             </a>
                                         </li>
@@ -1066,6 +1066,7 @@ featureFlags:
                                                 <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
                                                 <p>API Management</p>
@@ -1424,7 +1425,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
-                                                <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
                                             </a>
                                         </li>
@@ -4622,7 +4623,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/resource-manager.svg" alt="" />
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -4779,7 +4780,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/media-aervices.svg" alt="" />
+                                                        <img src="media/index/media-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
