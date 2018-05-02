@@ -30,6 +30,8 @@ This guide assumes you already have a working trial or licensed Azure Active Dir
 
 ## Enable SSPR for your Azure AD tenant
 
+> [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
+
 1. From your existing Azure AD tenant, on the **Azure Portal** under **Azure Active Directory** select **Password reset**.
 
 2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose one of the following:
