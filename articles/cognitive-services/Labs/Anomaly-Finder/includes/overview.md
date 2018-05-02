@@ -1,3 +1,16 @@
+---
+title: Include file - Microsoft Cognitive Services | Microsoft Docs
+description: Include file.
+services: cognitive-services
+author: chliang
+manager: bix
+
+ms.service: cognitive-services
+ms.technology: anomaly-finder
+ms.topic: article
+ms.date: 04/13/2018
+ms.author: chliang
+---
 <a name="overview"></a>
 ## Overview
 The Anomaly Finder API enables you to monitor data over time and detect anomalies with machine learning that adapts to your unique data by automatically applying the right statistical model. It enables organizations to maintain data quality, provide reliable services, identify business incidents, and refine their business approach without tackling the tough problems of identifying abnormal data manually.

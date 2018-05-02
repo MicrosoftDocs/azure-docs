@@ -1,4 +1,16 @@
+---
+title: Include file - Microsoft Cognitive Services | Microsoft Docs
+description: Include file.
+services: cognitive-services
+author: chliang
+manager: bix
 
+ms.service: cognitive-services
+ms.technology: anomaly-finder
+ms.topic: article
+ms.date: 04/13/2018
+ms.author: chliang
+---
 <a name="paths"></a>
 ## Paths
 
