@@ -92,12 +92,12 @@ You can set up Jenkins either inside or outside a Service Fabric cluster. The fo
    > To mount cifs shares, you need to have the cifs-utils package installed in the cluster nodes. 		
    >
 
-4. Update the placeholder values in the `setupentrypoint.sh` script with the azure-storage details from step 3.
+4. Update the placeholder values in the `setupentrypoint.sh` script with the azure-storage details from step 2.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
-   * Replace `[REMOTE_FILE_SHARE_LOCATION]` with the value `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` from the output of the connect in step 3 above.
-   * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 3 above.
+   * Replace `[REMOTE_FILE_SHARE_LOCATION]` with the value `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` from the output of the connect in step 2 above.
+   * Replace `[FILE_SHARE_CONNECT_OPTIONS_STRING]` with the value `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` from step 2 above.
 
 5. **Secure Cluster Only:** 
    
