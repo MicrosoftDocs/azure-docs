@@ -18,10 +18,7 @@ ms.author: chrisgre
 
 # Configure and monitor IoT devices at scale - preview
 
-Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
-
->[!NOTE]
->The features described in this article is not available on IoT Hubs created in the US East, US West, North Europe and West Europe Azure regions.
+Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  This is performed using an automatic device configuration, which will also allow you to summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -68,7 +65,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 This section specifies the target content to be set in targeted device twins. There are two inputs for each set of settings. The first is the device twin path, which is the path to the JSON section within the twin desired properties that will be set.  The second is the JSON content to be inserted in that section. For example, set the Device Twin Path and Content to the following:
 
-![Set the Device Twin Path and Content](media/iot-hub-auto-device-config/create-configuration-full-browser.png)
+![Set the Device Twin Path and Content](/media/iot-hub-auto-device-config/create-configuration-full-browser.png)
 
 You can also set individual settings by specifying the entire path in the Device Twin Path and the value in the Content with no brackets. For example, set the Device Twin Path to `properties.desired.chiller-water.temperature` and set the Content to: `66`
 
