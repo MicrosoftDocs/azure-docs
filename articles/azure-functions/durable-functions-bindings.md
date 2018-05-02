@@ -60,12 +60,11 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 * **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
 * **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 
-> [!NOTE]
-> Orchestration triggers are only supported in C# at this time.
-
 ### Trigger sample
 
-The following is an example of what the simplest "Hello World" C# orchestrator function might look like:
+The following is an example of what the simplest "Hello World" orchestrator function might look like:
+
+#### C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -76,7 +75,23 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    return `Hello ${name}!`;
+});
+```
+
+> [!NOTE]
+> JavaScript orchestrators should use `return`. The `durable-functions` library takes care of calling the `context.done` method.
+
 Most orchestrator functions call activity functions, so here is a "Hello World" example that demonstrates how to call an activity function:
+
+#### C#
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -87,6 +102,18 @@ public static async Task<string> Run(
     string result = await context.CallActivityAsync<string>("SayHello", name);
     return result;
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df(function*(context) {
+    const name = context.df.getInput();
+    const result = yield context.df.callActivityAsync("SayHello", name);
+    return result;
+});
 ```
 
 ## Activity triggers
@@ -130,12 +157,11 @@ The activity trigger binding supports both inputs and outputs, just like the orc
 * **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
 * **metadata** - Activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
 
-> [!NOTE]
-> Activity triggers are not currently supported in Node.js functions.
-
 ### Trigger sample
 
-The following is an example of what a simple "Hello World" C# activity function might look like:
+The following is an example of what a simple "Hello World" activity function might look like:
+
+#### C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -146,7 +172,17 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
+#### JavaScript (Functions v2 only)
+
+```javascript
+module.exports = function(context) {
+    context.done(null, `Hello ${context.bindings.name}!`);
+};
+```
+
 The default parameter type for the `ActivityTriggerAttribute` binding is `DurableActivityContext`. However, activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
+
+#### C#
 
 ```csharp
 [FunctionName("SayHello")]
@@ -154,6 +190,14 @@ public static string SayHello([ActivityTrigger] string name)
 {
     return $"Hello {name}!";
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+module.exports = function(context, name) {
+    context.done(null, `Hello ${name}!`);
+};
 ```
 
 ### Passing multiple parameters 
@@ -288,9 +332,9 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 }
 ```
 
-#### Node.js Sample
+#### JavaScript Sample
 
-The following sample shows how to use the durable orchestration client binding to start a new function instance from a Node.js function:
+The following sample shows how to use the durable orchestration client binding to start a new function instance from a JavaScript function:
 
 ```js
 module.exports = function (context, input) {
