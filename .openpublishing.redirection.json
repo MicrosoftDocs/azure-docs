@@ -8290,8 +8290,8 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "source_path": "articles/cognitive-services/Computer-vision/index.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
             "redirect_document_id": false
         },
         {
@@ -8305,11 +8305,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Emotion/index.md",
+            "redirect_url": "/azure/cognitive-services/Emotion/Home",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/Face/index.md",
             "redirect_url": "/azure/cognitive-services/Face/Overview",
             "redirect_document_id": false
         },
-       {
+        {
+            "source_path": "articles/cognitive-services/video-indexer/index.md",
+            "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/home.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-get-started",
             "redirect_document_id": false
@@ -10171,7 +10186,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-domino.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-domino",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino",
             "redirect_document_id": false
         },
         {
@@ -10181,12 +10196,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericldap.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericldap",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericsql-step-by-step.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericsql-step-by-step",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step",
             "redirect_document_id": false
         },
         {
@@ -10196,7 +10211,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericsql.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericsql",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql",
             "redirect_document_id": false
         },
         {
@@ -19075,9 +19090,19 @@
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
             "redirect_document_id": true
         },
+      {
+        "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+        "redirect_document_id": false
+      },
+          {
+            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
+            "redirect_url": "/azure/active-directory/admin-roles-best-practices",
+            "redirect_document_id": false
+        },        
         {
-            "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-webapp-webapi-dotnet.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet",
             "redirect_document_id": false
         }
     ]
