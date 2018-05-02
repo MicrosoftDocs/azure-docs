@@ -24,26 +24,26 @@ Prerequisites
 ) and click on **My services**.
 2. Select the knowledge base you want to migrate by clicking on the edit icon.
 
-![Edit knowledge base](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
+    ![Edit knowledge base](../media/qnamaker-how-to-migrate-kb/preview-editkb.png)
 
 3. Click on **Download knowledge base** to download a .tsv file that contains the content of your knowledge base - questions, answers, metadata, and the data source names from which they were extracted.
 
-![Download knowledge base](../media/qnamaker-how-to-migrate-kb/Preview-download.png)
+    ![Download knowledge base](../media/qnamaker-how-to-migrate-kb/Preview-download.png)
 
 4. In the current [QnAMaker portal](https://qnamaker.ai), learn how to [create a knowledge base](./create-knowledge-base.md).
 5. Create a new empty knowledge base. To create an empty knowledge base, skip uploading and data sources in Step 4.
 
-![Create empty knowledge base](../media/qnamaker-how-to-migrate-kb/create-empty-kb.png)
+    ![Create empty knowledge base](../media/qnamaker-how-to-migrate-kb/create-empty-kb.png)
 
 6. In this new Knowledge base, open the **Settings** tab and click on **Import knowledge base**. This imports the questions, answers, and metadata, and retains the data source names from which they were extracted.
 
-![Import knowledge base](../media/qnamaker-how-to-migrate-kb/import.png)
+    ![Import knowledge base](../media/qnamaker-how-to-migrate-kb/import.png)
 
 7. **Test** the new knowledge base using the Test panel. Learn how to [test your knowledge base](./test-knowledge-base.md).
 8. **Publish** the knowledge base. Learn how to [publish your knowledge base](./publish-knowledge-base.md).
 9. Use the endpoint below in your application or bot code. See here how to [create a QnA bot](../Tutorials/create-qna-bot.md).
 
-![QnAMaker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![QnAMaker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
 At this point, all the knowledge base content - questions, answers and metadata, along with the names of the source files and the URLs, are imported to the new knowledge base. 
 

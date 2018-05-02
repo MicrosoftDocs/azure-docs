@@ -19,23 +19,23 @@ The language is automatically recognized from the content of the data sources be
 1. Navigate to the [Azure Portal](https://portal.azure.com/)
 2. Click on **resource groups** and navigate to the resource group where the QnAMaker service is deployed and click on the **Azure Search** resource
 
-![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
+    ![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
 3. Click on the **testkb** index. This Azure Search index is always the first one created and it contains the saved content of all the knowledge bases in that service. 
 
-![Select the Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
+    ![Select the Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
 4. Select **Fields** section in the Azure blade showing the testkb details.
 
-![Select Fields](../media/qnamaker-how-to-language-kb/selectfields.png)
+    ![Select Fields](../media/qnamaker-how-to-language-kb/selectfields.png)
 
 5. Check the box on **Analyzer** to see language details.
 
-![Select Analyzer](../media/qnamaker-how-to-language-kb/select-analyzer.png)
+    ![Select Analyzer](../media/qnamaker-how-to-language-kb/select-analyzer.png)
 
 6. You should find that the Analyzer is set to a particular language. This language was automatically detected during the knowledge base creation step. This language cannot be changed once the resource is created.
 
-![Selected Analyzer](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
+    ![Selected Analyzer](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 
 ## Next steps
 

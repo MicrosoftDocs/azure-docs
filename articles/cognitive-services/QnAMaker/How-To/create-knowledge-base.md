@@ -27,11 +27,11 @@ QnAMaker makes it very simple to onboard your existing data sources to create a 
 
     ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
-- Give your service a **name.** Duplicate names are supported and special characters are supported as well.
-- Paste in URLs which will be extracted from. See more information on the types of sources supported [here](../Concepts/data-sources-supported.md).
-- Alternately, upload files from which data is extracted. See the [pricing information](https://aka.ms/qnamaker-pricing
+    - Give your service a **name.** Duplicate names are supported and special characters are supported as well.
+    - Paste in URLs which will be extracted from. See more information on the types of sources supported [here](../Concepts/data-sources-supported.md).
+    - Alternately, upload files from which data is extracted. See the [pricing information](https://aka.ms/qnamaker-pricing
 ) to see how many documents you can add.
-- If you want to manually add QnAs, you can skip linking files.
+    - If you want to manually add QnAs, you can skip linking files.
 
 4. Click on **Create**
 

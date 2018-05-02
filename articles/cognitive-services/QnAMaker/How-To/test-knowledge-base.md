@@ -20,7 +20,7 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
 2.  To access the Test slide-out panel, select **Test** in your application's top panel
 
-![Access Test](../media/qnamaker-how-to-test-kb/access-test.png)
+    ![Access Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Enter a query in the text box and select Enter.
 4.  The best-matched answer from the knowledge base is returned as the response
@@ -39,14 +39,13 @@ You inspect details of the test result in the Inspect panel.
 
 1.  With the Test slide-out panel open, select **Inspect** for more details on that response.
 
-![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
+    ![Inspect responses](../media/qnamaker-how-to-test-kb/inspect.png)
 
 2.  The Inspection panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-
 ## Correct the top scoring answer
 
-1.  If the top scoring answer is incorrect, select the correct answer from the list and click on Save and Train.
+If the top scoring answer is incorrect, select the correct answer from the list and click on Save and Train.
 
 ![Access Test](../media/qnamaker-how-to-test-kb/choose-answer.png)
 

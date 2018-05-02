@@ -21,12 +21,11 @@ When you publish a knowledge base, the QnA contents of your knowledge base moves
 
 1. Once done with the changes in your KB, click on **Publish** in the top navigation bar. You can publish up to the allotted number of knowledge bases for the Azure Search. 
 
-![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish.png)
-
+    ![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish.png)
 
 2. Click **Publish** to see the endpoint details that can be used in your application or bot code.
 
-![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Publish knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
 	
 ## Next steps
 

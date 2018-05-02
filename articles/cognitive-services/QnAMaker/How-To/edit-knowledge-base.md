@@ -19,15 +19,15 @@ QnAMaker allows you to manage the content of your knowledge base by providing an
 
 1.  Click on **My knowledge bases** in the top navigation bar. 
 
-    You can see all the services you created or shared with you sorted in the descending order of the **last modified** date
+    You can see all the services you created or shared with you sorted in the descending order of the **last modified** date.
 
-![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Click on a particular knowledge base to make edits to it.
 
 3. Once you are done making changes to the Knowledge base, click on **Save and train** in the top right corner of the page in order to persist the changes.    
 
-![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
+    ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
     >[!NOTE]
 	Leaving the page before clicking on Save and train will not persist the changes.

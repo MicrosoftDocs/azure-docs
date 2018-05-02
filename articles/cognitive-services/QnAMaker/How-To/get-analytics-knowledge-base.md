@@ -18,27 +18,27 @@ QnAMaker stores all chat logs and other telemetry, if you have enabled App Insig
 
 1. Go to your App Insights resource.
 
-![Click on your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Click on your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
 2. Click on **Analytics**. A new window opens where you can query QnAMaker telemetry.
 
-![Click on Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+    ![Click on Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
 3. Paste in the following query and run it.
 
-![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
-```query
-    requests
-    | where url endswith "generateAnswer"
-    | project timestamp, id, name, resultCode, duration
-    | parse name with *"/knowledgebases/"KbId"/generateAnswer"
-    | join kind= inner (
-    traces | extend id = operation_ParentId
-    ) on id
-    | extend question = tostring(customDimensions['Question'])
-    | extend answer = tostring(customDimensions['Answer'])
-    | project KbId, timestamp, resultCode, duration, question, answer
-```
+    ![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    ```query
+        requests
+        | where url endswith "generateAnswer"
+        | project timestamp, id, name, resultCode, duration
+        | parse name with *"/knowledgebases/"KbId"/generateAnswer"
+        | join kind= inner (
+        traces | extend id = operation_ParentId
+        ) on id
+        | extend question = tostring(customDimensions['Question'])
+        | extend answer = tostring(customDimensions['Answer'])
+        | project KbId, timestamp, resultCode, duration, question, answer
+    ```
 
 ## Run queries for other analytics on your QnAMaker knowledge base
 
