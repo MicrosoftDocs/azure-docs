@@ -34,14 +34,14 @@ You can choose to allow Site Recovery to manage updates in the following ways:-
 
 When you enable replication for a virtual machine either starting [from the virtual machine view](azure-to-azure-quickstart.md), or [from the recovery services vault](azure-to-azure-how-to-enable-replication.md), you will get an option to choose to either allow Site Recovery to manage updates for the Site Recovery extension or to manually manage the same.
 
-![enable-replication-auto-update](../media/azure-to-azure-autoupdate/enable-rep.png)
+![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### Toggle the extension update settings inside the vault
 
 1. Inside the vault, navigate to **Manage**-> **Site Recovery Infrastructure**
 2. Under **For Azure virtual Machines**-> **Extension Update Settings**, click the toggle to choose whether you want to allow *ASR to manage updates* or *manage manually*. Click **Save**.
 
-![vault-toggle-autuo-update](../media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-autuo-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > When you choose *Allow ASR to manage*, the setting is applied to all virtual machines in the corresponding vault.
@@ -61,7 +61,7 @@ In case you tried to enable automatic updates and it failed, refer below for tro
  
 Once automatic updates are turned ON, most of the issues can be healed by the Site Recovery service and requires you to click on the '**Repair**' button.
 
-![repair-button](../media/azure-to-azure-autoupdate/repair.png)
+![repair-button](./media/azure-to-azure-autoupdate/repair.png)
 
 In case the repair button isn't available, refer to the error message displayed under extension settings pane.
 
