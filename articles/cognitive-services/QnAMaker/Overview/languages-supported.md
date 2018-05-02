@@ -90,8 +90,3 @@ Bengali|
 |Ukrainian|
 |Urdu|
 |Vietnamese|
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Knowledge base](../Concepts/knowledge-base.md)
