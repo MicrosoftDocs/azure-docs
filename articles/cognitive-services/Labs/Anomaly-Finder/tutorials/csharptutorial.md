@@ -12,7 +12,7 @@ ms.date: 04/19/2018
 ms.author: chliang
 ---
 
-# Anomaly Detection C&#35; Tutorial
+# Anomaly Detection C# Tutorial
 
 Explore a basic Windows application that uses Anomaly Detection API to detect anomalies from the input. 
 The example submits the time series data to the Anomaly Detection API with your subscription key, then gets all the anomaly points and expected value for each data point from the API.
@@ -25,7 +25,7 @@ The example has been developed for the .NET Framework using [Visual Studio 2017,
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Get and use the example
 
@@ -46,7 +46,7 @@ In your GitHub Desktop, open Sample\AnomalyDetectionSample.sln.
 4. If the data is good, you will find the anomaly detection result in "Response" field. If any error occurs, the error information will be shown in the Response field as well.
 
 ### <a name="Review">Step 4: Read the result</a>
-[!INCLUDE [diagrams](../diagrams.md)]
+[!INCLUDE [diagrams](../includes/diagrams.md)]
 
 ### <a name="Review">Review and Learn</a>
 

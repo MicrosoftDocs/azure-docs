@@ -20,7 +20,7 @@ with interactive Jupyter notebooks, refer to [Jupyter Documentation](http://jupy
 ## Prerequisites
 ### Subscribe to Anomaly Detection and get a subscription key 
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Download the example code
 1. Navigate to the [tutorial notebook in Github](https://github.com/MicrosoftAnomalyDetection/python-sample).

@@ -18,14 +18,14 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Getting anomaly points with Anomaly Finder API using C# 
-[!INCLUDE [DataContract](../datacontract.md)]
+[!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### Example of time series data points
 The example of the time series data points is as follows.
-[!INCLUDE [Request](../request.md)]
+[!INCLUDE [Request](../includes/request.md)]
 
 ### Analyze data and get anomaly points C# example
 
@@ -113,4 +113,4 @@ namespace Console
 ### Example response
 
 A successful response is returned in JSON. The example response is as follows.
-[!INCLUDE [Response](../response.md)]
+[!INCLUDE [Response](../includes/response.md)]

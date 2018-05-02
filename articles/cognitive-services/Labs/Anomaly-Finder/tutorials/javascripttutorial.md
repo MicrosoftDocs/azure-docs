@@ -23,7 +23,7 @@ This tutorial has been developed using a simple text editor.
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Get and use the example 
 This tutorial provides two scenarios for time series data anomaly detection. Let's get started.
@@ -49,7 +49,7 @@ There are two scenarios you can try the example.
 
 ### <a name="Step3">Step 3: Read the result</a>
 
-[!INCLUDE [diagrams](../diagrams.md)]
+[!INCLUDE [diagrams](../includes/diagrams.md)]
 
 ### <a name="Review">Review and Learn</a>
 Now you get a running application. Let's review how the example app integrates with Cognitive Services technology. This step will make it easier to either continue building on this app or develop your own app using Microsoft Anomaly Detection.

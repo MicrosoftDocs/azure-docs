@@ -26,7 +26,7 @@ And also you need to install [Java Development Kit (JDK)](http://www.oracle.com/
 
 ### Subscribe to Anomaly Detection and get a subscription key 
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
  
 
 ## Download the tutorial project
@@ -65,4 +65,4 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 
 ### Result of the tutorial project
 
-[!INCLUDE [diagrams](../diagrams.md)]
+[!INCLUDE [diagrams](../includes/diagrams.md)]

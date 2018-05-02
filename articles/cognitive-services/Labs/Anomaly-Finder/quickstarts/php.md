@@ -18,14 +18,14 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Getting anomaly points with Anomaly Finder API using PHP
-[!INCLUDE [DataContract](../datacontract.md)]
+[!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### Example of time series data
 The example of the time series data is as follows.
-[!INCLUDE [Request](../request.md)]
+[!INCLUDE [Request](../includes/request.md)]
 
 ### Analyze data and get anomaly points PHP example
 1. Replace the `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
@@ -71,4 +71,4 @@ catch (HttpException $ex)
 ### Example response
 
 A successful response is returned in JSON. Sample response is as follows.
-[!INCLUDE [Response](../response.md)]
+[!INCLUDE [Response](../includes/response.md)]

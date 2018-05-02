@@ -61,8 +61,8 @@ Anomaly detection API returns default result on whether a data point is anomaly 
 
 Request with sample data
 
-[!INCLUDE [Request](./request.md)]
+[!INCLUDE [Request](./includes/request.md)]
 
 Sample JSON Response
 
-[!INCLUDE [Response](./response.md)]
+[!INCLUDE [Response](./includes/response.md)]

@@ -18,14 +18,14 @@ This article provides information and code samples to help you quickly get start
 
 ## Prerequisites
 
-[!INCLUDE [GetSubscriptionKey](../get-subscription-key.md)]
+[!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
 ## Getting anomaly points with Anomaly Finder API using cURL 
-[!INCLUDE [DataContract](../datacontract.md)]
+[!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### Example of time series data
 The example of the time series data points is as follows,
-[!INCLUDE [Request](../request.md)]
+[!INCLUDE [Request](../includes/request.md)]
 
 ### Analyze data and get anomaly points cURL example
 
@@ -46,4 +46,4 @@ curl -v -X POST "https://api.labs.cognitive.microsoft.com/anomalyfinder/v1.0/ano
 
 ### Example response
 A successful response is returned in JSON. Example response is as follows:
-[!INCLUDE [Response](../response.md)]
+[!INCLUDE [Response](../includes/response.md)]
