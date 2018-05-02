@@ -1,4 +1,4 @@
-- name: 3rd party integrations
+- name: Developer Tool Integrations
   href: index.yml
   items: 
   - name: IntelliJ
