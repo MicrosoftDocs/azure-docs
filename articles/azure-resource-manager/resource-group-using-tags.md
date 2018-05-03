@@ -163,13 +163,13 @@ az resource show --id <resource-id> --query tags
 To get resource groups that have a specific tag, use `az group list`:
 
 ```azurecli
-az group list --tag Dept=IT
+az group list --tags Dept=IT
 ```
 
 To get all the resources that have a particular tag and value, use `az resource list`:
 
 ```azurecli
-az resource list --tag Dept=Finance
+az resource list --tags Dept=Finance
 ```
 
 Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
