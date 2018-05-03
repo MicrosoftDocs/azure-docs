@@ -1,6 +1,6 @@
 ---
 title: Transcription guidelines for Speech training | Microsoft Docs
-description: Prepare text to customize acoustic and language models and voice fonts for the Speech service.
+description: Lear how to prepare text to customize acoustic and language models and voice fonts for the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -9,17 +9,17 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
 
-# Transcription guidelines
+# Transcription guidelines for using Speech service
 
-Customizing Speech to Text or Text to Speech requires text to be provided along with speech. Each line in the text corresponds to a single utterance. The text is called a *transcript,* and you must create it in a specific format.
+To customize **Speech to Text** or **Text to Speech**, you must provide text along with speech. Each line in the text corresponds to a single utterance. The text is called a *transcript*, and you must create it in a specific format.
 
-The Speech service will do some normalization for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
+The Speech service performs some normalizations for you in order to make your text consistent. Other normalization tasks must be performed before the text is submitted for training. 
 
-This article describes both types of normalization. The guidelines vary slightly for various languages.
+This article describes both types of normalizations. The guidelines vary slightly for various languages.
 
 ## US English (en-US)
 
@@ -62,8 +62,8 @@ Apply the following normalization to your text transcripts.
 *   Abbreviations should be written out in words to reflect spoken form
 *   Non-standard numeric strings (such as some date or accounting forms) should be written out in words
 *   Words with non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced
-*   Leave abbreviations pronounced as words (radar, laser, RAM, NATO, Mr.) untouched
-*   Write abbreviations pronounced as separate letters (IBM, CPU, FBI, TBD, NaN) with letters separated by spaces
+*   Leave abbreviations pronounced as words untouched. For example, radar, laser, RAM, NATO, and Mr.
+*   Write abbreviations pronounced as separate letters, with letters separated by spaces. For example, IBM, CPU, FBI, TBD, NaN. 
 
 Here are some examples:
 
@@ -117,7 +117,7 @@ Here are some examples.
 Apply the following normalization to your text before importing it.
 
 *   Abbreviations should be written out in words to reflect spoken form
-*   This service doesn't cover all numeric quantities. It is more reliable to write out numeric strings in spoken form
+*   This service does not cover all numeric quantities. It is more reliable to write out numeric strings in spoken form.
 
 Here are some examples.
 
@@ -128,7 +128,7 @@ Here are some examples.
 
 ## Other languages
 
-Text data uploaded to the Speech to Text service must use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
+Text data uploaded to the **Speech to Text** service must use UTF-8 encoding with byte-order marker. Each line of the file should contain the text for a single utterance.
 
 > [!NOTE]
 > These examples use German. However, these guidelines apply to all languages that are not US English or Chinese.
@@ -174,3 +174,8 @@ Here are some examples.
 | 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 | Das macht 12€ | Das macht 12 Euros | das macht zwölf euros |
+
+## Next steps
+
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [Recognize speech in C#](quickstart-csharp-windows.md)
