@@ -1,4 +1,15 @@
+---
+title: include file
+description: include file
+services: site-recovery
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 05/03/2018
+ms.author: raynew
+ms.custom: include file
 
+---
 
 **Configuration/Process server requirements**
 
