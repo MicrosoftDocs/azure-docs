@@ -3,9 +3,9 @@ title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft D
 description: mitigations for threats exposed in the Threat Modeling Tool 
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
-ms.author: rodsan
+ms.author: jegeib
 
 ---
 

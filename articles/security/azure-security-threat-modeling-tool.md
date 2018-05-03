@@ -3,9 +3,9 @@ title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
 description: main page for the Microsoft Threat Modeling Tool, containing mitigations for the most exposed generated threats
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 
 ms.assetid: na
 ms.service: security
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: rodsan
+ms.author: jegeib
 
 ---
 
