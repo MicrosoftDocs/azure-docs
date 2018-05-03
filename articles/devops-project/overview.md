@@ -24,13 +24,13 @@ The DevOps Project dashboard lets you monitor code commits, builds, and deployme
 
 ## Why should I use the Azure DevOps Project?
 
-The Azure DevOps Project automates the set up of an entire Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.  You can start with your existing code or use one of the provided sample applications, and then quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Container Service, and Azure Service Fabric.  The Azure DevOps project does all the work for you for the initial configuration of a DevOps pipeline including everything from the initial Git repository to the CI/CD pipeline in VSTS, Application Insights for monitoring, and a single view of the entire solution with a dashboard in the Azure Portal.
+The Azure DevOps Project automates the set up of an entire Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.  You can start with your existing code or use one of the provided sample applications, and then quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Container Service, Azure SQL Database, and Azure Service Fabric.  The Azure DevOps project does all the work for you for the initial configuration of a DevOps pipeline including everything from the initial Git repository to the CI/CD pipeline in VSTS, Application Insights for monitoring, and a single view of the entire solution with a dashboard in the Azure Portal.
 
 You can use the Azure DevOps Project to:
 
-* Quickly get your application deployed to Azure
+* Quickly deploy your application to Azure
 * Automate the set up of a VSTS CI/CD pipeline
-* Use the DevOps project as a template to understand how to properly set up CI/CD to Azure with VSTS
+* Use the DevOps project as a template to view and understand how to properly set up CI/CD to Azure with VSTS
 * Get started with CI/CD pipeline to Azure, and then further customize the release pipeline based on your specific scenarios
 
 ## How do I use the Azure DevOps Project?
@@ -48,9 +48,13 @@ You choose several configuration options as part of the initial set up.  These i
 * Location of Azure services
 * Pricing tiers of Azure services
 
+After you use the Azure DevOps Project, you can also delete all of the resources from a single place from the Azure DevOps Project dashboard on the Azure Portal.
+
 ## Azure DevOps Project and VSTS integration
 
-DevOps Projects are powered by VSTS.  The Azure DevOps Project automatically creates a Git repository and release pipeline in your VSTS account.
+DevOps Projects are powered by VSTS.  The DevOps project automates all of the work needed in VSTS to set up CI/CD to Azure  A Git repository is created in a new or existing VSTS account.  A sample application or your existing code is committed to the new repository.  The automation also establishes a CI trigger for the build so that every new code commit will initiate a build.  The DevOps project also creates a CD trigger and will deploy every new successful build to the Azure service of your choice.  The build and release definitions can be customized for additional scenarios.  You can also clone the build and release definitions for use in other projects.
+
+After creating your DevOps Project you can:
 
 * Customize your build and release pipeline
 * Use pull requests to manage your code flow & keep your quality high
