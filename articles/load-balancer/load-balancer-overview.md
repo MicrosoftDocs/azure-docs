@@ -111,7 +111,7 @@ However, depending on which SKU you choose, the complete scenario configuration 
 >[!NOTE]
 > If you are using a newer design scenario, consider using Standard Load Balancer. 
 
-Standalone VMs, availability sets, and VM scale sets can be connected to only one SKU, never both. When you use them with public IP addresses, both Load Balancer and the public IP address SKU must match. Load Balancer and public IP SKUs are not mutable.
+Standalone VMs, availability sets, and virtual machine scale sets can be connected to only one SKU, never both. When you use them with public IP addresses, both Load Balancer and the public IP address SKU must match. Load Balancer and public IP SKUs are not mutable.
 
 _It is a best practice to specify the SKUs explicitly, even though it is not yet mandatory._  At this time, required changes are being kept to a minimum. If a SKU is not specified, it is interpreted as an intention to use the 2017-08-01 API version of the Basic SKU.
 
@@ -121,7 +121,7 @@ _It is a best practice to specify the SKUs explicitly, even though it is not yet
 | | [Standard SKU](load-balancer-standard-overview.md) | Basic SKU |
 | --- | --- | --- |
 | back-end pool size | Up to 1000 instances. | Up to 100 instances. |
-| back-end pool endpoints | Any VM in a single virtual network, including a blend of VMs, availability sets, and VM scale sets. | VMs in a single availability set or VM scale set. |
+| back-end pool endpoints | Any VM in a single virtual network, including a blend of VMs, availability sets, and virtual machine scale sets. | VMs in a single availability set or virtual machine scale set. |
 | Azure Availability Zones | Zone-redundant and zonal front ends for inbound and outbound, outbound flow mappings survive zone failure, cross-zone load balancing. | / |
 | Diagnostics | Azure Monitor, multi-dimensional metrics including byte and packet counters, health probe status, connection attempts (TCP SYN), outbound connection health (SNAT successful and failed flows), active data plane measurements. | Azure Log Analytics for public load balancer only, SNAT exhaustion alert, back-end pool health count. |
 | HA Ports | Internal load balancer. | / |
