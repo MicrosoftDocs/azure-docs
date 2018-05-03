@@ -66,8 +66,7 @@ OUTPUT @a
 2. Paste in the text of the U-SQL script shown above. 
 3. Click **Submit Job**.   
 4. Wait until the job status changes to **Succeeded**.
-5. If the job failed, see [Monitor and troubleshoot Data Lake Analytics jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Click the **Output** tab, and then click `data.csv`. 
+5. Click the **Output** tab, and then click `data.csv`. 
 
 ## See also
 

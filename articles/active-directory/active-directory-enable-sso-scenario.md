@@ -109,6 +109,6 @@ With Azure AD you can secure your applications with granular access policies and
 To get started integrating applications with Azure AD, take a look at the [Integrating Azure Active Directory with applications getting started guide](active-directory-integrating-applications-getting-started.md).
 
 ## See also
-[Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-[Step-by-step deployment plan for SSO into a SaaS application](http://aka.ms/ssodeploymentplan)
+* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
+* [Step-by-step deployment plan for SSO into a SaaS application](http://aka.ms/ssodeploymentplan)
 
