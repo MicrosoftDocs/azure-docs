@@ -15,7 +15,7 @@ ms.author: v-jerkin
 
 # Speech SDK reference
 
-The Speech Software Development Kit (SDK) to provide your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to Speech to Text and Speech Translation. Text to Speech employs REST POST calls over HTTP.
+The Speech Software Development Kit (SDK) provides your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text** and **Speech Translation**. Text to Speech employs REST POST calls over HTTP.
 
 The table below describes the currently supported programming languages and operating systems.
 
@@ -26,3 +26,8 @@ The table below describes the currently supported programming languages and oper
 |Java\*|Devices|[Browse](https://aka.ms/csspeech/javaref)
 
 \* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*
+
+## Next steps
+
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-windows.md)
