@@ -33,10 +33,10 @@ The Azure Database Migration Service is currently available in the following reg
 - UK West
 - North Europe
 - West Europe
-- Japan East
-- Japan West
 - East Asia
 - Southeast Asia
+- Japan East
+- Japan West
 - Australia East
 - Australia Southeast
 - Central India
