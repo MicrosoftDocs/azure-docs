@@ -21,8 +21,12 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
-  - name: 'Deploy apps to Azure & Azure Stack'
+  - name: Deploy apps to Azure and Azure Stack
     href: azure-stack-solution-pipeline.md
+  - name: Configure hybrid cloud identity
+    href: azure-stack-solution-hybrid-identity.md
+  - name: Configure hybrid cloud connectivity
+    href: azure-stack-solution-hybrid-connectivity.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
