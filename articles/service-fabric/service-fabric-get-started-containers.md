@@ -132,6 +132,11 @@ Once the container starts, find its IP address so that you can connect to your r
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
+If that command does not return anything, run the following command and inspect the **NetworkSettings**->**Networks** element for the IP address:
+```
+docker inspect my-web-site
+```
+
 Connect to the running container. Open a web browser pointing to the IP address returned, for example "http://172.31.194.61". You should see the heading "Hello World!" display in the browser.
 
 To stop your container, run:
