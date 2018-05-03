@@ -63,7 +63,7 @@ To export the model after retraining, use the following steps:
 
 2. Select the export format, and then select __Export__ to download the model.
 
-## Next Steps
+## Next steps
 
 Integrate your exported model into an application. Several sample applications are available:
 

@@ -11,7 +11,7 @@ ms.date: 05/03/2018
 ms.author: anroth
 ---
 
-# Test and Retrain Your Model
+# Test and retrain a model
 
 After you train your model, you can quickly test it using a locally stored image or an online image. The test uses the most recently trained iteration.
 
