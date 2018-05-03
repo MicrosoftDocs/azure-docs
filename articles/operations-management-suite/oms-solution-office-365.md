@@ -1,5 +1,5 @@
 ---
-title: Office 365 solution in Operations Management Suite (OMS) | Microsoft Docs
+title: Office 365 management solution in Azure | Microsoft Docs
 description: This article provides details on configuration and use of the Office 365 solution in OMS.  It includes detailed description of the Office 365 records created in Log Analytics.
 services: operations-management-suite
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 05/03/2018
 ms.author: bwren
 
 ---
-# Office 365 solution in Operations Management Suite (OMS)
+# Office 365 management solution in Azure
 
 ![Office 365 logo](media/oms-solution-office-365/icon.png)
 
-The Office 365 solution for Operations Management Suite (OMS) allows you to monitor your Office 365 environment in Log Analytics.  
+The Office 365 management solution allows you to monitor your Office 365 environment in Log Analytics.
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
 - Monitor administrator activities to track configuration changes or high privilege operations.
