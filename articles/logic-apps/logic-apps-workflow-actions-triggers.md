@@ -714,7 +714,7 @@ when your website returns a "500" status code:
 
 <a name="split-on-debatch"></a>
 
-## Triggers: Process an array with multiple runs
+## Triggers: Split an array into multiple runs
 
 If your trigger returns an array for your logic app to process, 
 sometimes a "for each" loop might take too long to process each array item. 
@@ -812,7 +812,7 @@ These triggers provide more options that let you change the default behavior.
 
 | Trigger | Operation option | Description |
 |---------|------------------|-------------|
-| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. [Triggers: Fire only after active runs finish](#single-instance) |
+| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. |
 ||||
 
 <a name="single-instance"></a>
