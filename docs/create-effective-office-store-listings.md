@@ -33,9 +33,6 @@ In your title:
 - Don't use all uppercase letters, unless your brand name is all uppercase.
 - Don't use the words "free" or "sale" or include exclamation points.
 
-*Figure 1. An AppSource listing with an effective title and description next to one that is less effective*
-
-![Image of an AppSource listing with an effective title and description next to one that is less effective](images/appsource-titles-dos-donts.png)
 
 ### Use a consistent add-in name
 
@@ -58,7 +55,7 @@ The short description that you supply with your submission is the text that is s
 - Avoid using jargon or specialized terminology; don't assume that users know what they're looking for.
 - Include keywords that customers might search for.
 
-*Figure 2. A good short description next to one that relies on the brand name*
+The following figure shows a good short description next to one that relies on the brand name*
 
 ![An image that shows a good short description next to one that relies on the brand name](images/description-do-dont.png)
 
@@ -103,7 +100,7 @@ Your logo should:
 - Use simple imagery. Don't clutter or complicate your image.
 - Communicate the problem that the solution solves. Don't rely on your company logo for your image.
 
-*Figure 3. A clear logo with an Excel chart next to an unclear Fabrikam logo*
+The following figure shows a clear logo with an Excel chart next to an unclear Fabrikam logo.
 
 ![An image that shows a clear logo with an Excel chart next to an unclear Fabrikam logo](images/communicate-problem-do-dont.png)
 
@@ -141,19 +138,6 @@ Make your store images rich and informative. Help customers understand how your 
 > [!NOTE]
 > Be sure to remove any personal information from your images that you do not want customers to see.
 
-<br/>
-
-|**Do**|**Don't**|
-|:------------|:--------------|
-|**Use clear and simple captions to convey your add-in's value.**|**Don’t use callouts that obstruct important content.**|
-|<img alt="Screenshot of an add-in with a clear and simple caption" src="images/screenshot-do.png" width="500"> |<img alt="Screenshot of an add-in with callouts that obstruct the text" src="images/screenshot-dont-1b.png" width="500"> |
-|**When needed, make content legible with magnified close-ups.**|**Don't highlight more than one section.**|
-|<img alt="Screenshot of an add-in with one magnified closeup" src="images/highlight-do.png" width="500">|<img alt="Screenshot of an add-in with two magnified closeups" src="images/highlight-dont.png" width="500">|
-|**Incorporate recognizable brand elements like color or logo into images.**|**Don't add unnecessary graphic elements that obstruct content.**|
-|<img alt="Screenshot of an add-in with color and logo" src="images/brand-color-do-1b.png" width="500">|<img alt="Screenshot of an add-in with multiple graphic elements" src="images/brand-color-dont-1b.png" width="500">|
-
-<br/>
-
 <a name="bk_ratings"> </a>
 ## Use ratings and reviews
 
@@ -162,7 +146,7 @@ Good ratings and reviews lead to better store placement and improved customer pe
 - Ask customers to rate and review from within your add-in. Make sure that they've had a chance to explore the add-in first, and don't ask for feedback too often.
 - Offer help and support from within your add-in, so customers don't have to leave feedback in AppSource reviews.
 
-*Figure 4. A request to rate within an add-in next to a request to rate following a tutorial*
+The following figure shows a request to rate within an add-in next to a request to rate following a tutorial.
 
 ![An image that shows a request to rate within an add-in next to a request to rate following a tutorial](images/rate-and-review-do-dont.png)
 
@@ -170,7 +154,7 @@ Good ratings and reviews lead to better store placement and improved customer pe
 
 You can use the comment feature in AppSource to respond to customer reviews of your solution; for example, customer reviews that indicate that a user had trouble with installation, was confused about features or functionality, or had compatibility issues. If you're signed in to AppSource with the same account that you used to submit your app or add-in via the Seller Dashboard, your response to the customer review will be tagged with an "App provider" label.
 
-*Figure 5. A developer response to a comment with the App provider label under the name*
+The following figure shows a developer response to a comment with the app provider label under the name.
 
 ![Image that shows a developer response to a comment with the App provider label under the name](images/comment-field.png)
  
