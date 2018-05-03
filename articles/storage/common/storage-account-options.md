@@ -29,7 +29,7 @@ Each type of account is described in greater detail in the following section:
 
 General-purpose v2 (GPv2) accounts are storage accounts that support all of the latest features for blobs, files, queues, and tables. GPv2 accounts support all APIs and features supported in GPv1 and Blob storage accounts. They also support the same durability, availability, scalability, and performance features in those account types. Pricing for GPv2 accounts has been designed to deliver the lowest per gigabyte prices, and industry competitive transaction prices.
 
-You can upgrade your GPv1 account to a GPv2 account using Azure Portal, PowerShell, or Azure CLI. 
+You can upgrade your GPv1 account to a GPv2 account using Azure portal, PowerShell, or Azure CLI. 
 
 For block blobs in a GPv2 storage account, you can choose between hot and cool storage tiers at the account level, or hot, cool, and archive tiers at the blob level based on access patterns. Store frequently, infrequently, and rarely accessed data in the hot, cool, and archive storage tiers respectively to optimize costs. 
 
@@ -137,7 +137,7 @@ You cannot set the access tier to archive in the following examples because this
 
 6. Select the replication option for the storage account: **LRS**, **ZRS**, **GRS**, or **RA-GRS**. The default is **RA-GRS**.
 
-    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS is read-access geo-redundant storage (two regions with read access to the second).
+    LRS = locally-redundant storage; ZRS = zone-redundant storage; GRS = geo-redundant storage (two regions); RA-GRS = read-access geo-redundant storage (two regions with read access to the second).
 
     For more details on Azure Storage replication options, see [Azure Storage replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -326,7 +326,7 @@ Yes, you can change the account storage tier by setting the **Access Tier** attr
 
 **How frequently can I change the storage tier of my Blob storage account?**
 
-While we do not enforce a limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. Changing the storage tier frequently is not recommended.
+While there is no enforced limitation on how frequently the storage tier can be changed, be aware that changing the storage tier from cool to hot can incur significant charges. Changing the storage tier frequently is not recommended.
 
 **Do the blobs in the cool storage tier behave differently than the ones in the hot storage tier?**
 
