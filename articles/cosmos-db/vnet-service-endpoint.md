@@ -209,9 +209,9 @@ Yes, virtual networks created in different regions can access by the new capabil
 
 Yes, Virtual Network Service endpoint and a firewall can co-exist. In general, you should ensure that access to portal is always enabled before configuring a virtual network service endpoint to enable you to view the metrics associated with the container.
 
-### Can I "allow access to other Azure services from ..." when service endpoint access is enabled for Azure Cosmos DB?  
+### Can I "allow access to other Azure services from a given Azure region" when service endpoint access is enabled for Azure Cosmos DB?  
 
-This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Search  or any service that is deployed in given Azure region.
+This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Search or any service that is deployed in given Azure region.
 
 ### How many virtual network service endpoints are allowed for Azure Cosmos DB?  
 
