@@ -1,8 +1,8 @@
-- name: Speech service documentation
+- name: Speech Service API Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Speech service
+  - name: What is Speech service?
     href: overview.md
     expanded: true
 - name: Quickstarts
