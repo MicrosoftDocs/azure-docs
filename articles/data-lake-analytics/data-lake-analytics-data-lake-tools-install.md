@@ -1,6 +1,6 @@
 ---
-title: Install Data Lake Tools for  Visual Studio | Microsoft Docs
-description: Learn how to install Data Lake Tools for Visual Studio. 
+title: Install Azure Data Lake Tools for  Visual Studio | Microsoft Docs
+description: Learn how to install Azure Data Lake Tools for Visual Studio. 
 services: data-lake-analytics
 documentationcenter: ''
 author: saveenr
@@ -46,3 +46,9 @@ Enable the **Azure development** workload as shown:
 Download and install Azure Data Lake Tools for Visual Studio [from the Download Center](http://aka.ms/adltoolsvs). After installation, note that:
 * The **Server Explorer** > **Azure** node contains a **Data Lake Analytics** node. 
 * The **Tools** menu has a **Data Lake** item.
+
+
+## Next Steps
+* To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
+* To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
+* To use the vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
