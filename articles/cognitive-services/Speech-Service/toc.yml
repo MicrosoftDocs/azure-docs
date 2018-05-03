@@ -76,7 +76,7 @@
   - name: Shipping your application
     href: ship-application.md
   - name: Release notes
-    href: release-notes.md
+    href: releasenotes.md
   - name: Speech SDK License
     href: license.md
   - name: Speech Devices SDK License
