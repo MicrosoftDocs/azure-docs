@@ -5,6 +5,10 @@
     href: cognitive-services-custom-speech-home.md
 - name: Quickstarts
   items:
+  - name: Create an account
+    href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md
+- name: Tutorials
+  items:
   - name: Create a custom acoustic model
     href: CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md
   - name: Create a custom language model
