@@ -38,7 +38,7 @@ There are multiple [outbound scenarios](#scenarios). You can combine these scena
 Azure Load Balancer and related resources are explicitly defined when you're using [Azure Resource Manager](#arm).  Azure currently provides three different methods to achieve outbound connectivity for Azure Resource Manager resources. 
 
 | Scenario | Method | IP protocols supported | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | [1. VM with an Instance Level Public IP address (with or without Load Balancer)](#ilpip) | SNAT, port masquerading not used | TCP, UDP, ICMP, ESP | Azure uses the public IP assigned to the IP configuration of the instance's NIC. The instance has all ephemeral ports available. |
 | [2. Public Load Balancer associated with a VM (no Instance Level Public IP address on the instance)](#lb) | SNAT with port masquerading (PAT) using the Load Balancer frontends | TCP, UDP |Azure shares the public IP address of the public Load Balancer frontends with multiple private IP addresses. Azure uses ephemeral ports of the frontends to PAT. |
 | [3. Standalone VM (no Load Balancer, no Instance Level Public IP address)](#defaultsnat) | SNAT with port masquerading (PAT) | TCP, UDP | Azure automatically designates a public IP address for SNAT, shares this public IP address with multiple private IP addresses of the availability set, and uses ephemeral ports of this public IP address. This is a fallback scenario for the preceding scenarios. We don't recommend it if you need visibility and control. |
