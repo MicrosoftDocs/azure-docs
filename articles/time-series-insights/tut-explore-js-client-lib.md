@@ -59,12 +59,12 @@ Throughout this tutorial, the Time Series Insights Sample Application is used to
 
 ### Page source and structure
 
-First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We won't walk through all of the elements, but you learn about the major sections giving you a sense of how the page works:
+First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We don't walk through all of the elements, but you learn about the major sections giving you a sense of how the page works:
 
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
 2. Expand the `<head>` and `<body>` elements and notice:
-   - Under `<head>`, you'll find elements that pull in additional files to assist in the functioning of the page:
+   - Under `<head>`, you find elements that pull in additional files to assist in the functioning of the page:
      - a `<script>` element for referencing the Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs:
 
        >[!NOTE]
@@ -73,7 +73,7 @@ First let's view the HTML and JavaScript source code behind the page that render
      - `<link>` elements for style sheets (sampleStyles.css, tsiclient.css) - also known as CSS, they're used to control visual page styling details, such as colors, fonts, spacing, etc. 
      - a `<script>` element for referencing the TSI Client library (tsiclient.js) - a JavaScript library used by the page to call TSI service APIs and render chart controls on the page.
 
-   - Under `<body>`, you'll find `<div>` elements which act as containers to define the layout of items on the page, and another `<script>` element:
+   - Under `<body>`, you find `<div>` elements, which act as containers to define the layout of items on the page, and another `<script>` element:
      - the first `<div>` specifies the "Log In" dialog (`id="loginModal"`).
      - the second `<div>` acts as a parent for:
        - a header `<div>`, used for status messages and sign-in information near the top of the page (`class="header"`).
@@ -82,36 +82,52 @@ First let's view the HTML and JavaScript source code behind the page that render
 
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-3. Expand the `<div class="chartsWrapper">` element, and you'll find more child `<div>` elements, used to position each chart control example. You'll notice there are actually several pairs of `<div>` elements, one for each chart example:
+3. Expand the `<div class="chartsWrapper">` element, and you find more child `<div>` elements, used to position each chart control example. Notice there are several pairs of `<div>` elements, one for each chart example:
    - The first (`class="rowOfCardsTitle"`) contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
    - The second (`class="rowOfCards"`) is a parent, containing additional child `<div>` elements that position the actual chart control(s) within a row. 
 
   ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
-4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You will see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI service APIs, rendering of the chart controls, and more:
+4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI service APIs, rendering of the chart controls, and more:
 
   ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
 ### TSI Client JavaScript library
 
-Although we won't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
+Although you don't need to review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
-- **Wrapper methods for calling the TSI Query APIs** - These are REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. 
-- ** Methods for creating and populating several types of charting controls** - These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
+- **Wrapper methods for calling the TSI Query APIs** - REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. 
+- ** Methods for creating and populating several types of charting controls** - Used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
-In the following sections, we will explore the page JavaScript source code. There you will see the programming model and API patterns take shape through the use of the methods discussed.
+In the following sections, you explore the page JavaScript source code. There you see the programming model and API patterns take shape through the use of the methods discussed.
 
 ## Authentication
 
-As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You won't need to modify anything here, but we will highlight some points on interest in this section of the script:
+As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You don't modify anything here, here are a couple of points of interest in this section of the script:
 
 1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience". The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
+2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
 
-3. Once ADAL returns the access token to the application, it will be used to as a "bearer token" to access the TSI service APIs. 
+3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
 
    [!code-html[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
+
+   [!code-javascript[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
+
+   [!code-html[head-sample](source/index.html?highlight=7,13-15&range=3-21)]
+
+   [!code-html[head-sample](source/index.html?highlight=144&start=140&end=199)]
+
+   [!code-html[head-sample](source/index.html?highlight=144-148&start=140&end=199)]
+
+   [!code-html[head-sample](source/index.html?highlight=144-148,175-178&start=140&end=199)]
+
+
+
+
+
+
 
    [!code-html[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
 
@@ -136,7 +152,7 @@ As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL f
 
 ## Pie, line, and bar charts
 
-Now we will look at some of the standard chart controls demonstrated in the application. Specifically, we will look at the section of HTML under the `// Example 3/4/5` comment. 
+Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. 
 
 As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides an identifier, which is used in the JavaScript code to specify the target for control rendering and updating.
 
@@ -146,7 +162,11 @@ As discussed earlier, the `<div>` elements within the `<body>` provide the layou
 
 ### Call pattern
 
-You will notice a similar pattern emerge, for each of the 
+You can also see a similar pattern emerge, for the population and rendering of each of the controls:
+
+- a
+- b
+- c 
 
 An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
 
@@ -173,7 +193,7 @@ In this tutorial, you learned how to:
 > * 3
 > * 4
 
-As discussed, the TSI Sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the following article.
+As discussed, the TSI Sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Plan your Azure Time Series Insights environment](time-series-insights-environment-planning.md)
