@@ -42,7 +42,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 <!--
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 -->
-This tutorial makes heavy use of the "Developer Tools" feature (also known as DevTools or F12), found in most modern web browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
+This tutorial uses the "Developer Tools" feature (also known as DevTools or F12), found in most modern web browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
 ## The Time Series Insights Sample Application
 
@@ -97,7 +97,7 @@ First let's view the HTML and JavaScript source code behind the page that render
 Although you don't need to review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
 - **Wrapper methods for calling the TSI Query APIs** - REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. 
-- ** Methods for creating and populating several types of charting controls** - Used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
+- **Methods for creating and populating several types of charting controls** - Used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
 In the following sections, you explore the page JavaScript source code. There you see the programming model and API patterns take shape through the use of the methods discussed.
 
@@ -115,7 +115,21 @@ As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL f
 
    [!code-javascript[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
 
+   [!code-javascript[head-sample](source/index.html?highlight=7,13-15&range=140-199)]
+
+   [!code-javascript[head-sample](source/index.html?range=140-199)]
+
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144)]
+
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144-148)]
+
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144-148,175-178)]
+
    [!code-html[head-sample](source/index.html?highlight=7,13-15&range=3-21)]
+
+
+
+
 
    [!code-html[head-sample](source/index.html?highlight=144&start=140&end=199)]
 
@@ -156,25 +170,30 @@ Let's look at some of the standard chart controls demonstrated in the applicatio
 
 As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides an identifier, which is used in the JavaScript code to specify the target for control rendering and updating.
 
-
-
- 
-
 ### Call pattern
 
-You can also see a similar pattern emerge, for the population and rendering of each of the controls:
+The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
 
-- a
-- b
-- c 
+Populating and rendering of chart controls then, follows this general pattern:
 
-An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
+1. Declare an array of aggregate expressions.  
+   - TODO: detail
+2. Build 1 to n aggregate expression objects, and add them to the aggregate expression array.  
+   - TODO: detail
+3. Call a TSI Query API (`TsiClient.Server`) to request the aggregate data  
+   - TODO: detail
+4. Transform the compressed result from the TSI Query API, into JSON for visualization
+   - TODO: detail
+5. Create a TSI UX (`TsiClient.UX`) chart control and attach it to one of the `<div>` elements on the page.
+   - TODO: detail
+6. Populate the chart control with the transformed JSON data object(s)
+   - TODO: detail
 
-### Pie chart
+### Pie chart example
 
-### Line chart
+### Line chart example
 
-### Bar chart
+### Bar chart example
 
 
 TODO: Go through the steps from the video.
@@ -182,6 +201,8 @@ TODO: Go through the steps from the video.
 ## States and events
 
 TODO: Go through the steps from the video.
+
+## Popup context menus
 
 ## Next steps
 
