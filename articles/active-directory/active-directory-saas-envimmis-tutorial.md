@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 
 ---
@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log into your Envi MMIS site as an administrator.
 
-8. Click on **User List** tab.
+8. Click on **My Domain** tab.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-envimmis-tutorial/configure1.png)
 
@@ -198,7 +198,7 @@ In the case of Envi MMIS, provisioning is a manual task.
 
 1. Log in to your Envi MMIS company site as an administrator.
 
-2. Click on **My Profile** tab.
+2. Click on **User List** tab.
 
 	![Add Employee](./media/active-directory-saas-envimmis-tutorial/user1.png)
 
