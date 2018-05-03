@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Quickstart: Recognize speech using the Speech service C# SDK for Windows
+# Quickstart: Recognize speech using Speech service C# SDK
 
 In this article, you learn how to create a C# console application in Windows using the Speech SDK to transcribe speech to text.
 
