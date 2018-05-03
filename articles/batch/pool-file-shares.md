@@ -1,6 +1,6 @@
 ---
 title: Azure file share for Azure Batch pools | Microsoft Docs
-description: How to set up an Azure file share to be accessed from a Linux or Windows pool in Azure Batch.
+description: How to mount an Azure Files share from compute nodes in a Linux or Windows pool in Azure Batch.
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -16,32 +16,32 @@ ms.workload: big-compute
 ms.date: 05/02/2018
 ms.author: danlep
 ms.custom: 
-
 ---
+
 # Use an Azure file share with a Batch pool
 
-[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. Azure Files is based on Azure blob storage. 
+[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. This article provides information and code examples for mounting and using an Azure file share on pool compute nodes. The code examples use the Batch .NET and Python SDKs, but you can perform similar operations using other Batch SDKs and tools.
 
-For certain Batch solutions you might want to mount an Azure file share to your pool compute nodes. You might be running a legacy workload that depends on an SMB file share, or you might be running job tasks that need to access shared data or produce shared output.
+Batch provides native API support for using Azure Storage blobs to read and write data. However, in some cases you might want to access an Azure file share from your pool compute nodes. For example, you have a legacy workload that depends on an SMB file share, or your tasks need to access shared data or produce shared output. 
 
 ## Considerations for use with Batch
 
-* Consider using an Azure file share when you have pools that run a relatively low number of parallel tasks. Review the [performance and scale targets](../storage/files/storage-files-scale-targets.md) to determine if Azure Files should be used given the forecast pool size and number of asset files. 
+* Consider using an Azure file share when you have pools that run a relatively low number of parallel tasks. Review the [performance and scale targets](../storage/files/storage-files-scale-targets.md) to determine if Azure Files (which uses an Azure Storage account) should be used, given your expected pool size and number of asset files. 
 
 * Azure file shares are [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so are globally redundant. 
 
-* See also the general [planning considerations](../storage/files/storage-files-planning.md).
+* You can mount an Azure file share concurrently from an on-premises computer.
 
+* See also the general [planning considerations](../storage/files/storage-files-planning.md) for Azure file shares.
 
 
 ## Create a file share
 
 [Create a file share](../storage/files/storage-how-to-create-file-share.md) in a storage account that is linked to your Batch account, or in a separate storage account.
 
-
 ## Mount a share on a Windows pool
 
-This section provides steps and C Sharp code examples to mount and use an Azure file share on a pool of Windows nodes. For additional background, see the [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure file share on Windows. 
+This section provides steps and code examples to mount and use an Azure file share on a pool of Windows nodes. For additional background, see the [documentation](../storage/files/storage-how-to-use-files-windows.md) for mounting an Azure file share on Windows. 
 
 In Batch, you need to mount the share each time a task is run on a Windows node. Currently, it's not possible to persist the network connection between tasks on Windows nodes.
 
@@ -50,8 +50,13 @@ For example, include a `net use` command to mount the file share as part of each
 * **User name**: AZURE\\\<storageaccountname\>, for example, AZURE\\*mystorageaccountname*
 * **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
+For example, the following command mounts a file share *myfileshare* in storage account *mystorageaccountname* as the *S:* drive:
 
-To simplify the mount operation, persist the credentials on the node so that you can mount the share without credentials. Perform the following two steps:
+```
+net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
+```
+
+To simplify the mount operation, persist the credentials on the nodes. Then, you can mount the share without credentials. Perform the following two steps:
 
 1. Run the `cmdkey` command-line utility using a start task in the pool configuration. This persists the credentials on each Windows node. The start task command line is similar to:
 
@@ -59,15 +64,15 @@ To simplify the mount operation, persist the credentials on the node so that you
   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
   ```
-2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the S: drive. Cached credentials are used in the call to `net use`. 
+2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. Cached credentials are used in the call to `net use`. 
 
   ```
   cmd /c "net use S:
   \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX=="
   ```
 
-### C Sharp example
-The following C Sharp example shows how to persist the credentials on a Windows pool using a start task. The storage file service name and storage credentials are passed as defined constants. Here, the start task runs under a standard (non-administrator) auto-user account with pool scope. 
+### C# example
+The following C# example shows how to persist the credentials on a Windows pool using a start task. The storage file service name and storage credentials are passed as defined constants. Here, the start task runs under a standard (non-administrator) auto-user account with pool scope.
 
 ```csharp
 ...
@@ -75,22 +80,23 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
     poolId: PoolId,
     targetDedicatedComputeNodes: PoolNodeCount,
     virtualMachineSize: PoolVMSize,
-    virtualMachineConfiguration: virtualMachineConfiguration
-    );
+    virtualMachineConfiguration: virtualMachineConfiguration);
 
+// Start task to store credentials to mount file share
 string startTaskCommandLine = String.Format("cmd /c \"cmdkey /add:{0} /user:AZURE\\{1} /pass:{2}\"", StorageFileService, StorageAccountName, StorageAccountKey);
 
 pool.StartTask = new StartTask
-    {
-        CommandLine = startTaskCommandLine,
-        UserIdentity = new UserIdentity(new AutoUserSpecification(
-            elevationLevel: ElevationLevel.NonAdmin, 
-            scope: AutoUserScope.Pool))
-    };
+{
+    CommandLine = startTaskCommandLine,
+    UserIdentity = new UserIdentity(new AutoUserSpecification(
+        elevationLevel: ElevationLevel.NonAdmin, 
+        scope: AutoUserScope.Pool))
+};
 
 pool.Commit();
 ```
-After storing the credentials, use your task command lines to mount the share and reference the share in  read or write operations. For example, the task command line in the following snippet uses the `dir` command to list files in the file share. In your Batch workload, substitute your command for `dir`. Make sure to run each job task using the same [user identity](batch-user-accounts.md) you used to run the start task in the pool. 
+
+After storing the credentials, use your task command lines to mount the share and reference the share in read or write operations. As a basic example, the task command line in the following snippet uses the `dir` command to list files in the file share. Make sure to run each job task using the same [user identity](batch-user-accounts.md) you used to run the start task in the pool. 
 
 ```csharp
 ...
@@ -108,7 +114,7 @@ tasks.Add(task);
 
 Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). For prerequisites and steps to mount an Azure file share on different distributions, see [Use Azure Files with Linux](../storage/files/storage-how-to-use-files-linux). The following example shows how to mount a file share on a pool of Ubuntu 16.04 LTS compute nodes. 
 
-First, install the `cifs-utils` package using a start task in the pool configuration. It's also convenient to create the mount point in the start task:
+First, install the `cifs-utils` package, and create the mount point (for example, */mnt/MyAzureFileShare*) in the local filesystem:
 
 ```
 sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
@@ -119,53 +125,52 @@ Then, run the `mount` command to mount the file share, providing these credentia
 * **User name**: \<storageaccountname\>, for example, *mystorageaccountname*
 * **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
-For example, the following command mounts the file share at */mnt/MyAzureFileShare* (this mount point was previously created). 
+For example, the following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
 
 ```
 sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-On a Linux pool, you combine all of these steps in a single start task on the pool. Use a start task command line similar to:
+On a Linux pool, you can combine all of these steps in a single start task. Run a start task as an administrator user on the pool using a command line similar to:
 
 ```
-/bin/bash -c "sudo apt-get update && 
-sudo apt-get install cifs-utils && 
-sudo mkdir -p /mnt/MyAzureFileShare && 
+/bin/bash -c "sudo apt-get update && \ 
+sudo apt-get install cifs-utils && \
+sudo mkdir -p /mnt/MyAzureFileShare && \
 sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino"
-
 ```
+
 Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
 
-### Python code sample
+### Python example
 
-The following Python example shows how to configure an Ubuntu pool to mount the share in a start task. The mount point, file share endpoint, and storage credentials are passed as defined constants:
+The following Python example shows how to configure an Ubuntu pool to mount the share in a start task. The mount point, file share endpoint, and storage credentials are passed as defined constants. The start task runs under an administrator auto-user account with pool scope.
 
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
     virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
         image_reference=batchmodels.ImageReference(
-    	        publisher="Canonical",
-    	        offer="UbuntuServer",
-    	        sku="16.04.0-LTS",
-    	        version="latest"
-            ),
-    node_agent_sku_id="batch.node.ubuntu 16.04"),
+    	    publisher="Canonical",
+    	    offer="UbuntuServer",
+    	    sku="16.04.0-LTS",
+    	    version="latest"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-    command_line="/bin/bash -c \"sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p {} && sudo mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
-    wait_for_success=True,
-    user_identity=batchmodels.UserIdentity(
-        auto_user=batchmodels.AutoUserSpecification(
-            scope=batchmodels.AutoUserScope.pool,
-            elevation_level=batchmodels.ElevationLevel.admin)),
+        command_line="/bin/bash -c \"sudo apt-get update && sudo apt-get install cifs-utils && sudo mkdir -p {} && sudo mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        wait_for_success=True,
+        user_identity=batchmodels.UserIdentity(
+            auto_user=batchmodels.AutoUserSpecification(
+                scope=batchmodels.AutoUserScope.pool,
+                elevation_level=batchmodels.ElevationLevel.admin)),
     )
 )
 batch_service_client.pool.add(pool)
 ```
 
-After mounting the share and defining a job, use the share in task command lines to read or write data. For example, the following command uses `ls` to list files in the file share. In your Batch workload, substitute your command for `ls`.
+After mounting the share and defining a job, use the share in your task command lines. For example, the following basic command uses `ls` to list files in the file share.
 
 ```python
 ...
@@ -178,7 +183,8 @@ batch_service_client.task.add(job_id, task)
 
 
 ## Next steps
-...
+
+* For other options to read and write data in Batch, see the [Batch feature overview](batch-api-basics.md) and [Persist job and task output](batch-task-output.md).
 
 
 

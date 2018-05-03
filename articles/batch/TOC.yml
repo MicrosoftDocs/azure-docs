@@ -73,6 +73,8 @@
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Mount an Azure file share
+      href: pool-file-shares.md
     - name: Use compute-intensive VMs
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
