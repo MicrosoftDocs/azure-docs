@@ -1,21 +1,17 @@
 ﻿---
 title: Azure MFA versions and consumption plans | Microsoft Docs
-description: Information about the Multi-factor Authentication client and the different methods and versions available. Details about each consumption plan
-keywords: 
-services: multi-factor-authentication
-documentationcenter: ''
+description: Information about the Multi-factor Authentication client and the different methods and versions available. 
+
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 08/25/2017
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
 
-ms.assetid: 
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/25/2017
-ms.author: joflore
 ---
 # How to get Azure Multi-Factor Authentication
 
