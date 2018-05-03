@@ -106,13 +106,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://www.okta.com/saml2/service-provider/<Unique ID>`
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.okta.com/sso/saml2/<Unique ID>`
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Arc Publishing - SSO Domain and URLs single sign-on information](./media/active-directory-saas-arc-tutorial/tutorial_arc_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.okta.com/sso/saml2/<Unique ID>`
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://arcpublishing-<Customer>.okta.com/sso/saml2/<Unique ID>`
 	 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Arc Publishing - SSO Client support team](mailto:inf@washpost.com) to get these values. 
