@@ -1,21 +1,22 @@
 ---
-title: Include file - Microsoft Cognitive Services | Microsoft Docs
-description: Include file.
+title: include file
+description: include file
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
 ms.technology: anomaly-finder
-ms.topic: article
+ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
+ms.custom: include file
 ---
 <a name="definitions"></a>
 ## Definitions
 
 <a name="point"></a>
-### point
+### Point
 
 |Name|Description|Schema|
 |---|---|---|
@@ -24,7 +25,7 @@ ms.author: chliang
 
 
 <a name="request"></a>
-### request
+### Request
 
 |Name|Description|Schema|
 |---|---|---|
@@ -33,7 +34,7 @@ ms.author: chliang
 
 
 <a name="response"></a>
-### response
+### Response
 
 |Name|Description|Schema|
 |---|---|---|

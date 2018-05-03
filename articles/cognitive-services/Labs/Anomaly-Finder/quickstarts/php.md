@@ -72,3 +72,8 @@ catch (HttpException $ex)
 
 A successful response is returned in JSON. Sample response is as follows.
 [!INCLUDE [Response](../includes/response.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

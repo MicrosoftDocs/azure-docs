@@ -1,4 +1,4 @@
-- name: Anomaly Finder API Documentation
+- name: Anomaly Finder Documentation
   href: overview.md
 - name: How-to
   expanded: true
@@ -6,7 +6,7 @@
   - name: Use the Anomaly Finder API
     items:
     - name: cURL
-      href: quickstarts/cURL.md
+      href: quickstarts/curl.md
     - name: C#
       href: quickstarts/csharp.md
     - name: Java
@@ -22,21 +22,21 @@
 - name: Examples
   items:
   - name: C# app
-    href: tutorials/csharptutorial.md
+    href: tutorials/csharp-tutorial.md
   - name: Java app
-    href: tutorials/javatutorial.md
+    href: tutorials/java-tutorial.md
   - name: Python app
-    href: tutorials/pythontutorial.md
+    href: tutorials/python-tutorial.md
   - name: Javascript Web app
-    href: tutorials/javascripttutorial.md
+    href: tutorials/javascript-tutorial.md
 - name: Reference
   items:
+  - name: Anomaly Finder API Reference
+    href: apiref.md
   - name: REST v1
     href: https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection
 - name: Resources
   items:
-  - name: Frequently Asked Questions
-    href: faq.md
   - name: Subscription key
     href: https://labs.cognitive.microsoft.com/en-us/subscriptions?productId=/products/AnomalyDetection.Preview&source=labs
   - name: Try it!

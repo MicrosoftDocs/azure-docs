@@ -1,15 +1,16 @@
 ---
-title: Include file - Microsoft Cognitive Services | Microsoft Docs
-description: Include file.
+title: include file
+description: include file
 services: cognitive-services
 author: chliang
 manager: bix
 
 ms.service: cognitive-services
 ms.technology: anomaly-finder
-ms.topic: article
+ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
+ms.custom: include file
 ---
 <a name="paths"></a>
 ## Paths

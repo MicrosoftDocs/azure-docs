@@ -25,12 +25,14 @@ This article provides information and code samples to help you quickly get start
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### Example of time series data
+
 The example of the time series data points is as follows:
 [!INCLUDE [Request](../includes/request.md)]
 
 ### Analyze data and get anomaly points Javascript example
 
-The steps of using the example:
+The steps of using the example are as follows.
+
 1. Create a new HTML file.
 2. Replace the HTML file with the following code.
 3. Replace the `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
@@ -301,3 +303,8 @@ The steps of using the example:
 
 A successful response is returned in JSON. Sample response is as follows.
 [!INCLUDE [Response](../includes/response.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Javascript app](../tutorials/javascript-tutorial.md)

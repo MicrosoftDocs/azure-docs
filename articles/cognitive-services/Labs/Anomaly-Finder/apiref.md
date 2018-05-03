@@ -11,8 +11,13 @@ ms.date: 04/19/2018
 ms.author: tonyxing
 --- 
 
-# Anomaly Finder API Reference
+# Anomaly Finder API reference
 
 [!INCLUDE [overview](./includes/overview.md)]
 [!INCLUDE [overview](./includes/definitions.md)]
 [!INCLUDE [overview](./includes/paths.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detection C# app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a C# app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
+description: Explore a C# app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -30,25 +30,31 @@ The example has been developed for the .NET Framework using [Visual Studio 2017,
 ## Get and use the example
 
 You can clone the Anomaly Detection example application to your computer from [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
-### <a name="Step1">Step 1: Install the example</a>
+<a name="Step1"></a>
+### Install the example
 
 In your GitHub Desktop, open Sample\AnomalyDetectionSample.sln.
 
-### <a name="Step2">Step 2: Build the example</a>
+<a name="Step2"></a>
+### Build the example
 
-* Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.
+Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solution.
 
-### <a name="Step3">Step 3: Run the example</a>
+<a name="Step3"></a>
+### Run the example
 
 1. After the build is completed, press **F5** or click **Start** on the ribbon menu to run the example.
 2. Locate the Anomaly Detection user interface window with the text edit box reading "{your_subscription_key}".
 3. Replace the request.json file, which contains the sample data, with your own data, then click "Send" button. Microsoft receives the data you upload and use them to detect any anomaly points among then. The data you updated will not be persisted in Microsoft's server. To detect the anomaly point again, you need upload the data once again.
 4. If the data is good, you will find the anomaly detection result in "Response" field. If any error occurs, the error information will be shown in the Response field as well.
 
-### <a name="Review">Step 4: Read the result</a>
+<a name="Review"></a>
+### Step 4: Read the result
+
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
-### <a name="Review">Review and Learn</a>
+<a name="Review"></a>
+### Review and learn
 
 Now that you have a running application, let's review how the example app integrates with Cognitive Services technology. This step will make it easier to either continue building onto this app or develop your own app using Microsoft Anomaly Detection.
 
@@ -115,3 +121,7 @@ Below code snippet shows how to use the HttlClient submit your subscription key 
     }
 ```
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

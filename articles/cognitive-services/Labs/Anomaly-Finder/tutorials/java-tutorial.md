@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detection Java app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a Java app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
+description: Explore a Java app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: wenya
 manager: bix
@@ -35,15 +35,17 @@ And also you need to install [Java Development Kit (JDK)](http://www.oracle.com/
 2. Click the Clone or download button.
 3. Click Download ZIP to download a .zip file of the tutorial project.
 
-### <a name="Step1">Step 1: Open the tutorial project</a>
+<a name="Step1"></a>
+### Open the tutorial project
 
 1. Extract the .zip file of the tutorial project.
-2. In IntelliJ IDEA, click File -> Open, Open File or Project dialog box appears.
+2. In IntelliJ IDEA, click **File > Open**, Open File or Project dialog box appears.
 3. Select the root path of the extracted project, then click OK.
-4. In the Projects panel, expand src -> main -> java
+4. In the Projects panel, expand **src > main > java**.
 5. Double-click com.microsoft.cognitiveservice.anomalydetection.Main.java to load the file into the editor.
 
-### <a name="Step2">Step 2: Replace subscriptionKey and URI region </a>
+<a name="Step2"></a>
+### Replace subscriptionKey and URI region
 
 ```
 // **********************************************
@@ -57,7 +59,8 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 
 ```
 
-### <a name="Step3">Step 3: Build and Run the tutorial project</a>
+<a name="Step3"></a>
+### Build and Run the tutorial project
 
 1. Bring up the menu by right-clicking anywhere in com.microsoft.cognitiveservice.anomalydetection.Main.java source code tab. 
 2. Select Run 'Main.main()'
@@ -66,3 +69,8 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 ### Result of the tutorial project
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

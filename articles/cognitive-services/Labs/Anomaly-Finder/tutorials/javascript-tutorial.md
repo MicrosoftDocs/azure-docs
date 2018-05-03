@@ -1,6 +1,6 @@
 ---
 title: Anomaly Detection Javascript app - Microsoft Cognitive Services | Microsoft Docs
-description: Explore a Javascript Web app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anormaly points.
+description: Explore a Javascript Web app that uses the Anomaly Detection API in Microsoft Cognitive Services. Send original data points to API and get the expected value and anomaly points.
 services: cognitive-services
 author: wenya
 manager: bix
@@ -26,13 +26,18 @@ This tutorial has been developed using a simple text editor.
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## Get and use the example 
+## Get and use the example
+
 This tutorial provides two scenarios for time series data anomaly detection. Let's get started.
-### <a name="Step1">Step 1: Download the tutorial project</a> 
+
+<a name="Step1"></a> 
+### Download the tutorial project
 
 Clone the [Cognitive Services JavaScript Anomaly Detection Tutorial](https://github.com/MicrosoftAnomalyDetection/javascript-sample), or download the .zip file and extract it to an empty directory.
 
-### <a name="Step2">Step 2: Run the example</a>
+<a name="Step2"></a>
+### Run the example
+
 There are two scenarios you can try the example.
 1. Put your **subscription key** into the Subscription Key field on detect function on anomalydetection.html.
 2. Put anomaly detection API endpoint, and verify that you are using the correct region in Subscription Region.
@@ -48,11 +53,14 @@ There are two scenarios you can try the example.
 2. Using the same time series data as the scenario 1.
 3. Click the Anomaly Detection button and verify the Period field in the right Response text box.
 
-### <a name="Step3">Step 3: Read the result</a>
+<a name="Step3"></a>
+### Read the result
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
-### <a name="Review">Review and Learn</a>
+<a name="Review"></a>
+### Review and Learn
+
 Now you get a running application. Let's review how the example app integrates with Cognitive Services technology. This step will make it easier to either continue building on this app or develop your own app using Microsoft Anomaly Detection.
 This example app makes use of the Anomaly Detection Restful API endpoint.
 Reviewing how the Restful API gets used in the example application, let's look at a code snippet from anomalydetection.html.
@@ -87,3 +95,8 @@ function anomalyDetection(url, subscriptionKey, points, period) {
 }
 
 ```
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)

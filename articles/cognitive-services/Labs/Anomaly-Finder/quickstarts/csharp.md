@@ -20,10 +20,12 @@ This article provides information and code samples to help you quickly get start
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## Getting anomaly points with Anomaly Finder API using C# 
+## Getting anomaly points with Anomaly Finder API using C#
+
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### Example of time series data points
+
 The example of the time series data points is as follows.
 [!INCLUDE [Request](../includes/request.md)]
 
@@ -114,3 +116,8 @@ namespace Console
 
 A successful response is returned in JSON. The example response is as follows.
 [!INCLUDE [Response](../includes/response.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [C# app](../tutorials/csharp-tutorial.md)

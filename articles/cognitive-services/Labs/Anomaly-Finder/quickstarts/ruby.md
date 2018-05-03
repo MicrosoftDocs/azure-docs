@@ -29,7 +29,8 @@ The example of the time series data points is as follows,
 
 ### Analyze data and get anomaly points Ruby example
 
-The steps of using the example,
+The steps of using the example are as follows.
+
 1. Install [rest-client](https://github.com/rest-client/rest-client) by running 'gem install rest-client'.
 2. Save below code as a .rb file.
 3. Replace the `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
@@ -72,3 +73,8 @@ puts response.body
 
 A successful response is returned in JSON. Sample response is as follows.
 [!INCLUDE [Response](../includes/response.md)]
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [REST API reference](https://dev.labs.cognitive.microsoft.com/docs/services/anomaly-detection/operations/post-anomalydetection)
