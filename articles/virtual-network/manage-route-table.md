@@ -136,7 +136,7 @@ There is a limit to how many routes per route table can create per Azure locatio
 6. Enter the **Address prefix**, in CIDR notation, that you want to route traffic to. The prefix cannot be duplicated in more than one route within the route table, though the prefix can be within another prefix. For example, if you defined 10.0.0.0/16 as a prefix in one route, you can still define another route with the 10.0.0.0/24 address prefix. Azure selects a route for traffic based on longest prefix match. To learn more about how Azure selects routes, see [Routing overview](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Select a **Next hop type**. For a detailed description of all next hop types, see [Routing overview](virtual-networks-udr-overview.md).
 8. Enter an IP address for **Next hop address**. You can only enter an address if you selected *Virtual appliance* for **Next hop type**.
-9. Select **OK**. 
+9. Select **OK**.
 
 **Commands**
 

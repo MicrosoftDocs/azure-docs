@@ -203,7 +203,7 @@ When you delete a network interface, any MAC or IP addresses assigned to it are 
 
 ## Resolve connectivity issues
 
-If you are unable to communicate to or from a virtual machine, network security group security rules or routes effective for a network interface may be causing the problem. You have the following options to help resolve the issue:
+If you are unable to communicate to or from a virtual machine, network security group security rules or routes effective for a network interface, may be causing the problem. You have the following options to help resolve the issue:
 
 ### View effective security rules
 
