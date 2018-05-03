@@ -111,6 +111,10 @@ As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL f
 
 3. Once ADAL returns the access token to the application, it will be used to as a "bearer token" to access the TSI service APIs. 
 
+   [!code-html[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
+
+   [!code-html[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
+
    [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
 
    [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144-148,175-178)]
