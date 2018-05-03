@@ -35,7 +35,7 @@ You learn how to:
 ## Prerequisites
 
 - If your are unfamiliar with Managed Service Identity, check out the [overview](overview.md) section. **Be sure to review the [differences between system and user assigned identities](overview.md#how-does-it-work)**.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/en-us/free/) before continuing.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before continuing.
 - To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal).
 
 If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
@@ -69,7 +69,7 @@ For this tutorial, you first create a new Linux VM. You can also opt to use an e
 2. Create a user-assigned identity using [az identity create](/cli/azure/identity#az_identity_create). The `-g` parameter specifies the resource group where the MSI is created, and the `-n` parameter specifies its name. Be sure to replace the `<RESOURCE GROUP>` and `<MSI NAME>` parameter values with your own values:
     
     > [!IMPORTANT]
-    > Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
+    > Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>

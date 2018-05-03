@@ -30,6 +30,8 @@
       href: sql-database-connect-query-dotnet-visual-studio.md
     - name: .NET core
       href: sql-database-connect-query-dotnet-core.md
+    - name: .NET with Active Directory MFA
+      href: active-directory-interactive-connect-azure-sql-db.md
     - name: Go
       href: sql-database-connect-query-go.md
     - name: Java
@@ -74,8 +76,10 @@
     href: sql-database-servers-databases.md
   - name: Managed instance
     href: sql-database-managed-instance.md
-  - name: Service tiers
-    href: sql-database-service-tiers.md
+  - name: DTU-based Service tiers
+    href: sql-database-service-tiers-dtu.md
+  - name: vCore-based Service tiers
+    href: sql-database-service-tiers-vcore.md
   - name: Read Scale-Out
     href: sql-database-read-scale-out.md
   - name: DTU-based resource limits

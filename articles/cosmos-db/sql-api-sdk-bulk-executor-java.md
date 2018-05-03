@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/07/2018
 ms.author: ramkris
 
 ---
@@ -35,15 +35,15 @@ ms.author: ramkris
 
 <table>
 
-<tr><td>**Description**</td><td>The BulkExecutor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. BulkExecutor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.</td></tr>
+<tr><td>**Description**</td><td>The BulkExecutor library allows client applications to perform bulk operations in Azure Cosmos DB accounts. BulkExecutor library provides BulkImport, and BulkUpdate namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches.</td></tr>
 
 <tr><td>**SDK download**</td><td>[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)</td></tr>
 
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
+<tr><td>**BulkExecutor library in GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
 
 <tr><td>**API documentation**</td><td>[.Net API reference documentation]()</td></tr>
 
-<tr><td>**Get started**</td><td>[Get started with the BulkExecutor library Java SDK]()</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the BulkExecutor library Java SDK](bulk-executor-java.md)</td></tr>
 
 <tr><td>**Minimum supported runtime**</td><td>JDK 7</td></tr>
 </table></br>
