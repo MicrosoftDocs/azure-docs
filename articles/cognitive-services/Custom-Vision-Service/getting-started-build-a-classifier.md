@@ -1,6 +1,6 @@
 ---
 title: Building a classifier using Custom Vision Service machine learning - Congitive Services | Microsoft Docs
-description: Build a classifier to discern objects in photographs.
+description: Learn how to use the Custom Vision Service to create a classifier that can discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -125,4 +125,5 @@ The qualities of the classifier results are displayed.
 
 ## Next steps
 
-[Custom Vision API C# tutorial](csharp-tutorial.md)
+[Test and retrain the model](test-your-model.md)
+
