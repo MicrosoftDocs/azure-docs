@@ -104,7 +104,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 Run the Kafka MirrorMaker script from the root Kafka directory using the newly updated configuration files.
 
 ```bash
-$ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
+bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
 ```
 
 To verify that events are making it to the Kafka enabled Event Hub, check out the ingress statistics in the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/), or run a consumer against the Event Hub.
