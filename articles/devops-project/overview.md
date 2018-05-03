@@ -32,7 +32,7 @@ You can use the Azure DevOps Project to:
 
 * Quickly deploy your application to Azure
 * Automate the setup of a VSTS CI/CD pipeline
-* Use the DevOps project as a template to view and understand how to properly setup CI/CD to Azure with VSTS
+* Use the DevOps project as a template to view and understand how to properly set up CI/CD to Azure with VSTS
 * Get started with CI/CD pipeline to Azure, and then further customize the release pipeline based on your specific scenarios
 
 ## How do I use the Azure DevOps Project?
@@ -54,7 +54,7 @@ After you use the Azure DevOps Project, you can also delete all of the resources
 
 ## Azure DevOps Project and VSTS integration
 
-DevOps Projects are powered by VSTS.  The DevOps project automates all of the work needed in VSTS to setup CI/CD to Azure  A Git repository is created in a new or existing VSTS account.  A sample application or your existing code is committed to the new repository.  The automation also establishes a CI trigger for the build so that every new code commit will initiate a build.  The DevOps project also creates a CD trigger and will deploy every new successful build to the Azure service of your choice.  The build and release definitions can be customized for additional scenarios.  You can also clone the build and release definitions for use in other projects.
+DevOps Projects are powered by VSTS.  The DevOps project automates all of the work needed in VSTS to set up CI/CD to Azure  A Git repository is created in a new or existing VSTS account.  A sample application or your existing code is committed to the new repository.  The automation also establishes a CI trigger for the build so that every new code commit will initiate a build.  The DevOps project also creates a CD trigger and will deploy every new successful build to the Azure service of your choice.  The build and release definitions can be customized for additional scenarios.  You can also clone the build and release definitions for use in other projects.
 
 After creating your DevOps Project, you can:
 
