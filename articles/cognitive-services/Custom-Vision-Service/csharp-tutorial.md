@@ -7,7 +7,7 @@ manager: corncar
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 05/06/2017
+ms.date: 05/03/2018
 ms.author: anroth
 ---
 

@@ -7,7 +7,7 @@ manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: areddish
 ---
 
@@ -19,11 +19,13 @@ Explore a basic Windows application that uses the Computer Vision API to create 
 ### Platform requirements
 This example has been developed for the .NET Framework using [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
-### Get the Custom Vision SDK
+### Get the Custom Vision SDK and samples
 To build this example, you need the Custom Vision SDK NuGet Packages:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+You can download the images along with the [C# Samples](https://github.com/areddish/cognitive-services-dotnet-sdk-samples).
 
 ## Step 1: Create a console application
 

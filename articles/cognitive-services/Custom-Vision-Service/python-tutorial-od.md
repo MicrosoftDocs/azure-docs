@@ -7,7 +7,7 @@ manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 12/22/2017
+ms.date: 05/03/2018
 ms.author: areddish
 ---
 
@@ -31,6 +31,8 @@ To build this example, you need to install the Python SDK for the Custom Vision 
 ```
 pip install azure-cognitiveservices-vision-customvision
 ```
+
+You can download the images with the [Python Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
 ## Step 1: Prepare the keys and images needed for the example
 
