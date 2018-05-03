@@ -20,7 +20,7 @@ In this tutorial, you create a custom language model for text queries or utteran
 > * Import the acoustic data set
 > * Create the custom acoustic model
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have a Cognitive Services account, create a [free account](https://cris.ai) before you begin.
 
 ## Prerequisites
 
