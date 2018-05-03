@@ -219,6 +219,8 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
+
 It takes a few minutes to create the VM from your Packer image.
 
 
