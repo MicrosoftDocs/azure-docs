@@ -1,5 +1,5 @@
 ---
-title: Call endpoint by using Java - Bing Custom Search - Microsft Cognitive Services 
+title: Call endpoint by using Java - Bing Custom Search - Microsoft Cognitive Services 
 description: This quickstart shows how to request search results from your custom search instance by using Java to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
@@ -28,7 +28,7 @@ To complete this quickstart, you need:
 
 ## Run the code
 
-To call the Bing Custom Search enpoint, follow these steps:
+To call the Bing Custom Search endpoint, follow these steps:
 
 1. Using your Java IDE of choice create a package.
 2. Create the file CustomSrchJava.java and copy the following code to it.

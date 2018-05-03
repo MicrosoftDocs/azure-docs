@@ -1,5 +1,5 @@
 ---
-title: Call endpoint by using Python - Bing Custom Search - Microsft Cognitive Services
+title: Call endpoint by using Python - Bing Custom Search - Microsoft Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using Python to call the Bing Custom Search endpoint.
 services: cognitive-services
 author: brapel
@@ -29,7 +29,7 @@ To complete this quickstart, you need:
 
 ## Run the code
 
-To call the Bing Custom Search enpoint, follow these steps:
+To call the Bing Custom Search endpoint, follow these steps:
 
 1. Create a folder for your code.
 2. From an administrator command prompt or terminal, navigate to the folder you just created.
