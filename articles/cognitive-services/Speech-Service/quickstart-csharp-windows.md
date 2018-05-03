@@ -1,6 +1,6 @@
 ---
-title: Speech SDK Quickstart for C# and Windows | Microsoft Docs
-description: Quickly get started with the Speech SDK with Windows and C#.
+title: 'Quickstart: Recognize speech using the Speech service C# SDK for Windows | Microsoft Docs'
+description: Learn how to recognize speech using the C# SDK for Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: wolfma61
@@ -9,111 +9,122 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Speech recognition (C#)
+# Quickstart: Recognize speech using the Speech service C# SDK for Windows
 
-This article describes how to create a C#-based console application for Windows that uses the Speech SDK to transcribe speech to text. A working microphone is required.
+In this article, you learn how to create a C# console application in Windows using the Speech SDK to transcribe speech to text.
 
 ## Prerequisites
 
-You'll need the following to get started.
+* Make sure you have the required setup for using the Speech service. See [Prepare to use Speech service](get-started.md).
+* Visual Studio 2017, Community Edition or higher.
+* The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**. 
 
-* Visual Studio 2017 (the Community Edition is fine).
-* The **.NET desktop development** workload in Visual Studio. You can enable it in **Tools** \> **Get Tools and Features**.
-* The Speech SDK and a Speech service subscription key. See [Get set up](get-started.md).
+## Create a Visual Studio project
 
-## Create a console application project
+1. In Visual Studio 2017, create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** and then select **Console App (.NET Framework)**. For the project name, enter *CarbonHelloWorld*.
 
-In Visual Studio 2017, create a new Visual C# Console App (.NET Framework) with the name "CarbonHelloWorld":
+    ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png)
 
-![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png)
+2. Install and reference the Speech SDK NuGet package. In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
-## Install and reference the Speech SDK NuGet package
+    ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png)
 
-In the Solution Explorer, right-click the solution and click on **Manage NuGet Packages for Solution**.
+3. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for and install the `Microsoft.CognitiveServices.Speech` package and install it into the **CarbonHelloWorld** project.
 
-![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png)
+    ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-08-vs-cs-nuget-install.png)
 
-In the upper-right corner, in the **Package Source** field, choose "Nuget.org".
-Search for and install the "Microsoft.CognitiveServices.Speech" package and install it into the CarbonHelloWorld project.
+4. In the license screen that pops up, accept the license:
 
-![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-08-vs-cs-nuget-install.png)
+    ![Accept the license](media/sdk/speechsdk-09-vs-cs-nuget-license.png)
 
-In the license screen that pops up, accept the license:
+## Create a platform configuration matching your PC architecture
 
-![Accept the license](media/sdk/speechsdk-09-vs-cs-nuget-license.png)
+In this section, you add a new platform to the configuration that matches your processor architecture.
 
-## Create a platform configuration matching your PC's architecture
+1. Start the Configuration Manager. Select **Build** > **Configuration Manager**.
 
-In the configuration manager, add a new platform to the configuration that matches your processor architecture.
+    ![Launch the configuration manager](media/sdk/speechsdk-12-vs-cs-cfg-manager-click.png)
 
-![Launch the configuration manager](media/sdk/speechsdk-12-vs-cs-cfg-manager-click.png)
+2. In the **Configuration Manager** dialog box, add a new platform. From the **Active solution platform** drop-down list, select **New**.
 
-* If you are running 64-bit Windows, create a new platform configuration named `x64`.
-* If you are running 32-bit Windows, create a new platform configuration named `x86`.
+    ![Add a new platform under the configuration manager window](media/sdk/speechsdk-14-vs-cs-cfg-manager-new.png)
 
-![Add a new platform under the configuration manager window](media/sdk/speechsdk-14-vs-cs-cfg-manager-new.png)
+3. If you are running 64-bit Windows, create a new platform configuration named `x64`. If you are running 32-bit Windows, create a new platform configuration named `x86`. In this article, you create an `x64` platform configuration. 
 
-![On 64-bit Windows, add a new platform named "x64"](media/sdk/speechsdk-15-vs-cs-cfg-manager-add-x64.png)
+    ![On 64-bit Windows, add a new platform named "x64"](media/sdk/speechsdk-15-vs-cs-cfg-manager-add-x64.png)
 
 ## Add the sample code
 
-In the source file `Program.cs` replace the body of the `Program` class with the following, replacing the subscription key with one that you obtained:
+1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key with one that you obtained for the service.
 
-```csharp
-static async Task RecoFromMicrophoneAsync()
-{
-    var subscriptionKey = "<Please replace with your subscription key>";
-
-    var factory = SpeechFactory.FromSubscription(subscriptionKey, "");
-
-    using (var recognizer = factory.CreateSpeechRecognizer())
+    ```csharp
+    static async Task RecoFromMicrophoneAsync()
     {
-        Console.WriteLine("Say something...");
-        var result = await recognizer.RecognizeAsync();
-
-        if (result.Reason == RecognitionStatus.Success)
+        var subscriptionKey = "<Please replace with your subscription key>";
+    
+        var factory = SpeechFactory.FromSubscription(subscriptionKey, "");
+    
+        using (var recognizer = factory.CreateSpeechRecognizer())
         {
-            Console.WriteLine($"We recognized: {result.RecognizedText}");
+            Console.WriteLine("Say something...");
+            var result = await recognizer.RecognizeAsync();
+    
+            if (result.Reason == RecognitionStatus.Success)
+            {
+                Console.WriteLine($"We recognized: {result.RecognizedText}");
+            }
+            else
+            {
+                Console.WriteLine($"There was an error, reason {result.Reason} - {result.RecognizedText}");
+            }
+            Console.WriteLine("Please press a key to continue.");
+            Console.ReadLine();
         }
-        else
-        {
-            Console.WriteLine($"There was an error, reason {result.Reason} - {result.RecognizedText}");
-        }
-        Console.WriteLine("Please press a key to continue.");
-        Console.ReadLine();
     }
-}
-```
+    static void Main(string[] args)
+    {
+        RecoFromMicrophoneAsync().Wait();
+    }
+    ```
 
-![Main method after pasting the code](media/sdk/speechsdk-17-vs-cs-paste-code.png)
+2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
-As Visual Studio's highlighting indicates, the references to the Speech SDK's classes cannot yet be resolved.
-To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
+    ![Main method after pasting the code](media/sdk/speechsdk-17-vs-cs-paste-code.png)
 
-```csharp
-using Microsoft.CognitiveServices.Speech.Recognition;
-```
+3. Visual Studio's IntelliSense highlights the references to the Speech SDK's classes that could not be resolved. To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
 
-![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png)
+    ```csharp
+    using Microsoft.CognitiveServices.Speech.Recognition;
+    ```
+
+    ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png)
+
+4. Make sure that the IntelliSense highlighting is resolved and save changes to the project.
 
 ## Build and run the sample
 
-The code should compile without errors now:
+1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now:
 
-![Successful build](media/sdk/speechsdk-20-vs-cs-build.png)
+    ![Successful build](media/sdk/speechsdk-20-vs-cs-build.png)
 
-Launch the program under the debugger with the Launch button or using the F5 keyboard shortcut:
+2. Start the application. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**. 
 
-![Launch the app into debugging](media/sdk/speechsdk-21-vs-cs-f5.png)
+    ![Launch the app into debugging](media/sdk/speechsdk-21-vs-cs-f5.png)
 
-A console window should pop up, prompting you to say something (in English).
-The result of the recognition will be displayed on screen.
+3. A console window pops up, prompting you to say something (in English).
+The result of the recognition is displayed on screen.
 
-![Console output after successful recognition](media/sdk/speechsdk-22-cs-vs-console-output.png)
+    ![Console output after successful recognition](media/sdk/speechsdk-22-cs-vs-console-output.png)
 
 ## Download code
 
 The code from this article can be downloaded [here](https://aka.ms/csspeech/winsample).
+
+## Next steps
+
+- [Authenticate with Speech service](how-to-authenticate.md)
+- [Translate speech](how-to-translate-speech.md)
+- [Customize speech models](how-to-customize-speech-models.md)
