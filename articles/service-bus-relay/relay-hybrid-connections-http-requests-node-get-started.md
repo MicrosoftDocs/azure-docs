@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Relay Hybrid Connections HTTP Requests in Node | Microsoft Docs
-description: Write a Node.js console application for Azure Relay Hybrid Connections HTTP Requests.
+title: Get started with Azure Relay Hybrid Connections HTTP requests in Node | Microsoft Docs
+description: Write a Node.js console application for Azure Relay Hybrid Connections HTTP requests in Node.
 services: service-bus-relay
 documentationcenter: node
 author: clemensv
@@ -17,7 +17,7 @@ ms.date: 05/02/2018
 ms.author: clemensv
 
 ---
-# Get started with Relay Hybrid Connections HTTP Requests
+# Get started with Relay Hybrid Connections HTTP requests in Node
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 

@@ -1,3 +1,16 @@
+---
+title: Get started with Azure Relay Hybrid Connections HTTP requests in .NET | Microsoft Docs
+description: Write a Node.js console application for Azure Relay Hybrid Connections HTTP requests in NET.
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: get-started-article
+ms.date: 05/02/2018
+ms.author: clemensv
+ms.custom: include file
+
+---
+
 ### Create a console application
 
 If you have disabled the "Requires Client Authorization" option when creating the Relay,

@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Relay Hybrid Connections HTTP Requests in .NET | Microsoft Docs
-description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests.
+title: Get started with Azure Relay Hybrid Connections HTTP requests in .NET | Microsoft Docs
+description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Get started with Relay Hybrid Connections HTTP requests
+# Get started with Relay Hybrid Connections HTTP requests in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). Learn how to use Microsoft .NET to create a client application that sends requests to a corresponding listener application. 
