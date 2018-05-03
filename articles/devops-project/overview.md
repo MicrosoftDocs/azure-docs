@@ -59,7 +59,7 @@ DevOps Projects are powered by VSTS.  The DevOps project automates all of the wo
 After creating your DevOps Project, you can:
 
 * Customize your build and release pipeline
-* Use pull requests to manage your code flow & keep your quality high
+* Use pull requests to manage your code flow and keep your quality high
 * Test and build each commit before you merge your code to raise the quality bar
 * Track your Project backlog and issues right along with your application
 
