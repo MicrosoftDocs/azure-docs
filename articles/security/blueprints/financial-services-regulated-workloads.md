@@ -4,7 +4,7 @@ title: Azure Security and Compliance Blueprint - FFIEC Financial Services Regula
 description: Azure Security and Compliance Blueprint - FFIEC Financial Services Regulated Workloads
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -390,6 +390,6 @@ Customers are responsible for retaining a copy of the [Responsibility Summary Ma
 
 ### Document authors
 
-* *Frank Simorjay (Microsoft)*  
+* *Frank jomolesk (Microsoft)*  
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Code Repository"

@@ -4,7 +4,7 @@ title: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Proce
 description: Azure Security and Compliance Blueprint - PCI DSS-compliant Payment Processing environments
 services: security
 documentationcenter: na
-author: simorjay
+author: jomolesk
 manager: mbaldwin
 editor: tomsh
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
-ms.author: frasim
+ms.author: jomolesk
 
 ---
 
@@ -388,7 +388,7 @@ The solution was reviewed by Coalfire systems, Inc. (PCI-DSS Qualified Security 
 
 ### Document authors
 
-- *Frank Simorjay (Microsoft)*  
+- *Frank jomolesk (Microsoft)*  
 - *Gururaj Pandurangi (Avyan Consulting)*
 
 
