@@ -28,7 +28,7 @@ Ensure that your Cognitive Services account is connected to a subscription by op
 
 If no subscriptions are listed, you can either have Cognitive Services create an account for you by clicking the **Get free subscription** button. Or you can connect to a Custom Search Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
 
-For information on creating a Custom Search Service subscription in the Azure portal, see [Create a Cognitive Services APIs account in the Azure portal](./cognitive-services-apis-create-account.md).
+For information on creating a Custom Search Service subscription in the Azure portal, see [Create a Cognitive Services APIs account in the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md).
 
 ## Prepare the data
 
