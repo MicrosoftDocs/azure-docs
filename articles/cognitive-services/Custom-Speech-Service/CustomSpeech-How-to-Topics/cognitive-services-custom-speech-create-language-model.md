@@ -24,11 +24,11 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-1. A Custom Speech Service account is required to complete this tutorial. For instructions on creating an account, see [Create a Cognitive Services APIs account in the Azure portal](./cognitive-services-apis-create-account.md). In step 3, you'll need to click **More** and then select **Custom Speech Service (preview)** as shown in the following image.
+Ensure that your Cognitive Services account is connected to a subscription by opening the [Cognitive Services Subscriptions](https://cris.ai/Subscriptions) page.
 
-    ![Create a Custom Speech Service (preview) account](./media/cognitive-services-custom-speech-create-language-model/create-account.png)
-2. A Cognitive Services account is also required to complete this tutorial. To create an account, go to [Custom Speech Service Portal](https://cris.ai), click **Create an Account**, then follow the on-screen instructions.
-3. Use the keys from the Custom Speech Service account created in step 1 to connect your Azure account to your Cognitive Services account. For instructions, see [Obtain subscription keys](cognitive-services-custom-speech-subscribe.md).
+If no subscriptions are listed, you can either have Cognitive Services create an account for you by clicking the **Get free subscription** button. Or you can connect to a Custom Search Service subscription created in the Azure portal by clicking the **Connect existing subscription** button.
+
+For information on creating a Custom Search Service subscription in the Azure portal, see [Create a Cognitive Services APIs account in the Azure portal](./cognitive-services-apis-create-account.md).
 
 ## Prepare the data
 
