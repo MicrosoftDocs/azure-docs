@@ -7,7 +7,7 @@ manager: ehansen
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
