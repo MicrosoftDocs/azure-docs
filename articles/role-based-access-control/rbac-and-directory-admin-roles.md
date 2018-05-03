@@ -111,9 +111,9 @@ At a high level, Azure AD administrator roles control permissions to manage Azur
 
 ### Do Azure AD administrator roles and Azure RBAC roles overlap?
 
-Several Azure AD administrator roles span Azure AD and Microsoft Office 365, such as the Global administrator and User administrator roles. For example, if you are a member of the Global administrator role, you have global administrator capabilities in Azure AD and Office 365, such making changes to Microsoft Exchange and Microsoft SharePoint. However, by default, the Global administrator doesn't have access to Azure resources.
+By default, neither Azure AD administrator roles nor Azure RBAC roles span both Azure AD and Azure. However, if a Global administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions** switch in the Azure portal, the Global administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. For more information, see [Elevate access as an Azure AD administrator](elevate-access-global-admin.md).
 
-If a Global administrator elevates their access by choosing the **Global admin can manage Azure Subscriptions** switch in the Azure portal, the Global administrator will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables the user to grant other users access to Azure resources. For more information, see [Elevate access as an Azure AD administrator](elevate-access-global-admin.md).
+Several Azure AD administrator roles span Azure AD and Microsoft Office 365, such as the Global administrator and User administrator roles. For example, if you are a member of the Global administrator role, you have global administrator capabilities in Azure AD and Office 365, such making changes to Microsoft Exchange and Microsoft SharePoint. However, by default, the Global administrator doesn't have access to Azure resources.
 
 ![Azure RBAC versus Azure AD administrator roles](./media/rbac-and-directory-admin-roles/rbac-admin-roles.png)
 
