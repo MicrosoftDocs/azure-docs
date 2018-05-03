@@ -20,7 +20,7 @@ ms.author: ellacroi
 
 
 
-# Azure Marketplace and AppSource publisher guide
+# Azure Marketplace and AppSource Publisher Guide
 
 ## Overview
 
@@ -160,7 +160,7 @@ This is the list of the support options for the Azure Marketplace:
 Azure Marketplace and AppSource allows publishers to showcase their solutions to millions of customers. New listings in the marketplace are automatically offered a set of free Go-To-Market benefits to help drive awareness of your offer to our customer ecosystem.
 
 Listing your offer in the marketplace storefront is a launchpad for joint Go-To-Market activities with Microsoft and the doorway to a Co-sell Ready partnership opportunity. All new listings are automatically offered a set of no cost Go-To-Market benefits to help drive awareness of your offer to our customer ecosystem. The GTM benefits deliver a variety of co-marketing and co-sell activities designed to leverage our brand, channels and ecosystem to help partners drive awareness for their solution and generate sales. No action is required by partner. As soon as an offer is published, our GTM team will reach out to the partner to begin delivery.
-For more information on our GTM benefits and ways to grow your business in marketplace please visit [here](https://partner.microsoft.com/en-US/reach-customers/gtm).
+For more information on our GTM benefits and ways to grow your business in the marketplace please visit [GTM benefits on the MPN site](https://partner.microsoft.com/en-US/reach-customers/gtm).
 
 
 ### Determine the Listing Type Right for Your Offer
@@ -305,6 +305,8 @@ For AppSource apps that extend Office, Dynamics, and Power BI, you can learn mor
 |---------|---------|---------|
 |**Service offer characteristics**     | Your consulting service must be: <br>- Delivered as a fixed-scope, fixed-duration, fixed-price (or free) engagement. <br>- Primarily pre-sales oriented. <br>- Limited to a single customer. <br>- Conducted on site.        |    List     |
 |**Partner requirements for Consulting Services**    |   *AppSource only*:  <br>- **Dynamics 365 for Customer Engagement**: Have Silver or Gold [Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency) competency. <br>- **Dynamics 365 for Finance and Operations Enterprise edition**: Have Silver or Gold [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) competency, and a minimum revenue of $25,000 in cloud operations in the trailing 12 months. <br>- **Dynamics 365 for Finance and Operations, Business edition**: Serve as [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) or [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) for at least one customer. <br>- **Power BI**: Meet the [Solution Partner](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf) criteria. <br>- **PowerApps**: Have a [Partner Showcase](https://powerapps.microsoft.com/en-us/partner-showcase/) solution. |    List     |
+|**Partner requirements for Consulting Services**    |  *Azure Marketplace only*: <br>Partners are also required to have a **silver or gold competency** in the relevant area for their service. The eligible competencies are listed in the following:</br><br><ul><li> **Competency:** Cloud Platform and Infrastructure. <br>**Solution Area:** Cloud Platform, Data Center</li><br><li>**Competency:** Application Development and ISV <br>**Solution Area:** Application Development, Application Integration, DevOps</li><br><li>**Competency:** Data Management and Analytics <br>**Solution Area:** Data Analytics, Data Platform </li></br></ul>For more information, see [Competencies Through Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies).</br><br>For more information on listing, see [Consulting Services in Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/consulting-services) |    List     | 
+
 
 #### Cloud Partner Portal Pre-publishing Checklist for the Azure Marketplace
 
