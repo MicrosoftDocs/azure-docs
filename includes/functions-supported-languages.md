@@ -1,3 +1,16 @@
+---
+title: include file
+description: include file
+services: functions
+author: tdykstra
+manager: cfowler
+ms.service: functions
+ms.topic: include
+ms.date: 05/03/2018
+ms.author: tdykstra
+ms.custom: include file
+---
+
 |Language                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|Preview|
