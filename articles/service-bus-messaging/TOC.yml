@@ -6,11 +6,11 @@
     href: service-bus-messaging-overview.md
 - name: Quickstarts
   items:
-  - name: Use PowerShell
+  - name: Send and receive messages - PowerShell
     href: service-bus-quickstart-powershell.md
-  - name: Use the Azure portal
+  - name: Send and receive messages - .NET
     href: service-bus-quickstart-portal.md
-  - name: Use Azure CLI
+  - name: Send and receive messages - CLI
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:
