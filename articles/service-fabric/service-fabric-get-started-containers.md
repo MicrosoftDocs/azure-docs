@@ -33,6 +33,11 @@ A development computer running:
 
 A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-cluster-creation-via-portal.md) or [try Service Fabric for free](https://aka.ms/tryservicefabric).
 
+A Windows cluster with three or more nodes running on Windows Server with Containers. For this article, the version (build) of Windows Server with Containers must match that on your development machine. This is because you build a docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatiblity](#windows-server-container-os-and host-os-compatiblity). To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
+
+- If the version contains *x.x.14323.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServer 2016-Datacenter-with-Containers* for the operating system, or [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
+- If the version contains *x.x.16299.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system. You cannot use a party cluster.
+
 A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
