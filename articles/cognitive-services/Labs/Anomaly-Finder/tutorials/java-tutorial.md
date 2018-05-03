@@ -60,7 +60,7 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 ```
 
 <a name="Step3"></a>
-### Build and Run the tutorial project
+### Build and run the tutorial project
 
 1. Bring up the menu by right-clicking anywhere in com.microsoft.cognitiveservice.anomalydetection.Main.java source code tab. 
 2. Select Run 'Main.main()'

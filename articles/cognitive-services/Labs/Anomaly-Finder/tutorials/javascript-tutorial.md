@@ -59,7 +59,7 @@ There are two scenarios you can try the example.
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### Review and Learn
+### Review and learn
 
 Now you get a running application. Let's review how the example app integrates with Cognitive Services technology. This step will make it easier to either continue building on this app or develop your own app using Microsoft Anomaly Detection.
 This example app makes use of the Anomaly Detection Restful API endpoint.

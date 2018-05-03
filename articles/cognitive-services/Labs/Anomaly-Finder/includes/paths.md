@@ -16,7 +16,7 @@ ms.custom: include file
 ## Paths
 
 <a name="anomalydetection-post"></a>
-### Detect anomaly points for the time series data points requested.
+### Detect anomaly points for the time series data points requested
 ```
 POST /anomalydetection
 ```
