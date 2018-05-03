@@ -1,7 +1,7 @@
 - name: Custom Speech Service Documentation
 - name: Overview
   items:
-  - name: What is Custom Speech Service
+  - name: What is Custom Speech Service?
     href: cognitive-services-custom-speech-home.md
 - name: Tutorials
   items:
