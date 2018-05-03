@@ -1,4 +1,4 @@
-- name: QnAMaker Documentation
+- name: QnA Maker Documentation
   href: Overview/overview.md
 - name: Overview
   items:
@@ -16,7 +16,7 @@
     href: Concepts/data-sources-supported.md
 - name: How-to guides
   items:
-  - name: Set up a QnAMaker service
+  - name: Set up a QnA Maker service
     href: How-To/set-up-qnamaker-service-azure.md
   - name: Create and publish a knowledge base
     href: Quickstarts/create-publish-knowledge-base.md
@@ -40,15 +40,15 @@
     href: How-To/language-knowledge-base.md
   - name: Create a QnA bot with Azure Bot Service
     href: Tutorials/create-qna-bot.md
-  - name: Integrate QnAMaker and LUIS
+  - name: Integrate QnA Maker and LUIS
     href: Tutorials/integrate-qnamaker-luis.md
-  - name: Create a business continuity plan for QnAMaker
+  - name: Create a business continuity plan for QnA Maker
     href: How-To/business-continuity-plan.md
-  - name: Choose capacity for your QnAMaker deployment
+  - name: Choose capacity for your QnA Maker deployment
     href: Tutorials/choosing-capacity-qnamaker-deployment.md
-  - name: Upgrade your QnAMaker service
+  - name: Upgrade your QnA Maker service
     href: How-To/upgrade-qnamaker-service.md
-  - name: Use QnAMaker API
+  - name: Use QnA Maker API
     items:
     - name: C#
       href: Quickstarts/csharp.md
