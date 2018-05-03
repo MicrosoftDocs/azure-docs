@@ -1,7 +1,7 @@
 - name: Face API Documentation
 - name: Overview
   items:
-  - name: What is Face API
+  - name: What is Face API?
     href: Overview.md
 - name: How to guides
   items:
