@@ -550,7 +550,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 | HTTP_Webhook | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "HttpWebhook" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more details, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
+| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more information, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
 | method | String | The HTTP method used for the subscription request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | String | The endpoint URL for where to send the subscription request | 
 |||| 
@@ -559,7 +559,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 | Element name | Type | Description | 
 | ------------ | ---- | ----------- | 
-| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more details, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
+| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more information, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
 | method | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | String | The endpoint URL for where to send the cancellation request | 
 | body | JSON Object | The JSON object that describes the payload (data) for the subscription or cancellation request | 
