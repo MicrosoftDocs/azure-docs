@@ -25,7 +25,7 @@ To get access to the Speech Devices SDK, follow these steps:
 1. If you agree to the terms of this license agreement, select "I agree."
 1. Answer the questions in the form.
 1. Submit the form. 
-1. If your email address is not already part of the Azure Active Directory, you receive an invitation email like the one below upon approval. If your email address is already in the Azure Active Directory, you will receive an email message from the Microsoft Speech team upon approval and you may skip ahead to [Downloading the Speech Devices SDK](#downoading-the-speech-devices-sdk).
+1. If your email address is not already part of the Azure Active Directory, you receive an invitation email like the one below upon approval. If your email address is already in the Azure Active Directory, you will receive an email message from the Microsoft Speech team upon approval and you may skip ahead to [Download the Speech Devices SDK](#download-the-speech-devices-sdk).
 ## Approval e-mail
 ```
 From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com> 
