@@ -3,8 +3,8 @@
   items:
     - name: Quickstarts
       items:
-      - name: Use a VM MSI to acess Azure Resource Manager
-        items:
+      - name: Use a VM MSI to access Azure Resource Manager
+        items: 
         - name: Windows VM
           href: tutorial-windows-vm-access-arm.md
         - name: Linux VM

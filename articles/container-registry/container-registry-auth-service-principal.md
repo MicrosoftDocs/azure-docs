@@ -3,7 +3,7 @@ title: Azure Container Registry authentication with service principals
 description: Learn how to provide access to images in your private container registry by using an Azure Active Directory service principal.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article

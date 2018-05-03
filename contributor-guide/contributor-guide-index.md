@@ -23,5 +23,5 @@ ms.author: tysonn
 
 If you are a community contributor, see our [README](../README.md)
 
-Employee contributors should see [the internal contributor guide](https://review.docs.microsoft.com/en-us/help/contribute/?branch=master).
+Employee contributors should see [the internal contributor guide](https://review.docs.microsoft.com/help/contribute/?branch=master).
 

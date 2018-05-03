@@ -1,4 +1,4 @@
----
+﻿---
 title: Run Azure Batch jobs end-to-end without writing code (Preview) | Microsoft Docs
 description: Create template files for the Azure CLI to create Batch pools, jobs, and tasks. 
 services: batch
@@ -329,7 +329,7 @@ Try out the Batch extension for the Azure CLI and provide us with any feedback o
 
 ## Next steps
 
-- See the Batch templates blog post: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
+- See the Batch templates blog post: [Running Azure Batch jobs using the Azure CLI – no code required](https://azure.microsoft.com/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Detailed installation and usage documentation, samples, and source code are
 available in the [Azure GitHub
 repository](https://github.com/Azure/azure-batch-cli-extensions).
