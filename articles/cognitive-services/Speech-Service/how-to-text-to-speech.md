@@ -16,7 +16,7 @@ ms.author: v-jerkin
 
 The Speech service provides **Text to Speech** functionality through a straightforward HTTP request. You POST the text to be spoken to the appropriate endpoint, and the service returns an audio file (`.wav`) containing synthesized speech. Your application can then use this audio as it likes.
 
-The body of the POST request for **Text to Speech** may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you will want to use an SSML body. The HTTP request must include an authorization, either your subscription key or a token. See [How to authenticate with Speech service](how-to-authenticate.md).
+The body of the POST request for **Text to Speech** may be plain text (ASCII or UTF8) or an [SSML](speech-synthesis-markup.md) document. Plain-text requests are spoken with a default voice. In most cases, you want to use an SSML body. The HTTP request must include an authorization, either your subscription key or a token. See [How to authenticate with Speech service](how-to-authenticate.md).
 
 The regional **Text to Speech** endpoints are shown here. Use the one appropriate to your subscription.
 
@@ -45,7 +45,7 @@ See [Text to Speech voices](supported-languages.md#text-to-speech) for a list of
 
 ## Make a request
 
-A **Text to Speech** HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers. 
+A **Text to Speech** HTTP request is made in POST mode with the text to be spoken in the body of the request. The maximum length of the HTTP request body is 1024 characters. The request must have the following headers: 
 
 Header|Values|Comments
 -|-|-
