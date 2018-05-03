@@ -12,12 +12,6 @@ manager: timlt
 #Customer intent: As a developer, I need a high-level, technically focused understanding of Service Fabric Mesh, so I can determine if it's something that I (or my company) want to use.
 ---
 
-<!--
-----------
-- ?Call out in an H2 about multi-tenency 
------------ 
--->
-
 # What is Service Fabric Mesh?
 
 Service Fabric Mesh is a server-less platform that runs on top of [Service Fabric][service-fabric-overview] and is hosted on Microsoft Azure. With Service Fabric Mesh, you can run and scale your microservices without worrying about the infrastructure powering it. Contrast this to pure [Service Fabric][service-fabric-overview] where you not only manage your services, but you also manage the cluster running your services. Service Fabric Mesh automatically allocates the infrastructure needed by your microservices, and also handles infrastructure failures, making sure your services are highly-available.
@@ -25,6 +19,12 @@ Service Fabric Mesh is a server-less platform that runs on top of [Service Fabri
 ![Diagram of Service Fabric Mesh for Azure](./media/service-fabric-mesh-overview/diagram.png)
 
 You worry about your code, Azure takes care of the hardware.
+
+<!--
+----------
+- ?Call out in an H2 about multi-tenency 
+----------- 
+-->
 
 |     |
 | --- |
