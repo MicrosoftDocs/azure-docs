@@ -148,8 +148,10 @@ For example, the below report item indicates from the 6pm to 7pm hour window on 
 > - This alert report does not show Exchange IP addresses or private IP addresses. They are still included in the export list. 
 >
 
-
 ![Azure AD Connect Health Portal](./media/active-directory-aadconnect-health-adfs/report4c.png)
+
+### Load Balancer IP addresses in the list
+Load balancer aggregate failed sign-in activities and hit the alert threshold. If you are seeing load balancer IP addresses, it is highly likely that your external load balancer is not sending the client IP address when it passes the request to the Web Application Proxy server. Please configure your load balancer correctly to pass forward client IP address. 
 
 ### Download Risky IP report 
 Using the **Download** functionality, the whole risky IP address list in the past 30 days can be exported from the Connect Health Portal
