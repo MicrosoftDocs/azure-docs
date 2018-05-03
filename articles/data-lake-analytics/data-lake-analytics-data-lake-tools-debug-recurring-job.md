@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot an abnormal recurring job | Microsoft Docs
+title: Debug recurring jobs | Microsoft Docs
 description: 'Learn how to use Azure Data Lake Tools for Visual Studio to debug an abnormal recurring job.'
 services: data-lake-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/27/2017
+ms.date: 05/20/2018
 ms.author: yanacai
 
 ---
