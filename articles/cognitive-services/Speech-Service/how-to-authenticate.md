@@ -1,6 +1,6 @@
 ---
-title: Authenticate to the Speech service | Microsoft Docs
-description: Obtain authorization to use the Speech service.
+title: How to authenticate to the Speech service | Microsoft Docs
+description: Learn how to obtain authorization to use the Speech service.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -9,20 +9,21 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
 # Authenticate to the Speech service
 
-The Speech service supports authentication by with either a subscription key or an authorization token. For most applications, it is easier to use a subscription key, since obtaining an authorization token requires a subscription key anyway.
+The Speech service supports authentication by either a subscription key or an authorization token. For most applications, it is easier to use a subscription key, since obtaining an authorization token requires a subscription key anyway. This article provides instructions for both approaches.
 
 You can get free trial subscription keys from the [Cognitive Services subscription](https://azure.microsoft.com/try/cognitive-services/) page. After you select the Speech service, choose **Get API Key** to get two keys (primary and secondary). You may use either key. Both keys are tied to the same quota.
 
-Paid subscription keys are available through your Azure dashboard.
+> [!NOTE]
+> Paid subscription keys are available through your Azure dashboard.
 
-## Subscription key
+## Using subscription key
 
-### REST API
+### Using REST API
 
 Pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the HTTP request header.
 
@@ -30,7 +31,7 @@ Name| Format| Description
 ----|-------|------------
 Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
 
-Below is an example of a request header. The request uses the `westus` endpoint for Text to Speech; if your subscription is in another region, adjust the URL accordingly.
+Below is an example of a request header. The example request uses the `westus` endpoint for **Text to Speech**. If your subscription is in another region, adjust the URL accordingly.
 
 ```HTTP
 POST https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed HTTP/1.1
@@ -42,16 +43,16 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
-### Client SDKs
+### Using Client SDKs
 
-If you use the [client SDK](speech-sdk.md) in your application, you provide your subscription key to the SDK, and it handles authentication with the Speech service. You do not need to manage the key yourself.
+If you use the [client SDK](speech-sdk.md) in your application, you provide your subscription key to the SDK, and the SDK handles authentication with the Speech service. You do not need to manage the key yourself.
 
 > [!TIP]
 > If you are having trouble authenticating, verify that you can get an authorization token with your subscription key as described in the next section.
 
-## Authorization token
+## Using authorization token
 
-You can use an authorization token obtained from the Cognitive Services authorization service for authentication.
+You can use an authorization token obtained from the Cognitive Services authorization service for authentication. 
 
 After you have a valid subscription key, send a POST request to the authorization service. The response contains the authorization token in the form of a JSON Web Token (JWT).
 
@@ -70,7 +71,7 @@ The token service endpoint is relative to function you are using and the region.
 
 The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions, or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
 
-
+#### PowerShell
 ```Powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
@@ -84,10 +85,13 @@ $OAuthToken = Invoke-RestMethod -Method POST -Uri TOKEN_SERVICE_ENDPOINT -Header
 $OAuthToken
 
 ```
+#### cURL
 
 ```curl
 curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
+
+#### C#
 
 ```cs
     /*
@@ -142,10 +146,12 @@ If you cannot obtain an authorization token from the token service, make sure yo
 
 Each time you call the Speech API, pass the authorization token in the `Authorization` header. The header must contain the word `Bearer` followed by the token.
 
-The following examples show how to use an authorization token when you call the Speech REST API for Text to Speech. The requests use the `westus` endpoint; if your subscription is in another region, adjust the URL accordingly.
+The following examples show how to use an authorization token when you call the Speech REST API for **Text to Speech**. The requests use the `westus` endpoint; if your subscription is in another region, adjust the URL accordingly.
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#obtain-a-token).
+
+#### PowerShell
 
 ```Powershell
 
@@ -169,9 +175,13 @@ $RecoResponse
 
 ```
 
+#### cURL
+
 ```
 curl -v -X POST "https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
+
+#### C#
 
 ```cs
 HttpWebRequest request = null;
