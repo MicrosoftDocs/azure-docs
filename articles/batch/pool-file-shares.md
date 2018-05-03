@@ -131,7 +131,7 @@ For example, the following command mounts a file share *myfileshare* in storage 
 sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-On a Linux pool, you can combine all of these steps in a single start task. Run a start task as an administrator user on the pool using a command line similar to:
+On a Linux pool, you can combine all of these steps in a single start task, or run them in a script. Run a start task as an administrator user on the pool using a command line similar to:
 
 ```
 /bin/bash -c "sudo apt-get update && \ 
@@ -149,13 +149,13 @@ The following Python example shows how to configure an Ubuntu pool to mount the 
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
-    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-        image_reference=batchmodels.ImageReference(
+    virtual_machine_configuration = batchmodels.VirtualMachineConfiguration(
+        image_reference = batchmodels.ImageReference(
     	    publisher="Canonical",
     	    offer="UbuntuServer",
     	    sku="16.04.0-LTS",
     	    version="latest"),
-        node_agent_sku_id="batch.node.ubuntu 16.04"),
+        node_agent_sku_id = "batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
@@ -174,10 +174,10 @@ After mounting the share and defining a job, use the share in your task command 
 
 ```python
 ...
-task=batch.models.TaskAddParameter(
+task = batch.models.TaskAddParameter(
     id='mytask',
-    command_line="/bin/bash -c \"ls {}\"".format(_COMPUTE_NODE_MOUNT_POINT)
-)
+    command_line="/bin/bash -c \"ls {}\"".format(_COMPUTE_NODE_MOUNT_POINT))
+
 batch_service_client.task.add(job_id, task)
 ```
 
@@ -185,8 +185,3 @@ batch_service_client.task.add(job_id, task)
 ## Next steps
 
 * For other options to read and write data in Batch, see the [Batch feature overview](batch-api-basics.md) and [Persist job and task output](batch-task-output.md).
-
-
-
-
-
