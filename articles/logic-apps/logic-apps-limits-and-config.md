@@ -32,17 +32,17 @@ Here are the limits for a single logic app definition:
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Actions per workflow | 500 | To extend this limit, you can add nested workflows as needed. |
-| Allowed action nesting depth | 8 | To extend this limit, you can add nested workflows as needed. | 
-| Workflows per region per subscription | 1000 | | 
+| Allowed nesting depth for actions | 8 | To extend this limit, you can add nested workflows as needed. | 
+| Workflows per region per subscription | 1,000 | | 
 | Triggers per workflow | 10 | When working in code view, not the designer | 
 | Switch scope cases limit | 25 | | 
-| Number of variables per workflow | 250 | | 
-| Maximum characters per expression | 8,192 | | 
-| Maximum `trackedProperties` size in characters | 16,000 | 
-| `action` or `trigger` name limit | 80 | | 
-| `description` length limit | 256 | | 
-| `parameters` limit | 50 | | 
-| `outputs` limit | 10 | | 
+| Variables per workflow | 250 | | 
+| Characters per expression | 8,192 | | 
+| Maximum size for `trackedProperties` | 16,000 characters | 
+| Name for `action` or `trigger` | 80 characters | | 
+| Length of `description` | 256 characters | | 
+| Maximum `parameters` | 50 | | 
+| Maximum `outputs` | 10 | | 
 ||||  
 
 <a name="run-duration-retention-limits"></a>
@@ -88,7 +88,7 @@ Here are the limits for a single logic app run:
 | ----- | ----- | ----- | 
 | Actions executions per 5 minutes | 100,000 | To increase the limit to 300,000, you can run a logic app in `High Throughput` mode. To configure high throughput mode, under the `runtimeConfiguration` of the workflow resource, set the `operationOptions` property to `OptimizedForHighThroughput`. <p>**Note**: High throughput mode is in preview. Also, you can distribute a workload across multiple apps as necessary. | 
 | Actions concurrent outgoing calls | ~2,500 | Decrease number of concurrent requests or reduce the duration as needed. | 
-| Runtime endpoint: Concurrent incoming calls |~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Concurrent incoming calls | ~1,000 | Decrease number of concurrent requests or reduce the duration as needed. | 
 | Runtime endpoint: Read calls per 5 minutes  | 60,000 | Can distribute workload across multiple apps as needed. | 
 | Runtime endpoint: Invoke calls per 5 minutes| 45,000 |Can distribute workload across multiple apps as needed. | 
 |||| 
@@ -109,8 +109,8 @@ request or synchronous connector call:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Outgoing request | 120 seconds | For longer running operations, you can use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern), [webhook pattern](../logic-apps/logic-apps-create-api-app.md#webhook-actions), or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers#until-action.md). | 
-| Synchronous response | 120 seconds | Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the limit. For more information, see the technical details for the specific connector. | 
+| Outgoing request | 120 seconds (2 minutes) | For longer running operations, you can use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern), [webhook pattern](../logic-apps/logic-apps-create-api-app.md#webhook-actions), or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
+| Synchronous response | 120 seconds (2 minutes) | Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the limit. For more information, see the technical details for the specific connector. | 
 |||| 
 
 #### Message size
@@ -125,9 +125,9 @@ request or synchronous connector call:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Retry attempts | 90 | The default is 4. You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Retry max delay | 1 day | You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
-| Retry min delay | 5 sec | You can configure with the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Retry attempts | 90 | The default is 4. To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retry max delay | 1 day | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
+| Retry min delay | 5 seconds | To change the default, use the [retry policy parameter](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 |||| 
 
 <a name="custom-connector-limits"></a>
@@ -138,8 +138,8 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 | Name | Limit | 
 | ---- | ----- | 
-| Number of custom connectors that you can create | 1,000 per Azure subscription | 
-| Number of requests per minute for each connection created by a custom connector | 500 requests for each connection created by the connector |
+| Number of custom connectors | 1,000 per Azure subscription | 
+| Number of requests per minute for each connection created by a custom connector | 500 requests per connection |
 |||| 
 
 <a name="integration-account-limits"></a>
@@ -173,12 +173,12 @@ Here are the limits on the number of artifacts for each integration account.
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Schema | 8 MB | You can use [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) to upload files larger than 2 MB. | 
+| Schema | 8 MB | To upload files larger than 2 MB, use the [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Map (XSLT file) | 2 MB | | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | Can distribute the workload across multiple accounts as needed. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | Can distribute the workload across multiple accounts as needed. | 
-| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | Can distribute the workload across multiple accounts as needed. | 
-| Runtime endpoint: Blocking concurrent calls | ~1,000 | Decrease the number of concurrent requests or reduce the duration as needed. | 
+| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across multiple accounts as necessary. | 
+| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
+| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across multiple accounts as necessary. | 
+| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can decrease the number of concurrent requests or reduce the duration as necessary. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
