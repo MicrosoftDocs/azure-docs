@@ -283,7 +283,7 @@
 ### [IoT Hub](/azure/iot-hub) 
 ### [IoT Hub Device Provisioning Service](/azure/iot-dps)
 ### [IoT Service SDKs](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
-### [Location Based Services](/azure/location-based-services) 
+### [Maps](/azure/azure-maps) 
 ### [Time Series Insights](/azure/time-series-insights) 
 ## Edge 
 ### [IoT Edge](/azure/iot-edge) 
