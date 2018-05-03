@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/01/2018
 ms.author: memccror
 
 ---
@@ -28,7 +28,7 @@ The amount of available unutilized capacity can vary based on size, region, time
 
 ## Eviction Policy
 
-When creating low-prioirty scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
+When creating low-priority scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 
 
 The *Deallocate* policy moves your evicted VMs to the stopped-deallocated state allowing you to redeploy evicted instances. However, there is no guarantee that the allocation will succeed. The deallocated VMs will count against your scale set instance quota and you will be charged for your underlying disks. 
 
@@ -47,7 +47,7 @@ To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to
 
 ## Use the Azure portal
 
-The process to create a scale set that uses an low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag and the eviction policy:
+The process to create a scale set that uses low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag and the eviction policy:
 ![Create a scale set with low-priority VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
 ## Use the Azure CLI 2.0
@@ -137,10 +137,10 @@ No, a scale set cannot support more than one priority type.
 Low-priority VMs and regular VMs share the same quota pool. 
 
 ### Can I use autoscale with low-priority scale sets?
-Yes, you can set autoscaling rules on your low-priority scale set. If your VMs are evicted, autoscale can try to create new low-priority VMs. Remember, you are not guarenteed this capacity though. 
+Yes, you can set autoscaling rules on your low-priority scale set. If your VMs are evicted, autoscale can try to create new low-priority VMs. Remember, you are not guaranteed this capacity though. 
 
 ### Does autoscale work with both eviction policies (deallocate and delete)?
-It is strongly recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count very fast due to the deallocated, evicted instances. 
+It is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. 
 
 ## Next steps
 Now that you have created a scale set with low-priority VMs, try deploying our [auto scale template using low-priority](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
