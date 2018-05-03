@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/03/2018
 ms.author: manayar
 
 ---
@@ -59,7 +59,7 @@ Every configuration server in the multi-tenant scenario uses two accounts:
 
 ## vCenter account requirements
 
-You must configure the configuration server with an account that has a special role assigned to it.
+Configure the configuration server with an account that has a special role assigned to it.
 
 - The role assignment must be applied to the vCenter access account for each vCenter object, and not propagated to the child objects. This configuration ensures tenant isolation, because access propagation can result in accidental access to other objects.
 
@@ -136,4 +136,4 @@ As shown in the following diagram, the architectural difference in a managed ser
 ## Next steps
 - [Learn more](site-recovery-role-based-linked-access-control.md) about role-based access control in Site Recovery.
 - Learn how to [set up disaster recovery of VMware VMs to Azure](vmware-azure-tutorial.md).
-- Learn about [multi-tenancy with CSP for VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md).
+- Learn more about [multi-tenancy with CSP for VMWare VMs](vmware-azure-multi-tenant-csp-disaster-recovery.md).

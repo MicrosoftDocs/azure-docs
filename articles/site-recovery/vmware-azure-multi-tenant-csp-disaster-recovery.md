@@ -6,7 +6,7 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/03/2018
 ms.author: manayar
 ---
 
@@ -20,7 +20,7 @@ This article describes how you as a partner can create and manage tenant subscri
 
 ## Prerequisites
 
-To set up VMware replication you need to do the following:
+To set up VMware replication, you need to do the following:
 
 - [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
 - [Prepare](vmware-azure-tutorial-prepare-on-premises.md) on-premises VMware servers and VMs.
@@ -60,8 +60,8 @@ You can now perform and manage all Site Recovery operations for the tenant in th
 
 ## Assign tenant access to the subscription
 
-1. Ensure that the disaster recovery infrastructure is set up. Note that you must access tenant subscriptions through the CSP portal, regarless of whether disaster recovery is managed or self-service. You must set up your vault, and register infrastructure to the tenant subscriptions.
-2. Provide the tenant with the [account you created](#create-a-tenant-account)
+1. Ensure that the disaster recovery infrastructure is set up. Partners access tenant subscriptions through the CSP portal, regardless of whether disaster recovery is managed or self-service. Set up the vault and register infrastructure to the tenant subscriptions.
+2. Provide the tenant with the [account you created](#create-a-tenant-account).
 3. You can add a new user to the tenant subscription through the CSP portal as follows:
 
     a) Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
@@ -93,4 +93,4 @@ By setting up tenant subscriptions as described in this article, you can quickly
 - Learn more about [role-based access control](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
-Learn more about [multi-tenant models](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.
+Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.
