@@ -1,18 +1,25 @@
 ---
-title: Create a language model with Custom Speech Service on Azure| Microsoft Docs
-description: Learn how to create a language model with the Custom Speech Service in Cognitive Services.
+title: Quickstart to create a language model with Custom Speech Service | Microsoft Docs
+description: In this quickstart, you learn how to create a language model with the Custom Speech Service in Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/08/2017
 ms.author: panosper
 ---
 
-# Creating a custom language model
-The procedure for creating a custom language model is similar to creating an acoustic model except there is no audio data, only text. The text should consist of many examples of queries or utterances you expect users to say or have logged users saying (or typing) in your application.
+# Quickstart: Create a custom language model
+
+In this quickstart, you create a custom language model for text queries or utterances you expect users to say or type in an application. You can then use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
+
+Create a Cognitive Services 
 
 ## Preparing the data for a custom language model
 
@@ -81,5 +88,8 @@ When the model has reached the “Complete” state, it can be deployed to an en
 If you would like to change the "Name" or "Description"" of the model at some point, you can use the “Edit” link in the appropriate row of the language models table.
 
 ## Next steps
-* Try to create your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md) to improve recognition accuracy
-* [Create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md) which you can use from app
+
+In this quickstart, you've developed a custom language model for use with text. To create a custom acoustic model for use with audio files and transcriptions, continue to the quickstart on creating an acoustic model.
+
+> [!div class="nextstepaction"]
+> [Create a custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md)

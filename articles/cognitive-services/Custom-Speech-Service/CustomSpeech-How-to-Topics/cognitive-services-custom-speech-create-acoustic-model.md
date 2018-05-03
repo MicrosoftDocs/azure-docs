@@ -1,17 +1,21 @@
 ---
-title: Create an acoustic model with Custom Speech Service on Azure| Microsoft Docs
-description: Learn how to create an acoustic model with the Custom Speech Service in Cognitive Services.
+title: Quickstart to create an acoustic model with Custom Speech Service | Microsoft Docs
+description: In this quickstart, you learn how to create an acoustic model with the Custom Speech Service in Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/08/2017
 ms.author: panosper
 ---
+# Quickstart: Create a custom acoustic model
 
-# Creating a custom acoustic model
+In this quickstart, you create a custom acoustic model for speech data that you expect your application to recognize. Creating a custom acoustic model is helpful if your application is designed for use in a particular environment, such as a noisy factory, or by a particular user population.
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 To customize the acoustic model to a particular domain, a collection of speech data is required. This collection consists of a set of audio files of speech data, and a text file of transcriptions of each audio file. The audio data should be representative of the scenario in which you would like to use the recognizer.
 
 For example:
@@ -20,7 +24,8 @@ For example:
 <a name="Preparing data to customize the acoustic model"></a>
 *   If you are interested in optimizing performance for a single speaker, e.g. you would like to transcribe all of FDR’s Fireside Chats, then the audio files should consist of many examples of that speaker only.
 
-## Preparing your data to customize the acoustic model
+## Prepare your data
+
 An acoustic data set for customizing the acoustic model consists of two parts: (1) a set of audio files containing the speech data and (2) a file containing the transcriptions of all audio files.
 
 ### Audio Data Recommendations
@@ -66,7 +71,7 @@ The transcriptions will be text-normalized so they can be processed by the syste
 
 The following steps are done using the [Custom Speech Service Portal](https://cris.ai). 
 
-## Step 1: Importing the acoustic data set
+## Import the acoustic data set
 
 Once the audio files and transcriptions have been prepared, they are ready to be imported to the service web portal.
 
@@ -88,7 +93,7 @@ When the status is “Complete” you can click “Details” to see the acousti
 
 At some point, if you would like to change the Name or Description of the data set, you can click the “Edit” link and change these entries. Note that you cannot modify the audio files or transcriptions.
 
-## Step 2: Creating a custom acoustic model
+## Create     a custom acoustic model
 
 Once the status of your acoustic data set is “Complete”, it can be used to create a custom acoustic model. To do so, click “Acoustic Models” in the “Custom Speech” drop-down menu. You will see a table called "Your models” that lists all of your custom acoustic models. This table will be empty if this is your first use. The current locale is shown in the table title. Currently, acoustic models can be created for US English only.
 
@@ -109,5 +114,8 @@ You will now see a new entry in the acoustic models table corresponding to this 
 ![try](../../../media/cognitive-services/custom-speech-service/custom-speech-acoustic-models-creating.png)
 
 ## Next steps
-* Start create your [custom language model](cognitive-services-custom-speech-create-language-model.md)
-* Learn how to [create a custom speech-to-text endpoint](cognitive-services-custom-speech-create-endpoint.md)
+
+In this quickstart, you've developed a custom acoustic model for use with audio files and transcripts. To create a custom language file for use with text files, continue to the quickstart on creating a custom language model.
+
+> [!div class="nextstepaction"]
+> [Create a custom acoustic model](cognitive-services-custom-speech-create-language-model.md)
