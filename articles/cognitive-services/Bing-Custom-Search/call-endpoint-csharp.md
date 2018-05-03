@@ -1,5 +1,5 @@
 ---
-title: Call endpoint by using C# - Bing Custom Search - Microsft Cognitive Services
+title: Call endpoint by using C# - Bing Custom Search - Microsoft Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
