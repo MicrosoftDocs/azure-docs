@@ -16,7 +16,7 @@ ms.author: mbullwin ; daviste
 
 # Application Insights cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. If you analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
+A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. You might analyze a specific set of users or events repeatedly. Cohorts can give you more flexibility to express exactly the set you’re interested in.
 
 ![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
 
@@ -31,7 +31,7 @@ You might define a cohort of users who have all tried a new feature in your app.
 
 ## Example: Engaged users
 
-Your team defines an engaged user as anyone who uses your app five or more times in a given month. In this section, we define a cohort of these engaged users.
+Your team defines an engaged user as anyone who uses your app five or more times in a given month. In this section, you define a cohort of these engaged users.
 
 1. Open the Cohorts tool.
 
@@ -73,7 +73,7 @@ These filters support more sophisticated questions that are impossible to expres
 
 ## Example: Events cohort
 
-You can also make cohorts of events. In this section, we define a cohort of the events and page views. Then we see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
+You can also make cohorts of events. In this section, you define a cohort of the events and page views. Then you see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
 1. Open the Cohorts tool.
 
@@ -89,7 +89,7 @@ You can also make cohorts of events. In this section, we define a cohort of the 
 
 ## Example: Active users where you modify a query
 
-The previous two cohorts were defined by using drop-down boxes. But we can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
+The previous two cohorts were defined by using drop-down boxes. But you can also define cohorts by using analytics queries for total flexibility. To see how, create a cohort of users from the United Kingdom.
 
 ![Animated image walking through use of Cohorts tool](.\media\app-insights-usage-cohorts\cohorts0001.gif)
 
