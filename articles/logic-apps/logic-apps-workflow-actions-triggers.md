@@ -107,7 +107,7 @@ Here is the trigger definition:
 "Recurrence": {
    "type": "Recurrence",
    "recurrence": {
-      "frequency": "Second" | "Minute" | "Hour" | "Day" | "Week" | "Month",
+      "frequency": "Second | Minute | Hour | Day | Week | Month",
       "interval": <recurrence-interval-based-on-frequency>,
       "startTime": "<start-date-time-with-format-YYYY-MM-DDThh:mm:ss>",
       "timeZone": "<time-zone>",
@@ -410,7 +410,7 @@ so the trigger's behavior depends on whether or not sections are included:
             "runtimeUrl": "<managed-API-endpoint-URL>"
          },
          "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
+            "name": "@parameters('$connections')['<connection-name>'].name"
          },
       },
       "method": "GET | PUT | POST | PATCH | DELETE | HEAD",
@@ -446,7 +446,7 @@ so the trigger's behavior depends on whether or not sections are included:
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
 | host | JSON Object | The JSON object that describes the host gateway and ID for the managed API <p>The `host` JSON object has these elements: `api` and `connection` | 
 | api | JSON Object | The endpoint URL for the managed API: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
-| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['myconnection'].name"` | 
+| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
 | method | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | recurrence | JSON Object | The frequency and interval that describes how often the trigger fires |  
 | frequency | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", or "Month" | 
@@ -477,7 +477,7 @@ so the trigger's behavior depends on whether or not sections are included:
             "runtimeUrl": "https://myReportsRepo.example.com/"
          },
          "connection": {
-            "name": "@parameters('$connections')['myconnection'].name"
+            "name": "@parameters('$connections')['<connection-name>'].name"
          }     
       },
       "method": "POST",
@@ -622,6 +622,52 @@ The parameters for this function are the same as the HTTP trigger.
 | ------------ | ---- | ----------- |
 | headers | JSON Object | The headers from the HTTP response | 
 | body | JSON Object | The body from the HTTP response | 
+|||| 
+
+<a name="apiconnectionwebhook-trigger"></a>
+
+## ApiConnectionWebhook trigger
+
+This trigger works like the [HTTPWebhook trigger](#httpwebhook-trigger), 
+but uses [Microsoft-managed APIs](../connectors/apis-list.md). 
+
+Here is the trigger definition:
+
+```json
+"<ApiConnectionWebhookTriggerName>": {
+   "type": "ApiConnectionWebhook",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['<connection-name>']['connectionId']"
+         }
+      },        
+      "body": {
+          "NotificationUrl": "@{listCallbackUrl()}"
+      },
+      "queries": "<query-parameters>"
+   }
+}
+```
+
+*Required*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| <*ApiConnectionWebhookTriggerName*> | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
+| type | String | The trigger type, which is "ApiConnectionWebhook" | 
+| inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
+| host | JSON Object | The JSON object that describes the host gateway and ID for the managed API <p>The `host` JSON object has these elements: `api` and `connection` | 
+| connection | JSON Object | The name for the managed API connection that the workflow uses, which must include a reference to a parameter named `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
+| body | JSON Object | The JSON object that describes the payload (data) to send to the managed API | 
+| NotificationUrl | String | Returns a unique "callback URL" for this trigger that the managed API can use | 
+|||| 
+
+*Optional*
+
+| Element name | Type | Description | 
+| ------------ | ---- | ----------- | 
+| queries | JSON Object | Any query parameters that you want to include with the URL <p>For example, this element adds the `?folderPath=Inbox` query string to the URL: <p>`"queries": { "folderPath": "Inbox" }` <p>Result: `https://<managed-API-URL>?folderPath=Inbox` | 
 |||| 
 
 <a name="trigger-conditions"></a>
