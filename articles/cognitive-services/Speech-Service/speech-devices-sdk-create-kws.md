@@ -12,21 +12,23 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Creating a custom wake word
+# Create a custom wake word using Speech service
 
-Your device will always be listening for a wake word (or phrase). When your user says the wake word, the device starts sending all subsequent audio to the cloud until the user stops speaking. (For example, "Hey Cortana" is a wake word for the Cortana assistant.) Customizing your wake word is an effective way to differentiate your device and strengthen your branding.
+Your device is always listening for a wake word (or phrase). For example, "Hey Cortana" is a wake word for the Cortana assistant. When the user says the wake word, the device starts sending all subsequent audio to the cloud until the user stops speaking. Customizing your wake word is an effective way to differentiate your device and strengthen your branding.
+
+In this article, you learn how to create a custom wake word for your device.
 
 ## Choosing an effective wake word
 
 Consider the following guidelines when choosing a wake word.
 
-* Your wake word should be an English word or or phrase. It should take no longer than two seconds to say.
+* Your wake word should be an English word or a phrase. It should take no longer than two seconds to say.
 
 * Words of 4–7 syllables work best. For example, "Hey, Computer" is a good wake word, while just "Hey" is a poor one.
 
 * Wake words should follow common English pronunciation rules.
 
-* A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example: "computerama" could be a good wake word.
+* A unique or even made-up word that follows common English pronunciation rules could reduce false positives. For example, "computerama" could be a good wake word.
 
 * Do not choose a common word. For example, "eat" and "go" are words that people say frequently in ordinary conversation. They could be false triggers for your device.
 
@@ -41,18 +43,37 @@ Consider the following guidelines when choosing a wake word.
 
 Before you can use a custom wake word with your device, you must create it using the Microsoft Custom Wake Word Generation service. After you provide a wake word, the service produces a file that you then deploy onto your dev kit to enable your wake word on your device.
 
-1. Go to https://cris.ai/.
+1. Go to the [Custom Speech Service portal](https://cris.ai/).
 
-2. Create a new account with the email address that you previously used to request access to the Azure Active Directory.<p>![create new account](media/speech-devices-sdk/wake-word-1.png)<p>The email invitation you receive from Azure Active Directory looks like:<p>![create new account](media/speech-devices-sdk/wake-word-2.png)
- 
-3.	Once logged in, fill out the form, then click **Start the Journey.**<p>![successfully logged in](media/speech-devices-sdk/wake-word-3.png)
- 
-4. The Custom Wake Word page is not available to the public, so there is no link that takes you there. Click or paste in this link instead: https://cris.ai/customkws<p>![hidden page](media/speech-devices-sdk/wake-word-4.png)
- 
-6. Type in the wake word of your choice, then **Submit** it.<p>![enter your wake word](media/speech-devices-sdk/wake-word-5.png)
- 
-7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.<p>![receiving .zip file](media/speech-devices-sdk/wake-word-6.png)
+2. Create a new account with the email address on which you received the invitation for Azure Active Directory. 
 
-8. Save the `.zip` file to your computer. You will need this file to deploy the custom wake word to the development kit later, following the instructions in the Developer Quick Starter Guide, which will be available soon.
+    ![create new account](media/speech-devices-sdk/wake-word-1.png)
+ 
+3.	Once logged in, fill out the form, then click **Start the journey.**
+
+    ![successfully logged in](media/speech-devices-sdk/wake-word-3.png)
+ 
+4. The **Custom Wake Word** page is not available to the public, so there is no link that takes you there. Click or paste in this link instead: https://cris.ai/customkws.
+
+    ![hidden page](media/speech-devices-sdk/wake-word-4.png)
+ 
+6. Type in the wake word of your choice, then **Submit** it.
+
+    ![enter your wake word](media/speech-devices-sdk/wake-word-5.png)
+ 
+7. It may take a few minutes for the files to be generated. You should see a spinning circle on your browser's tab. After a moment, an information bar appears asking you to download a `.zip` file.
+
+    ![receiving .zip file](media/speech-devices-sdk/wake-word-6.png)
+
+8. Save the `.zip` file to your computer. You need this file to deploy the custom wake word to the development kit later, following the instructions in the Developer Quick Starter Guide, is included with your welcome e-mail.
 
 9. You may now **Sign out.**
+
+## Next steps
+
+To get started, get a [free Azure account](https://azure.microsoft.com/free/) and sign up for the Speech Devices SDK.
+
+> [!div class="nextstepaction"]
+> [Sign up for the Speech Devices SDK](get-speech-devices-sdk.md)
+
+
