@@ -379,6 +379,22 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## Windows Server container OS and host OS compatiblity
+
+Windows Server containers are not compatible across all versions of a host OS. For example:
+ 
+- Windows Server containers built using Windows Server version 1709 do not work on a host running Windows Server version 2016. 
+- Windows Server containers built using Windows Server 2016 work in hyperv isolation mode only on a host running Windows Server version 1709. 
+- With Windows Server containers built using Windows Server 2016, it might be necessary to ensure that the revision of the container OS and host OS are the same when running in process isolation mode on a host running Windows Server 2016.
+ 
+To learn more, see [Windows Container Version Compatibility](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+Consider the compatibility of the host OS and your container OS when building and deploying containers to your Service Fabric cluster. For example:
+
+- Make sure you deploy containers with an OS compatible with the OS on your cluster nodes.
+- Make sure that the isolation mode specified for your container app is consistent with support for the container OS on the node where it is being deployed.
+- Consider how OS upgrades to your cluster nodes or containers may affect their compatibility. 
+ 
 ## Specify OS build specific container images 
 
 Windows Server containers (process isolation mode) may not be compatible with newer versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. Hence, if the cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tag them with the build versions of the OS (obtained by running `winver` on a Windows command prompt). Update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
