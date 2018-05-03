@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
 ---
-# Use the Custom Vision Service from a CC&#35; application
+# Use the Custom Vision Service from a C&#35; application
 
 Learn how to use the Custom Vision Service from a C# application. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
 
