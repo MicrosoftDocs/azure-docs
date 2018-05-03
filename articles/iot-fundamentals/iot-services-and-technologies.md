@@ -25,6 +25,8 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
 
 ![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
 
+[![The industry's most comprehensive portfolio of technologies and solutions](media/iot-comparison/paas-saas-technologies-solutions.png)](media/iot-comparison/paas-saas-technologies-solutions.png#lightbox)
+
 ## Solutions
 
 Get started quickly with solution accelerators and SaaS offerings. Choose from preconfigured solutions that enable common IoT scenarios, such as remote monitoring, predictive maintenance, and connected factory, to create a fully customizable solution. Or use Azure IoT Central, a fully managed, end-to-end solution that enables powerful IoT scenarios without requiring cloud-solution expertise.
