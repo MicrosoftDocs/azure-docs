@@ -19,7 +19,7 @@ ms.author: klam; LADocs
 
 # Triggers and actions for workflow definitions in Azure Logic Apps
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview), 
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
 all logic app workflows start with triggers followed by actions. 
 This article describes the triggers and actions that you can 
 use to build logic apps for automating business workflows or 
@@ -812,7 +812,7 @@ These triggers provide more options that let you change the default behavior.
 
 | Trigger | Operation option | Description |
 |---------|------------------|-------------|
-| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. [Triggers: Fire only after active runs finish](#single-instance) |
+| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](#apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. [Triggers: Fire only after active runs finish](#single-instance) |
 ||||
 
 <a name="single-instance"></a>
