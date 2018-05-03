@@ -35,7 +35,7 @@ Your screenshots appear on the AppSource details page and can help draw in poten
 
 At a minimum, you must supply a **Primary** screenshot. You can optionally provide an additional four images. Screenshot images must have a file extention of .png, .jpg, .jpeg, or .gif. Each screenshot must be exactly 1366 pixels wide and 768 pixels high (1366 x 768) and no larger than 1024 KB.
 
-For guidance for creating compelling screenshots, see [Use screenshots effectively](craft-effective-appsource-store-imagess.md).
+For guidance for creating compelling screenshots, see [Use screenshots effectively](craft-effective-appsource-store-images.md).
  
 ## Regional availability
 
