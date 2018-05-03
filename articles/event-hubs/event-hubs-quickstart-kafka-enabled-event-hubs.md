@@ -38,7 +38,7 @@ To complete this Quickstart, make sure you have:
 
 ## Send and Receive messages with Kafka in Event Hubs
 
-1. [Download or git clone the code](https://github.com/Azure/azure-event-hubs)
+1. Clone the Azure Event Hubs [repository](https://github.com/Azure/azure-event-hubs)
 
 2. Navigate to azure-event-hubs/samples/kafka/quickstart/producer
 
