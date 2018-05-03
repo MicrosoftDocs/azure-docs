@@ -64,7 +64,7 @@ You can provision physical devices from the dashboard in the solution portal.
 
 ### IoT Hub and the IoT manager microservice
 
-The [IoT hub](../iot-hub/index.md) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
+The [IoT hub](../iot-hub/index.yml) ingests data sent from the devices into the cloud and makes it available to the `telemetry-agent` microservice.
 
 The IoT hub in the solution also:
 
