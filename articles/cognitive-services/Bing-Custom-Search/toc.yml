@@ -47,12 +47,8 @@
         href: custom-search-sdk-quickstart.md   
 - name: Resources
   items:
-  - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
-  - name: Try it!
-    href: https://aka.ms/bingcustomsearchtryit
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
   - name: Stack Overflow
@@ -61,6 +57,12 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Try it!
+    href: https://aka.ms/bingcustomsearchtryit
   - name: Custom Search endpoint
     href: endpoint-custom.md
   - name: Supported countries and markets
