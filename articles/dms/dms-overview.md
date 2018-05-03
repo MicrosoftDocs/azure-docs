@@ -33,15 +33,15 @@ The Azure Database Migration Service is currently available in the following reg
 - UK West
 - North Europe
 - West Europe
+- Central India
+- South India
+- West India
 - East Asia
 - Southeast Asia
 - Japan East
 - Japan West
 - Australia East
 - Australia Southeast
-- Central India
-- South India
-- West India
 
 ## Next steps
 - [Create an instance of the Azure Database Migration Service by using the Azure portal](quickstart-create-data-migration-service-portal.md).
