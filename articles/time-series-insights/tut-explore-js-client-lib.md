@@ -31,7 +31,7 @@ In this tutorial, you learn about:
 > * 3
 > * 4
 
-<!-->
+<!--
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
@@ -42,16 +42,16 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 <!--
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 -->
-This tutorial makes heavy use of the "Developer Tools" feature (also known as DevTools or F12), found in most browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), and other modern web browsers. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
+This tutorial makes heavy use of the "Developer Tools" feature (also known as DevTools or F12), found in most modern web browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
 ## The Time Series Insights Sample Application
 
-Throughout this tutorial, the Time Series Insights Sample Application is used to explore the source code behind the application, including the TSI JavaScript client library. The application is a Single-Page web Application (SPA), showcasing the use of the library for querying and visualizing data from a sample TSI environment. 
+Throughout this tutorial, the Time Series Insights Sample Application is used to explore the source code behind the application, including usage of the TSI JavaScript client library. The application is a Single-Page web Application (SPA), showcasing the use of the library for querying and visualizing data from a sample TSI environment. 
 
 1. Navigate to the [Time Series Insights sample application](https://tsiclientsample.azurewebsites.net/). You see a page similar to the following, prompting you for sign-in:
    ![TSI Client Sample sign-in prompt](media/tut-explore-js-client-lib/tcs-sign-in.png)
 
-2. Click the "Log in" button. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
+2. Click the "Log in" button and enter your credentials. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
    ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-consent.png)
 
 3. After successful sign-in, you will see a page similar to the following, containing several styles of example charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
@@ -64,26 +64,28 @@ First let's view the HTML and JavaScript source code behind the page that render
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
 2. Expand the `<head>` and `<body>` elements, similar to the layout in the following image, and notice:
-   - Under **\<head\>**, elements that pull in additional files to assist in the functioning of the page:
-     - the \<script\> element for referencing the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+   - Under `<head>`, you'll find elements that pull in additional files to assist in the functioning of the page:
+     - a `<script>` element for referencing the Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
 
        >[!NOTE]
        > The source code for the ADAL JavaScript library is available from the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
-     - \<link\> elements for style sheets (`sampleStyles.css`, `tsiclient.css`) - used to control page styling details, such as colors, fonts, spacing, etc.
-     - the \<script\> element for referencing the TSI Client library (`tsiclient.js`) - a JavaScript library used by the page to call TSI APIs and render chart controls on the page.
-   - Under **\<body\>**, elements that define the layout of items on the page. You can think of the `<div>` elements as "containers" for content, specifying the ordering and placement on the page. The visual styling and all other attributes are specified in the style sheet files (CSS):
-     - the first \<div\> contains the "Log In" dialog (`id="loginModal"`).
-     - the second \<div\> controls the placement of the items on the main page:
+     - `<link>` elements for style sheets (sampleStyles.css, tsiclient.css) - also known as CSS, they're used to control visual page styling details, such as colors, fonts, spacing, etc. 
+     - a `<script>` element for referencing the TSI Client library (tsiclient.js) - a JavaScript library used by the page to call TSI service APIs and render chart controls on the page.
+   - Under `<body>`, you'll find the elements that define the layout of items on the page. You can think of the `<div>` elements as "containers" for content, specifying the ordering and placement on the page:
+     - the first `<div>` contains the "Log In" dialog (`id="loginModal"`).
+     - the second `<div>` controls the placement of the items on the main page:
        - a header row, used for status messages and sign-in information near the top of the page (`class="header"`).
        - the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
-     - a \<script\> section, which contains all of the JavaScript used to control the page.
+     - a `<script>` section, which contains all of the JavaScript used to control the page.
+
+   [!code-html[head-body-sample](source/index.html?hightlight=7,13-15)]
 
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-3. Expand the `<div class="chartsWrapper">` element, and you'll find more child \<div\> elements, used to position the example chart controls. You will notice there are actually several pairs of \<div\> elements, one pair for each chart example:
+3. Expand the `<div class="chartsWrapper">` element, and you'll find more child `<div>` elements, used to position the example chart controls. You will notice there are actually several pairs of `<div>` elements, one pair for each chart example:
    - The first (`class="rowOfCardsTitle"`) contains the title, which summarizes what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
-   - The second (`class="rowOfCards"`) is a parent, containing additional child \<div\> elements that position the actual chart control(s) within a row. 
+   - The second (`class="rowOfCards"`) is a parent, containing additional child `<div>` elements that position the actual chart control(s) within a row. 
 
   ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
@@ -93,7 +95,7 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 ### TSI Client JavaScript library
 
-Although we won't review it in detail, fundamentally the TSI Client library provides an abstraction for two important categories:
+Although we won't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
 - Wrapper methods for calling the TSI Query APIs. These are REST APIs that allow you to query for TSI aggregates, and are organized under the `TsiClient.Server` namespace of the library. 
 - Methods for creating and populating several types of charting controls. These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
@@ -108,7 +110,7 @@ As mentioned earlier, this is an SPA and it uses ADAL for Azure Active Directory
 
 2. Next the application need to request an access token from Azure AD. The access token is issues for a specific set of permissions for a specific API.
 
-3. Once Azure AD has returned an access token to the application, it can be used to access the services which the application has requested in it's registration. In our case, it will be using APIs exposed by the Time Series Insights service you saw earlier in the consent prompt.
+3. Once Azure AD has returned an access token to the application, it can be used to access the service which the application has requested in it's registration. In our case, it will be using APIs exposed by the Time Series Insights service you saw earlier in the consent prompt.
 
   ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
 
