@@ -15,13 +15,13 @@ ms.author: sethm
 
 # Send and receive messages using Azure CLI and Java
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, transferring state or data changes, and sending messages between the applications. 
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
 
 For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this case, the client app sends to and receives messages from a Service Bus queue:
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
+This quickstart describes how to send and receive messages with Service Bus, using Azure CLI and the Service Bus Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
@@ -35,7 +35,7 @@ Click the Cloud Shell button on the menu in the upper-right corner of the Azure 
 
 In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
-```azurecli
+```azurecli-interactive
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 
@@ -54,7 +54,7 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart).
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
 2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
@@ -75,7 +75,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
    mvn clean package -DskipTests
    ```
 
-4. To run the program, issue the following command. As long as you did not restart the bash shell, the variable with the connection string value is automatically replaced:
+4. To run the program, issue the following command. As long as you did not restart the bash shell, the variable containing the connection string value is automatically replaced:
 
    ```bash
    java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c $connectionString -q myQueue
@@ -89,7 +89,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```azurecli
+```azurecli-interactive
 az group delete --resource-group myResourceGroup
 ```
 
