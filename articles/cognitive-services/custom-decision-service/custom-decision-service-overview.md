@@ -11,7 +11,7 @@ ms.author: slivkins;marcozo;alekh;marossi
 ---
 # What is Custom Decision Service?
 
-Azure Custom Decision Service helps you create intelligent systems with a cloud-based, contextual decision-making API that sharpens with experience. Custom Decision Service uses reinforcement learning and adapts the content in your application to maximize the overall engagement of users. The system includes user feedback into its decisions in real time and responds to emergent trends and breaking stories in minutes.
+Azure Custom Decision Service helps you create intelligent systems with a cloud-based, contextual decision-making API that sharpens with experience. Custom Decision Service uses reinforcement learning and adapts the content in your application to maximize user engagement. The system includes user feedback into its decisions in real time and responds to emergent trends and breaking stories in minutes.
 
 In a typical application, a front page links to several articles or other types of content. As the front page loads, it requests Custom Decision Service to provide a ranking of articles to include on the page. When you choose an article, a second request is sent to Custom Decision Service to log the outcome of that decision.
 
@@ -30,9 +30,9 @@ Some common-use cases for Custom Decision Service include:
 * Optimizing ad placements or web pages that the ad directs to
 * Ranking recommended items on a shopping website.
 
-Custom Decision Service is currently in *free public preview*, focused on personalizing a list of articles on a website or an app. Feature extraction works best for English language content. [Limited functionality](../text-analytics/overview.md) is offered for other languages, like Spanish, French, German, Portuguese, and Japanese. This documentation will be revised as new functionality becomes available.
+Custom Decision Service is currently in *free public preview*. It can personalize a list of articles on a website or an app. The feature extraction works best for English language content. [Limited functionality](../text-analytics/overview.md) is offered for other languages, like Spanish, French, German, Portuguese, and Japanese. This documentation will be revised as new functionality becomes available.
 
-Custom Decision Service can be used in applications that are not in the content personalization domain. These applications might be a good fit for a custom preview. Contact us to learn more.
+Custom Decision Service can be used in applications that are not in the content personalization domain. These applications might be a good fit for a custom preview. [Contact us](https://azure.microsoft.com/overview/sales-number/) to learn more.
 
 ## API usage modes
 
