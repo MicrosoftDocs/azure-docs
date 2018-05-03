@@ -24,7 +24,9 @@ The DevOps Project dashboard lets you monitor code commits, builds, and deployme
 
 ## Why should I use the Azure DevOps Project?
 
-The Azure DevOps Project automates the set up of an entire Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.  You can start with your existing code or use one of the provided sample applications, and then quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Container Service, Azure SQL Database, and Azure Service Fabric.  The Azure DevOps project does all the work for you for the initial configuration of a DevOps pipeline including everything from the initial Git repository to the CI/CD pipeline in VSTS, Application Insights for monitoring, and a single view of the entire solution with a dashboard in the Azure Portal.
+The Azure DevOps Project automates the set up of an entire Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.  You can start with your existing code or use one of the provided sample applications, and then quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Container Service, Azure SQL Database, and Azure Service Fabric.  
+
+The Azure DevOps project does all the work for the initial configuration of a DevOps pipeline including everything from setting up the initial Git repository, configuring the CI/CD pipeline, creating an Application Insights resource for monitoring, and providing a single view of the entire solution with the creation of an Azure DevOps Project dashboard on the Azure Portal.
 
 You can use the Azure DevOps Project to:
 
