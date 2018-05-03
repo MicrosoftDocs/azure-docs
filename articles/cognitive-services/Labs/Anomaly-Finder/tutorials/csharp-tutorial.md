@@ -49,7 +49,7 @@ Press Ctrl+Shift+B, or click Build on the ribbon menu, then select Build Solutio
 4. If the data is good, you will find the anomaly detection result in "Response" field. If any error occurs, the error information will be shown in the Response field as well.
 
 <a name="Review"></a>
-### Step 4: Read the result
+### Read the result
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
