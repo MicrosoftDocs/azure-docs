@@ -302,10 +302,5 @@ The authorization token expires after a certain time period (currently 10 minute
 
 ## Next steps
 
-Start your free trial of the Speech service.
-
-> [!div class="nextstepaction"]
-> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-
-> [!div class="nextstepaction"]
-> [See how to recognize speech in C#](quickstart-csharp-windows.md)
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-windows.md)
