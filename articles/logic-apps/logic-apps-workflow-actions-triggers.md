@@ -77,7 +77,7 @@ although some are optional:
 | ------------ | ---- | ----------- | 
 | [conditions](#trigger-conditions) | Array | One or more conditions that determine whether or not to run the workflow | 
 | [splitOn](#split-on-debatch) | String | An expression that splits up, or *debatches*, array items into multiple workflow instances for processing. This option is available for triggers that return an array and only when working directly in code view. | 
-| [operationOptions](#trigger-operation-options) | String | An additional option that lets you change default trigger behavior | 
+| [operationOptions](#trigger-operation-options) | String | Some triggers provide additional options that let you change the default trigger behavior | 
 ||||| 
 
 ## Trigger types and details  
@@ -124,7 +124,8 @@ Here is the trigger definition:
       "concurrency": {
          "runs": <maximum-number-for-concurrently-running-workflow-instances>
       }
-   }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 *Required*
@@ -149,7 +150,8 @@ Here is the trigger definition:
 | minutes | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
 | weekDays | String or string array | If you specify "Week" for `frequency`, you can specify one or more days, separated by commas, when you want to run the workflow: "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", and "Sunday" | 
 | concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
-||||| 
+| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
+|||| 
 
 *Example 1*
 
@@ -298,7 +300,7 @@ schema that validates input from the incoming request:
 
 ## HTTP trigger  
 
-This trigger regularly polls a specified endpoint and checks the response. 
+This trigger polls a specified endpoint and checks the response. 
 The response determines whether the workflow should run or not. 
 The `inputs` JSON object includes and requires the `method` 
 and `uri` parameters required for constructing the HTTP call:
@@ -327,7 +329,8 @@ and `uri` parameters required for constructing the HTTP call:
       "concurrency": {
          "runs": <maximum-number-for-concurrently-running-workflow-instances>
       }
-   }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
@@ -355,6 +358,7 @@ and `uri` parameters required for constructing the HTTP call:
 | authentication | JSON Object | The method that the incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://login.windows.net`, but you can use a different value, such as`https://login.windows\-ppe.net`. | 
 | retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
 | concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: <p>`"concurrency": { "runs": 10 }` | 
+| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
 |||| 
 
 To work well with your logic app, the HTTP trigger requires that the HTTP API 
@@ -428,7 +432,8 @@ so the trigger's behavior depends on whether or not sections are included:
       "concurrency": {
          "runs": <maximum-number-for-concurrently-running-workflow-instances>
       }
-   }
+   },
+   "operationOptions": "singleInstance"
 }
 ```
 
@@ -458,6 +463,7 @@ so the trigger's behavior depends on whether or not sections are included:
 | authentication | JSON Object | The method that an incoming request should use for authentication. For more information, see [Scheduler Outbound Authentication](../scheduler/scheduler-outbound-authentication.md). |
 | retryPolicy | JSON Object | This object customizes the retry behavior for intermittent errors that have 4xx or 5xx status codes: <p>`"retryPolicy": { "type": "<retry-policy-type>", "interval": "<retry-interval>", "count": <number-retry-attempts> }` <p>For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md). | 
 | concurrency | JSON Object | For recurring and polling triggers, this object specifies the maximum number of workflow instances that can run at the same time. Use this value to limit the requests that backend systems receive. <p>For example, this value sets the concurrency limit to 10 instances: `"concurrency": { "runs": 10 }` | 
+| operationOptions | String | The `singleInstance` option specifies that the trigger fires only after all active runs are finished. See [Triggers: Fire only after active runs finish](#single-instance). | 
 ||||
 
 *Example*
@@ -754,23 +760,35 @@ So, your trigger outputs look like these examples:
 
 <a name="trigger-operation-options"></a>
 
-## Triggers: Fire only after all active runs finish
+## Triggers: Operation options
 
-You can configure recurrence triggers so that they fire only when all active runs have completed. 
-To configure this setting, set the `operationOptions` property to `singleInstance`:
+These triggers provide more options that let you change the default behavior.
+
+| Trigger | Operation option | Description |
+|---------|------------------|-------------|
+| [Recurrence](#recurrence-trigger), <br>[HTTP](#http-trigger), <br>[ApiConnection](apiconnection-trigger) | singleInstance | Fire the trigger only after all active runs have finished. [Triggers: Fire only after active runs finish](#single-instance) |
+||||
+
+<a name="single-instance"></a>
+
+### Triggers: Fire only after active runs finish
+
+For triggers where you can set the recurrence, 
+you can specify that the trigger fire only after all active runs have finished. 
+If a scheduled recurrence happens while a workflow instance is running, 
+the trigger skips and waits until the next scheduled recurrence before checking again. 
+For example:
 
 ```json
-"myTrigger": {
-    "type": "Http",
-    "inputs": { },
-    "recurrence": { },
+"myRecurringTrigger": {
+    "type": "Recurrence",
+    "recurrence": {
+        "frequency": "Hour",
+        "interval": 1,
+    },
     "operationOptions": "singleInstance"
 }
 ```
-
-If a scheduled recurrence happens while a workflow instance is running, 
-the trigger skips and waits until the next scheduled
-recurrence interval to check again.
 
 <a name="actions-overview"></a>
 
