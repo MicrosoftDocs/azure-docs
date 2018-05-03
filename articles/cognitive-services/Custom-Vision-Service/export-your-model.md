@@ -1,12 +1,11 @@
 ---
 title: Export your model to mobile  | Microsoft Docs
-description: Export your model to mobile 
+description: Export your model to mobile
 services: cognitive-services
 author: anrothMSFT
-manager: anroth
-
+manager: corncar
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: anroth

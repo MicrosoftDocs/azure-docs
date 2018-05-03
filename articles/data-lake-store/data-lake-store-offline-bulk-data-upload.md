@@ -1,4 +1,4 @@
----
+﻿---
 title: Upload large amounts of data into Data Lake Store by using offline methods | Microsoft Docs
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Data Lake Store
 services: data-lake-store
@@ -192,7 +192,7 @@ We started with a file that was 319 GB, and broke it down into files of smaller 
 
 ````
 # Login to our account
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # List your subscriptions
 Get-AzureRmSubscription

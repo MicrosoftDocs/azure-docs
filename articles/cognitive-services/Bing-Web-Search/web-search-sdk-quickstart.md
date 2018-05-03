@@ -6,26 +6,26 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
 ---
 
-#Web Search SDK C# quickstart (preview)
+# Web Search SDK C# quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results. This edition of the SDK is a preview implementation.
+The Bing Web Search SDK contains the functionality of the REST API for web requests and parsing results.
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Web Search SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.Search.WebSearch` package.
 
-Installing the [NuGet Web Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.1.0-preview) also installs dependencies, including:
+Installing the [NuGet Web Search SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-##Web Search client
+## Web Search client
 To create an instance of the `WebSearchAPI` client, add using directives:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
@@ -70,7 +70,7 @@ else
 }
 
 ```
-##Complete console application
+## Complete console application
 
 The following console application executes the previously defined query and parses web pages, images, news, and videos contained in the results:
 ```
@@ -208,7 +208,7 @@ namespace WebSrchSDK
 
 The Bing search samples demonstrate various features of the SDK.  Add the following functions to the previously defined `WebSrchSDK` class.
 
-##Count and offset parameters
+## Count and offset parameters
 
 The following code searches for "Best restaurants in Seattle", verifies the number of results, and prints out name and URL of the first result.
 
@@ -248,7 +248,7 @@ The following code searches for "Best restaurants in Seattle", verifies the numb
         }
 
 ```
-##Response filter
+## Response filter
 
 The following query searches on the term "Microsoft" using a response filter set to `news` and then prints details of the results.
 ```
@@ -292,7 +292,7 @@ The following query searches on the term "Microsoft" using a response filter set
         }
 
 ```
-##Query parameters - count, promotion, safe search
+## Query parameters - count, promotion, safe search
 
 This query, "Lady Gaga", searches using `answerCount` and `promote` parameters then prints details of the results.
 
@@ -335,6 +335,6 @@ This query, "Lady Gaga", searches using `answerCount` and `promote` parameters t
     }
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

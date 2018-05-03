@@ -8,7 +8,7 @@ author: juliako
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/02/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # View and edit Video Indexer insights

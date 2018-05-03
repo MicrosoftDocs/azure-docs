@@ -26,7 +26,7 @@ This article describes administrative units – a new Azure Active Directory con
 This is useful in organizations with independent divisions, for example, a large university that is made up of many autonomous schools (Business school, Engineering school, and so on) which are independent from each other. Such divisions have their own IT administrators who control access, manage users, and set policies specifically for their division. Central administrators want to be able grant these divisional administrators permissions over the users in their particular divisions. More specifically, using this example, a central administrator can, for instance, create an administrative unit for a particular school (Business school) and populate it with only the Business school users. Then a central administrator can add the Business school IT staff to a scoped role, in other words, grant the IT staff of Business school administrative permissions only over the Business school administrative unit.
 
 > [!IMPORTANT]
-> You can assign administrative unit-scoped admin roles only if you enable Azure Active Directory Premium. For more information, see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).
+> To use Administrative Units requires the Administrative Unit-scoped admin to have an Azure Active Directory Premium license, and Azure Active Directory Basic licenses for all users in the Administrative Unit. For more information, see [Getting started with Azure AD Premium](active-directory-get-started-premium.md).
 >
 
 

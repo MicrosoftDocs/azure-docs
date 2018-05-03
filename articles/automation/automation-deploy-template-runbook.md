@@ -1,19 +1,14 @@
----
-title: Deploy an Azure Resource Manager template in an Azure Automation runbook | Microsoft Docs
+﻿---
+title: Deploy an Azure Resource Manager template in an Azure Automation runbook
 description: How to deploy an Azure Resource Manager template stored in Azure Storage from a runbook
 services: automation
-documentationcenter: dev-center-name
+ms.service: automation
 author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: article
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-
-ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 07/09/2017
-ms.author: gwallace
 ---
 
 # Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
@@ -101,7 +96,7 @@ and upload the Resource Manager template to that file share.
 
 ```powershell
 # Login to Azure
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
@@ -148,7 +143,7 @@ param (
 
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `

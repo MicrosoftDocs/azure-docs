@@ -1,18 +1,18 @@
 ---
 title: Kubernetes on Azure tutorial - Monitor Kubernetes
-description: AKS tutorial - Monitor Kubernetes with Microsoft Operations Management Suite (OMS)
+description: AKS tutorial - Monitor Kubernetes with Azure Log Analytics
 services: container-service
 author: neilpeterson
 manager: timlt
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Monitor Azure Container Service (AKS)
+# Tutorial: Monitor Azure Container Service (AKS)
 
 Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
@@ -33,15 +33,15 @@ If you have not done these steps, and would like to follow along, return to [Tut
 
 ## Configure the monitoring solution
 
-In the Azure portal, select **New** and search for `Container Monitoring Solution`. Once located, select **Create**.
+In the Azure portal, select **Create a resource** and search for `Container Monitoring Solution`. Once located, select **Create**.
 
 ![Add solution](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Create a new OMS workspace, or select an existing one. The OMS Workspace form guides you through this process.
+Create a new Log Analytics workspace, or select an existing one. The Log Analytics Workspace form guides you through this process.
 
 When creating the workspace, select **Pin to dashboard** for easy retrieval.
 
-![OMS Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics Workspace](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 When done, select **OK**. Once validation has completed, select **Create** to create the container monitoring solution.
 
@@ -53,11 +53,19 @@ The Log analytics Workspace ID and Key are needed for configuring the solution a
 
 To retrieve these values, Select **OMS Workspace** from the container solutions left-hand menu. Select **Advanced settings** and take note of the **WORKSPACE ID** and the **PRIMARY KEY**.
 
+## Create Kubernetes secret
+
+Store the Log Analytics workspace settings in a Kubernetes secret named `omsagent-secret` using the [kubectl create secret][kubectl-create-secret] command. Update `WORKSPACE_ID` with your Log Analytics workspace ID and `WORKSPACE_KEY` with the workspace key.
+
+```console
+kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
+```
+
 ## Configure monitoring agents
 
 The following Kubernetes manifest file can be used to configure the container monitoring agents on a Kubernetes cluster. It creates a Kubernetes [DaemonSet][kubernetes-daemonset], which runs a single pod on each cluster node.
 
-Save the following text to a file named `oms-daemonset.yaml`, and replace the placeholder values for `WSID` and `KEY` with your Log Analytics Workspace ID and Key.
+Save the following text to a file named `oms-daemonset.yaml`.
 
 ```YAML
 apiVersion: extensions/v1beta1
@@ -69,34 +77,30 @@ spec:
   metadata:
    labels:
     app: omsagent
-    agentVersion: 1.4.0-12
-    dockerProviderVersion: 10.0.0-25
+    agentVersion: 1.4.3-174
+    dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent
+     - name: omsagent 
        image: "microsoft/oms"
        imagePullPolicy: Always
-       env:
-       - name: WSID
-         value: <WSID>
-       - name: KEY
-         value: <KEY>
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP
+         protocol: TCP 
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/opt/microsoft/omsagent/state/containerhostname
-          name: container-hostname
-        - mountPath: /var/log
+        - mountPath: /var/log 
           name: host-log
-        - mountPath: /var/lib/docker/containers/
-          name: container-log
+        - mountPath: /etc/omsagent-secret
+          name: omsagent-secret
+          readOnly: true
+        - mountPath: /var/lib/docker/containers 
+          name: containerlog-path  
        livenessProbe:
         exec:
          command:
@@ -106,37 +110,37 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux
+    beta.kubernetes.io/os: linux    
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"
+      effect: "NoSchedule"     
    volumes:
-    - name: docker-sock
+    - name: docker-sock 
       hostPath:
        path: /var/run/docker.sock
-    - name: container-hostname
-      hostPath:
-       path: /etc/hostname
     - name: host-log
       hostPath:
-       path: /var/log
-    - name: container-log
+       path: /var/log 
+    - name: omsagent-secret
+      secret:
+       secretName: omsagent-secret
+    - name: containerlog-path
       hostPath:
-       path: /var/lib/docker/containers/
+       path: /var/lib/docker/containers    
 ```
 
 Create the DaemonSet with the following command:
 
-```azurecli-interactive
+```azurecli
 kubectl create -f oms-daemonset.yaml
 ```
 
 To see that the DaemonSet is created, run:
 
-```azurecli-interactive
+```azurecli
 kubectl get daemonset
 ```
 
@@ -147,7 +151,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-After the agents are running, it takes several minutes for OMS to ingest and process the data.
+After the agents are running, it takes several minutes for Log Analytics to ingest and process the data.
 
 ## Access monitoring data
 
@@ -159,7 +163,7 @@ See the [Azure Log Analytics documentation][log-analytics-docs] for detailed gui
 
 ## Next steps
 
-In this tutorial, you monitored your Kubernetes cluster with OMS. Tasks covered included:
+In this tutorial, you monitored your Kubernetes cluster with Log Analytics. Tasks covered included:
 
 > [!div class="checklist"]
 > * Configuring the container monitoring solution
@@ -172,6 +176,7 @@ Advance to the next tutorial to learn about upgrading Kubernetes to a new versio
 > [Upgrade Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
+[kubectl-create-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-daemonset]: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
 
 <!-- LINKS - internal -->

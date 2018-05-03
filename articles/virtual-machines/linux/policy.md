@@ -4,7 +4,7 @@ description: How to apply a policy to an Azure Resource Manager Linux Virtual Ma
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

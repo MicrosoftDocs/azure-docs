@@ -51,6 +51,6 @@ This script uses the following commands to create the storage account and retrie
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional storage CLI script samples can be found in the [Azure CLI samples for Azure Blob storage](../blobs/storage-samples-blobs-cli.md).

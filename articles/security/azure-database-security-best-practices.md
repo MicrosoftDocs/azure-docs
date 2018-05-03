@@ -111,7 +111,7 @@ It’s important to understand that files related to [buffer pool extension (BPE
 Since an authorized user such as a security administrator or a database administrator can access the data even if the database is encrypted with TDE, you should also follow the recommendations below:
 
 -	Enable SQL authentication at the database level.
--	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-	Use Azure AD authentication using [RBAC roles](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -	Users and applications should use separate accounts to authenticate. This way you can limit the permissions granted to users and applications and reduce the risks of malicious activity.
 -	Implement database-level security by using fixed database roles (such as db_datareader or db_datawriter), or you can create custom roles for your application to grant explicit permissions to selected database objects.
 

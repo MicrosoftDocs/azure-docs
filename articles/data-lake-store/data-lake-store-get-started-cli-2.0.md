@@ -27,7 +27,7 @@ ms.author: nitinme
 
 Learn how to use Azure CLI 2.0 to create an Azure Data Lake Store account and perform basic operations such as create folders, upload and download data files, delete your account, etc. For more information about Data Lake Store, see [Overview of Data Lake Store](data-lake-store-overview.md).
 
-The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview). You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
+The Azure CLI 2.0 is Azure's new command-line experience for managing Azure resources. It can be used on macOS, Linux, and Windows. For more information, see [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure). You can also look at the [Azure Data Lake Store CLI 2.0 reference](https://docs.microsoft.com/cli/azure/dls) for a complete list of commands and syntax.
 
 
 ## Prerequisites

@@ -11,11 +11,9 @@ editor: cgronlun
 
 ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/06/2017
+ms.topic: conceptual
+ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
 

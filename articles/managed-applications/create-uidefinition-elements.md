@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application create UI definition functions | Microsoft Docs
-description: Describes the functions to use when constructing UI definitions for Azure Managed Applications
+title: Azure create UI definition element | Microsoft Docs
+description: Describes the elements to use when constructing UI definitions for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 # CreateUiDefinition elements
-This article describes the schema and properties for all supported elements of a CreateUiDefinition. You use these elements when [creating an Azure Managed Application](publish-service-catalog-app.md). The schema for most elements is as follows:
+This article describes the schema and properties for all supported elements of a CreateUiDefinition. The schema for most elements is as follows:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -62,5 +62,4 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).

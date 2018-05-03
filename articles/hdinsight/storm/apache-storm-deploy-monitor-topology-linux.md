@@ -11,10 +11,8 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/28/2017
+ms.topic: conceptual
+ms.date: 02/22/2018
 ms.author: larryfr
 
 ---
@@ -223,7 +221,7 @@ You can find the fully qualified domain name (FQDN) for the cluster head node in
 
 * **From an SSH session**: Use the command `headnode -f` from an SSH session to the cluster.
 * **From Ambari Web**: Select **Services** from the top of the page, then select **Storm**. From the **Summary** tab, select **Storm UI Server**. The FQDN of the node that hosts the Storm UI and REST API is displayed at the top of the page.
-* **From Ambari REST API**: Use the command `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **PASSWORD** with the admin password for the cluster. Replace **CLUSTERNAME** with the cluster name. In the response, the "host_name" entry contains the FQDN of the node.
+* **From Ambari REST API**: Use the command `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` to retrieve information about the node that the Storm UI and REST API are running on. Replace **CLUSTERNAME** with the cluster name. When prompted, enter the password for the login (admin) account. In the response, the "host_name" entry contains the FQDN of the node.
 
 ### Authentication
 

@@ -1,29 +1,22 @@
 ---
 title: Azure Analysis Services overview| Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 83d7a29c-57ae-4aa0-8327-72dd8f00247d
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/04/2017
+ms.topic: overview
+ms.date: 04/23/2018
 ms.author: owend
+ms.reviewer: minewiskan
+#Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for out organization.
 
 ---
-# Azure Analysis Services overview
+# What is Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services provides enterprise-grade data modeling in the cloud. It is a fully managed platform as a service (PaaS), integrated with Azure data platform services. 
 
-With Analysis Services, you can mashup and combine data from multiple sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
+With Analysis Services, you can mashup and combine data from multiple data sources, define metrics, and secure your data in a single, trusted semantic data model. The data model provides an easier and faster way for your users to browse massive amounts of data with client applications like Power BI, Excel, Reporting Services,  third-party, and custom apps.
 
 ![Data sources](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -100,7 +93,7 @@ Azure Analysis Services utilizes Azure Blob storage to persist storage and metad
 
 #### Firewall
 
-Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked allowed. 
+Azure Analysis Services Firewall blocks all client connections other than those specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked. 
 
 #### On-premises data sources
 Secure access to data residing on-premises in your organization is achieved by installing and configuring an [On-premises data gateway](analysis-services-gateway.md). Gateways provide access to data for both Direct Query and in-memory modes. When an Azure Analysis Services model connects to an on-premises data source, a query is created along with the encrypted credentials for the on-premises data source. The gateway cloud service analyzes the query and pushes the request to an Azure Service Bus. The on-premises gateway polls the Azure Service Bus for pending requests. The gateway then gets the query, decrypts the credentials, and connects to the data source for execution. The results are then sent from the data source, back to the gateway and then on to the Azure Analysis Services database.
@@ -138,4 +131,5 @@ Have suggestions or feature requests? Be sure to leave your comments on [Azure A
 Have suggestions about the documentation? You can add comments using Livefyre at the bottom of each article.
 
 ## Next steps
-Now that you know more about Azure Analysis Services, it's time to get started. Learn how to [create a server](analysis-services-create-server.md) in Azure. When your server is ready, step through the [Adventure Works tutorial](tutorials/aas-adventure-works-tutorial.md) to learn how to create a fully functional tabular model and deploy it to your server.
+Learn how to [create a server](analysis-services-create-server.md) in Azure.   
+Once you have a server created, [add a sample model](analysis-services-create-sample-model.md).   

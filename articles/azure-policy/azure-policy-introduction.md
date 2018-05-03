@@ -3,9 +3,10 @@ title: Overview of Azure Policy | Microsoft Docs
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders; nini
-ms.date: 01/17/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.reviewer: nini
+ms.date: 04/18/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -26,6 +27,9 @@ To use policies, you must be authenticated through RBAC. Specifically, your acco
 
 - `Microsoft.Authorization/policydefinitions/write` permission to define a policy.
 - `Microsoft.Authorization/policyassignments/write` permission to assign a policy.
+- `Microsoft.Authorization/policySetDefinitions/write` permission to define an initiative.
+- `Microsoft.Authorization/policyassignments/write` permission to assign an initiative.
+
 
 These permissions are not included in the **Contributor** role.
 
@@ -45,13 +49,17 @@ In Azure Policy, we offer some built-in policies that are available to you by de
 - **Enforce tag and its value**: This policy enforces a required tag and its value to a resource.
 - **Not allowed resource types**: This policy enables you to specify the resource types that your organization cannot deploy.
 
-You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. After you make changes to a policy definition, policy reevaluation happens about once an hour.
 
 To learn more about the structures of policy definitions, look at this article - [Policy Definition Structure](policy-definition.md).
 
 ## Policy assignment
 
-A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment. For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
+A policy assignment is a policy definition that has been assigned to take place within a specific scope. This scope could range from a management group to a resource group. The term *scope* refers to all the resource groups, subscriptions, or management groups that the policy definition is assigned to. Policy assignments are inherited by all child resources. So, if a policy is applied to a resource group, it is applied to all the resources in that resource group. However, you can exclude a subscope from the policy assignment.
+
+For example, at the subscription scope, you can assign a policy that prevents the creation of networking resources. However, you exclude one resource group within the subscription that is intended for networking infrastructure. You grant access to this networking resource group to users that you trust with creating networking resources.
+
+In another example, you might want to assign a resource type whitelist policy at the management group level. And then assign a more permissive policy (allowing more resource types) on a child management group or even directly on subscriptions. However, this example wouldn't work because policy is an explicit deny system. Instead, you need to exclude the child management group or subscription from the management group-level policy assignment. Then, assign the more permissive policy on the child management group or subscription level. To summarize, if any policy results in a resource getting denied, then the only way to allow the resource is to modify the denying policy.
 
 For more information on setting policy definitions and assignments, see [Create a policy assignment to identify non-compliant resources in your Azure environment](assign-policy-definition.md).
 
@@ -113,6 +121,8 @@ While creating and managing policy definitions and assignments, here are a few p
 - We recommend always using initiative definitions instead of policy definitions, even if you only have one policy in mind. For example, if you have a policy definition – *policyDefA* and you create it under the initiative definition - *initiativeDefC*, if you decide to create another policy definition later for *policyDefB* with goals similar to that of *policyDefA*, you can add it under *initiativeDefC* and track them better that way.
 
    Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
+
+   Note that once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
 
 ## Next steps
 

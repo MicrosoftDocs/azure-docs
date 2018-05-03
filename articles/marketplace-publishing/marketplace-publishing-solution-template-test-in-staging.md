@@ -3,8 +3,8 @@ title: Testing your solution template offer for the Marketplace | Microsoft Docs
 description: Understand how to test your solution template offer for the Azure Marketplace.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
-manager: hascipio
+author: msmbaldwin
+manager: mbaldwin
 editor: ''
 
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
-ms.author: hascipio; v-divte
+ms.author: mbaldwin
 
 ---
 # Test your solution template offer in staging

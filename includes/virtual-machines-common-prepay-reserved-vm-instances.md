@@ -1,4 +1,7 @@
-﻿# Prepay for Virtual Machines with Reserved VM Instances
+﻿---
+ms.topic: include
+---
+# Prepay for Virtual Machines with Reserved VM Instances
 
 Prepay for virtual machines and save money with Reserved Virtual Machine Instances. For more information, see [Reserved Virtual Machine Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
@@ -8,7 +11,7 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
 
 ## Buy a Reserved Virtual Machine Instance
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Select **More Services** > **Reservations**.
+2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new reservation.
 4. Fill in the required fields. Running VM instances that match the attributes you select qualify to get the reservation discount. The actual number of your VM instances that get the discount depend on the scope and quantity selected.
 

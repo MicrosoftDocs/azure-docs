@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application PublicIpAddressCombo UI element | Microsoft Docs
-description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure Managed Applications
+title: Azure PublicIpAddressCombo UI element | Microsoft Docs
+description: Describes the Microsoft.Network.PublicIpAddressCombo UI element for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Network.PublicIpAddressCombo UI element
-A group of controls for selecting a new or existing public IP address. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A group of controls for selecting a new or existing public IP address.
 
 ## UI sample
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
@@ -42,7 +42,7 @@ automatically based on the selected location.
   },
   "defaultValue": {
     "publicIpAddressName": "ip01",
-    "domainNameLabel": "foobar"
+    "domainNameLabel": "mydomain"
   },
   "constraints": {
     "required": {
@@ -80,7 +80,7 @@ If the user selects a new or existing IP address, the following output is expect
 {
   "name": "ip01",
   "resourceGroup": "rg01",
-  "domainNameLabel": "foobar",
+  "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
   "newOrExistingOrNone": "new"
 }
@@ -89,6 +89,5 @@ If the user selects a new or existing IP address, the following output is expect
 - When `options.hideDomainNameLabel` is specified as **true**, `domainNameLabel` is undeclared.
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

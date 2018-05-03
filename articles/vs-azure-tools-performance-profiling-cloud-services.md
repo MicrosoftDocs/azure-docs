@@ -4,7 +4,7 @@ description: Test the performance of a cloud service using the Visual Studio pro
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
+manager: douge
 editor: ''
 
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24

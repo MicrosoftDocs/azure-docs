@@ -20,7 +20,7 @@ ms.author: milanga;juliako;
 ## Overview
 The **Azure Media Motion Detector** media processor (MP) enables you to efficiently identify sections of interest within an otherwise long and uneventful video. Motion detection can be used on static camera footage to identify sections of the video where motion occurs. It generates a JSON file containing a metadata with timestamps and the bounding region where the event occurred.
 
-Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from extremely long surveillance videos.
+Targeted towards security video feeds, this technology is able to categorize motion into relevant events and false positives such as shadows and lighting changes. This allows you to generate security alerts from camera feeds without being spammed with endless irrelevant events, while being able to extract moments of interest from long surveillance videos.
 
 The **Azure Media Motion Detector** MP is currently in Preview.
 
@@ -37,13 +37,15 @@ You can use the following parameters:
 
 | Name | Options | Description | Default |
 | --- | --- | --- | --- |
-| sensitivityLevel |String:'low', 'medium', 'high' |Sets the sensitivity level at which motions is reported. Adjust this to adjust number of false positives. |'medium' |
-| frameSamplingValue |Positive integer |Sets the frequency at which algorithm runs. 1 equals every frame, 2 means every 2nd frame, and so on. |1 |
+| sensitivityLevel |String:'low', 'medium', 'high' |Sets the sensitivity level at which motions are reported. Adjust this to adjust number of false positives. |'medium' |
+| frameSamplingValue |Positive integer |Sets the frequency at which algorithm runs. 1 equals every frame, 2 means every second frame, and so on. |1 |
 | detectLightChange |Boolean:'true', 'false' |Sets whether light changes are reported in the results |'False' |
-| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Example: 00:00:03 |Specifies the time window between motion events where 2 events will be combined and reported as 1. |00:00:00 |
-| detectionZones |An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is a x and y coordinate from 0 to 1. |Describes the list of polygonal detection zones to be used.<br/>Results are reported with the zones as an ID, with the first one being 'id':0 |Single zone, which covers the entire frame. |
+| mergeTimeThreshold |Xs-time: Hh:mm:ss<br/>Example: 00:00:03 |Specifies the time window between motion events where 2 events are be combined and reported as 1. |00:00:00 |
+| detectionZones |An array of detection zones:<br/>- Detection Zone is an array of 3 or more points<br/>- Point is an x and y coordinate from 0 to 1. |Describes the list of polygonal detection zones to be used.<br/>Results are reported with the zones as an ID, with the first one being 'id':0 |Single zone, which covers the entire frame. |
 
 ### JSON example
+
+```json
     {
       "version": "1.0",
       "options": {
@@ -71,10 +73,10 @@ You can use the following parameters:
         ]
       }
     }
-
+```
 
 ## Motion Detector output files
-A motion detection job will return a JSON file in the output asset, which describes the motion alerts, and their categories, within the video. The file will contain information about the time and duration of motion detected in the video.
+A motion detection job returns a JSON file in the output asset, which describes the motion alerts, and their categories, within the video. The file contains information about the time and duration of motion detected in the video.
 
 The Motion Detector API provides indicators once there are objects in motion in a fixed background video (for example, a surveillance video). The Motion Detector is trained to reduce false alarms, such as lighting and shadow changes. Current limitations of the algorithms include night vision videos, semi-transparent objects, and small objects.
 
@@ -90,7 +92,7 @@ The following table describes elements of the output JSON file.
 | --- | --- |
 | Version |This refers to the version of the Video API. The current version is 2. |
 | Timescale |"Ticks" per second of the video. |
-| Offset |The time offset for timestamps in "ticks". In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
+| Offset |The time offset for timestamps in "ticks." In version 1.0 of Video APIs, this will always be 0. In future scenarios we support, this value may change. |
 | Framerate |Frames per second of the video. |
 | Width, Height |Refers to the width and height of the video in pixels. |
 | Start |The start timestamp in "ticks". |
@@ -104,8 +106,9 @@ The following table describes elements of the output JSON file.
 | Brackets [] |Each bracket represents one interval in the event. Empty brackets for that interval means that no motion was detected. |
 | locations |This new entry under events lists the location where the motion occurred. This is more specific than the detection zones. |
 
-The following is a JSON output example
+The following JSON example shows the output:
 
+```json
     {
       "version": 2,
       "timescale": 23976,
@@ -147,8 +150,8 @@ The following is a JSON output example
                 "regionId": 0
               }
             ],
+```
 
-    …
 ## Limitations
 * The supported input video formats include MP4, MOV, and WMV.
 * Motion Detection is optimized for stationary background videos. The algorithm focuses on reducing false alarms, such as lighting changes, and shadows.
@@ -161,33 +164,36 @@ The following program shows how to:
 1. Create an asset and upload a media file into the asset.
 2. Create a job with a video motion detection task based on a configuration file that contains the following json preset: 
    
-        {
-          "Version": "1.0",
-          "Options": {
-            "SensitivityLevel": "medium",
-            "FrameSamplingValue": 1,
-            "DetectLightChange": "False",
-            "MergeTimeThreshold":
-            "00:00:02",
-            "DetectionZones": [
-              [
-                {"x": 0, "y": 0},
-                {"x": 0.5, "y": 0},
-                {"x": 0, "y": 1}
-               ],
-              [
-                {"x": 0.3, "y": 0.3},
-                {"x": 0.55, "y": 0.3},
-                {"x": 0.8, "y": 0.3},
-                {"x": 0.8, "y": 0.55},
-                {"x": 0.8, "y": 0.8},
-                {"x": 0.55, "y": 0.8},
-                {"x": 0.3, "y": 0.8},
-                {"x": 0.3, "y": 0.55}
-              ]
-            ]
-          }
-        }
+    ```json
+            {
+            "Version": "1.0",
+            "Options": {
+                "SensitivityLevel": "medium",
+                "FrameSamplingValue": 1,
+                "DetectLightChange": "False",
+                "MergeTimeThreshold":
+                "00:00:02",
+                "DetectionZones": [
+                [
+                    {"x": 0, "y": 0},
+                    {"x": 0.5, "y": 0},
+                    {"x": 0, "y": 1}
+                ],
+                [
+                    {"x": 0.3, "y": 0.3},
+                    {"x": 0.55, "y": 0.3},
+                    {"x": 0.8, "y": 0.3},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.8, "y": 0.8},
+                    {"x": 0.55, "y": 0.8},
+                    {"x": 0.3, "y": 0.8},
+                    {"x": 0.3, "y": 0.55}
+                ]
+                ]
+            }
+            }
+    ```
+
 3. Download the output JSON files. 
 
 #### Create and configure a Visual Studio project
@@ -196,7 +202,7 @@ Set up your development environment and populate the app.config file with connec
 
 #### Example
 
-```
+```csharp
 
 using System;
 using System.Configuration;

@@ -1,10 +1,10 @@
 ﻿---
-title: Install the Azure VM Agent in Offline mode | Microsoft Docs
-description: Learn Install the Azure VM Agent in Offline mode.
+title: Install the Azure VM Agent in offline mode | Microsoft Docs
+description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -17,95 +17,113 @@ ms.date: 01/26/2018
 ms.author: genli
 
 ---
-# Install the VM agent in offline mode in an Azure Windows VM 
+# Install the Azure Virtual Machine Agent in offline mode 
 
-VM agent provides useful features like local administrator password reset, and script push. This article shows how to install the VM agent for a VM that is offline. 
+The Azure Virtual Machine Agent (VM Agent) provides useful features, such as local administrator password reset and script pushing. This article shows you how to install the VM Agent for an offline Windows virtual machine (VM). 
 
-## When to use offline mode
+## When to use the VM Agent in offline mode
 
-You would need to install the VM agent in offline mode in the following scenario:
+Install the VM Agent in offline mode in the following scenarios:
 
-- You deploy an Azure VM that does not have the VM agent installed or the VM agent is not working.
-- You do not remember the password of the administrator or you cannot access the VM.
+- The deployed Azure VM doesn't have the VM Agent installed or the agent isn't working.
+- You forgot the administrator password for the VM or you can't access the VM.
 
-In this scenario, you would need to install the VM agent in offline mode. 
+## How to install the VM Agent in offline mode
 
+Use the following steps to install the VM Agent in offline mode.
 
+### Step 1: Attach the OS disk of the VM to another VM as a data disk
 
-## Detailed steps
+1.  Delete the VM. Be sure to select the **Keep the disks** option when you delete the VM.
 
-**Step 1: Attach the OS disk of the VM to another VM as a data disk**
+2.  Attach the OS disk as a data disk to another VM (known as a _troubleshooter_ VM). For more information, see [Attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md).
 
-1.  Delete the VM. Make sure that you select the **Keep the disks** option when you do this.
+3.  Connect to the troubleshooter VM. Open **Computer management** > **Disk management**. Confirm that the OS disk is online and that drive letters are assigned to the disk partitions.
 
-2.  Attach the OS disk as a data disk to another VM (a troubleshooter VM). For more information, see [How to attach a data disk to a Windows VM in the Azure portal](attach-managed-disk-portal.md).
+### Step 2: Modify the OS disk to install the Azure VM Agent
 
-3.  Connect to the troubleshooting VM. Open **Computer management** > **Disk management**. Make sure that the OS disk is online and that its partitions have drive letters assigned.
+1.  Make a remote desktop connection to the troubleshooter VM.
 
-**Step 2: Modify the OS disk to install VM Agent**
+2.  On the OS disk that you attached, browse to the \windows\system32\config folder. Copy all of the files in this folder as a backup, in case a rollback is required.
 
-1.  Make a remote desktop connection to the troubleshoot VM.
+3.  Start the **Registry Editor** (regedit.exe).
 
-2.  On the OS disk you attached, navigate to **\windows\system32\config**. Copy all the files as a backup in case a rollback is required.
+4.  Select the **HKEY_LOCAL_MACHINE** key. On the menu, select **File** > **Load Hive**:
 
-3.  Start Registry Editor (regedit.exe).
+    ![Load the hive](./media/install-vm-agent-offline/load-hive.png)
 
-4.  Click the **HKEY_LOCAL_MACHINE** key, and then select **File** > **Load Hive** on the menu.
+5.  Browse to the \windows\system32\config\SYSTEM folder on the OS disk that you attached. For the name of the hive, enter **BROKENSYSTEM**. The new registry hive is displayed under the **HKEY_LOCAL_MACHINE** key.
 
-    ![Load hive](./media/install-vm-agent-offline/load-hive.png)
+6.  Browse to the \windows\system32\config\SOFTWARE folder on the OS disk that you attached. For the name of the hive software, enter **BROKENSOFTWARE**.
 
-5.  Navigate to **\windows\system32\config\SYSTEM** on the OS disk that you attached, and then type BROKENSYSTEM as the name of the hive. After you do this, you will see the registry hive under **HKEY_LOCAL_MACHINE**.
+7.  If the VM Agent isn't working, back up the current configuration.
 
-6.  Navigate to **\windows\system32\config\SOFTWARE** on the OS disk you attached, type BROKENSOFTWARE as the name for the hive.
-
-7.  If you have a current version of the agent that is not working, perform a backup of the current configuration. If the VM does not have the VM agent installed, go to the next step.  
+    >[!NOTE]
+    >If the VM doesn't have the agent installed, proceed to step 8. 
       
-    1. Rename the folder \windowsazure to \windowsazure.old
+    1. Rename the \windowsazure folder to \windowsazure.old.
 
-    2. Export the following registries
+    2. Export the following registries:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE
-        \BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
+        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.	Use the existing files on the troubleshooting VM as a repository for the VM agent installation: 
+8.	Use the existing files on the troubleshooter VM as a repository for the VM Agent installation. Complete the following steps:
 
     1. From the troubleshooter VM, export the following subkeys in registry format (.reg): 
-
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![The image about export registry keys](./media/install-vm-agent-offline/backup-reg.png)
+        ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
 
-    2. Edit these three registry files, change the **SYSTEM** key entry to **BROKENSYSTEM**, and then save the files.
-        ![The image about change registry keys](./media/install-vm-agent-offline/change-reg.png)
-    3. Double-clicking the registry files to import them.
-    4. Make sure that the following keys are imported into the BROKENSYSTEM hive successfully: WindowsAzureGuestAgent, WindowsAzureTelemetryService and RdAgent.
+    2. Edit the registry files. In each file, change the entry value **SYSTEM** to **BROKENSYSTEM** (as shown in the following images) and save the file.
 
-9.  Copy the VM agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
-    ![The image about copy files](./media/install-vm-agent-offline/copy-package.png)
+        ![Change the registry subkey values](./media/install-vm-agent-offline/change-reg.png)
+
+    3. Import the registry files into the repository by double-clicking each registry file.
+
+    4. Confirm that the following three subkeys are successfully imported into the **BROKENSYSTEM** hive:
+        - WindowsAzureGuestAgent
+        - WindowsAzureTelemetryService
+        - RdAgent
+
+9.  Copy the VM Agent folder from C:\windowsazure\packages to the &lt;OS disk that you attached&gt;:\windowsazure\packages.
+
+    ![Copy the VM Agent files to the OS disk](./media/install-vm-agent-offline/copy-package.png)
       
-    **Note** Don’t copy the logs folder. After service starts, new logs will be generated.
+    >[!NOTE]
+    >Don’t copy the **logs** folder. After the service starts, new logs are generated.
 
-10.  Click BROKENSYSTEM and select **File** > **Unload Hive**​ from the menu.
+10.  Select **BROKENSYSTEM**. From the menu, select **File** > **Unload Hive**​.
 
-11.  Click BROKENSOFTWARE and select **File** > **Unload Hive**​ from the menu.
+11.  Select **BROKENSOFTWARE**. From the menu, select **File** > **Unload Hive**​.
 
-12.  Detach the disk and then recreate the VM by using the OS disk.
+12.  Detach the OS disk, and then recreate the VM by using the OS disk.
 
-13.  If you access the VM you will now see the RDAgent running and the logs getting created.
+13.  Access the VM. Notice that the RdAgent is running and the logs are being generated.
 
-14. If this is a VM created using the classic deployment model, you are done. However, if this is a VM created using the Resource Manager deployment model, you must also use Azure PowerShell to update the ProvisionGuestAgent property so that Azure knows that the VM has the agent installed. To accomplish this, run the following commands in Azure PowerShell:
+If you created the VM by using the classic deployment model, you're done.
 
-        $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        $vm.VM.ProvisionGuestAgent = $true
-        Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
 
-    If you run **Get-AzureVM** after you follow these steps, the **GuestAgentStatus** property should be populated instead of a blank page being displayed:
+### Use the ProvisionGuestAgent property for VMs created with Azure Resource Manager
 
-        Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
-        GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+If you created the VM by using the Resource Manager deployment model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
+
+To set the **ProvisionGuestAgent** property, run the following commands in Azure PowerShell:
+
+   ```powershell
+   $vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   $vm.VM.ProvisionGuestAgent = $true
+   Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>
+   ```
+
+Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** property is now populated with data:
+
+   ```powershell
+   Get-AzureVM –ServiceName <cloud service name> –Name <VM name>
+   GuestAgentStatus:Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
+   ```
 
 ## Next steps
 

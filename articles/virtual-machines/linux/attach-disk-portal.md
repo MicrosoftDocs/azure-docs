@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

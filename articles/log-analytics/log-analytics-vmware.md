@@ -3,7 +3,7 @@ title: VMware Monitoring solution in Log Analytics | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
 services: log-analytics
 documentationcenter: ''
-author: bandersmsft
+author: MGoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
@@ -13,12 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
-ms.author: banders
+ms.author: magoedte
 ---
 
 # VMware Monitoring (Preview) solution in Log Analytics
 
 ![VMware symbol](./media/log-analytics-vmware/vmware-symbol.png)
+
+> [!NOTE]
+> The VMware Monitoring solution has been deprecated.  Customers who have already installed the solution can continue to use it, but VMware Monitoring can not be added to any new workspaces.
 
 The VMware Monitoring solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 

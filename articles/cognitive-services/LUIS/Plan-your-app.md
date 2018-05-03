@@ -4,12 +4,11 @@ description: Outline relevant app intents and entities, and then create your app
 services: cognitive-services
 author: DeniseMak
 manager: hsalama
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
 ---
 
 # Plan your LUIS app

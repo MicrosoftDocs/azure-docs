@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 05/01/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -36,24 +36,32 @@ The combination of your conditions with your access controls represents a condit
 
 ![Control](./media/active-directory-conditional-access-conditions/61.png)
 
-This article gives you an overview of the conditions and how they are used in a conditional access policy. 
 
+Conditions you have not configured in a conditional access policy are not applied. Some conditions are [mandatory](active-directory-conditional-access-best-practices.md#whats-required-to-make-a-policy-work) to apply a conditional access policy to an environment. 
+
+This article gives you an overview of the conditions and how they are used in a conditional access policy. 
 
 ## Users and groups
 
 The users and groups condition is mandatory in a conditional access policy. In your policy, you can either select **All users** or select specific users and groups.
 
-![Control](./media/active-directory-conditional-access-conditions/02.png)
+![Control](./media/active-directory-conditional-access-conditions/111.png)
 
 When you select:
 
-- **All users**, your policy is applied to all users with in the directory. This includes guest users.
+- **All users**, your policy is applied to all users in the directory. This includes guest users.
 
-- **Select users and groups**, you can target specific sets of users, for example, all members of the HR department, when they sign into an HR app. 
+- **Select users and groups**, you can set the following options:
 
-- A group, it can be any type of group in Azure AD, including dynamic or assigned security and distribution groups.
+    - **All guest users** - Enables you to target a policy to B2B guest users. This condition matches any user account with the *userType* attribute set to *guest*. You can use this setting in cases where a policy needs to be applied as soon as the account is created in an invite flow In Azure AD.
 
-You can also exclude specific users or groups from a policy. One common use case are service accounts if your policy enforces multi-factor authentication. 
+    - **Directory roles** - Enables you to target a policy based on a user’s role assignment. This condition supports directory roles such as *Global administrator* or *Password administrator*.
+
+    - **Users and groups** - Enables you to target specific sets of users. For example, you can select a group that contains all members of the HR department, when you have an HR app selected as cloud app.
+
+A group, it can be any type of group in Azure AD, including dynamic or assigned security and distribution groups
+
+You can also exclude specific users or groups from a policy. One common use case are service accounts if your policy enforces multi-factor authentication (MFA). 
 
 Targeting specific sets of users is useful for the deployment of a new policy. In a new policy, you should target only an initial set of users to validate the policy behavior. 
 
@@ -69,7 +77,7 @@ The cloud apps condition is mandatory in a conditional access policy. In your po
 
 You can select:
 
-- **All cloud apps** to baseline policies to be applied to the entire organization. A common use case for this selection is a policy that requires multi-factor authentication when sign-in risk is detected for any cloud app.
+- **All cloud apps** to baseline policies to be applied to the entire organization. A common use case for this selection is a policy that requires multi-factor authentication when sign-in risk is detected for any cloud app. A policy applied to **All cloud apps** applies to access to all web site and services. This setting is not limited to the cloud apps that appear on the **Select Cloud apps** list.
 
 - Individual cloud apps to target specific services by policy. For example, you can require users to have a [compliant device](active-directory-conditional-access-policy-connected-applications.md) to access SharePoint Online. This policy is also applied to other services when they access SharePoint content, for example, Microsoft Teams. 
 
@@ -87,8 +95,8 @@ To use this condition, you need to have [Azure Active Directory Identity Protect
  
 Common use cases for this condition are policies that:
 
-- Block a users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
-- Require multi-factor authentication when for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
+- Block users with a high sign-in risk to prevent potentially non-legitimate users from accessing your cloud apps. 
+- Require multi-factor authentication for users with a medium sign-in risk. By enforcing multi-factor authentication, you can provide additional confidence that the sign-in is performed by the legitimate owner of an account.
 
 For more information, see [Risky sign-ins](active-directory-identityprotection.md#risky-sign-ins).  
 
@@ -97,19 +105,30 @@ For more information, see [Risky sign-ins](active-directory-identityprotection.m
 The device platform is characterized by the operating system that is running on your device. Azure AD identifies the platform by using information provided by the device, such as user agent. Because this information is unverified, it is recommended that all platforms have a policy applied to them, either by blocking access, requiring compliance with Intune policies or requiring the device be domain joined. The default is to apply policy to all device platforms. 
 
 
-![Conditions](./media/active-directory-conditional-access-conditions/02.png)
+![Conditions](./media/active-directory-conditional-access-conditions/24.png)
 
 For a complete list of the supported device platforms, see [device platform condition](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
-A common use case for this condition is a policy that restricts access to your cloud apps to [trusted devices](active-directory-conditional-access-policy-connected-applications.md#trusted-devices). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md).
+A common use case for this condition is a policy that restricts access to your cloud apps to [managed devices](active-directory-conditional-access-policy-connected-applications.md#managed-devices). For more scenarios including the device platform condition, see [Azure Active Directory app-based conditional access](active-directory-conditional-access-mam.md).
+
+
+
+## Device state
+
+The device state condition allows Hybrid Azure AD joined and devices marked as compliant to be excluded from a conditional access policy. This is useful when a policy should only apply to unmanaged device to provide additional session security. For example, only enforce the Microsoft Cloud App Security session control when a device is unmanaged. 
+
+
+![Conditions](./media/active-directory-conditional-access-conditions/112.png)
+
+If you want to block access for unmanaged devices, you should implement [device-based conditional access](active-directory-conditional-access-policy-connected-applications.md).
 
 
 ## Locations
 
 With locations, you have the option to define conditions that are based on where a connection attempt was initiated from. 
      
-![Conditions](./media/active-directory-conditional-access-conditions/03.png)
+![Conditions](./media/active-directory-conditional-access-conditions/25.png)
 
 Common use cases for this condition are policies that:
 

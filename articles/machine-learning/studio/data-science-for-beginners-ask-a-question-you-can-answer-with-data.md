@@ -4,8 +4,9 @@ description: Learn how to formulate a sharp data science question in Data Scienc
 keywords: data science problems,data science questions,formulate questions,regression questions,classification questions,sharp question
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
@@ -15,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
+
 
 ---
 # Ask a question you can answer with data

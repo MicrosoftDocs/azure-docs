@@ -4,18 +4,16 @@ description: Get information and code samples to help you quickly get started us
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
-
 ms.service: cognitive-services
-ms.technology: spellcheck
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
-
 ---
 # Quickstart for Bing Spell Check API with C# 
 <a name="HOLTop"></a>
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with C#. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world".
+This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with C#. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!" The suggested replacements are "Hello" and "world."
 
 ## Prerequisites
 
@@ -33,6 +31,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -46,17 +45,16 @@ namespace SpellCheckSample1
 
         // For a list of available markets, go to:
         // https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes
-        static string market = "en-US";
-
-        static string mode = "proof";
+        static string params_ = "mkt=en-US&mode=proof";
 
         // NOTE: Replace this example key with a valid subscription key.
-        static string key = "INSERT API KEY";
+        static string key = "ENTER KEY HERE";
 
         static string text = "Hollo, wrld!";
 
         // These properties are used for optional headers (see below).
         // static string ClientId = "<Client ID from Previous Response Goes Here>";
+        //static string ClientId = "2325577A61966D252A475CD760C96C03";
         // static string ClientIp = "999.999.999.999";
         // static string ClientLocation = "+90.0000000000000;long: 00.0000000000000;re:100.000000000000";
 
@@ -72,11 +70,9 @@ namespace SpellCheckSample1
             //client.DefaultRequestHeaders.Add("X-MSEdge-ClientIP", ClientIp);
 
             HttpResponseMessage response = new HttpResponseMessage();
-            string uri = host + path;
+            string uri = host + path + params_;
 
             List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
-            values.Add(new KeyValuePair<string, string>("mkt", market));
-            values.Add(new KeyValuePair<string, string>("mode", mode));
             values.Add(new KeyValuePair<string, string>("text", text));
 
             using (FormUrlEncodedContent content = new FormUrlEncodedContent(values))
@@ -84,7 +80,14 @@ namespace SpellCheckSample1
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/x-www-form-urlencoded");
                 response = await client.PostAsync(uri, content);
             }
-           
+
+            string client_id;
+            if (response.Headers.TryGetValues("X-MSEdge-ClientID", out IEnumerable<string> header_values))
+            {
+                client_id = header_values.First();
+                Console.WriteLine("Client ID: " + client_id);
+            }
+
             string contentString = await response.Content.ReadAsStringAsync();
             Console.WriteLine(JsonPrettyPrint(contentString));
 
@@ -98,9 +101,10 @@ namespace SpellCheckSample1
 
         static string JsonPrettyPrint(string json)
         {
-            if (string.IsNullOrEmpty(json)) {
+            if (string.IsNullOrEmpty(json))
+            {
                 return string.Empty;
-			}
+            }
 
             json = json.Replace(Environment.NewLine, "").Replace("\t", "");
 

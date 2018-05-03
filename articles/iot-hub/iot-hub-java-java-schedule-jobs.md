@@ -33,6 +33,8 @@ To learn more about each of these capabilities, see:
 * Device twin and properties: [Get started with device twins](iot-hub-java-java-twin-getstarted.md)
 * Direct methods: [IoT Hub developer guide - direct methods](iot-hub-devguide-direct-methods.md) and [Tutorial: Use direct methods](iot-hub-java-java-direct-methods.md)
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 This tutorial shows you how to:
 
 * Create a device app that implements a direct method called **lockDoor**. The device app also receives desired property changes from the back-end app.

@@ -18,6 +18,10 @@ ms.author: piyushjo;ricksal
 
 ---
 # Advanced configuration for Azure Mobile Engagement Android SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 > [!div class="op_single_selector"]
 > * [Universal Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)

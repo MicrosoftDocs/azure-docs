@@ -27,6 +27,7 @@
 ### [Authentication and security model overview](event-hubs-authentication-and-security-model-overview.md)
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ### [Automatically scale throughput units](event-hubs-auto-inflate.md)
+### [Integrating Apache Spark with Event Hubs](event-hubs-spark-connector.md)
 ## Develop
 ### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -46,7 +47,7 @@
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

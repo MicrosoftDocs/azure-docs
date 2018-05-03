@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/20/2018
 ms.author: nacanuma
 ms.custom: aaddev
 
@@ -45,14 +45,14 @@ The completed application is provided at the end of this tutorial as well.
 
 2. In the menu at the top of the page, select your account. Under the **Directory** list, choose the Active Directory tenant where you want to register your application.
 
-3. Select **More Services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
+3. Select **All services** in the menu on the left side of the screen, and then select **Azure Active Directory**.
 
 4. Select **App registrations**, and then select **Add**.
 
 5. Follow the prompts to create a **Web Application** and/or **WebAPI**.
   * The **name** of the application describes your application to users.
 
-  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
+  * The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return`.
 
 6. After you register, Azure AD assigns your app a unique application ID. You need this value in the following sections, so copy it from the application page.
 7. From the **Settings** -> **Properties** page for your application, update the App ID URI. The **App ID URI** is a unique identifier for your application. The convention is to use the format `https://<tenant-domain>/<app-name>`, for example: `https://contoso.onmicrosoft.com/my-first-aad-app`.
@@ -328,7 +328,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
 
 2. Create the `/routes/user.js` route under the root directory.
 
-                ```JavaScript
+    ```JavaScript
                 /*
                  * GET users listing.
                  */
@@ -336,7 +336,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
                 exports.list = function(req, res){
                   res.send("respond with a resource");
                 };
-                ```
+    ```
 
  These pass along the request to our views, including the user if present.
 
@@ -353,7 +353,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     <% } %>
     ```
 
-4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azuread` has put in the user request.
+4. Create the `/views/account.ejs` view under the root directory so that we can view additional information that `passport-azure-ad` has put in the user request.
 
     ```Javascript
     <% if (!user) { %>
@@ -399,7 +399,7 @@ Now `app.js` is complete. We simply need to add the routes and views that show t
     </html>
     ```
 
-##Next steps
+## Next steps
 Finally, build and run your app. Run `node app.js`, and then go to `http://localhost:3000`.
 
 Sign in with either a personal Microsoft account or a work or school account, and notice how the user's identity is reflected in the /account list. You now have a web app that's secured with industry standard protocols that can authenticate users with both their personal and work/school accounts.

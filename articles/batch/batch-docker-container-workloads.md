@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 12/01/2017
+ms.date: 02/26/2018
 ms.author: danlep
 
 ---
@@ -25,14 +25,14 @@ This article assumes familiarity with Docker container concepts and how to creat
 
 ## Prerequisites
 
-* SDK versions: The Batch SDKs support container images in the following versions:
+* SDK versions: The Batch SDKs support container images as of the following versions:
     * Batch REST API version 2017-09-01.6.0
     * Batch .NET SDK version 8.0.0
     * Batch Python SDK version 4.0
     * Batch Java SDK version 3.0
     * Batch Node.js SDK version 3.0
 
-* Accounts: On your Azure account, you need to create a Batch account and optionally a general-purpose Storage account.
+* Accounts: On your Azure account, you need to create a Batch account and optionally an Azure Storage account.
 
 * A supported VM image. Containers are only supported in pools created with the Virtual Machine Configuration from images detailed in the following section, "Supported virtual machine images."
 
@@ -85,7 +85,7 @@ In your application code, provide a reference to the VM image to use in creating
 
     To obtain this image ID from the Azure portal, open **All resources**, select the custom image, and from the **Overview** section of the image blade, copy the path in **Resource ID**.
 
-* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the offer type, publisher, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
+* If you are using an [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?page=1&subcategories=windows-based) image, provide a group of parameters describing the image: the publisher, the offer type, SKU, and version of the image, as listed in [List of virtual machine images](batch-linux-nodes.md#list-of-virtual-machine-images):
 
   ```csharp
   // Provide a reference to an Azure Marketplace image for
@@ -136,7 +136,7 @@ pool.Commit();
 
 ### Prefetch images for container configuration
 
-To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com), and start TensorFlow in a start task.
+To prefetch container images on the pool, add the list of container images (`containerImageNames`) to the `ContainerConfiguration`, and give the image list a name. The following example assumes that you are using a custom Ubuntu 16.04 LTS image, and prefetch a TensorFlow image from [Docker Hub](https://hub.docker.com). This example includes a start task that runs in the VM host on the pool nodes. You might do this, for example, to mount a file server that can be accessed by the containers.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
@@ -149,15 +149,8 @@ VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConf
     containerConfiguration: containerConfig,
     nodeAgentSkuId: "batch.node.ubuntu 16.04");
 
-// Set a native command line start task
+// Set a native host command line start task
 StartTask startTaskNative = new StartTask( CommandLine: "<native-host-command-line>" );
-
-// Define container settings
-TaskContainerSettings startTaskContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu");
-StartTask startTaskContainer = new StartTask(
-    CommandLine: "<docker-image-command-line>",
-    TaskContainerSettings: startTaskContainerSettings);
 
 // Create pool
 CloudPool pool = batchClient.PoolOperations.CreatePool(
@@ -237,7 +230,7 @@ CloudTask containerTask = new CloudTask (
 
 ## Next steps
 
-* For an in-depth overview of Batch, see [Develop large-scale parallel compute solutions with Batch](batch-api-basics.md).
+* Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit for easy deployment of container workloads on Azure Batch through [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes).
 
 * For more information on installing and using Docker CE on Linux, see the [Docker](https://docs.docker.com/engine/installation/) documentation.
 

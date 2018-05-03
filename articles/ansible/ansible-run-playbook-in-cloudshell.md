@@ -20,7 +20,7 @@ In this tutorial, you learn how to perform various Ansible tasks from Bash in Cl
 
 - **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
-- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart) illustrates how to start and configure Cloud Shell. Launch a dedicated website for Cloud Shell here:
+- **Configure Azure Cloud Shell** - If you are new to Azure Cloud Shell, the article [Quickstart for Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) illustrates how to start and configure Cloud Shell. Launch a dedicated website for Cloud Shell here:
 
 [![Launch Cloud Shell](https://shell.azure.com/images/launchcloudshell.png "Launch Cloud Shell")](https://shell.azure.com)
 
@@ -95,8 +95,8 @@ This section walks you through using the Cloud Shell to create and execute two p
     tasks:
     - name: Create a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          location: eastus
+        name: demoresourcegroup
+        location: eastus
   ```
 
 1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.
@@ -143,8 +143,8 @@ This section walks you through using the Cloud Shell to create and execute two p
     tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
-          name: demoresourcegroup
-          state: absent
+        name: demoresourcegroup
+        state: absent
   ```
 
 1. Save the file, and exit the VI editor by entering `:wq` and pressing &lt;Enter>.

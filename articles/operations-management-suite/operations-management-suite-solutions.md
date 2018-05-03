@@ -34,7 +34,7 @@ There are multiple methods for locating and installing management solutions as d
 Management solutions provided by Microsoft and trusted partners may be installed from the Azure Marketplace in the Azure portal.
 
 1. Log in to the Azure portal.
-2. In the left pane, select **More services**.
+2. In the left pane, select **All services**.
 3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
 4. Click the **+ Add** button.
 5. Search for solutions that you're interested in either by browsing, clicking the **Filter** button, or typing in the **Search Everthing** box.
@@ -90,7 +90,7 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 Use the following procedure to to view the management solutions in the workspaces linked to your Azure subscription.
 
 1. Log in to the Azure portal.
-2. In the left pane, select **More services**.
+2. In the left pane, select **All services**.
 3. Either scroll down to **Solutions** or type *solutions* into the **Filter** dialog.
 4. Solutions installed in all your workspaces will be listed.
 

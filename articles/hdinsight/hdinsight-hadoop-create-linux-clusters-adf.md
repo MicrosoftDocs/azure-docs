@@ -1,4 +1,4 @@
----
+﻿---
 title: Create on-demand Hadoop clusters using Data Factory - Azure HDInsight | Microsoft Docs
 description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
@@ -12,9 +12,7 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
 
@@ -114,7 +112,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
 try{Get-AzureRmContext}
-catch{Login-AzureRmAccount}
+catch{Connect-AzureRmAccount}
 #endregion
 
 ####################################
