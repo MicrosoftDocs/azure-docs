@@ -23,7 +23,9 @@ ms.author: jdial
 
 Learn how to enable and disable distributed denial of service (DDoS) protection, and use telemetry to mitigate a DDoS attack with Azure DDoS Protection Standard. DDoS Protection Standard protects Azure resources such as virtual machines, load balancers, and application gateways that have an Azure [public IP address](virtual-network-public-ip-address.md) assigned to it. To learn more about DDoS Protection Standard and its capabilities, see [DDoS Protection Standard overview](ddos-protection-overview.md).
 
-Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com with an account assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a DDoS protection plan
 
@@ -34,7 +36,7 @@ Creation of more than one plan is not required for most organizations. A plan ca
 1. Select **Create a resource** in the upper left corner of the Azure portal.
 2. Search for *DDoS*. When **DDos protection plan** appears in the search results, select it.
 3. Select **Create**.
-4. Enter or select your own values, or enter or select the following example values, and then select **Create**:
+4. Enter or select your own values, or enter, or select the following example values, and then select **Create**:
 
     |Setting        |Value                                              |
     |---------      |---------                                          |

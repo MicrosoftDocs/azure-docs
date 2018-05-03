@@ -31,6 +31,8 @@ Complete the following tasks before completing steps in any section of this arti
 - If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
+The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+
 ## Create a route table
 
 There is a limit to how many route tables you can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -46,7 +48,7 @@ There is a limit to how many route tables you can create per Azure location and 
 
 ## View route tables
 
-In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it. The route tables that exist in your subscription are listed.
+In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it. The route tables that exist in your subscription are listed.
 
 **Commands**
 
@@ -55,8 +57,8 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 ## View details of a route table
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
-2. Select the route table in the list that you want to view details for. Under **SETTINGS** you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
+2. Select the route table in the list that you want to view details for. Under **SETTINGS**, you can view the **Routes** in the route table and the **Subnets** the route table is associated to.
 3. To learn more about common Azure settings, see the following information:
 	*	[Activity log](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
 	*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -71,7 +73,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 ## Change a route table
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table you want to change. The most common changes are [adding](#create-a-route) or [removing](#delete-a-route) routes and [associating](#associate-a-route-table-to-a-subnet) route tables to, or [dissociating](#dissociate-a-route-table-from-a-subnet) route tables from subnets.
 
 **Commands**
@@ -83,7 +85,7 @@ In the search box at the top of the portal, enter *route tables* in the search b
 
 A subnet can have zero or one route table associated to it. A route table can be associated to zero or multiple subnets. Since route tables are not associated to virtual networks, you must associate a route table to each subnet you want the route table associated to. All traffic leaving the subnet is routed based on routes you've created within route tables, [default routes](virtual-networks-udr-overview.md#default), and routes propagated from an on-premises network, if the virtual network is connected to an Azure virtual network gateway (ExpressRoute, or VPN, if using BGP with a VPN gateway). You can only associate a route table to subnets in virtual networks that exist in the same Azure location and subscription as the route table.
 
-1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. Select the virtual network in the list that contains the subnet you want to associate a route table to.
 3. Select **Subnets** under **SETTINGS**.
 4. Select the subnet you want to associate the route table to.
@@ -98,7 +100,7 @@ A subnet can have zero or one route table associated to it. A route table can be
 
 When you dissociate a route table from a subnet, Azure routes traffic based on its [default routes](virtual-networks-udr-overview.md#default).
 
-1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it.
 2. Select the virtual network that contains the subnet you want to dissociate a route table from.
 3. Select **Subnets** under **SETTINGS**.
 4. Select the subnet you want to dissociate the route table from.
@@ -113,7 +115,7 @@ When you dissociate a route table from a subnet, Azure routes traffic based on i
 
 If a route table is associated to any subnets, it cannot be deleted. [Dissociate](#dissociate-a-route-table-from-a-subnet) a route table from all subnets before attempting to delete it.
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select **...** on the right-side of the route table you want to delete.
 3. Select **Delete**, and then select **Yes**.
 
@@ -126,7 +128,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 
 There is a limit to how many routes per route table can create per Azure location and subscription. For details, see [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table from the list that you want to add a route to.
 3. Select **Routes**, under **SETTINGS**.
 4. Select **+ Add**.
@@ -145,7 +147,7 @@ There is a limit to how many routes per route table can create per Azure locatio
 
 A route table contains zero or multiple routes. To learn more about the information listed when viewing routes, see [Routing overview](virtual-networks-udr-overview.md).
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table from the list that you want to view routes for.
 3. Select **Routes** under **SETTINGS**.
 
@@ -156,7 +158,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 ## View details of a route
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table you want to view details of a route for.
 3. Select **Routes**.
 4. Select the route you want to view details of.
@@ -168,7 +170,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 ## Change a route
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table you want to change a route for.
 3. Select **Routes**.
 4. Select the route you want to change.
@@ -181,7 +183,7 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 ## Delete a route
 
-1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appears in the search results, select it.
+1. In the search box at the top of the portal, enter *route tables* in the search box. When **Route tables** appear in the search results, select it.
 2. Select the route table you want to delete a route for.
 3. Select **Routes**.
 4. From the list of routes, select **...** on the right-side of the route you want to delete.
@@ -194,9 +196,9 @@ A route table contains zero or multiple routes. To learn more about the informat
 
 ## View effective routes
 
-The effective routes for each network interface attached to a virtual machine are a combination route tables you've created, Azure's default routes, and any routes propagated from on-premises networks via BGP through an Azure virtual network gateway. Understanding the effective routes for a network interface is helpful when troubleshooting routing problems. You can view the effective routes for any network interface that is attached to a running virtual machine.
+The effective routes for each network interface attached to a virtual machine are a combination of route tables that you've created, Azure's default routes, and any routes propagated from on-premises networks via BGP through an Azure virtual network gateway. Understanding the effective routes for a network interface is helpful when troubleshooting routing problems. You can view the effective routes for any network interface that is attached to a running virtual machine.
 
-1. In the search box at the top of the portal, enter the name of a virtual machine you want to view effective routes for. If you don't know the name of a virtual machine, enter *virtual machines* in the search box. When **Virtual machines** appears in the search results, select it and select a virtual machine from the list.
+1. In the search box at the top of the portal, enter the name of a virtual machine you want to view effective routes for. If you don't know the name of a virtual machine, enter *virtual machines* in the search box. When **Virtual machines** appear in the search results, select it and select a virtual machine from the list.
 2. Select **Networking** under **SETTINGS**.
 3. Select the name of a network interface.
 4. Select **Effective routes** under **SUPPORT + TROUBLESHOOTING**.
