@@ -32,7 +32,8 @@ The example of the time series data points is as follows.
 
 ### Analyze data and get anomaly points cURL example
 
-The steps of using the example,
+The steps of using the example are as follows.
+
 1. Replace the `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
 2. Replace the `[YOUR_REGION]` to use the location where you obtained your subscription keys.
 3. Replace the `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` with the example or your own data points.

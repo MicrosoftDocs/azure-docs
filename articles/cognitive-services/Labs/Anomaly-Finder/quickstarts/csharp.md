@@ -31,7 +31,8 @@ The example of the time series data points is as follows.
 
 ### Analyze data and get anomaly points C# example
 
-The steps of using the example
+The steps of using the example are as follows.
+
 1. Create a new Console solution in Visual Studio.
 2. Replace Program.cs with the following code and add the reference to System.Net.Http.
 3. Replace `[YOUR_SUBSCRIPTION_KEY]` value with your valid subscription key.
