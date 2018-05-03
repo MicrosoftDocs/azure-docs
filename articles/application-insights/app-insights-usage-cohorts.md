@@ -73,7 +73,7 @@ These filters support more sophisticated questions that are impossible to expres
 
 ## Example: Events cohort
 
-You can also make cohorts of events. In this section, we define a cohort of the events and page views, and then see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
+You can also make cohorts of events. In this section, we define a cohort of the events and page views. Then we see how to use them from the other tools. This cohort might define a set of events that your team considers _active usage_ or a set related to a certain new feature.
 
 1. Open the Cohorts tool.
 
