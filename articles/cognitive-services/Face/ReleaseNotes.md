@@ -18,7 +18,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in May 2018
 
-* **Enhancement** Gender attribute is enhanced with improved accuracy. Gender attribute is one of the attributes that can be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) when `gender` is specified in `returnFaceAttributes`.
+* **Enhancement** Gender attribute is enhanced with improved accuracy. Gender attribute is one of the attributes that can be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) when `gender` is specified in `returnFaceAttributes`. Other attributes (age, glasses, facialHair, hair, makeup etc.) are also slightly changed.
 
 ### Release changes in March 2018
 
