@@ -1,5 +1,5 @@
 # [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-# [IoT Suite Documentation](index.md)
+# [IoT Solution Accelerators Documentation](index.md)
 
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
