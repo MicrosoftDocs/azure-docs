@@ -20,7 +20,7 @@ ms.author: jdial;anavin
 ---
 # Create, change, or delete a virtual network peering
 
-Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're not familiar with virtual network peering, we recommend reading the [Virtual network peering overview](virtual-network-peering-overview.md) and completing the [Create a virtual network peering tutorial](tutorial-connect-virtual-networks-portal.md), before completing the tasks in this article.
+Learn how to create, change, or delete a virtual network peering. Virtual network peering enables you to connect virtual networks through the Azure backbone network. Once peered, the virtual networks are still managed as separate resources. If you're new to virtual network peering, you can learn more about it in the [virtual network peering overview](virtual-network-peering-overview.md) or by completing a [tutorial](tutorial-connect-virtual-networks-portal.md).
 
 ## Before you begin
 
@@ -28,8 +28,8 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with an account that has the [necessary permissions](#permissions) to work with peerings.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.5.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.29 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` with an account that has the [necessary permissions](#permissions) to work with peering, to create a connection with Azure.
 
 ## Create a peering
 
@@ -130,16 +130,20 @@ If you want virtual networks to communicate sometimes, but not always, rather th
 
 ## Permissions
 
-The accounts you use to create a virtual network peering must have the necessary role or permissions. For example, if you are peering two virtual networks named *myVnetA* and *myVnetB*, your account must be assigned the following minimum role or permissions for each virtual network:
-    
-|Virtual network|Deployment model|Role|Permissions|
-|---|---|---|---|
-|myVnetA|Resource Manager|[Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Classic|[Classic Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
-|myVnetB|Resource Manager|[Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classic|[Classic Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+The accounts you use to work with virtual network peering must be assigned to the following roles:
 
-Learn more about [built-in roles](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Resource Manager only).
+- [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor): For a virtual network deployed through Resource Manager.
+- [Classic Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor): For a virtual network deployed through the classic deployment model.
+
+If your account is not assigned to one of the previous roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
+
+| Action | Name |
+|---|---|
+| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network (Resource Manager)                            |
+| Microsoft.Network/virtualNetworks/peer/action                   | Required to create a peering from virtual network B (Resource Manager) to virtual network A                                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                                    |
+| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Read a virtual network peering   |
+| Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Delete a virtual network peering |
 
 ## Next steps
 
@@ -152,4 +156,6 @@ Learn more about [built-in roles](../role-based-access-control/built-in-roles.md
     |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
     |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
 
-* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+* Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+* Create a virtual network peering using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
+* Create and apply [Azure policy](policy-samples.md) for virtual networks

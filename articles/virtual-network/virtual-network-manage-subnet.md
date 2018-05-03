@@ -20,16 +20,16 @@ ms.author: jdial
 ---
 # Add, change, or delete a virtual network subnet
 
-Learn how to add, change, or delete a virtual network subnet. If you're not familiar with virtual networks, before you add, change, or delete a subnet, we recommend that you read [Azure Virtual Network overview](virtual-networks-overview.md) and [Create, change, or delete a virtual network](manage-virtual-network.md). All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network.
- 
+Learn how to add, change, or delete a virtual network subnet. All Azure resources deployed into a virtual network are deployed into a subnet within a virtual network. If you're new to virtual networks, you can learn more about them in the [Virtual network overview](virtual-networks-overview.md) or by completing a [tutorial](quick-create-portal.md). To create, change, or delete a virtual network, see [Manage a virtual network](manage-virtual-network.md).
+
 ## Before you begin
 
 Complete the following tasks before completing steps in any section of this article:
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.2.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
-- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.26 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+- If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
 ## Add a subnet
 
@@ -84,13 +84,18 @@ You can delete a subnet only if there are no resources in the subnet. If there a
 
 ## Permissions
 
-To perform tasks on subnets, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate permissions listed in the following table:
+To perform tasks on subnets, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate actions listed in the following table:
 
-|Operation                                                                |   Operation name                               |
-|-----------------------------------------------------------------------  |   -------------------------------------------  |
-|Microsoft.Network/virtualNetworks/subnets/read                           |   Get Virtual Network Subnet                   |
-|Microsoft.Network/virtualNetworks/subnets/write                          |   Create or Update Virtual Network Subnet      |
-|Microsoft.Network/virtualNetworks/subnets/delete                         |   Delete Virtual Network Subnet                |
-|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Join Virtual Network                         |
-|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Join Service to a Subnet                     |
-|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Get Virtual Network Subnet Virtual Machines  |
+|Action                                                                   |   Name                                       |
+|-----------------------------------------------------------------------  |   -----------------------------------------  |
+|Microsoft.Network/virtualNetworks/subnets/read                           |   Read a virtual network subnet              |
+|Microsoft.Network/virtualNetworks/subnets/write                          |   Create or update a virtual network subnet  |
+|Microsoft.Network/virtualNetworks/subnets/delete                         |   Delete a virtual network subnet            |
+|Microsoft.Network/virtualNetworks/subnets/join/action                    |   Join a virtual network                     |
+|Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action  |   Enable a service endpoint for a subnet     |
+|Microsoft.Network/virtualNetworks/subnets/virtualMachines/read           |   Get the virtual machines in a subnet       |
+
+## Next steps
+
+- Create a virtual network and subnets using [PowerShell](powershell-samples.md) or [Azure CLI](cli-samples.md) sample scripts, or using Azure [Resource Manager templates](template-samples.md)
+- Create and apply [Azure policy](policy-samples.md) for virtual networks

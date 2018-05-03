@@ -3,8 +3,8 @@ title: Create an Azure virtual machine with Accelerated Networking | Microsoft D
 description: Learn how to create a Linux virtual machine with Accelerated Networking.
 services: virtual-network
 documentationcenter: ''
-author: jdial
-manager: jeconnoc
+author: gsilva5
+manager: gedegrac
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
-ms.author: jimdial
+ms.author: gsilva
 
 ---
 # Create a Windows virtual machine with Accelerated Networking
