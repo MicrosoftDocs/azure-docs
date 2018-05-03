@@ -71,63 +71,63 @@ The token service endpoint is relative to function you are using and the region.
 
 The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions, or the C# programming language. A sample HTTP request is also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key and `TOKEN_SERVICE_ENDPOINT` with the appropriate URL from the table above.
 
-#### PowerShell
-```Powershell
-$FetchTokenHeader = @{
-  'Content-type'='application/x-www-form-urlencoded';
-  'Content-Length'= '0';
-  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
-}
+* PowerShell
+    ```Powershell
+    $FetchTokenHeader = @{
+      'Content-type'='application/x-www-form-urlencoded';
+      'Content-Length'= '0';
+      'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+    }
+    
+    $OAuthToken = Invoke-RestMethod -Method POST -Uri TOKEN_SERVICE_ENDPOINT -Headers $FetchTokenHeader
+    
+    # show the token received
+    $OAuthToken
+    
+    ```
+* cURL
 
-$OAuthToken = Invoke-RestMethod -Method POST -Uri TOKEN_SERVICE_ENDPOINT -Headers $FetchTokenHeader
+    ```curl
+    curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+    ```
 
-# show the token received
-$OAuthToken
+* C#
 
-```
-#### cURL
-
-```curl
-curl -v -X POST "TOKEN_SERVICE_ENDPOINT" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
-
-#### C#
-
-```cs
-    /*
-     * This class demonstrates how to get a valid access token.
-     */
-    public class Authentication
-    {
-        public static readonly string FetchTokenUri = "TOKEN_SERVICE_ENDPOINT";
-        private string subscriptionKey;
-        private string token;
-
-        public Authentication(string subscriptionKey)
+    ```cs
+        /*
+         * This class demonstrates how to get a valid access token.
+         */
+        public class Authentication
         {
-            this.subscriptionKey = subscriptionKey;
-            this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-        }
-
-        public string GetAccessToken()
-        {
-            return this.token;
-        }
-
-        private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-        {
-            using (var client = new HttpClient())
+            public static readonly string FetchTokenUri = "TOKEN_SERVICE_ENDPOINT";
+            private string subscriptionKey;
+            private string token;
+    
+            public Authentication(string subscriptionKey)
             {
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-                var result = await client.PostAsync(FetchTokenUri, null);
-                Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-                return await result.Content.ReadAsStringAsync();
+                this.subscriptionKey = subscriptionKey;
+                this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
+            }
+    
+            public string GetAccessToken()
+            {
+                return this.token;
+            }
+    
+            private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
+            {
+                using (var client = new HttpClient())
+                {
+                    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                    UriBuilder uriBuilder = new UriBuilder(fetchUri);
+    
+                    var result = await client.PostAsync(FetchTokenUri, null);
+                    Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+                    return await result.Content.ReadAsStringAsync();
+                }
             }
         }
-    }
-```
+    ```
 
 The following is how a token request looks in raw HTTP.
 
@@ -151,74 +151,74 @@ The following examples show how to use an authorization token when you call the 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#obtain-a-token).
 
-#### PowerShell
+* PowerShell
 
-```Powershell
-
-$SpeechServiceURI =
-'https://westus.stt.speech.microsoft.com/v1.0/?language=en-us&format=detailed'
-
-# $OAuthToken is the authrization token returned by the token service.
-$RecoRequestHeader = @{
-  'Authorization' = 'Bearer '+ $OAuthToken;
-  'Transfer-Encoding' = 'chunked'
-  'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
-}
-
-# Read audio into byte array
-$audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
-
-$RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
-
-# Show the result
-$RecoResponse
-
-```
-
-#### cURL
-
-```
-curl -v -X POST "https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
-```
-
-#### C#
-
-```cs
-HttpWebRequest request = null;
-request = (HttpWebRequest)HttpWebRequest.Create("https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed");
-request.SendChunked = true;
-request.Accept = "application/json;text/xml";
-request.Method = "POST";
-request.ProtocolVersion = HttpVersion.Version11;
-request.Host = "westus.tts.speech.microsoft.com";
-request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
-request.Headers["Authorization"] = "Bearer " + token;
-
-// Send an audio file by 1024 byte chunks
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
-
-        // Flush
-        requestStream.Flush();
+    ```Powershell
+    
+    $SpeechServiceURI =
+    'https://westus.stt.speech.microsoft.com/v1.0/?language=en-us&format=detailed'
+    
+    # $OAuthToken is the authrization token returned by the token service.
+    $RecoRequestHeader = @{
+      'Authorization' = 'Bearer '+ $OAuthToken;
+      'Transfer-Encoding' = 'chunked'
+      'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
-}
-```
+    
+    # Read audio into byte array
+    $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
+    
+    $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
+    
+    # Show the result
+    $RecoResponse
+    
+    ```
+
+* cURL
+
+    ```
+    curl -v -X POST "https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
+    ```
+
+* C#
+
+    ```cs
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create("https://westus.tts.speech.microsoft.com/cognitiveservices/v1?language=en-us&format=detailed");
+    request.SendChunked = true;
+    request.Accept = "application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = "westus.tts.speech.microsoft.com";
+    request.ContentType = @"audio/wav; codec=audio/pcm; samplerate=16000";
+    request.Headers["Authorization"] = "Bearer " + token;
+    
+    // Send an audio file by 1024 byte chunks
+    using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+    {
+    
+        /*
+        * Open a request stream and write 1024 byte chunks in the stream one at a time.
+        */
+        byte[] buffer = null;
+        int bytesRead = 0;
+        using (Stream requestStream = request.GetRequestStream())
+        {
+            /*
+            * Read 1024 raw bytes from the input audio file.
+            */
+            buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+            while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+            {
+                requestStream.Write(buffer, 0, bytesRead);
+            }
+    
+            // Flush
+            requestStream.Flush();
+        }
+    }
+    ```
 
 ### Renew a token
 
