@@ -41,19 +41,11 @@ Login to the AWS Console > Enter **EC2** in the search box > **EC2 Virtual Serve
 
 ![AWS console search][aws-console]
 
-Select **Launch Instance**
-
-![EC2 console][aws-ec2console]
-
-Choose **Select** next to Microsoft Windows Server 2016 Base.
+Select **Launch Instance**, on the next screen choose **Select** next to Microsoft Windows Server 2016 Base.
 
 ![EC2 instance selection][aws-ec2instance]
 
-Select **t2.medium**, then select **Next: Configure Instance Details**
-
-![EC2 instance size selection][aws-ec2size]
-
-Change number of instances to **3**, then select **Advanced Details** to expand that section.
+Select **t2.medium**, then select **Next: Configure Instance Details**, on the next screen change the number of instances to `3`, then select **Advanced Details** to expand that section.
 
 To connect your virtual machines together in Service Fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM.  For this tutorial, you'll use a user data script to set the EC2 instances to all have the same password.  In a production environment, joining the hosts to a windows domain is more secure.
 
@@ -71,9 +63,7 @@ New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Acti
 
 ![EC2 review and launch][aws-ec2configure2]
 
-Once you've entered the powershell script select **Review and Launch**, and then **Launch**.
-
-Change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
+Once you've entered the powershell script select **Review and Launch**, and then **Launch**.  On the launch screen change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
 
 ![AWS key pair selection][aws-keypair]
 
@@ -83,11 +73,7 @@ Finally, select **Launch Instances**, and then **View Instances**.  You have the
 
 Service Fabric requires a number of ports open between the hosts in your cluster. To open these ports in the AWS infrastructure, select one of the instances that you created. Then select the name of the security group, for example,  **launch-wizard-4**.
 
-![Modify security group][aws-ec2security]
-
 To avoid opening these ports to the world, you'll instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
-
-![Edit security group][aws-ec2securityedit]
 
 You'll need to add four rules to the security group. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules will open the required ports to enable SMB and Remote Registry.
 

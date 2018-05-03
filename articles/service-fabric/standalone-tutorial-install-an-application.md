@@ -1,6 +1,6 @@
 ---
-title: Creating the infrastructure for a service fabric cluster on AWS - Azure Service Fabric | Microsoft Docs
-description: In this tutorial, you learn how to set up the AWS infrastructure to run a service fabric cluster.
+title: Tutorial Install an application on your standalone cluster - Azure Service Fabric | Microsoft Docs
+description: In this tutorial, you learn how to install an application into your standalone cluster.
 services: service-fabric
 documentationcenter: .net
 author: david-stanford
@@ -13,11 +13,11 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/09/2018
+ms.date: 05/09/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
-# Create AWS Infrastructure to host a service fabric cluster
+# Tutorial: install an application on your standalone cluster
 
 This tutorial is part three of a series.  Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
 
@@ -29,7 +29,7 @@ In part three of the series, you learn how to:
 > * Security Groups?
 > * Log in to one of the instances
 
-## Download the Voting sample application
+## Download the voting sample application
 
 If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
 
