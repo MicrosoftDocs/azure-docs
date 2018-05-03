@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
 ---
-# Supported languages
+# Supported languages for Speech service
 
 Different languages are supported for different Speech services functions. The tables below summarize language support.
 
@@ -22,7 +22,7 @@ Language support varies depending on the speech recognition mode.
 
 ### Interactive and dictation mode
 
-The Speech to Text API supports the following languages in `interactive` and `dictation` modes. 
+The **Speech to Text** API supports the following languages in `interactive` and `dictation` modes. 
 
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
@@ -56,7 +56,7 @@ The Microsoft speech recognition API supports the following languages in `conver
 
 ### Customization
 
-The following languages are supported for custom Speech to Text language models.
+The following languages are supported for custom **Speech to Text** language models.
 
 | Code | Language | Code | Language |
 |-|-|-|-|
@@ -72,7 +72,7 @@ Custom pronunciation supports only US English (en-US) and German (de-DE).
 
 ## Text to Speech
 
-The Text to Speech API offers the following voices, each of which supports a specific language and dialect, identified by locale.
+The **Text to Speech** API offers the following voices, each of which supports a specific language and dialect, identified by locale.
 
 Locale | Language | Gender | Service name mapping
 -------|----------|---------|--------------------
@@ -161,13 +161,13 @@ zh-TW | Chinese (Taiwan)|Female | "Microsoft Server Speech Text to Speech Voice 
 
 ### Customization
 
-Custom Text to Speech voice fonts support US English (en-US) and Chinese (zh-CN).
+Custom **Text to Speech** voice fonts support US English (en-US) and Chinese (zh-CN).
 
 ## Speech Translation
 
-The Speech Translation API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech Language table below. The available target languages depend on whether the translation target is speech or text.
 
-You can obtain either list of languages programmatically using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
+You can obtain the list of languages either programmatically or using the REST API's Languages endpoint. The list provides each language code, as well as the language name in English—or in any other supported language. This list is updated by the Microsoft Translator service whenever a new language becomes available.
 
 ### Speech languages
 
@@ -250,3 +250,9 @@ You can obtain either list of languages programmatically using the REST API's La
 | Vietnamese      | `vi`          |
 | Welsh      | `cy`          |
 | Yucatec Maya      | `yua`          |
+
+
+## Next steps
+
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-windows.md)
