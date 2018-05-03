@@ -78,7 +78,7 @@ linkedServices | List of linked services passed to endpoint. | Array of linked s
 
 The following table shows the requirements for JSON content:
 
-| Value type or API body | Request body | Response body |
+| Value type | Request body | Response body |
 |---|---|---|
 |JSON object | Supported | Supported |
 |JSON array | Supported <br/>(At present, JSON arrays don't work as a result of a bug. A fix is in progress.) | Unsupported |

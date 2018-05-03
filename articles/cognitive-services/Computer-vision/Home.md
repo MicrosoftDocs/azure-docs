@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.component: computer-vision 
 ms.topic: conceptual
 ms.date: 05/01/2018 
-ms.author: kefre 
+ms.author: kefre
+
 ---
 # What is Computer Vision API Version 2.0?
 
@@ -60,7 +61,7 @@ Returned Json
       },
       {
          "name":"sky",
-         "confidence":999289751052856
+         "confidence":0.999289751052856
       },
       {
          "name":"building",

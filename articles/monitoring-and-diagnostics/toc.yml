@@ -75,6 +75,8 @@
       href: monitoring-enable-alerts-using-template.md      
     - name: Copy alerts from OMS portal to Azure portal 
       href: monitoring-alerts-extend-tool.md
+    - name: Alerts with dynamic thresholds
+      href: monitoring-alerts-dynamic-thresholds.md
   - name: Use action groups with alerts
     items:
     - name: Learn about the webhook schema
