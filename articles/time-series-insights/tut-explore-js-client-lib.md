@@ -96,7 +96,7 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 Although we won't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
-- **Wrapper methods for calling the TSI Query APIs** - These are REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
+- **Wrapper methods for calling the TSI Query APIs** - These are REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. 
 - ** Methods for creating and populating several types of charting controls** - These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
 In the following sections, we will explore the page JavaScript source code. There you will see the programming model and API patterns take shape through the use of the methods discussed.
@@ -111,12 +111,47 @@ As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL f
 
 3. Once ADAL returns the access token to the application, it will be used to as a "bearer token" to access the TSI service APIs. 
 
+   [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
+
+   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144-148,175-178)]
+
+   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144,175-178)]
+
+   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144,175)]
+
    [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&start=140&end=199)]
+
+   [!code-javascript[adal-auth](source/index.html?start=140&end=199&highlight=144-148,175-178)]
+
+   [!code-javascript[adal-auth](source/index.html?highlight=144,175-178&start=140&end=199)]
+
+   [!code-javascript[adal-auth](source/index.html?highlight=144-148&start=140&end=199)]
+
+
    ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
 
 ## Pie, line, and bar charts
 
-Now we will look at some of the standard chart controls demonstrated in the application. 
+Now we will look at some of the standard chart controls demonstrated in the application. Specifically, we will look at the section of HTML under the `// Example 3/4/5` comment. 
+
+As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides an identifier, which is used in the JavaScript code to specify the target for control rendering and updating.
+
+
+
+ 
+
+### Call pattern
+
+You will notice a similar pattern emerge, for each of the 
+
+An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
+
+### Pie chart
+
+### Line chart
+
+### Bar chart
+
 
 TODO: Go through the steps from the video.
 
