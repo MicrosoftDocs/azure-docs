@@ -50,6 +50,9 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a>
-      html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentation</a>
-      html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a>  
+      - type: list
+        style: unordered
+        items:
+        - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-api-reference">API</a>
+        - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-experimentation-reference">Experimentation</a>
+        - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-log-downloader-reference">LogDownloader</a>  
