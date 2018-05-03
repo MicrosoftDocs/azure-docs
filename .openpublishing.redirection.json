@@ -36,6 +36,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
+            "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/preview/index.md",
             "redirect_url": "/azure/machine-learning/service",
             "redirect_document_id": true
@@ -176,9 +181,54 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/pp/msi-overview.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-known-issues.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/known-issues",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/preview/model-management-overview.md",
             "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-overview",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-cli-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-cli-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-howto-assign-access-cli.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-sign-in.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sign-in",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-tutorial-linux-vm-access-cosmosdb.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-token.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-token",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-qs-configure-sdk-windows-vm.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/qs-configure-sdk-windows-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/pp/msi-how-to-use-vm-msi-sdk.md",
+            "redirect_url": "/azure/active-directory/managed-service-identity/how-to-use-vm-sdk",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/machine-learning/preview/model-management-service-deploy.md",
@@ -658,11 +708,6 @@
         {
             "source_path": "articles/active-directory/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial.md",
             "redirect_url": "/azure/active-directory/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial",
-            "redirect_document_id": true
-        },
-        {
-            "source_path": "articles/active-directory/active-directory-saas-zendesk-provisioning-tutorial.md",
-            "redirect_url": "/azure/active-directory/active-directory-saas-tutorial-list",
             "redirect_document_id": true
         },
         {
@@ -5067,7 +5112,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-mongodb-application.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
             "redirect_document_id": false
         },
         {
@@ -5559,6 +5604,11 @@
             "source_path": "articles/documentdb/documentdb-nosql-local-emulator-export-ssl-certificates.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/tutorial-develop-mongodb.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-security.md",
@@ -7306,7 +7356,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-manage-single-databases-portal.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7371,7 +7421,7 @@
         },
         {
             "source_path": "articles/sql-database/sql-database-scale-on-the-fly.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -7395,13 +7445,18 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/sql-database/sql-database-service-tiers.md",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-server-overview.md",
             "redirect_url": "/azure/sql-database/sql-database-servers-databases",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/sql-database/sql-database-service-tier-advisor.md",
-            "redirect_url": "/azure/sql-database/sql-database-service-tiers",
+            "redirect_url": "/azure/sql-database/sql-database-service-tiers-vcore",
             "redirect_document_id": false
         },
         {
@@ -8075,12 +8130,22 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/load-balancer/quick-create-load-balancer-basic-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-arm-ps.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-powershell",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/quick-create-load-balancer-basic-portal.md",
             "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
             "redirect_document_id": false
         },
@@ -8225,13 +8290,38 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
-            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "source_path": "articles/cognitive-services/Computer-vision/index.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Content-Moderator/index.md",
+            "redirect_url": "/azure/cognitive-services/content-moderator/overview",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/cognitive-services/Content-Moderator/review-api-authentication.md",
             "redirect_url": "/azure/cognitive-services/content-moderator/review-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Custom-Vision-Service/index.md",
+            "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Emotion/index.md",
+            "redirect_url": "/azure/cognitive-services/Emotion/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Face/index.md",
+            "redirect_url": "/azure/cognitive-services/Face/Overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/index.md",
+            "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-overview",
             "redirect_document_id": false
         },
         {
@@ -8247,6 +8337,11 @@
         {
             "source_path": "articles/iot-suite/iot-solution-get-started.md",
             "redirect_url": "https://github.com/Azure-Samples/MyDriving/blob/master/docs/iot-solution-get-started.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-what-is-azure-iot.md",
+            "redirect_url": "/azure/iot/",
             "redirect_document_id": false
         },
         {
@@ -10091,7 +10186,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-domino.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-domino",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino",
             "redirect_document_id": false
         },
         {
@@ -10101,12 +10196,12 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericldap.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericldap",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericsql-step-by-step.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericsql-step-by-step",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql-step-by-step",
             "redirect_document_id": false
         },
         {
@@ -10116,7 +10211,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-aadconnectsync-connector-genericsql.md",
-            "redirect_url": "/azure/active-directory/connect/active-directory-aadconnectsync-connector-genericsql",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql",
             "redirect_document_id": false
         },
         {
@@ -10248,6 +10343,11 @@
             "source_path": "articles/active-directory/active-directory-application-objects.md",
             "redirect_url": "/azure/active-directory/develop/active-directory-application-objects",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-preview-oidc-changes.md",
+            "redirect_url": "/azure/active-directory/develop/active-directory-v2-protocols-oidc",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
@@ -13591,7 +13691,17 @@
         },
         {
             "source_path": "articles/storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md",
-            "redirect_url": "/azure/storage/common/storage-monitoring-diagnosing-troubleshooting",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/linux/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/virtual-machines/windows/troubleshoot-vhds.md",
+            "redirect_url": "/azure/storage/blobs/storage-troubleshoot-vhds",
             "redirect_document_id": false
         },
         {
@@ -18555,6 +18665,17 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsphone.md",
+            "redirect_url": "/azure/active-directory/develop",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsstore.md",
+            "redirect_url": "/azure/active-directory/develop",
+            "redirect_document_id": false
+
+        }, 
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-android.md",
             "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-android",
             "redirect_document_id": false
@@ -18632,6 +18753,7 @@
         {
             "source_path": "articles/machine-learning/desktop-workbench/support-for-aml-services.md",
             "redirect_url": "/azure/machine-learning/service/support-for-aml-services",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/stream-analytics/stream-analytics-add-outputs.md",
@@ -18699,6 +18821,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/multi-factor-authentication/multi-factor-authentication.md",
+            "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-versions-plans.md",
             "redirect_url": "/azure/active-directory/authentication/concept-mfa-licensing",
             "redirect_document_id": false
@@ -18721,6 +18848,26 @@
         {
             "source_path": "articles/active-directory/active-directory-passwords-customize.md",
             "redirect_url": "/azure/active-directory/authentication/concept-sspr-customization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-deploying-ws-ad-guidelines.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-install-replica-active-directory-domain-controller.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-new-forest-virtual-machine.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/virtual-networks-windows-server-active-directory-virtual-machines.md",
+            "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100",
             "redirect_document_id": true
         },
         {
@@ -18884,13 +19031,193 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/virtual-machines/workloads/sap/how-to-enable-write-accelerator.md",
+            "redirect_url": "/azure/virtual-machines/windows/how-to-enable-write-accelerator",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-manage-users-and-devices.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userdevicesettings",
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-ip-flow-verify-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/verifyipflow",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-cli",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-rest.md",
+            "redirect_url": "/rest/api/network-watcher/networkwatchers/getnexthop",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/network-watcher/network-watcher-check-next-hop-powershell.md",
+            "redirect_url": "/azure/network-watcher/diagnose-vm-network-routing-problem-powershell",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
+            "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
+            "redirect_document_id": true
+        },         
+        {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
+            "redirect_document_id": true
+        },
+      {
+        "source_path": "articles/active-directory/active-directory-saas-successcenter-provisioning-tutorial.md",
+        "redirect_url": "/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial",
+        "redirect_document_id": false
+      },
+          {
+            "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
+            "redirect_url": "/azure/active-directory/admin-roles-best-practices",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-webapp-webapi-dotnet.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-java.md",
+            "redirect_url": "https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-devquickstarts-headless-java.md",
+            "redirect_url": "https://github.com/Azure-Samples/active-directory-java-native-headless",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-controls-overview.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-controls-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-access-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-access-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-audit-accountability-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-audit-accountability-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-awareness-training-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-awareness-training-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-configuration-manager-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-configuration-management-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-contingency-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/cfedramp-iaaswa-ontingency-planning-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-identification-authentication-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-identification-authentication-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-incident-response-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-incident-response-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-maintenance-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-maintenance-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-media-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-media-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-personnel-security-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-personnel-security-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-physical-environmental-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-physical-environmental-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-planning-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-risk-assessment-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-risk-assessment-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-security-assessment-authorization-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-security-assessment-authorization-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-communications-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-communications-protection-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-information-integrity-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-information-integrity-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
             "redirect_document_id": true
         }
     ]

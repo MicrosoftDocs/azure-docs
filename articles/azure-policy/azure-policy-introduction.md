@@ -3,8 +3,8 @@ title: Overview of Azure Policy | Microsoft Docs
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders
+author: DCtheGeek
+ms.author: dacoulte
 ms.reviewer: nini
 ms.date: 04/18/2018
 ms.topic: overview
@@ -121,6 +121,8 @@ While creating and managing policy definitions and assignments, here are a few p
 - We recommend always using initiative definitions instead of policy definitions, even if you only have one policy in mind. For example, if you have a policy definition – *policyDefA* and you create it under the initiative definition - *initiativeDefC*, if you decide to create another policy definition later for *policyDefB* with goals similar to that of *policyDefA*, you can add it under *initiativeDefC* and track them better that way.
 
    Keep in mind that once you have created an initiative assignment from an initiative definition, any new policy definitions added to the initiative definition automatically roll under the initiative assignment(s) under that initiative definition. However, if there’s a new parameter introduced to the new policy definition, you need to update the initiative definition and assignments by editing the initiative definition or assignment.
+
+   Note that once an initiative assignment is triggered, all policies within the initiative will be triggered as well. However, if you needed to execute a policy individually, it is better to not include it in an initiative.
 
 ## Next steps
 

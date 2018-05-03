@@ -193,7 +193,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Channels"
 							]
 						},
-						"description": "Create Channel with Encoding\n\nChannels can be created using a POST HTTP request and specifying property values.\n\nIf successful, a 202 Accepted status code is returned along with a representation of the created entity in the response body. \n\nThe 202 Accepted status code indicates an asynchronous operation, in which case the operation-id header value is also provided for use in polling and tracking the status of long-running operations, such as starting or stopping a Channel. Pass the operation-id header value into the Operation Entity to retrieve the status. For more information, see Manually Polling Long-Running Operations.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Create Channel with Encoding\n\nChannels can be created using a POST HTTP request and specifying property values.\n\nIf successful, a 202 Accepted status code is returned along with a representation of the created entity in the response body. \n\nThe 202 Accepted status code indicates an asynchronous operation, in which case the operation-id header value is also provided for use in polling and tracking the status of long-running operations, such as starting or stopping a Channel. Pass the operation-id header value into the Operation Entity to retrieve the status. For more information, see Manually Polling Long-Running Operations.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -270,7 +270,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Channels('{{ChannelId}}')"
 							]
 						},
-						"description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -338,7 +338,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Start"
 							]
 						},
-						"description": "Start a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Start a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -411,7 +411,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"State"
 							]
 						},
-						"description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "List Channels\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				}
@@ -520,7 +520,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Assets"
 							]
 						},
-						"description": "Create Assets\nThe Asset entity contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.\n\n[Asset Entity REST API](https://msdn.microsoft.com/en-us/library/azure/hh974277.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Create Assets\nThe Asset entity contains digital files (including video, audio, images, thumbnail collections, text tracks and closed caption files) and the metadata about these files. After the digital files are uploaded into an asset, they could be used in the Media Services encoding and streaming workflows.\n\n[Asset Entity REST API](https://msdn.microsoft.com/library/azure/hh974277.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				},
@@ -607,7 +607,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Programs"
 							]
 						},
-						"description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Create Program\n\n[Create Programs documentation](https://docs.microsoft.com/rest/api/media/operations/program#create_programs)\n\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				},
@@ -683,7 +683,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"AccessPolicies"
 							]
 						},
-						"description": "https://docs.microsoft.com/en-us/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
+						"description": "https://docs.microsoft.com/rest/api/media/operations/accesspolicy#create_an_accesspolicy\n\n\n## Permissions: \nspecifies the access rights the client has when interacting with the Asset. Valid values are:\n\n- None = 0 (default)\n- Read = 1\n- Write = 2\n- Delete = 4\n- List = 8"
 					},
 					"response": []
 				},
@@ -751,7 +751,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Start"
 							]
 						},
-						"description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Start Programs\n\n[Start a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#start_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				},
@@ -808,7 +808,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Locators"
 							]
 						},
-						"description": "https://docs.microsoft.com/en-us/rest/api/media/operations/locator#list_locators"
+						"description": "https://docs.microsoft.com/rest/api/media/operations/locator#list_locators"
 					},
 					"response": []
 				},
@@ -877,7 +877,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Stop"
 							]
 						},
-						"description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/en-us/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+						"description": "Strop Programs\n\n[Stop a Program documentation](https://docs.microsoft.com/rest/api/media/operations/program#stop_programs)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
 					},
 					"response": []
 				}
@@ -950,7 +950,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Reset"
 							]
 						},
-						"description": "Reset a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Reset a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1020,7 +1020,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"StartAdvertisement"
 							]
 						},
-						"description": "Start a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Start a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1090,7 +1090,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"EndAdvertisement"
 							]
 						},
-						"description": "End a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "End a Channel Ad Break\n\nThe live encoder can be signaled to start an advertisement or commercial break using a POST HTTP request and specifying property values of the in the StartAdvertisement Entity entity in the body of the request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1160,7 +1160,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"ShowSlate"
 							]
 						},
-						"description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1230,7 +1230,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"ShowSlate"
 							]
 						},
-						"description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Show Slate\n\nIndicates to the live encoder within the Channel that it needs to switch to the default slate image during the commercial break (and mask the incoming video feed). Default is false. The image used will be the one specified via the default slate asset Id property at the time of the channel creation. \n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1300,7 +1300,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"HideSlate"
 							]
 						},
-						"description": "Hide Slate\n\nThe live encoder can be signaled to end an on-going slate using a POST HTTP request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Hide Slate\n\nThe live encoder can be signaled to end an on-going slate using a POST HTTP request.\n\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1367,7 +1367,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Stop"
 							]
 						},
-						"description": "Stop a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Stop a Channel\n\nThe Channel entity represents a pipeline for processing live streaming content.\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				},
@@ -1435,7 +1435,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"Channels('{{ChannelId}}')"
 							]
 						},
-						"description": "Delete Channels\n\nDelete the Channel entity\n\nChannel Entity REST API - https://msdn.microsoft.com/en-us/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "Delete Channels\n\nDelete the Channel entity\n\nChannel Entity REST API - https://msdn.microsoft.com/library/azure/dn783458.aspx\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				}
