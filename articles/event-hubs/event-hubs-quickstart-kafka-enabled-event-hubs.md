@@ -34,7 +34,7 @@ To complete this Quickstart, make sure you have:
 2. [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 3. [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive.
 4. [Git](https://www.git-scm.com/)
-5. [A Kafka enabled Event Hubs namespace](event-hubs-create-kafka-enabled.md)
+5. [A Kafka enabled Event Hubs namespace](event-hubs-create.md)
 
 ## Send and Receive messages with Kafka in Event Hubs
 
