@@ -54,9 +54,9 @@ To call the Bing Custom Search enpoint, follow these steps:
     print(r.text)
     ```
 9. Run the code using the following command.
-    <pre>
+    ```
     python BingCustomSearch.py
-    </pre>
+    ```
 
 ## Next steps
 - [Configure your hosted UI experience](./hosted-ui.md)
