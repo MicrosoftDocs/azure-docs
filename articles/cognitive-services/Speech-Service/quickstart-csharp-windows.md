@@ -26,19 +26,19 @@ In this article, you learn how to create a C# console application in Windows usi
 
 1. In Visual Studio 2017, create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** and then select **Console App (.NET Framework)**. For the project name, enter *CarbonHelloWorld*.
 
-    ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png)
+    ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Create Visual C# Console App")
 
 2. Install and reference the Speech SDK NuGet package. In the Solution Explorer, right-click the solution and select **Manage NuGet Packages for Solution**.
 
-    ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png)
+    ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
 3. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for and install the `Microsoft.CognitiveServices.Speech` package and install it into the **CarbonHelloWorld** project.
 
-    ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-08-vs-cs-nuget-install.png)
+    ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-08-vs-cs-nuget-install.png "Install Nuget package")
 
 4. In the license screen that pops up, accept the license:
 
-    ![Accept the license](media/sdk/speechsdk-09-vs-cs-nuget-license.png)
+    ![Accept the license](media/sdk/speechsdk-09-vs-cs-nuget-license.png "Accept the license")
 
 ## Create a platform configuration matching your PC architecture
 
@@ -46,15 +46,15 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. Start the Configuration Manager. Select **Build** > **Configuration Manager**.
 
-    ![Launch the configuration manager](media/sdk/speechsdk-12-vs-cs-cfg-manager-click.png)
+    ![Launch the configuration manager](media/sdk/speechsdk-12-vs-cs-cfg-manager-click.png "Launch the configuration manager")
 
 2. In the **Configuration Manager** dialog box, add a new platform. From the **Active solution platform** drop-down list, select **New**.
 
-    ![Add a new platform under the configuration manager window](media/sdk/speechsdk-14-vs-cs-cfg-manager-new.png)
+    ![Add a new platform under the configuration manager window](media/sdk/speechsdk-14-vs-cs-cfg-manager-new.png "Add a new platform under the configuration manager window")
 
 3. If you are running 64-bit Windows, create a new platform configuration named `x64`. If you are running 32-bit Windows, create a new platform configuration named `x86`. In this article, you create an `x64` platform configuration. 
 
-    ![On 64-bit Windows, add a new platform named "x64"](media/sdk/speechsdk-15-vs-cs-cfg-manager-add-x64.png)
+    ![On 64-bit Windows, add a new platform named "x64"](media/sdk/speechsdk-15-vs-cs-cfg-manager-add-x64.png "Add x64 platform")
 
 ## Add the sample code
 
@@ -92,7 +92,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
-    ![Main method after pasting the code](media/sdk/speechsdk-17-vs-cs-paste-code.png)
+    ![Main method after pasting the code](media/sdk/speechsdk-17-vs-cs-paste-code.png "Final Main method")
 
 3. Visual Studio's IntelliSense highlights the references to the Speech SDK's classes that could not be resolved. To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
 
@@ -100,7 +100,7 @@ In this section, you add a new platform to the configuration that matches your p
     using Microsoft.CognitiveServices.Speech.Recognition;
     ```
 
-    ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png)
+    ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png "Resolve IntelliSense issues")
 
 4. Make sure that the IntelliSense highlighting is resolved and save changes to the project.
 
@@ -108,16 +108,16 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now:
 
-    ![Successful build](media/sdk/speechsdk-20-vs-cs-build.png)
+    ![Successful build](media/sdk/speechsdk-20-vs-cs-build.png "Successful build")
 
 2. Start the application. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**. 
 
-    ![Launch the app into debugging](media/sdk/speechsdk-21-vs-cs-f5.png)
+    ![Start the app into debugging](media/sdk/speechsdk-21-vs-cs-f5.png "Start the app into debugging")
 
 3. A console window pops up, prompting you to say something (in English).
 The result of the recognition is displayed on screen.
 
-    ![Console output after successful recognition](media/sdk/speechsdk-22-cs-vs-console-output.png)
+    ![Console output after successful recognition](media/sdk/speechsdk-22-cs-vs-console-output.png "Console output after successful recognition")
 
 ## Download code
 
