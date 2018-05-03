@@ -17,11 +17,11 @@ ms.custom: mvc
 
 # Search nearby points of interest using Azure Maps
 
-This tutorial shows how to set up an account with Azure Maps, and then use the provided APIs to search for a point of interest. In this tutorial, you learn how to:
+This tutorial shows how to set up an account with Azure Maps, then use the Maps APIs to search for a point of interest. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an account with Azure Maps
-> * Know the primary key for your Azure Maps account
+> * Create an Azure Maps account
+> * Retrieve the primary key for your Maps account
 > * Create a new web page using the map control API
 > * Use the Maps search service to find a nearby point of interest
 
@@ -45,7 +45,7 @@ Create a new Maps account with the following steps:
     - The *Resource group* name for this account. You may choose to *Create new* or *Use existing* resource group.
     - Select the *Resource group location*.
     - Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms. 
-    - Finally, click the **Create** button.
+    - Click the **Create** button.
    
     ![Create Maps account in portal](./media/tutorial-search-location/create-account.png)
 
@@ -54,10 +54,10 @@ Create a new Maps account with the following steps:
 
 ## Get the primary key for your account
 
-Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs:
+Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs.
 
 1. Open your Maps account in the portal.
-2. Find your account's settings, and select **Keys**.
+2. In the settings section, select **Keys**.
 3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial. 
 
     ![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
@@ -121,7 +121,7 @@ The Map Control API is a convenient client library that allows you to easily int
     ```
     This segment initiates the Map Control API for your Azure Maps account key. **Atlas** is the namespace that contains the API and related visual components. **Atlas.Map** provides the control for a visual and interactive web map. 
     
-4. Save your changes to the file and opening the HTML page in a browser. This is the most basic map that you can make, by calling **atlas.map** and providing your account key. 
+4. Save your changes to the file and open the HTML page in a browser. This is the most basic map that you can make by calling **atlas.map** and providing your account key. 
 
    ![View the map](./media/tutorial-search-location/basic-map.png)
 
@@ -132,7 +132,7 @@ The Map Control API is a convenient client library that allows you to easily int
 
 This section shows how to use the Maps Search API to find a point of interest on your map. It is a RESTful API designed for developers to search for addresses, points of interest, and other geographical information. The Search service assigns a latitude and longitude information to a specified address. 
 
-1. First, add a new layer on your map to display the search results. Add the following Javascript code to the *script* block, after the code that initializes the map. 
+1. Add a new layer to your map to display the search results. Add the following Javascript code to the *script* block, after the code that initializes the map. 
 
     ```JavaScript
     // Initialize the pin layer for search results to the map
@@ -144,7 +144,7 @@ This section shows how to use the Maps Search API to find a point of interest on
     });
     ```
 
-2. Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response that the Maps Search service sends. This code snippet builds the event handler to collect the addresses, names, and latitude and longitude information for each location returned in the `searchPins` variable. Finally, it adds this collection of location points to the `map` control as pins. 
+2. Create an [XMLHttpRequest](https://xhr.spec.whatwg.org/) and add an event handler to parse the JSON response sent by the Maps search service. This code snippet builds the event handler to collect the addresses, names, and latitude and longitude information for each location returned in the `searchPins` variable. Finally, it adds this collection of location points to the `map` control as pins. 
 
     ```JavaScript
     // Perform a request to the search service and create a pin on the map for each result
@@ -186,7 +186,7 @@ This section shows how to use the Maps Search API to find a point of interest on
     };
     ```
 
-3. Finally, add the following code to the *script* block to build the query and send the XMLHttpRequest to the Maps Search service:
+3. Add the following code to the *script* block to build the query and send the XMLHttpRequest to the Maps Search service:
 
     ```JavaScript
     var url = "https://atlas.microsoft.com/search/fuzzy/json?";
@@ -200,9 +200,9 @@ This section shows how to use the Maps Search API to find a point of interest on
     xhttp.open("GET", url, true);
     xhttp.send();
     ``` 
-    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs handling any combination of address or point of interest (POI) tokens. It searches for nearby **gasoline stations** within a specified radius of the given latitude and longitude coordinate. It uses your account's primary key provided earlier in the sample file, to make the call to the Maps. It returns the results as latitude/longitude pairs for the locations found. 
+    This snippet uses the basic search API of the Search Service, called the **Fuzzy Search**. It handles the most fuzzy of inputs, including any combination of address or point of interest (POI) tokens. It searches for nearby **gasoline stations** within a specified radius of the given latitude and longitude coordinates. It uses your account's primary key provided earlier in the sample file to make the call to Maps. It returns the results as latitude/longitude pairs for the locations found. 
     
-4. Save the **MapSearch.html** file, and refresh your browser. You should now see that the map is centered on Seattle, and blue pins mark the locations of gasoline stations in the area. 
+4. Save the **MapSearch.html** file and refresh your browser. You should now see that the map is centered on Seattle and blue pins mark the locations of gasoline stations in the area. 
 
    ![View the map with search results](./media/tutorial-search-location/pins-map.png)
 
@@ -216,7 +216,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 ## Add interactive data
 
-The map that we've made so far only looks at the latitude/longitude data for the search results. If you looked at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes. 
+The map that we've made so far only looks at the latitude/longitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive pop-up boxes. 
 
 1. Add the following lines to the *script* block, to create pop-ups for the points of interest returned by the Search Service:
 
@@ -249,7 +249,7 @@ The map that we've made so far only looks at the latitude/longitude data for the
     ```
     The API **atlas.Popup** provides an information window anchored at the required position on the map. This code snippet sets the content and position for the popup, as well as adds an event listener to the `map` control, waiting for the _mouse_ to roll over the popup. 
 
-4. Save the file, refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins. 
+4. Save the file and refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins. 
 
     ![Azure Map Control and Search Service](./media/tutorial-search-location/popup-map.png)
 

@@ -4,7 +4,7 @@ description: You can use the Azure portal to manage your Azure Maps account and 
 services: azure-maps
 author: kgremban
 ms.author: kgremban
-ms.date: 11/14/2017
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 manager: timlt
@@ -16,30 +16,34 @@ You can manage your Azure Maps account and keys through the Azure portal. Once y
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure 
-
-Log in to the Azure portal at http://portal.azure.com.
-
 ## Create a new account
+
+1. Sign in to the [Azure portal](http://portal.azure.com).
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
 2. Search for and select **Maps**, then click **Create**.
 
-3. Enter the Maps Account information. 
+3. Enter the information for your new account. 
 
 ![Enter account information in the portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## Manage keys on the account page
 
-On the left-hand menu, under settings, click **Keys**.
+Once you create an account, you get two randomly generated keys. You use the keys to authenticate against the Maps APIs when you want to retrieve map data or create a new JavaScript map instance. 
+
+You can find your keys in the Azure portal. Navigate to your account then select **Keys** from the menu.
 
 ![Manage account keys in the portal](./media/how-to-manage-account-keys/account-keys-portal.png)
 
-Use keys to authenticate against Azure Maps and start developing your location-based application.
+From this page you can copy your keys or generate new ones. 
 
 ## Delete an account
 
-You can delete an account by clicking the **Delete** button on the top navigation pane.
+You can delete an account from the Azure portal. Navigate to the account overview page and select **Delete**.
 
 ![Delete your account in the portal](./media/how-to-manage-account-keys/account-delete-portal.png)
+
+## Next steps
+
+Learn how to use the [Maps management API](https://docs.microsoft.com/rest/api/maps-management/accounts) to create, update, and delete Maps accounts. 

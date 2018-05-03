@@ -3,9 +3,9 @@ title: Show information about a coordinate with Azure Maps | Microsoft Docs
 description: How to display information about an address on the map when a user selects a coordinate
 services: azure-maps
 keywords: 
-author: kgremban
-ms.author: kgremban
-ms.date: 04/04/2018
+author: jinzh-azureiot
+ms.author: jinzh
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-maps
 
@@ -30,12 +30,12 @@ The second block of code updates the style of mouse cursor to a pointer.
 
 The third block of code creates a popup. You can see [add a popup on the map](./map-add-popup.md) for instructions.
 
-The last code block adds an event listener for mouse clicks. Upon a mouse click, it sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse). For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class
+The last code block adds an event listener for mouse clicks. Upon a mouse click, it sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Reverse Address Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). For a successful response, it collects the address for the clicked location, and defines the popup content and position via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class
 
 ## Next steps
 
 Learn more about the classes and methods used in this article: 
-* [Reverse address search](https://docs.microsoft.com/rest/api/azure-maps/search/getsearchaddressreverse)
+* [Reverse address search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
 * [Popup](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest)
