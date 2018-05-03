@@ -72,7 +72,7 @@ Create a plan, an offer, and a subscription for the Kubernetes Cluster Marketpla
 
 1. Sign in to the [Administration portal.](https://adminportal.local.azurestack.external).
 
-2. Create a plan as the base plan. For instructions, see [Create a plan in Azure Stack](azure-stack/azure-stack-create-plan.md).
+2. Create a plan as the base plan. For instructions, see [Create a plan in Azure Stack](azure-stack-create-plan.md).
 
 3. Create an offer. For instructions, see [Create an offer in Azure Stack](azure-stack-create-offer.md).
 
