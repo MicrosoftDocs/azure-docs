@@ -144,7 +144,7 @@ Here is the trigger definition:
 
 | Element name | Type | Description | 
 | ------------ | ---- | ----------- | 
-| startTime | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time". Or, specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
+| startTime | String | The start date and time in this format: <p>YYYY-MM-DDThh:mm:ss if you specify a time zone <p>-or- <p>YYYY-MM-DDThh:mm:ssZ if you don't specify a time zone <p>So for example, if you want September 18, 2017 at 2:00 PM, then specify "2017-09-18T14:00:00" and specify a time zone such as "Pacific Standard Time", or specify "2017-09-18T14:00:00Z" without a time zone. <p>**Note:** This start time must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you don't specify a time zone, you must add the letter "Z" at the end without any spaces. This "Z" refers to the equivalent [nautical time](https://en.wikipedia.org/wiki/Nautical_time). <p>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. For more information about start dates and times, see [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md). | 
 | timeZone | String | Applies only when you specify a start time because this trigger doesn't accept [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Specify the time zone that you want to apply. | 
 | hours | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when you want to run the workflow. <p>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM as the hour marks. | 
 | minutes | Integer or integer array | If you specify "Day" or "Week" for `frequency`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when you want to run the workflow. <p>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. | 
@@ -505,8 +505,8 @@ so the trigger's behavior depends on whether or not sections are included:
 ## HTTPWebhook trigger  
 
 This trigger works like the [Request trigger](#request-trigger) by 
-creating a callable endpoint for your logic app. However,  
-this trigger also calls a specified endpoint URL for registerting 
+creating a callable endpoint for your logic app. However, 
+this trigger also calls a specified endpoint URL for registering 
 or unregistering a subscription. You can specify limits on a 
 webhook trigger in the same way as [HTTP Asynchronous Limits](#asynchronous-limits). 
 
@@ -550,7 +550,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 | HTTP_Webhook | JSON Object | The name for the trigger, which is an object described in Javascript Object Notation (JSON) format  | 
 | type | String | The trigger type, which is "HttpWebhook" | 
 | inputs | JSON Object | The trigger's inputs that define the trigger's behavior | 
-| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more details, see [`subscribe` and `unsubscribe`](#subscribe-unsubscribe). | 
+| subscribe | JSON Object| The outgoing request to call and perform the initial registration when the trigger is created. This call happens so that the trigger can start listening to events at the endpoint. For more details, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
 | method | String | The HTTP method used for the subscription request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | String | The endpoint URL for where to send the subscription request | 
 |||| 
@@ -559,7 +559,7 @@ and the trigger's behavior depends on the sections that you use or omit:
 
 | Element name | Type | Description | 
 | ------------ | ---- | ----------- | 
-| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more details, see [`subscribe` and `unsubscribe`](#subscribe-unsubscribe). | 
+| unsubscribe | JSON Object | The outgoing request to automatically call and cancel the subscription when an operation makes the trigger invalid. For more details, see [subscribe and unsubscribe](#subscribe-unsubscribe). | 
 | method | String | The HTTP method to use for the cancellation request: "GET", "PUT", "POST", "PATCH", "DELETE", or "HEAD" | 
 | uri | String | The endpoint URL for where to send the cancellation request | 
 | body | JSON Object | The JSON object that describes the payload (data) for the subscription or cancellation request | 
@@ -1460,7 +1460,7 @@ Also, actions in a collection can only "run after" other actions in the same col
 
 This action, which is a conditional statement, lets you evaluate a condition 
 and execute a branch based on whether the expression evaluates as true. 
-If the condition evaluates successfully as true, the condition is marked "Succeeded". 
+If the condition evaluates successfully as true, the condition is marked with "Succeeded" status. 
 Actions that are in the `actions` or `else` objects evaluate to these values:
 
 * "Succeeded" when they run and succeed
