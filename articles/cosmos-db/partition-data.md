@@ -57,7 +57,7 @@ The semantics for partition keys are slightly different to match the semantics o
 | API | Partition key | Row key |
 | --- | --- | --- |
 | SQL | Custom partition key path | Fixed `id` | 
-| MongoDB | Custom shared key  | Fixed `_id` | 
+| MongoDB | Custom shard key  | Fixed `_id` | 
 | Gremlin | Custom partition key property | Fixed `id` | 
 | Table | Fixed `PartitionKey` | Fixed `RowKey` | 
 
