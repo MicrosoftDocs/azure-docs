@@ -112,7 +112,7 @@ tasks.Add(task);
 
 ## Mount a share on a Linux pool
 
-Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). For prerequisites and steps to mount an Azure file share on different distributions, see [Use Azure Files with Linux](../storage/files/storage-how-to-use-files-linux). The following example shows how to mount a file share on a pool of Ubuntu 16.04 LTS compute nodes. 
+Azure file shares can be mounted in Linux distributions using the [CIFS kernel client](https://wiki.samba.org/index.php/LinuxCIFS). For prerequisites and steps to mount an Azure file share on different distributions, see [Use Azure Files with Linux](../storage/files/storage-how-to-use-files-linux.md). The following example shows how to mount a file share on a pool of Ubuntu 16.04 LTS compute nodes. 
 
 First, install the `cifs-utils` package, and create the mount point (for example, */mnt/MyAzureFileShare*) in the local filesystem:
 
@@ -185,3 +185,5 @@ batch_service_client.task.add(job_id, task)
 ## Next steps
 
 * For other options to read and write data in Batch, see the [Batch feature overview](batch-api-basics.md) and [Persist job and task output](batch-task-output.md).
+
+* See also the [Batch Shipyard](https://github.com/Azure/batch-shipyard) toolkit, which includes [Shipyard recipes](https://github.com/Azure/batch-shipyard/tree/master/recipes) to deploy file systems for Batch container workloads.
