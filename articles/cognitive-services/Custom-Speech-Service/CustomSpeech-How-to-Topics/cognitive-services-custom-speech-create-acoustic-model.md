@@ -14,6 +14,7 @@ ms.author: panosper
 
 In this tutorial, you create a custom acoustic model for speech data that you expect your application to recognize. Creating a custom acoustic model is helpful if your application is designed for use in a particular environment, such as a noisy factory, or by a particular user population.
 
+In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare the data
 > * Import the acoustic data set
@@ -41,7 +42,7 @@ For example:
 
 An acoustic data set for customizing the acoustic model consists of two parts: (1) a set of audio files containing the speech data and (2) a file containing the transcriptions of all audio files.
 
-### Audio Data Recommendations
+### Audio data recommendations
 
 *   All audio files in the data set should be stored in the WAV (RIFF) audio format.
 *   The audio must have a sampling rate of 8 kHz or 16 kHz and the sample values should be stored as uncompressed PCM 16-bit signed integers (shorts).
