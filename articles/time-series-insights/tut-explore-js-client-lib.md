@@ -79,7 +79,13 @@ First let's view the HTML and JavaScript source code behind the page that render
        - the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
      - a `<script>` section, which contains all of the JavaScript used to control the page.
 
-   [!code-html[head-body-sample](source/index.html?hightlight=7,13-15)]
+   [!code-html[head-body-sample](source/index.html?highlight=7,13-15)]
+
+   [!code-html[head-body-sample](source/index.html?highlight=7-15)]
+
+   [!code-html[head-body-sample](source/index.html?start=7&end=15)]
+
+   [!code-html[head-body-sample](source/index.html?highlight=7-15&start=3&end=21)]
 
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
