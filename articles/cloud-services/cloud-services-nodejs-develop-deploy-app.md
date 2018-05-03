@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: adege
+ms.author: adegeo
 
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
