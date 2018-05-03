@@ -29,8 +29,8 @@ A pilot group to test with that the non-administrator user is a member of, if yo
 1. From your existing Azure AD tenant, on the **Azure Portal** under **Azure Active Directory** select **Password reset**.
 
 2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected**
-    1. From **Select group**, choose your pilot group created as part of the prerequisites section of this article
-    1. Click **Save**
+    * From **Select group**, choose your pilot group created as part of the prerequisites section of this article
+    * Click **Save**
 
 3. From the **Authentication methods** page, choose the following:
    * **Number of methods required to reset**: 1
@@ -38,17 +38,25 @@ A pilot group to test with that the non-administrator user is a member of, if yo
       * **Mobile phone**
       * **Office phone**
    * Click **Save**
-                  
+
     ![Authentication][Authentication]
 
 4. From the **Registration** page, choose the following:
    * Require users to register when they sign in: **Yes**
    * Set the number of days before users are asked to reconfirm their authentication information: **365**
 
-At this point, you have configured SSPR for your Azure AD tenant. Your users can now use the instructions found in the articles [Register for self-service password reset](../active-directory-passwords-reset-register.md) and [Reset or change your password](../active-directory-passwords-update-your-own-password.md) to update their password without administrator intervention. You can stop here if you're cloud-only. Or you can continue to the next section to configure the synchronization of passwords to an on-premises Active Directory domain.
+## Test self-service password reset
+
+Open a new browser window in InPrivate mode and browse to https://aka.ms/ssprsetup.
+Log in with a standard user and register your authentication phone.
+Once complete click the button marked **looks good** and close the browser window.
 
 > [!TIP]
 > Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
+
+Open a new browser window in InPrivate mode and browse to https://aka.ms/sspr
+Enter your User ID, the characters from the CAPTCHA, and then click **Next**
+Follow the verification steps to reset your password
 
 ## Clean up resources
 
@@ -62,4 +70,3 @@ In this quickstart, you’ve learned how to configure self-service password rese
 > [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"
-[Policy]: ./media/quickstart-sspr/password-policy.png "On-premises password Group Policy set to 0 days"
