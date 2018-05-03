@@ -5,60 +5,51 @@ services: Azure Service Fabric Mesh
 keywords: 
 author: thraka
 ms.author: adegeo
-ms.date: 04/11/2018
+ms.date: 04/30/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-#Customer intent: As a developer, I want to know what Service Fabric Mesh is so that I can choose to try it.
+#Customer intent: As a developer, I need a high-level, technically focused understanding of Service Fabric Mesh, so I can determine if it's something that I (or my company) want to use.
 ---
 
 # What is Service Fabric Mesh?
 
-Service Fabric Mesh is a server-less application platform hosted and managed by Microsoft Azure. With Service Fabric Mesh, you can deploy and scale your containerized application without worrying about infrastructure needs. Service Fabric Mesh automatically allocates the infrastructure needed by your application and also handles infrastructure failures, making sure your app is always available. Also, Service Fabric Mesh handles service discovery, data-partitioning, upgrades, and other features needed by highly available hyper-scalable applications.
+Service Fabric Mesh is a server-less platform that runs on top of [Service Fabric][service-fabric-overview] and is hosted on Microsoft Azure. With Service Fabric Mesh, you can run and scale your microservices without worrying about the infrastructure powering it. Contrast this to pure [Service Fabric][service-fabric-overview] where you not only manage your services, but you also manage the cluster running your services. Service Fabric Mesh automatically allocates the infrastructure needed by your microservices, and also handles infrastructure failures, making sure your services are highly-available.
 
-<!--
-NEW DIAGRAM NEEDED
 ![Diagram of Service Fabric Mesh for Azure](./media/service-fabric-mesh-overview/diagram.png)
+
+You worry about your code, Azure takes care of the hardware.
+
+|     |
+| --- |
+| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+
+## Microservices
+
+Service Fabric Mesh runs **Service Fabric Applications**, a set of resource definitions that make up one or more microservices. Each microservice is defined by a container image, CPU and memory requirements, and the network settings. You only need to specify the limits of the resources your applications and microservices need; Azure handles all of the infrastructure setup for you.
+
+You can deploy your Service Fabric Application locally to the Service Fabric Mesh cluster emulator, or to Service Fabric Mesh on Azure. **Visual Studio** can be used to develop and debug your application locally and on Azure. The **Azure CLI** can be used to deploy your microservices to Azure.
+
+If you have a monolithic application, you can easily host the entire application in a single container on Service Fabric Mesh. This makes it easy to port an application to the cloud even though it may not have been designed for the cloud. As time permits, you can break up the monolithic app into smaller, self-contained microservices. 
+
+Your microservices can be independently scaled and updated within the Service Fabric Application. This means that you can iterate on specific portions of your application without impacting other services.
+
+## Stateful services
+
+Storing persistent or temporary data for your applications and services is important. Service Fabric Mesh has you covered with [Azure Files](/storage/files/storage-files-introduction) or the built-in Service Fabric local storage. 
+
+<!-- THIS IS NOT YET AVAILABLE ON NUGET
+You can also take advantage of the Service Fabric runtime that Service Fabric Mesh runs on by adding reference to the Service Fabric Reliable Collections [NuGet package](xxxxxxxxxxx) to your code projects. For more information about reliable collections, see [Introduction to Reliable Collections](../service-fabric/service-fabric-reliable-services-reliable-collections.md).
 -->
-
-## Focus on your app
-
-With Service Fabric Mesh, you only need to specify the limits of the resources your application needs. Azure handles all of the infrastructure setup required to host your application. All applications and services you create are deployed as docker containers running either Linux or Windows.
-
-If you have a monolithic application, you can easily host the entire application in a single container. This makes it easy to port an application to the cloud even though it may not have been designed for the cloud. As time permits, you can break up the monolithic app into smaller, self-contained services. 
-
-Azure pre-provisions popular container base-images (such as Ubuntu or Windows Server) for quick deployment. You can provide your own container image with [Azure Container Registry](../container-registry/container-registry-intro.md). And, because all applications on Service Fabric Mesh are deployed through containers, you're not restricted to any single coding framework, language, or platform SDK.
-
-## Get started
-
-If you don't already have an Azure account, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you choose to install and use the CLI locally, install Azure CLI version 2.0.31 or later. To find the version, run `az --version`. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
-
-<!--
-Test the Service Fabric Mesh extension with `az sbz -h`
-
-```azurecli
-> az sbz -h
-
-Group
-    az sbz: (PREVIEW) Manage Azure SeaBreeze Resources.
-
-Subgroups:
-    app           : Manage SeaBreeze applications.
-    codepackage   : Manage SeaBreeze service replica code packages.
-    deployment    : Manage SeaBreeze deployments.
-    network       : Manage networks.
-    service       : Manage SeaBreeze services.
-    servicereplica: Manage SeaBreeze service replicas.
-    volume        : Manage volumes.
-
-```
--->
-
 
 ## Next steps
 
-Use the [Deploy a container](service-fabric-mesh-quickstart-deploy-container.md) quickstart to quickly test Service Fabric Mesh.
+It only takes a few steps to deploy a sample project with the Azure CLI. For more information, see [Deploy a container](service-fabric-mesh-quickstart-deploy-container.md). 
+
+If you're using Visual Studio, try the [Create an ASP.NET Core website](service-fabric-mesh-tutorial-deploy-dotnetcore.md) tutorial.
+
+
+
+<!-- Links -->
+
+[service-fabric-overview]: ../service-fabric/service-fabric-overview.md
