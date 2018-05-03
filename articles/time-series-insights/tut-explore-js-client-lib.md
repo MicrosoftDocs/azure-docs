@@ -119,11 +119,11 @@ As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL f
 
    [!code-javascript[head-sample](source/index.html?range=140-199)]
 
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144)]
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4)]
 
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144-148)]
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-8)]
 
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=144-148,175-178)]
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-8,35-38)]
 
    [!code-html[head-sample](source/index.html?highlight=7,13-15&range=3-21)]
 
