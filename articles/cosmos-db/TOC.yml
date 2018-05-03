@@ -80,6 +80,8 @@ items:
       href: unique-keys.md
     - name: Serverless database
       href: serverless-computing-database.md
+    - name: BulkExecutor overview
+      href: bulk-executor-overview.md
     - name: Security
       href: database-security.md
       items:
@@ -87,8 +89,6 @@ items:
           href: database-encryption-at-rest.md
         - name: Securing access to data
           href: secure-access-to-data.md
-    - name: TCO
-      href: https://aka.ms/cosmosdb-tco-paper
     - name: Use cases
       href: use-cases.md
       items:
@@ -171,6 +171,10 @@ items:
           href: multi-region-writers.md
       - name: How To Guides
         items:
+        - name: BulkExecutor - .NET
+          href: bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: bulk-executor-java.md
         - name: Query
           items:
           - name: Perform SQL queries
@@ -247,6 +251,10 @@ items:
           href: sql-api-sdk-node.md
         - name: Python
           href: sql-api-sdk-python.md
+        - name: BulkExecutor - .NET
+          href: sql-api-sdk-bulk-executor-dot-net.md
+        - name: BulkExecutor - Java
+          href: sql-api-sdk-bulk-executor-java.md
         - name: REST
           href: /rest/api/cosmos-db/
         - name: REST Resource Provider
@@ -257,8 +265,6 @@ items:
         items:
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-        - name: Schema agnostic indexing paper
-          href: http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf
         - name: SQL playground
           href: https://aka.ms/cosmos-db-playground
     - name: MongoDB API Docs
@@ -433,6 +439,8 @@ items:
       href: set-throughput.md
     - name: Firewall support
       href: firewall-support.md
+    - name: Setup virtual network service endpoint
+      href: vnet-service-endpoint.md
     - name: Metrics
       href: use-metrics.md
     - name: Monitor SLAs
@@ -465,3 +473,5 @@ items:
       href: faq.md
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
+    - name: Whitepapers
+      href: whitepapers.md 
