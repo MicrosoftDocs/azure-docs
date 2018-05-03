@@ -1,5 +1,5 @@
 ---
-title: Develop U-SQL scripts by using Data Lake Tools for Visual Studio | Microsoft Docs
+title: Get started with Azure Data Lake Analytics using Visual Studio | Microsoft Docs
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 services: data-lake-analytics
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/28/2017
+ms.date: 05/02/2018
 ms.author: saveenr, yanacai
 
 ---
