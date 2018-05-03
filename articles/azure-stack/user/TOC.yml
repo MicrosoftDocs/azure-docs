@@ -91,6 +91,10 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Solution templates
+      items:
+      - name: Deploy a Kubernetes cluster to Azure Stack
+        href: azure-stack-solution-template-kubernetes-deploy.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
