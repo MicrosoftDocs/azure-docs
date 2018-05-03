@@ -36,7 +36,7 @@ Custom Vision Service supports the following exports:
  
 To convert the domain of an existing classifier, use the following steps:
 
-1. From the [Custom vision page](https://customvision.ap), select the __Home__ icon to view a list of your projects. You can also use the [https://customvision.ai/projects](https://customvision.ai/projects) to see your projects.
+1. From the [Custom vision page](https://customvision.ai), select the __Home__ icon to view a list of your projects. You can also use the [https://customvision.ai/projects](https://customvision.ai/projects) to see your projects.
 
     ![Image of the home icon and projects list](./media/export-your-model/projects-list.png)
 
