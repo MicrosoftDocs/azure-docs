@@ -3,7 +3,7 @@ title: Stream into Event Hubs for Kafka Ecosystem | Microsoft Docs
 description: stream into event hubs using the Kafka protocol and APIs
 services: event-hubs
 documentationcenter: ''
-author: bahariri
+author: basilhariri
 manager: timlt
 editor: ''
 
@@ -38,37 +38,38 @@ To complete this Quickstart, make sure you have:
 
 ## Send and Receive messages with Kafka in Event Hubs
 
-  Step 1: [Download or git clone the code](https://github.com/Azure/azure-event-hubs)
+1. [Download or git clone the code](https://github.com/Azure/azure-event-hubs)
 
-  Step 2: Navigate to azure-event-hubs/samples/kafka/quickstart/producer
+2. Navigate to azure-event-hubs/samples/kafka/quickstart/producer
 
-  Step 3: Update the configuration details for the producer in src/main/resources/producer.config as shown below:
-          ```config
-            bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
-            security.protocol=SASL_SSL
-            sasl.mechanism=PLAIN
-            sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-          ```
+3. Update the configuration details for the producer in src/main/resources/producer.config as shown below:
+   ```config
+   bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+   security.protocol=SASL_SSL
+   sasl.mechanism=PLAIN
+   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+   ```
 
-  Step4: Run the producer code and stream into Kafka enabled Event Hubs
-          ```java
-            mvn clean package
-            mvn exec:java -Dexec.mainClass="TestProducer"                                    
-          ```
-  Step 5: Navigate to azure-event-hubs/samples/kafka/quickstart/consumer
+4. Run the producer code and stream into Kafka enabled Event Hubs
+   ```java
+   mvn clean package
+   mvn exec:java -Dexec.mainClass="TestProducer"                                    
+   ```
+5. Navigate to azure-event-hubs/samples/kafka/quickstart/consumer
 
-  Step 6: Update the configuration details for the consumer in src/main/resources/consumer.config as shown below:
-          ```config
-            bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
-            security.protocol=SASL_SSL
-            sasl.mechanism=PLAIN
-            sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
-          ```
-  Step 7: Run the consumer code and process from Kafka enabled Event Hubs using your Kafka clients
-          ```java
-            mvn clean package
-            mvn exec:java -Dexec.mainClass="TestConsumer"                                    
-         ```
+6. Update the configuration details for the consumer in src/main/resources/consumer.config as shown below:
+   ```config
+   bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+   security.protocol=SASL_SSL
+   sasl.mechanism=PLAIN
+   sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+   ```
+
+7. Run the consumer code and process from Kafka enabled Event Hubs using your Kafka clients
+   ```java
+   mvn clean package
+   mvn exec:java -Dexec.mainClass="TestConsumer"                                    
+   ```
 
 If your Event Hubs Kafka cluster has events queued from the producer, you can now start receiving these from the consumer.
 
