@@ -103,76 +103,35 @@ In the following sections, you explore the page JavaScript source code. There yo
 
 ## Authentication
 
-As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You don't modify anything here, here are a couple of points of interest in this section of the script:
-
-1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
-
-2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
-
-3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
-
-   [!code-html[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
-
-   [!code-javascript[head-sample](source/index.html?highlight=7,13-15&start=3&end=21)]
-
-   [!code-javascript[head-sample](source/index.html?highlight=7,13-15&range=140-199)]
-
-   [!code-javascript[head-sample](source/index.html?range=140-199)]
-
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4)]
-
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-8)]
-
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-8,35-38)]
-
-   [!code-html[head-sample](source/index.html?highlight=7,13-15&range=3-21)]
-
-
-
-
-
-   [!code-html[head-sample](source/index.html?highlight=144&start=140&end=199)]
-
-   [!code-html[head-sample](source/index.html?highlight=144-148&start=140&end=199)]
-
-   [!code-html[head-sample](source/index.html?highlight=144-148,175-178&start=140&end=199)]
-
-
-
-
-
-
-
-   [!code-html[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
-
-   [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&range=140-199)]
-
-   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144-148,175-178)]
-
-   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144,175-178)]
-
-   [!code-javascript[adal-auth](source/index.html?range=140-199&highlight=144,175)]
-
-   [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&start=140&end=199)]
-
-   [!code-javascript[adal-auth](source/index.html?start=140&end=199&highlight=144-148,175-178)]
-
-   [!code-javascript[adal-auth](source/index.html?highlight=144,175-178&start=140&end=199)]
-
-   [!code-javascript[adal-auth](source/index.html?highlight=144-148&start=140&end=199)]
-
-
-   ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
 
 ## Pie, line, and bar charts
 
-Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. 
+Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. This time, we will be examining the index.html source for the page.
 
-As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides an identifier, which is used in the JavaScript code to specify the target for control rendering and updating.
+## Library concepts
+
+First we review concepts that are universal and applicable to the TSI Client library in general.
+
+### Authentication
+
+As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You don't modify anything here, here are a couple of points of interest in this section of the script:
+
+   1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
+
+   2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
+
+   3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
+
+   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
+
+   ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
+
+
+- **Control identification** - As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides a unique identifier, which is used in the JavaScript code identify the target control for rendering and updating. In this case, we will be exploring controls with id values `chart3`, `chart4`, and `chart5`.
+
+- **Aggregate expressions** - The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
 
 ### Call pattern
-
-The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
 
 Populating and rendering of chart controls then, follows this general pattern:
 
@@ -188,6 +147,10 @@ Populating and rendering of chart controls then, follows this general pattern:
    - TODO: detail
 6. Populate the chart control with the transformed JSON data object(s)
    - TODO: detail
+
+## Pie, line, and bar charts
+
+Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. This time, we will be examining the index.html source for the page.
 
 ### Pie chart example
 
