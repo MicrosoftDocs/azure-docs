@@ -56,9 +56,11 @@ Take note of the IP address.
 
  If needed, the address can be retrieved using the [az network public-ip list][az-network-public-ip-list] command.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -84,9 +86,11 @@ spec:
 
 If the static IP address has not been created, or has been created in the wrong resource group, service creation fails. To troubleshoot, return service creation events with the [kubectl describe][kubectl-describe] command.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
