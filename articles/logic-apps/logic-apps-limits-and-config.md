@@ -109,8 +109,8 @@ request or synchronous connector call:
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Outgoing request | 120 seconds (2 minutes) | For longer running operations, you can use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern), [webhook pattern](../logic-apps/logic-apps-create-api-app.md#webhook-actions), or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
-| Synchronous response | 120 seconds (2 minutes) | Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the limit. For more information, see the technical details for the specific connector. | 
+| Outgoing request | 120 seconds <br>(2 minutes) | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
+| Synchronous response | 120 seconds <br>(2 minutes) | Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than the limit. For more information, see the technical details for the specific connector. | 
 |||| 
 
 #### Message size
