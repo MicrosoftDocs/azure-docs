@@ -20,18 +20,15 @@ After you train your model, you can test images programmatically by submitting t
 
 ## Get the URL and prediction key
 
-From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. From the top of the page, select __Prediction URL__.
+From the [Custom Vision web page](https://customvision.ai), select your project and then select the __Performance__ tab. To display information about using the Prediction API, select __Prediction URL__. Copy the following information for use in the application:
+
+* __URL__ for using an __image file__.
+* __Prediction-key__ value.
 
 > [!TIP]
 > If you have multiple iterations, you can control which one is used by setting it as default. Select the iteration from the __Iterations__ section, then select __Make default__ at the top of the page.
 
-
 ![The performance tab is shown with a red rectangle surrounding the Prediction URL.](./media/use-prediction-api/prediction-url.png)
-
-This displays information on using the Prediction API. Copy the following information for use in the application:
-
-* __URL__ for using an __image file__.
-* __Prediction-key__ value.
 
 ## Create the application
 
