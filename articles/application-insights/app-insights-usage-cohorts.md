@@ -48,7 +48,7 @@ Your team defines an engaged user as anyone who uses your app five or more times
 
     ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
 
-    Now this cohort represents all user IDs sent with any custom event or page view on 5 separate days in the past 28 days.
+    Now this cohort represents all user IDs sent with any custom event or page view on 5 separate days in the past 28.
 
 5. Select **Save**.
 
@@ -69,7 +69,7 @@ A few important things to notice:
 * You can't create this set through normal filters. The date logic is more advanced.
 * You can further filter this cohort by using the normal filters in the Users tool. So although the cohort is defined on 28-day windows, you can still adjust the time range in the Users tool to be 30, 60, or 90 days.
 
-These filters support more sophisticated questions that are impossible to express through the query builder. An example is _for people who were engaged in the past 28 days, how did those same people behave over the past 60 days?_,.
+These filters support more sophisticated questions that are impossible to express through the query builder. An example is _people who were engaged in the past 28 days. How did those same people behave over the past 60 days?_
 
 ## Example: Events cohort
 
