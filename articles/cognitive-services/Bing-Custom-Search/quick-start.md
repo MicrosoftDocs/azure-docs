@@ -1,13 +1,13 @@
 ---
-title: "Bing Custom Search: Get started | Microsoft Docs"
-description: Describes how to create a custom search instance
+title: Create a first Bing Custom Search instance - Microsoft Cognitive Services
+description: To use Bing Custom Search, you need to create a custom search instance that defines your view or slice of the web. The instance contains settings that specify the public domains, subsites, and webpages that you want Bing to search, and any ranking adjustments. 
 services: cognitive-services
 author: brapel
 manager: ehansen
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
-ms.date: 09/28/2017
+ms.topic: conceptual
+ms.date: 05/07/2017
 ms.author: v-brapel
 ---
 
@@ -29,6 +29,8 @@ To create a Bing Custom Search instance:
 7.  Click **Production** > **Endpoints** and copy the **Custom Configuration ID**. You need this ID to call the Custom Search API.
 
 ## Next steps
+
+Continue to work with the custom search instance you've just created by following instructions in these how-to guides:
 
 - [Configure your custom search experience](./define-your-custom-view.md)
 - [Call your custom search](./search-your-custom-view.md)
