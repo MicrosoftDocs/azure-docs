@@ -54,16 +54,16 @@ Throughout this tutorial, the Time Series Insights Sample Application is used to
 2. Click the "Log in" button. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
    ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-consent.png)
 
-3. After successful sign-in, you should see a page similar to the following, containing several styles of charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
+3. After successful sign-in, you will see a page similar to the following, containing several styles of example charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
    ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
 
 ### Page source and structure
 
-First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We won't walk through all of the elements, but you learn about the major sections of the code, giving you a sense of what the page is doing:
+First let's view the HTML and JavaScript source code behind the page that rendered in your browser. We won't walk through all of the elements, but you learn about the major sections giving you a sense of how the page works:
 
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
-2. Expand the `<head>` and `<body>` elements similar to the layout in the following image, and notice:
+2. Expand the `<head>` and `<body>` elements, similar to the layout in the following image, and notice:
    - Under **\<head\>**, elements that pull in additional files to assist in the functioning of the page:
      - the \<script\> element for referencing the Azure Active Directory Authentication Library (`adal.min.js`) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
 
@@ -81,13 +81,13 @@ First let's view the HTML and JavaScript source code behind the page that render
 
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-3. As mentioned, the `<div class="chartsWrapper">` element is used to lay out the main page body. Expand this element, and you'll find the `<div>` elements used to position the sample chart controls. You will notice there are actually several pairs of `<div>` elements, one pair for each chart example:
-   - The first contains a title (`class="rowOfCardsTitle"`), which summarizes what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
-   - The second is a parent (`class="rowOfCards"`), which contains additionl child `<div>` elements that position the actual chart control(s)
+3. Expand the `<div class="chartsWrapper">` element, and you'll find more child \<div\> elements, used to position the example chart controls. You will notice there are actually several pairs of \<div\> elements, one pair for each chart example:
+   - The first (`class="rowOfCardsTitle"`) contains the title, which summarizes what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
+   - The second (`class="rowOfCards"`) is a parent, containing additional child \<div\> elements that position the actual chart control(s) within a row. 
 
   ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
-4. Expand the `<script>` element, under the second `<div>` element of the `<body>` element. You will see the page level JavaScript, that is used for authentication and rendering of the controls on the page:
+4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You will see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI APIs, rendering of the chart controls, and more:
 
   ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
@@ -102,9 +102,19 @@ In the following sections, we will explore the JavaScript source code. There you
 
 ## Authentication
 
+As mentioned earlier, this is an SPA and it uses ADAL for Azure Active Directory's (Azure AD) OAuth 2.0 support for user authentication. You won't need to modify anything here, but we will call out some of the major points on interest in this section of the script:
+
+1. Using Azure AD for authentication requires the client application to register itself in the Azure AD application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application uses some of the registration properties at runtime (such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`)), to participate in the flow.
+
+2. Next the application need to request an access token from Azure AD. The access token is issues for a specific set of permissions for a specific API.
+
+3. Once Azure AD has returned an access token to the application, it can be used to access the services which the application has requested in it's registration. In our case, it will be using APIs exposed by the Time Series Insights service you saw earlier in the consent prompt.
+
+  ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
+
 ## Pie, line, and bar charts
 
-First, lets look at some of the standard chart controls as demonstrated in the TSI Client Sample application. 
+Now we will look at some of the standard chart controls demonstrated in the application. 
 
 TODO: Go through the steps from the video.
 
