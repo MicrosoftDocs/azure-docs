@@ -19,14 +19,14 @@ ms.author: rolyon
 ---
 # Elevate access for a Global administrator in Azure Active Directory
 
-If you are a [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal#global-administrator.md) in Azure Active Directory (Azure AD), there might be a time when you want to do the following:
+If you are a [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD), there might be a time when you want to do the following:
 
 - Regain access to an Azure subscription when a user has lost access
 - Grant another user or yourself access to an Azure subscription
 - See all Azure subscriptions in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
 
-By default, neither Azure Active Directory (Azure AD) administrator roles nor Azure role-based access control (RBAC) roles span both Azure AD and Azure. However, if you are a Global administrator in Azure AD, you can elevate your access by setting the **Global admin can manage Azure Subscriptions and Management Groups** switch to **Yes**. When this switch is set to **Yes**, you will be granted the [User Access Administrator](built-in-role.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`). This elevation should be temporary and only be done when needed.
+By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`). This elevation should be temporary and only be done when needed.
 
 ## Elevate access for a Global administrator using the Azure portal
 
