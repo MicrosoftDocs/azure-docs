@@ -11,13 +11,12 @@ ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
-
 # API Reference
 
-
-The Microsoft Face API is a cloud-based API that provides the most advanced algorithms for face detection and recognition. The reference document can be found in [Microsoft Cognitive Services (formerly Project Oxford) Dev Portal](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+The Microsoft Face API is a cloud-based API that provides the most advanced algorithms for face detection and recognition.
 
 Face APIs cover the following categories:
+
 - [LargePersonGroup Person Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): Used to manage LargePersonGroup Person Faces for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 - [LargePersonGroup Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): Used to manage a LargePersonGroup dataset for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 - [LargeFaceList Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): Used to manage a LargeFaceList for [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).

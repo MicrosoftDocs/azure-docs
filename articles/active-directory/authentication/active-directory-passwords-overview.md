@@ -31,6 +31,8 @@ With Azure Active Directory (Azure AD) self-service password reset (SSPR), users
    * Answer their security questions.
 * **Self-service account unlock**: The user is unable to sign in with their password and has been locked out. The user wants to unlock their account without administrator intervention by using their authentication methods.
 
+> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
+
 ## Why choose Azure AD SSPR
 
 Azure AD SSPR helps you to:
@@ -48,7 +50,7 @@ Azure AD SSPR is available in three tiers depending on your subscription:
 
 * **Azure AD Free**: Cloud-only administrators can reset their own passwords.
 * **Azure AD Basic** or any **paid Office 365 subscription**: Cloud-only users can reset their own passwords.
-* **Azure AD Premium**: Any user or administrator, including cloud-only, federated, or password synchronized users, can reset their own passwords. On-premises passwords require password writeback to be enabled.
+* **Azure AD Premium**: Any user or administrator, including cloud-only, federated, pass-through authentication, or password hash synchronized users, can reset their own passwords. On-premises passwords require password writeback to be enabled.
 
 ## Azure AD pricing, SLA, updates, and roadmap
 
