@@ -250,11 +250,11 @@ If you don't see snapshot available for a particular exception, it could be caus
 
 If you don't see snapshots associated with an exception, there will be a link in the End-to-end trace viewer blade for entering snapshot health check.
 
-    ![Enter snapshot health check](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+![Enter snapshot health check](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
 
 Then, you will see an interactive chat-bot like session running health check on various aspect of your service and offering advices.
 
-    ![Health Check](./media/app-insights-snapshot-debugger/healthcheck.png)
+![Health Check](./media/app-insights-snapshot-debugger/healthcheck.png)
 
 There are also a few manual steps you can do to diagnose the health of your snapshot service. Please refer to sections below:
 
