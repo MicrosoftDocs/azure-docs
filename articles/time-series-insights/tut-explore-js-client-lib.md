@@ -63,39 +63,32 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
-2. Expand the `<head>` and `<body>` elements, similar to the layout in the following image, and notice:
+2. Expand the `<head>` and `<body>` elements and notice:
    - Under `<head>`, you'll find elements that pull in additional files to assist in the functioning of the page:
-     - a `<script>` element for referencing the Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs.
+     - a `<script>` element for referencing the Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs:
 
        >[!NOTE]
        > The source code for the ADAL JavaScript library is available from the [azure-activedirectory-library-for-js repository](https://github.com/AzureAD/azure-activedirectory-library-for-js).
 
      - `<link>` elements for style sheets (sampleStyles.css, tsiclient.css) - also known as CSS, they're used to control visual page styling details, such as colors, fonts, spacing, etc. 
      - a `<script>` element for referencing the TSI Client library (tsiclient.js) - a JavaScript library used by the page to call TSI service APIs and render chart controls on the page.
-   - Under `<body>`, you'll find the elements that define the layout of items on the page. You can think of the `<div>` elements as "containers" for content, specifying the ordering and placement on the page:
-     - the first `<div>` contains the "Log In" dialog (`id="loginModal"`).
-     - the second `<div>` controls the placement of the items on the main page:
-       - a header row, used for status messages and sign-in information near the top of the page (`class="header"`).
-       - the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
-     - a `<script>` section, which contains all of the JavaScript used to control the page.
 
-   [!code-html[head-body-sample](source/index.html?highlight=7,13-15)]
-
-   [!code-html[head-body-sample](source/index.html?highlight=7-15)]
-
-   [!code-html[head-body-sample](source/index.html?start=7&end=15)]
-
-   [!code-html[head-body-sample](source/index.html?highlight=7-15&start=3&end=21)]
+   - Under `<body>`, you'll find `<div>` elements which act as containers to define the layout of items on the page, and another `<script>` element:
+     - the first `<div>` specifies the "Log In" dialog (`id="loginModal"`).
+     - the second `<div>` acts as a parent for:
+       - a header `<div>`, used for status messages and sign-in information near the top of the page (`class="header"`).
+       - a `<div>` for the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
+       - a `<script>` section, which contains all of the JavaScript used to control the page.
 
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
-3. Expand the `<div class="chartsWrapper">` element, and you'll find more child `<div>` elements, used to position the example chart controls. You will notice there are actually several pairs of `<div>` elements, one pair for each chart example:
-   - The first (`class="rowOfCardsTitle"`) contains the title, which summarizes what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
+3. Expand the `<div class="chartsWrapper">` element, and you'll find more child `<div>` elements, used to position each chart control example. You'll notice there are actually several pairs of `<div>` elements, one for each chart example:
+   - The first (`class="rowOfCardsTitle"`) contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
    - The second (`class="rowOfCards"`) is a parent, containing additional child `<div>` elements that position the actual chart control(s) within a row. 
 
   ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
-4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You will see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI APIs, rendering of the chart controls, and more:
+4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You will see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI service APIs, rendering of the chart controls, and more:
 
   ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
@@ -103,22 +96,23 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 Although we won't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
-- Wrapper methods for calling the TSI Query APIs. These are REST APIs that allow you to query for TSI aggregates, and are organized under the `TsiClient.Server` namespace of the library. 
-- Methods for creating and populating several types of charting controls. These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
+- **Wrapper methods for calling the TSI Query APIs** - These are REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
+- ** Methods for creating and populating several types of charting controls** - These are used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
-In the following sections, we will explore the JavaScript source code. There you will see the programming model and API patterns take shape through the use of these methods discussed.
+In the following sections, we will explore the page JavaScript source code. There you will see the programming model and API patterns take shape through the use of the methods discussed.
 
 ## Authentication
 
-As mentioned earlier, this is an SPA and it uses ADAL for Azure Active Directory's (Azure AD) OAuth 2.0 support for user authentication. You won't need to modify anything here, but we will call out some of the major points on interest in this section of the script:
+As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You won't need to modify anything here, but we will highlight some points on interest in this section of the script:
 
-1. Using Azure AD for authentication requires the client application to register itself in the Azure AD application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application uses some of the registration properties at runtime (such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`)), to participate in the flow.
+1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-2. Next the application need to request an access token from Azure AD. The access token is issues for a specific set of permissions for a specific API.
+2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience". The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
 
-3. Once Azure AD has returned an access token to the application, it can be used to access the service which the application has requested in it's registration. In our case, it will be using APIs exposed by the Time Series Insights service you saw earlier in the consent prompt.
+3. Once ADAL returns the access token to the application, it will be used to as a "bearer token" to access the TSI service APIs. 
 
-  ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
+   [!code-javascript[adal-auth](source/index.html?highlight=144-148,175-178&start=140&end=199)]
+   ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
 
 ## Pie, line, and bar charts
 
