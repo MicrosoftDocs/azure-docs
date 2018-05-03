@@ -4,7 +4,13 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: Quickstarts
+    - name: Image Search endpoints      
+      href: image-search-endpoint.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
+    - name: Analytics for Images Search API
+      href: bing-image-stats.md
+- name: API Quickstarts
   expanded: true
   items:
   - name: C#
