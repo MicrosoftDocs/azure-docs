@@ -10,26 +10,26 @@
   - name: .NET 
     href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Node.js
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Java
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-java?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Python
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-python
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-python?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: PHP
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-php
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-php?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Ruby
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+    href: vsts/build-release/apps/cd/azure/azure-devops-project-ruby?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Go
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-go
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-go?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
 - name: Tutorials
   items:
   - name: 1 - GitHub and DevOps Project
-    href: https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github
+    href: /vsts/build-release/actions/azure-devops-project-github?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: 2 - Deploy to VMs
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vms
+    href: /vsts/build-release/actions/azure-devops-project-vms?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: 3 - Deploy to Azure SQL DB
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb
+    href: /vsts/build-release/actions/azure-devops-project-sqldb?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: 4 - Deploy to AKS
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-aks
+    href: /vsts/build-release/actions/azure-devops-project-aks?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: 5 - Deploy to Azure Service Fabric
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-servicefabric
+    href: /vsts/build-release/actions/azure-devops-project-servicefabric?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
