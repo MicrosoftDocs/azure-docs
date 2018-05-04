@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -478,6 +478,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
 In this section, you create a user called Britta Simon in ServiceNow. If you don't know how to add a user in your ServiceNow or ServiceNow Express account, contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html)
 
+> [!NOTE]
+> For more details you can visit [here](active-directory-saas-servicenow-provisioning-tutorial.md)
+
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to ServiceNow.
@@ -513,12 +516,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the ServiceNow tile in the Access Panel, you should get automatically signed-on to your ServiceNow application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure User Provisioning](active-directory-saas-servicenow-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -533,4 +537,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-
