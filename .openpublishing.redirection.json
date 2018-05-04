@@ -8236,6 +8236,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-network/container-networking.md",
+            "redirect_url": "/azure/aks/networking-overview",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/stream-analytics/stream-analytics-get-started.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-real-time-fraud-detection",
             "redirect_document_id": false
