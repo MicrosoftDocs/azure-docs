@@ -44,8 +44,21 @@ Review the [information for planning your network](#network-planning) before you
 You can remove one or more Hybrid Runbook Workers from a group or you can remove the group, depending on your requirements. To remove a Hybrid Runbook Worker from an on-premises computer, perform the following steps:
 
 1. In the Azure portal, navigate to your Automation account.
-2. From the **Settings** page, select **Keys** and note the values for field **URL** and **Primary Access Key**. You need this information for the next step.
-3. Open a PowerShell session in Administrator mode and run the following command - `Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>`. Use the **-Verbose** switch for a detailed log of the removal process.
+2. From the **Settings** blade, select **Keys** and note the values for field **URL** and **Primary Access Key**. You need this information for the next step.
+
+### Windows
+
+Open a PowerShell session in Administrator mode and run the following command. Use the **-Verbose** switch for a detailed log of the removal process.
+
+```powershell
+Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
+```
+
+### Linux
+
+```bash
+sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
+```
 
 To remove stale machines from your Hybrid Worker group, use the optional `machineName` parameter.
 

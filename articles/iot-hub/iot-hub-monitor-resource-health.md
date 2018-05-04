@@ -242,7 +242,7 @@ The direct methods category tracks request-reponse interactions sent to individu
 
 After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. This sample code retrieves logs from an event hub:
 
-```
+```csharp
 class Program 
 { 
     static string connectionString = "{your AMS eventhub endpoint connection string}"; 

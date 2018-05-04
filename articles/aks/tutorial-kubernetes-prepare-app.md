@@ -1,6 +1,6 @@
 ---
 title: Kubernetes on Azure tutorial  - Prepare App
-description: AKS tutorial - Prepare App 
+description: AKS tutorial - Prepare App
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,12 +12,12 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Tutorial: Prepare application for Azure Container Service (AKS)
+# Tutorial: Prepare application for Azure Kubernetes Service (AKS)
 
-In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:  
+In this tutorial, part one of eight, a multi-container application is prepared for use in Kubernetes. Steps completed include:
 
 > [!div class="checklist"]
-> * Cloning application source from GitHub  
+> * Cloning application source from GitHub
 > * Creating a container image from the application source
 > * Testing the application in a local Docker environment
 
@@ -29,7 +29,7 @@ In subsequent tutorials, the container image is uploaded to an Azure Container R
 
 ## Before you begin
 
-This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker][docker-get-started] for a primer on container basics. 
+This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and basic docker commands. If needed, see [Get started with Docker][docker-get-started] for a primer on container basics.
 
 To complete this tutorial, you need a Docker development environment. Docker provides packages that easily configure Docker on any [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
@@ -37,7 +37,7 @@ Azure Cloud Shell does not include the Docker components required to complete ev
 
 ## Get application code
 
-The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.  
+The sample application used in this tutorial is a basic voting app. The application consists of a front-end web component and a back-end Redis instance. The web component is packaged into a custom container image. The Redis instance uses an unmodified image from Docker Hub.
 
 Use git to download a copy of the application to your development environment.
 
@@ -51,7 +51,7 @@ Change directories so that you are working from the cloned directory.
 cd azure-voting-app-redis
 ```
 
-Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set. 
+Inside the directory is the application source code, a pre-created Docker compose file, and a Kubernetes manifest file. These files are used throughout the tutorial set.
 
 ## Create container images
 
@@ -121,7 +121,7 @@ At completion, you have a container image that contains the Azure Vote applicati
 In this tutorial, an application was tested and container images created for the application. The following steps were completed:
 
 > [!div class="checklist"]
-> * Cloning the application source from GitHub  
+> * Cloning the application source from GitHub
 > * Created a container image from application source
 > * Tested the application in a local Docker environment
 

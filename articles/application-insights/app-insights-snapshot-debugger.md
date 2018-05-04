@@ -52,7 +52,7 @@ The following environments are supported:
         <!-- DeveloperMode is a property on the active TelemetryChannel. -->
         <IsEnabledInDeveloperMode>false</IsEnabledInDeveloperMode>
         <!-- How many times we need to see an exception before we ask for snapshots. -->
-        <ThresholdForSnapshotting>5</ThresholdForSnapshotting>
+        <ThresholdForSnapshotting>1</ThresholdForSnapshotting>
         <!-- The maximum number of examples we create for a single problem. -->
         <MaximumSnapshotsRequired>3</MaximumSnapshotsRequired>
         <!-- The maximum number of problems that we can be tracking at any time. -->
@@ -143,8 +143,8 @@ The following environments are supported:
        "InstrumentationKey": "<your instrumentation key>"
      },
      "SnapshotCollectorConfiguration": {
-       "IsEnabledInDeveloperMode": true,
-       "ThresholdForSnapshotting": 5,
+       "IsEnabledInDeveloperMode": false,
+       "ThresholdForSnapshotting": 1,
        "MaximumSnapshotsRequired": 3,
        "MaximumCollectionPlanSize": 50,
        "ReconnectInterval": "00:15:00",

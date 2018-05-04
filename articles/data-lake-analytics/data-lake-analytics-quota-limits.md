@@ -20,9 +20,13 @@ Learn how to adjust and increase quota limits in Azure Data Lake Analytics (ADLA
 
 ## Azure subscriptions limits
 
-**Maximum number of ADLA accounts per subscription:**  5
+**Maximum number of ADLA accounts per subscription per region:**  5
 
-This is the maximum number of ADLA accounts you can create per subscription, per region. If you try to create a sixth ADLA account, you will get an error "You have reached the maximum number of Data Lake Analytics accounts allowed (5) in region under subscription name". In this situation, you can choose another region if suitable, or delete any unused ADLA accounts in the same region, or contact Azure support by [opening a support ticket](#increase-maximum-quota-limits) to request a quota increase.
+If you try to create a sixth ADLA account, you will get an error "You have reached the maximum number of Data Lake Analytics accounts allowed (5) in region under subscription name". 
+
+If you want to go beyond this limit, you can try these options:
+* choose another region if suitable
+* contact Azure support by [opening a support ticket](#increase-maximum-quota-limits) to request a quota increase.
 
 ## ADLA account limits
 

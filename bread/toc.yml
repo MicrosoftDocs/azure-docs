@@ -315,9 +315,9 @@
     - name: IoT Suite
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
-    - name: Location Based Services
-      tocHref: /azure/location-based-services/
-      topicHref: /azure/location-based-services/
+    - name: Maps
+      tocHref: /azure/azure-maps/
+      topicHref: /azure/azure-maps/
     - name: Time Series Insights
       tocHref: /azure/time-series-insights/
       topicHref: /azure/time-series-insights/                     
@@ -341,8 +341,8 @@
     topicHref: /azure/machine-learning/
     items:
       - name: Services (preview)
-        tocHref: /azure/machine-learning/preview
-        topicHref: /azure/machine-learning/preview/
+        tocHref: /azure/machine-learning/service
+        topicHref: /azure/machine-learning/service/
       - name: Studio
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
@@ -361,6 +361,13 @@
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
+    items: 
+      - name: v3
+        tocHref: /azure/media-services/latest/
+        topicHref: /azure/media-services/latest/
+      - name: v2
+        tocHref: /azure/media-services/previous/
+        topicHref: /azure/media-services/previous/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/
