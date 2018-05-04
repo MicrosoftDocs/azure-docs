@@ -20,7 +20,7 @@ ms.custom:
 
 # Add an application certificate to a Service Fabric cluster
 
-This sample script uploads a new version of an existing application and then upgrades a deployed application with the new bits.
+This sample script uploads a new version of an existing application, and then upgrades a deployed application with the new bits.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

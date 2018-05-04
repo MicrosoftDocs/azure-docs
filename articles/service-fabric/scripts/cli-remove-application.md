@@ -1,6 +1,6 @@
 ---
-title: Service Fabric CLI Script Remove Sample
-description: Remove an application from an Azure Service Fabric cluster using the Service Fabric CLI
+title: Azure Service Fabric CLI (sfctl) Script Remove Sample
+description: Remove an application from an Azure Service Fabric cluster using the Azure Service Fabric CLI
 services: service-fabric
 documentationcenter: 
 author: thraka

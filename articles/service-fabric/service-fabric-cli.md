@@ -66,7 +66,7 @@ python --version
 pip --version
 ```
 
-Then run the following command to install the Service Fabric CLI and view the CLI help page:
+Then run the following command to install the Azure Service Fabric CLI (sfctl) and view the CLI help page:
 
 ```bat
 pip install sfctl
@@ -229,13 +229,13 @@ For more information, see the [OpenSSL documentation](https://www.openssl.org/do
 
 Some operations might generate the following message:
 
-`Failed to establish a new connection: `
+`Failed to establish a new connection`
 
 Verify that the specified cluster endpoint is available and listening. Also, verify that the Service Fabric Explorer UI is available at that host and port. To update the endpoint, use `sfctl cluster select`.
 
 ### Detailed logs
 
-Detailed logs often are helpful when you debug or report a problem. A global `--debug` flag increases the verbosity of outputted error messages.
+Detailed logs often are helpful when you debug or report a problem. The `--debug` flag increases the verbosity of the output.
 
 ### Command help and syntax
 

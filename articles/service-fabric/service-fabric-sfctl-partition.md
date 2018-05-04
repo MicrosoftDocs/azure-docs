@@ -1,5 +1,5 @@
 ---
-title: Service Fabric CLI- sfctl partition| Microsoft Docs
+title: Azure Service Fabric CLI- sfctl partition| Microsoft Docs
 description: Describes the Service Fabric CLI sfctl partition commands.
 services: service-fabric
 documentationcenter: na

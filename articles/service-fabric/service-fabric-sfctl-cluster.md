@@ -1,5 +1,5 @@
 ---
-title: Service Fabric CLI- sfctl cluster | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl cluster | Microsoft Docs
 description: Describes the Service Fabric CLI sfctl cluster commands.
 services: service-fabric
 documentationcenter: na
