@@ -24,6 +24,10 @@
     href: blockchain-workbench-use-API.md
   - name: Troubleshoot apps
     href: blockchain-workbench-troubleshooting.md
+  - name: Use Workbench data in Excel
+    href: blockchain-workbench-data-excel.md
+  - name: Use Workbench data in Power BI
+    href: blockchain-workbench-data-powerbi.md
 - name: Reference
   items:
   - name: Configuration
