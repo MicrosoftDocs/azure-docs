@@ -9,8 +9,7 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm:
-ms.devlang:
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: curtand

@@ -1,6 +1,6 @@
 ---
 title: Get started with the Device Simulation solution - Azure | Microsoft Docs 
-description: The IoT Suite simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other preconfigured solutions or used with your own custom solutions.
+description: The IoT solution accelerators simulation solution is a tool that can be used to assist in the development and testing of an IoT solution. The simulation service is a standalone offering that can be used in conjunction with other solution accelerators or used with your own custom solutions.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -16,7 +16,7 @@ ms.workload: NA
 
 # Device Simulation walkthrough
 
-Azure IoT Device Simulation is a tool that can be used to assist in the development and testing of an IoT solution. Device Simulation is a standalone offering that you can use in conjunction with other preconfigured solutions or with your own custom solutions.
+Azure IoT Device Simulation is a tool that can be used to assist in the development and testing of an IoT solution. Device Simulation is a standalone offering that you can use in conjunction with other solution accelerators or with your own custom solutions.
 
 This tutorial walks you through some of the features of Device Simulation. It shows you how it works, and enables you to use it to test your own IoT solutions.
 
@@ -35,7 +35,7 @@ If you haven't deployed Device Simulation yet, you should complete the [Deploy A
 
 ## Configuring Device Simulation
 
-You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT Suite [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
+You can configure and run Device Simulation completely from within the dashboard. Open the dashboard from the IoT solution accelerators [Provisioned solutions](https://www.azureiotsuite.com/) page. Click **Launch** under your new Device Simulation deployment.
 
 ### Target IoT Hub
 
