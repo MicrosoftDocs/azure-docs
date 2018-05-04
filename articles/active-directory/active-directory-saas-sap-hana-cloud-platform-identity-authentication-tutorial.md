@@ -139,10 +139,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![SAP Cloud Platform Identity Authentication Domain and URLs single sign-on information](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-	In the **Sign On URL** box, type a URL with the following pattern: `https://<entity-id>.accounts.ondemand.com/admin`.
+	In the **Sign On URL** box, type a URL with the following pattern: `{YOUR BUSINESS APPLICATION URL}`.
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual sign-on URL. Please use your business application specific Sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) if you have any doubt.
+	> This value is not real. Update this value with the actual sign-on URL. Please use your specific business application Sign-on URL. Contact the [SAP Cloud Platform Identity Authentication Client support team](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) if you have any doubt.
 
 5. In the **SAML Signing Certificate** section, select **Metadata XML**. Then save the metadata file on your computer.
 
