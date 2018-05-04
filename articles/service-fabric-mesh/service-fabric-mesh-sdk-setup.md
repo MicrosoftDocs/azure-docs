@@ -46,7 +46,7 @@ Deploying Service Fabric Applications to Service Fabric Mesh requires Visual Stu
 
 ## Docker for Windows
 
-Install the latest version of [Docker Community Edition for Windows][download-docker]. During the installation, select **Use Windows containers instead of Linux containers** when asked. You will be required to logoff and log back in. After logging back in, you may be prompted to enable Hyper-V. Enable Hyper-V which will force a restart.
+Install the latest version of [Docker Community Edition for Windows][download-docker]. During the installation, select **Use Windows containers instead of Linux containers** when asked. You will be required to log off and log back in. After logging back in, you may be prompted to enable Hyper-V, enable it. When you enable Hyper-V, you will have to restart your computer.
 
 ## SDK and tools
 
@@ -67,8 +67,7 @@ Install the SDK and Visual Studio tools to create new Service Fabric Application
 Read through the [Deploy a .NET Core app to Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-dotnetcore.md) tutorial.
 
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
-[download-runtime]: http://www.a.com
-[download-sdk]: http://www.a.com
-[download-tools]: http://www.a.com
-
+[download-runtime]: http://aka.ms/meshdlruntime
+[download-sdk]: http://aka.ms/meshdlsdk
+[download-tools]: http://aka.ms/meshdltools
 
