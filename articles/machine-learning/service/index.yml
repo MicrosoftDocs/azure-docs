@@ -63,6 +63,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Packages
+      html: <p><a href="reference-python-package-overview#amlpcv">Computer Vision</a><br/><a href="reference-python-package-overview#amlpf">Forecasting</a><br /><a href="reference-python-package-overview#amlrealtimeai">FPGA acceleration/a><br /><a href="reference-python-package-overview#amlpta">Text Analytics</a></p>
     - title: Languages
       html: <p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST
