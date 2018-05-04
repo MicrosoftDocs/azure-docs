@@ -8,102 +8,104 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: sethm
 
 ---
 
-# Send and receive using Azure CLI and Java
+# Send and receive messages using Azure CLI and Java
 
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.  
+Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services, or processes from each other (applications do not need to be online at the same time), transferring state or data changes, and sending messages between the applications. 
+
+For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this case, the client app sends to and receives messages from a Service Bus queue:
 
 ![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
 
-This quickstart describes how to send and receive messages with Service Bus, using Azure CLI to create a messaging namespace and a queue within that namespace, and obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages using the Java library.
+This quickstart describes how to send and receive messages with Service Bus, using Azure CLI and the Service Bus Java library. Finally, if you're interested in more technical details, you can [read an explanation](#understand-the-sample-code) of the key elements of the sample code.
 
 If you don't have an Azure subscription, you can create a [free account][] before you begin.
 
-## Prerequisites
-
-To develop a Service Bus app with Java, you must have the following installed:
-
--  [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), latest version.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
--  [Apache Maven](https://maven.apache.org), version 3.0 or above.
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 ## Log in to Azure
 
-1. Open Cloud Shell and from the **Select environment** dropdown, select **Bash**. 
+Click the Cloud Shell button on the menu in the upper-right corner of the Azure portal, and from the **Select environment** dropdown, select **Bash**. 
 
-2. From the Bash prompt, issue the following command to set the current subscription context to the Azure subscription you want to use:
-
-   ```azurecli
-   az account set --subscription Azure_subscription_name
-   ``` 
-
-## Use CLI to provision resources
+## Use CLI to create resources
 
 In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
-```azurecli
+```azurecli-interactive
 # Create a resource group
-az group create --name my-resourcegroup --location eastus
+az group create --name myResourceGroup --location eastus
 
-# Create a Messaging namespace
-az servicebus namespace create --name namespace-name --resource-group my-resourcegroup -l eastus2
+# Create a Service Bus messaging namespace with a unique name
+namespaceName=myNameSpace$RANDOM
+az servicebus namespace create \
+   --resource-group myResourceGroup \
+   --name $namespaceName \
+   --location eastus
 
-# Create a queue
-az servicebus queue create --resource-group my-resourcegroup --namespace-name namespace_name --name queue-name
+# Create a Service Bus queue
+az servicebus queue create --resource-group myResourceGroup \
+   --namespace-name $namespaceName \
+   --name myQueue
 
-# Get the connection string
-az servicebus namespace authorization-rule keys list --resource-group my-resourcegroup --namespace-name namespace-name --name RootManageSharedAccessKey
+# Get the connection string for the namespace
+connectionString=$(az servicebus namespace authorization-rule keys list \
+   --resource-group myResourceGroup \
+   --namespace-name  $namespaceName \
+   --name RootManageSharedAccessKey \
+   --query primaryConnectionString --output tsv)
 ```
 
 After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart).
+After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
+
 2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigate to the sample folder `/azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java`. Note that in the Bash shell, commands are case sensitive and the path separators must be forward slashes.
+2. Change your current directory to the sample folder, using forward slashes as path separators:
+
+   ```bash
+   cd azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java 
+   ```
+
 3. Issue the following command to build the application:
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. To run the program, issue the following command. Make sure to replace the placeholders with the connection string and queue name you obtained in the previous step:
+4. To run the program, issue the following command. As long as you did not restart the bash shell, the variable containing the connection string value is automatically replaced:
 
    ```bash
-   java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c "myConnectionString" -q "queue-name"
+   java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c $connectionString -q myQueue
    ```
 
-Observe 10 messages being sent to the queue, and subsequently received from the queue:
+6. Observe 10 messages being sent to the queue. Note that ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
 
-![program output](./media/service-bus-quickstart-cli/javaqs.png)
+   ![program output](./media/service-bus-quickstart-cli/javaqs.png)
 
 ## Clean up deployment
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```azurecli
-az group delete --resource-group my-resourcegroup
+```azurecli-interactive
+az group delete --resource-group myResourceGroup
 ```
 
 ## Understand the sample code
 
-This section contains more details about what the sample code does. 
+This section contains more details about key sections of the sample code. You can browse the code, located in the GitHub repository [here](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
 ### Get connection string and queue
 

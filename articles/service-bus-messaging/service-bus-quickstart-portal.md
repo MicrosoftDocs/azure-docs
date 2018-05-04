@@ -2,24 +2,19 @@
 title: Azure quickstart - Use the Azure portal and JMS to send and receive messages from Azure Service Bus | Microsoft Docs
 description: Quickly learn to send and receive Service Bus messages using Azure portal and JMS
 services: service-bus-messaging
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
+ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/19/2018
+ms.date: 05/03/2018
 ms.author: sethm
 
 ---
 
-# Send and receive using the Azure portal and .NET
+# Send and receive messages using the Azure portal and .NET
 
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.  
 

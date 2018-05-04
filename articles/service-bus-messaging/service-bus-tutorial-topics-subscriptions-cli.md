@@ -71,13 +71,13 @@ Issue the following commands to provision Service Bus resources. Be sure to repl
 # Create a resource group
 az group create --name my-resourcegroup --location eastus
 
-# Create a Messaging namespace
+# Create a Service Bus messaging namespace
 az servicebus namespace create --name namespace-name --resource-group my-resourcegroup -l eastus2
 
-# Create topic
+# Create a Service Bus topic
 az servicebus topic create --resource-group my-resourcegroup --namespace-name my-namespace-name --name my-topic-name
 
-# Create subscription 1
+# Create subscription 1 to the topic
 az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S1
 
 # Create filter 1 - use custom properties
