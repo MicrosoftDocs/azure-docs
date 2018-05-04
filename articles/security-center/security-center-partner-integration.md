@@ -13,8 +13,8 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
-ms.author: yurid
+ms.date: 05/04/2018
+ms.author: terrylan
 
 ---
 # Integrate security solutions in Azure Security Center
@@ -83,7 +83,7 @@ See [Managing connected partner solutions](security-center-partner-solutions.md)
 Security Center automatically discovers security solutions running in Azure but are not connected to Security Center and displays the solutions in the **Discovered solutions** section. This includes Azure solutions, such as [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), as well as partner solutions.
 
 > [!NOTE]
-> The discovered solutions feature is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+> The Standard tier of Security Center is required at the subscription level for the discovered solutions feature. See [Pricing](security-center-pricing.md) to learn more about Security's pricing tiers.
 >
 >
 
