@@ -31,7 +31,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 Click the Cloud Shell button on the menu in the upper-right corner of the Azure portal, and from the **Select environment** dropdown, select **Bash**. 
 
-## Use CLI to provision resources
+## Use CLI to create resources
 
 In Cloud Shell, from the Bash prompt issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
@@ -54,16 +54,17 @@ After the last command runs, copy and paste the connection string, and the queue
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
+After you've created the namespace and queue, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java).
 
 1. Make sure that Cloud Shell is open and displaying the Bash prompt.
+
 2. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigate to the sample folder, using forward slashes as path separators:
+2. Change your current directory to the sample folder, using forward slashes as path separators:
 
    ```bash
    cd azure-service-bus/samples/Java/quickstarts-and-tutorials/quickstart-java 
@@ -81,7 +82,7 @@ After the namespace and queue are provisioned, and you have the necessary creden
    java -jar ./target/samples.quickstart-1.0.0-jar-with-dependencies.jar -c $connectionString -q myQueue
    ```
 
-6. Observe 10 messages being sent to the queue, and subsequently received from the queue:
+6. Observe 10 messages being sent to the queue. Note that ordering of messages is not guaranteed, but you can see the messages sent, then acknowledged and received, along with the payload data:
 
    ![program output](./media/service-bus-quickstart-cli/javaqs.png)
 
