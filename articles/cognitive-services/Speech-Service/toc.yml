@@ -1,11 +1,13 @@
-- name: Speech service documentation (Preview)
+- name: Speech Service API Documentation
   href: index.yml
 - name: Overview
-  href: overview.md
-  expanded: true
+  items:
+  - name: What is Speech service?
+    href: overview.md
+    expanded: true
 - name: Quickstarts
   items:
-  - name: Get set up # OK
+  - name: Prepare to use Speech service # OK
     href: get-started.md
   - name: Recognize speech in C# # OK
     href: quickstart-csharp-windows.md
@@ -74,7 +76,7 @@
   - name: Shipping your application
     href: ship-application.md
   - name: Release notes
-    hraf: release-notes.md
+    href: releasenotes.md
   - name: Speech SDK License
     href: license.md
   - name: Speech Devices SDK License
