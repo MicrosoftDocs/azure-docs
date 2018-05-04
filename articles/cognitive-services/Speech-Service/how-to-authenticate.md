@@ -29,7 +29,7 @@ Pass the subscription key in the `Ocp-Apim-Subscription-Key` field in the HTTP r
 
 Name| Format| Description
 ----|-------|------------
-Ocp-Apim-Subscription-Key | ASCII | YOUR_SUBSCRIPTION_KEY
+`Ocp-Apim-Subscription-Key` | ASCII | YOUR_SUBSCRIPTION_KEY
 
 Below is an example of a request header. The example request uses the `westus` endpoint for **Text to Speech**. If your subscription is in another region, adjust the URL accordingly.
 
