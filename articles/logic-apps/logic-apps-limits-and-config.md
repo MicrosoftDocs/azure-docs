@@ -112,7 +112,7 @@ Some connector operations make asynchronous calls or listen for webhook requests
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
 | Outgoing request | 120 seconds | For longer running operations, use an [asynchronous polling pattern](../logic-apps/logic-apps-create-api-app.md#async-pattern) or an [until loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). | 
-| Synchronous response | 120 seconds | Responses to the original request must happen within the limit before timing out. | 
+| Synchronous response | 120 seconds | For the original request to get the response, all steps in the response must finish within the limit unless you call another logic app as a nested workflow. For more information, see [Call, trigger, or nest logic apps](../logic-apps/logic-apps-http-endpoint). | 
 |||| 
 
 #### Message size
