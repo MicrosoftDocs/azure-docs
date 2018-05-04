@@ -44,7 +44,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 Next, create a container registry in your new resource group with the [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* with a name of your choosing, then run this command to create the registry:
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* in the following command, then run it to create the registry:
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
@@ -148,7 +148,7 @@ Additionally, the DNS name label for your container must be unique within the Az
 $dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
 ```
 
-Finally, run [New-AzureRmContainerGroup][New-AzureRmContainerGroup] to deploy the container from the image in your registry with 1 CPU core and 1 GB of memory:
+Finally, run [New-AzureRmContainerGroup][New-AzureRmContainerGroup] to deploy a container from the image in your registry with 1 CPU core and 1 GB of memory:
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
@@ -178,7 +178,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-To monitor its status and determine when it's running, run the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command a few times. It should take less than a minute.
+To monitor its status and determine when it's running, run the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command a few times. It should take less than a minute for the container to start.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
@@ -199,12 +199,19 @@ Once the deployment to ACI has succeeded and your container is up and running, n
 
 Get the FQDN for your container with [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
+
 ```powershell
+(Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
+```
+
+The output of the command is the FQDN of your container instance:
+
+```console
 PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
 aci-demo-8571.eastus.azurecontainer.io
 ```
 
-With the FQDN in-hand, navigate to it in your browser:
+With the FQDN in hand, navigate to it in your browser:
 
 ![Hello world app in the browser][qs-psh-01-running-app]
 
