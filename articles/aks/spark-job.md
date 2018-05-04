@@ -1,6 +1,6 @@
 ---
-title: Run an Apache Spark job with Azure Container Service (AKS)
-description: Use Azure Container Service (AKS) to run an Apache Spark job
+title: Run an Apache Spark job with Azure Kubernetes Service (AKS)
+description: Use Azure Kubernetes Service (AKS) to run an Apache Spark job
 services: container-service
 author: lenadroid
 manager: timlt
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Running Apache Spark jobs on AKS
 
-[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Container Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Container Service (AKS) cluster.
+[Apache Spark][apache-spark] is a fast engine for large-scale data processing. As of the [Spark 2.3.0 release][spark-latest-release], Apache Spark supports native integration with Kubernetes clusters. Azure Kubernetes Service (AKS) is a managed Kubernetes environment running in Azure. This document details preparing and running Apache Spark jobs on an Azure Kubernetes Service (AKS) cluster.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In order to complete the steps within this article, you need the following.
 
 ## Create an AKS cluster
 
-Spark is used for large-scale data processing and requires that Kubernetes nodes are sized to meet the Spark resources requirements. We recommend a minimum size of `Standard_D3_v2` for your Azure Container Service (AKS) nodes.
+Spark is used for large-scale data processing and requires that Kubernetes nodes are sized to meet the Spark resources requirements. We recommend a minimum size of `Standard_D3_v2` for your Azure Kubernetes Service (AKS) nodes.
 
 If you need an AKS cluster that meets this minimum recommendation, run the following commands.
 
