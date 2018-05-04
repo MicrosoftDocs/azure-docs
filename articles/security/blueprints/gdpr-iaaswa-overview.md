@@ -169,7 +169,7 @@ Additionally, the following OMS solutions are included as a part of this archite
 
 The data flow diagram (DFD) for this reference architecture is available for [download](https://aka.ms/gdprIaaSdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Applicaiton for GDPR threat model](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton for GDPR threat model")
+![IaaS Web Applicaiton for GDPR threat model](images/gdpr-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton for GDPR threat model")
 
 ## Compliance documentation
 
