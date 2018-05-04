@@ -1,6 +1,6 @@
 ---
-title: Using Kafka MirrorMaker with Event Hubs for Kafka Ecosystem | Microsoft Docs
-description: use Kafka MirrorMaker to mirror a Kafka cluster in Event Hubs
+title: Using Kafka MirrorMaker with Azure Event Hubs for Kafka Ecosystem | Microsoft Docs
+description: Use Kafka MirrorMaker to mirror a Kafka cluster in Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: basilhariri
@@ -70,7 +70,7 @@ Check out the [Kafka Mirroring/MirrorMaker Guide](https://cwiki.apache.org/confl
 
 To configure Kafka MirrorMaker, we'll give it a Kafka cluster as its consumer/source and a Kafka enabled Event Hub as its producer/destination.
 
-#### Consumer Configuration
+#### Consumer configuration
 
 Update the consumer configuration file `source-kafka.config`, which tells MirrorMaker the properties of the source Kafka cluster.
 
@@ -83,7 +83,7 @@ exclude.internal.topics=true
 client.id=mirror_maker_consumer
 ```
 
-#### Producer Configuration
+#### Producer configuration
 
 Now update the producer config file `mirror-eventhub.config`, which tells MirrorMaker to send the duplicated (or "mirrored") data to the Event Hubs service. Specifically change `bootstrap.servers` and `sasl.jaas.config` to point to your Event Hubs Kafka endpoint. The Event Hubs service requires secure (SASL) communication, which is achieved by setting the last three properties in the configuration below. 
 
@@ -107,6 +107,12 @@ Run the Kafka MirrorMaker script from the root Kafka directory using the newly u
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
 ```
 
-To verify that events are making it to the Kafka enabled Event Hub, check out the ingress statistics in the [Azure portal](https://azure.microsoft.com/en-us/features/azure-portal/), or run a consumer against the Event Hub.
+To verify that events are making it to the Kafka enabled Event Hub, check out the ingress statistics in the [Azure portal](https://azure.microsoft.com/features/azure-portal/), or run a consumer against the Event Hub.
 
 Now that MirrorMaker is running, any events sent to the source Kafka cluster should be received by both the Kafka cluster *and* the mirrored Kafka enabled Event Hub service. By using MirrorMaker and an Event Hubs Kafka endpoint, we can migrate an existing Kafka pipeline to the managed Azure Event Hubs service without changing the existing cluster or interrupting any ongoing data flow!
+
+## Next steps
+
+* [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+* Learn about Event Hubs for Kafka Ecosystem
+* Learn more about [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to stream events from Kafka on-prem to Kafka enabled Event Hubs on cloud
