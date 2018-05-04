@@ -58,7 +58,7 @@ After updating the nodes they should look like this:
 
 Then you need to update a couple of the properties.  On line 34, you need to modify the connectionstring for the diagnostic store it should look like this after modification, with your IP address substituted in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
 
-After you update the connection string be sure to create the folder.  The following command will create it:
+After you update the connection string be sure to create the folder.  The following command will create it, be sure to replace the ip address below with the IP address you inserted into the connection string:
 
 ```powershell
 mkdir \\172.31.27.1\c$\DiagnosticsStore
@@ -95,15 +95,6 @@ NoDomainController         : True
 Passed                     : True
 ```
 
-## I had to update the host file with the following to make it work
-
-```
-c:\windows\system32\drivers\etc\hosts
-172.31.21.141 EC2AMAZ-26OI32A
-172.31.20.163 EC2AMAZ-J9KB1DJ
-172.31.27.1 EC2AMAZ-GCMLQVH
-```
-
 ## Create the cluster
 
 Once you have a successfully validated your cluster config run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster to the virtual machines in the configuration file.
@@ -112,26 +103,16 @@ Once you have a successfully validated your cluster config run the *CreateServic
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Windows.MultiMachine.json -AcceptEULA
 ```
 
+If it all works you'll get output that looks like this:
+
+```powershell
+Your cluster is successfully created! You can connect and manage your cluster using Microsoft Azure Service Fabric Explorer or Powershell. To connect through Powershell, run 'Connect-ServiceFabricCluster [ClusterConnectionEndpoint]'.
+```
+
 > [!NOTE]
 > Deployment traces are written to the VM/machine on which you ran the CreateServiceFabricCluster.ps1 PowerShell script. These can be found in the subfolder DeploymentTraces, based in the directory from which the script was run. To see if Service Fabric was deployed correctly to a machine, find the installed files in the FabricDataRoot directory, as detailed in the cluster configuration file FabricSettings section (by default c:\ProgramData\SF). As well, FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
 >
 >
-
-### Connect to the cluster
-
-To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
-
-To connect to an unsecure cluster, run the following PowerShell command:
-
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
-```
-
-Example:
-
-```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
-```
 
 ### Bring up Service Fabric Explorer
 
@@ -140,11 +121,6 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 ## Add and remove nodes
 
 You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
-
-## Resources
-
-* [contents of the setup package](service-fabric-cluster-standalone-package-contents.md)
-* [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 ## Next steps
 

@@ -73,17 +73,23 @@ Finally, select **Launch Instances**, and then **View Instances**.  You have the
 
 ## Modify the security group
 
-Service Fabric requires a number of ports open between the hosts in your cluster. To open these ports in the AWS infrastructure, select one of the instances that you created. Then select the name of the security group, for example,  **launch-wizard-4**. Now select the **Inbound** tab.
+Service Fabric requires a number of ports open between the hosts in your cluster. To open these ports in the AWS infrastructure, select one of the instances that you created. Then select the name of the security group, for example,  **launch-wizard-1**. Now, select the **Inbound** tab.
 
 To avoid opening these ports to the world, you instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
 
-You need to add four rules to the security group. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
+You need to add four rules to the security group for service dependencies, and then three more for Service Fabric itself. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
 
 For the first rule select **Add Rule**, then from the dropdown menu selects **All ICMP - IPv4**. Select the entry box next to custom and enter your security group ID from above.
 
-For the last three rules, you need to follow a similar process.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `135`, `137-139`, and `445` for each rule. Finally, in the source box enter your security group ID and select **Save**.
+For the last three rules for dependencies, you need to follow a similar process.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `135`, `137-139`, and `445` for each rule. Finally, in the source box enter your security group ID.
 
 ![Security group ports][aws-ec2securityports]
+
+Now that the ports for the dependencies are open, you need to do the same thing for the ports that Service Fabric itself uses to communicate. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `19000-19003`, and `20001-20031` for each rule and again enter the security group in the source box.
+
+For the final rule we are going to open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `19080-19081`, change the Source drop down to Anywhere.
+
+All of the rules are now entered. Select **Save**.
 
 ## Connect to an instance and validate inter-connectivity
 
