@@ -3399,7 +3399,7 @@ featureFlags:
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/">
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview">
                                                                     <img src="media/index/API_URL_Preview.svg" alt="" />
                                                                     <span>URL Preview</span>
                                                                 </a>
