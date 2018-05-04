@@ -220,7 +220,7 @@ Standard Load Balancer is a charged product based on number of load balancing ru
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Azure Monitor Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) are not supported at this time.
 - [Move subscription operations](../azure-resource-manager/resource-group-move-resources.md) are not supported for Standard SKU LB and PIP resources.
-- Services deployed to cloud services without VNets and other platform services may remain reachable if only an internal Standard LB is present even though they are outside of your VNet.  You should not take a dependency on this side effect and explicitly define your [outbound connection](load-balancer-outbound-connections.md) behavior.
+- Web Worker Roles outside of a VNet and other Microsoft platform services can be accessible when only an internal Standard Load Balancer is used due to a side effect from how pre-VNet services and other platform services function. You must not rely on this as the respective service itself or the underlying platform may change without notice. You must always assume you need to create [outbound connectivity](load-balancer-outbound-connections.md) explicitly if desired when using an internal Standard Load Balancer only.
 
 ## Next steps
 
