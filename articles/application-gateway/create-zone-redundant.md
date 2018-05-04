@@ -95,6 +95,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 1. Ensure that the subscription used is whitelisted as previously mentioned in the prerequisites.
 2. Download the private PowerShell zip file from the location mentioned in preview registration confirmation email. Unzip the file to your drive and note the location.
 3. Once the preview is enabled, load the preview modules first before signing on to your account:
+
    ```Powershell
    $azurePSPath = "<complete path to Azure-PowerShell folder>"
    import-module "$azurePSPath\AzureRM.Profile\AzureRM.Profile.psd1"
@@ -103,6 +104,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    import-module "$azurePSPath\AzureRM.Network\AzureRM.Network.psd1"
    import-module "$azurePSPath\AzureRM.KeyVault\AzureRM.KeyVault.psd1"
    ```
+
 4. Sign in to the Azure account and select the desired subscription if more than one subscription is present. Ensure you select the appropriate subscription that was whitelisted.
 5. Run the following commands to establish common constants that include names for most of the entities being created. 
 
@@ -134,6 +136,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    $AddressPrefix = "111.111.222.0" 
    ```
 6. Create the resource group:
+
    ```Powershell
    $resourceGroup = New-AzureRmResourceGroup -Name $rgname -Location $location -Force
    ```
@@ -142,16 +145,19 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    $userAssignedIdentity = New-AzureRmResource -ResourceGroupName $rgname -Location $location -ResourceName $userAssignedIdentityName -ResourceType Microsoft.ManagedIdentity/userAssignedIdentities -Force
    ```
 8. Create the Key Vault used to store your certificates:
+
    ```Powershell
    $keyVault = New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgname -Location $location -EnableSoftDelete
    ```
-9. Upload certificate to Key Vault as a secret"
+9. Upload certificate to Key Vault as a secret:
+
    ```Powershell
    $securepfxpwd = ConvertTo-SecureString -String "<password>" -AsPlainText -Force
 
    $cert = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name         $certificateName -FilePath ‘<path to pfx file>'  -Password $securepfxpwd
    ```
 10. Assign access policy to the Key Vault using the User Assigned Identity. This allows the application gateway instances to access the Key Vault secret:
+
    ```Powershell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $rgname -PermissionsToSecrets get -ObjectId $userAssignedIdentity.Properties.principalId
    ```
@@ -160,15 +166,11 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
     For example, for HTTP/HTTPS on default ports the NSG would allow inbound access to 80, 443 and 65200-65535 for management operations.
 
    ```Powershell
-   $srule01 = New-AzureRmNetworkSecurityRuleConfig -Name "listeners" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * `
-    -DestinationAddressPrefix * -DestinationPortRange 22,80,443 `
-    -Access Allow -Priority 100
+   $srule01 = New-AzureRmNetworkSecurityRuleConfig -Name "listeners" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * -DestinationAddressPrefix * -DestinationPortRange 22,80,443 -Access Allow -Priority 100
 
-$srule02 = New-AzureRmNetworkSecurityRuleConfig -Name "managementPorts" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * `
-    -DestinationAddressPrefix * -DestinationPortRange "65200-65535" `
-    -Access Allow -Priority 101
+   $srule02 = New-AzureRmNetworkSecurityRuleConfig -Name "managementPorts" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * -DestinationAddressPrefix * -DestinationPortRange "65200-65535" -Access Allow -Priority 101
 
-$nsg = New-AzureRmNetworkSecurityGroup -Name $nsgName -ResourceGroupName $rgname -Location $location -SecurityRules $srule01,$srule02 -Force
+   $nsg = New-AzureRmNetworkSecurityGroup -Name $nsgName -ResourceGroupName $rgname -Location $location -SecurityRules $srule01,$srule02 -Force
    ```
 
 12. Create VNet and subnets:
@@ -188,44 +190,44 @@ $nsg = New-AzureRmNetworkSecurityGroup -Name $nsgName -ResourceGroupName $rgname
 14. Create the application gateway:
 
    ```Powershell
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
+   $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
 
-$fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name $fipconfig01Name -PublicIPAddress $publicip
+   $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name $fipconfig01Name -PublicIPAddress $publicip
 
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name $poolName -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
+   $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name $poolName -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
 
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name $frontendPort01Name -Port 443
+   $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name $frontendPort01Name -Port 443
 
-$fp02 = New-AzureRmApplicationGatewayFrontendPort -Name $frontendPort02Name -Port 80
+   $fp02 = New-AzureRmApplicationGatewayFrontendPort -Name $frontendPort02Name -Port 80
 
-$sslCert01 = New-AzureRmApplicationGatewaySslCertificate -Name "SSLCert" -KeyVaultSecretId $secret.Id
+   $sslCert01 = New-AzureRmApplicationGatewaySslCertificate -Name "SSLCert" -KeyVaultSecretId $secret.Id
 
-$listener01 = New-AzureRmApplicationGatewayHttpListener -Name $listener01Name -Protocol Https -FrontendIPConfiguration
+   $listener01 = New-AzureRmApplicationGatewayHttpListener -Name $listener01Name -Protocol Https -FrontendIPConfiguration
  $fipconfig01 -FrontendPort $fp01 -SslCertificate $sslCert01
 
-$listener02 = New-AzureRmApplicationGatewayHttpListener -Name $listener02Name -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp02
+   $listener02 = New-AzureRmApplicationGatewayHttpListener -Name $listener02Name -Protocol Http -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp02
 
-$poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name $poolSetting01Name -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name $poolSetting01Name -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name $rule01Name -RuleType basic -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool
+   $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name $rule01Name -RuleType basic -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool
 
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name $rule02Name -RuleType basic -BackendHttpSettings $poolSetting01 -HttpListener $listener02 -BackendAddressPool $pool
+   $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name $rule02Name -RuleType basic -BackendHttpSettings $poolSetting01 -HttpListener $listener02 -BackendAddressPool $pool
 
-$sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
+   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
 
-$listeners = @($listener02)
+   $listeners = @($listener02)
 
-$fps = @($fp01, $fp02)
+   $fps = @($fp01, $fp02)
 
-$fipconfigs = @($fipconfig01)
+   $fipconfigs = @($fipconfig01)
 
-$sslCerts = @($sslCert01)
+   $sslCerts = @($sslCert01)
 
-$rules = @($rule01, $rule02)
+   $rules = @($rule01, $rule02)
 
-$listeners = @($listener01, $listener02)
+   $listeners = @($listener01, $listener02)
 
-$appgw = New-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Location $location -UserAssignedIdentityId $userAssignedIdentity.ResourceId -Probes $probeHttps -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -GatewayIpConfigurations $gipconfig -FrontendIpConfigurations $fipconfigs -FrontendPorts $fps -HttpListeners $listeners -RequestRoutingRules $rules -Sku $sku -SslPolicy $sslPolicy -sslCertificates $sslCerts -Force
+   $appgw = New-AzureRmApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Location $location -UserAssignedIdentityId $userAssignedIdentity.ResourceId -Probes $probeHttps -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -GatewayIpConfigurations $gipconfig -FrontendIpConfigurations $fipconfigs -FrontendPorts $fps -HttpListeners $listeners -RequestRoutingRules $rules -Sku $sku -SslPolicy $sslPolicy -sslCertificates $sslCerts -Force
    ```
 
 15. Retrieve the created application gateway’s public IP address:
