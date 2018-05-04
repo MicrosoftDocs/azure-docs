@@ -14,7 +14,10 @@ ms.author: v-gedod
 
 # Web Search SDK Node quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending.  
 
 ## Application dependencies
 
