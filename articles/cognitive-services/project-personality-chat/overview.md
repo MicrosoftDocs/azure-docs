@@ -6,7 +6,7 @@ author: noellelacharite
 manager: nolachar
 ms.service: cognitive-services
 ms.topic: overview
-ms.date: 06/02/2017
+ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
 ---
@@ -45,7 +45,7 @@ For the default personas, attributes and curated responses are used to find the 
 
 ## Small talk intent understanding
 
-Personality Chat has intent classifiers to ensure a response for small talk intents. These classifiers won't get in the way of tasks or information queries. A high-level chat classifier determines if the query is of small talk or chit-chat intent. It does this by using lexical and semantic -based classifiers and combining their scores. These intents are trained using conversational data (as positive intent samples) and search/tasks queries (for negative intent samples).
+Personality Chat has intent classifiers to ensure a response for small talk intents. These classifiers won't get in the way of tasks or information queries. A high-level chat classifier determines if the query is of small talk or chit-chat intent. It decides by using lexical and semantic -based classifiers and combining their scores. These intents are trained using conversational data (as positive intent samples) and search/tasks queries (for negative intent samples).
 
 Other subintent classifiers are used to identify the subclasses of small talk to constrain the types of small talk the service responds to, for example: greetings, compliments, opinions, and so on. These deep learning classifiers (using CDSSM) convert all queries to vectors. They're trained using tens of thousands of curated queries for the subintents. The classifier then matches a query with existing, identified intent classes by finding the closest match in the vector space.
 

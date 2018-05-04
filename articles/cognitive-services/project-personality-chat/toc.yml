@@ -4,3 +4,8 @@
   items:
     - name: What is Project Personality Chat?
       href: overview.md
+- name: Resources
+  expanded: true
+  items:
+    - name: FAQ
+      href: faqs.md
