@@ -1,10 +1,7 @@
 # Using Azure Blockchain Workbench data with SQL Server Management Studio
 
 Microsoft SQL Server Management Studio provides the ability to rapidly
-write and test queries against Azure Blockhain Workbench's SQL DB.
-
-This section contains a step by step walkthrough of how to connect to
-Azure Blockchain Workbench's SQL Database from within SQL Server
+write and test queries against Azure Blockhain Workbench's SQL DB. This section contains a step by step walkthrough of how to connect to Azure Blockchain Workbench's SQL Database from within SQL Server
 Management Studio.
 
 ## Prerequisites
@@ -29,7 +26,7 @@ database credentials.
 
     ![Database list](media/blockchain-workbench-data-sql-management-studio/db-list.png)
 
-5. To view the data associated with any of the database views, you can automatically generate a select statement using the following steps
+5. To view the data associated with any of the database views, you can automatically generate a select statement using the following steps.
 6. Right click on any of the database views in the Object Explorer.
 7. Select **Script View as**.
 8. Choose **SELECT to**.

@@ -25,7 +25,7 @@ To connect to the database where you want to configure a rule:
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group for your Blockchain Workbench deployment.
 4. Select **Type** to sort the list of resources, and then choose your **SQL server**.
-5. The resource list example in the following screen capture shows two databases: *master* and *lsgn-sdk*. You configure the firewall rule on  *lsgn-sdk*
+5. The resource list example in the following screen capture shows two databases: *master* and *lsgn-sdk*. You configure the firewall rule on  *lsgn-sdk*.
 
 ![List Blockchain Workbench resources](media/blockchain-workbench-database-firewall/list-database-resources.png)
 
@@ -46,10 +46,11 @@ To create a firewall rule:
 
    ![Create firewall rule](media/blockchain-workbench-database-firewall/create-firewall-rule.png)
 
-   >[NOTE] Note If you only want to add the IP address of your computer, choose **+ Add client IP**.
-
-4. To save your firewall configuration, select **Save**.
-5. Test the IP address range you configured for the database by connecting from an application or tool. For example, SQL
+    > [!NOTE]
+    > If you only want to add the IP address of your computer, choose **+ Add client IP**.
+        
+1. To save your firewall configuration, select **Save**.
+2. Test the IP address range you configured for the database by connecting from an application or tool. For example, SQL
     Server Management Studio.
 
 ## Next steps

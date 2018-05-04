@@ -39,8 +39,9 @@ To connect to a Blockchain Workbench database:
 
 5. In the **SQL Server database** dialog navigation bar, select     **Database**. Enter your **Username** and **Password**, and then    select **Connect**.
 
-   >[NOTE] If you're using the credentials created during the Azure Blockchain Workbench deployment process, the **User name** is `dbadmin`. The **Password** is the one you created when you deployed the Blockchain Workbench.
-
+    > [!NOTE]
+    > If you're using the credentials created during the Azure Blockchain Workbench deployment process, the **User name** is `dbadmin`. The **Password** is the one you created when you deployed the Blockchain Workbench.
+    
    ![Provide credentials to access database](media/blockchain-workbench-data-excel/provide-credentials.png)
 
 ## Look at database tables and views

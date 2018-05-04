@@ -6,7 +6,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
 ## Prerequisites
 
-* Download [PowerBI Desktop](https://aka.ms/pbidesktopstore)
+* Download [PowerBI Desktop](https://aka.ms/pbidesktopstore).
 
 ## Connecting PowerBI to data in Azure Blockchain Workbench
 
