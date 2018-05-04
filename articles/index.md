@@ -1202,7 +1202,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/azure-maps/">
+                                            <a href="/azure/azure-maps/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
                                                 <p>Azure Maps</p>
                                             </a>
@@ -3596,7 +3596,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/azure-maps/">
+                                <a href="/azure/azure-maps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
