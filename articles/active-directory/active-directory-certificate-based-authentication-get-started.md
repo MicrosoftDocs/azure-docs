@@ -2,6 +2,7 @@
 title: Azure Active Directory certificate-based authentication - Get started  | Microsoft Docs
 description: Learn how to configure certificate-based authentication in your environment
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
@@ -10,7 +11,7 @@ ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: nigu
+ms.reviewer: annaba
 
 ---
 # Get started with certificate-based authentication in Azure Active Directory
