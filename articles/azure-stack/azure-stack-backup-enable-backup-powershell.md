@@ -115,7 +115,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 In the same PowerShell session, run the following commands:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 The result should look like the following JSON output:
