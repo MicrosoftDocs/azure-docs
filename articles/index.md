@@ -868,6 +868,14 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/bing-visual-search/">
+                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                <p>Bing Visual Search API</p>
+                                            </a>
+                                        </li>
+
+
+                                        <li>
                                             <a href="/azure/cognitive-services/Bing-Autosuggest/">
                                                 <img src="media/index/API_Bing_AutoSuggest.svg" alt="" />
                                                 <p>Bing Autosuggest API</p>
@@ -3388,6 +3396,18 @@ featureFlags:
                                                                 <a class="barLink" href="/azure/cognitive-services/entitylinking/home">
                                                                     <img src="media/index/API_Entity_LinkingIntelligence.svg" alt="" />
                                                                     <span>Entity Linking Intelligence Service API</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/url-preview/">
+                                                                    <img src="media/index/network-watcher.svg" alt="" />
+                                                                    <span>Project URL Preview</span>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
+                                                                    <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                                    <span>Project Answer Search</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
