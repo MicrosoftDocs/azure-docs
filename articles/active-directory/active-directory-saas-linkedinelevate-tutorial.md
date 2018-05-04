@@ -239,7 +239,7 @@ When you click the LinkedIn Elevate tile in the Access Panel, you should get the
 * [Tutorial: Configuring LinkedIn Elevate for automatic user provisioning with Azure Active Directory](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure User Provisioning]()
+* [Configure User Provisioning](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 
 
 <!--Image references-->
