@@ -20,7 +20,8 @@ Self-service password reset (SSPR) offers a simple means for IT administrators t
 
 ## Prerequisites
 
-You need a working Azure AD tenant with at least a trial license enabled. An account with Global Administrator privileges. 
+You need a working Azure AD tenant with at least a trial license enabled. 
+An account with Global Administrator privileges. 
 A standard non-administrator user with a password you know for testing, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
 A pilot group to test with that the non-administrator user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
 
