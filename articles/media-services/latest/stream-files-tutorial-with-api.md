@@ -285,7 +285,7 @@ The process of creating a **StreamingLocator** is called publishing. By default,
 When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedStreamingPolicy.ClearStreamingOnly**, can be used.
 
 > [!IMPORTANT]
-> When using custom streaming policies, you should design a limited set of such policies for your Media Service account. Whenever possible, reuse the same StreamingPolicy for your StreamingLocators.
+> When using custom StreamingPolicy, you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
 
 The following code assumes that you are calling the function with a unique locatorName.
 
