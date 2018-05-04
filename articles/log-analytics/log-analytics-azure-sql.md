@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/03/2018
 ms.author: magoedte
 ---
 
@@ -132,7 +132,8 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ### Analyze data and create alerts
 
-You can easily create alerts with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use for alerting:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use use with a log alert:
+
 
 
 *High DTU on Azure SQL Database*
@@ -153,18 +154,7 @@ AzureMetrics
 | render timechart
 ```
 
-You can use these alert-based queries to alert on specific thresholds for both Azure SQL Database and elastic pools. To configure an alert for your Log Analytics workspace:
 
-#### To configure an alert for your workspace
-
-1. Go to the [OMS portal](http://mms.microsoft.com/) and sign in.
-2. Open the workspace that you have configured for the solution.
-3. On the Overview page, click the **Azure SQL Analytics (Preview)** tile.
-4. Run one of the example queries.
-5. In Log Search, click **Alert**.  
-![create alert in search](./media/log-analytics-azure-sql/create-alert01.png)
-6. On the **Add Alert Rule** page, configure the appropriate properties and the specific thresholds that you want and then click **Save**. 
-![add alert rule](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## Next steps
 

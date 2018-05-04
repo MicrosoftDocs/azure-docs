@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Quickstart - Create a Key Vault CLI | Microsoft Docs
 description: Quickstart showing how to create an Azure Key Vault using the CLI
 services: key-vault
@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Quickstart: Create an Azure Key Vault using the CLI
 
-Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this article, you create a Key Vault. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
+Azure Key Vault is a cloud service that works as a secure secrets store. You can securely store keys, passwords, certificates and other secrets. For more information on Key Vault you may review the [Overview](key-vault-overview.md). Azure CLI is used to create and manage Azure resources using commands or scripts. In this quickstart, you create a key vault. Once that you have completed that, you will store a secret.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

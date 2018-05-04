@@ -1,6 +1,6 @@
 ---
 title: Provision Raspberry Pi to Remote Monitoring using C - Azure | Microsoft Docs
-description: Describes how to connect a Raspberry Pi device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C.
+description: Describes how to connect a Raspberry Pi device to the Remote Monitoring solution accelerator using an application written in C.
 services: iot-suite
 suite: iot-suite
 documentationcenter: na
@@ -18,11 +18,11 @@ ms.date: 03/14/2018
 ms.author: dobett
 
 ---
-# Connect your Raspberry Pi device to the remote monitoring preconfigured solution (C)
+# Connect your Raspberry Pi device to the remote monitoring solution accelerator (C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
+This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator. As with most embedded applications that run on constrained devices, the client code for the Raspberry Pi device application is written in C. In this tutorial, you build the application on a Raspberry Pi running the Raspbian OS.
 
 ### Required hardware
 
@@ -46,7 +46,7 @@ You need SSH client on your desktop machine to enable you to remotely access the
 
 This article assumes you have installed the latest version of the [Raspbian OS on your Raspberry Pi](https://www.raspberrypi.org/learning/software-guide/quickstart/).
 
-The following steps show you how to prepare your Raspberry Pi for building a C application that connects to the preconfigured solution:
+The following steps show you how to prepare your Raspberry Pi for building a C application that connects to the solution accelerator:
 
 1. Connect to your Raspberry Pi using **ssh**. For more information, see [SSH (Secure Shell)](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) on the [Raspberry Pi website](https://www.raspberrypi.org/).
 

@@ -23,7 +23,7 @@ Together with the [Kubernetes Service Catalog][kubernetes-service-catalog], Open
 
 * Permissions to create a service principal with the Contributor role on your Azure subscription
 
-* An existing Azure Container Service (AKS) cluster. If you need an AKS cluster, follow the [Create an AKS cluster][create-aks-cluster] quickstart.
+* An existing Azure Kubernetes Service (AKS) cluster. If you need an AKS cluster, follow the [Create an AKS cluster][create-aks-cluster] quickstart.
 
 ## Install Service Catalog
 
@@ -178,7 +178,7 @@ kubectl get secrets -n wordpress -o yaml
 
 ## Next steps
 
-By following this article, you deployed Service Catalog to an Azure Container Service (AKS) cluster. You used Open Service Broker for Azure to deploy a WordPress installation that uses Azure-managed services, in this case Azure Database for MySQL.
+By following this article, you deployed Service Catalog to an Azure Kubernetes Service (AKS) cluster. You used Open Service Broker for Azure to deploy a WordPress installation that uses Azure-managed services, in this case Azure Database for MySQL.
 
 Refer to the [Azure/helm-charts][helm-charts] repository to access other updated OSBA-based Helm charts. If you're interested in creating your own charts that work with OSBA, refer to [Creating a New Chart][helm-create-new-chart].
 
