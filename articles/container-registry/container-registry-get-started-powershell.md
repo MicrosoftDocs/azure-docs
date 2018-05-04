@@ -16,9 +16,13 @@ ms.custom: mvc
 
 Azure Container Registry is a managed, private Docker container registry service for building, storing, and serving Docker container images. In this quickstart, you learn how to create an Azure container registry using PowerShell. After you create the registry, you push a container image to it, then deploy the container from your registry into Azure Container Instances (ACI).
 
-This quickstart requires Azure PowerShell module version 5.7.0 or later. Run [Get-Module -ListAvailable AzureRM][Get-Module] to determine your installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+## Prerequisites
+
+This quickstart requires Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to determine your installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 You must also have Docker installed locally. Docker provides packages for [macOS][docker-mac], [Windows][docker-windows], and [Linux][docker-linux] systems.
+
+Because the Azure Cloud Shell doesn't include all required Docker components (the `dockerd` daemon), you can't use the Cloud Shell for this quickstart.
 
 ## Sign in to Azure
 
@@ -38,9 +42,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create container registry
 
-Now, create your registry with the [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry] command.
+Next, create a container registry in your new resource group with the [New-AzureRMContainerRegistry][New-AzureRMContainerRegistry] command.
 
-The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named *myContainerRegistry007*; replace "myContainerRegistry007" with a name of your choosing.
+The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. The following example creates a registry named "myContainerRegistry007." Replace *myContainerRegistry007* with a name of your choosing, then run this command to create the registry:
 
 ```powershell
 $registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
@@ -54,13 +58,13 @@ Before pushing and pulling container images, you must log in to your registry. U
 $creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
-Next, run [docker login][docker-login] to log in to the registry:
+Next, run [docker login][docker-login] to log in:
 
 ```powershell
 $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
 ```
 
-A successful login operation returns `Login Succeeded`:
+A successful login returns `Login Succeeded`:
 
 ```console
 PS Azure:\> $creds.Password | docker login $registry.LoginServer -u $creds.Username --password-stdin
@@ -99,19 +103,19 @@ Populate a variable with the full image tag. Include the login server, repositor
 $image = $registry.LoginServer + "/aci-helloworld:v1"
 ```
 
-Now, tag the image using [docker tag][docker-tag]:
+Now, tag the image with [docker tag][docker-tag]:
 
 ```powershell
 docker tag microsoft/aci-helloworld $image
 ```
 
-And finally, use [docker push][docker-push] to push the image to your registry:
+And finally, [docker push][docker-push] it to your registry:
 
 ```powershell
 docker push $image
 ```
 
-As the Docker client pushes your image, output appears similar to:
+As the Docker client pushes your image, output should be similar to:
 
 ```console
 PS Azure:\> docker push $image
@@ -123,12 +127,13 @@ d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
 v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
-
 ```
+
+Congratulations! You've just pushed your first container image to your registry.
 
 ## Deploy image to ACI
 
-Congratulations! You've just pushed your first container image to your registry. Now, deploy it directly from your registry to Azure Container Instances to see the container running on Azure.
+With the image now in your registry, deploy a container directly to Azure Container Instances to see it running in Azure.
 
 First, convert the registry credential to a *PSCredential*. The `New-AzureRmContainerGroup` command, which you use to create the container instance, requires it in this format.
 
@@ -137,16 +142,22 @@ $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
 
-Now, deploy the container to ACI with [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. The following command deploys the container from your registry with 1 CPU core, 1 GB of memory, and a DNS name label of "aci-demo":
+Additionally, the DNS name label for your container must be unique within the Azure region you create it. Execute the following command to populate a variable with a generated name:
 
 ```powershell
-New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel "aci-demo"
+$dnsname = "aci-demo-" + (Get-Random -Maximum 9999)
+```
+
+Finally, run [New-AzureRmContainerGroup][New-AzureRmContainerGroup] to deploy the container from the image in your registry with 1 CPU core and 1 GB of memory:
+
+```powershell
+New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
 ```
 
 You should get an initial response from Azure with details on your container, and its state is at first "Pending":
 
 ```console
-PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel "aci-demo"
+PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel $dnsname
 ResourceGroupName        : myResourceGroup
 Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
@@ -158,8 +169,8 @@ Containers               : {mycontainer}
 ImageRegistryCredentials : {myContainerRegistry007}
 RestartPolicy            : Always
 IpAddress                : 40.117.255.198
-DnsNameLabel             : aci-demo
-Fqdn                     : aci-demo.eastus.azurecontainer.io
+DnsNameLabel             : aci-demo-8751
+Fqdn                     : aci-demo-8751.eastus.azurecontainer.io
 Ports                    : {80}
 OsType                   : Linux
 Volumes                  :
@@ -167,7 +178,7 @@ State                    : Pending
 Events                   : {}
 ```
 
-To monitor its status and determing when it's running, run the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command a few times. It should take less than a minute.
+To monitor its status and determine when it's running, run the [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] command a few times. It should take less than a minute.
 
 ```powershell
 (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).ProvisioningState
@@ -186,14 +197,14 @@ Succeeded
 
 Once the deployment to ACI has succeeded and your container is up and running, navigate to its fully qualified domain name (FQDN) in your browser to see the app running in Azure.
 
-It appears in the output of the previous step, but you can also get the FQDN for your container with [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
+Get the FQDN for your container with [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup]:
 
 ```powershell
 PS Azure:\> (Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer).Fqdn
-aci-demo.eastus.azurecontainer.io
+aci-demo-8571.eastus.azurecontainer.io
 ```
 
-With the FQDN in-hand, view the app in your browser:
+With the FQDN in-hand, navigate to it in your browser:
 
 ![Hello world app in the browser][qs-psh-01-running-app]
 
@@ -201,7 +212,7 @@ Congratulations! You've got a container running an application in Azure, deploye
 
 ## Clean up resources
 
-Once you're done working with the resources you created in this quicktart, use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, the container registry, and the container instance:
+Once you're done working with the resources you created in this quickstart, use the [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] command to remove the resource group, the container registry, and the container instance:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
