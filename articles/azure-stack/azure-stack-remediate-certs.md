@@ -24,9 +24,8 @@ ms.reviewer:
 The information in this article can help you understand and resolve common issues for Azure Stack PKI certificates. You can discover issues when you use Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md). The tool checks to ensure that certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack Secret Rotation, and logs the results in a [report.json file](azure-stack-validation-report.md).  
 
 ## Read PFX
-**Warning** - Password only protects the private information in the certificate. **Remediation** - We recommend you export PFX files with the optional setting for **Enable certificate privacy**.
-
-**Failure** - PFX file invalid. Remediation** Re-export the certificate using the steps in  [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md).
+**Warning** - Password only protects the private information in the certificate. **Remediation** - We recommend you export PFX files with the optional setting for **Enable certificate privacy**.  
+**Failure** - PFX file invalid. Remediation** Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md).
 
 ## Signature Algorithm
 **Failure** - Signature Algorithm is SHA1.    
@@ -42,12 +41,11 @@ The information in this article can help you understand and resolve common issue
 
 ## DNS Names
 **Failure** - DNSNameList on the certificate does not contain the Azure Stack service endpoint name, or a valid wildcard match.  Wildcard matches are only valid for the left-most namespace of the DNS name. For example, _*.region.domain.com_ is only valid for *portal.region.domain.com*, not _*.table.region.domain.com_.  
-**Remediation** - Use the steps in Azure Stack certificates signing request generation to regenerate the CSR with the correct DNS names to support Azure Stack endpoints. Resubmit the CSR to a Certificate Authority,  and then follow the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md) to export the certificate from the machine that generated the CSR.  
+**Remediation** - Use the steps in Azure Stack certificates signing request generation to regenerate the CSR with the correct DNS names to support Azure Stack endpoints. Resubmit the CSR to a Certificate Authority, and then follow the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md) to export the certificate from the machine that generated the CSR.  
 
 ## Key Usage
 **Failure** - Key Usage is missing Digital Signature or Key Encipherment, orEnhanced Key Usage is missing Server Authentication or Client Authentication.  
-*
-*Remediation** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct Key Usage attributes.  Resubmit the CSR to the Certificate Authority and confirm that a certificate template is not overwriting the Key Usage in the request.
+**Remediation** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct Key Usage attributes.  Resubmit the CSR to the Certificate Authority and confirm that a certificate template is not overwriting the Key Usage in the request.
 
 ## Key Size
 **Failure** - Key Size is smaller than 2048    
@@ -62,7 +60,7 @@ The information in this article can help you understand and resolve common issue
 **Remediation** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md), and  select the option **Include all certificates in the certification path if possible.** Ensure that only the leaf certificate is selected for export.
 
 ## Fix common packaging issues
-The AzdReadinessChecker can import and then export a PFX file to fix common packaging issues, including: 
+The AzsReadinessChecker can import and then export a PFX file to fix common packaging issues, including: 
  - *Private Key* is missing Local Machine Attribute.
  - *Certificate chain* is incomplete or wrong. (The local machine must contain the certificate chain if the PFX package does not.) 
  - *Other certificates*.
@@ -72,6 +70,7 @@ However, the AzsReadinessChecker cannot help if you need to generate a new CSR a
 The following prerequisites must be in place on the computer where the tool runs: 
  - Windows 10 or Windows Server 2016, with internet connectivity.
  - PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions.
+
    > `$PSVersionTable.PSVersion`
  - Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md). 
  - Download the latest version of [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.

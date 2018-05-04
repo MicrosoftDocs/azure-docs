@@ -37,6 +37,7 @@ The following prerequisites must be in place.
 **The computer where the tool runs:**
  - Windows 10 or Windows Server 2016, with internet connectivity.
  - PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions:  
+
     >`$PSVersionTable.PSVersion` 
  - Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md). 
  - Download the latest version of [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.  
@@ -59,7 +60,8 @@ The following prerequisites must be in place.
 4. From the PowerShell prompt, run the following to start validation of your subscription 
    - Specify the value for AzureEnvironment as *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.  
    - Provide your Azure Active Directory administrator and your Azure Active Directory Tenant name. 
-    > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+
+   > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
 
 5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears like the following image:  
 ![run-validation](./media/azure-stack-validate-registration/registration-validation.png)

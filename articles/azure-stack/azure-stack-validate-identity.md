@@ -37,8 +37,9 @@ The following prerequisites must be in place.
 
 **The computer where the tool runs:**
  - Windows 10 or Windows Server 2016, with internet connectivity.
- - PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions: 
-    > `$PSVersionTable.PSVersion`
+ - PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions:  
+
+   > `$PSVersionTable.PSVersion`
  - Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md). 
  - The latest version of [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.
 
@@ -58,6 +59,7 @@ The following prerequisites must be in place.
 3. From the PowerShell prompt, run the following to start validation of your Azure AD. 
    - Specify the value for AzureEnvironment as *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.  
    - Specify your Azure Active Directory Tenant Name to replace *contoso.onmicrosoft.com*. 
+
    > `Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. After the tool runs, review the output. Confirm the status is **OK** for both logon and the installation requirements. A successful validation appears like the following image: 
  
@@ -85,7 +87,7 @@ The following examples provide guidance on common validation failures.
 ![expired password](./media/azure-stack-validate-identity/expired-password.png)
 **Cause** - The account can’t log on because the password is either expired or is temporary.     
 
-**Resolution** - In PowerShell run the following, nd then follow the prompts to reset the password.  
+**Resolution** - In PowerShell run the following, and then follow the prompts to reset the password.  
 > `Login-AzureRMAccount`
 
 Alternatively, login into https://portal.azure.com as the account and the user will be forced to change the password.

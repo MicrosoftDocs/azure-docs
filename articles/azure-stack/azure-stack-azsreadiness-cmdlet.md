@@ -176,10 +176,10 @@ The **Start-AzsReadinessChecker** cmdlet validates certificates, Azure accounts,
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
-Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType SingleSAN
+Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subjectName $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-In this example, Start-AzsReadinessChecker generates multiple Certificate Signing Requests (CSR) for Single SAN certificates suitable for an ADFS Azure Stack deployment with a region name of “east” and an external FQDN of “azurestack.contoso.com”
+In this example, Start-AzsReadinessChecker generates multiple Certificate Signing Requests (CSR) for certificates suitable for an ADFS Azure Stack deployment with a region name of “east” and an external FQDN of “azurestack.contoso.com”
 
 **Example: Validate certificates**
 ```PowerShell
@@ -391,16 +391,16 @@ Specifies an ordered dictionary of the subject for the certificate request gener
 
 > -RequestType
 
-Specifies the SAN type of the certificate request. Valid values:
-- *MultipleSAN* generates one certificate request for all services.
-- *SingleSAN* generates multiple certificate requests, one for each service.    
+Specifies the SAN type of the certificate request. Valid values MultipleCSR, SingleCSR.
+- *MultipleCSR* generates multiple certificate requests, one for each service.
+- *SingleCSR* generates one certificate request for all services.   
 
 |  |  |
 |----------------------------|---------|
 |Type:                       |String   |
 |Position:                   |Named    |
 |Default value:              |None     |
-|Valid values:               |'MultipleSAN','SingleSAN' |
+|Valid values:               |'MultipleCSR','SingleCSR' |
 |Accept pipeline input:      |False    |
 |Accept wildcard characters: |False    |
 
@@ -511,7 +511,7 @@ ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, K
 
 Specifies if PaaS services/hostnames should be added to the certificate request(s).
 
-Note: If used in conjunction with SingleSAN request, one CSR will be generated with multiple wildcard domain SANs due to the certificate requirements of App Services: https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-pki-certs. 
+
 |  |  |
 |----------------------------|------------------|
 |Type:                       |SwitchParameter   |
