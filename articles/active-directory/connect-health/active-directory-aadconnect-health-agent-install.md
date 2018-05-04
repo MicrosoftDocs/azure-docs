@@ -35,6 +35,14 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent.  Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.  [Update](http://www.microsoft.com/en-us/download/details.aspx?id=40855) the Windows Menagement Framework.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
+### Outbound connectivity to the Azure service endpoints
+ During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ | Environment | Required Azure service endpoints |
+ | General | <li>&#42;.blob.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https://management.azure.com </li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com </li><li>https://www.office.com *this endpoint is only used for discovery purposes during registration.</li>| 
+ | Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https://management.microsoftazure.de </li><li>https://policykeyservice.aadcdi.microsoftazure.de </li><li>https://login.microsoftonline.de </li><li>https://secure.aadcdn.microsoftonline-p.de </li><li>https://www.office.com *this endpoint is only used for discovery purposes during registration.</li> |
+ | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https://management.usgovcloudapi.net </li><li>https://policykeyservice.aadcdi.azure.us </li><li>https://login.microsoftonline.us </li><li>https://secure.aadcdn.microsoftonline-p.com </li><li>https://www.office.com</li> |  
+ 
+
 ## Download and install the Azure AD Connect Health Agent
 * Make sure that you [satisfy the requirements](active-directory-aadconnect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
