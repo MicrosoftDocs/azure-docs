@@ -11,7 +11,7 @@ ms.date: 05/03/2018
 ms.author: anroth
 ---
 
-# How to: Improve your classifier
+# How to improve your classifier
 
 Learn how to improve the quality of your Custom Vision Service classifier. The quality of your classifier is dependent on the quality of the labeled data you provide to it. 
 

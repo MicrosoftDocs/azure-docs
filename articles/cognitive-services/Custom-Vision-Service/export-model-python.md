@@ -1,5 +1,5 @@
 ---
-title: Run TensorFlow model in Python - Azure Cognitive Services | Microsoft Docs
+title: Run TensorFlow model in Python - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
 description: Run TensorFlow model in Python
 services: cognitive-services
 author: areddish
@@ -13,7 +13,7 @@ ms.author: areddish
  
 # Run TensorFlow model in Python
 
-After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model), from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
+After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
 ## Install required components
 

@@ -11,7 +11,7 @@ ms.date: 05/02/2018
 ms.author: anroth
 ---
 
-# How to: build a classifier with Custom Vision
+# How to build a classifier with Custom Vision
 
 To use the Custom Vision Service, you must first build a classifier. In this document, learn how to build a classifier through your web browser.
 

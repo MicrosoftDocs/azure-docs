@@ -98,13 +98,12 @@ The following code snippets implement the primary functionality of this example:
     ```
 
 * __Create a prediction endpoint__:
-
-
+ 
     ```csharp
     // Create a prediction endpoint, passing in obtained prediction key
     PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
     ```
-
+ 
 * __Send an image to the prediction endpoint__:
 
     ```csharp
