@@ -31,7 +31,7 @@ For enhanced security, this architecture manages resources with Azure Active Dir
 
 Azure SQL Database is commonly managed through SQL Server Management Studio (SSMS), which runs from a local machine configured to access the Azure SQL Database via a secure VPN or ExpressRoute connection. **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture resource group**.
 
-![Analytics for GDPR reference architecture diagram](images/gdpr-analytics-reference-architecture.png?raw=true "Analytics for GDPR reference architecture diagram")
+![Analytics for GDPR reference architecture diagram](images/gdpr-analytics-architecture.png?raw=true "Analytics for GDPR reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are in the [Deployment Architecture](#deployment-architecture) section.
 

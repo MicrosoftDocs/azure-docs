@@ -19,7 +19,7 @@ This reference architecture, associated implementation guide, and threat model a
 ## Architecture diagram and components
 This solution provides a reference architecture for a PaaS web application with an Azure SQL Database backend. The web application is hosted in an isolated Azure App Service Environment, which is a private, dedicated environment in an Azure datacenter. The environment load balances traffic for the web application across VMs managed by Azure. This architecture also includes network security groups, an Application Gateway, Azure DNS, and Load Balancer. Furthermore, Application Insights provides real time application performance management and analytics through Operations Management Suite (OMS). **Azure recommends configuring a VPN or ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![PaaS Web Applicaiton for GDPR reference architecture diagram](images/gdpr-paaswa-reference-architecture.png?raw=true "PaaS Web Applicaiton for GDPR reference architecture diagram")
+![PaaS Web Applicaiton for GDPR reference architecture diagram](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web Applicaiton for GDPR reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
