@@ -8,7 +8,7 @@
   expanded: true
   items:
   - name: .NET 
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
   - name: Node.js
     href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
   - name: Java

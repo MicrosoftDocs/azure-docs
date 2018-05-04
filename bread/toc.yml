@@ -250,6 +250,9 @@
   - name: Data Lake Store
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/
+  - name: DevOps Project 
+    tocHref: /azure/devops-project 
+    topicHref: /azure/devops-project 
   - name: Devtest Lab
     tocHref: /azure/devtest-lab/
     topicHref: /azure/devtest-lab/
