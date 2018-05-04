@@ -1088,9 +1088,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/azure/lab-services/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
+                                                <p>Azure Lab Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1159,9 +1159,6 @@ featureFlags:
                                                 <p>IoT Fundamentals</p>
                                             </a>
                                         </li>
-                                    </ul>
-                                    <h3>Internet of Things</h3>
-                                    <ul>
                                         <li>
                                             <a href="/azure/iot-central/">
                                                 <img src="media/index/IoT-central.svg" alt="" />
@@ -4215,7 +4212,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4225,8 +4222,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevTest Labs</h3>
-                                                    <p>Quickly create environments using reusable templates and artifacts</p>
+                                                    <h3>Azure Lab Services</h3>
+                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
