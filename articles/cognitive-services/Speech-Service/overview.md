@@ -82,7 +82,7 @@ The Speech Devices SDK allows you to build your own ambient devices with a custo
 
 ## Next steps
 
-- [Get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- Download an SDK and try some sample code:
-    - [Speech SDKs](speech-sdk.md)
-    - [Sample code](samples.md)
+Proceed to the next article to get set up for using the Speech service.
+
+> [!div class="nextstepaction"]
+> [Prepare to use Speech service](get-started.md)
