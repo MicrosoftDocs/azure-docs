@@ -77,8 +77,8 @@ Project Blobs are binary files provided by the author of the project with the as
 
 To add blobs to projects, add the file(s) to your **project.ini**:
 
-  [[blobs optionalname]]
-    Files = projectblob1.tgz, projectblob2.tgz, projectblob3.tgz
+    [[blobs optionalname]]
+      Files = projectblob1.tgz, projectblob2.tgz, projectblob3.tgz
 
 Multiple blobs can be separated by a comma. You can also specify the relative path to the project's blob directory.
 
@@ -95,48 +95,48 @@ To download any blob, use the `jetpack download` command from the CLI, or the `j
 
 Project syntax allows you to specify multiple specs on your nodes. To define a project, use the following:
 
-  [[[cluster-init myspec]]]
-    Project = myproject # inferred from name
-    Version = x.y.z
-    Spec = default  # (alternatively, you can name your own spec to be used here)
-    Locker = default  # (optional, will use default locker for node)
+    [[[cluster-init myspec]]]
+      Project = myproject # inferred from name
+      Version = x.y.z
+      Spec = default  # (alternatively, you can name your own spec to be used here)
+      Locker = default  # (optional, will use default locker for node)
 
 > [!NOTE]
 > The name specified after ‘spec’ can be anything, but can and should be used as a shortcut to define some > common properties.
 
 You can also apply multiple specs to a given node as follows:
 
-  [[node master]]
-    [[[cluster-init myspec]]]
-    Project = myproject
-    Version = x.y.z
-    Spec = default  # (alternatively, you can name your own spec to be used here)
-    Locker = default  # (optional, will use default locker for node)
+    [[node master]]
+      [[[cluster-init myspec]]]
+      Project = myproject
+      Version = x.y.z
+      Spec = default  # (alternatively, you can name your own spec to be used here)
+      Locker = default  # (optional, will use default locker for node)
 
-    [[[cluster-init otherspec]]]
-    Project = otherproject
-    Version = a.b.c
-    Spec = otherspec  # (optional)
+      [[[cluster-init otherspec]]]
+      Project = otherproject
+      Version = a.b.c
+      Spec = otherspec  # (optional)
 
 By separating the project name, spec name, and version with colons, CycleCloud can parse those values into the appropriate Project/Version/Spec settings automatically:
 
-  [[node master]]
-    AdditionalClusterInitSpecs = $ClusterInitSpecs
-    [[[cluster-init myproject:myspec:x.y.z]]]
-    [[[cluster-init otherproject:otherspec:a.b.c]]]
+    [[node master]]
+      AdditionalClusterInitSpecs = $ClusterInitSpecs
+      [[[cluster-init myproject:myspec:x.y.z]]]
+      [[[cluster-init otherproject:otherspec:a.b.c]]]
 
 Specs can also be inherited between nodes. For example, you can share a common spec between all nodes, then run a custom spec on the master node:
 
-  [[node defaults]]
-    [[[cluster-init my-project:common:1.0.0]]]
-    Order = 2 # optional
-  [[node master]]
-    [[[cluster-init my-project:master:1.0.0]]]
-    Order = 1 # optional
+    [[node defaults]]
+      [[[cluster-init my-project:common:1.0.0]]]
+      Order = 2 # optional
+    [[node master]]
+      [[[cluster-init my-project:master:1.0.0]]]
+      Order = 1 # optional
 
-  [[nodearray execute]]
-    [[[cluster-init my-project:execute:1.0.0]]]
-       Order = 1 # optional
+    [[nodearray execute]]
+      [[[cluster-init my-project:execute:1.0.0]]]
+         Order = 1 # optional
 
 This would apply both the `common` and `master` specs to the master node, while only applying the `common` and `execute` specs to the execute nodearray.
 
@@ -157,15 +157,15 @@ is a valid spec setup in which `Spec=myspec` is implied by the name.
 
 You can specify a runlist at the project or spec level within your project.ini:
 
-  [spec master]
-  run_list = role[a], recipe[b]
+    [spec master]
+    run_list = role[a], recipe[b]
 
 When a node includes the spec "master", the run_list defined will be automatically appended to any previously-defined runlist. For example, if my run_list defined under [configuration] was "run_list = recipe[test]", the final runlist would be "run_list = recipe[cyclecloud], recipe[test], role[a], recipe[b], recipe[cluster_init]".
 
 You can also overwrite a runlist at the spec level on a node. This will replace any run_list included in the project.ini. For example, if we changed the node definition to the following:
 
-  [cluster-init test-project:master:1.0.0]
-  run_list = recipe[different-test]
+    [cluster-init test-project:master:1.0.0]
+    run_list = recipe[different-test]
 
 The runlist defined in the project would be ignored, and the above would be used instead. The final runlist on the node would then be "run_list = recipe[cyclecloud], recipe[test], recipe[different-test], recipe[cluster_init]".
 
@@ -185,10 +185,10 @@ The cluster-init files will be downloaded to `/mnt/cluster-init/(project)/(spec)
 
 CycleCloud projects can be synced from mirrors into cluster local cloud storage. Set a SourceLocker attribute on a [cluster-init] section within your template. The name of the locker specified will be used as the source of the project, and contents will synced to the your locker at cluster start. You can also use the name of the locker as the first part of the cluster-init name. For example, if the source locker was "cyclecloud", the following two definitions are the same:
 
-  [cluster-init my-project:my-spect:1.2.3]
-    SourceLocker=cyclecloud
+    [cluster-init my-project:my-spect:1.2.3]
+      SourceLocker=cyclecloud
 
-  [cluster-init cyclecloud/my-proect:my-spec:1.2.3]
+    [cluster-init cyclecloud/my-proect:my-spec:1.2.3]
 
 ## Large File Storage
 
@@ -198,8 +198,8 @@ Items within the "blobs" directory are spec and version independent: anything in
 
 To add a blob, simply place a file into the "blobs" directory and edit your `project.ini` to reference that file:
 
-  [blobs]
-    Files=big_file1.tgz
+    [blobs]
+      Files=big_file1.tgz
 
 When you use the `project upload` command, all blobs referenced in the project.ini will be transferred into cloud storage.
 
