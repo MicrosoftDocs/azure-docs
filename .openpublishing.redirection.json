@@ -39,6 +39,12 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
         },
+        
+        {
+            "source_path": "articles/machine-learning/service/aml-pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/machine-learning-services",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/machine-learning/preview/index.md",
             "redirect_url": "/azure/machine-learning/service",
@@ -17640,6 +17646,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
+          "redirect_url": "azure/iot-suite/iot-suite-what-are-solution-accelerators",
+          "redirect_document_id": false
+      },
+      {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false
