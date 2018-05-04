@@ -280,11 +280,15 @@ These errors happen because the heap size is not large enough for Spark to run. 
 ![Adding options to the "VM options" box in IntelliJ](./media/apache-spark-intellij-tool-plugin/change-heap-size.png)
 
 ## FAQ
-To submit an application to Azure Data Lake Store, choose **Interactive** mode during the Azure sign-in process. If you select **Automated** mode, you can get an error.
+When link a cluster, I would suggest you to provide credential of storage.
 
-![interative-signin](./media/apache-spark-intellij-tool-plugin/interative-signin.png)
+![Link cluster, provide storage credential](./media/apache-spark-intellij-tool-plugin/link-cluster-with-storage-credential-intellij.png)
 
-Now, we resolved it. You can choose an Azure Data Lake Cluster to submit your application with any sign-in method.
+There are two modes to submit the jobs. If storage credential is provided, batch mode will be used to submit the job. Otherwise, interactive mode will be used. If the cluster is busy, you might get the error below.
+
+![intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-upload.png)
+
+![intellij get error when cluster busy](./media/apache-spark-intellij-tool-plugin/intellij-interactive-cluster-busy-submit.png)
 
 ## Feedback and known issues
 Currently, viewing Spark outputs directly is not supported.
