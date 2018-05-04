@@ -346,7 +346,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -472,7 +472,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1094,9 +1094,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/azure/lab-services/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
-                                                <p>Azure DevTest Labs</p>
+                                                <p>Azure Lab Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1262,9 +1262,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                            <a href="https://docs.microsoft.com/azure/azure-maps/">
                                                 <img src="media/index/azure-lbs-icon.svg" alt="" />
-                                                <p>Azure Location Based Services</p>
+                                                <p>Azure Maps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1437,6 +1437,15 @@ featureFlags:
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Information</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Management Tools</h3>
+                                    <ul>
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
@@ -1762,7 +1771,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplify the deployment, management, and operations of Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2585,7 +2594,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplify the deployment, management, and operations of Kubernetes</p>
                                                 </div>
                                             </div>
@@ -3752,7 +3761,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.microsoft.com/azure/location-based-services/">
+                                <a href="https://docs.microsoft.com/azure/azure-maps/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3762,7 +3771,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Location Based Services</h3>
+                                                    <h3>Azure Maps</h3>
                                                     <p>Simple and secure location APIs provide geospatial context to data</p>
                                                 </div>
                                             </div>
@@ -4209,7 +4218,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/azure/lab-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -4219,8 +4228,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevTest Labs</h3>
-                                                    <p>Quickly create environments using reusable templates and artifacts</p>
+                                                    <h3>Azure Lab Services</h3>
+                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
