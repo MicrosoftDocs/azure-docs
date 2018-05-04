@@ -1,7 +1,7 @@
 - name: Computer Vision Documentation
 - name: Overview
   items:
-  - name: What is Computer Vision
+  - name: What is Computer Vision?
     href: Home.md
 - name: How-to guides
   items:

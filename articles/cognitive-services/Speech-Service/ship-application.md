@@ -15,13 +15,13 @@ ms.author: wolfma
 
 # Shipping an application
 
-Please observe the [Speech SDK license](license.md), as well as the [third party software notices](third-party-notices.md) when distributing the Cognitive Services Speech SDK. Please see also the [Microsoft Privacy Statement](https://aka.ms/csspech/privacy).
+Observe the [Speech SDK license](license.md), as well as the [third party software notices](third-party-notices.md) when distributing the Cognitive Services Speech SDK. Also, review the [Microsoft Privacy Statement](https://aka.ms/csspech/privacy).
 
-Depending on the platform you are distributing you application on, different files are required.
+Depending on the platform, you are distributing you application on, different files are required for your application.
 
 ## Windows
 
-On Windows, you can just deploy the required files next to your application, which guarantees that your application can access them. Make sure you select the version (Win32/x64) matching your application.
+On Windows, you can deploy the required files next to your application, which guarantees that your application can access them. Make sure you select the version (Win32/x64) matching your application.
 
 | Name | Function
 |:-----|:----|
@@ -30,7 +30,7 @@ On Windows, you can just deploy the required files next to your application, whi
 
 ## Linux
 
-For a native application you need to ship the Speech SDK library, `libcarbon.so`. Depending on the Linux version or distro you are targeting, you may also need include the following dependencies:
+For a native application you need to ship the Speech SDK library, `libcarbon.so`. Depending on the Linux version or distro you are targeting, you may also need to include the following dependencies:
 
 * The shared libraries of the GNU C Library (including the POSIX Threads Programming library, `libpthreads`)
 * The OpenSSL library (`libssl.so.1.0.0`)
@@ -45,3 +45,8 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 ```
 
 If you need to support multiple Linux versions or distros, consider simply shipping all the dependencies with your application.
+
+## Next steps
+
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-windows.md)
