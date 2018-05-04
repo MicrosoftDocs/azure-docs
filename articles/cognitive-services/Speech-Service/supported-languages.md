@@ -18,32 +18,6 @@ Different languages are supported for different Speech services functions. The t
 
 ## Speech to Text
 
-Language support varies depending on the speech recognition mode.
-
-### Interactive and dictation mode
-
-The **Speech to Text** API supports the following languages in `interactive` and `dictation` modes. 
-
-|Code | Language | Code | Language |
-|-----|-----|-----|-----|
-| ar-EG | Arabic (Egypt), modern standard | hi-IN | Hindi (India) |
-| ca-ES | Catalan (Spain) | it-IT | Italian (Italy)  |
-| da-DK | Danish (Denmark) | ja-JP | Japanese (Japan) |
-| de-DE | German (Germany) |ko-KR | Korean (Korea) |
-| en-AU | English (Australia) |nb-NO | Norwegian (Bokmål) (Norway)  |
-| en-CA | English (Canada) | nl-NL | Dutch (Netherlands)   |
-| en-GB | English (United Kingdom) |pl-PL | Polish (Poland) |
-| en-IN | English (India) | pt-BR | Portuguese (Brazil)  |
-| en-NZ | English (New Zealand) |pt-PT | Portuguese (Portugal)  |
-| en-US | English (United States) | ru-RU | Russian (Russia) |
-| es-ES | Spanish (Spain) | sv-SE | Swedish (Sweden) |
-| es-MX | Spanish (Mexico) |zh-CN | Chinese (Mandarin, simplified)  |
-| fi-FI | Finnish (Finland) |zh-HK | Chinese (Hong Kong SAR) |
-| fr-CA | French (Canada) | zh-TW | Chinese (Mandarin, Taiwanese)|
-| fr-FR | French (France) | ||
-
-### Conversation mode
-
 The Microsoft speech recognition API supports the following languages in `conversation` modes. 
 
 | Code | Language | Code | Language |
@@ -53,22 +27,6 @@ The Microsoft speech recognition API supports the following languages in `conver
 | en-US | English (United States) | pt-BR | Portuguese (Brazil) |
 | es-ES | Spanish (Spain) | ru-RU | Russian (Russia) |
 | fr-FR | French (France) | zh-CN | Chinese (Mandarin, simplified) |
-
-### Customization
-
-The following languages are supported for custom **Speech to Text** language models.
-
-| Code | Language | Code | Language |
-|-|-|-|-|
-en-US | English (United States) | de-DE | German
-zh-CN | Chinese | pt-BR | Portuguese (Brazil)
-sp-SP | Spanish (Spain) | ru-RU | Russian
-fr-FR | French (France) | jp-JP | Japanese
-it-IT | Italian | ar-EG | Arabic (Egypt)
-
-Custom acoustic models support only US English (en-US). However, Chinese acoustic data sets can be imported for testing Chinese language models. 
-
-Custom pronunciation supports only US English (en-US) and German (de-DE).
 
 ## Text to Speech
 

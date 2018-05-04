@@ -23,18 +23,6 @@ You can use **Speech to Text** in your applications in two different ways.
 
 \* *The Java SDK is part of the [Speech Devices SDK](speech-devices-sdk.md).*
 
-## Recognition modes
-
-The **Speech to Text** API supports three recognition modes: interactive, conversation, and dictation. The recognition mode tunes speech recognition functionality based on how users are likely to speak in a given scenario.
-
-|Mode|Description
-|----|-----------
-|Interactive|For short requests like commands, under 15 seconds. User expects immediate action.
-|Conversation|For transcribing conversations between people. User expects a record of the conversation, perhaps for later review.
-|Dictation|For transcribing text into a document. User expects to see his utterances appear in a document in real time.
-
-Both *conversation* and *dictation* mode support continuous speech recognition. The REST API only supports *interactive* mode.
-
 ## Using the SDK
 
 The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Text** in your application with full functionality.
