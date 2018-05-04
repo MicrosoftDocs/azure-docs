@@ -70,9 +70,9 @@ ms.author: maquaran
 
 ### Pre-release builds
 
-### <a name="2.0.2-prerelease"/>2.0.1-prerelease
+### <a name="2.0.2-prerelease"/>2.0.2-prerelease
 * Minor API changes:
-  * Removed ChangeFeedProcessorOptions.IsAutoCheckpointEnabled which was marked as obsolete.
+  * Removed ChangeFeedProcessorOptions.IsAutoCheckpointEnabled that was marked as obsolete.
 
 ### <a name="2.0.1-prerelease"/>2.0.1-prerelease
 * Stability improvements:
