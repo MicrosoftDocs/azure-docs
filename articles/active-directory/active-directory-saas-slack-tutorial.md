@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -179,10 +179,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     e.  Click **Save Configuration**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -221,7 +217,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 There is no action item for you in this section. A new user is created during an attempt to access Slack if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
+> If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact). For more details you can visit [here](active-directory-saas-slack-provisioning-tutorial.md)
 
 ### Assigning the Azure AD test user
 
@@ -263,6 +259,7 @@ When you click the Slack tile in the Access Panel, you should get automatically 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure User Provisioning](active-directory-saas-slack-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -277,4 +274,3 @@ When you click the Slack tile in the Access Panel, you should get automatically 
 [201]: ./media/active-directory-saas-slack-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-slack-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-slack-tutorial/tutorial_general_203.png
-
