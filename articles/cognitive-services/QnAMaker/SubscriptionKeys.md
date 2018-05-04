@@ -1,5 +1,5 @@
 ---
-title: Authentication and subscription keys for QnA Maker | Microsoft Docs
+title: Authentication and subscription keys for QnA Maker - Microsoft Cognitive Services | Microsoft Docs
 description: Get authentication and subscription keys that are used to track your QnA Maker tool usage.
 services: cognitive-services
 author: pchoudhari
@@ -19,10 +19,10 @@ You will receive a unique pair of keys. The second one is just a spare. Please d
 These subscription keys are used to track your usage of the service and need to be part of every request, as mentioned in the API section.
 To view your subscription keys, go to Settings.
 
-![alt text](./Images/kbSubscription.png)
+![](./media/kbSubscription.png)
 
 Here you can view and also refresh your subscription keys, if you suspect they have been compromised.
 
-![alt text](./Images/kbSubscriptionKey.png)
+![](./media/kbSubscriptionKey.png)
 
 Since currently the QnA Maker is a free to use tool, we have the following restrictions of usage per subscription key: **10,000 transactions per month, 10 per minute.** Beyond this your requests will be throttled.

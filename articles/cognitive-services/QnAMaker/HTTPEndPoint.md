@@ -1,5 +1,5 @@
 ---
-title: API V2.0 reference for QnA Maker | Microsoft Docs
+title: API V2.0 reference for QnA Maker - Microsoft Cognitive Services | Microsoft Docs
 description: Use API V2.0 for QnA Maker to programmatically manage your knowledge base.
 services: cognitive-services
 author: pchoudhari
