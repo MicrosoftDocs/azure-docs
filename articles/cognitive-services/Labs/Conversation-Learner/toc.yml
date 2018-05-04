@@ -9,7 +9,7 @@
     href: cl-values-and-boundaries.md
   - name: Supported languages
     href: languages-supported.md
-- name: How-tos
+- name: How-to guides
   items: 
   - name: Get started with Conversation Learner
     href: quickstart.md
