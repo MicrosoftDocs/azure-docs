@@ -15,21 +15,21 @@ ms.author: davidmu
 ---
 # Configure the resource owner password credentials flow (ROPC) in Azure AD B2C
 
-The resource owner password credentials (ROPC) flow is an OAUTH standard authentication flow where the application, also know as the relying party, exchanges valid credentials such as userid and password for an id token, access token, and a refresh token. 
+The resource owner password credentials (ROPC) flow is an OAUTH standard authentication flow where the application, also know as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
 
 > [!NOTE]
 > This feature is in preview.
 
 In Azure AD B2C, these options are supported:
 
-- **Native Client** – User interaction during authentication happens using code running on a user-side device which may be a mobile application running in the native operating system such as Android or running in the browser such as Javascript.
+- **Native Client** – User interaction during authentication happens using code running on a user-side device, which may be a mobile application running in the native operating system such as Android or running in the browser such as Javascript.
 - **Public client flow** – Only user credentials, gathered by an application, are sent in the API call. The credentials of the application are not sent.
 - **Add new claims** - The ID token contents can be changed to add new claims. 
 
 These flows are not supported:
 
 - **Server-to-server**  The identity protection system (IDPS) needs a reliable IP address gathered from the caller (the native client) as part of the interaction.  In a server-side API call, only the server’s IP address is used and the IDPS may identify a repeated IP address as an attacker if a dynamic threshold of failed authentications is exceeded.
-- **Confidential client flow** - The application client id is validated, but the application secret is not validated.
+- **Confidential client flow** - The application client ID is validated, but the application secret is not validated.
 
 ##  Create a resource owner policy
 
@@ -56,7 +56,7 @@ You'll then see an endpoint such as this example:
 ## Test the policy
 
 Use your favorite API development application to generate an API call, and review the response to debug your policy. Construct a call like this with the information in the following table as the body of the POST request:
-- Replace *yourtenant.onmicrosoft.com* with the name of your b2c tenant
+- Replace *yourtenant.onmicrosoft.com* with the name of your B2C tenant
 - Replace *B2C_1A_ROPC_Auth* with the full name of your ROPC policy
 - Replace *bef2222d56-552f-4a5b-b90a-1988a7d634c3* with the Application ID from your registration.
 
@@ -71,7 +71,7 @@ Use your favorite API development application to generate an API call, and revie
 | client_id | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
 | response_type | token id_token |
 
-*Client_id* is the value that you previously noted as the application id. *Offline_access* is optional if you want to receive a refresh token. 
+*Client_id* is the value that you previously noted as the application ID. *Offline_access* is optional if you want to receive a refresh token. 
 
 The actual POST request looks like this:
 
@@ -110,14 +110,14 @@ Construct a POST call like this with the information in the following table as t
 | resource | bef2222d56-552f-4a5b-b90a-1988a7d634c3 |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
-*Client_id* and *resource* is the value that you previously noted as the application id. *Refresh_token* is the token that you received in the authentication call mentioned previously.
+*Client_id* and *resource* are the values that you previously noted as the application ID. *Refresh_token* is the token that you received in the authentication call mentioned previously.
 
 ## Implement with your preferred native SDK or use App-Auth
 
 
-Our implementaion meets OAuth 2.0 standards or public client ROPC and should be compatible with most client SDKs.  We have tested this flow extensively, in production, with AppAuth for iOS and AppAuth for Android.  See https://appauth.io/ for the latest information.
+The Azure AD B2C implementation meets OAuth 2.0 standards or public client ROPC and should be compatible with most client SDKs.  We have tested this flow extensively, in production, with AppAuth for iOS and AppAuth for Android.  See https://appauth.io/ for the latest information.
 
-You may download working samples which have been configured for use with b2c from github at https://aka.ms/aadb2cappauthropc for Android and https://aka.ms/aadb2ciosappauthropc.
+You may download working samples, which have been configured for use with Azure AD B2C from github at https://aka.ms/aadb2cappauthropc for Android and https://aka.ms/aadb2ciosappauthropc.
 
 
 

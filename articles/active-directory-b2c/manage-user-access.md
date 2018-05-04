@@ -22,7 +22,7 @@ This article provides information about how you can manage user access to your a
 - Gathering data of birth and country data from the user
 - Capturing terms of use agreement and gating access
 
-[!INCLUDE [gdpr-intro-sentence.md](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## Control minor access
 
@@ -30,8 +30,8 @@ Applications and organizations may decide to block minors from using application
 
 If a user is identified as a minor, then the user flow in Azure AD B2C may be set to one of three options:
 
-- **Send a signed JWT id_token back to the application** - The user is registered in the directory and a token is returned to the application. The application then proceeds using business rules. For example, the application may proceed with a parental consent process. To do this, you choose to recieve the **ageGroup** and **consentProvidedForMinor** claims from the application.
-- **Send an unsigned JSON token to the application** - Azure AD B2C notifies the application that the user is a minor and provides the status of the user’s parental consent. The application then proceeds using business rules. A JSON token does not complete a successful authentication with the application. The application must process the unauthenticated user according to the claims included in the JSON token which may include **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
+- **Send a signed JWT id_token back to the application** - The user is registered in the directory and a token is returned to the application. The application then proceeds using business rules. For example, the application may proceed with a parental consent process. To do this, you choose to receive the **ageGroup** and **consentProvidedForMinor** claims from the application.
+- **Send an unsigned JSON token to the application** - Azure AD B2C notifies the application that the user is a minor and provides the status of the user’s parental consent. The application then proceeds using business rules. A JSON token does not complete a successful authentication with the application. The application must process the unauthenticated user according to the claims included in the JSON token, which may include **name**, **email**, **ageGroup**, and **consentProvidedForMinor**.
 - **Block the user** - If the user is a minor, and parental consent has not been provided.  Azure AD B2C can then present a screen to the user that informs of being blocked.  No token is issued, access is blocked, and the user account is not created during a registration journey. To implement this, you provide a suitable HTML/CSS content page to inform the user and present appropriate options. No further action is needed by the application for new registrations.
 
 ## Get parental consent
@@ -42,11 +42,11 @@ The following is an example of a user flow for gathering parental consent:
 
 1. An [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) operation identifies the user as a minor and returns the user data to the application in the form of an unsigned JSON token.
 2. The application processes the JSON token and shows a screen to the minor notifying that parental consent is required and requests the consent of a parent online. 
-3. Azure AD B2C shows a sign-in journey whereby the user is allowed to sign in normally and issues a token to the application that is set to include **legalAgeGroupClassification = “minorWithParentalConsent”** The application collects the email address of the parent and verifies the parent is an adult using a trusted source such as a national ID office, license verification, or credit card proof. If successful, the application prompts the minor to sign-in using the Azure AD B2C user flow. If consent was denied (e.g. **legalAgeGroupClassification = “minorWithoutParentalConsent”**, Azure AD B2C returns a JSON token (not a login) to the application to restart consent process. It is optionally possible to customize the user flow whereby a minor or an adult can regain access to a minor’s account by sending a registration code to the minor’s email address or the adult’s email address on record.
+3. Azure AD B2C shows a sign-in journey whereby the user is allowed to sign in normally and issues a token to the application that is set to include **legalAgeGroupClassification = “minorWithParentalConsent”** The application collects the email address of the parent and verifies the parent is an adult using a trusted source such as a national ID office, license verification, or credit card proof. If successful, the application prompts the minor to sign in using the Azure AD B2C user flow. If consent was denied (e.g. **legalAgeGroupClassification = “minorWithoutParentalConsent”**, Azure AD B2C returns a JSON token (not a login) to the application to restart consent process. It is optionally possible to customize the user flow whereby a minor or an adult can regain access to a minor’s account by sending a registration code to the minor’s email address or the adult’s email address on record.
 4. The application offers an option to the minor to revoke consent.
 5. When the minor or adult revokes consent, the Azure AD Graph API can be used to change **consetProvidedForMinor** to **denied**. Alternatively, the application may choose to delete a minor whose consent has been revoked. It is optionally possible to customize the user flow whereby the authenticated minor (or parent using the minor’s account) can revoke consent. Azure AD B2C records **consentProvidedForMinor** as **denied**.
 
-For more information about the **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User Resource Type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). For more information about custom or extended attributes, see [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md) and [Creating and using custom attributes in a custom profile edit policy](active-directory-b2c-create-custom-attributes-profile-edit-custom). When addressing extended attributes using Azure AD Graph API, the long version of the attribute must be used such as "extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth": "2011-01-01T00:00:00Z"
+For more information about the **legalAgeGroupClassification**, **consentProvidedForMinor**, and **ageGroup**, see [User Resource Type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). For more information about custom attributes, see [Use custom attributes to collect information about your consumers](active-directory-b2c-reference-custom-attr.md). When addressing extended attributes using Azure AD Graph API, the long version of the attribute must be used such as "extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth": "2011-01-01T00:00:00Z"
 
 ## Gather date of birth and country data
 
@@ -91,7 +91,7 @@ Capturing terms of use consent can be presented to the user under the following 
 - A user is signing in and has not already accepted consent for the latest or active terms of use. The terms of use are displayed the consent result is stored.
 - A user is signing in and has already accepted consent for an older terms of use, which is now updated to a later version. The terms of use are displayed the consent result is stored.
 
-The following image shows the recommeded user flow:
+The following image shows the recommended user flow:
 
 ![acceptance user flow](./media/manage-user-access/user-flow.png) 
 
