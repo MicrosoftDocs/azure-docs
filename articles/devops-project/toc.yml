@@ -18,7 +18,7 @@
   - name: PHP
     href: /vsts/build-release/apps/cd/azure/azure-devops-project-php?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Ruby
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-ruby?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
+    href: vsts/build-release/apps/cd/azure/azure-devops-project-ruby?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Go
     href: /vsts/build-release/apps/cd/azure/azure-devops-project-go?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
 - name: Tutorials
