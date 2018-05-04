@@ -34,7 +34,7 @@ pip install numpy
 
 ## Load your model and tags
 
-The downloaded zip file contains a model.pb and a labels.txt. These file represent the trained model and the classification labels. The first step is to load the model into your project.
+The downloaded zip file contains a model.pb and a labels.txt. These files represent the trained model and the classification labels. The first step is to load the model into your project.
 
 ```Python
 import tensorflow as tf
