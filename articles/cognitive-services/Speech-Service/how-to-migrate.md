@@ -63,9 +63,9 @@ The REST endpoints for **Text to Speech** in the unified Speech service are show
 
 Region|	Endpoint
 -|-
-West US|	https://westus.tts.speech.microsoft.com/cognitiveservices/v1
-East Asia|	https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1
-North Europe|	https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1
+West US|	`https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
+East Asia|	`https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
+North Europe|	`https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 ## Speech Translation
 
@@ -75,9 +75,9 @@ Only the WebSockets endpoints are different, as shown here. While we recommend u
 
 Region|	Endpoint
 -|-
-West US| wss://westus.s2s.speech.microsoft.com/v1.0/
-East Asia|	wss://eastasia.s2s.speech.microsoft.com/v1.0/
-North Europe| wss://northeurope.s2s.speech.microsoft.com/v1.0/
+West US| `wss://westus.s2s.speech.microsoft.com/v1.0/`
+East Asia|	`wss://eastasia.s2s.speech.microsoft.com/v1.0/`
+North Europe| `wss://northeurope.s2s.speech.microsoft.com/v1.0/`
 
 ## Software Development Kits
 
