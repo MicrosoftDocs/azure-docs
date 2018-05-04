@@ -71,7 +71,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 > There is currently an issue where Gen2 data warehouses will not appear in the SQL data warehouse browse blade. Please use the SQL database browse blade to find your newly upgraded Gen2 data warehouse. We are actively working on this fix.
 > 
 
-5. **Optional Recommendation:** 
+6. **Optional Recommendation:** 
 To expedite the data migration background process, it is recommended to immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all columnstore tables at a larger SLO and resource class. This operation is offline compared to the trickle background process; however, data migration will be much quicker where you can then take full advantage of the new enhanced storage architecture once complete with high-quality rowgroups. 
 
 This following query generates the required Alter Index Rebuild commands to expedite the data migration process:
