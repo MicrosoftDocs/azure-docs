@@ -104,13 +104,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![PlanGrid Domain and URLs single sign-on information](./media/active-directory-saas-plangrid-tutorial/tutorial_plangrid_url1.png)
 
-    In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://io.plangrid.com/sessions/saml/metadata`
+    In the **Identifier (Entity ID)** textbox, type the URL: `https://io.plangrid.com/sessions/saml/metadata`
 
 4. Check **Show advanced URL settings** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![PlanGrid Domain and URLs single sign-on information](./media/active-directory-saas-plangrid-tutorial/tutorial_plangrid_url2.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.plangrid.com/login`
+    In the **Sign-on URL** textbox, type the URL: `https://app.plangrid.com/login`
 
 5. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
