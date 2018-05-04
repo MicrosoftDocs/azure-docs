@@ -20510,6 +20510,56 @@
             "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
             "redirect_document_id": true
-        }
+        },
+		{
+            "source_path": "articles/cognitive-services/QnAMaker/guides/active-learning-qnamaker.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/guides/createkb.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/How-To/create-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/guides/publishkb.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/guides/share-knowledgebase-qnamaker.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/guides/trainkb.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/guides/updatekb.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/How-To/edit-knowledge-base.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/home.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/Overview/overview.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/httpendpoint.md",
+            "redirect_url": "https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/quickstart.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/Quickstarts/csharp.md",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/subscriptionkeys.md",
+            "redirect_url": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
+			"redirect_document_id": false
+		}
     ]
 }
