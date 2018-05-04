@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## Specify the behavior of the IoT device
 
 The IoT Hub serializer client library uses a model to specify the format of the messages the device exchanges with IoT Hub.
@@ -78,7 +90,7 @@ The IoT Hub serializer client library uses a model to specify the format of the 
 
 Now add code that implements the behavior defined in the model.
 
-1. Add the following callback handler that runs when the device has sent new reported property values to the preconfigured solution:
+1. Add the following callback handler that runs when the device has sent new reported property values to the solution accelerator:
 
     ```c
     /* Callback after sending reported properties */
@@ -221,7 +233,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function that sends a message with properties to the preconfigured solution:
+1. Add the following function that sends a message with properties to the solution accelerator:
 
     ```c
     static void sendMessage(IOTHUB_CLIENT_HANDLE iotHubClientHandle, const unsigned char* buffer, size_t size, char* schema)
@@ -260,7 +272,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-1. Add the following function to connect your device to the preconfigured solution in the cloud, and exchange data. This function performs the following steps:
+1. Add the following function to connect your device to the solution accelerator in the cloud, and exchange data. This function performs the following steps:
 
     - Initializes the platform.
     - Registers the Contoso namespace with the serialization library.
@@ -396,7 +408,7 @@ Now add code that implements the behavior defined in the model.
     }
     ```
 
-    For reference, here is a sample **Telemetry** message sent to the preconfigured solution:
+    For reference, here is a sample **Telemetry** message sent to the solution accelerator:
 
     ```
     Device: [myCDevice],
