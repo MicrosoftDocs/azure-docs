@@ -1,21 +1,15 @@
 - name: Conversation Learner API Documentation
   href: overview.md
 - name: Overview
+  expanded: true
   items:
-  - name: Supported languages
-    href: languages-supported.md
-- name: Concepts
-  items: 
   - name: Control flow
     href: control-flow.md
-  - name: How to teach with Conversation Learner 
-    href: how-to-teach-cl.md
   - name: Default values and boundaries
     href: cl-values-and-boundaries.md
-  - name: Managing user data
-    href: managing-data.md
+  - name: Supported languages
+    href: languages-supported.md
 - name: How-tos
-  expanded: true
   items: 
   - name: Get started with Conversation Learner
     href: quickstart.md
@@ -59,6 +53,10 @@
     href: tutorials/demo-vr-app-launcher.md
   - name: Deploying a Conversation Learner bot
     href: deploy-to-bf.md
+  - name: How to teach with Conversation Learner 
+    href: how-to-teach-cl.md
+  - name: How to manage user data
+    href: managing-data.md
 - name: Resources
   items:
   - name: Conversation Learner sample bot
