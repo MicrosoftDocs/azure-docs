@@ -141,7 +141,8 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    $resourceGroup = New-AzureRmResourceGroup -Name $rgname -Location $location -Force
    ```
 7. Create the User Assigned Identity used to give access to the application gateway to retrieve certificates from the Key Vault.
-   ```
+
+   ```Powershell
    $userAssignedIdentity = New-AzureRmResource -ResourceGroupName $rgname -Location $location -ResourceName $userAssignedIdentityName -ResourceType Microsoft.ManagedIdentity/userAssignedIdentities -Force
    ```
 8. Create the Key Vault used to store your certificates:
