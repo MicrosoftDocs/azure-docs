@@ -7247,6 +7247,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/csharp.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/java.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/nodejs.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/python.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/sql-database/sql-database-command-line-tools.md",
             "redirect_url": "/azure/sql-database/sql-database-manage-overview",
             "redirect_document_id": false
