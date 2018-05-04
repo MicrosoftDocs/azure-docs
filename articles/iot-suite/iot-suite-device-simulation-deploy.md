@@ -41,9 +41,9 @@ Before you deploy the solution to your Azure subscription, you must choose some 
 
 1. Click **Select** on the **Device Simulation** tile:
 
-    ![Choose Device simulation](media/iot-suite-device-simulation-deploy/select.png)
+    ![Choose Device Simulation](media/iot-suite-device-simulation-deploy/select.png)
 
-1. On the **Create Device simulation solution** page, enter a **Solution name** for your Device Simulation solution.
+1. On the **Create Device Simulation solution** page, enter a **Solution name** for your Device Simulation solution.
 
 1. Select the **Subscription** and **Region** you want to use to provision the solution.
 
