@@ -41,13 +41,22 @@ az group create --name myResourceGroup --location eastus
 
 # Create a Service Bus messaging namespace with a unique name
 namespaceName=myNameSpace$RANDOM
-az servicebus namespace create --resource-group myResourceGroup --name $namespaceName --location eastus
+az servicebus namespace create \
+   --resource-group myResourceGroup \
+   --name $namespaceName \
+   --location eastus
 
 # Create a Service Bus queue
-az servicebus queue create --resource-group myResourceGroup --namespace-name $namespaceName --name myQueue
+az servicebus queue create --resource-group myResourceGroup \
+   --namespace-name $namespaceName \
+   --name myQueue
 
 # Get the connection string for the namespace
-connectionString=$(az servicebus namespace authorization-rule keys list --resource-group myResourceGroup --namespace-name  $namespaceName --name RootManageSharedAccessKey --query primaryConnectionString --output tsv)
+connectionString=$(az servicebus namespace authorization-rule keys list \
+   --resource-group myResourceGroup \
+   --namespace-name  $namespaceName \
+   --name RootManageSharedAccessKey \
+   --query primaryConnectionString --output tsv)
 ```
 
 After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
