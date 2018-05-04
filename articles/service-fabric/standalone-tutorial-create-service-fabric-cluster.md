@@ -1,6 +1,6 @@
 ---
-title: Creating the infrastructure for a service fabric cluster on AWS - Azure Service Fabric | Microsoft Docs
-description: In this tutorial, you learn how to set up the AWS infrastructure to run a service fabric cluster.
+title: Tutorial install Service Fabric standalone client - Azure Service Fabric | Microsoft Docs
+description: In this tutorial you learn how to install the Service Fabric standalone client on the cluster you created in the previous tutorial article.
 services: service-fabric
 documentationcenter: .net
 author: david-stanford
@@ -17,127 +17,107 @@ ms.date: 03/09/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
-# Install and create Service Fabric cluster
+# Tutorial: Install and create Service Fabric cluster
 
-Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
 
-This tutorial is part two of a series.  Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
+This tutorial is part two of a series. This tutorial walks you through the steps for creating a Service Fabric standalone cluster.
 
 In part two of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a set of EC2 instances
-> * VPC?
-> * Security Groups?
-> * Login to one of the instances
-
-# Create a standalone cluster running on Windows Server
-
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
-
-This article walks you through the steps for creating a Service Fabric standalone cluster.
-
-> [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
-> 
-> 
-
-<a id="getsupport"></a>
-
-## Get support for the Service Fabric for Windows Server package
-
-* Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
-* You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-* To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
-
-<a id="downloadpackage"></a>
+> * Download & install the Service Fabric standalone package
+> * Create the Service Fabric cluster
+> * Connect to the Service Fabric cluster
 
 ## Download the Service Fabric for Windows Server package
 
-To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: <br>
-[Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
 
-Find details on contents of the package [here](service-fabric-cluster-standalone-package-contents.md).
+Select the zip file and open the context menu and select **Extract All** > **Extract**.  This will generate a folder on the desktop that is the same as the zip file name.
 
-The Service Fabric runtime package is automatically downloaded at time of cluster creation. If deploying from a machine not connected to the internet, please download the runtime package out of band from here: <br>
-[Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354)
+If you want to get more detail on the [contents of the setup package](service-fabric-cluster-standalone-package-contents.md).
 
-Find Standalone Cluster Configuration samples at: <br>
-[Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+## Setup your configuration file
 
-<a id="createcluster"></a>
+You are building a three-node windows cluster, so you need to modify the `ClusterConfig.Unsecure.MultiMachine.json` file.
+
+You need to update the three ipAddress lines which occur in the file on lines 8, 15, and 22 to the IP Addresses for each of the instances that you retrieved in the first tutorial.
+
+After updating the nodes they should look like this:
+
+```json
+        {
+            "nodeName": "vm0",
+            "ipAddress": "172.31.27.1",
+            "nodeTypeRef": "NodeType0",
+            "faultDomain": "fd:/dc1/r0",
+            "upgradeDomain": "UD0"
+        }
+```
+
+Then you need to update a couple of the properties.  On line 34, you need to modify the connectionstring for the diagnostic store it should look like this after modification, with your IP address substituted in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+
+After you update the connection string be sure to create the folder.  The following command will create it:
+
+```powershell
+mkdir \\172.31.27.1\c$\DiagnosticsStore
+```
+
+## Validate the environment
+
+The *TestConfiguration.ps1* script in the standalone package is used as a best practices analyzer to validate whether a cluster can be deployed on a given environment. [Deployment preparation](service-fabric-cluster-standalone-deployment-preparation.md) lists the pre-requisites and environment requirements. Run the script to verify if you can create the development cluster:
+
+```powershell
+cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.1.480.9494\
+.\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
+```
+
+You should see output like below. If the bottom field "Passed" is returned as `True`, sanity checks have passed and the cluster looks to be deployable based on the input configuration.
+
+```powershell
+Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.1.480.9494\DeploymentTraces
+Running Best Practices Analyzer...
+Best Practices Analyzer completed successfully.
+
+
+LocalAdminPrivilege        : True
+IsJsonValid                : True
+IsCabValid                 :
+RequiredPortsOpen          : True
+RemoteRegistryAvailable    : True
+FirewallAvailable          : True
+RpcCheckPassed             : True
+NoConflictingInstallations : True
+FabricInstallable          : True
+DataDrivesAvailable        : True
+NoDomainController         : True
+Passed                     : True
+```
+
+## I had to update the host file with the following to make it work
+
+```
+c:\windows\system32\drivers\etc\hosts
+172.31.21.141 EC2AMAZ-26OI32A
+172.31.20.163 EC2AMAZ-J9KB1DJ
+172.31.27.1 EC2AMAZ-GCMLQVH
+```
 
 ## Create the cluster
 
-Service Fabric can be deployed to a one-machine development cluster by using the *ClusterConfig.Unsecure.DevCluster.json* file included in [Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
-
-Unpack the standalone package to your machine, copy the sample config file to the local machine, then run the *CreateServiceFabricCluster.ps1* script through an administrator PowerShell session, from the standalone package folder:
-
-### Step 1A: Create an unsecured local development cluster
+Once you have a successfully validated your cluster config run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster to the virtual machines in the configuration file.
 
 ```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Windows.MultiMachine.json -AcceptEULA
 ```
-
-See the Environment Setup section at [Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md) for troubleshooting details.
-
-If you're finished running development scenarios, you can remove the Service Fabric cluster from the machine by referring to steps in section "[Remove a cluster](#removecluster_anchor)". 
-
-### Step 1B: Create a multi-machine cluster
-
-After you have gone through the planning and preparation steps detailed at the below link, you are ready to create your production cluster using your cluster configuration file. <br>
-[Plan and prepare your cluster deployment](service-fabric-cluster-standalone-deployment-preparation.md)
-
-1. Validate the configuration file you have written by running the *TestConfiguration.ps1* script from the standalone package folder:  
-
-    ```powershell
-    .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
-    ```
-
-    You should see output like below. If the bottom field "Passed" is returned as "True", sanity checks have passed and the cluster looks to be deployable based on the input configuration.
-
-    ```
-    Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
-    Running Best Practices Analyzer...
-    Best Practices Analyzer completed successfully.
-    
-    LocalAdminPrivilege        : True
-    IsJsonValid                : True
-    IsCabValid                 : True
-    RequiredPortsOpen          : True
-    RemoteRegistryAvailable    : True
-    FirewallAvailable          : True
-    RpcCheckPassed             : True
-    NoConflictingInstallations : True
-    FabricInstallable          : True
-    Passed                     : True
-    ```
-
-2. Create the cluster:
-    Run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster across each machine in the configuration. 
-    ```powershell
-    .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
-    ```
 
 > [!NOTE]
 > Deployment traces are written to the VM/machine on which you ran the CreateServiceFabricCluster.ps1 PowerShell script. These can be found in the subfolder DeploymentTraces, based in the directory from which the script was run. To see if Service Fabric was deployed correctly to a machine, find the installed files in the FabricDataRoot directory, as detailed in the cluster configuration file FabricSettings section (by default c:\ProgramData\SF). As well, FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
-> 
-> 
+>
+>
 
-### Step 1C: Create an offline (internet-disconnected) cluster
-
-The Service Fabric runtime package is automatically downloaded at cluster creation. When deploying a cluster to machines not connected to the internet, you will need to download the Service Fabric runtime package separately, and provide the path to it at cluster creation.
-The runtime package can be downloaded separately, from another machine connected to the internet, at [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copy the runtime package to where you are deploying the offline cluster from, and create the cluster by running `CreateServiceFabricCluster.ps1` with the `-FabricRuntimePackagePath` parameter included, as shown below: 
-
-```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
-```
-where `.\ClusterConfig.json` and `.\MicrosoftAzureServiceFabric.cab` are the paths to the cluster configuration and the runtime .cab file respectively.
-
-
-### Step 2: Connect to the cluster
+### Connect to the cluster
 
 To connect to a secure cluster, see [Service fabric connect to secure cluster](service-fabric-connect-to-secure-cluster.md).
 
@@ -146,11 +126,14 @@ To connect to an unsecure cluster, run the following PowerShell command:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
+
 Example:
+
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
-### Step 3: Bring up Service Fabric Explorer
+
+### Bring up Service Fabric Explorer
 
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
@@ -158,53 +141,10 @@ Now you can connect to the cluster with Service Fabric Explorer either directly 
 
 You can add or remove nodes to your standalone Service Fabric cluster as your business needs change. See [Add or Remove nodes to a Service Fabric standalone cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) for detailed steps.
 
-<a id="removecluster" name="removecluster_anchor"></a>
-## Remove a cluster
-To remove a cluster, run the *RemoveServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file. You can optionally specify a location for the log of the deletion.
+## Resources
 
-This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on does not have to be part of the cluster.
-
-```
-# Removes Service Fabric from each machine in the configuration
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -Force
-```
-
-```
-# Removes Service Fabric from the current machine
-.\CleanFabric.ps1
-```
-
-<a id="telemetry"></a>
-
-## Telemetry data collected and how to opt out of it
-
-As a default, the product collects telemetry on the Service Fabric usage to improve the product. The Best Practice Analyzer that runs as a part of the setup checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). If it is not reachable, the setup fails unless you opt out of telemetry.
-
-1. The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best-effort upload and has no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry.
-2. The telemetry consists of the following:
-
-* Number of services
-* Number of ServiceTypes
-* Number of Applications
-* Number of ApplicationUpgrades
-* Number of FailoverUnits
-* Number of InBuildFailoverUnits
-* Number of UnhealthyFailoverUnits
-* Number of Replicas
-* Number of InBuildReplicas
-* Number of StandByReplicas
-* Number of OfflineReplicas
-* CommonQueueLength
-* QueryQueueLength
-* FailoverUnitQueueLength
-* CommitQueueLength
-* Number of Nodes
-* IsContextComplete: True/False
-* ClusterId: This is a GUID randomly generated for each cluster
-* ServiceFabricVersion
-* IP address of the virtual machine or machine from which the telemetry is uploaded
-
-To disable telemetry, add the following to *properties* in your cluster config: *enableTelemetry: false*.
+* [contents of the setup package](service-fabric-cluster-standalone-package-contents.md)
+* [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 ## Next steps
 

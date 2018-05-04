@@ -1,5 +1,5 @@
 ---
-title: Tutorial cleanup standalone cluster - Azure Service Fabric | Microsoft Docs
+title: Tutorial cleanup Service Fabric standalone cluster - Azure Service Fabric | Microsoft Docs
 description: In this tutorial you learn how to cleanup your standalone cluster
 services: service-fabric
 documentationcenter: .net
@@ -17,9 +17,9 @@ ms.date: 03/09/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
-# Tutorial: Cleanup your standalone cluster.
+# Tutorial: Cleanup your standalone cluster
 
-Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
 
 This tutorial is part four of a series. This part of the tutorial shows you how to clean up the AWS resources that you created to host your Service Fabric cluster.
 

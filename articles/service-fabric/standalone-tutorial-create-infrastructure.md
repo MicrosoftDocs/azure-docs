@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Tutorial: Create AWS infrastructure to host a Service Fabric cluster
 
-Service Fabric for Windows Server deployment (standalone) offers you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you create a standalone cluster hosted on AWS.
 
-This tutorial is part one of a series. In this article you'll generate all of the AWS resources required to host your standalone cluster of Service Fabric. In future articles you'll install the Service Fabric standalone suite, install a sample application into your cluster, and finally, clean up your cluster.
+This tutorial is part one of a series. In this article you generate all of the AWS resources required to host your standalone cluster of Service Fabric. In future articles you need install the Service Fabric standalone suite, install a sample application into your cluster, and finally, clean up your cluster.
 
 In part one of the series, you learn how to:
 
@@ -33,7 +33,7 @@ In part one of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you'll need an AWS account.  If you don't already have an account, go to the [AWS Console][https://aws.amazon.com/] to create one.
+To complete this tutorial you need an AWS account.  If you don't already have an account, go to the [AWS console](https://aws.amazon.com/) to create one.
 
 ## Create EC2 instances
 
@@ -47,7 +47,7 @@ Select **Launch Instance**, on the next screen choose **Select** next to Microso
 
 Select **t2.medium**, then select **Next: Configure Instance Details**, on the next screen change the number of instances to `3`, then select **Advanced Details** to expand that section.
 
-To connect your virtual machines together in Service Fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM.  For this tutorial, you'll use a user data script to set the EC2 instances to all have the same password.  In a production environment, joining the hosts to a windows domain is more secure.
+To connect your virtual machines together in Service Fabric, the VMs that are hosting your infrastructure need to have the same credentials.  There are two common ways to get consistent credentials: join them all to the same domain, or set the same administrator password on each VM.  For this tutorial, you use a user data script to set the EC2 instances to all have the same password.  In a production environment, joining the hosts to a windows domain is more secure.
 
 Enter the following script in the user data field on the console:
 
@@ -61,9 +61,11 @@ New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Acti
 </powershell>
 ```
 
+Once you've entered the powershell script select **Review and Launch**
+
 ![EC2 review and launch][aws-ec2configure2]
 
-Once you've entered the powershell script select **Review and Launch**, and then **Launch**.  On the launch screen change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
+On the review screen select **Launch**.  Then change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
 
 ![AWS key pair selection][aws-keypair]
 
@@ -71,21 +73,21 @@ Finally, select **Launch Instances**, and then **View Instances**.  You have the
 
 ## Modify the security group
 
-Service Fabric requires a number of ports open between the hosts in your cluster. To open these ports in the AWS infrastructure, select one of the instances that you created. Then select the name of the security group, for example,  **launch-wizard-4**.
+Service Fabric requires a number of ports open between the hosts in your cluster. To open these ports in the AWS infrastructure, select one of the instances that you created. Then select the name of the security group, for example,  **launch-wizard-4**. Now select the **Inbound** tab.
 
-To avoid opening these ports to the world, you'll instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
+To avoid opening these ports to the world, you instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
 
-You'll need to add four rules to the security group. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules will open the required ports to enable SMB and Remote Registry.
+You need to add four rules to the security group. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
 
-For the first rule select **Add Rule**, then from the drop-down menu selects **All ICMP - IPv4**. Select the entry box next to custom and enter your security group ID from above. 
+For the first rule select **Add Rule**, then from the dropdown menu selects **All ICMP - IPv4**. Select the entry box next to custom and enter your security group ID from above.
 
-For the last three rules, you'll need to follow a similar process.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `135`, `137-139`, and `445` for each rule. Finally, in the source box enter your security group ID and select **Save**.
+For the last three rules, you need to follow a similar process.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `135`, `137-139`, and `445` for each rule. Finally, in the source box enter your security group ID and select **Save**.
 
 ![Security group ports][aws-ec2securityports]
 
 ## Connect to an instance and validate inter-connectivity
 
-From the security group tab, select **Instances** from the left-hand menu.  Select each of the instances that you've created and note their IP addresses.
+From the security group tab, select **Instances** from the left-hand menu.  Select each of the instances that you've created and note their private IP addresses for the examples below will use `172.31.21.141` and `172.31.20.163`. 
 
 Once you have all of the IP addresses select one of the instances to connect to, right-click on the instance and select **Connect**.  From here, you can download the RDP file for this particular instance.  Select **Download Remote Desktop File**, and then open the file that is downloaded to establish your remote desktop connection (RDP) to this instance.  When prompted enter your password `serv1ceF@bricP@ssword`.
 
@@ -93,19 +95,21 @@ Once you have all of the IP addresses select one of the instances to connect to,
 
 Once you have successfully connected to your instance validate that you can connect between them and also share files.  You've gathered the IP addresses for all the instances, select one that you are not currently connected to. Go to **Start**, enter `cmd` and select **Command Prompt**.
 
+In these examples the RDP connection was established to the following IP address: 172.31.21.141. All connectivity test then occur to the other IP address: 172.31.20.163.
+
 To validate that basic connectivity works you can use the ping command.
 
 ```
-ping <ip-address>
+ping 172.31.20.163
 ```
 
-If that works try to map a drive.
+If your output looks like `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128` repeated four times then your connection between the instances is working.  Now validate that your SMB sharing works with the following command:
 
 ```
-net use * \\<ip-address>\c$
+net use * \\172.31.20.163\c$
 ```
 
-It should return `` as the output.
+It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the output.
 
 ## Prep instances for Service Fabric
 
@@ -142,13 +146,8 @@ Advance to part two of the series to configure Service Fabric on your cluster.
 
 <!-- IMAGES -->
 [aws-console]: ./media/service-fabric-tutorial-standalone-cluster/aws-console.png
-[aws-ec2console]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2console.png
 [aws-ec2instance]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2instance.png
-[aws-ec2size]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2size.png
-[aws-ec2configure]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2configure.png
 [aws-ec2configure2]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2configure2.png
-[aws-keypair]: ./media/service-fabric-tutorial-standalone-cluster/aws-keypair.png
 [aws-rdp]: ./media/service-fabric-tutorial-standalone-cluster/aws-rdp.png
-[aws-ec2security]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2security.png
-[aws-ec2securityedit]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2securityedit.png
 [aws-ec2securityports]: ./media/service-fabric-tutorial-standalone-cluster/aws-ec2securityports.png
+[aws-keypair]: ./media/service-fabric-tutorial-standalone-cluster/aws-keypair.png
