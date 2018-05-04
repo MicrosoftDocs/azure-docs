@@ -8,7 +8,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 
@@ -18,15 +18,14 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
 1. Go to your App Insights resource.
 
-    ![Click on your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
+    ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Click on **Analytics**. A new window opens where you can query QnA Maker telemetry.
+2. Select **Analytics**. A new window opens where you can query QnA Maker telemetry.
 
-    ![Click on Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+    ![Select Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
 
 3. Paste in the following query and run it.
 
-    ![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
     ```query
         requests
         | where url endswith "generateAnswer"
@@ -39,6 +38,10 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
         | extend answer = tostring(customDimensions['Answer'])
         | project KbId, timestamp, resultCode, duration, question, answer
     ```
+
+    Select **Run** to run the query.
+
+    ![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
 
 ## Run queries for other analytics on your QnA Maker knowledge base
 
