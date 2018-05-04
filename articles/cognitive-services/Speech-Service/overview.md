@@ -27,9 +27,6 @@ With one subscription, the unified Speech service gives developers an easy way t
 |Text to Speech|Converts text to audio files of natural-sounding synthesized speech.|
 |Speech&nbsp;Translation|Provide translations of speech to other languages, with text or speech output.|
 
-> [!NOTE]
-> If you have been using the separately-available Speech services, there is no pressing need to migrate to the unified Speech service. These pre-existing services will continue to be available for some time. However, migration brings you additional functionality. If you are considering migrating, or just want to know what has changed, see how to [migrate to the Speech service](how-to-migrate.md).
-
 ## Using the Speech service
 
 The function of the Speech service is made available in as many as three ways, depending on the function, including [an SDK](speech-sdk.md) that abstracts away the details of the network protocols.
