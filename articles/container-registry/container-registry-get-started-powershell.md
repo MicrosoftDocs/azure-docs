@@ -137,7 +137,7 @@ $secpasswd = ConvertTo-SecureString $creds.Password -AsPlainText -Force
 $pscred = New-Object System.Management.Automation.PSCredential($creds.Username, $secpasswd)
 ```
 
-Now, deploy the container to ACI with [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. The following command deploys the container from your registry with 1 CPU core, 1 GB of memory, and a DNS name label of "acr-demo":
+Now, deploy the container to ACI with [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. The following command deploys the container from your registry with 1 CPU core, 1 GB of memory, and a DNS name label of "aci-demo":
 
 ```powershell
 New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel "aci-demo"
@@ -146,7 +146,7 @@ New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Im
 You should get an initial response from Azure with details on your container, and its state is at first "Pending":
 
 ```console
-PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel "acr-demo"
+PS Azure:\> New-AzureRmContainerGroup -ResourceGroup myResourceGroup -Name "mycontainer" -Image $image -RegistryCredential $pscred -Cpu 1 -MemoryInGB 1 -DnsNameLabel "aci-demo"
 ResourceGroupName        : myResourceGroup
 Id                       : /subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
