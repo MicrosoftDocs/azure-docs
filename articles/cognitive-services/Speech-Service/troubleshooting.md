@@ -9,7 +9,7 @@ manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/07/2018
 ms.author: wolfma
 ---
 # Troubleshooting Speech Services SDK
@@ -34,7 +34,6 @@ This error is often caused by authentication issues. Connection requests without
     - the authorization token is invalid
     - the authorization token is expired
 
-Access tokens are valid for 10 minutes. Renew the token before it expires. For more information, see [Authentication](how-to-authenticate.md).
 
 ### Validate your subscription key
 

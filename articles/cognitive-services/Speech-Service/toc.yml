@@ -13,10 +13,6 @@
     href: quickstart-csharp-windows.md
 - name: How-to guides
   items:
-    - name: Authenticate with the Speech service # OK
-      href: how-to-authenticate.md
-    - name: Migrate to the Speech service # OK
-      href: how-to-migrate.md
     - name: Recognize speech # OK
       href: how-to-speech-to-text.md
     - name: Customize speech models # OK
