@@ -206,7 +206,7 @@ In order to enable Azure AD users to log into Replicon, they must be provisioned
 >You can use any other Replicon user account creation tools or APIs provided by Replicon to provision Azure AD user accounts.
 
 > [!NOTE]
-> For more details you can visit [here]()
+> For more details you can visit [here](active-directory-saas-replicon-provisioning-tutorial.md)
 
 ### Assign the Azure AD test user
 
@@ -249,7 +249,7 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-* [Configure User Provisioning]()
+* [Configure User Provisioning](active-directory-saas-replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 
