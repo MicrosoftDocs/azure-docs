@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/03/2018
 ms.author: douglasl
 ---
 # Custom setup for the Azure-SSIS integration runtime
@@ -121,7 +121,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. A `Sample` folder, which contains a custom setup to install a basic task on each node of your Azure-SSIS IR. The task does nothing but sleep for a few seconds. The folder also contains a `gacutil` folder, which contains `gacutil.exe`.
 
-       2. A `UserScenarios` folder, which contains eight custom setups for real user scenarios.
+       2. A `UserScenarios` folder, which contains several custom setups for real user scenarios.
 
     ![Contents of the public preview container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
 
@@ -133,7 +133,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        3. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
 
-       4. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) instance on each node of your Azure-SSIS IR..
+       4. An `MSDTC` folder, which contains a custom setup to modify the network and security configurations for the Microsoft Distributed Transaction Coordinator (MSDTC) instance on each node of your Azure-SSIS IR.
 
        5. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle OCI driver on each node of your Azure-SSIS IR Enterprise Edition (Private Preview). This setup lets you use the Oracle Connection Manager, Source, and Destination. First, you have to download `winx64_12102_client.zip` from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) and then upload it together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
 

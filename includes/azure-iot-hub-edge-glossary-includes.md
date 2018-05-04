@@ -1,3 +1,6 @@
+## Automatic Device Management
+Automatic Device Management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets over the entirety of their lifecycles. With Automatic Device Management, you can target a set of devices based on their properties, define a desired configuration, and let IoT Hub update devices whenever they come into scope.  Consists of [automatic device configurations](/articles/iot-hub/iot-hub-auto-device-config.md) and [IoT Edge automatic deployments](/articles/iot-edge/how-to-deploy-monitor.md).
+
 ## IoT Edge
 Azure IoT Edge enables cloud-driven deployment of Azure services and solution-specific code to on-premises devices. IoT Edge devices can aggregate data from other devices to perform computing and analytics before the data is sent to the cloud. For more information please see [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
 
@@ -7,8 +10,8 @@ The part of the IoT Edge runtime responsible for deploying and monitoring module
 ## IoT Edge device
 IoT Edge devices have the IoT Edge runtime installed and are flagged as “IoT Edge device” in the device details. Learn how to [deploy Azure IoT Edge on a simulated device in Linux - preview](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
-## IoT Edge deployment
-An IoT Edge deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+## IoT Edge automatic deployment
+An IoT Edge automatic deployment configures a target set of IoT Edge devices to run a set of IoT Edge modules. Each deployment continuously ensures that all devices that match its target condition are running the specified set of modules, even when new devices are created or are modified to match the target condition. Each IoT Edge device only receives the highest priority deployment whose target condition it meets. Learn more about [IoT Edge automatic deployment](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ## IoT Edge deployment manifest
 A Json document containing the information to be copied in one or more IoT Edge devices' module twin(s) to deploy a set of modules, routes and associated module desired properties.
