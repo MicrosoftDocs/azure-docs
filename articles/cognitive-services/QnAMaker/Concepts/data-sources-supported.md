@@ -48,8 +48,8 @@ Structured files such as .tsv, .xlsx with formatted columns can also be uploaded
 
 | Question  | Answer  | Metadata                |
 |-----------|---------|-------------------------|
-| Question1 | Answer1 | Key1:Value1\|Key2:Value2 |
-| Question2 | Answer2 |      Key:Value           |
+| Question1 | Answer1 | `Key1:Value1\|Key2:Value2` |
+| Question2 | Answer2 |      `Key:Value`           |
 Any additional columns in the source file are ignored.
 
 ## Structured data format through import
@@ -57,8 +57,8 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 | Question  | Answer  | Source| Metadata                |
 |-----------|---------|----|---------------------|
-| Question1 | Answer1 | Url1|Key1:Value1\|Key2:Value2 |
-| Question2 | Answer2 | Editorial|    Key:Value       |
+| Question1 | Answer1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 ## Editorial
 If you do not have pre-existing content to populate the knowledge base, you can also add them editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
