@@ -282,9 +282,12 @@ After the encode is complete, the next step is to make the video in the output A
 
 The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedClearStreamingOnly**, can be used.
+When creating a **StreamingLocator**, you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear or non-encrypted content, so the predefined clear streaming policy, **PredefinedStreamingPolicy.ClearStreamingOnly**, can be used.
 
-The following code assumes that you are calling it with a unique locatorName.
+> [!IMPORTANT]
+> When using custom StreamingPolicy, you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+
+The following code assumes that you are calling the function with a unique locatorName.
 
 ```csharp
 private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient client,
@@ -300,7 +303,7 @@ private static StreamingLocator CreateStreamingLocator(IAzureMediaServicesClient
         new StreamingLocator()
         {
             AssetName = assetName,
-            StreamingPolicyName = PredefinedClearStreamingOnly,
+            StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
         });
 
     return locator;
