@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 05/04/2017
 ms.author: jeedes
 
 ---
@@ -205,6 +205,9 @@ To enable Azure AD users to sign in to Clarizen, you must provision user account
 	> [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
+	> [!NOTE]
+	> For more details you can visit [here](active-directory-saas-clarizen-provisioning-tutorial.md)
+
 ### Assign the Azure AD test user
 Enable Britta Simon to use Azure single sign-on by granting her access to Clarizen.
 
@@ -241,6 +244,7 @@ When you click the Clarizen tile in the Access Panel, you should be automaticall
 
 * [List of tutorials on how to integrate SaaS apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure User Provisioning](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 
