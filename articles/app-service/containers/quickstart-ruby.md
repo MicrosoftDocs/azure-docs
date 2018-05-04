@@ -28,7 +28,7 @@ ms.custom: mvc
 
 ## Prerequisites
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.3 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 ## Download the sample
