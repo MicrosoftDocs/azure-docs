@@ -30,7 +30,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Install Ansible
 
-One of the easiest ways to use Ansible with Azure is with the Azure Cloud Shell, a browser-based shell experience to manage and develop Azure resources. Ansible is pre-installed in the Cloud Shell, so you can skip instructions on how to install Ansible and go to [Create Azure credentials](#create-azure-credentials). For a list of additional tools also available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../cloud-shell/features.md#tools).
+One of the easiest ways to use Ansible with Azure is with the Azure Cloud Shell, a browser-based shell experience to manage and develop Azure resources. Ansible is pre-installed in the Cloud Shell, so you can skip instructions on how to install Ansible and go to [Create Azure credentials](#create-azure-credentials). For a list of additional tools also available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
 
 The following instructions show you how to create a Linux VM for various distros and then install Ansible. If you don't need to create a Linux VM, skip this first step to create an Azure resource group. If you do need to create a VM, first create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
