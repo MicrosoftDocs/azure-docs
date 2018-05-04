@@ -1,7 +1,8 @@
+- name: Anomaly Finder Documentation
 - name: Overview
   expanded: true
   items:
-  - name: Anomaly Finder Documentation
+  - name: What is Anomaly Finder?
     href: overview.md
 - name: How-to guides
   items:

@@ -1,14 +1,17 @@
+- name: Conversation Learner Documentation
 - name: Overview
   expanded: true
   items:
-  - name: Conversation Learner API Documentation
+  - name: What is Conversation Learner?
     href: overview.md
+  - name: Supported languages
+    href: languages-supported.md
+- name: Concepts
+  items:
   - name: Control flow
     href: control-flow.md
   - name: Default values and boundaries
     href: cl-values-and-boundaries.md
-  - name: Supported languages
-    href: languages-supported.md
 - name: How-to guides
   items: 
   - name: Get started with Conversation Learner
