@@ -1,8 +1,8 @@
-- name: Conversation Learner API Documentation
-  href: overview.md
 - name: Overview
   expanded: true
   items:
+  - name: Conversation Learner API Documentation
+    href: overview.md
   - name: Control flow
     href: control-flow.md
   - name: Default values and boundaries
