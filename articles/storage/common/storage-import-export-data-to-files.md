@@ -1,14 +1,14 @@
 ﻿---
 title: Using Azure Import/Export to transfer data to Azure Files | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
-author: muralikk
-manager: syadav
+author: alkohli
+manager: jeconnoc
 services: storage
 
 ms.service: storage
 ms.topic: article
 ms.date: 05/03/2018
-ms.author: muralikk
+ms.author: alkohli
 
 ---
 # Use Azure Import/Export service to transfer data to Azure Files
@@ -29,7 +29,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 - You need access to a Windows system where you will install WAImportExport tool V2. 
     - The server where you install WAImportExport tool V2 must have a [Supported OS](). 
     - [Download the WAImportExport tool V2]() on this server.
-- Identify the data to be imported into Azure Storage. You can import directories and standalone files on a local server or a network share.
+- Identify the data to be imported into Azure Storage. Import the directories and standalone files on a local server or a network share.
 
 
 ## Step 1: Prepare the drives
@@ -52,7 +52,6 @@ Perform the following steps to prepare the drives.
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-
     **Driveset CSV File**
 
     The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
@@ -70,48 +69,65 @@ Perform the following steps to prepare the drives.
     Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
 6.	Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
-7.	You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
 
-8. Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
+    - You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. 
+    - Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
+    - Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
-    > [!IMPORTANT]
-    > Each hard disk drive you prepare results in a journal file. When you are creating the import job using the Azure portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
+        > [!IMPORTANT]
+        > Each hard disk drive you prepare results in a journal file. When you are creating the import job using the Azure portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
 
 
-    Below are the commands and examples for preparing the hard disk drive using WAImportExport tool.
+        Below are the commands and examples for preparing the hard disk drive using WAImportExport tool.
 
-    WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
+        WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
 
-    ```
-    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-    ```
+        ```
+        WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+        ```
 
-    **Import example 1**
+        **Import example 1**
 
-    ```
-    WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
-    ```
+        ```
+        WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
+        ```
 
 4. A journal file with name provided with /j: parameter is created for every run of the command line.
 
 ## Step 2: Create an import job 
 
 Perform the following steps to create an import job in the Azure portal.
-1. Log on to https://portal.azure.com/ and under
-2. Go to More services > Storage > Import/export jobs. Click **Create Import/export Job**.
+1. Log on to https://portal.azure.com/.
+2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
+3. In **Basics**, do the following:
 
-3. In Basics section, select "Import into Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You use the name you choose to track your jobs while they are in progress and once they are completed.
+    - Select "Import into Azure"
+    - Enter a string for job name
+    - Select a subscription
+    - Enter or select a resource group. 
+    - Enter a descriptive name for the import job. Use this name to track your jobs while they are in progress and once they are completed.
+        -  This name may contain only lowercase letters, numbers, hyphens, and underscores.
+        -  The name must start with a letter, and may not contain spaces. 
 
-3. In Job details section, upload the drive journal files that you obtained during the drive preparation step. If waimportexport.exe version1 was used, you need to upload one file for each drive that you have prepared. Select the storage account that the data will be imported into in the "Import destination" Storage account section. The Drop-Off location is automatically populated based on the region of the storage account selected.
+3. In **Job details**, do the following:
+    
+    - Upload the journal files that you created during the preceding drive preparation step. If waimportexport.exe version1 was used, you need to upload one file for each drive that you have prepared. 
+    - Select the storage account that the data will be imported into. 
+    - The drop-off location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In Return shipping info section, select the carrier from the drop-down list and enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
+4. In **Return shipping** info, do the following.
+
+    - Select the carrier from the drop-down list.
+    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
+    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
-5. In the Summary section, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
+5. In the **Summary**, do the following:
 
-6. Click OK on the Summary Page to complete Import job creation.
+    - Rrovide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
+    - Click **OK** to complete Import job creation.
 
-### Step 3: Ship the drives to the Azure datacenter 
+## Step 3: Ship the drives to the Azure datacenter 
 
 FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. You must provide a valid FedEx, UPS, or DHL carrier account number to be used by Microsoft for shipping the drives back. 
 - A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
@@ -119,7 +135,7 @@ FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. You must
 
 In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
-### Step 4: Update the job with tracking information
+## Step 4: Update the job with tracking information
 
 After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. Do the following steps. 
 
@@ -185,11 +201,6 @@ Download the latest version of the [WAImportExport tool](http://download.microso
 >**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. If the only key available is SAS-Key, you need to use WAImportExpot V1 tool .
 
 >
-
-### Hard disk drives
-Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal HDD are supported for use with the Import/Export service. A single import/export job can have a maximum of 10 HDD/SSDs and each individual HDD/SSD can be of any size. Large number of drives can be spread across multiple jobs and there is no limits on the number of jobs that can be created. 
-
-For import jobs, only the first data volume on the drive is processed. The data volume must be formatted with NTFS.
 
 
 ### Encryption
