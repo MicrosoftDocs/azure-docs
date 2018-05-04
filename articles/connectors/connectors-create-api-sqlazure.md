@@ -1,72 +1,152 @@
 ---
-title: Add the Azure SQL Database connector in your Logic Apps | Microsoft Docs
-description: Overview of Azure SQL Database connector with REST API parameters
-services: ''
-documentationcenter: ''
+title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps | Microsoft Docs
+description: Create connections to SQL Server and Azure SQL Database with Azure Logic Apps
+services: logic-apps
+documentationcenter: 
 author: ecfan
-manager: anneta
-editor: ''
+manager: cfowler
+editor: 
 tags: connectors
 
 ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
 ms.service: logic-apps
-ms.devlang: na
+ms.workload: logic-apps
+ms.devlang: 
+ms.tgt_pltfrm: 
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/18/2016
-ms.author: estfan; ladocs
-
+ms.date: 05/07/2018
+ms.author: estfan; LADocs
 ---
-# Get started with the Azure SQL Database connector
-Using the Azure SQL Database connector, create workflows for your organization that manage data in your tables. 
 
-With SQL Database, you:
+# Connect to SQL Server or Azure SQL Database with Azure Logic Apps
 
-* Build your workflow by adding a new customer to a customers database, or updating an order in an orders database.
-* Use actions to get a row of data, insert a new row, and even delete. For example,  when a record is created in Dynamics CRM Online (a trigger), then insert a row in an Azure SQL Database (an action). 
+To automate workflows that manage data for SQL Server or 
+Azure SQL Database, you can build logic apps that orchestrate 
+tasks and processes by using the SQL Server connector. 
+This article shows you how to connect your logic 
+app to SQL Server or Azure SQL Database. 
 
-This article shows you how to use the SQL Database connector in a logic app, and also lists the actions.
+Here are some example tasks that you can automate and 
+orchestrate with logic apps and SQL Server or Azure SQL Database:
 
-To learn more about Logic Apps, see [What are logic apps](../logic-apps/logic-apps-overview.md) and [create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Get, insert, or delete rows of data. 
+* Add customers to a customer database, 
+or update orders in an order database. 
+* When a new item gets added to a database, 
+send a confirmation email.
 
-## Connect to Azure SQL Database
-Before your logic app can access any service, you first create a *connection* to the service. A connection provides connectivity between a logic app and another service. For example, to connect to SQL Database, you first create a SQL Database *connection*. To create a connection, you enter the credentials you normally use to access the service you are connecting to. So, in SQL Database, enter your SQL Database credentials to create the connection. 
+So, for example, you can create a logic app that 
+automatically inserts a row in an Azure SQL Database 
+when a new record is created in Dynamics CRM Online. 
+If you're new to logic apps, see 
+[What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-#### Create the connection
-> [!INCLUDE [Create the connection to SQL Azure](../../includes/connectors-create-api-sqlazure.md)]
-> 
-> 
+## Prerequisites
 
-## Use a trigger
-This connector does not have any triggers. Use other triggers to start the logic app, such as a Recurrence trigger, an HTTP Webhook trigger, triggers available with other connectors, and more. [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) provides an example.
+* If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-## Use an action
-An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* The logic app where you want to connect to your SQL database
 
-1. Select the plus sign. You see several choices: **Add an action**, **Add a condition**, or one of the **More** options.
+* If you don't have an Azure SQL Database or SQL Server, 
+see [Create an Azure SQL Database](../sql-database/sql-database-get-started-portal.md) 
+or [Create a database - SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database). 
+If you create an Azure SQL Database, 
+you can also create the sample databases that are included with SQL. 
+
+  After you have your SQL database set up, you'll need your server name, 
+  database name, user name, and password.
+
+  * For Azure SQL Database, the connection string has this information:
+
+    "Server=tcp:<*yourServerName*>.database.windows.net,1433;Initial Catalog=<*yourDatabaseName*>;Persist Security Info=False;User ID=<*yourUserName*>;Password=<*yourPassword*>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+  * For SQL Server, the connection string has this information: 
+
+    "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
+
+* Before you can use on-premises systems, such as SQL Server, 
+with logic apps, you must [install and set up the on-premises data gateway](../logic-apps/gateway-connection.md). You need the gateway 
+information for creating the SQL database connection in your logic app.
+
+<a name="create-connection"></a>
+
+## Connect to SQL database
+
+For your logic app to access any service, you must create 
+a *connection* from your logic app to that service. 
+This step happens when you go to add a SQL Server or 
+Azure SQL Database operation to your logic app. 
+At that time, you're prompted to create the connection 
+and provide your credentials for accessing the service. 
+The Logic Apps Designer provides an easy way for you to 
+create this connection directly from your logic app. 
+
+<a name="add-sql-trigger"></a>
+
+## Add SQL trigger
+
+In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
+which fires when a specific event happens or 
+when a specific condition is met. Each time the trigger fires, 
+the Logic Apps engine creates a logic app instance that starts and runs your workflow.
+
+1. On the Logic Apps Designer, in the search box, 
+enter "sql server" as your filter. 
+You can select any trigger for your logic app, 
+but for this example, select this trigger: 
+**SQL Server - When an item is created**
+
+   ![Find "SQL Server" connector, choose "SQL Server - When an item is created" trigger](./media/connectors-create-api-sqlazure/add-action.png)
+
+
+5. On the designer toolbar, choose **Save**, 
+which also automatically enables and makes your logic app live in Azure. 
+
+<a name="add-sql-action"></a>
+
+## Add SQL action
+
+In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
+is a step in your workflow that follows the trigger or another action. 
+For this example, the logic app starts with a [Recurrence trigger](../connectors/connectors-native-recurrence.md).
+
+1. On the Logic App Designer, under the trigger, 
+choose **New step** > **Add an action**.
+
+   ![Choose "New step", "Add an action"](./media/connectors-create-api-sqlazure/add-action.png)
+
+2. In the search box, enter "sql server" as your filter. 
+You can select any action for your logic app, 
+but for this example, select this action: **SQL Server - Get row**
+
+   ![Enter "sql server", select "SQL Server - Get row"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
+
+3. If you're prompted for connection information, 
+   then [enter your connection details](#create-connection). 
+
+   Otherwise, if your connection already exists, 
+   select the **Table name** from the list instead, 
+   and enter the **Row ID** that you want to return.
+
+   ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/sample-table.png)
    
-    ![](./media/connectors-create-api-sqlazure/add-action.png)
-2. Choose **Add an action**.
-3. In the text box, type “sql” to get a list of all the available actions.
-   
-    ![](./media/connectors-create-api-sqlazure/sql-1.png) 
-4. In this example, choose **SQL Server - Get row**. If a connection already exists, then select the **Table name** from the drop-down list, and enter the **Row ID** you want to return.
-   
-    ![](./media/connectors-create-api-sqlazure/sample-table.png)
-   
-    If you are prompted for the connection information, then enter the details to create the connection. [Create the connection](connectors-create-api-sqlazure.md#create-the-connection) in this article describes these properties. 
-   
-   > [!NOTE]
-   > In this example, we return a row from a table. To see the data in this row, add another action that creates a file using the fields from the table. For example, add a OneDrive action that uses the FirstName and LastName fields to create a new file in the cloud storage account. 
-   > 
-   > 
-5. **Save** your changes (top left corner of the toolbar). Your logic app is saved and may be automatically enabled.
+   In this example, we return a row from a table. 
+   To see the data in this row, 
+   add another action that creates a file 
+   using the fields from the table. For example, 
+   add a OneDrive action that uses the FirstName 
+   and LastName fields to create a new file in the cloud storage account. 
+
+4. On the designer toolbar, choose **Save**, 
+which also automatically enables and makes your logic app live in Azure. 
 
 ## Connector-specific details
 
 View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sql/). 
 
 ## Next steps
-[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explore the other available connectors in Logic Apps at [APIs list](apis-list.md).
+
+* Learn about other [Logic Apps connectors](../logic-apps/apis-list.md).
 
