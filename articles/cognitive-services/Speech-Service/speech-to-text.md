@@ -1,6 +1,6 @@
 ---
 title: About Speech to Text | Microsoft Docs
-description: An overview of the capabilities of Speech to Text.
+description: An overview of the capabilities of Speech to Text API.
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -9,22 +9,22 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# About Speech to Text
+# About Speech to Text API
 
-The Speech to Text API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API.
+The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST or WebSockets API.
 
-The Speech to Text API offers the following features:
+The **Speech to Text** API offers the following features:
 
 - Advanced speech recognition technology from Microsoft—the same used by Cortana, Office, and other Microsoft products.
 
-- Real-time continuous recognition. Speech to Text allows users to transcribe audio into text in real time. It also supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and text normalization.
+- Real-time continuous recognition. **Speech to Text** allows users to transcribe audio into text in real time. It also supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and text normalization.
 
-- Optimized Speech to Text results for interactive, conversation, and dictation scenarios. 
+- Optimized **Speech to Text** results for interactive, conversation, and dictation scenarios. 
 
-- Support for many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [supported languages](supported-languages.md#speech-to-text).
+- Support for many spoken languages in multiple dialects. For the full list of supported languages in each recognition mode, see [Supported languages](supported-languages.md#speech-to-text).
 
 - Customized language and acoustic models, so you can tailor your application to your users' way of speaking, speaking environment, and specialized vocabulary.
 
@@ -32,7 +32,7 @@ The Speech to Text API offers the following features:
 
 ## API capabilities
 
-Some capabilities of the Speech to Text API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
+Some capabilities of the **Speech to Text** API are not available via REST. The following table summarizes the capabilities of each method of accessing the API.
 
 | Use case | REST | WebSockets | SDKs |
 |-----|-----|-----|----|
@@ -43,10 +43,7 @@ Some capabilities of the Speech to Text API are not available via REST. The foll
 
 \* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With REST and WebSockets APIs, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.*
 
-## Next steps:
+## Next steps
 
-> [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/try/cognitive-services/)
-
-> [!div class="nextstepaction"]
-> [Start your free trial](https://azure.microsoft.com/try/cognitive-services/)
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [See how to recognize speech in C#](quickstart-csharp-windows.md)
