@@ -14,7 +14,7 @@ manager: femila
 ---
 # Using the Azure Blockchain Workbench REST API 
 
-Azure Blockchain Workbench REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. Consider a scenario where a developer wants to create a custom blockchain client, which allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the contenxt of the signed-in user to do the following:
+Azure Blockchain Workbench REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. Consider a scenario where a developer wants to create a custom blockchain client, which allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following:
 
 * List applications
 * List workflows for an application

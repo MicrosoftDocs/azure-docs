@@ -22,7 +22,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
 5.  Provide the database credentials to access Azure Blockchain Workbench. Select **Database** and enter your credentials.
 
-    If you are using the credentials created by the Azure Blockchain Workbench deployment process, the username is **dbadmin** and the password is be the one you provided during deployment.
+    If you are using the credentials created by the Azure Blockchain Workbench deployment process, the username is **dbadmin** and the password is the one you provided during deployment.
 
     ![SQL DB settings](media/blockchain-workbench-data-powerbi/db-settings.png)
 
@@ -30,7 +30,7 @@ This article contains a step by step walkthrough of how to connect to Azure Bloc
 
     ![Navigator](media/blockchain-workbench-data-powerbi/navigator.png)
 
-7.  Select the views you wish to include. For demonstration purposes, we include **vwContractAction** which provides details on all of the actions that have taken place on a contract.
+7.  Select the views you wish to include. For demonstration purposes, we include **vwContractAction**, which provides details on all of the actions that have taken place on a contract.
 
     ![Select views](media/blockchain-workbench-data-powerbi/select-views.png)
 
