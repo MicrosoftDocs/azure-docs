@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -140,10 +140,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
    d. Click **Choose File**, to select your identity provider metadata XML file, and click **Submit**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
@@ -209,6 +205,9 @@ In order to enable Azure AD users to log into Replicon, they must be provisioned
 >[!NOTE]
 >You can use any other Replicon user account creation tools or APIs provided by Replicon to provision Azure AD user accounts.
 
+> [!NOTE]
+> For more details you can visit [here]()
+
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Replicon.
@@ -244,12 +243,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Replicon tile in the Access Panel, you should get automatically signed-on to your Replicon application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
 
 ## Additional resources
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure User Provisioning]()
 
 <!--Image references-->
 
@@ -264,4 +264,3 @@ For more information about the Access Panel, see [Introduction to the Access 
 [201]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-replicon-tutorial/tutorial_general_203.png
-
