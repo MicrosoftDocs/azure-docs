@@ -91,7 +91,7 @@ First let's view the HTML and JavaScript source code behind the page that render
 
   ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
-### TSI Client JavaScript library
+## The TSI Client JavaScript library
 
 Although we don't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
@@ -106,14 +106,9 @@ As mentioned earlier, this is Single-Page Application and it uses the OAuth 2.0 
 
 1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
-
-3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
+2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. Once ADAL returns the access token to the application, it is passed as a "bearer token" when accessing the TSI service APIs. 
 
    [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
-
-   ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
-
 
 ### Control identification
 
@@ -140,7 +135,7 @@ Populating and rendering of chart controls follow this general pattern:
 6. Populate the chart control with the transformed JSON data object(s)
    - TODO: detail
 
-## Pie, line, and bar charts
+## Rendering charts
 
 Let's look at some of the code behind some of the standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with id values `chart3`, `chart4`, and `chart5`. 
 
