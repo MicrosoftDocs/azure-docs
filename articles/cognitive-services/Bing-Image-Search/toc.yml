@@ -41,6 +41,8 @@
     href: UseAndDisplayRequirements.md
   - name: Get image insights
     href: image-insights.md
+  - name: Get .gif images
+    href: gif-images.md
   - name: Get trending images
     href: trending-images.md
   - name: Page through images
