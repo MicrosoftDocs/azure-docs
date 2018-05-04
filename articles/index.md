@@ -4223,7 +4223,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Lab Services</h3>
-                                                    <p>Quickly create environments using reusable templates and artifacts</p>
+                                                    <p>Create labs in the cloud for classroom, development and testing, and other scenarios (formerly DevTest Labs)</p>
                                                 </div>
                                             </div>
                                         </div>
