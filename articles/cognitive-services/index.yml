@@ -18,8 +18,6 @@ abstract:
   description: Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.
 
 sections:
-
-sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -76,7 +74,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/translator/"><img src="../media/index/API_TranslatorText.svg" alt="" />Translator Text</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="../media/index/API_WebLanguageModel.svg" alt="" /><span>Web Language Model&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
     - title: Knowledge
-      html: <p><a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+      html: <p><a class="barLink" href="/azure/cognitive-services/custom-decision-service/"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker</span></a></p>
             <p><a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="../media/index/API_Recommendations.svg" alt="" /><span>Recommendations&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
     - title: Search
