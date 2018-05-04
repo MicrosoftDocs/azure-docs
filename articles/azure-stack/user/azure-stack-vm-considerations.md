@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 05/04/2018
 ms.author: brenduns
 
 ---
@@ -59,7 +59,7 @@ The following table lists the VMs that are supported on Azure Stack along with t
 |Memory optimized|Dv2-series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Memory optimized|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this consistency includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
+Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. This consistency includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
 
 ## Virtual machine extensions
 
@@ -91,6 +91,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
 The list of supported resource types and API versions may vary if the cloud operator updates your Azure Stack environment to a newer version.
+
+## Windows Activation
+
+Windows products must be used in accordance with Product Use Rights and Microsoft license terms. Azure Stack uses [Automatic VM Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) to activate Windows Server virtual machines (VMs). 
+ - Because the Azure Stack host activates with AVMA keys for Windows Server 2016, all VMs that run Windows Server 2012 or later are automatically activated.
+ - VMs that run Windows Server 2008 R2 are not automatically activated and must be activated by using [MAK activation](https://technet.microsoft.com/library/ff793438.aspx). 
+
+Microsoft Azure uses KMS activation to activate Windows VMs. If you move a VM from Azure Stack to Azure and encounter activate problems, see [Troubleshoot Azure Windows virtual machine activation problems](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Additional information can be found at the [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Team Blog post.
+
+
+
 
 ## Next steps
 

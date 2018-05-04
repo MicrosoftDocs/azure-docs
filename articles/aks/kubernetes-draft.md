@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Use Draft with Azure Container Service (AKS)
+# Use Draft with Azure Kubernetes Service (AKS)
 
 Draft is an open-source tool that helps contain and deploy those containers in a Kubernetes cluster, leaving you free to concentrate on the dev cycle -- the "inner loop" of concentrated development. Draft works as the code is being developed, but before committing to version control. With Draft, you can quickly redeploy an application to Kubernetes as code changes occur. For more information on Draft, see the [Draft documentation on Github][draft-documentation].
 
@@ -24,7 +24,7 @@ The steps detailed in this document assume that you have created an AKS cluster 
 
 You also need a private Docker registry in Azure Container Registry (ACR). For instructions on deploying an ACR instance, see the [Azure Container Registry Quickstart][acr-quickstart].
 
-Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Container Service (AKS)][aks-helm].
+Helm must also be installed in your AKS cluster. For more information on installing helm, see [Use Helm with Azure Kubernetes Service (AKS)][aks-helm].
 
 Finally, you must install [Docker](https://www.docker.com).
 
