@@ -8,7 +8,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 # Language support for QnA Maker
@@ -16,12 +16,13 @@ QnA Maker supports knowledge base content in many languages. However, each QnA M
 
 The language is automatically recognized from the content of the data sources being extracted. Once you create a new QnA Maker Service and a new Knowledge Base in that service, you can verify that the language has been set correctly.
 
-1. Navigate to the [Azure Portal](https://portal.azure.com/)
-2. Click on **resource groups** and navigate to the resource group where the QnA Maker service is deployed and click on the **Azure Search** resource
+1. Navigate to the [Azure Portal](https://portal.azure.com/).
+
+2. Select **resource groups** and navigate to the resource group where the QnA Maker service is deployed and select the **Azure Search** resource
 
     ![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-3. Click on the **testkb** index. This Azure Search index is always the first one created and it contains the saved content of all the knowledge bases in that service. 
+3. Select the **testkb** index. This Azure Search index is always the first one created and it contains the saved content of all the knowledge bases in that service. 
 
     ![Select the Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
@@ -29,7 +30,7 @@ The language is automatically recognized from the content of the data sources be
 
     ![Select Fields](../media/qnamaker-how-to-language-kb/selectfields.png)
 
-5. Check the box on **Analyzer** to see language details.
+5. Check the box for **Analyzer** to see language details.
 
     ![Select Analyzer](../media/qnamaker-how-to-language-kb/select-analyzer.png)
 
