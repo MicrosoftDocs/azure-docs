@@ -131,8 +131,6 @@ items:
               href: sql-api-java-application.md
             - name: Python Flask
               href: sql-api-python-application.md
-            - name: Serverless app
-              href: https://docs.microsoft.com/learn/build-serverless-app/index 
         - name: 2 - Import
           href: import-data.md
         - name: 3 - Query
@@ -375,6 +373,8 @@ items:
           href: tutorial-query-table.md
         - name: 4 - Distribute globally
           href: tutorial-global-distribution-table.md
+        - name: Serverless app
+          href: https://docs.microsoft.com/learn/build-serverless-app/index 
       - name: Samples
         items:
         - name: .NET
