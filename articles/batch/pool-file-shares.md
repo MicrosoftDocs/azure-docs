@@ -67,8 +67,7 @@ To simplify the mount operation, persist the credentials on the nodes. Then, you
 2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. Cached credentials are used in the call to `net use`. 
 
   ```
-  cmd /c "net use S:
-  \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX=="
+  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare 
   ```
 
 ### C# example
