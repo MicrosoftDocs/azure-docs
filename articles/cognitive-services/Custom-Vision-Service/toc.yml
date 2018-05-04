@@ -19,9 +19,9 @@
       href: export-your-model.md
   - name: Build apps
     items:
-    - name: C# tutorial
+    - name: C# app
       href: csharp-tutorial.md
-    - name: Python tutorial
+    - name: Python app
       href: python-tutorial.md
 - name: Reference
   items:
