@@ -135,7 +135,8 @@ This option provides more flexibility in handling anonymous requests. For exampl
 
 ## More resources
 
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
 [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
 
 Provider-specific how-to guides:

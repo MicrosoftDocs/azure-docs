@@ -132,20 +132,15 @@ Create a PostgreSQL server with the [`az postgres server create`](/cli/azure/pos
 In the following command, substitute a unique server name for the *\<postgresql_name>* placeholder, a user name for the *\<admin_username>*, and a password for the *\<admin_password>*  placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<postgresql_name>.postgres.database.azure.com`), so the name needs to be unique across all servers in Azure.
 
 ```azurecli-interactive
-az postgres server create --resource-group myResourceGroup --name mydemoserver --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myResourceGroup --name <postgresql_name> --location "West Europe" --admin-user <admin_username> --admin-password <server_admin_password> --sku-name GP_Gen4_2
 ```
 
 When the Azure Database for PostgreSQL server is created, the Azure CLI shows information similar to the following example:
 
 ```json
 {
-  "additionalProperties": {},
-  "administratorLogin": "<my_admin_username>",
-  "earliestRestoreDate": "2018-04-19T22:51:05.340000+00:00",
-  "fullyQualifiedDomainName": "<postgresql_name>.postgres.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>",
   "location": "westeurope",
-  "name": "<postgresql_name>",
+  "name": "<postgresql_server_name>",
   "resourceGroup": "myResourceGroup",
   "sku": {
     "additionalProperties": {},
@@ -156,16 +151,8 @@ When the Azure Database for PostgreSQL server is created, the Azure CLI shows in
     "tier": "GeneralPurpose"
   },
   "sslEnforcement": "Enabled",
-  "storageProfile": {
-    "additionalProperties": {},
-    "backupRetentionDays": 7,
-    "geoRedundantBackup": "Disabled",
-    "storageMb": 5120
-  },
-  "tags": null,
-  "type": "Microsoft.DBforPostgreSQL/servers",
-  "userVisibleState": "Ready",
-  "version": "9.6"
+  ...	+  
+  -  < Output has been truncated for readability >
 }
 ```
 

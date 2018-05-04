@@ -10,6 +10,7 @@ tags: ignite
 
 ms.service: active-directory
 ms.workload: identity
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: curtand
@@ -137,4 +138,4 @@ Use the following links to continue to set up Cloud App Discovery in Azure AD.
 
 * [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 * [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-* [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+* [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
