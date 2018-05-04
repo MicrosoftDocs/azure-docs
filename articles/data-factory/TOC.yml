@@ -332,6 +332,8 @@
       href: control-flow-for-each-activity.md
     - name: Wait Activity
       href: control-flow-wait-activity.md
+    - name: Filter Activity
+      href: control-flow-filter-activity.md
     - name: Expression Language
       href: control-flow-expression-language-functions.md
     - name: System variables
