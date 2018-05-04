@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 05/04/2018
 ms.author: jeedes
 
 ---
@@ -163,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 11. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
 
 12. Click **Save**.
 
@@ -254,6 +254,7 @@ When you click the LinkedIn Learning tile in the Access Panel, you should get th
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+* [Configure User Provisioning](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 
