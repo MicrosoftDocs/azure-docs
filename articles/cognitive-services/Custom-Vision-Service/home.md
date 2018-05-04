@@ -13,7 +13,7 @@ ms.author: anroth
 ---
 # What is the Custom Vision Service?
 
-The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. Custom Vision Service provides a REST API and a web interface to upload your images and train.
+The Custom Vision Service is a Microsoft Cognitive Service that lets you build custom image classifiers. It makes it easy and fast to build, deploy, and improve an image classifier. The Custom Vision Service provides a REST API and a web interface to upload your images and train the classifier.
 
 ## What does Custom Vision Service do well?
 
