@@ -2,6 +2,7 @@
 title: Self-service password reset quickstart - Azure Active Directory
 description: Rapidly deploy Azure AD self-service password reset
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

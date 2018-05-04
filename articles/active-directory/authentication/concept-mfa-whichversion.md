@@ -2,6 +2,7 @@
 title: Choose between Azure MFA cloud or server | Microsoft Docs
 description: Choose the multi-factor authentication security solution that is right for you by asking, what am I trying to secure and where are my users located.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

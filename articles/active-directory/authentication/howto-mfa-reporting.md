@@ -2,6 +2,7 @@
 title: Access and usage reports for Azure MFA | Microsoft Docs
 description: This describes how to use the Azure Multi-Factor Authentication feature - reports.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

@@ -2,6 +2,7 @@
 title: Self-service password reset deployment guide - Azure Active Directory
 description: Tips for successful rollout of Azure AD self-service password reset
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

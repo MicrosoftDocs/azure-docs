@@ -2,6 +2,7 @@
 title: Security guidance for Azure Multi-Factor Authentication
 description: This document provides guidance around using Azure MFA with Azure accounts
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

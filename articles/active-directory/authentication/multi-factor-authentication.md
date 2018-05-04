@@ -2,6 +2,7 @@
 title: Learn about two-step verification in Azure MFA | Microsoft Docs
 description: What is Azure Multi-factor Authentication, why use MFA, and the different methods and versions available.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

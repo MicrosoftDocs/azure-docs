@@ -2,6 +2,7 @@
 title: Self-service password reset policies - Azure Active Directory
 description: Azure AD self-service password reset policy options
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

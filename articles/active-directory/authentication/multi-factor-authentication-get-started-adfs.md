@@ -2,6 +2,7 @@
 title: Two-step verification and AD FS - Azure MFA | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

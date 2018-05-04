@@ -2,6 +2,7 @@
 title: Getting started Azure Multi-Factor Authentication Server | Microsoft Docs
 description: Step-by-step get started with Azure MFA Server on-premises
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

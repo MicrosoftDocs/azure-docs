@@ -2,6 +2,7 @@
 title: Integrate VPN with Azure MFA by using the Network Policy Server extension | Microsoft Docs
 description: Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Microsoft Azure.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

@@ -2,6 +2,7 @@
 title: License self-service password reset - Azure Active Directory
 description: Azure AD self-service password reset licensing requirements
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

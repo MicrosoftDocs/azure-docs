@@ -2,6 +2,7 @@
 title: User portal for Azure MFA Server | Microsoft Docs
 description: Get started with Azure MFA and the user portal.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: get-started-article

@@ -2,6 +2,7 @@
 title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

@@ -2,6 +2,7 @@
 title: Admins manage users and devices - Azure MFA | Microsoft Docs
 description: This describes how to change user settings such as forcing the users to do the proof-up process again.
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article

@@ -2,6 +2,7 @@
 title: Configure Azure Multi-Factor Authentication | Microsoft Docs
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
+services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
