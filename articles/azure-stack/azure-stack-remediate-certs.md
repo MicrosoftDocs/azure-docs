@@ -21,7 +21,7 @@ ms.reviewer:
 
 
 # Remediate common issues for Azure Stack PKI certificates
-The information in this article can help you understand and resolve common issues for Azure Stack PKI certificates. You can discover issues when you use Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs). The tool checks to ensure that certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack Secret Rotation, and logs the results in a [report.json file](azure-stack-validation-report.md).  
+The information in this article can help you understand and resolve common issues for Azure Stack PKI certificates. You can discover issues when you use Azure Stack Readiness Checker tool to [validate Azure Stack PKI certificates](azure-stack-validate-pki-certs.md). The tool checks to ensure that certificates meet the PKI requirements of an Azure Stack deployment and Azure Stack Secret Rotation, and logs the results in a [report.json file](azure-stack-validation-report.md).  
 
 ## Read PFX
 **Warning** - Password only protects the private information in the certificate. **Remediation** - We recommend you export PFX files with the optional setting for **Enable certificate privacy**.

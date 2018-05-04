@@ -73,7 +73,7 @@ These files can help you share validation status before you deploy Azure Stack o
 By default, both files are written to *C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
  - Use the **-OutputPath** ***&lt;path&gt;*** parameter at the end of the run command line to specify a different report location.   
  - Use the **-CleanReport** parameter at the end of the run command to clear information from *AzsReadinessCheckerReport.json*.  about previous runs of the tool. 
-For more information, [Azure Stack validation report](azure-stck-validatin-report.md).
+For more information, [Azure Stack validation report](azure-stack-validation-report.md).
 
 ## Validation failures
 If a validation check fails, details about the failure display in the PowerShell window. The tool also logs information to the AzsReadinessChecker.log.
@@ -114,6 +114,6 @@ Alternatively, login into https://portal.azure.com as the account and the user w
 
 ## Next Steps
 [Validate Azure identity](azure-stack-validate-identity.md)
-[View the readiness report](azure-stck-validation-report.md)
-[General Azure Stack integration considerations](azure-stack-data-center-integration.md)
+[View the readiness report](azure-stack-validation-report.md)
+[General Azure Stack integration considerations](azure-stack-datacenter-integration.md)
 

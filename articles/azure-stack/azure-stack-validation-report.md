@@ -64,4 +64,4 @@ To view a report filtered on a single type of validation, use the **-ReportSecti
 For example, to view the report summary for certificates only, use the following PowerShell command line:  Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary
 
 ## See also
-[Start-AzsReadinessChecker cmdlet reference](azure-stack-azsreadines-cmdlet.md)
+[Start-AzsReadinessChecker cmdlet reference](azure-stack-azsreadiness-cmdlet.md)
