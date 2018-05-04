@@ -10,9 +10,12 @@ ms.topic: article
 ms.date: 05/03/2018
 ms.author: areddish
 ---
-# Custom Vision Service Python tutorial
 
-Learn how to use the Custom Vision Service from a Python application. The application programmatically adds tags, uploads images, trains the project, obtains the project's default prediction endpoint URL, and uses the endpoint to programmatically test an image. Use this open-source example as a template for building your own app for Windows by using the Custom Vision Service API.
+# Custom Vision API Python tutorial
+
+Learn how to create an image classification project with the Custom Vision Service and a basic Python script. After it's created, you can add tags, upload images, train the project, get the project's default prediction endpoint URL,and use it to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+
+
 
 ## Prerequisites
 
@@ -99,12 +102,12 @@ for image_num in range(1,10):
 #hemlock_dir = "Images\\Hemlock"
 #for image in os.listdir(os.fsencode("Images\\Hemlock")):
 #    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ hemlock_tag.id ])
+#        trainer.create_images_from_data(project.id, img_data, [ hemlock_tag.id ])
 #
 #cherry_dir = "Images\\Japanese Cherry"
 #for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
 #    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data.read(), [ cherry_tag.id ])
+#        trainer.create_images_from_data(project.id, img_data, [ cherry_tag.id ])
 ```
 
 ## Train the project
@@ -116,7 +119,7 @@ import time
 
 print ("Training...")
 iteration = trainer.train_project(project.id)
-while (iteration.status == "Training"):
+while (iteration.status != "Completed"):
     iteration = trainer.get_iteration(project.id, iteration.id)
     print ("Training status: " + iteration.status)
     time.sleep(1)
@@ -146,16 +149,16 @@ results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url
 #
 # Open the sample image and get back the prediction results.
 # with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data.read(), iteration.id)
+#     results = predictor.predict_image(project.id, test_data, iteration.id)
 
 # Display the results.
 for prediction in results.predictions:
-    print ("\t" + prediction.tag + ": {0:.2f}%".format(prediction.probability * 100))
+    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
 ## Run the example
 
-To run the example, use the following command:
+Run the solution. The prediction results appear on the console.
 
 ```
 python sample.py
