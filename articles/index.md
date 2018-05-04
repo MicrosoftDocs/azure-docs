@@ -712,6 +712,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/search/">
+                                                <img src="media/index/Search.svg" alt="" />
+                                                <p>Azure Search</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cognitive-services/computer-vision/">
                                                 <img src="media/index/API_Computer_Vision.svg" alt="" />
                                                 <p>Computer Vision API</p>
@@ -1180,7 +1186,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-suite.svg" alt="" />
-                                                <p>IoT Solution Accelerators</p>
+                                                <p>IoT solution accelerators</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1396,6 +1402,12 @@ featureFlags:
                                             <a href="/azure/security/azure-threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure Advanced Threat Protection</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/security/">
+                                                <img src="media/index/SecurityCenter.svg" alt="" />
+                                                <p>Security Information</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3537,7 +3549,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Solution Accelerators</h3>
+                                                    <h3>IoT solution accelerators</h3>
                                                     <p>Capture and analyze untapped data to improve business results</p>
                                                 </div>
                                             </div>
