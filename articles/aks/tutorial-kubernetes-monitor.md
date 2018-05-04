@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Tutorial: Monitor Azure Container Service (AKS)
+# Tutorial: Monitor Azure Kubernetes Service (AKS)
 
 Monitoring your Kubernetes cluster and containers is critical, especially when running a production cluster, at scale, with multiple applications.
 
@@ -81,26 +81,26 @@ spec:
     dockerProviderVersion: 1.0.0-30
   spec:
    containers:
-     - name: omsagent 
+     - name: omsagent
        image: "microsoft/oms"
        imagePullPolicy: Always
        securityContext:
          privileged: true
        ports:
        - containerPort: 25225
-         protocol: TCP 
+         protocol: TCP
        - containerPort: 25224
          protocol: UDP
        volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-sock
-        - mountPath: /var/log 
+        - mountPath: /var/log
           name: host-log
         - mountPath: /etc/omsagent-secret
           name: omsagent-secret
           readOnly: true
-        - mountPath: /var/lib/docker/containers 
-          name: containerlog-path  
+        - mountPath: /var/lib/docker/containers
+          name: containerlog-path
        livenessProbe:
         exec:
          command:
@@ -110,26 +110,26 @@ spec:
         initialDelaySeconds: 60
         periodSeconds: 60
    nodeSelector:
-    beta.kubernetes.io/os: linux    
+    beta.kubernetes.io/os: linux
    # Tolerate a NoSchedule taint on master that ACS Engine sets.
    tolerations:
     - key: "node-role.kubernetes.io/master"
       operator: "Equal"
       value: "true"
-      effect: "NoSchedule"     
+      effect: "NoSchedule"
    volumes:
-    - name: docker-sock 
+    - name: docker-sock
       hostPath:
        path: /var/run/docker.sock
     - name: host-log
       hostPath:
-       path: /var/log 
+       path: /var/log
     - name: omsagent-secret
       secret:
        secretName: omsagent-secret
     - name: containerlog-path
       hostPath:
-       path: /var/lib/docker/containers    
+       path: /var/lib/docker/containers
 ```
 
 Create the DaemonSet with the following command:

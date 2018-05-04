@@ -346,7 +346,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -472,7 +472,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Azure Container Service (AKS)</p>
+                                                <p>Azure Kubernetes Service (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1765,7 +1765,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplify the deployment, management, and operations of Kubernetes</p>
                                                 </div>
                                             </div>
@@ -2588,7 +2588,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Container Service (AKS)</h3>
+                                                    <h3>Azure Kubernetes Service (AKS)</h3>
                                                     <p>Simplify the deployment, management, and operations of Kubernetes</p>
                                                 </div>
                                             </div>

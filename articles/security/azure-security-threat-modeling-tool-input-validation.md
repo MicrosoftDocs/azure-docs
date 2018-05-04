@@ -483,11 +483,10 @@ Following is an insecure example:
 
 ```csharp
 <div class="form-group">
-            @Html.Raw(Model.AccountConfirmText)
-        </div>
-        <div class="form-group">
-            @Html.Raw(Model.PaymentConfirmText)
-        </div>
+     @Html.Raw(Model.AccountConfirmText)
+</div>
+<div class="form-group">
+     @Html.Raw(Model.PaymentConfirmText)
 </div>
 ```
 Do not use `Html.Raw()` unless you need to display markup. This method does not perform output encoding implicitly. Use other ASP.NET helpers e.g., `@Html.DisplayFor()` 
