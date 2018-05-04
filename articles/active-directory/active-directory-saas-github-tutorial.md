@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 05/04/2018
 ms.author: jeedes
 ms.reviewer: jeedes
 
@@ -36,10 +36,8 @@ To configure Azure AD integration with GitHub, you need the following items:
 - An Azure AD subscription
 - A GitHub single-sign on enabled subscription
 
-
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
-
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -53,7 +51,6 @@ The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding GitHub from the gallery
 2. Configuring and testing Azure AD single sign-on
-
 
 ## Adding GitHub from the gallery
 To configure the integration of GitHub into Azure AD, you need to add GitHub from the gallery to your list of managed SaaS apps.
@@ -239,6 +236,8 @@ In the case of GitHub, provisioning is a manual task.
 	> [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
 
+	> [!NOTE]
+	> For more details you can visit [here](active-directory-saas-github-provisioning-tutorial.md)
 
 ### Assigning the Azure AD test user
 
@@ -270,8 +269,6 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. Click **Assign** button on **Add Assignment** dialog.
 	
-
-
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
@@ -283,7 +280,7 @@ When you click the GitHub tile in the Access Panel, you should get signed-on to 
 
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
+* [Configure User Provisioning](active-directory-saas-github-provisioning-tutorial.md)
 
 
 <!--Image references-->
