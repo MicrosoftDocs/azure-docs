@@ -11,7 +11,7 @@ ms.date: 05/03/2018
 ms.author: alkohli
 
 ---
-# Use Azure Import/Export service to transfer data to Azure Files
+# Use Azure Import/Export service to import data to Azure Files
 
 In this article, we provide step-by-step instructions on how to use Azure Import/Export service to securely transfer large amounts of data into Azure Files. This service requires you to ship supported disk drives containing your data to an Azure data center.  
 
