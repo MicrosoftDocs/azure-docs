@@ -30,16 +30,16 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 
 
 ## Next steps
-To get started quickly, see [Create your first Bing Custom Search instance](quick-start.md).
+- To get started quickly, see [Create your first Bing Custom Search instance](quick-start.md).
 
-For details about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
+- For details about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
-Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
+- Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects. 
 
-To learn how to customize suggestions, see [Define custom search suggestions](define-custom-suggestions.md).
+- To learn how to customize suggestions, see [Define custom search suggestions](define-custom-suggestions.md).
 
-Familiarize yourself with the [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request query suggestions. It also includes definitions of the response objects.
+- Familiarize yourself with the [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request query suggestions. It also includes definitions of the response objects.
 
-Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
+- Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.
 
 
