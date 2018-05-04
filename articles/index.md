@@ -3401,13 +3401,13 @@ featureFlags:
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/url-preview/">
                                                                     <img src="media/index/network-watcher.svg" alt="" />
-                                                                    <span>Project URL Preview</span>
+                                                                    <span>URL Preview</span>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview">
                                                                     <img src="media/index/API_Bing_Web_Search.svg" alt="" />
-                                                                    <span>Project Answer Search</span>
+                                                                    <span>Answer Search</span>
                                                                 </a>
                                                             </li>
                                                         </ul>
