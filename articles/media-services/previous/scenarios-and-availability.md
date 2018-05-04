@@ -162,7 +162,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-You can create Media Services accounts in the following regions: North Europe, West Europe, West US, East US, Southeast Asia, East Asia, Japan West, Japan East, Brazil South, India West, India South, and India Central. 
+To determine if Media Services is available in a data center, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
 
 ### Streaming endpoints 
 
