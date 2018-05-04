@@ -1,6 +1,6 @@
 ---
 title: Use Speech to Text | Microsoft Docs
-description: Use Speech to Text in the Speech service.
+description: Learn how to use Speech to Text in the Speech service
 titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: v-jerkin
@@ -9,12 +9,12 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
-# Use Speech to Text
+# Use "Speech to Text" in the Speech service
 
-You can use Speech to Text in your applications in two different ways.
+You can use **Speech to Text** in your applications in two different ways.
 
 | Method | Description |
 |-|-|
@@ -25,7 +25,7 @@ You can use Speech to Text in your applications in two different ways.
 
 ## Recognition modes
 
-The Speech to Text API supports three recognition modes: interactive, conversation, and dictation. The recognition mode tunes speech recognition functionality based on how users are likely to speak in a given scenario.
+The **Speech to Text** API supports three recognition modes: interactive, conversation, and dictation. The recognition mode tunes speech recognition functionality based on how users are likely to speak in a given scenario.
 
 |Mode|Description
 |----|-----------
@@ -33,15 +33,15 @@ The Speech to Text API supports three recognition modes: interactive, conversati
 |Conversation|For transcribing conversations between people. User expects a record of the conversation, perhaps for later review.
 |Dictation|For transcribing text into a document. User expects to see his utterances appear in a document in real time.
 
-Both conversation and dictation mode support continuous speech recognition. The REST API supports only interactive mode.
+Both *conversation* and *dictation* mode support continuous speech recognition. The REST API only supports *interactive* mode.
 
 ## Using the SDK
 
-The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text in your application with full functionality.
+The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Text** in your application with full functionality.
 
 1. Create a speech factory, providing a Speech service subscription key or an authorization token. You can also configure options, such as the recognition language or a custom endpoint for your own speech recognition models, at this point.
 
-2. Get a recognizer from the factory. Three different types of recognizers are available. Each type can use your device's default microphone, an audio stream, or audio from a file.
+2. Get a recognizer from the factory. Three different types of recognizers are available. Each recognizer type can use your device's default microphone, an audio stream, or audio from a file.
 
     Recognizer | Function
     -|-
@@ -49,7 +49,7 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use Speech to Text 
     Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition
     Translation recognizer|Translates the transcribed text to another language (see [Speech Translation](how-to-translate-speech.md))
     
-4. Hook up events for asynchronous operation, if desired. The recognizer will then call your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
+4. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
 
 5. Start recognition.
 
@@ -67,19 +67,11 @@ The REST API is the simplest way to recognize speech if you are not using a lang
 > [!NOTE]
 > Utterances are limited to 15 seconds or less when using the REST API.
 
-The HTTP request must include an authorization, either your subscription key or a token. Learn [how to authenticate](how-to-authenticate.md).
+The HTTP request must include an authorization, either your subscription key or a token. For more information, see [how to authenticate](how-to-authenticate.md).
 
-For more information on the Speech to Text REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
+For more information on the **Speech to Text** REST API, see [REST APIs](rest-apis.md#speech-to-text). To see it in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToTeext-REST) from GitHub.
 
 ## Next steps
 
-Start your free trial of the Speech service.
-
-> [!div class="nextstepaction"]
-> [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-
-> [!div class="nextstepaction"]
-> [See how to recognize speech in C#](quickstart-csharp-windows.md)
-
-> [!div class="nextstepaction"]
-> [See how to recognize speech in C#](quickstart-csharp-windows.md)
+- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+- [How to recognize speech in C#](quickstart-csharp-windows.md)

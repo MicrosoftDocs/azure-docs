@@ -198,9 +198,12 @@
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
-    - name: Speech
+    - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
+    - name: Speech Service (preview)
+      tocHref: /azure/cognitive-services/Speech-Service/
+      topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
