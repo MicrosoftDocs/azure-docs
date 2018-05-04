@@ -8,18 +8,17 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 # Create a knowledge base
 QnA Maker makes it very simple to onboard your existing data sources to create a knowledge base. You can create a new QnA Maker knowledge base from FAQ pages, products manuals, structured documents or add them editorially.
 
-
 1. To get started, sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**
 
     ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
 
-2. If you have not already created a QnA Maker service, click on the **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base
+2. If you have not already created a QnA Maker service, select **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base
 
     ![Setup QnA service](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
@@ -33,7 +32,7 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ) to see how many documents you can add.
     - If you want to manually add QnAs, you can skip linking files.
 
-4. Click on **Create**
+4. Select **Create**
 
     ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
