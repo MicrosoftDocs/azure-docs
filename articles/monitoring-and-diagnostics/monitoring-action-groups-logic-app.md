@@ -62,42 +62,42 @@ The process is similar if you want the Logic App to perform a different action.
 
 8.  Copy and paste the following sample schema into the dialog box.
 
-```json
-    {
-        "schemaId": "Microsoft.Insights/activityLogs",
-        "data": {
-            "status": "Activated",
-            "context": {
-            "activityLog": {
-                "authorization": {
-                "action": "microsoft.insights/activityLogAlerts/write",
-                "scope": "/subscriptions/…"
+    ```json
+        {
+            "schemaId": "Microsoft.Insights/activityLogs",
+            "data": {
+                "status": "Activated",
+                "context": {
+                "activityLog": {
+                    "authorization": {
+                    "action": "microsoft.insights/activityLogAlerts/write",
+                    "scope": "/subscriptions/…"
+                    },
+                    "channels": "Operation",
+                    "claims": "…",
+                    "caller": "logicappdemo@contoso.com",
+                    "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
+                    "description": "",
+                    "eventSource": "Administrative",
+                    "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
+                    "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
+                    "level": "Informational",
+                    "operationName": "microsoft.insights/activityLogAlerts/write",
+                    "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
+                    "resourceId": "/subscriptions/…",
+                    "resourceGroupName": "LOGICAPP-DEMO",
+                    "resourceProviderName": "microsoft.insights",
+                    "status": "Succeeded",
+                    "subStatus": "",
+                    "subscriptionId": "…",
+                    "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
+                    "resourceType": "microsoft.insights/activityLogAlerts"
+                }
                 },
-                "channels": "Operation",
-                "claims": "…",
-                "caller": "logicappdemo@contoso.com",
-                "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
-                "description": "",
-                "eventSource": "Administrative",
-                "eventTimestamp": "2018-04-03T22:33:11.762469+00:00",
-                "eventDataId": "ec74c4a2-d7ae-48c3-a4d0-2684a1611ca0",
-                "level": "Informational",
-                "operationName": "microsoft.insights/activityLogAlerts/write",
-                "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                "resourceId": "/subscriptions/…",
-                "resourceGroupName": "LOGICAPP-DEMO",
-                "resourceProviderName": "microsoft.insights",
-                "status": "Succeeded",
-                "subStatus": "",
-                "subscriptionId": "…",
-                "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
-                "resourceType": "microsoft.insights/activityLogAlerts"
+                "properties": {}
             }
-            },
-            "properties": {}
         }
-    }
-```
+    ```
 
 9. The Logic App Designer will display a note reminding you that request sent to the Logic App must set the Content-Type header to application/json. Go ahead and dismiss the dialog. The Azure Monitor alert will do this correctly.
 
@@ -147,47 +147,47 @@ Service health entries are part of the Activity log, so the process is similar w
 1.  Steps 1 through 7 are the same.
 2.  Use the following sample schema for the HTTP Trigger in step 8.
 
-```json
-{
-    "schemaId": "Microsoft.Insights/activityLogs",
-    "data": {
-        "status": "Activated",
-        "context": {
-            "activityLog": {
-                "channels": "Admin",
-                "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                "description": "…",
-                "eventSource": "ServiceHealth",
-                "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
-                "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
-                "level": "Informational",
-                "operationName": "Microsoft.ServiceHealth/incident/action",
-                "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                "properties": {
-                    "title": "…",
-                    "service": "…",
-                    "region": "Global",
-                    "communication": "…",
-                    "incidentType": "Incident",
-                    "trackingId": "…",
-                    "impactStartTime": "2018-03-22T21:40:00.0000000Z",
-                    "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
-                    "impactedServices": "[{"ImpactedRegions"}]",
-                    "defaultLanguageTitle": "…",
-                    "defaultLanguageContent": "…",
-                    "stage": "Active",
-                    "communicationId": "11000001466525",
-                    "version": "0.1.1"
-                },
-                "status": "Active",
-                "subscriptionId": "…",
-                "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
-            }
-        },
-        "properties": {}
+    ```json
+    {
+        "schemaId": "Microsoft.Insights/activityLogs",
+        "data": {
+            "status": "Activated",
+            "context": {
+                "activityLog": {
+                    "channels": "Admin",
+                    "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
+                    "description": "…",
+                    "eventSource": "ServiceHealth",
+                    "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
+                    "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
+                    "level": "Informational",
+                    "operationName": "Microsoft.ServiceHealth/incident/action",
+                    "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
+                    "properties": {
+                        "title": "…",
+                        "service": "…",
+                        "region": "Global",
+                        "communication": "…",
+                        "incidentType": "Incident",
+                        "trackingId": "…",
+                        "impactStartTime": "2018-03-22T21:40:00.0000000Z",
+                        "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
+                        "impactedServices": "[{"ImpactedRegions"}]",
+                        "defaultLanguageTitle": "…",
+                        "defaultLanguageContent": "…",
+                        "stage": "Active",
+                        "communicationId": "11000001466525",
+                        "version": "0.1.1"
+                    },
+                    "status": "Active",
+                    "subscriptionId": "…",
+                    "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
+                }
+            },
+            "properties": {}
+        }
     }
-}
-```
+    ```
 
 3.  Steps 9 - 10 are the same.
 4.  From Step 11 on use the process below.
@@ -233,47 +233,47 @@ Service health entries are part of the Activity log, so the process is similar w
 1.  Steps 1 through 7 are the same as the first example
 2.  Use the following sample schema for the HTTP Trigger in step 8.
 
-```json
-{
-  "schemaId": "AzureMonitorMetricAlert",
-  "data": {
-    "version": "2.0",
-    "status": "Activated",
-    "context": {
-      "timestamp": "2018-04-09T19:00:07.7461615Z",
-      "id": "…",
-      "name": "TEST-VM CPU Utilization",
-      "description": "",
-      "conditionType": "SingleResourceMultipleMetricCriteria",
-      "condition": {
-        "windowSize": "PT15M",
-        "allOf": [
-            {
-                "metricName": "Percentage CPU",
-                "dimensions": [
+    ```json
+    {
+    "schemaId": "AzureMonitorMetricAlert",
+    "data": {
+        "version": "2.0",
+        "status": "Activated",
+        "context": {
+        "timestamp": "2018-04-09T19:00:07.7461615Z",
+        "id": "…",
+        "name": "TEST-VM CPU Utilization",
+        "description": "",
+        "conditionType": "SingleResourceMultipleMetricCriteria",
+        "condition": {
+            "windowSize": "PT15M",
+            "allOf": [
                 {
-                    "name": "ResourceId",
-                    "value": "d92fc5cb-06cf-4309-8c9a-538eea6a17a6"
-                }
-            ],
-            "operator": "GreaterThan",
-            "threshold": "5",
-            "timeAggregation": "PT15M",
-            "metricValue": 1.0
-          }
-        ]
-      },
-      "subscriptionId": "…",
-      "resourceGroupName": "TEST",
-      "resourceName": "test-vm",
-      "resourceType": "Microsoft.Compute/virtualMachines",
-      "resourceId": "…",
-      "portalLink": "…"
-    },
-    "properties": {}
-  }
-}
-```
+                    "metricName": "Percentage CPU",
+                    "dimensions": [
+                    {
+                        "name": "ResourceId",
+                        "value": "d92fc5cb-06cf-4309-8c9a-538eea6a17a6"
+                    }
+                ],
+                "operator": "GreaterThan",
+                "threshold": "5",
+                "timeAggregation": "PT15M",
+                "metricValue": 1.0
+            }
+            ]
+        },
+        "subscriptionId": "…",
+        "resourceGroupName": "TEST",
+        "resourceName": "test-vm",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceId": "…",
+        "portalLink": "…"
+        },
+        "properties": {}
+    }
+    }
+    ```
 
 3.  Steps 9 - 10 are the same.
 4.  From Step 11 on use the process below.
