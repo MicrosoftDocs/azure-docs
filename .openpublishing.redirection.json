@@ -20489,17 +20489,17 @@
         {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-security-and-privacy-considerations.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-whatis.md",
             "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
 		
     ]
