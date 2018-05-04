@@ -3,7 +3,7 @@ title: Security monitoring in Azure Security Center | Microsoft Docs
 description: This article helps you to get started with monitoring capabilities in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 

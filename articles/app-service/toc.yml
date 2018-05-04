@@ -177,6 +177,8 @@
       href: web-sites-backup.md
     - name: Restore a backup
       href: web-sites-restore.md
+    - name: Restore a snapshot
+      href: app-service-web-restore-snapshots.md
     - name: Clone an app
       href: app-service-web-app-cloning.md
     - name: Move resources
@@ -187,6 +189,10 @@
       href: web-sites-create-web-jobs.md
     - name: Develop WebJobs using VS
       href: websites-dotnet-deploy-webjobs.md
+    - name: Get started with WebJobs SDK
+      href: webjobs-sdk-get-started.md
+    - name: Use WebJobs SDK
+      href: webjobs-sdk-how-to.md
 - name: Reference
   items:
   - name: Azure CLI

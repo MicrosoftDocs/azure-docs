@@ -1,7 +1,7 @@
 ---
-title: Predictive maintenance solution walkthrough - Azure | Microsoft Docs
-description: A walkthrough of the Azure IoT predictive maintenance preconfigured solution.
-services: ''
+title: Predictive Maintenance solution accelerator walkthrough - Azure | Microsoft Docs
+description: A walkthrough of the Azure IoT Predictive Maintenance solution accelerator.
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -18,29 +18,29 @@ ms.date: 11/14/2017
 ms.author: dobett
 
 ---
-# Predictive maintenance preconfigured solution walkthrough
+# Predictive Maintenance solution accelerator walkthrough
 
-The predictive maintenance preconfigured solution is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this preconfigured solution proactively for activities such as optimizing maintenance. The solution combines key Azure IoT Suite services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
+The Predictive Maintenance solution accelerator is an end-to-end solution for a business scenario that predicts the point at which a failure is likely to occur. You can use this solution accelerator proactively for activities such as optimizing maintenance. The solution combines key Azure IoT solution accelerators services, such as IoT Hub, Stream analytics, and an [Azure Machine Learning][lnk-machine-learning] workspace. This workspace contains a model, based on a public sample data set, to predict the Remaining Useful Life (RUL) of an aircraft engine. The solution fully implements the IoT business scenario as a starting point for you to plan and implement a solution that meets your own specific business requirements.
 
 ## Logical architecture
 
-The following diagram outlines the logical components of the preconfigured solution:
+The following diagram outlines the logical components of the solution accelerator:
 
 ![][img-architecture]
 
-The blue items are Azure services provisioned in the region where you deployed the preconfigured solution. The list of regions where you can deploy the preconfigured solution displays on the [provisioning page][lnk-azureiotsuite].
+The blue items are Azure services provisioned in the region where you deployed the solution accelerator. The list of regions where you can deploy the solution accelerator displays on the [provisioning page][lnk-azureiotsuite].
 
 The green item is a simulated device that represents an aircraft engine. You can learn more about these simulated devices in the [Simulated devices](#simulated-devices) section.
 
-The gray items represent components that implement *device management* capabilities. The current release of the predictive maintenance preconfigured solution does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
+The gray items represent components that implement *device management* capabilities. The current release of the Predictive Maintenance solution accelerator does not provision these resources. To learn more about device management, refer to the [remote monitoring pre-configured solution][lnk-remote-monitoring].
 
 ## Simulated devices
 
-In the preconfigured solution, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning model to calculate the RUL for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
+In the solution accelerator, a simulated device represents an aircraft engine. The solution is provisioned with two engines that map to a single aircraft. Each engine emits four types of telemetry: Sensor 9, Sensor 11, Sensor 14, and Sensor 15 provide the data necessary for the Machine Learning model to calculate the RUL for the engine. Each simulated device sends the following telemetry messages to IoT Hub:
 
 *Cycle count*. A cycle represents a completed flight with a duration between two and ten hours. During the flight, telemetry data is captured every half hour.
 
-*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These four sensors represent telemetry sufficient to obtain useful results from the RUL model. The model used in the preconfigured solution is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
+*Telemetry*. There are four sensors that represent engine attributes. The sensors are generically labeled Sensor 9, Sensor 11, Sensor 14, and Sensor 15. These four sensors represent telemetry sufficient to obtain useful results from the RUL model. The model used in the solution accelerator is created from a public data set that includes real engine sensor data. For more information on how the model was created from the original data set, see the [Cortana Intelligence Gallery Predictive Maintenance Template][lnk-cortana-analytics].
 
 The simulated devices can handle the following commands sent from the IoT hub in the solution:
 
@@ -66,11 +66,11 @@ The Machine Learning component uses a model derived from data collected from rea
 
 
 ## Next steps
-Now you've seen the key components of the predictive maintenance preconfigured solution, you may want to customize it. See [Guidance on customizing preconfigured solutions][lnk-customize].
+Now you've seen the key components of the Predictive Maintenance solution accelerator, you may want to customize it. See [Guidance on customizing solution accelerators][lnk-customize].
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Frequently asked questions for IoT Suite][lnk-faq]
+* [Frequently asked questions for IoT solution accelerators][lnk-faq]
 * [IoT security from the ground up][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
