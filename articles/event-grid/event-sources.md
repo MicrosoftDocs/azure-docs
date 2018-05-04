@@ -64,9 +64,9 @@ Subscribe to Media Services events to respond to job state events.
 
 |Title  |Description  |
 |---------|---------|
-| [Reacting to Media Services events](/media-services/latest/reacting-to-media-services-events) | Overview of integrating Media Services with Event Grid. |
-| [Route Azure Media Services events to a custom web endpoint using CLI](/media-services/latest/job-state-events-cli-how-to) | Shows how to send events from Media Services. |
-| [Event schema](/media-services/latest/media-services-event-schemas) | Shows fields in Media Services events. |
+| [Reacting to Media Services events](../media-services/latest/reacting-to-media-services-events.md) | Overview of integrating Media Services with Event Grid. |
+| [Route Azure Media Services events to a custom web endpoint using CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to send events from Media Services. |
+| [Event schema](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows fields in Media Services events. |
 
 ## Resource groups
 
@@ -87,7 +87,7 @@ Subscribe to Service Bus events to respond to messages without an active listene
 | [Azure Service Bus to Event Grid integration overview](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Overview of integrating Service Bus with Event Grid. |
 | [Event schema](event-schema-service-bus.md) | Shows fields in Service Bus events. |
 
-## Blob Storage
+## Storage
 
 Subscribe to Blob Storage events to respond to blob created and deleted events.
 
