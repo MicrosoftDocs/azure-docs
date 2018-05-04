@@ -27,9 +27,8 @@ In this tutorial, you learn about:
 
 > [!div class="checklist"]
 > * The TSI Sample application 
-> * 2
-> * 3
-> * 4
+> * The TSI JavaScript client library
+> * How the sample application uses the library to visualize TSI data
 
 <!--
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
@@ -94,63 +93,56 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 ### TSI Client JavaScript library
 
-Although you don't need to review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
+Although we don't review it in detail, fundamentally the TSI Client library (tsclient.js) provides an abstraction for two important categories:
 
 - **Wrapper methods for calling the TSI Query APIs** - REST APIs that allow you to query for TSI data using aggregate expressions, and are organized under the `TsiClient.Server` namespace of the library. 
 - **Methods for creating and populating several types of charting controls** - Used for rendering the TSI aggregate data in a web page, and are organized under the `TsiClient.UX` namespace of the library. 
 
-In the following sections, you explore the page JavaScript source code. There you see the programming model and API patterns take shape through the use of the methods discussed.
-
-## Authentication
-
-
-## Pie, line, and bar charts
-
-Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. This time, we will be examining the index.html source for the page.
-
-## Library concepts
-
-First we review concepts that are universal and applicable to the TSI Client library in general.
+First we review concepts that are universal and applicable to the TSI Client library APIs in general. 
 
 ### Authentication
 
-As mentioned earlier, this is an SPA and it uses the OAuth 2.0 support in ADAL for user authentication. You don't modify anything here, here are a couple of points of interest in this section of the script:
+As mentioned earlier, this is Single-Page Application and it uses the OAuth 2.0 support in ADAL for user authentication. Here are a couple of points of interest in this section of the script:
 
-   1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
+1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-   2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
+2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user, as requested in the consent prompt during authentication. Again, the identifier for the service/API is another one of the properties contained in the application's Azure AD registration. 
 
-   3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
+3. Once ADAL returns the access token to the application, it is used to as a "bearer token" to access the TSI service APIs. 
 
    [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
 
    ![Viewing the body script - authentication](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script-auth.png)
 
 
-- **Control identification** - As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides a unique identifier, which is used in the JavaScript code identify the target control for rendering and updating. In this case, we will be exploring controls with id values `chart3`, `chart4`, and `chart5`.
+### Control identification
 
-- **Aggregate expressions** - The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value.
+As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specifies several properties to control the placement and visual attributes of the control, as well as an `id` property. The `id` property provides a unique identifier, which is used in the JavaScript code identify the target control for rendering and updating. 
+
+### Aggregate expressions
+
+The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms", similar to the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo), using a search span, where predicate, measures, and split-by value. Most library APIs take an array of aggregate expressions, which are used to build a TSI data query.
 
 ### Call pattern
 
-Populating and rendering of chart controls then, follows this general pattern:
+Populating and rendering of chart controls follow this general pattern:
 
 1. Declare an array of aggregate expressions.  
    - TODO: detail
 2. Build 1 to n aggregate expression objects, and add them to the aggregate expression array.  
    - TODO: detail
-3. Call a TSI Query API (`TsiClient.Server`) to request the aggregate data  
+3. Call a TSI Query using `TsiClient.Server` APIs to request the aggregate data  
    - TODO: detail
-4. Transform the compressed result from the TSI Query API, into JSON for visualization
+4. Transform the compressed result returned from the TSI Query, into JSON for visualization
    - TODO: detail
-5. Create a TSI UX (`TsiClient.UX`) chart control and attach it to one of the `<div>` elements on the page.
+5. Create a chart control using `TsiClient.UX` APIs, and attach it to one of the `<div>` elements on the page.
    - TODO: detail
 6. Populate the chart control with the transformed JSON data object(s)
    - TODO: detail
 
 ## Pie, line, and bar charts
 
-Let's look at some of the standard chart controls demonstrated in the application. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment. This time, we will be examining the index.html source for the page.
+Let's look at some of the code behind some of the standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with id values `chart3`, `chart4`, and `chart5`. 
 
 ### Pie chart example
 
@@ -172,10 +164,9 @@ TODO: Go through the steps from the video.
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * 1
-> * 2
-> * 3
-> * 4
+> * Sign in and explore the TSI Sample application and its source
+> * Use APIs in the TSI JavaScript client library
+> * Use JavaScript to create and populate chart controls with TSI data
 
 As discussed, the TSI Sample application uses a demo data set. To learn more about how you can create your own TSI environment and data set, advance to the following article:
 
