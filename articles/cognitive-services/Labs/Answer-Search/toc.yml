@@ -16,14 +16,12 @@
   - name: Python
     href: python-quickstart.md
 - name: Concepts
-  expanded: true
   items:
   - name: Fact queries
     href: fact-queries.md
   - name: Entity queries
     href: entity-queries.md
 - name: Reference
-  expanded: true 
   items:
   - name: Use and Display Requirements
     href: use-display-requirements.md
