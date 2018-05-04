@@ -8,28 +8,28 @@
   expanded: true
   items:
   - name: .NET 
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Node.js
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Java
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-java?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-java?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Python
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-python?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-python?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: PHP
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-php?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-php?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Ruby
-    href: vsts/build-release/apps/cd/azure/azure-devops-project-ruby?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: vsts/build-release/apps/cd/azure/azure-devops-project-ruby?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: Go
-    href: /vsts/build-release/apps/cd/azure/azure-devops-project-go?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-go?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
 - name: Tutorials
   items:
   - name: 1 - GitHub and DevOps Project
-    href: /vsts/build-release/actions/azure-devops-project-github?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/actions/azure-devops-project-github?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: 2 - Deploy to VMs
-    href: /vsts/build-release/actions/azure-devops-project-vms?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/actions/azure-devops-project-vms?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: 3 - Deploy to Azure SQL DB
-    href: /vsts/build-release/actions/azure-devops-project-sqldb?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/actions/azure-devops-project-sqldb?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: 4 - Deploy to AKS
-    href: /vsts/build-release/actions/azure-devops-project-aks?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/actions/azure-devops-project-aks?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
   - name: 5 - Deploy to Azure Service Fabric
-    href: /vsts/build-release/actions/azure-devops-project-servicefabric?toc=/azure/devops-project/toc.json&bc=/azure/bread/toc.json
+    href: /vsts/build-release/actions/azure-devops-project-servicefabric?toc=/azure/storage/toc.json&bc=/azure/bread/toc.json
