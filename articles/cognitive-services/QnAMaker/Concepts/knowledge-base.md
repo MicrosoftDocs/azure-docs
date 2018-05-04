@@ -18,9 +18,9 @@ A QnA Maker knowledge base consists of a set of question/answer (QnA) pairs and 
 
 ## Key knowledge base concepts
 
-* **Questions** A question contains text that best represents a user query. 
-* **Answers** An answer is the response that is returned when a user query is matched with the associated question.  
-* **Metadata** Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata are used to filter QnA pairs and limit the set over which query matching is performed.
+* **Questions** - A question contains text that best represents a user query. 
+* **Answers** - An answer is the response that is returned when a user query is matched with the associated question.  
+* **Metadata** - Metadata are tags associated with a QnA pair and are represented as key-value pairs. Metadata are used to filter QnA pairs and limit the set over which query matching is performed.
 
 A single QnA, represented by a numeric QnAId, consists of multiple variants of a question (alternate questions) that all map to a single answer. Additionally, each such pair can have multiple metadata fields associated. 
 
