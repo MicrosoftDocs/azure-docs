@@ -8,7 +8,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 # Test your knowledge base
@@ -23,6 +23,7 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
     ![Access Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Enter a query in the text box and select Enter.
+
 4.  The best-matched answer from the knowledge base is returned as the response
 
 ## Clear test panel
@@ -45,28 +46,26 @@ You inspect details of the test result in the Inspect panel.
 
 ## Correct the top scoring answer
 
-If the top scoring answer is incorrect, select the correct answer from the list and click on Save and Train.
+If the top scoring answer is incorrect, select the correct answer from the list and select **Save and Train**.
 
 ![Access Test](../media/qnamaker-how-to-test-kb/choose-answer.png)
 
 ## Add alternate questions
 
-You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and click enter to add them. Click Save and train to store the updates.
+You can add alternate forms of a question to a given answer. Type the alternate answers in the text box and click enter to add them. Select **Save and Train** to store the updates.
 
 ![Access Test](../media/qnamaker-how-to-test-kb/add-alternate-question.png)
 
 ## Add a new answer
 
-You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base. (no good match found in the KB)
+You can add a new answer if any of the existing answers that were matched are incorrect or the answer does not exist in the knowledge base (no good match found in the KB). Enter the new answer to current question in the text box and press enter to add it. 
 
-Enter the new answer to current question in the text box and press enter to add it. 
-
-Click on **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
+Select **Save and Train** to persist this answer. A new question-answer pair has now been added to your knowledge base.
 
 ![Access Test](../media/qnamaker-how-to-test-kb/add-answer.png)
 
-    >[!NOTE]
-	All edits to your knowledge base only get saved when you press the **Save and Train** button.
+> [!NOTE]
+> All edits to your knowledge base only get saved when you press the **Save and Train** button.
 
 ## Next steps
 
