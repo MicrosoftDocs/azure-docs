@@ -69,7 +69,7 @@ Currently zone redundant capability is only available in private preview. You mu
    ``` Powershell
    New-AzureRmResourceGroup -Name <resource group name> -Location "East US 2"
    ```
-4. Download the template from <download location> and note the folder where you save them.
+4. Download the templates from **TBD** and note the folder where you save them.
 5. Create a new deployment in the resource group you created. Modify the template and parameters file appropriately before you deploy. 
 
    The following diagram shows where you can retrieve the tenant ID on the Azure portal:
