@@ -51,7 +51,7 @@ To enhance your Azure Active Directory, you can add paid capabilities using the 
 > A number of Azure Active Directory capabilities are available through "pay as you go" editions:
 >
 > * Active Directory B2C is the identity and access management solution for your consumer-facing applications. For more information, see [Azure Active Directory B2C](https://azure.microsoft.com/documentation/services/active-directory-b2c/)
-> * Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more information, see [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+> * Azure Multi-Factor Authentication can be used through per user or per authentication providers. For more information, see [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md)
 >
 
 ## How can I get started?

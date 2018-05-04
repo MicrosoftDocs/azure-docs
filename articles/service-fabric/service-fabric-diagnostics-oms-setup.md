@@ -13,21 +13,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/30/2018
+ms.date: 4/03/2018
 ms.author: dekapur; srrengar
 
 ---
 
 # Set up Log Analytics for a cluster
 
-You can set up a Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your OMS environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying OMS, deploy by using PowerShell or the Resource Manager template.
+Log Analytics is our recommendation to monitor cluster level events. You can set up Log Analytics workspace through Azure Resource Manager, PowerShell, or Azure Marketplace. If you maintain an updated Resource Manager template of your deployment for future use, use the same template to set up your Log Analytics environment. Deployment via Marketplace is easier if you already have a cluster deployed with diagnostics enabled. If you do not have subscription-level access in the account to which you are deploying to, deploy by using PowerShell or the Resource Manager template.
 
 > [!NOTE]
-> To set up Log Analytics to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events.
+> To set up Log Analytics to monitor your cluster, you need to have diagnostics enabled to view cluster-level or platform-level events. Refer to [how to set up diagnostics in Windows clusters](service-fabric-diagnostics-event-aggregation-wad.md) and [how to set up diagnostics in Linux clusters](service-fabric-diagnostics-event-aggregation-lad.md) for more
 
-## Deploy OMS by using Azure Marketplace
+## Deploy a Log Analytics workspace by using Azure Marketplace
 
-If you want to add an OMS workspace after you have deployed a cluster, go to Azure Marketplace in the portal and look for **Service Fabric Analytics**:
+If you want to add a Log Analytics workspace after you have deployed a cluster, go to Azure Marketplace in the portal and look for **Service Fabric Analytics**. This is a custom solution for Service Fabric deployments that has data specific to Service Fabric. In this process you will create both the solution (the dashboard to view insights) and workspace (the aggregation of the underlying cluster data).
 
 1. Select **New** on the left navigation menu. 
 
@@ -37,7 +37,7 @@ If you want to add an OMS workspace after you have deployed a cluster, go to Azu
 
     ![OMS SF Analytics in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-4. In the Service Fabric Analytics creation window, select **Select a workspace** for the **OMS Workspace** field, and then **Create a new workspace**. Fill out the required entries. The only requirement here is that the subscription for the Service Fabric cluster and the OMS workspace is the same. When your entries have been validated, your OMS workspace starts to deploy. The deployment takes only a few minutes.
+4. In the Service Fabric Analytics creation window, select **Select a workspace** for the **OMS Workspace** field, and then **Create a new workspace**. Fill out the required entries. The only requirement here is that the subscription for the Service Fabric cluster and the workspace is the same. When your entries have been validated, your workspace starts to deploy. The deployment takes only a few minutes.
 
 5. When finished, select **Create** again at the bottom of the Service Fabric Analytics creation window. Make sure that the new workspace shows up under **OMS Workspace**. This action adds the solution to the workspace you created.
 
@@ -46,9 +46,9 @@ If you are using Windows, continue with the following steps to connect OMS to th
 >[!NOTE]
 >Enabling this experience for Linux clusters is not yet available. 
 
-### Connect the OMS Workspace to your cluster 
+### Connect the Log Analytics Workspace to your cluster 
 
-1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfOMSWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS portal.
+1. The workspace needs to be connected to the diagnostics data coming from your cluster. Go to the resource group in which you created the Service Fabric Analytics solution. Select **ServiceFabric\<nameOfWorkspace\>** and go to its overview page. From there, you can change solution settings, workspace settings, and access the OMS portal.
 
 2. On the left navigation menu, under **Workspace Data Sources**, select **Storage accounts logs**.
 

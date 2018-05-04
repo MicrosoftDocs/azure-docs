@@ -109,7 +109,7 @@ For more information, see [Monitor your on-premises identity infrastructure and 
 
 **A:** Password write-back operates in real time.
 
-For more information, see [Getting started with password management](active-directory-passwords-getting-started.md).
+For more information, see [Getting started with password management](authentication/quickstart-sspr.md).
 
 - - -
 **Q: Can I use password write-back with passwords that are managed by an admin?**

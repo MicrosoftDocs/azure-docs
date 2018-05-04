@@ -218,7 +218,7 @@ And finally, if all the alerts in the specified workspace, are already scheduled
 ```
 
 ## Troubleshooting 
-During the process of extending alerts from OMS into Azure, there can be occasional issues that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
+During the process of extending alerts from OMS into Azure, there can be occasional issue that prevents the system from creating necessary [Action Groups](monitoring-action-groups.md). In such cases an error message will be shown in OMS portal via banner in Alert section and in GET call done to API.
 
 Listed below are the remediation steps for each error:
 1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'**:
@@ -235,6 +235,15 @@ Listed below are the remediation steps for each error:
     a. When Scope Lock is enabled, restricting any new change in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
     
     b. To resolve, delete the *ReadOnly* lock on your subscription or resource group containing the workspace; using Azure portal, Powershell, Azure CLI, or API. To learn more, view the article on [resource lock usage](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
+
+3. **Error: Policy is present at subscription/resource group level**: 
+    ![OMS portal Alert Settings page with Policy Error message](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, restricting any new resource in subscription or resource group containing the Log Analytics (OMS) workspace; the system is unable to extend (copy) alerts into Azure and create necessary action groups.
+    
+    b. To resolve, edit the policy causing *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group containing the workspace. Using Azure portal, Powershell, Azure CLI or API; you can audit actions to find the appropriate policy causing failure. To learn more, view the article on [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
     c. Once resolved as per steps illustrated in the article, OMS will extend your alerts into Azure within the next day's scheduled run; without the need of any action or initiation.
 

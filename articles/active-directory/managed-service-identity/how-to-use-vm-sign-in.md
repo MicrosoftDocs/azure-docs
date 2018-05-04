@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use an Azure VM Managed Service Identity for sign in
 description: Step by step instructions and examples for using an Azure VM MSI service principal for script client sign in and resource access.
 services: active-directory
@@ -59,20 +59,11 @@ The following script demonstrates how to:
 
 The following script demonstrates how to:
 
-1. Acquire an MSI access token for the VM.  
-2. Use the access token to sign in to Azure AD, under the corresponding MSI service principal.   
-3. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token use for you automatically.  
+1. Sign in to Azure AD under the VM's MSI service principal  
+2. Call an Azure Resource Manager cmdlet to get information about the VM. PowerShell takes care of managing token use for you automatically.  
 
    ```azurepowershell
-   # Get an access token for the MSI
-   $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token `
-                                 -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
-   $content =$response.Content | ConvertFrom-Json
-   $access_token = $content.access_token
-   echo "The MSI access token is $access_token"
-
-   # Use the access token to sign in under the MSI service principal. -AccountID can be any string to identify the session.
-   Connect-AzureRmAccount -AccessToken $access_token -AccountId "MSI@50342"
+   Add-AzureRmAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's MSI. 
    $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
@@ -82,7 +73,7 @@ The following script demonstrates how to:
 
 ## Resource IDs for Azure services
 
-See [Azure services that support Azure AD authentication](overview.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
+See [Azure services that support Azure AD authentication](services-support-msi.md#azure-services-that-support-azure-ad-authentication) for a list of resources that support Azure AD and have been tested with MSI, and their respective resource IDs.
 
 ## Error handling guidance 
 

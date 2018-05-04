@@ -22,10 +22,6 @@ ms.author: daveba
 
 ## Frequently Asked Questions (FAQs)
 
-### Is there a private preview program available for upcoming MSI features and integrations?
-
-Yes. If you would like to be considered for enrollment in the private preview program, [visit our sign-up page](https://aka.ms/azuremsiprivatepreview).
-
 ### Does MSI work with Azure Cloud Services?
 
 No, there are no plans to support MSI in Azure Cloud Services.
@@ -49,7 +45,7 @@ When using MSI with VMs, we encourage using the MSI IMDS endpoint. The Azure Ins
 
 The MSI VM extension is still availble to be used today; however, moving forward we will default to using the IMDS endpoint. The MSI VM extension will start on a deprecation plan soon. 
 
-For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+For more information on Azure Instance Metada Service, see [IMDS documentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### What are the supported Linux distributions?
 
@@ -118,3 +114,16 @@ Once the VM is started, the tag can be removed by using following command:
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
+
+## Known issues with User Assigned Identities
+
+- User Assigned Identity assignments are only avaialble for VM and VMSS. IMPORTANT: User Assigned Identity assignments will change in the upcoming months.
+- Duplicate User Assigned Identities on the same VM/VMSS, will cause the VM/VMSS to fail. This includes identities that are added with different casing. e.g. MyUserAssignedIdentity and myuserassignedidentity. 
+- Provisioning of the VM extension to a VM might fail due to DNS lookup failures. Restart the VM, and try again. 
+- Adding a 'non-existent' user assigned identity will cause the VM to fail. 
+- Creating a user assigned identity with special characters (i.e. underscore) in the name, is not supported.
+- User assigned identity names are restricted to 24 characters for end to end scenario. User Assigned identities with names longer than 24 characters will fail to be assigned.  
+- When adding a second user assigned identity, the clientID might not be available to requests tokens for the VM extension. As a mitigation, restart the MSI VM extension with the following two bash commands:
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
+ - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
+- When a VM has a user assigned identity but no system assigned identity, the portal UI will show MSI as disabled. To enable the system assigned identity, use an Azure Resource Manager template, an Azure CLI, or an SDK.

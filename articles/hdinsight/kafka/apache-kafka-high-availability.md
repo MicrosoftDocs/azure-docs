@@ -4,16 +4,17 @@ description: 'Learn how to ensure high availability with Apache Kafka on Azure H
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
+editor: cgronlun
 manager: jhubbard
 editor: cgronlun
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: ''
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/30/2018
+ms.date: 05/01/2018
 ms.author: larryfr
 ---
 # High availability of your data with Apache Kafka on HDInsight

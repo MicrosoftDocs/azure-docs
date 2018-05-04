@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-entity-search
+ms.component: bing-entity-search
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: v-gedod

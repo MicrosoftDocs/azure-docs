@@ -1,33 +1,33 @@
 ---
-title: Custom Vision API Python tutorial | Microsoft Docs
+title: Custom Vision Service Python tutorial | Microsoft Docs
 description: Explore a basic Windows app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
 author: areddish
 manager: chbuehle
-
 ms.service: cognitive-services
-ms.technology: custom vision service
+ms.component: custom-vision
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: areddish
 ---
+# Custom Vision Service Python tutorial
 
-# Custom Vision API Python tutorial
-Explore a basic Python script that uses the Computer Vision API to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+Explore a basic Python script that uses the Custom Vision Service to create a project. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision Service API.
 
 ## Prerequisites
 
-To use the tutorial, you need to do the following:
+To use the tutorial, you need to perform the following steps:
 
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
 
 ### Platform requirements
+
 This example has been developed for Python.
 
-### Get the Custom Vision SDK
+### Get the Custom Vision Service SDK
 
-To build this example, you need to install the Python SDK for the Custom Vision API:
+To build this example, you need to install the Python SDK for the Custom Vision Service API:
 
 ```
 pip install azure-cognitiveservices-vision-customvision
@@ -37,10 +37,9 @@ pip install azure-cognitiveservices-vision-customvision
 
 You can find Custom Vision Service on the [Custom Vision site](https://customvision.ai).
 
-Obtain your training and prediction key by signing in to Custom Vision Service and going to your account settings.
+Get your training and prediction key by signing in to Custom Vision Service and going to your account settings.
 
-This example uses the images from [this sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images). 
-
+This example uses the images from [this sample](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images).
 
 ## Step 2: Create a Custom Vision Service project
 
@@ -73,7 +72,7 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ## Step 4: Upload images to the project
 
-To add the sample images to the project, insert the following code after the tag creation. This uploads the image with the corresponding tag:
+To add the sample images to the project, insert the following code after the tag creation. This code uploads the image with the corresponding tag:
 
 ```Python
 base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
@@ -81,11 +80,11 @@ base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVi
 print ("Adding images...")
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Hemlock/hemlock_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ hemlock_tag.id ] ) ])
+    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ hemlock_tag.id ] ) ])
 
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
-    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(image_url, [ cherry_tag.id ] ) ])
+    trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
 
 
 # Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
@@ -105,9 +104,9 @@ for image_num in range(1,10):
 
 ## Step 5: Train the project
 
-Now that you've added tags and images to the project, you can train it: 
+Now that you've added tags and images to the project, you can train it:
 
-1. Insert the following code. This creates the first iteration in the project. 
+1. Insert the following code to create the first iteration in the project.
 2. Mark this iteration as the default iteration.
 
 ```Python
@@ -159,6 +158,6 @@ for prediction in results.predictions:
 
 Build and run the solution. The prediction results appear on the console.
 
-```
+```Python
 python sample.py
 ```

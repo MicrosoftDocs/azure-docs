@@ -44,4 +44,4 @@ Azure Multi-Factor Authentication provides selectable verification methods for b
 
 - Choose whether to deploy Azure MFA [in the cloud or on-premises](concept-mfa-whichversion.md)
 
-- Read answers for [Frequently asked questions](../../multi-factor-authentication/multi-factor-authentication-faq.md)
+- Read answers for [Frequently asked questions](multi-factor-authentication-faq.md)

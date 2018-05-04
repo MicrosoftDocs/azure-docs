@@ -4,9 +4,8 @@ description: Learn how data is stored in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: v-geberr

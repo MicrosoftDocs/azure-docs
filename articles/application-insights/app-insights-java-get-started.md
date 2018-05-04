@@ -1,9 +1,9 @@
-﻿---
+---
 title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
-author: harelbr
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
@@ -175,7 +175,7 @@ package devCamp.WebApp.configurations;
 
     import javax.servlet.Filter;
 
-    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.boot.web.servlet.FilterRegistrationBean;
     import org.springframework.context.annotation.Bean;
     import org.springframework.core.Ordered;
     import org.springframework.beans.factory.annotation.Value;
@@ -214,6 +214,11 @@ package devCamp.WebApp.configurations;
             return new WebRequestTrackingFilter(applicationName);
         }	
     }
+```
+
+[!NOTE] If you're using Spring Boot 1.3.8 or older replace the FilterRegistrationBean with the line below
+```Java
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
 
 This class will configure the `WebRequestTrackingFilter` to be the first filter on the http filter chain. It will also pull the instrumentation key from the operating system environment variable if it is available.

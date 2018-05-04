@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Cosmos DB frequently asked questions | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling.
 keywords: Database questions, frequently asked questions, documentdb, azure, Microsoft azure
@@ -111,7 +111,7 @@ The PreferredLocations value can be set to any of the Azure regions in which Cos
 ### Is there anything I should be aware of when distributing data across the world via the Azure datacenters? 
 Azure Cosmos DB is present across all Azure regions, as specified on the [Azure regions](https://azure.microsoft.com/regions/) page. Because it is the core service, every new datacenter has an Azure Cosmos DB presence. 
 
-When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a sovereign region, you cannot replicate out of that sovereign region. Similarly, you cannot enable replication into other sovereign locations from an outside account. 
+When you set a region, remember that Azure Cosmos DB respects sovereign and government clouds. That is, if you create an account in a [sovereign region](https://azure.microsoft.com/global-infrastructure/), you cannot replicate out of that [sovereign region](https://azure.microsoft.com/global-infrastructure/). Similarly, you cannot enable replication into other sovereign locations from an outside account. 
 
 ## Develop against the SQL API
 
@@ -167,6 +167,9 @@ Yes, because Azure Cosmos DB is a RESTful service, resource links are immutable 
 ### Is a local instance of SQL API available?
 Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity emulation of the Cosmos DB service. It supports functionality that's identical to Azure Cosmos DB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications by using the Azure Cosmos DB Emulator, and deploy them to Azure at a global scale by making a single configuration change to the connection endpoint for Azure Cosmos DB.
 
+### Why are long floating-point values in a document rounded when viewed from data explorer in the portal. 
+This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely represent numbers between -(253 - 1) and 253 – 1 (i.e., 9007199254740991) only.
+
 ## Develop against the API for MongoDB
 ### What is the Azure Cosmos DB API for MongoDB?
 The Azure Cosmos DB API for MongoDB is a compatibility layer that allows applications to easily and transparently communicate with the native Azure Cosmos DB database engine by using existing, community-supported Apache MongoDB APIs and drivers. Developers can now use existing MongoDB tool chains and skills to build applications that take advantage of Azure Cosmos DB. Developers benefit from the unique capabilities of Azure Cosmos DB, which include auto-indexing, backup maintenance, financially backed service level agreements (SLAs), and so on.
@@ -208,6 +211,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * Table names in Azure Table storage are not case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full 1 Meg of a table entity to store binary data because the encoding increases the data's size.
 * Entity property name “Id” currently not supported
+* TableQuery TakeCount is not limited to 1000
 
 In terms of the REST API there are a number of endpoints/query options that are not supported by Azure Cosmos DB Table API:
 | Rest Method(s) | Rest Endpoint/Query Option | Doc URLs | Explanation |

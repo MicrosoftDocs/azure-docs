@@ -5,7 +5,7 @@ author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-
+services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
