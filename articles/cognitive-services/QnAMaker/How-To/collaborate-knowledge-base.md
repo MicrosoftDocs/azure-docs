@@ -16,7 +16,8 @@ ms.author: saneppal
 
 QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
 
-To share your QnA Maker service with someone:
+Perform the following steps to share your QnA Maker service with someone:
+
 1. Log in to the Azure portal, and go to your QnA Maker resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
@@ -25,7 +26,7 @@ To share your QnA Maker service with someone:
 
     ![QnA Maker IAM](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam.PNG)
 
-3. Click on **Add**
+3. Select **Add**.
 
     ![QnA Maker IAM add](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
