@@ -256,7 +256,7 @@ In this section, you create a Storage account, connect it to your IoT hub, and c
 
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.
 
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator][lnk-suite].
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 

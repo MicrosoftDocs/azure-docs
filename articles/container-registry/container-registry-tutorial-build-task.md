@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/27/2018
+ms.date: 05/07/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to trigger
@@ -33,13 +33,13 @@ This tutorial assumes you've already completed the steps in the [previous tutori
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.31 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
 
-### Get ACR Build and sample code
+### Get sample code
 
-This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md) to install ACR Build, and fork and clone the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
+This tutorial assumes you've already completed the steps in the [previous tutorial](container-registry-tutorial-quick-build.md), and have forked and cloned the sample repository. If you haven't already done so, complete the steps in the [Prerequisites](container-registry-tutorial-quick-build.md#prerequisites) section of the previous tutorial before proceeding.
 
 ### Container registry
 
@@ -158,7 +158,7 @@ Already on 'master'
 Your branch is up to date with 'origin/master'.
 ffef1347389a008c9a8bfdf8c6a0ed78b0479894
 time="2018-04-19T00:06:20Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-04-19T00:06:20Z" level=info msg="Running command docker build --pull -f Dockerfile -t acr22818.azurecr.io/helloworld:eastus2 ."
+time="2018-04-19T00:06:20Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloworld:eastus2 ."
 Sending build context to Docker daemon  182.8kB
 Step 1/5 : FROM node:9-alpine
 9: Pulling from library/node
@@ -174,12 +174,24 @@ Step 2/5 : COPY . /src
 b69680cb4898: Pushed
 b54af9b858b7: Pushed
 eastus2: digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6 size: 2423
-time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" acr22818.azurecr.io/helloworld:eastus2"
-"["acr22818.azurecr.io/helloworld@sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"]"
+time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistry.azurecr.io/helloworld:eastus2"
+"["mycontainerregistry.azurecr.io/helloworld@sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"]"
 time="2018-04-19T00:06:51Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
 "["node@sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"]"
 ACR Builder discovered the following dependencies:
-[{"image":{"registry":"acr22818.azurecr.io","repository":"helloworld","tag":"eastus2","digest":"sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6"},"runtime-dependency":{"registry":"registry.hub.docker.com","repository":"node","tag":"9","digest":"sha256:bd7b9aaf77ab2ce1e83e7e79fc0969229214f9126ced222c64eab49dc0bdae90"},"buildtime-dependency":null,"git":{"git-head-revision":"ffef1347389a008c9a8bfdf8c6a0ed78b0479894"}}]
+- image:
+    registry: mycontainerregistry.azurecr.io
+    repository: helloworld
+    tag: eastus2
+    digest: sha256:9a7b73d06077ced2a02f7462f53e31a3e51e95ea5544fbcdb01e2fef094da1b6
+  runtime-dependency:
+    registry: registry.hub.docker.com
+    repository: library/node
+    tag: 9-alpine
+    digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+  git:
+    git-head-revision: 6944c6bd0602f96e5fecf56ff8d66e2d268223e3
+
 Build complete
 Build ID: eastus2 was successful after 39.789138274s
 ```
