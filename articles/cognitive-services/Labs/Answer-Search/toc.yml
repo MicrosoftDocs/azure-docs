@@ -1,5 +1,9 @@
 - name: Project Answer Search Documentation
-  href: overview.md
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Project Answer Search?
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
