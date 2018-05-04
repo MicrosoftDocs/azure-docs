@@ -58,7 +58,7 @@ The following tables compare services available in global Azure and Microsoft Az
 | Virtual Networks          | GA                 | GA                |
 | Azure ExpressRoute        | GA | GA |
 | Azure DNS                 | GA                                                                                                   | *Not available*                                                                                     |
-| CDN       | GA | GA   |
+| CDN       | Provided by Microsoft, Verizon, or Akamai | GA   |
 | Azure Traffic Manager     | GA                                                                                                   | GA                                                                                                  |
 | Azure Load Balancer       | GA                                                                                                   | GA                                                                                                  |
 | Azure Network Watcher     | GA                                                                                                   | GA                                                                                    |

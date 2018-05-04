@@ -66,7 +66,7 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## Managing accounts
+## Manage accounts
 
 ### Create a Data Lake Analytics account
 
@@ -88,7 +88,7 @@ Once a Resource Group and Data Lake Store account is available, create a Data La
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### Get information about an account
+### Get acount information
 
 Get details about an account.
 
@@ -108,7 +108,7 @@ Check the existence of a specific Data Lake Store account. The cmdlet returns ei
 Test-AdlStoreAccount -Name $adls
 ```
 
-### Listing accounts
+### List accounts
 
 List Data Lake Analytics accounts within the current subscription.
 
@@ -122,48 +122,7 @@ List Data Lake Analytics accounts within a specific resource group.
 Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
-## Managing firewall rules
-
-List firewall rules.
-
-```powershell
-Get-AdlAnalyticsFirewallRule -Account $adla
-```
-
-Add a firewall rule.
-
-```powershell
-$ruleName = "Allow access from on-prem server"
-$startIpAddress = "<start IP address>"
-$endIpAddress = "<end IP address>"
-
-Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Change a firewall rule.
-
-```powershell
-Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
-```
-
-Remove a firewall rule.
-
-```powershell
-Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
-```
-
-Allow Azure IP addresses.
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
-```
-
-```powershell
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
-Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
-```
-
-## Managing data sources
+## Manage data sources
 Azure Data Lake Analytics currently supports the following data sources:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
@@ -515,6 +474,48 @@ Write-Host '$subid' " = ""$adla_subid"" "
 Write-Host '$adla' " = ""$adla_name"" "
 Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
+
+## Manage firewall rules
+
+### List firewall rules
+
+```powershell
+Get-AdlAnalyticsFirewallRule -Account $adla
+```
+
+### Add a firewall rule
+
+```powershell
+$ruleName = "Allow access from on-prem server"
+$startIpAddress = "<start IP address>"
+$endIpAddress = "<end IP address>"
+
+Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### Change a firewall rule
+
+```powershell
+Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
+```
+
+### Remove a firewall rule
+
+```powershell
+Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
+```
+
+### Allow Azure IP addresses.
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
+```
+
+```powershell
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Enabled
+Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
+```
+
 
 ## Working with Azure
 

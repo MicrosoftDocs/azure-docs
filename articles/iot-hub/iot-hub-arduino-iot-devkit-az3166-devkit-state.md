@@ -87,10 +87,10 @@ With your MXChip IoT DevKit connected to your computer:
 ## Next steps
 
 You have learned how to:
-- Connect an MXChip IoT DevKit device to your Azure IoT Suite.
+- Connect an MXChip IoT DevKit device to your Azure IoT Remote Monitoring solution accelerator.
 - Use the Azure IoT device twins function to sense and control the color of the DevKit's RGB LED.
 
 Here are the suggested next steps:
 
-* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
 * [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
