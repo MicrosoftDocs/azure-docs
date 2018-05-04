@@ -336,7 +336,7 @@ For more information on managing reference data in Time Series Insights, see the
 
 As Time Series Insights ingests this data, we flatten it to store it as rows and columns.  There is no data loss during the process, but to make search performance we flatten nested values to a dot-like notation.  Here is what the above payload would like flattened.  
 
-The flattened file would be exactly the same if you employed the reference data set above in lieu of sending 'type' and 'unit' in each nested event.]
+The flattened file would be exactly the same if you employed the reference data set above in lieu of sending 'type' and 'unit' in each nested event.
 
 |messageId|deviceId|timestamp|series.tagId|series.type|series.unit|series.value|
 |--------|---------------|----------------------|----------------------|----------------------|----------------------|----------------------|
