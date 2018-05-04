@@ -6,6 +6,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cognitive-services/Computer-vision/Research.md",
+            "redirect_url": "/azure/cognitive-services/Computer-vision",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-csharp-module.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": false
@@ -7239,6 +7244,26 @@
         {
             "source_path": "articles/cognitive-services/Bing-Custom-Search/rank-results.md",
             "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/define-your-custom-view",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/csharp.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/java.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/nodejs.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-nodejs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Bing-Custom-Search/quickstarts/python.md",
+            "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/call-endpoint-python",
             "redirect_document_id": false
         },
         {
