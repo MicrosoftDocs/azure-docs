@@ -9,7 +9,7 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/07/2018
 ms.author: v-jerkin
 ---
 # Speech service REST APIs
