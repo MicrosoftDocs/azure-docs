@@ -1,7 +1,7 @@
 ---
 title: Securing your Internet of Things from the ground up | Microsoft Docs
-description: This article describes the built-in security features of the Microsoft Azure IoT Suite
-services: ''
+description: This article describes the built-in security features of the Microsoft Azure IoT solution accelerators
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -31,10 +31,10 @@ To learn more about securing your IoT solution, see:
 [lnk-security-architecture]: iot-security-architecture.md
 [lnk-security-deployment]: iot-suite-security-deployment.md
 
-You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
-* [Frequently asked questions for IoT Suite][lnk-faq]
+* [Predictive Maintenance solution accelerator overview][lnk-predictive-overview]
+* [Frequently asked questions for IoT solution accelerators][lnk-faq]
 
 You can read about IoT Hub security in [Control access to IoT Hub][lnk-devguide-security] in the IoT Hub developer guide.
 

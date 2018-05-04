@@ -9,8 +9,6 @@ ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
 ---
-2018-04-19
-
 # Bing Search API use and display requirements
 
 Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.     

@@ -9,12 +9,10 @@
   manager: mtillman
   editor: ''
 
-  ms.assetid:
   ms.service: active-directory
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: identity
+  ms.component: users-groups-roles
   ms.date: 01/14/2018
   ms.author: curtand
 
