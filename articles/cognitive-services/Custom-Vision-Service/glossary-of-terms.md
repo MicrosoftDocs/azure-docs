@@ -1,5 +1,5 @@
 ---
-title: Glossary of Terms for Custom Vision Service machine learning | Microsoft Docs
+title: Glossary of Terms for Custom Vision Service - Azure Cognitive Services | Microsoft Docs
 description: Glossary of Terms for Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT

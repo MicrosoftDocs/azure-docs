@@ -1,5 +1,5 @@
 ---
-title: Building a classifier using Custom Vision Service machine learning - Cognitive Services | Microsoft Docs
+title: Build a classifier with Custom Vision Service - Azure Cognitive Services | Microsoft Docs
 description: Learn how to use the Custom Vision Service to create a classifier that can discern objects in photographs.
 services: cognitive-services
 author: anrothMSFT

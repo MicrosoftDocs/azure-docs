@@ -1,6 +1,6 @@
 ---
-title: Get started building a classifier by using Custom Vision Service machine learning | Microsoft Docs
-description: Build a classifier to discern objects in photographs.
+title: Limits and quotas for Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+description: Learn about the limits and quota for Azure Cognitives Services Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar

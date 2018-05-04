@@ -1,5 +1,5 @@
 ---
-title: Run TensorFlow model in Python - Microsoft Cognitive Services | Microsoft Docs
+title: Run TensorFlow model in Python - Azure Cognitive Services | Microsoft Docs
 description: Run TensorFlow model in Python
 services: cognitive-services
 author: areddish
