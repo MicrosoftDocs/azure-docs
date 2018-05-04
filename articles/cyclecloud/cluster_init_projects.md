@@ -8,7 +8,7 @@ A **project** is a collection of resources necessary to define and run a cluster
 
 ## Create a New Project
 
-To create a new project, use the CLI command ``cyclecloud project init myproject``, where ``myproject`` is the name of the project you wish to create. This will create a project called "myproject", with a single spec named "default" that you can change. The directory tree will be created with skeleton files you will amend to include your own information.
+To create a new project, use the CLI command `cyclecloud project init myproject`, where `myproject` is the name of the project you wish to create. This will create a project called "myproject", with a single spec named "default" that you can change. The directory tree will be created with skeleton files you will amend to include your own information.
 
 ### Directory Structure
 
@@ -35,31 +35,32 @@ The custom chef subdirectory has three directories: **site-cookbooks** (for cook
 
 ## Lockers
 
-Project contents are stored within a **locker**. You can upload the contents of your project to any locker defined in your CycleCloud install via the command ``cyclecloud project upload <locker>``, where <locker> is the name of a cloud storage locker in your CycleCloud install. This locker will be set as the default target. Alternatively, you can see what lockers are available to you with the command ``cyclecloud locker list``. Details about a specific locker can be viewed with ``cyclecloud locker show <locker>``.
+Project contents are stored within a **locker**. You can upload the contents of your project to any locker defined in your CycleCloud install via the command `cyclecloud project upload (locker)`, where (locker) is the name of a cloud storage locker in your CycleCloud install. This locker will be set as the default target. Alternatively, you can see what lockers are available to you with the command `cyclecloud locker list`. Details about a specific locker can be viewed with `cyclecloud locker show (locker)`.
 
-If you add more than one locker, you can set your default with ``cyclecloud project default_target <locker>``, then simply run ``cyclecloud project upload``. You can also set a global default locker that can be shared by projects with the command ``cyclecloud project default locker <locker> -global``.
+If you add more than one locker, you can set your default with `cyclecloud project default_target (locker)`, then simply run `cyclecloud project upload`. You can also set a global default locker that can be shared by projects with the command `cyclecloud project default locker (locker) -global`.
 
 > [!NOTE]
-> Default lockers will be stored in the cyclecloud config file (usually located in ~/.cycle/config.ini), > not in the project.ini. This is done to allow project.ini to be version controlled.
+> Default lockers will be stored in the cyclecloud config file (usually located in ~/.cycle/config.ini),
+> not in the project.ini. This is done to allow project.ini to be version controlled.
 
 Uploading your project contents will zip the chef directories and sync both chef and cluster init to your target locker. These will be stored at:
 
-* <locker>/projects/<project>/<version>/<spec_name>/cluster-init
-* <locker>/projects/<project>/<version>/<spec_name>/chef
+* (locker)/projects/(project)/(version)/(spec_name)/cluster-init
+* (locker)/projects/(project)/(version)/(spec_name)/chef
 
 ## Blob Download
 
-Use ``project download`` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the [locker] parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
+Use `project download` to download all blobs referenced in the project.ini to your local blobs directory. The command uses the [locker] parameter and will attempt to download blobs listed in project.ini from the locker to local storage. An error will be returned if the files cannot be located.
 
 # Project Setup
 
 ## Specs
 
-When creating a new project, a single default spec is defined. You can add additional specs to your project via the ``cyclecloud project add_spec`` command.
+When creating a new project, a single default spec is defined. You can add additional specs to your project via the `cyclecloud project add_spec` command.
 
 ## Versioning
 
-By default, all projects have a **version** of 1.0.0. You can set a custom version as you develop and deploy projects by setting ``version=x.y.z`` in the **project.ini** file.
+By default, all projects have a **version** of 1.0.0. You can set a custom version as you develop and deploy projects by setting `version=x.y.z` in the **project.ini** file.
 
 For example, if “locker_url” was az://my-account/my-container/projects, project was named “Order66”, version was “1.6.9”, and the spec is “default”, your url would be:
 
@@ -72,7 +73,7 @@ There are two types of blob: **project blobs** and **user blobs**.
 
 ### Project Blobs
 
-Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the "blobs" directory of a project, and when uploaded to a locker they will be located at ``/project/blobs``.
+Project Blobs are binary files provided by the author of the project with the assumption that they can be distributed (i.e. a binary file for an open source project you are legally allowed to redistribute). Project Blobs go into the "blobs" directory of a project, and when uploaded to a locker they will be located at `/project/blobs`.
 
 To add blobs to projects, add the file(s) to your **project.ini**:
 
@@ -83,9 +84,9 @@ Multiple blobs can be separated by a comma. You can also specify the relative pa
 
 ### User Blobs
 
-User Blobs are binary files that the author of the project cannot legally redistribute, such as UGE binaries. These files are not packaged with the project, but instead must be staged to the locker manually. The files will be located at ``/blobs//my-blob.tgz``. User Blobs do not need to be defined in the project.ini.
+User Blobs are binary files that the author of the project cannot legally redistribute, such as UGE binaries. These files are not packaged with the project, but instead must be staged to the locker manually. The files will be located at `/blobs//my-blob.tgz`. User Blobs do not need to be defined in the project.ini.
 
-To download any blob, use the ``jetpack download`` command from the CLI, or the ``jetpack_download`` Chef resource. CycleCloud will look for the user blob first. If that file is not located, the project level blob will be used.
+To download any blob, use the `jetpack download` command from the CLI, or the `jetpack_download` Chef resource. CycleCloud will look for the user blob first. If that file is not located, the project level blob will be used.
 
 > [!NOTE]
 > It is possible to override a project blob with a user blob of the same name.
@@ -149,6 +150,9 @@ If only one name is specified in the [[[cluster-init]]] definition, it will be a
 
 is a valid spec setup in which `Spec=myspec` is implied by the name.
 
+> [!WARNING]
+> If you are using Projects, you cannot use pre-v6.5.4 ClusterInit (pre 6.5.4). They are mutually exclusive.
+
 ## run_list
 
 You can specify a runlist at the project or spec level within your project.ini:
@@ -165,15 +169,17 @@ You can also overwrite a runlist at the spec level on a node. This will replace 
 
 The runlist defined in the project would be ignored, and the above would be used instead. The final runlist on the node would then be "run_list = recipe[cyclecloud], recipe[test], recipe[different-test], recipe[cluster_init]".
 
->[!NOTE] runlists are specific to chef and do not apply otherwise.
+> [!NOTE]
+> runlists are specific to chef and do not apply otherwise.
 
 # File Locations
 
-The zipped chef files will be downloaded during the bootstrapping phase of node startup. They are downloaded to ``$JETPACK_HOME/system/chef/tarballs`` and unzipped to ``$JETPACK_HOME/system/chef/chef-repo/``, and used when converging the node.
+The zipped chef files will be downloaded during the bootstrapping phase of node startup. They are downloaded to `$JETPACK_HOME/system/chef/tarballs` and unzipped to `$JETPACK_HOME/system/chef/chef-repo/`, and used when converging the node.
 
->[!NOTE] To run custom cookbooks, you MUST specify them in the run_list for the node.
+> [!NOTE]
+> To run custom cookbooks, you MUST specify them in the run_list for the node.
 
-The cluster-init files will be downloaded to ``/mnt/cluster-init/<project>/<spec>/``. For ‘my-project’ and ‘my-spec’, you will see your scripts, files, and tests located in ``/mnt/cluster-init/my-project/my-spec``.
+The cluster-init files will be downloaded to `/mnt/cluster-init/(project)/(spec)/`. For ‘my-project’ and ‘my-spec’, you will see your scripts, files, and tests located in `/mnt/cluster-init/my-project/my-spec`.
 
 ## Syncing Projects
 
@@ -188,22 +194,22 @@ CycleCloud projects can be synced from mirrors into cluster local cloud storage.
 
 Projects supports large files. At the top level of a newly created project you will see a "blobs" directory for your large files (blobs). Please note that blobs placed in this directory have a specific purpose, and will act differently than the items within the "files" directory.
 
-Items within the "blobs" directory are spec and version independent: anything in "blobs" can be shared between specs or project versions. As an example, an installer for a program that changes infrequently can be stored within "blobs" and referenced within your ``project.ini``. As you iterate on versions of your project, that single file remains the same and is only copied into your cloud storage once, which saves on transfer and storage cost.
+Items within the "blobs" directory are spec and version independent: anything in "blobs" can be shared between specs or project versions. As an example, an installer for a program that changes infrequently can be stored within "blobs" and referenced within your `project.ini`. As you iterate on versions of your project, that single file remains the same and is only copied into your cloud storage once, which saves on transfer and storage cost.
 
-To add a blob, simply place a file into the "blobs" directory and edit your ``project.ini`` to reference that file:
+To add a blob, simply place a file into the "blobs" directory and edit your `project.ini` to reference that file:
 
   [blobs]
     Files=big_file1.tgz
 
-When you use the ``project upload`` command, all blobs referenced in the project.ini will be transferred into cloud storage.
+When you use the `project upload` command, all blobs referenced in the project.ini will be transferred into cloud storage.
 
 ## Log Files
 
-Log files generated when running cluster-init are located in ``$JETPACK_HOME/logs/cluster-init/<project>/<spec>``.
+Log files generated when running cluster-init are located in `$JETPACK_HOME/logs/cluster-init/(project)/(spec)`.
 
 ## Run Files
 
-When a cluster-init script is run successfully, a file is placed in ``/mnt/cluster-init/.run/<project>/<spec>`` to ensure it isn’t run again on a subsequent converge. If you want to run the script again, delete the appropriate file in this directory.
+When a cluster-init script is run successfully, a file is placed in `/mnt/cluster-init/.run/(project)/(spec)` to ensure it isn’t run again on a subsequent converge. If you want to run the script again, delete the appropriate file in this directory.
 
 ## Script Directories
 
@@ -229,7 +235,7 @@ To run ONLY the cluster-init scripts:
 
 Output from the command will both go to STDOUT as well as jetpack.log. Each script will also have its output logged to:
 
-      $JETPACK_HOME/logs/cluster-init/<project>/<spec>/scripts/<script.sh>.out
+      $JETPACK_HOME/logs/cluster-init/(project)/(spec)/scripts/(script.sh).out
 
 ## Custom chef and Composable Specs
 
@@ -237,15 +243,15 @@ Each spec has a chef directory in it. Before a converge, each spec will be untar
 
 ## jetpack download
 
-To download a blob within a cluster-init script, use the command ``jetpack download <filename>`` to pull it from the blobs directory. Running this command from a cluster-init script will determine the project and base URL for you. To use it in a non-cluster-init context, you will need to specify the project (see --help for more information).
+To download a blob within a cluster-init script, use the command `jetpack download (filename)` to pull it from the blobs directory. Running this command from a cluster-init script will determine the project and base URL for you. To use it in a non-cluster-init context, you will need to specify the project (see --help for more information).
 
-For chef users, a ``jetpack_download`` LWRP has been created:
+For chef users, a `jetpack_download` LWRP has been created:
 
     jetpack_download "big-file1.tgz" do
       project "my-project"
     end
 
-In chef, the default download location is ``#{node[:jetpack][:downloads]}``. To change the file destination, use the following:
+In chef, the default download location is `#{node[:jetpack][:downloads]}`. To change the file destination, use the following:
 
     jetpack_download "foo.tgz" do
       project "my-project"
