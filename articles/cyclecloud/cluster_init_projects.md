@@ -165,13 +165,13 @@ You can also overwrite a runlist at the spec level on a node. This will replace 
 
 The runlist defined in the project would be ignored, and the above would be used instead. The final runlist on the node would then be "run_list = recipe[cyclecloud], recipe[test], recipe[different-test], recipe[cluster_init]".
 
-> [!NOTE] runlists are specific to chef and do not apply otherwise.
+>[!NOTE] runlists are specific to chef and do not apply otherwise.
 
 # File Locations
 
 The zipped chef files will be downloaded during the bootstrapping phase of node startup. They are downloaded to ``$JETPACK_HOME/system/chef/tarballs`` and unzipped to ``$JETPACK_HOME/system/chef/chef-repo/``, and used when converging the node.
 
-> [!NOTE] To run custom cookbooks, you MUST specify them in the run_list for the node.
+>[!NOTE] To run custom cookbooks, you MUST specify them in the run_list for the node.
 
 The cluster-init files will be downloaded to ``/mnt/cluster-init/<project>/<spec>/``. For ‘my-project’ and ‘my-spec’, you will see your scripts, files, and tests located in ``/mnt/cluster-init/my-project/my-spec``.
 
