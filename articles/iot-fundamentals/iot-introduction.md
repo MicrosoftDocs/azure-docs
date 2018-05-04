@@ -138,7 +138,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                 <div class="card">
                     <div class="cardText">
                         <h3>Solutions</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">IoT solution accelerators</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
