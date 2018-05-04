@@ -125,6 +125,5 @@ The code from this article can be downloaded [here](https://aka.ms/csspeech/wins
 
 ## Next steps
 
-- [Authenticate with Speech service](how-to-authenticate.md)
 - [Translate speech](how-to-translate-speech.md)
 - [Customize speech models](how-to-customize-speech-models.md)
