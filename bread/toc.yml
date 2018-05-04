@@ -186,6 +186,12 @@
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
+    - name: Anomaly Finder
+      tocHref: /azure/cognitive-services/labs/anomaly-finder/
+      topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+    - name: Conversation Learner
+      tocHref: /azure/cognitive-services/labs/conversation-learner/
+      topicHref: /azure/cognitive-services/labs/conversation-learner/overview
     - name: URL Preview
       tocHref: /azure/cognitive-services/labs/url-preview/
       topicHref: /azure/cognitive-services/labs/url-preview/overview
