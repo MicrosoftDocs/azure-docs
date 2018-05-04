@@ -26,7 +26,7 @@ This section shows the steps to install and configure the authentication pipelin
 
 ### Create your ASP.NET project
 
-1. In Visual Studio: `File` > `New` > `Project`<br/>
+1. In Visual Studio: `File` > `New` > `Project`
 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 3. Name your application and click *OK*
 4. Select `Empty` and select the checkbox to add `MVC` references
@@ -41,7 +41,7 @@ This section shows the steps to install and configure the authentication pipelin
     Install-Package Microsoft.Owin.Security.Cookies
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### About these libraries
 >The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
@@ -51,9 +51,9 @@ This section shows the steps to install and configure the authentication pipelin
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > [!TIP]
-> If your project doesn't have a `Startup.cs` file in the root folder:<br/>
-> 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Name it `Startup.cs`<br/>
+> If your project doesn't have a `Startup.cs` file in the root folder:
+> 1. Right-click on the project's root folder: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Name it `Startup.cs`
 >
 >> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
@@ -73,19 +73,19 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 
     ```csharp
     public class Startup
-    {        
+    {
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
-    
+
         // RedirectUri is the URL where the user will be redirected to after they sign in.
         string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
-    
+
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
-    
+
         // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
-    
+
         /// <summary>
         /// Configure OWIN to use OpenIdConnect 
         /// </summary>
@@ -93,9 +93,9 @@ The steps below are used to create an OWIN middleware Startup Class to configure
         public void Configuration(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -104,13 +104,16 @@ The steps below are used to create an OWIN middleware Startup Class to configure
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -119,7 +122,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
                 }
             );
         }
-    
+
         /// <summary>
         /// Handle failed authentication requests by redirecting the user to the home page with an error in the query string
         /// </summary>
@@ -132,9 +135,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
             return Task.FromResult(0);
         }
     }
-    
     ```
-
 
 <!--start-collapse-->
 > ### More Information
