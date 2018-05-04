@@ -19,7 +19,7 @@ ms.author: rolyon
 ---
 # Elevate access for a Global administrator in Azure Active Directory
 
-If you are a [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD), there might be a time when you want to do the following:
+If you are a [Global administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD), there might be times when you want to do the following:
 
 - Regain access to an Azure subscription when a user has lost access
 - Grant another user or yourself access to an Azure subscription
@@ -44,7 +44,9 @@ By default, Azure AD administrator roles and Azure role-based access control (RB
 
    When you set the switch to **No**, your Global administrator account (currently logged in user) is removed from the User Access Administrator role in Azure RBAC. You can't see all Azure subscriptions that are associated with the Azure AD tenant, and you can view and manage only the Azure subscriptions to which you have been granted access.
 
-1. Click **Save** to save your setting. This setting is not a global property and applies only to the currently logged in user.
+1. Click **Save** to save your setting.
+
+   This setting is not a global property and applies only to the currently logged in user.
 
 1. Perform the tasks you need to make at the elevated access. When you are done, set the switch back to **No**.
 
@@ -67,9 +69,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## Delete a role assignment at the root scope (/) using Powershell
+## Delete a role assignment at the root scope (/) using PowerShell
 
-To delete a User Access Administrator role assignment  for a user at the root scope (`/`) [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
+To delete a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> -RoleDefinitionName "User Access Administrator" -Scope "/"
@@ -81,11 +83,11 @@ Use the following basic steps to elevate access for a Global administrator using
 
 1. Using REST, call `elevateAccess`, which grants you the User Access Administrator role at the root scope (`\`).
 
-   ```
+   ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the Reader role at the root scope (`\`):
+1. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the {roleDefinitionID} role at the root scope (`\`):
 
    ```json
    { 
@@ -107,10 +109,11 @@ Use the following basic steps to elevate access for a Global administrator using
 
 ## How to undo the elevateAccess action with the REST API
 
-When you call *elevateAccess* you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
+When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
 
-1.  Call GET roleDefinitions where roleName = User Access Administrator to determine the name GUID of the User Access Administrator role.
-	```
+1. Call [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) where `roleName` equals User Access Administrator to determine the name ID of the User Access Administrator role.
+
+	```http
 	GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
 	```
 
@@ -149,20 +152,19 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
 	}
 	```
 
-    Save the GUID from the *name* parameter, in this case **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Save the ID from the `name` parameter, in this case `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. You also need to list the role assignment for tenant admin at tenant scope. List all assignments at tenant scope for the PrincipalId of the TenantAdmin who made the elevate access call. This will list all assignments in the tenant for the ObjectID.
+2. You also need to list the role assignment for tenant administrator at tenant scope. List all assignments at tenant scope for the `principalId` of the tenant administrator who made the elevate access call. This will list all assignments in the tenant for the objectid.
 
-	```
+	```http
 	GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
 	```
 	
 	>[!NOTE] 
-	>A tenant admin should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: 
+	>A tenant administrator should not have many assignments, if the previous query returns too many assignments, you can also query for all assignments just at tenant scope level, then filter the results: 
 	> `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
-	
 		
-	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the RoleDefinitionId ends with the role name GUID you found in step 1 and PrincipalId matches the ObjectId of the Tenant Admin. 
+	2. The previous calls return a list of role assignments. Find the role assignment where the scope is "/" and the `roleDefinitionId` ends with the role name ID you found in step 1 and `principalId` matches the objectId of the tenant administrator. 
 	
 	Sample role assignment:
 
@@ -188,16 +190,15 @@ When you call *elevateAccess* you create a role assignment for yourself, so to r
         }
     	```
 		
-	Again, save the GUID from the *name* parameter, in this case **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+	Again, save the ID from the `name` parameter, in this case e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-	3. Finally, Use the highlighted **RoleAssignment ID** to delete the assignment added by Elevate Access:
+	3. Finally, Use the role assignment ID to delete the assignment added by `elevateAccess`:
 
-	```
+	```http
 	DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
 	```
 
 ## Next steps
 
-- Learn more about [managing Role-Based Access Control with REST](role-assignments-rest.md)
-
-- [Manage access assignments](role-assignments-users.md) in the Azure portal
+- [Role-based access control with REST](role-assignments-rest.md)
+- [Manage access assignments](role-assignments-users.md)
