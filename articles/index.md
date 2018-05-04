@@ -1159,6 +1159,9 @@ featureFlags:
                                                 <p>IoT Fundamentals</p>
                                             </a>
                                         </li>
+                                    </ul>
+                                    <h3>Internet of Things</h3>
+                                    <ul>
                                         <li>
                                             <a href="/azure/iot-central/">
                                                 <img src="media/index/IoT-central.svg" alt="" />

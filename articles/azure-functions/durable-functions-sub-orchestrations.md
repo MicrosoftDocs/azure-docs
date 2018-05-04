@@ -24,6 +24,9 @@ An orchestrator function can call another orchestrator function by calling the [
 
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function.
 
+> [!NOTE]
+> The `CallSubOrchestratorAsync` and `CallSubOrchestratorWithRetryAsync` methods are not yet available in JavaScript.
+
 ## Example
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. There is a particular orchestration that needs to happen for each of the devices, which might look something like the following:

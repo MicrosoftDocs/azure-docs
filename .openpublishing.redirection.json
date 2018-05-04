@@ -1,6 +1,6 @@
+
 {
-    "redirections": [
-        {
+    "redirections": [{
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/tutorial-multiple-modules-in-vscode",
             "redirect_document_id": true
@@ -39,6 +39,12 @@
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
             "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
+        },
+        
+        {
+            "source_path": "articles/machine-learning/service/aml-pricing.md",
+            "redirect_url": "https://azure.microsoft.com/pricing/details/machine-learning-services",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/machine-learning/preview/index.md",
@@ -7194,7 +7200,7 @@
             "source_path": "articles/sql-database/sql-database-export-portal.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
-        },       {
+        }, {
             "source_path": "articles/sql-database/sql-database-export-powershell.md",
             "redirect_url": "/azure/sql-database/sql-database-export",
             "redirect_document_id": false
@@ -8847,6 +8853,61 @@
         {
             "source_path": "articles/iot-hub/iot-hub-windows-gateway-sdk-simulated-device.md",
             "redirect_url": "/azure/iot-hub/iot-hub-windows-iot-edge-simulated-device",
+            "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
+          "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+          "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-getstarted.md",
+            "redirect_url": "/azure/iot-hub/quickstart-send-telemetry-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-how-to.md",
+            "redirect_url": "/azure/iot-hub/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-node-node-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-java-java-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
+            "redirect_url": "/azure/iot-hub/quickstart-control-device-python",
             "redirect_document_id": false
         },
         {
@@ -14600,6 +14661,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/iot-hub/iot-hub-what-is-iot-hub.md",
+            "redirect_url": "/azure/iot-hub/about-iot-hub",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric/service-fabric-automate-powershell.md",
             "redirect_url": "/azure/service-fabric/service-fabric-deploy-remove-applications",
             "redirect_document_id": false
@@ -17380,11 +17446,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/hdinsight/spark/apache-spark-eventhub-streaming.md",
-            "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/hdinsight/spark/apache-spark-eventhub-structured-streaming.md",
             "redirect_url": "/azure/hdinsight/spark/apache-spark-streaming-overview",
             "redirect_document_id": false
@@ -17590,6 +17651,11 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-suite/iot-suite-what-are-preconfigured-solutions.md",
+          "redirect_url": "azure/iot-suite/iot-suite-what-are-solution-accelerators",
+          "redirect_document_id": false
+      },
+      {
             "source_path": "articles/virtual-network/virtual-network-deploy-static-pip-cli-nodejs.md",
             "redirect_url": "/azure/virtual-network/virtual-network-deploy-static-pip-arm-cli",
             "redirect_document_id": false
@@ -18645,6 +18711,76 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/location-based-services/about-location-based-services.md",
+            "redirect_url": "/azure/azure-maps/about-azure-maps",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/location-based-services/geocoding-coverage.md",
+            "redirect_url": "/azure/azure-maps/geocoding-coverage",
+            "redirect_document_id": true
+        },        
+        {
+            "source_path": "articles/location-based-services/how-to-manage-account-keys.md",
+            "redirect_url": "/azure/azure-maps/how-to-manage-account-keys",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/how-to-search-for-address.md",
+            "redirect_url": "/azure/azure-maps/how-to-search-for-address",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/how-to-use-map-control.md",
+            "redirect_url": "/azure/azure-maps/how-to-use-map-control",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/quick-demo-map-app.md",
+            "redirect_url": "/azure/azure-maps/quick-demo-map-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/render-coverage.md",
+            "redirect_url": "/azure/azure-maps/render-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/routing-coverage.md",
+            "redirect_url": "/azure/azure-maps/routing-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/supported-languages.md",
+            "redirect_url": "/azure/azure-maps/supported-languages",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/traffic-coverage.md",
+            "redirect_url": "/azure/azure-maps/traffic-coverage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-prioritized-routes.md",
+            "redirect_url": "/azure/azure-maps/tutorial-prioritized-routes",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-route-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-route-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/tutorial-search-location.md",
+            "redirect_url": "/azure/azure-maps/tutorial-search-location",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/location-based-services/zoom-levels-and-tile-grid.md",
+            "redirect_url": "/azure/azure-maps/zoom-levels-and-tile-grid",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
             "redirect_url": "/azure/data-factory/load-azure-sql-data-warehouse",
             "redirect_document_id": false
@@ -18846,6 +18982,10 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/location-based-services/index.md",
+            "redirect_url": "/azure/azure-maps/index",
+            "redirect_document_id": false
+        },        {
             "source_path": "articles/active-directory/active-directory-passwords-best-practices.md",
             "redirect_url": "/azure/active-directory/authentication/howto-sspr-deployment",
             "redirect_document_id": true
