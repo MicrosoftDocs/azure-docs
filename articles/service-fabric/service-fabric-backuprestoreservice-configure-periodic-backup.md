@@ -48,6 +48,12 @@ A backup policy defines the following details:
             "Interval": "PT10M"
         }
         ```
+        ```powershell
+        $ScheduleInfo = @{
+            Interval = 'PT10M'
+            ScheduleKind = 'FrequencyBased'
+        }
+        ```
 
     2. Time-based backup schedule: This schedule type should be used if the need is to take data backup at specific times of the day.
         ```json
@@ -72,7 +78,7 @@ A backup policy defines the following details:
         }
         ```
 
-    2. File share: This storage type should be selected in case of _standalone_ clusters and when the need is to store data backup on-premise. Description for this storage type requires file share path where backups needs to be uploaded. Access to the file share can either be configured using Integrated Window Authentication or by protecting this 
+    2. File share: This storage type should be selected in case of _standalone_ clusters and when the need is to store data backup on-premise. Description for this storage type requires file share path where backups needs to be uploaded. Access to the file share can either be configured using Integrated Window Authentication; where the access to file share is provided to all computers belonging to the Service Fabric clustersteror by protecting this using 
 
 > [!NOTE]
 > Periodic backup and restore feature is presently in **Preview** and not supported for production workloads. 
