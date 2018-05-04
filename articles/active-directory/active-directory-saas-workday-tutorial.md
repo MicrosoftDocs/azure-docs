@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. On the **Workday Configuration** section, click **Configure Workday** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Workday Configuration](./media/active-directory-saas-workday-tutorial/tutorial_workday_configure.png) 
-<CS>
+
 8. In a different web browser window, log in to your Workday company site as an administrator.
 
 9. In the **Search box** search with the name **Edit Tenant Setup – Security** on the top left side of the home page.
@@ -173,19 +173,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![SAML Identity Providers](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML Identity Providers")
    
-    c. Select **Enable idp Initiated Logout**.
-   
-    d. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
+    c. In the Azure portal, on the **Configure sign-on** window, copy the **Sign-Out URL** value, and then paste it into the **Logout Response URL** textbox.
 
-	e. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
+	d. In the Azure portal, on the **Configure sign-on** window, copy the **SAML Single Sign-On Service URL** value, and then paste it into the **IdP SSO Service URL** textbox.
 
-	f. In **Used for Environments** textbox, select the environment name.
+	e. In **Used for Environments** textbox, select the environment name.
 
-    g. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
+    f. Click **Identity Provider Public Key Certificate**, and then click **Create**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782928.png "Create")
 
-    h. Click **Create x509 Public Key**. 
+    g. Click **Create x509 Public Key**. 
 
     ![Create](./media/active-directory-saas-workday-tutorial/IC782929.png "Create")
 
@@ -225,7 +223,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     d. Click **OK**. 
    
     ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-<CE>
+
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
