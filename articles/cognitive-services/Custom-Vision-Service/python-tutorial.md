@@ -1,5 +1,5 @@
 ---
-title: Create a Custom Vision Service Python tutorial - Cognitive Services | Microsoft Docs
+title: Create a Custom Vision Service Python tutorial - Azure Cognitive Services | Microsoft Docs
 description: Explore a basic Python app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
 services: cognitive-services
 author: areddish
@@ -7,7 +7,7 @@ manager: chbuehle
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: areddish
 ---
 
