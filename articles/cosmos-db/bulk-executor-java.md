@@ -89,7 +89,7 @@ The cloned repository contains two samples “bulkimport” and “bulkupdate”
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   The bulk import API accepts a collection of JSON-serialized documents and it has the following syntax, for more details, see the [API documentation]():
+   The bulk import API accepts a collection of JSON-serialized documents and it has the following syntax, for more details, see the [API documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
 
    ```java
    public BulkImportResponse importAll(
@@ -134,9 +134,9 @@ The cloned repository contains two samples “bulkimport” and “bulkupdate”
 
 ## Bulk update data in Azure Cosmos DB
 
-You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, see [API documentation](). 
+You can update existing documents by using the BulkUpdateAsync API. In this example, you will set the Name field to a new value and remove the Description field from the existing documents. For the full set of supported field update operations, see [API documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async). 
 
-1. Defines the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, see the [API documentation]().  
+1. Defines the update items along with corresponding field update operations. In this example, you will use SetUpdateOperation to update the Name field and UnsetUpdateOperation to remove the Description field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, see the [API documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -158,7 +158,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more details, see the [API documentation]():
+   The bulk update API accepts a collection of items to be updated. Each update item specifies the list of field update operations to be performed on a document identified by an ID and a partition key value. for more details, see the [API documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
 
    ```java
    public BulkUpdateResponse updateAll(
