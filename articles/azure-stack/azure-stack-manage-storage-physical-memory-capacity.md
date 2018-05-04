@@ -18,7 +18,7 @@ ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
 
 ---
-
+<!---Loc Comment: Please, check the comment in coversation section---> 
 # Manage physical memory capacity for Azure Stack
 
 *Applies to: Azure Stack integrated systems*
