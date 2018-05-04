@@ -1,7 +1,7 @@
 - name: Custom Vision Service Documentation
 - name: Overview
   items:
-  - name: What is Custom Vision Service
+  - name: What is Custom Vision Service?
     href: home.md
 - name: How-to guides
   items:
@@ -9,19 +9,19 @@
     items:
     - name: Build a classifier
       href: getting-started-build-a-classifier.md
-    - name: Improve your classifier
-      href: getting-started-improving-your-classifier.md
     - name: Test your model
       href: test-your-model.md
+    - name: Improve your classifier
+      href: getting-started-improving-your-classifier.md
     - name: Use the prediction API
       href: use-prediction-api.md
     - name: Export your model to mobile
       href: export-your-model.md
   - name: Build apps
     items:
-    - name: C# tutorial
+    - name: C# app
       href: csharp-tutorial.md
-    - name: Python tutorial
+    - name: Python app
       href: python-tutorial.md
 - name: Reference
   items:

@@ -159,6 +159,9 @@
     - name: Bing Video Search
       tocHref: /azure/cognitive-services/Bing-Video-Search/
       topicHref: /azure/cognitive-services/Bing-Video-Search/
+    - name: Bing Visual Search
+      tocHref: /azure/cognitive-services/bing-visual-search/
+      topicHref: /azure/cognitive-services/bing-visual-search/
     - name: Bing Web Search
       tocHref: /azure/cognitive-services/bing-web-search/
       topicHref: /azure/cognitive-services/bing-web-search/
@@ -186,6 +189,18 @@
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
+    - name: Anomaly Finder
+      tocHref: /azure/cognitive-services/labs/anomaly-finder/
+      topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+    - name: Conversation Learner
+      tocHref: /azure/cognitive-services/labs/conversation-learner/
+      topicHref: /azure/cognitive-services/labs/conversation-learner/overview
+    - name: URL Preview
+      tocHref: /azure/cognitive-services/labs/url-preview/
+      topicHref: /azure/cognitive-services/labs/url-preview/overview
+    - name: Answer Search
+      tocHref: /azure/cognitive-services/labs/answer-search/
+      topicHref: /azure/cognitive-services/labs/answer-search/overview
     - name: Face
       tocHref: /azure/cognitive-services/face/
       topicHref: /azure/cognitive-services/face/
@@ -201,9 +216,12 @@
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
-    - name: Speech
+    - name: Speech API
       tocHref: /azure/cognitive-services/Speech/
       topicHref: /azure/cognitive-services/Speech/home
+    - name: Speech Service (preview)
+      tocHref: /azure/cognitive-services/Speech-Service/
+      topicHref: /azure/cognitive-services/Speech-Service/
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
