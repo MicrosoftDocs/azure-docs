@@ -47,7 +47,9 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 * If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* The logic app where you want to connect to your SQL database
+* The logic app where you want to connect to your SQL database. 
+If you want to start your logic app with a SQL trigger, 
+you need a blank logic app. 
 
 * If you don't have an Azure SQL Database or SQL Server, 
 see [Create an Azure SQL Database](../sql-database/sql-database-get-started-portal.md) 
@@ -66,8 +68,15 @@ you can also create the sample databases that are included with SQL.
 
     "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
-* Before you can use on-premises systems, such as SQL Server, 
-with logic apps, you must [install and set up the on-premises data gateway](../logic-apps/gateway-connection.md). You need the gateway 
+  > [!NOTE]
+  > Before you start running your logic app, 
+  > make sure that your database tables contain data. 
+  > Otherwise, Logic Apps won't return any results 
+  > from empty tables, including any schema values, 
+  > when you perform operations, such as "Get rows".
+
+* Before you can connect to on-premises systems, such as SQL Server, 
+with logic apps, you must [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). You need the gateway 
 information for creating the SQL database connection in your logic app.
 
 <a name="create-connection"></a>
@@ -83,6 +92,8 @@ and provide your credentials for accessing the service.
 The Logic Apps Designer provides an easy way for you to 
 create this connection directly from your logic app. 
 
+[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
+
 <a name="add-sql-trigger"></a>
 
 ## Add SQL trigger
@@ -90,19 +101,25 @@ create this connection directly from your logic app.
 In Azure Logic Apps, every logic app must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), 
 which fires when a specific event happens or 
 when a specific condition is met. Each time the trigger fires, 
-the Logic Apps engine creates a logic app instance that starts and runs your workflow.
+the Logic Apps engine creates a logic app instance that 
+starts and runs your workflow.
 
-1. On the Logic Apps Designer, in the search box, 
-enter "sql server" as your filter. 
-You can select any trigger for your logic app, 
-but for this example, select this trigger: 
-**SQL Server - When an item is created**
+1. In the Azure portal, create a blank logic app, 
+which opens Logic Apps Designer. 
 
-   ![Find "SQL Server" connector, choose "SQL Server - When an item is created" trigger](./media/connectors-create-api-sqlazure/add-action.png)
+2. In the search box, enter "sql server" as your filter. 
+From the triggers list, select the SQL trigger that you want. 
+This example uses this trigger: **SQL Server - When an item is created**
 
+3. If you're prompted for connection information, 
+   then [enter your connection details](#create-connection). 
 
-5. On the designer toolbar, choose **Save**, 
-which also automatically enables and makes your logic app live in Azure. 
+   Otherwise, if your connection already exists, 
+   select the **Table name** that you want from the list.
+
+4. Now set up the **Interval** and **Frequency** so 
+that you can specify how often you want your logic app 
+to check your SQL database.
 
 <a name="add-sql-action"></a>
 
@@ -118,35 +135,58 @@ choose **New step** > **Add an action**.
    ![Choose "New step", "Add an action"](./media/connectors-create-api-sqlazure/add-action.png)
 
 2. In the search box, enter "sql server" as your filter. 
-You can select any action for your logic app, 
-but for this example, select this action: **SQL Server - Get row**
+From the actions list, select any SQL action that you want. 
+This example uses this action: **SQL Server - Get row**
 
    ![Enter "sql server", select "SQL Server - Get row"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
 
 3. If you're prompted for connection information, 
    then [enter your connection details](#create-connection). 
+   Or, if your connection already exists, 
+   select the **Table name** that you want from the list, 
+   and enter the **Row ID** for the row that you want.
 
-   Otherwise, if your connection already exists, 
-   select the **Table name** from the list instead, 
-   and enter the **Row ID** that you want to return.
-
-   ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/sample-table.png)
+   ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/table-row-id.png)
    
-   In this example, we return a row from a table. 
-   To see the data in this row, 
+   This example returns a row from a table, 
+   but to view the data in this row, 
    add another action that creates a file 
-   using the fields from the table. For example, 
-   add a OneDrive action that uses the FirstName 
-   and LastName fields to create a new file in the cloud storage account. 
+   with includes the fields from the table. 
+   
+   For example, you might create a file in a cloud storage account, 
+   by adding a OneDrive action that uses the "FirstName" and "LastName" fields. 
 
 4. On the designer toolbar, choose **Save**, 
 which also automatically enables and makes your logic app live in Azure. 
 
+## Process data in bulk
+
+When you want to work with multiple records, 
+you can iterate over items by using [until loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
+in your logic app. However, [loops have their limits](../logic-apps/logic-apps-limits-and-config.md). 
+Sometimes you might need to work with very large record sets, 
+for example, thousands or millions of rows, but make as few database calls as possible. 
+You can divide those records into smaller sets by using *pagination*. 
+This technique helps you better control the resulting output and 
+provide a cleaner structure for your result set. 
+
+To implement this solution, create a stored procedure in your SQL instance, 
+and then reference that procedure by using the SQL Server 
+connector's **Execute stored procedure** action inside an until loop.
+
+For solution details, see these articles:
+
+* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
+
+* [SELECT - ORDER BY Clause](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql) 
+
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/sql/). 
+For more information about the triggers, actions, 
+and limits defined by the connector's Swagger, 
+see the [connector's details](/connectors/sql/). 
 
 ## Next steps
 
-* Learn about other [Logic Apps connectors](../logic-apps/apis-list.md).
+* Learn about other [Logic Apps connectors](../connectors/apis-list.md).
 
