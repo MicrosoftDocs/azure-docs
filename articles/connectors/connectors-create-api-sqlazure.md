@@ -18,7 +18,7 @@ ms.date: 05/07/2018
 ms.author: estfan; LADocs
 ---
 
-# Connect to SQL Server or Azure SQL Database with Azure Logic Apps
+# Connect to SQL Server or Azure SQL Database from Azure Logic Apps
 
 This article shows you how you can 
 access a SQL database from a logic app. 
@@ -79,9 +79,10 @@ are included with Azure SQL Database.
   > empty tables, including any schema values, 
   > when you perform operations, such as the "Get rows" action.
 
-* Before you can connect to on-premises systems, such as SQL Server, 
-from logic apps, you must [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) so that you can 
-select the gateway when you create the SQL connection for your logic app.
+* Before you can connect logic apps to on-premises systems, 
+such as SQL Server, you must [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) 
+so that you can select the gateway when you 
+create the SQL connection for your logic app.
 
 <a name="create-connection"></a>
 
