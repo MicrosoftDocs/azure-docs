@@ -51,10 +51,8 @@ The basic structure of a management solution file is the same as a [Resource Man
 ## Parameters
 [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
-When a user installs your management solution through the [Azure Marketplace](monitoring-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](monitoring-solutions.md#finding-and-installing-management-solutions) they are prompted to select a [Log Analytics workspace and Automation account](monitoring-solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
+When a user [installs your management solution](monitoring-solutions.md#install-a-management-solution) through the Azure Marketplace or Azure QuickStart templates they are prompted to select a [Log Analytics workspace and Automation account](monitoring-solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
-
-When the user installs your solution [another method](monitoring-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
 
 A sample parameter is shown below.  
 

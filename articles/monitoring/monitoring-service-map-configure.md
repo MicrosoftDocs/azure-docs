@@ -49,7 +49,7 @@ In this article, we'll refer to all agents--whether Linux or Windows, whether co
 
 The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the OMS Agent to Log Analytics, either directly or via the OMS Gateway.
 
-![Service Map agents](media/oms-service-map/agents.png)
+![Service Map agents](media/monitoring-service-map/agents.png)
 
 If you are a System Center Operations Manager customer with a management group connected to Log Analytics:
 
