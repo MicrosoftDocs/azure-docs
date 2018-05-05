@@ -1,14 +1,14 @@
 ---
 title: Creating a management solution file in Azure | Microsoft Docs
 description: Management solutions provide packaged management scenarios that customers can add to their Azure environment.  This article provides details on how you can create management solutions to be used in your own environment or made available to your customers.
-services: operations-management-suite
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: operations-management-suite
+ms.service: monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -51,10 +51,10 @@ The basic structure of a management solution file is the same as a [Resource Man
 ## Parameters
 [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
-When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-management-solutions) they are prompted to select a [Log Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
+When a user installs your management solution through the [Azure Marketplace](monitoring-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](monitoring-solutions.md#finding-and-installing-management-solutions) they are prompted to select a [Log Analytics workspace and Automation account](monitoring-solutions.md#log-analytics-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
 
-When the user installs your solution [another method](operations-management-suite-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
+When the user installs your solution [another method](monitoring-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
 
 A sample parameter is shown below.  
 
@@ -165,10 +165,10 @@ In this case, you refer to variable values through the solution with the syntax 
 
 
 ### Dependencies
-The **dependsOn** element specifies a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](operations-management-suite-solutions-resources-automation.md#runbooks) when it's installed using a [job resource](operations-management-suite-solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
+The **dependsOn** element specifies a [dependency](../azure-resource-manager/resource-group-define-dependencies.md) on another resource.  When the solution is installed, a resource is not created until all of its dependencies have been created.  For example, your solution might [start a runbook](monitoring-solutions-resources-automation.md#runbooks) when it's installed using a [job resource](monitoring-solutions-resources-automation.md#automation-jobs).  The job resource would be dependent on the runbook resource to make sure that the runbook is created before the job is created.
 
 ### Log Analytics workspace and Automation account
-Management solutions require a [Log Analytics workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
+Management solutions require a [Log Analytics workspace](../log-analytics/log-analytics-manage-access.md) to contain views and an [Automation account](../automation/automation-security-overview.md#automation-account-overview) to contain runbooks and related resources.  These must be available before the resources in the solution are created and should not be defined in the solution itself.  The user will [specify a workspace and account](monitoring-solutions.md#log-analytics-workspace-and-automation-account) when they deploy your solution, but as the author you should consider the following points.
 
 
 ## Solution resource
@@ -234,13 +234,13 @@ The **plan** entity of the solution resource has the properties in the following
 ## Sample
 You can view samples of solution files with a solution resource at the following locations.
 
-- [Automation resources](operations-management-suite-solutions-resources-automation.md#sample)
-- [Search and alert resources](operations-management-suite-solutions-resources-searches-alerts.md#sample)
+- [Automation resources](monitoring-solutions-resources-automation.md#sample)
+- [Search and alert resources](monitoring-solutions-resources-searches-alerts.md#sample)
 
 
 ## Next steps
-* [Add saved searches and alerts](operations-management-suite-solutions-resources-searches-alerts.md) to your management solution.
-* [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
-* [Add runbooks and other Automation resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
+* [Add saved searches and alerts](monitoring-solutions-resources-searches-alerts.md) to your management solution.
+* [Add views](monitoring-solutions-resources-views.md) to your management solution.
+* [Add runbooks and other Automation resources](monitoring-solutions-resources-automation.md) to your management solution.
 * Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.

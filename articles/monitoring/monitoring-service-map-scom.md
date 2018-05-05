@@ -1,14 +1,14 @@
 ---
 title: Service Map integration with System Center Operations Manager | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using Service Map to automatically create distributed application diagrams in Operations Manager.
-services: operations-management-suite
+services:  monitoring
 documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
 
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: operations-management-suite
+ms.service:  monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -23,7 +23,7 @@ ms.author: bwren;dairwin
   > This feature is in public preview.
   > 
   
-Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation](operations-management-suite-service-map.md).
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation]( monitoring-service-map.md).
 
 With this integration between Service Map and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Service Map.
 

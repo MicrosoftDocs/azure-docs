@@ -1,14 +1,14 @@
 ---
 title: Configure Service Map in Azure | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
-services: operations-management-suite
+services:  monitoring
 documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
 
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
-ms.service: operations-management-suite
+ms.service:  monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -20,7 +20,7 @@ ms.author: daseidma;bwren;dairwin
 # Configure Service Map in Azure
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. You can use it to view your servers as you think of them--as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required, other than installation of an agent.
 
-This article describes the details of configuring Service Map and onboarding agents. For information on using Service Map, see [Use the Service Map solution in Azure](operations-management-suite-service-map.md).
+This article describes the details of configuring Service Map and onboarding agents. For information on using Service Map, see [Use the Service Map solution in Azure]( monitoring-service-map.md).
 
 ## Dependency Agent downloads
 | File | OS | Version | SHA-256 |
@@ -268,7 +268,7 @@ If your Dependency Agent installation succeeded, but you don't see your server i
 
 		* Computer="<your computer name here>" | measure count() by Type
 		
-  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  Did you get a variety of events in the results? Is the data recent? If so, your OMS Agent is operating correctly and communicating with Log Analytics. If not, check the OMS Agent on your server: [OMS Agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) or [OMS Agent for Linux troubleshooting](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### Server appears in Service Map but has no processes
 If you see your server in Service Map, but it has no process or connection data, that indicates that the Dependency Agent is installed and running, but the kernel driver didn't load. 
@@ -385,4 +385,4 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 
 ## Next steps
-- Learn how to [use Service Map](operations-management-suite-service-map.md) after it has been deployed and configured.
+- Learn how to [use Service Map]( monitoring-service-map.md) after it has been deployed and configured.

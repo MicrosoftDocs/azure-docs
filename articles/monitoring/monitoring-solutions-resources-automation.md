@@ -1,14 +1,14 @@
 ---
 title: Azure Automation resources in management solutions | Microsoft Docs
 description: Management solutions will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  This article describes how to include runbooks and their related resources in a solution.
-services: operations-management-suite
+services:  monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
-ms.service: operations-management-suite
+ms.service:  monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -24,21 +24,21 @@ ms.custom: H1Hack27Feb2017
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions](operations-management-suite-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
+[Management solutions]( monitoring-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ](operations-management-suite-solutions-creating.md) 
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ]( monitoring-solutions-creating.md) 
 
 
 ## Prerequisites
 This article assumes that you're already familiar with the following information.
 
-- How to [create a management solution](operations-management-suite-solutions-creating.md).
-- The structure of a [solution file](operations-management-suite-solutions-solution-file.md).
+- How to [create a management solution]( monitoring-solutions-creating.md).
+- The structure of a [solution file]( monitoring-solutions-solution-file.md).
 - How to [author Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [og Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [og Analytics workspace and Automation account]( monitoring-solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of each Automation resource includes the name of its Automation account.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 
@@ -114,9 +114,9 @@ The properties for automation jobs are described in the following table.
 | runbook |Single name entity with the name of the runbook to start. |
 | parameters |Entity for each parameter value required by the runbook. |
 
-The job includes the runbook name and any parameter values to be sent to the runbook.  The job should [depend on](operations-management-suite-solutions-solution-file.md#resources) the runbook that it's starting since the runbook must be created before the job.  If you have multiple runbooks that should be started you can define their order by having a job depend on any other jobs that should be run first.
+The job includes the runbook name and any parameter values to be sent to the runbook.  The job should [depend on]( monitoring-solutions-solution-file.md#resources) the runbook that it's starting since the runbook must be created before the job.  If you have multiple runbooks that should be started you can define their order by having a job depend on any other jobs that should be run first.
 
-The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating a management solution file in Azure](operations-management-suite-solutions-solution-file.md#parameters).  
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating a management solution file in Azure]( monitoring-solutions-solution-file.md#parameters).  
 
 
 ## Certificates
@@ -331,7 +331,7 @@ Following is a sample of a solution that include that includes the following res
 - Variable.
 - Module.  This is the [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) for writing data to Log Analytics. 
 
-The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters]( monitoring-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 
 	{
@@ -648,4 +648,4 @@ The sample uses [standard solution parameters](operations-management-suite-solut
 
 
 ## Next steps
-* [Add a view to your solution](operations-management-suite-solutions-resources-views.md) to visualize collected data.
+* [Add a view to your solution]( monitoring-solutions-resources-views.md) to visualize collected data.
