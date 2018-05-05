@@ -8,14 +8,16 @@ This example uses a trigger.
 
    ![Find "SQL Server" connector](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
-3. If you didn't previously create any connections, 
-   provide the details now for creating the SQL connection. 
-   The asterisk (*) identifies required values. 
-
+3. If you didn't previously create any SQL connections, 
+   provide those connection details now. 
+   
+   The asterisks (*) identify required values. 
    Your credentials are necessary for authorizing 
    your logic app to connect and access your SQL data. 
 
    *Azure SQL Database*
+   <br>
+   Select your SQL server so that you can then select your database.
 
    ![Create Azure SQL Database connection](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png) 
 
