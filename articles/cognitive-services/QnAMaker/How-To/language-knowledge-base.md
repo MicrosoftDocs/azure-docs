@@ -26,7 +26,7 @@ The language is automatically recognized from the content of the data sources be
 
     ![Select the Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
-4. Select **Fields** section in the Azure blade showing the testkb details.
+4. Select **Fields** section showing the testkb details.
 
     ![Select Fields](../media/qnamaker-how-to-language-kb/selectfields.png)
 
