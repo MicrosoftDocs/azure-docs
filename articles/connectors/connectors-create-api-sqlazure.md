@@ -177,29 +177,29 @@ From the actions list, select any SQL action that you want.
    by adding a OneDrive action that uses the "FirstName" and "LastName" fields. 
 
 4. When you're done, on the designer toolbar, choose **Save**, 
-which makes your updates effective immediately. 
+which updates your live logic app. 
 
 ## Process data in bulk
 
 When you want to work with more than one record, 
-you can iterate over items by using [until loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
-in your logic app. However, [loops have their limits](../logic-apps/logic-apps-limits-and-config.md). 
-Sometimes you might have to work with large record sets, 
-such as thousands or millions of rows, 
-but you want to minimize calling the database. 
+you can have your logic app iterate over items by using 
+[*until loops*](../logic-apps/logic-apps-control-flow-loops.md#until-loop), 
+which have these [limits](../logic-apps/logic-apps-limits-and-config.md). 
+However, sometimes you might have to work with large record sets 
+with thousands or millions of rows, but you want to minimize calling the database. 
 You can divide those records into smaller sets by using *pagination*. 
-This technique helps you better control the resulting output and 
-provide a cleaner structure for your result set. 
+This solution helps you better control the resulting output and 
+more cleanly organize your results. 
 
 To implement this solution, create a stored procedure in your SQL instance, 
 and then reference that procedure by using the SQL Server 
-connector's **Execute stored procedure** action inside an until loop.
+connector's **Execute stored procedure** action in an "do until" loop.
 
 For solution details, see these articles:
 
 * <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
 
-* [SELECT - ORDER BY Clause](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql) 
+* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - ORDER BY Clause</a>
 
 ## Connector-specific details
 

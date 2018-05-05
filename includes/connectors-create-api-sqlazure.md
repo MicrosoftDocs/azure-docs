@@ -1,14 +1,13 @@
 1. After you open your logic app in the Logic Apps Designer, 
 in the search box, enter "sql server" as your filter. 
 Select either a SQL trigger or action, whichever applies. 
-This example uses a trigger.
 
-   The SQL Server connector works for 
-   both SQL Server and Azure SQL Database. 
+   This example uses a trigger. The connector works 
+   for both SQL Server and Azure SQL Database.
 
    ![Find "SQL Server" connector](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
-3. If you didn't previously create any SQL connections, 
+2. If you didn't previously create any SQL connections, 
    provide those connection details now. 
    
    The asterisks (*) identify required values. 
@@ -39,12 +38,13 @@ This example uses a trigger.
    | Password | Yes | <*my-sql-password*> | The password for accessing your database  <p>For Azure SQL Database, this name appears in the Azure portal under the SQL database properties. <p>For SQL Server, this name appears here in the connection string: <br>"Password=<*yourPassword*>" | 
    | Connect via on-premise gateway | Only for on-premises SQL Server | | Select this option when connecting to SQL Server. | 
    | Authentication Type | No | Windows | Select the authentication type used by your SQL server. | 
-   | Gateways | Only for on-premises SQL Server | myOnPremisesDataGateway | Select your on-premises data gateway. The gateway automatically appears in this list only if you already [set up the gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). | 
+   | Gateways | Only for on-premises SQL Server | <*my-data-gateway*> | Select your on-premises data gateway. The gateway automatically appears in this list only if you already [set up the gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). | 
    ||||| 
 
-4. When you're done, choose **Create**. 
+3. When you're done, choose **Create**. 
 
-After you create your connection, continue with the other steps in your logic app, for example:
+After you create your connection, continue with the 
+other steps in your logic app, for example:
 
-![SQL Azure connection creation step](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
+![Select table](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
