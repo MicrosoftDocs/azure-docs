@@ -31,16 +31,16 @@ This example uses a trigger.
    ![Create SQL Server connection](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
    | Property | Required | Value | Details | 
-   |----------|----------|---------------|---------| 
+   |----------|----------|-------|---------| 
    | Connection Name | Yes | <*my-sql-connection*> | Create a name for your connection. |
-   | SQL Server Name | Yes | <*my-sql-server*> | The name for your SQL server <p>For Azure SQL Database, select your server name from the list. <p>For SQL Server, you can get this name from the connection string where: <br>"Server=tcp:<*yourServerName*>.database.windows.net" |
-   | SQL Database Name | Yes | <*my-sql-database*>  | The name for your SQL database <p>For Azure SQL Database, select your database from the list, which appears only after you select your server. <p>For SQL Server, you can get this name from the connection string where: <br>"Initial Catalog=<*yourDatabaseName*>" |
-   | Username | Yes | <*my-sql-username*> | The username used for creating your database <p>For Azure SQL Database, your user name appears in the Azure portal under the SQL Database properties. <p>For SQL Server, you can get this name from the connection string where: <br>"UserID=<*yourUserName*>" |
-   | Password | Yes | <*my-sql-password*> | The password used for creating your database  <p>For Azure SQL Database, your user name appears in the Azure portal under the SQL Database properties. <p>For SQL Server, you can get this name from the connection string where: <br>"Password=<*yourPassword*>" | 
+   | SQL Server Name | Yes | <*my-sql-server*> | The name for your SQL server <p>For Azure SQL Database, select your server name from the list. <p>For SQL Server, this name appears here in the connection string: <br>"Server=<*yourServerAddress*>" |
+   | SQL Database Name | Yes | <*my-sql-database*>  | The name for your SQL database <p>For Azure SQL Database, select your database from the list, which appears only after you select your server. <p>For SQL Server, this name appears here in the connection string: <br>"Database=<*yourDatabaseName*>" |
+   | Username | Yes | <*my-sql-username*> | The username for accessing your database <p>For Azure SQL Database, this name appears in the Azure portal under the SQL database properties. <p>For SQL Server, this name appears here in the connection string: <br>"UserId=<*yourUserName*>" |
+   | Password | Yes | <*my-sql-password*> | The password for accessing your database  <p>For Azure SQL Database, this name appears in the Azure portal under the SQL database properties. <p>For SQL Server, this name appears here in the connection string: <br>"Password=<*yourPassword*>" | 
    | Connect via on-premise gateway | Only for on-premises SQL Server | | Select this option when connecting to SQL Server. | 
    | Authentication Type | No | Windows | Select the authentication type used by your SQL server. | 
-   | Gateways | Only for on-premises SQL Server | myOnPremisesDataGateway | Select your on-premises data gateway, which automatically appears in this list if previously set up. See [Access on-premises data](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). | 
-   |||| 
+   | Gateways | Only for on-premises SQL Server | myOnPremisesDataGateway | Select your on-premises data gateway. The gateway automatically appears in this list only if you already [set up the gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). | 
+   ||||| 
 
 4. When you're done, choose **Create**. 
 

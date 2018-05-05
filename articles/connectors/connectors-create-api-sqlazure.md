@@ -20,8 +20,8 @@ ms.author: estfan; LADocs
 
 # Connect to SQL Server or Azure SQL Database with Azure Logic Apps
 
-This article shows you how you can access 
-data in a SQL database from your logic app. 
+This article shows you how you can 
+access a SQL database from a logic app. 
 When you want to automate tasks and processes 
 that manage data in your SQL database, 
 you can build logic apps that orchestrate 
@@ -32,13 +32,12 @@ premises and Azure SQL Database in the cloud.
 You can create logic apps that run when triggered 
 by specific events in your SQL database or in 
 other systems, such as Dynamics CRM Online. 
-You can add actions that get, insert, 
-or delete rows of data, and execute SQL 
-queries or stored procedures.
-
-For example, when a record gets created in Dynamics CRM Online, 
-your logic app can automatically add an item to your SQL database, 
-and then send email.
+Logic apps can also get, insert, and delete data 
+plus execute SQL queries or stored procedures.
+For example, you can build a logic app that 
+automatically adds an item to your SQL database 
+when a record gets created in Dynamics CRM Online, 
+and then sends email.
 
 If you're new to logic apps, see 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -64,11 +63,12 @@ are included with Azure SQL Database.
   find your server name, database name, 
   user name, and password.
 
-  * For Azure SQL Database, the connection string has this information:
+  * For Azure SQL Database, you can find this information in the connection string, 
+  or in the Azure portal under the SQL Database properties:
 
     "Server=tcp:<*yourServerName*>.database.windows.net,1433;Initial Catalog=<*yourDatabaseName*>;Persist Security Info=False;User ID=<*yourUserName*>;Password=<*yourPassword*>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
-  * For SQL Server, the connection string has this information: 
+  * For SQL Server, you can find this information in the connection string: 
 
     "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
