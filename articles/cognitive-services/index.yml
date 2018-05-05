@@ -85,7 +85,7 @@ sections:
             <p><a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="../media/index/API_Bing_Custom_Search.svg" alt="" />Bing Custom Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="../media/index/API_Bing_Entity_Search.svg" alt="" />Bing Entity Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="../media/index/API_Bing_Image_Search.svg" alt="" />Bing Image Search</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Bing Visual Search</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.png" alt="" />Bing Visual Search</a></p>
     - title: Labs
       html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p>
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p>
@@ -93,7 +93,7 @@ sections:
             <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Project Local Insights</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="../media/index/API_KnowledgeExploration.svg" alt="" /><span>Project Knowledge Exploration Service</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="../media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Project Entity Linking</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview"><img src="../media/index/API_URL_Preview.svg" alt="" /><span>Project URL Preview</a></p>
-            <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.svg" alt="" /><span>Project Answer Search</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview"><img src="../media/index/API_URL_Preview.png" alt="" /><span>Project URL Preview</a></p>
+            <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.png" alt="" /><span>Project Answer Search</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview"><img src="../media/index/API_Anomaly_Finder.svg" alt="" /><span>Project Anomaly Finder</a></p>
             <p><a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview"><img src="../media/index/API_Conversation_Learner.svg" alt="" /><span>Project Conversation Learner</a></p>
