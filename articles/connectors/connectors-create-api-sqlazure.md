@@ -29,7 +29,7 @@ processes by using the SQL Server connector.
 You can create logic apps that trigger on events in your 
 SQL database or in other systems, such as Dynamics CRM Online. 
 You can add actions that have your logic apps get, insert, 
-or delete rows of data, and also exceute SQL queries or 
+or delete rows of data, and also execute SQL queries or 
 stored procedures.
 
 For example, when a new customer account gets created in Dynamics CRM Online, 
@@ -176,12 +176,12 @@ which also automatically enables and makes your logic app live in Azure.
 
 ## Process data in bulk
 
-When you want to work with multiple records, 
+When you want to work with more than one record, 
 you can iterate over items by using [until loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
 in your logic app. However, [loops have their limits](../logic-apps/logic-apps-limits-and-config.md). 
 Sometimes you might have to work with large record sets, 
-for example, thousands or millions of rows, 
-but you want to make as few database calls as possible. 
+such as thousands or millions of rows, 
+but you want to minimize calling the database. 
 You can divide those records into smaller sets by using *pagination*. 
 This technique helps you better control the resulting output and 
 provide a cleaner structure for your result set. 
