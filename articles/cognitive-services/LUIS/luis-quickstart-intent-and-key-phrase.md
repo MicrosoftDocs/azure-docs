@@ -37,7 +37,7 @@ Download the [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/ma
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
 
-2. On the [LUIS][LUIS] website, select **Import new app** to import the [Human Resources](#download-sample-app) app downloaded in the previous section. 
+2. On the [LUIS][LUIS] website, select **Import new app** to import the Human Resources app downloaded in the previous section. 
 
     [![](media/luis-quickstart-intent-and-key-phrase/app-list.png "Screenshot of App lists page")](media/luis-quickstart-intent-and-key-phrase/app-list.png#lightbox)
 
@@ -45,7 +45,7 @@ Download the [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/ma
 
     ![Image of Create new app dialog box](./media/luis-quickstart-intent-and-key-phrase/import-new-app-inline.png)
 
-    When the app creation process completes, LUIS displays the intents list containing the None intent.
+    When the app creation process completes, LUIS displays the intents list.
 
     [![](media/luis-quickstart-intent-and-key-phrase/intents-list.png "Screenshot of Intents lists page")](media/luis-quickstart-intent-and-key-phrase/intents-list.png#lightbox)
 
@@ -56,7 +56,7 @@ Add Key phrase prebuilt entity to extract subject matter from utterances.
 
     [ ![Screenshot of Entities highlighted in left nav of Build section](./media/luis-quickstart-intent-and-key-phrase/select-entities.png)](./media/luis-quickstart-intent-and-key-phrase/select-entities.png#lightbox)
 
-2. Select **Manage prebuild entities**.
+2. Select **Manage prebuilt entities**.
 
     [ ![Screenshot of Entities list pop-up dialog](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png#lightbox)
 
@@ -73,7 +73,7 @@ LUIS doesn't know about this change to the model until it is trained.
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    [ ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-key-phrase/train-button.png)](./media/luis-quickstart-intent-and-key-phrase/train-button-expanded.png#lightbox)
+    ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-key-phrase/train-button-expanded.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
@@ -83,7 +83,7 @@ LUIS doesn't know about this change to the model until it is trained.
 
 1. Select **Publish** in the top right navigation.
 
-    [ ![Screenshot of Entity page with Publish button expanded ](./media/luis-quickstart-intent-and-key-phrase/publish-inline.png)](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png#lightbox)
+    ![Screenshot of Entity page with Publish button expanded ](./media/luis-quickstart-intent-and-key-phrase/publish-expanded.png)
 
 2. Select the Production slot and the **Publish** button.
 
