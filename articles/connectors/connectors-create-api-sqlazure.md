@@ -126,9 +126,9 @@ you want your logic app to check the table.
    To do anything useful, your logic app must 
    include other actions that respond to the trigger 
    and perform the tasks that you want. 
-   For example, you might want to add other actions 
-   so that you can view the item, create a file, 
-   or send an email notification.  
+   For example, you might want to add other actions, 
+   such as create a file so that you can view the new item, 
+   or send email notifications.
 
 5. When you're done, on the designer toolbar, choose **Save**, 
 which also automatically enables and makes your logic app live in Azure. 
@@ -164,15 +164,14 @@ From the actions list, select any SQL action that you want.
    ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/table-row-id.png)
    
    This example only returns a row from a table. 
-   To view the data in this row, you can 
-   add a different action that creates a file 
-   with the fields from the table. 
+   To view the data in this row, add a different 
+   action that creates a file with the fields from the table. 
    
    For example, you might create a file in a cloud storage account, 
    by adding a OneDrive action that uses the "FirstName" and "LastName" fields. 
 
 4. When you're done, on the designer toolbar, choose **Save**, 
-which also automatically enables and makes your logic app live in Azure. 
+which makes your updates effective immediately. 
 
 ## Process data in bulk
 
