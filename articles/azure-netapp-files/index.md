@@ -18,7 +18,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-netapp-files/netapp-introduction">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -55,7 +55,7 @@ Learn how to use Azure NetApp Files to create and manage volumes, create a mount
         </a>
     </li> 
     <li>
-        <a href="/azure/azure-netapp-files/netapp-prepare-to-deploy">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-prepare-to-deploy">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
