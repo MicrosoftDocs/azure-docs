@@ -18,7 +18,7 @@ The language is automatically recognized from the content of the data sources be
 
 1. Navigate to the [Azure Portal](https://portal.azure.com/).
 
-2. Select **resource groups** and navigate to the resource group where the QnA Maker service is deployed and select the **Azure Search** resource
+2. Select **resource groups** and navigate to the resource group where the QnA Maker service is deployed and select the **Azure Search** resource.
 
     ![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
