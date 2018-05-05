@@ -13,7 +13,7 @@ ms.author: saneppal
 ---
 
 # QnA Maker Limits
-Comprehensive list of limits across QnA Maker
+Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases
 
