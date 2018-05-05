@@ -252,7 +252,7 @@
     - name: Surface Hub
       href: log-analytics-surface-hubs.md
     - name: Update Management
-      href: ../operations-management-suite/oms-solution-update-management.md
+      href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
     - name: VMware
       href: log-analytics-vmware.md
     - name: Windows Analytics
