@@ -37,18 +37,18 @@ Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
 ### Enable speech priming 
-In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](https://azure.microsoft.com/services/cognitive-services/speech/). 
+In the **External services settings**, the **Enable Speech Priming** checkbox allows you to have a single endpoint to get a spoken utterance from a chat bot or LUIS-calling application and receive a LUIS prediction response. The Speech priming uses the Cognitive service [Speech API](../speech-service/rest-apis). 
 
 ![Image of Speech priming confirmation dialog](./media/luis-how-to-publish-app/speech-prime-modal.png)
 
 Once this feature is enabled, publish your app. When you publish your LUIS app, your app model is sent to your own Speech service to prime the Speech service. Your model information is **not** used outside of your own service. 
 
-In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](https://aka.ms/SpeechSDK):
+In order to complete the use of Speech priming, you need the following information to use in the [Speech SDK](https://aka.ms/Speech/SDK):
 * A LUIS subscription key.
 * The LUIS app ID.
 * An endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com," where the first subdomain is the region where the app is published.
 
-For more information, see the [Speech to Intent](https://aka.ms/SpeechIntentTutorial) tutorial.
+For more information, see the [Speech to Intent](../speech-service/sdk/tutorials/intent) tutorial.
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
