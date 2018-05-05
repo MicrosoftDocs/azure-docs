@@ -51,7 +51,7 @@ You know that the web servers are called AcmeWFE001 and AcmeWFE002, so this seem
 
 ![Web server](media/operations-management-suite-walkthrough-servicemap/web-server.png)
 
-We're concerned about the performance of our web application so click on the **AcmeAppPool (IIS App Pool)** process. This displays the details for this process and highlights its dependencies. 
+You're concerned about the performance of the web application so click on the **AcmeAppPool (IIS App Pool)** process. This displays the details for this process and highlights its dependencies. 
 
 ![App Pool](media/operations-management-suite-walkthrough-servicemap/app-pool.png)
 
@@ -65,14 +65,14 @@ You heard that the problem started at 4:00 AM so let's have a look at what was h
 
 ### 5. View alert
 
-You now see that the **acmetomcat** dependency has an alert displayed, so that's our potential problem. Click on the alert icon in **acmetomcat** to show the details for the alert. You can see that you have critical CPU utilization and can expand it for more detail. This is probably what's causing our slow performance. 
+You now see that the **acmetomcat** dependency has an alert displayed, so that's the potential problem. Click on the alert icon in **acmetomcat** to show the details for the alert. You can see that you have critical CPU utilization and can expand it for more detail. This is probably what's causing the slow performance. 
 
 ![Alert](./media/operations-management-suite-walkthrough-servicemap/alert.png)
 
 
 ### 6. View performance
 
-Let's have a closer look at **acmetomcat**. Click in the top right of **acmetomcat** and select **Load Server Map** to show the detail and dependencies for this machine. You can then look a bit more into those performance counters to verify our suspicion. Select the **Performance** tab to display the [performance counters collected by Log Analytics](../log-analytics/log-analytics-data-sources-performance-counters.md) over the time range. You can see that we're getting periodic spikes in the processor and memory.
+Let's have a closer look at **acmetomcat**. Click in the top right of **acmetomcat** and select **Load Server Map** to show the detail and dependencies for this machine. You can then look a bit more into those performance counters to verify your suspicion. Select the **Performance** tab to display the [performance counters collected by Log Analytics](../log-analytics/log-analytics-data-sources-performance-counters.md) over the time range. You can see that you're getting periodic spikes in the processor and memory.
 
 ![Performance](./media/operations-management-suite-walkthrough-servicemap/performance.png)
 
@@ -94,14 +94,14 @@ You can further verify by looking at the detailed performance information collec
 
 
 ### 9. Open saved search
-Let's see if we can get some more detail on the performance collection that generated this alert and verify our suspicion that the problems are caused by that backup process. Change the time range to **6 hours**. Then click on **Favorites** and scroll down to the saved searches for **Service Map**. You created these queries specifically for this analysis. Click on **Top 5 Processes by CPU for acmetomcat**.
+Let's see if we can get some more detail on the performance collection that generated this alert and verify your suspicion that the problems are caused by that backup process. Change the time range to **6 hours**. Then click on **Favorites** and scroll down to the saved searches for **Service Map**. You created these queries specifically for this analysis. Click on **Top 5 Processes by CPU for acmetomcat**.
 
 ![Saved search](./media/operations-management-suite-walkthrough-servicemap/saved-search.png)
 
 
 This query returns a list of the top 5 processes consuming processor on **acmetomcat**. You can inspect the query to get an introduction to the query language used for log searches. If you're interested in the processes on other computers, you could modify the query to retrieve that information.
 
-In this case, you can see that the backup process is consistently consuming about 60% of the app server’s CPU. It's obvious that this new process is responsible for our performance problem. Our solution would obviously be to remove this new backup software off the application server. You could actually use Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
+In this case, you can see that the backup process is consistently consuming about 60% of the app server’s CPU. It's obvious that this new process is responsible for your performance problem. Your solution would obviously be to remove this new backup software off the application server. You could actually use Desired State Configuration (DSC) managed by Azure Automation to define policies that ensure this process never runs on these critical systems.
 
 
 ## Summary points
