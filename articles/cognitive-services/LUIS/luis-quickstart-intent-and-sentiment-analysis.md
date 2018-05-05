@@ -22,7 +22,7 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 ## Sentiment analysis
 Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
 
-The following utterances show examples of sentiment found in utterances:
+The following utterances show examples of sentiment:
 
 |Sentiment and score|Utterance|
 |:--|--|
@@ -38,7 +38,7 @@ Your chat bot can consider the sentiment score as part of the information used t
 
     [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Screenshot of App lists page")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
 
-3. On the **Create new app** dialog box, name the app `Restaurant Reservations With Sentiment`. 
+3. On the **Create new app** dialog box, name the app `Restaurant Reservations With Sentiment` and select **Done**. 
 
     ![Image of Create new app dialog box](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
 
@@ -53,7 +53,7 @@ Add a prebuilt domain to quickly add intents, entities, and labeled utterances.
 
     [ ![Screenshot of Prebuilt Domain button](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
 
-2. Select **Add domain** for the **RestaurantReservation** prebuilt domain.
+2. Select **Add domain** for the **RestaurantReservation** prebuilt domain. Wait until the domain is added.
 
     [ ![Screenshot of Prebuilt Domain list](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
 
