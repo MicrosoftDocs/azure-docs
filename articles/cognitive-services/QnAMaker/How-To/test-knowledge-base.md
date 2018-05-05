@@ -1,6 +1,5 @@
 ---
-title: How to test a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: How to test a knowledge base - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: Test your knowledge base before publishing it.
 services: cognitive-services
 author: nstulasi
