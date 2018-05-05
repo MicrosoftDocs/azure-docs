@@ -58,3 +58,5 @@ Configure [ACR Build](#azure-container-registry-build) build tasks to automatica
 * [Create a container registry using the Azure portal](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md)
 * [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Preview)
+
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
