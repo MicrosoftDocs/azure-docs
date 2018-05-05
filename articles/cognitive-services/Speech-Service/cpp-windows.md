@@ -11,7 +11,8 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
----code
+---
+
 # Quickstart for C++ and Windows
 
 We describe how to create a C++-based console application for Windows Desktop that makes use of the Speech SDK.
