@@ -51,7 +51,7 @@ Add a prebuilt domain to quickly add intents, entities, and labeled utterances.
 
 1. Select **Prebuilt Domains** from the left menu.
 
-    [ ![Screenshot of Prebuilt Domain button](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.pgn#lightbox)
+    [ ![Screenshot of Prebuilt Domain button](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
 
 2. Select **Add domain** for the **RestaurantReservation** prebuilt domain.
 
@@ -90,7 +90,7 @@ Sentiment analysis is enabled on the **Publish** page.
 
 2. Select **Enable Sentiment Analysis**.
 
-    [ ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment--expanded.png#lightbox)
+    [ ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png#lightbox)
 
 3. Select the Production slot and the **Publish** button.
 
@@ -102,7 +102,7 @@ Sentiment analysis is enabled on the **Publish** page.
 
 1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png "Screenshot of Publish page with endpoint url highlighted")](media/luis-quickstart-intent-and-sentiment-analysis/publish-select-endpoint.png#lightbox)
+    !["Screenshot of Publish page with endpoint URL highlighted](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
 
 2. Go to the end of the URL in the address and enter `Reserve table for  10 on upper level away from kitchen`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
 
