@@ -11,6 +11,10 @@
     href: get-started.md
   - name: Recognize speech in C# # OK
     href: quickstart-csharp-windows.md
+  - name: Recognize speech in C++ for Windows # OK
+    href: cpp-windows.md
+  - name: Recognize speech in C++ for Linux # OK
+    href: cpp-linux.md
 - name: How-to guides
   items:
     - name: Recognize speech # OK
@@ -31,6 +35,13 @@
       href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
   href: samples.md
+  items:
+  - name: Speech Recognition
+  - href: stt.md
+  - name: Intent Recognition
+  - href: intent.md
+  - name: Translation
+  - href: translation.md
 - name: Concepts
   items:
   - name: Speech to Text # OK
