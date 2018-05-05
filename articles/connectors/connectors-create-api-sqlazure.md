@@ -22,7 +22,7 @@ ms.author: estfan; LADocs
 
 This article shows you how you can access 
 data in a SQL database from your logic app. 
-When you want to automate tasks and processes  
+When you want to automate tasks and processes 
 that manage data in your SQL database, 
 you can build logic apps that orchestrate 
 workflows by using the SQL Server connector. 
