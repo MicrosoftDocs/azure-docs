@@ -19,7 +19,7 @@ ms.author: rolyon
 
 ---
 
-# Tutorial: Assign a role to a group at a scope using Azure PowerShell
+# Tutorial: Assign a role to a group using Azure PowerShell
 
 [Role-based access control (RBAC)](overview.md) is the way that you control access to resources in Azure. In this tutorial, you will assign roles to a group at different scopes using Azure PowerShell.
 
@@ -52,6 +52,8 @@ A role assignment consists of three elements: security principal, role definitio
 
 ## Create a group
 
+To assign a role, you need a user, group, or service principal.
+
 1. Create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command with a name of your choice.
 
    ```azurepowershell
@@ -66,13 +68,15 @@ A role assignment consists of three elements: security principal, role definitio
 
 ## Create a resource group
 
+You use a resource group to show how to assign a role at a resource group scope.
+
 1. Get a list of region locations using the [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) command.
 
    ```azurepowershell
    Get-AzureRmLocation | select Location
    ```
 
-1. Specify a location for the resource group.
+1. Select a location near you and assign it to a variable.
 
    ```azurepowershell
    $location = "westus"
@@ -140,7 +144,7 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
 1. Get the object ID of the group using the [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
 
     ```azurepowershell
-    Get-AzureADGroup -SearchString "RBAC Tutorial"
+    Get-AzureADGroup -SearchString "RBAC Tutorial Group"
     ```
 
     ```Example
@@ -247,7 +251,9 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
     CanDelegate        : False
     ```
 
-1. List the role assignments for the storage account resource. Notice that both the Contributor and Reader (inherited) roles for the group are listed.
+    In the output, you can see that the Reader role has been assigned to the RBAC Tutorial Group at the rbac-tutorial-resource-group scope.
+
+1. List the role assignments for the storage account resource.
 
     ```azurepowershell
     Get-AzureRmRoleAssignment -ObjectId $groupId
@@ -256,8 +262,7 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
     
     ```Example
     RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Storage/storageAccounts/rbactutorialstorage/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
-    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Storage/storageAccounts/rbactutor
-                         ialstorage
+    Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Storage/storageAccounts/rbactutorialstorage
     DisplayName        : RBAC Tutorial Group
     SignInName         :
     RoleDefinitionName : Contributor
@@ -276,6 +281,8 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
     ObjectType         : Group
     CanDelegate        : False
     ```
+
+    In the output, you can see that both the Contributor and Reader roles  have been assigned to the RBAC Tutorial Group. The Contributor role is at the rbactutorialstorage scope and the Reader role is inherited at the rbac-tutorial-resource-group scope.
 
 ## (Optional) List role assignments in the Azure portal
 
