@@ -24,14 +24,14 @@ ms.author: wolfma
 > [!IMPORTANT]
 > Currently, the translation service requires different subscription keys. Please let us know if you want to use the translation service.
 
-[!include[Get a Subscription Key](../includes/get-subscription-key.md)]
+[!INCLUDE [Get a Subscription Key](../includes/get-subscription-key.md)]
 
 > [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
 > # [C#](#tab/csharp)
 >
-> [!code-csharp[Using Statements](../code/translation_samples.cs#toplevel)]
+> [!code-csharp [Using Statements](../code/translation_samples.cs#toplevel)]
 >
 > - - -
 
@@ -41,7 +41,7 @@ The code snippet below shows how to translate speech input from English to Germa
 
 # [C#](#tab/csharp)
 
-[!code-csharp[Translation Using Microphone](../code/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-csharp [Translation Using Microphone](../code/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
 - - -
 
@@ -52,6 +52,6 @@ It uses file as input.
 
 # [C#](#tab/csharp)
 
-[!code-csharp[Translation Using File Input](../code/translation_samples.cs#TranslationWithFileAsync)]
+[!code-csharp [Translation Using File Input](../code/translation_samples.cs#TranslationWithFileAsync)]
 
 - - -

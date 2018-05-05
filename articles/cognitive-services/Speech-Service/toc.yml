@@ -37,11 +37,11 @@
   href: samples.md
   items:
   - name: Speech Recognition
-  - href: stt.md
+    href: stt.md
   - name: Intent Recognition
-  - href: intent.md
+    href: intent.md
   - name: Translation
-  - href: translation.md
+    href: translation.md
 - name: Concepts
   items:
   - name: Speech to Text # OK

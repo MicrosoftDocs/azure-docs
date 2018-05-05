@@ -18,8 +18,8 @@ We describe how to create a C++-based console application for Windows Desktop th
 The application is based on the [Microsoft Cognitive Services SDK NuGet Package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and Microsoft VisualStudio 2017.
 
 > [!NOTE]
-> If you're looking for a Quickstart for C++ and Linux, please go [here](cpp-linux.md).
-> If you're looking for a Quickstart for C# and Windows, please go [here](csharp-windows.md).
+> If you're looking for a Quickstart for C++ and Linux, go [here](cpp-linux.md).
+> If you're looking for a Quickstart for C# and Windows, go [here](quickstart-csharp-windows.md).
 
 > [!NOTE]
 > This quick start requires a PC with a working microphone.
@@ -97,4 +97,4 @@ The sample from this article can be downloaded [here](https://aka.ms/csspeech/wi
 
 ## Next steps
 
-* Visit the [tutorials page](tutorials.md?tabs=cpp) for additional samples.
+* Visit the [samples page](samples.md) for additional samples.

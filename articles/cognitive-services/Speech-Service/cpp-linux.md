@@ -18,7 +18,8 @@ ms.author: wolfma
 The Cognitive Services Speech SDK for Linux is available for building of 64-bit and 32-bit applications. The required files can be downloaded as a tar-file.
 
 > [!NOTE]
-> If you're looking for a Quickstart for C++ and Windows, please go [here](cpp-windows.md).
+> If you're looking for a Quickstart for C++ and Windows, go [here](cpp-windows.md).
+> If you're looking for a Quickstart for C# and Windows, go [here](quickstart-csharp-windows.md).
 
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
@@ -127,4 +128,4 @@ The sample from this article can be downloaded [here](https://aka.ms/csspeech/li
 
 ## Next steps
 
-* Visit the [tutorials page](tutorials.md?tabs=cpp) for additional samples.
+* Visit the [samples page](samples.md) for additional samples.
