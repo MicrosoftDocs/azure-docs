@@ -23,16 +23,18 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> The Kubernetes Cluster is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
+> The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
 
-You can install Kubernetes on Azure Stack.
+The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud.
 
-The following article look at using an Azure Resource Manager template to deploy and provision the resources for Kubernetes in a single, coordinated operation. Collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud.
+## Kubernetes and containers
 
-This solution deploys Kubernetes cluster running as an standalone cluster with templates generated using ACS-Engine. Kubernetes is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. You can use Kubernetes to:
+You can install Azure Container Services (ACS) Kubernetes on Azure Stack. [Kubernetes](https://kubernetes.io) is an open-source system for automating deployment, scaling, and managing of applications in containers. A [container](https://www.docker.com/what-container) is contained in an image, similar to a VM. Unlike a VM the container image is just includes the resources it needs to run an application, such as the code, runtime to execute the code, specific libraries, and settings.
+
+You can use Kubernetes to:
 
 - Develop massively scalable, upgradable, applications that can be deployed in seconds. 
-- Simplify the design of your application and improve its reliability by different Helm applications. 
+- Simplify the design of your application and improve its reliability by different Helm applications. [Helm](https://github.com/kubernetes/helm) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications.
 - Easily monitor and diagnose the health of your applications with scale and upgrade functionality.
 
 ## Prerequisites 
@@ -67,7 +69,7 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 4. Make note of the **Application ID**. You will need the ID when creating the cluster. The ID is referenced as **Service Principal Client ID**.
 
-5. Select **Settings** < **Keys**.
+5. Select **Settings** > **Keys**.
 
     a. Enter the **Description**.
 
@@ -87,7 +89,7 @@ Give the service principal access to your subscription so that the principal can
 
 3. Select the subscription that you created.
 
-4. Select **Access control (IAM)** > Select ** + Add**.
+4. Select **Access control (IAM)** > Select **+ Add**.
 
 5. Select the **Owner** role.
 
@@ -134,9 +136,9 @@ Add the Kubernetes Cluster to the Marketplace:
 
 6. Select **Download.**
 
-## Deploy Kubernetes Cluster to the Marketplace
+## Deploy a Kubernetes Cluster
 
-1. Open the [Administration portal](https://adminportal.local.azurestack.external).
+1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
 
 2. Select **+New** > **Compute** > **Kubernetes Cluster**.
 
@@ -150,21 +152,22 @@ Add the Kubernetes Cluster to the Marketplace:
 
 3. Enter the **SSH public key** used for authorization to all Linux machines created as part of the Kubernetes cluster and DVM.
 
-4. Enter the **tenant endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. Use  https://management.redmond.ext-n42r0703.masd.stbtest.microsoft.com (multi-node) or https://management.local.azurestack.external (one-node).
+4. Enter the **tenant endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. You will need to get the endpoint from your Azure Stack operator for an integrated system. For the Azure Stack Development Kit (ASDK), you can use `https://management.local.azurestack.external`.
 
 5. Enter the **tenant ID** for the tenant. If you need help finding this value, see [Get tenant ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 6. Enter the **master profile DNS prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
 
+    > [!note]  
+    > For each cluster, use a new and unique master profile DNS prefix.
+
 7. Enter the number of agents in the cluster. This value is referred to as the **Agent Pool Profile Count**. There can be from 1 to 32
 
-8. Enter the **service principal application ID** (used by the Kubernetes Azure cloud provider).
+8. Enter the **service principal application ID** This is used by the Kubernetes Azure cloud provider.
 
 9. Enter the **service principal client secret** that you created when creating service principal application.
 
 10. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
-
-11. Leave the **artifact location** as is. The template requires artifacts retrieved from a base URI. When you deploy the template using the accompanying scripts, a private location in the subscription is used. The value in this box is automatically generated.
 
 12. Select **OK**.
 
@@ -174,54 +177,18 @@ Add the Kubernetes Cluster to the Marketplace:
 
 2. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
 
-3. Enter the location of the resource group, such as **local**. 
+3. Enter the location of the resource group, such as **local**.
 
 4. Select **Create.**
 
-## Deploy the Kubernetes cluster
+## Connect to your cluster
 
-1. Open the [Azure Stack portal](https://portal.local.azurestack.external).
+You are now ready to connect to your cluster. You will need the **kubectl**, the Kubernetes command-line client. You can find instructions on connecting to and managing the cluster in Azure Container Services documentation.   
 
-2. Select **Marketplace** > **Kubernetes Cluster** in **Compute**.
-
-3. Select **Create**.
-
-## Install Helm
-And then they work with the Deploy Solution Template blade and the Parameters blade?
-
-If so, then I should have the workflow for the deploy solution template and completing the parameters in the User topic.
-
-If not, then I will need to know what happens.
-
-INSTALLING HELM AND AN APP
-
-I plan to document then the HELM install path.
-
-Here is my guess on the workflow. Please update.
-
-1. Use Putty with the private key to SSH into one of the VMs created by the solution template. Does it matter which one? 
-2. in the bash:
-
-$ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-$ chmod 700 get_helm.sh
-$ ./get_helm.sh
-
-[Does curl need to be installed?]
-
-And then installed wordpress:
-
-helm install stable/wordpress
-
-What happens here? Is this the classic Wordpress questsion, db, password, etc. What is the connection string to the mysql database? And finally what is the URL for wordpress?
-
-Is it the IP? I am assuming to connect to this IP I need in the datacenter running Azure Stack?
-
-
-
-Wordpress Installation (using Helm): helm install stable/wordpress
-
-##
+For instructions, see [Connect to the cluster](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough#connect-to-the-cluster).
 
 ## Next steps
 
-[Add a Kubernetes Cluster to the Marketplace](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[Add a Kubernetes Cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+
+[Kubernetes on Azure](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

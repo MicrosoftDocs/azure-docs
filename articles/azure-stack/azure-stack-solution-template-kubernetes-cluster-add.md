@@ -23,7 +23,7 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!note]  
-> The Kubernetes Cluster is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article. [Submit a request to get access](https://aka.ms/azsk8).
+> The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. To request access to the Kubernetes Marketplace item needed to perform the instructions in this article, [submit a request to get access](https://aka.ms/azsk8).
 
 You can offer a Kubernetes Cluster as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 
@@ -76,8 +76,26 @@ Create a plan, an offer, and a subscription for the Kubernetes Cluster Marketpla
 
     ![Kubernetes Cluster](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
+## Update or remove the Kubernetes Cluster 
+
+When updating the Kubernetes Cluster item, you will need to remove the item that is in the Marketplace. Then you can follow the instruction in this article to add the Kubernetes Cluster to the marketplace.
+
+To remove the Kubernetes Cluster item:
+
+1. Note name of the current item, such as `Microsoft.AzureStackKubernetesCluster.0.1.0`
+
+2. Connect to Azure Stack with PowerShell.
+
+3. Use the following PowerShell cmdlet to remove the item:
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
+
+    Remove-AzsGalleryItem -Name $Itemname
+    ```
+
 ## Next steps
 
-[Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)
-
 [Deploy a Kubernetes Cluster to Azure Stack](/user/azure-stack-solution-template-kubernetes-deploy.md)
+
+[Overview of offering services in Azure Stack](azure-stack-offer-services-overview.md)
