@@ -1,5 +1,5 @@
 ---
-title: Event Hubs for Kafka Ecosystems | Microsoft Docs
+title: Azure Event Hubs for Kafka Ecosystems | Microsoft Docs
 description: Overview and introduction to Kafka enabled Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
@@ -52,15 +52,15 @@ Event Hubs for Kafka Ecosystems allows you to write with one protocol and read w
 ## Features that are not supported in the preview
 
 The following Kafka features for public preview of this integration are not supported in Event Hubs for Kafka Ecosystems.
-•	Idempotent producer
-•	Transaction
-•	Compression
-•	Size-based retention
-•	Log compaction
-•	Adding partitions to an existing topic
-•	HTTP Kafka API support
-•	Kafka Connect
-•	Kafka Streams
+*	Idempotent producer
+*	Transaction
+*	Compression
+*	Size-based retention
+*	Log compaction
+*	Adding partitions to an existing topic
+*	HTTP Kafka API support
+*	Kafka Connect
+*	Kafka Streams
 
 
 This article has given you an introduction to Event Hubs for Kafka Ecosystem. Unleash this power by trying Kafka enabled Event Hubs.
