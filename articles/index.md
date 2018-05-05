@@ -869,13 +869,13 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Anomaly Finder</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/conversation-learner/overview">
-                                                <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                <img src="media/index/API_Conversation_Learner.svg" alt="" />
                                                 <p>Conversation Learner</p>
                                             </a>
                                         </li>
@@ -3468,13 +3468,13 @@ featureFlags:
 
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                                    <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                                     <span>Anomaly Finder</span>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
-                                                                    <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
