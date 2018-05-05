@@ -22,7 +22,7 @@ For this article, you can use the free [LUIS][LUIS] account in order to author y
 ## Key phrase extraction
 Key subject matter is provided by the Prebuilt entity, **Key phrase**. This entity returns key subject matter in the utterance
 
-The following utterances show examples of key phrases found in utterances:
+The following utterances show examples of key phrases:
 
 |Utterance|Key phrase|
 |--|--|
@@ -32,7 +32,7 @@ The following utterances show examples of key phrases found in utterances:
 Your chat bot can consider these values, in addition to all other entities extracted, when deciding the next step in the conversation.
 
 ## Download sample app
-Download the [Human Resources]() app and save it to a file with the *.json extension. This sample app recognizes utterances relevant to employee benefits, organization charts, and physical assets.
+Download the [Human Resources](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) app and save it to a file with the *.json extension. This sample app recognizes utterances relevant to employee benefits, organization charts, and physical assets.
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
