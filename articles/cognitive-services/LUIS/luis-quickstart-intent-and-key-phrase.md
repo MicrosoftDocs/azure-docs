@@ -60,7 +60,7 @@ Add Key phrase prebuilt entity to extract subject matter from utterances.
 
     [ ![Screenshot of Entities list pop-up dialog](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/manage-prebuilt-entities.png#lightbox)
 
-3. In the pop-up dialog, Select **keyPhrase**, then select **Done** . 
+3. In the pop-up dialog, Select **keyPhrase**, then select **Done**. 
 
     [ ![Screenshot of Entities list pop-up dialog](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png)](./media/luis-quickstart-intent-and-key-phrase/add-or-remove-prebuilt-entities.png#lightbox)
 
