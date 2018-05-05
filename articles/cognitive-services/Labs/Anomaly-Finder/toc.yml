@@ -1,7 +1,10 @@
 - name: Anomaly Finder Documentation
-  href: overview.md
-- name: How-to
+- name: Overview
   expanded: true
+  items:
+  - name: What is Anomaly Finder?
+    href: overview.md
+- name: How-to guides
   items:
   - name: Use the Anomaly Finder API
     items:
