@@ -36,7 +36,7 @@ The following table gives you some high-level guidelines.
 | Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 4 KBs, 2GB size    |
 | Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
-For upgrading your QnA Maker stack, read the documentation [here](https://aka.ms/qnamaker-docs-upgrade).
+For upgrading your QnA Maker stack, see [Upgrade your QnA Maker service](../How-To/upgrade-qnamaker-service.md).
 
 ## Next steps
 
