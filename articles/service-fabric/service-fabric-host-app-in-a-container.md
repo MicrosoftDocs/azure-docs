@@ -1,6 +1,6 @@
 ---
 title: Deploy a .NET app in a container to Azure Service Fabric | Microsoft Docs
-description: Teaches you how to package a .NET app in Visual Studio in a Docker Container. This new "container" app is then deployed to a Service Fabric cluster.
+description: Learn how to package an existing .NET application in Visual Studio in a Docker Container. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. The application uses Azure SQL DB to persist data.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -17,16 +17,17 @@ ms.date: 05/01/2018
 ms.author: ryanwi,mikhegn
 ---
 
-# Deploy a .NET application in a Windows container to Azure Service Fabric
+# Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
 This tutorial shows you how to deploy an existing ASP.NET application in a Windows container on Azure.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Docker project in Visual Studio
 > * Containerize an existing application
-> * Setup continuous integration with Visual Studio and VSTS
+> * Create an Azure SQL DB
+> * Create an Azure Container Registry
+> * Deploy a Service Fabric application to Azure
 
 ## Prerequisites
 
@@ -235,9 +236,10 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a Docker project in Visual Studio
 > * Containerize an existing application
-> * Setup continuous integration with Visual Studio and VSTS
+> * Create an Azure SQL DB
+> * Create an Azure Container Registry
+> * Deploy a Service Fabric application to Azure
 
 In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
 
