@@ -3,7 +3,7 @@ in the search box, enter "sql server" as your filter.
 Select either a SQL trigger or action, whichever applies. 
 This example uses a trigger.
 
-   The **SQL Server** connector works for 
+   The SQL Server connector works for 
    both SQL Server and Azure SQL Database. 
 
    ![Find "SQL Server" connector](./media/connectors-create-api-sqlazure/sql-server-trigger.png)

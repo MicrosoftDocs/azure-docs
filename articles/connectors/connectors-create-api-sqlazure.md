@@ -1,6 +1,6 @@
 ---
 title: Connect to SQL Server or Azure SQL Database - Azure Logic Apps | Microsoft Docs
-description: Create connections to SQL Server and Azure SQL Database with Azure Logic Apps
+description: Create connections to SQL Server on premises and Azure SQL Database in the cloud from Azure Logic Apps
 services: logic-apps
 documentationcenter: 
 author: ecfan
@@ -22,20 +22,23 @@ ms.author: estfan; LADocs
 
 This article shows you how you can access 
 data in a SQL database from your logic app. 
-When you want to automate workflows 
+When you want to automate tasks and processes  
 that manage data in your SQL database, 
-you can build logic apps that orchestrate those 
-tasks and processes by using the SQL Server connector. 
+you can build logic apps that orchestrate 
+workflows by using the SQL Server connector. 
+This connector works for both SQL Server on 
+premises and Azure SQL Database in the cloud. 
 
-You can create logic apps that trigger on events in your 
-SQL database or in other systems, such as Dynamics CRM Online. 
-You can add actions to your logic apps that get, insert, 
-or delete rows of data, and execute SQL queries or 
-stored procedures.
+You can create logic apps that run when triggered 
+by specific events in your SQL database or in 
+other systems, such as Dynamics CRM Online. 
+You can add actions that get, insert, 
+or delete rows of data, and execute SQL 
+queries or stored procedures.
 
 For example, when a record gets created in Dynamics CRM Online, 
 your logic app can automatically add an item to your SQL database, 
-and then send an email.
+and then send email.
 
 If you're new to logic apps, see 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -46,7 +49,7 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 * If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* The logic app you want to access your SQL database. 
+* The logic app from where you want to access your SQL database. 
 To start your logic app with a SQL trigger, you need a blank logic app. 
 See [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
