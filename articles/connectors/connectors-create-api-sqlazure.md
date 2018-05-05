@@ -73,7 +73,7 @@ you can also create the sample databases that are included with SQL.
   > make sure that your database tables contain data. 
   > Otherwise, Logic Apps won't return any results 
   > from empty tables, including any schema values, 
-  > when you perform operations, such as "Get rows".
+  > when you perform operations, such as the "Get rows" action.
 
 * Before you can connect to on-premises systems, such as SQL Server, 
 with logic apps, you must [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). You need the gateway 
@@ -164,8 +164,9 @@ which also automatically enables and makes your logic app live in Azure.
 When you want to work with multiple records, 
 you can iterate over items by using [until loops](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
 in your logic app. However, [loops have their limits](../logic-apps/logic-apps-limits-and-config.md). 
-Sometimes you might need to work with very large record sets, 
-for example, thousands or millions of rows, but make as few database calls as possible. 
+Sometimes you might have to work with large record sets, 
+for example, thousands or millions of rows, 
+but you want to make as few database calls as possible. 
 You can divide those records into smaller sets by using *pagination*. 
 This technique helps you better control the resulting output and 
 provide a cleaner structure for your result set. 
