@@ -1,7 +1,7 @@
 ---
-title: Learn about QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+title: Supported languages - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Learn about QnA Maker and how it works.
+description: Learn what languages are supported for QnA Maker.
 services: cognitive-services
 author: nstulasi
 manager: sangitap
