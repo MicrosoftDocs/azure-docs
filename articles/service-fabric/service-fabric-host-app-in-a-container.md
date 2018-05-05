@@ -19,7 +19,7 @@ ms.author: ryanwi,mikhegn
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
-This tutorial shows you how to deploy an existing ASP.NET application in a Windows container on Azure.
+This tutorial shows you how to deploy an existing ASP.NET application in a Windows container on Azure.  The application persists data in a SQL server database, 
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 3. Install [Service Fabric runtime version 6.2 or later](service-fabric-get-started.md) and the [Service Fabric SDK version 3.1](service-fabric-get-started.md) or later.
 4. Install [Visual Studio 2017 version 15.7](https://www.visualstudio.com/) or later with the **Azure development** and **ASP.NET and web development** workloads.
 5. Install [Azure PowerShell][link-azure-powershell-install]
-6. Create a [Visual Studio Team Services account][link-vsts-account]. 
+ 
 
 ## Download and run Fabrikam Fiber CallCenter
 Download the [Fabrikam Fiber CallCenter][link-fabrikam-github] sample application.  Click the **download archive** link.  From the *sourceCode* directory in the *fabrikam.zip* file, extract the *sourceCode.zip* file and then extract the *VS2015* directory to your computer.
@@ -135,7 +135,7 @@ New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupname -Name $registryname -EnableAdminUser -Sku Basic
 ```
 
-## Create a cluster on Azure
+## Create a Service Fabric cluster on Azure
 Service Fabric applications run on a cluster, a network-connected set of virtual or physical machines.
 
 You can:
