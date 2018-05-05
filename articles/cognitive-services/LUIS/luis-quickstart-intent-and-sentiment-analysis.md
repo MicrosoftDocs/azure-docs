@@ -74,23 +74,22 @@ LUIS doesn't know about the changes to the intents and entities (the model), unt
 
 1. In the top right side of the LUIS website, select the **Train** button.
 
-    [ ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png#lightbox)
+    ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
 
 2. Training is complete when you see the green status bar at the top of the website confirming success.
 
-    [ ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png#lightbox)
-
+    ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
 
 ## Configure app to include sentiment analysis
 Sentiment analysis is enabled on the **Publish** page. 
 
 1. Select **Publish** in the top right navigation.
 
-    [ ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png#lightbox)
+    ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
 
 2. Select **Enable Sentiment Analysis**.
 
-    [ ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png#lightbox)
+    ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
 
 3. Select the Production slot and the **Publish** button.
 
@@ -104,7 +103,7 @@ Sentiment analysis is enabled on the **Publish** page.
 
     !["Screenshot of Publish page with endpoint URL highlighted](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
 
-2. Go to the end of the URL in the address and enter `Reserve table for  10 on upper level away from kitchen`. The last querystring parameter is `q`, the utterance **q**uery. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `BookFlight` intent with the hierarchical entity extracted.
+2. Go to the end of the URL in the address and enter `Reserve table for  10 on upper level away from kitchen`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `RestaurantReservation.Reserve` intent with the sentiment analysis extracted.
 
 ```
 {
