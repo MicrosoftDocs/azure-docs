@@ -869,7 +869,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
                                                 <p>Anomaly Finder</p>
                                             </a>
                                         </li>
