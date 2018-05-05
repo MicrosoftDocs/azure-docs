@@ -35,11 +35,17 @@ Azure S2S VPN connections provide secure, cross-premises connectivity between cu
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
-## Common network parameter values
+## Requirements
 
-Change the values below based on your environment and network setup.
+Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" to create the following resources:
+
+1. Virtual network (VNet1) and the GatewaySubnet
+2. VPN gateway (VNet1GW)
+
+The virtul network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premise network. Change the values based on your environment and network setup. 
 
 ```azurepowershell-interactive
+# Virtual network
 $RG1         = "TestRG1"
 $VNet1       = "VNet1"
 $Location1   = "East US"
@@ -55,7 +61,15 @@ $DNS1        = "8.8.8.8"
 $Gw1         = "VNet1GW"
 $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
+
+# On-premises network
+$LNG1        = "VPNsite1"
+$LNGprefix1  = "10.101.0.0/24"
+$LNGprefix2  = "10.101.1.0/24"
+$LNGIP1      = "YourDevicePublicIP"
 ```
+
+Addionally, the following values are used to represent the on-premise network:
 
 | Item                    | Value                          |
 | ---                     | ---                            |
