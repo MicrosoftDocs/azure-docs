@@ -106,7 +106,7 @@ The screen displays the DevKit ID and 'Configuration'.
   ![look for the connection string](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-connection-string-of-a-device.png)
 
 
-Now, you can see your new physical device in the VS Code section "Azure IoT Hub Devices"
+Now, you can see your new physical device in the VS Code section "Azure IoT Hub Devices":
 
 ![Notice the new IoT Hub Device](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-suite-new-iot-hub-device.png)
 
