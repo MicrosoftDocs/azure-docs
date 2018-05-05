@@ -390,7 +390,7 @@ Configure this feature by defining both of the following options:
 Option|Description
 --|--
 Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
-New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of HTTP variables
+New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of [HTTP variables](cdn-http-variables.md).
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
 [Back to top](#azure-cdn-rules-engine-features)
@@ -1234,7 +1234,7 @@ Option|Description
 -|-
 Code|Select the response code that will be returned to the requester.
 Source & Pattern| These settings define a request URI pattern that identifies the type of requests that may be redirected. Only requests whose URL satisfies both of the following criteria will be redirected: <br/> <br/> **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> - Ensure that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any match conditions defined for this feature. <br/> - Specify a pattern; if you use a blank value as the pattern, all strings are matched.
-Destination| Define the URL to which the above requests will be redirected. <br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- HTTP variables <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
+Destination| Define the URL to which the above requests will be redirected. <br/> Dynamically construct this URL using: <br/> - A regular expression pattern <br/>- [HTTP variables](cdn-http-variables.md) <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. <br/> 
 It is highly recommended to use an absolute URL. The use of a relative URL may redirect CDN URLs to an invalid path.
 
 **Sample Scenario**
@@ -1279,7 +1279,7 @@ Key information:
 Option|Description
 -|-
  Source & Pattern | These settings define a request URI pattern that identifies the type of requests that may be rewritten. Only requests whose URL satisfies both of the following criteria will be rewritten: <br/>     - **Source (or content access point):** Select a relative path that identifies an origin server. This path is the  _/XXXX/_ section and your endpoint name. <br/> - **Source (pattern):** A pattern that identifies requests by relative path must be defined. This regular expression pattern must define a path that starts directly after the previously selected content access point (see above). <br/> Verify that the request URI criteria (that is, Source & Pattern) previously defined doesn't conflict with any of the match conditions defined for this feature. Specify a pattern; if you use a blank value as the pattern, all strings are matched. 
- Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - HTTP variables <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
+ Destination  |Define the relative URL to which the above requests will be rewritten by: <br/>    1. Selecting a content access point that identifies an origin server. <br/>    2. Defining a relative path using: <br/>        - A regular expression pattern <br/>        - [HTTP variables](cdn-http-variables.md) <br/> <br/> Substitute the values captured in the source pattern into the destination pattern using $_n_ where _n_ identifies a value by the order in which it was captured. For example, $1 represents the first value captured in the source pattern, while $2 represents the second value. 
  This feature allows the POPs to rewrite the URL without performing a traditional redirect. That is, the requester receives the same response code as if the rewritten URL had been requested.
 
 **Sample Scenario 1**
