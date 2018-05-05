@@ -209,7 +209,11 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
   -VirtualNetworkSubnetId $subnetID;
 ```
 ## Deploy the application
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.  In Solution Explorer, right-click the **FabrikamFiber.CallCenterApplication** application project and select **Publish**.  Follow the deployment progress in the output window.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.  In Solution Explorer, right-click the **FabrikamFiber.CallCenterApplication** application project and select **Publish**.  In **Connection Endpoint**, select the endpoint of the cluster that you created previously.  In **Azure Container Registry**, select the container registry that you created previously.  Click **Publish** to deploy the application to the cluster in Azure.
+
+![Publish application][publish-app]
+
+Follow the deployment progress in the output window.
 
 ![Fabrikam web sample][fabrikam-web-page-deployed]
 
@@ -259,3 +263,4 @@ In the next part of the tutorial, learn how to set up [monitoring for your conta
 
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
+[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
