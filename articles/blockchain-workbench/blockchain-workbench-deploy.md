@@ -203,9 +203,9 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Monitoring | Choose whether you want Azure Monitor to be used to monitor your blockchain network. |
-    | Connect to existing OMS instance | Choose whether you want to use an existing Operations Management Suite instance or create a new one. 
-    | OMS Workspace Location | Choose a region for th OMS Workspace |
+    | Monitoring | Choose whether you want Azure Monitor to be used to monitor your blockchain network |
+    | Connect to existing OMS instance | Choose whether you want to use an existing Operations Management Suite instance or create a new one |
+    | OMS Workspace Location | Choose a region for the OMS Workspace. This should match the region for the Blockchain Workbench location |
 
 12. Click **OK** to finish the Azure Monitor section.
 
