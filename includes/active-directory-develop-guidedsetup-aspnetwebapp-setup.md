@@ -62,7 +62,8 @@ The steps below are used to create an OWIN middleware Startup Class to configure
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
