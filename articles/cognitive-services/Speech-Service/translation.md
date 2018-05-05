@@ -1,7 +1,7 @@
 ---
-title: Tutorial for Translation | Microsoft Docs
+title: Sample for Translation | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Here is a tutorial for speech translation.
+description: Here is a sample for speech translation.
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Tutorial for Translation
+# Sample for Translation
 
 > [!NOTE]
 > Please visit the @csspeech/download page for instructions to download this (and other) samples.
@@ -24,14 +24,14 @@ ms.author: wolfma
 > [!IMPORTANT]
 > Currently, the translation service requires different subscription keys. Please let us know if you want to use the translation service.
 
-[!INCLUDE [Get a Subscription Key](../includes/get-subscription-key.md)]
+[!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
 > # [C#](#tab/csharp)
 >
-> [!code-csharp [Using Statements](../code/translation_samples.cs#toplevel)]
+> [!code-csharp [Using Statements](code/translation_samples.cs#toplevel)]
 >
 > - - -
 
@@ -41,7 +41,7 @@ The code snippet below shows how to translate speech input from English to Germa
 
 # [C#](#tab/csharp)
 
-[!code-csharp [Translation Using Microphone](../code/translation_samples.cs#TranslationWithMicrophoneAsync)]
+[!code-csharp[Translation Using Microphone](code/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
 - - -
 
@@ -52,6 +52,6 @@ It uses file as input.
 
 # [C#](#tab/csharp)
 
-[!code-csharp [Translation Using File Input](../code/translation_samples.cs#TranslationWithFileAsync)]
+[!code-csharp[Translation Using File Input](code/translation_samples.cs#TranslationWithFileAsync)]
 
 - - -

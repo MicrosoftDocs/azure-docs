@@ -1,7 +1,7 @@
 ---
-title: Tutorial for Intent Recognition | Microsoft Docs
+title: Sample for Intent Recognition | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Here is a tutorial for intent recognition.
+description: Here is a sample for intent recognition.
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Tutorial for Intent Recognition
+# Sample for Intent Recognition
 
 > [!NOTE]
 > Please visit the @csspeech/download page for instructions to download this (and other) samples.

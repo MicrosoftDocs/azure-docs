@@ -1,7 +1,7 @@
 ---
-title: Tutorial for Speech-to-Text | Microsoft Docs
+title: Sample for Speech-to-Text | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
-description: Here is a tutorial for speech-to-text.
+description: Here is a sample for speech-to-text.
 services: cognitive-services
 author: wolfma61
 manager: onano
@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: wolfma
 ---
 
-# Tutorial for Speech-to-Text
+# Sample for Speech-to-Text
 
 > [!NOTE]
 > Please visit the @csspeech/download page for instructions to download this (and other) samples.
