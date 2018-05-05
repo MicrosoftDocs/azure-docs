@@ -20,21 +20,22 @@ ms.author: estfan; LADocs
 
 # Connect to SQL Server or Azure SQL Database with Azure Logic Apps
 
-This article shows you how you can access data in SQL 
-Server or Azure SQL Database from your logic app. 
-When you want to automate workflows that manage data in your SQL database, 
-you can build logic apps that orchestrate those tasks and 
-processes by using the SQL Server connector. 
+This article shows you how you can access 
+data in a SQL database from your logic app. 
+When you want to automate workflows 
+that manage data in your SQL database, 
+you can build logic apps that orchestrate those 
+tasks and processes by using the SQL Server connector. 
 
 You can create logic apps that trigger on events in your 
 SQL database or in other systems, such as Dynamics CRM Online. 
-You can add actions that have your logic apps get, insert, 
-or delete rows of data, and also execute SQL queries or 
+You can add actions to your logic apps that get, insert, 
+or delete rows of data, and execute SQL queries or 
 stored procedures.
 
-For example, when a new customer account gets created in Dynamics CRM Online, 
-such as a customer, your logic app can automatically add the customer 
-to your SQL customer database, and then send an email notification.
+For example, when a record gets created in Dynamics CRM Online, 
+your logic app can automatically add an item to your SQL database, 
+and then send an email.
 
 If you're new to logic apps, see 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -45,17 +46,20 @@ and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 * If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
-* The logic app that you want to connect to your SQL database. 
+* The logic app you want to access your SQL database. 
 To start your logic app with a SQL trigger, you need a blank logic app. 
+See [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 * If you don't have an Azure SQL Database or SQL Server, 
 see [Create an Azure SQL Database](../sql-database/sql-database-get-started-portal.md) 
 or [Create a database - SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database). 
 If you create an Azure SQL Database, 
-you can also create the sample databases that are included with SQL. 
+you can also create sample databases that 
+are included with Azure SQL Database. 
 
-  After you have your SQL database set up, you'll need your server name, 
-  database name, user name, and password.
+  After you've set up your SQL database, 
+  find your server name, database name, 
+  user name, and password.
 
   * For Azure SQL Database, the connection string has this information:
 
@@ -67,14 +71,14 @@ you can also create the sample databases that are included with SQL.
 
   > [!NOTE]
   > Before you start running your logic app, 
-  > make sure that your database tables contain data. 
-  > Otherwise, Logic Apps won't return any results 
-  > from empty tables, including any schema values, 
+  > make sure your database tables have data. 
+  > Logic Apps doesn't return results from 
+  > empty tables, including any schema values, 
   > when you perform operations, such as the "Get rows" action.
 
 * Before you can connect to on-premises systems, such as SQL Server, 
-with logic apps, you must [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). You need the gateway 
-information for creating the SQL database connection in your logic app.
+from logic apps, you must [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) so that you can 
+select the gateway when you create the SQL connection for your logic app.
 
 <a name="create-connection"></a>
 
@@ -82,10 +86,9 @@ information for creating the SQL database connection in your logic app.
 
 For your logic app to access any service, you must create 
 a *connection* from your logic app to that service. 
-This step happens when you go to add a SQL Server or 
-Azure SQL Database operation to your logic app. 
-At that time, you're prompted to create the connection 
-and provide your credentials for accessing the service. 
+If you didn't previously create a SQL connection, 
+you're prompted for connection information when you 
+add a SQL trigger or action to your logic app. 
 The Logic Apps Designer provides an easy way for you to 
 create this connection directly from your logic app. 
 
