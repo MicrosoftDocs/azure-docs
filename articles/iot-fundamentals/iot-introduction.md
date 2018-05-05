@@ -153,7 +153,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
                         <h3>Platform services</h3>
                         <a href="/azure/iot-hub">IoT Hub</a><br/>
                         <a href="/azure/iot-dps">IoT Hub Device Provisioning Service</a><br/>
-                        <a href="/azure/location-based-services">Location Based Services</a><br/>
+                        <a href="/azure/azure-maps">Maps</a><br/>
                         <a href="/azure/time-series-insights">Time Series Insights</a>
                     </div>
                 </div>
@@ -182,7 +182,7 @@ Explore the following areas of technologies and solutions, or see the Table of C
 [lnk-iot-dps-land]: /azure/iot-dps/index.yml
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-lbs-land]: /azure/location-based-services/index.yml
+[lnk-iot-maps-land]: /azure/azure-maps/index.yml
 [lnk-iot-suite-land]: /azure/iot-suite/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
