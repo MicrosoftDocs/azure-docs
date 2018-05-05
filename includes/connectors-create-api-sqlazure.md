@@ -26,7 +26,7 @@ This example uses a trigger.
    To get the SQL Server-specific options, 
    first select **Connect via on-premise data gateway**. 
    But, before you can select a gateway, you must have previously 
-   [set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md).
+   [set up the on-premises data gateway](../../logic-apps/logic-apps-gateway-connection.md).
 
    ![Create SQL Server connection](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
@@ -39,7 +39,7 @@ This example uses a trigger.
    | Password | Yes | <*my-sql-password*> | The password used for creating your database  <p>For Azure SQL Database, your user name appears in the Azure portal under the SQL Database properties. <p>For SQL Server, you can get this name from the connection string where: <br>"Password=<*yourPassword*>" | 
    | Connect via on-premise gateway | Only for on-premises SQL Server | | Select this option when connecting to SQL Server. | 
    | Authentication Type | No | Windows | Select the authentication type used by your SQL server. | 
-   | Gateways | Only for on-premises SQL Server | myOnPremisesDataGateway | Select your on-premises data gateway, which automatically appears in this list if previously set up. See [Access on-premises data](../logic-apps/logic-apps-gateway-connection.md). | 
+   | Gateways | Only for on-premises SQL Server | myOnPremisesDataGateway | Select your on-premises data gateway, which automatically appears in this list if previously set up. See [Access on-premises data](../../logic-apps/logic-apps-gateway-connection.md). | 
    |||| 
 
 4. When you're done, choose **Create**. 
