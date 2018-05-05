@@ -27,25 +27,25 @@ Azure Event Hubs for Kafka ecosystem provides you with an endpoint. This endpoin
 This article shows you how to create an Event Hubs namespace and get the connection string required to connect Kafka applications to Kafka enabled Event Hubs.
 
 ## Prerequisites
-If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Create a Kafka enabled Event Hubs namespace
  1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
  2. Search for Event Hubs and select as shown below.   
     
-    ![](./media/event-hubs-create/create-event-hub7.png)
+    ![Search for Event Hubs in the portal](./media/event-hubs-create/create-event-hub9.png)
  
  3. **Create namespace**, by providing an unique name and enable Kafka on the namespace. Click on create.
     
-    ![](./media/event-hubs-create/create-event-hub7.png)
+    ![Create a namespace](./media/event-hubs-create/create-event-hub1.png)
  
  4. Once the namespace is created, on the settings tab, click on the **Shared access policies** to get the connection string.
 
-    ![](./media/event-hubs-create/create-event-hub7.png)
+    ![Click on Shared access policies](./media/event-hubs-create/create-event-hub7.png)
 
  5. You can choose the default **RootManageSharedAccessKey** or add a new policy. click on the policy and copy the connection string. 
     
-    ![](./media/event-hubs-create/create-event-hub8.png)
+    ![Select a policy](./media/event-hubs-create/create-event-hub8.png)
  
  6. Add this connection string in your Kafka application configurations.
 
