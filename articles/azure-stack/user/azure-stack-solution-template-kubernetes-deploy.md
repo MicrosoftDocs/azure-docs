@@ -191,4 +191,4 @@ For instructions, see [Connect to the cluster](https://docs.microsoft.com/azure/
 
 [Add a Kubernetes Cluster to the Marketplace (for the Azure Stack operator)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Kubernetes on Azure](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Kubernetes on Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
