@@ -193,7 +193,7 @@ more cleanly organize your results.
 
 To implement this solution, create a stored procedure in your SQL instance, 
 and then reference that procedure by using the SQL Server 
-connector's **Execute stored procedure** action in an "do until" loop.
+connector's **Execute stored procedure** action in a "do until" loop.
 
 For solution details, see these articles:
 
