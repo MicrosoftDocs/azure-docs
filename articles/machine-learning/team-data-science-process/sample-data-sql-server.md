@@ -3,7 +3,7 @@ title: Sample Data in SQL Server on Azure | Microsoft Docs
 description: Sample Data in SQL Server on Azure
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgeonlun
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # <a name="heading"></a>Sample data in SQL Server on Azure

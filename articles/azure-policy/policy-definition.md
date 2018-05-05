@@ -3,9 +3,9 @@ title: Azure Policy definition structure | Microsoft Docs
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what action to take.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 01/17/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
@@ -14,6 +14,8 @@ ms.custom:
 # Azure Policy definition structure
 
 Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what action to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+
+The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -63,10 +65,10 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
-* `all`: evaluate resource groups and all resource types 
+* `all`: evaluate resource groups and all resource types
 * `indexed`: only evaluate resource types that support tags and location
 
-We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you need to specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `indexed` for backwards compatibility.
+We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `all` in Azure PowerShell and to `null` in Azure CLI, which is equivalent to `indexed`, for backwards compatibility.
 
 `indexed` should be used when creating policies that will enforce tags or locations. This isn't required but it will prevent resources that don't support tags and locations from showing up as non-compliant in the compliance results. The one exception to this is **resource groups**. Policies that are attempting to enforce location or tags on a resource group should set **mode** to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource group tags](scripts/enforce-tag-rg.md).
 
@@ -180,7 +182,7 @@ A condition evaluates whether a **field** meets certain criteria. The supported 
 
 When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
 
-When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  

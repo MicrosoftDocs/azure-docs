@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 04/19/2018
 ms.author: jingwang
 
 ---
@@ -43,7 +43,7 @@ The following properties are supported for HBase linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **HBase** | Yes |
 | host | The IP address or host name of the HBase server. (i.e. 192.168.222.160, [clustername].azurehdinsight.net)  | Yes |
-| port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090.  | No |
+| port | The TCP port that the HBase instance uses to listen for client connections. The default value is 9090. If you connect to Azure HDInsights, specify port as 443. | No |
 | httpPath | The partial URL corresponding to the HBase server. (i.e. /gateway/sandbox/hbase/version)  | No |
 | authenticationType | The authentication mechanism to use to connect to the HBase server. <br/>Allowed values are: **Anonymous**, **Basic** | Yes |
 | username | The user name used to connect to the HBase instance.  | No |

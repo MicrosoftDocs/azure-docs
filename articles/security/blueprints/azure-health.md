@@ -529,7 +529,7 @@ routing of all events from any source to any destination, providing:
 -   [Logging is
     enabled](/azure/machine-learning/studio/web-services-logging)
     for Machine Learning web services.
-- using [Machine Learning](/azure/machine-learning/preview/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/preview/using-git-ml-project) can help streamline management of experiments.
+- using [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) workbench requires the development of experiments, that provides the ability to predict to a solution set. [Integrating the workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) can help streamline management of experiments.
 
 ## SECURITY
 

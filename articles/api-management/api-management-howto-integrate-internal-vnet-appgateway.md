@@ -81,7 +81,7 @@ Make sure that you are using the latest version of Azure PowerShell. More info i
 Log in to Azure
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 Authenticate with your credentials.<BR>

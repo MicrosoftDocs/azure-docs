@@ -101,7 +101,7 @@ You can implement NSGs in the Resource Manager or classic deployment models usin
 | PowerShell     | [Yes](virtual-networks-create-nsg-classic-ps.md) | [Yes](tutorial-filter-network-traffic.md) |
 | Azure CLI **V1**   | [Yes](virtual-networks-create-nsg-classic-cli.md) | [Yes](tutorial-filter-network-traffic-cli.md) |
 | Azure CLI **V2**   | No | [Yes](tutorial-filter-network-traffic-cli.md) |
-| Azure Resource Manager template   | No  | [Yes](virtual-networks-create-nsg-arm-template.md) |
+| Azure Resource Manager template   | No  | [Yes](template-samples.md) |
 
 ## Planning
 Before implementing NSGs, you need to answer the following questions:

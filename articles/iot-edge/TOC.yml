@@ -1,3 +1,5 @@
+- name: Azure IoT Fundamentals 
+  href: ../iot-fundamentals/index.yml
 - name: Azure IoT Edge Documentation
   href: index.yml
 - name: Overview
@@ -45,16 +47,14 @@
     href: how-to-install-iot-core.md
   - name: Use VS Code to develop IoT Edge solutions
     items:
-      - name: Develop and deploy C# module
-        href: how-to-vscode-develop-csharp-module.md
-      - name: Debug C# module
-        href: how-to-vscode-debug-csharp-module.md
-      - name: Develop and deploy Azure Functions
-        href: how-to-vscode-develop-azure-function.md
-      - name: Debug Azure Functions
-        href: how-to-vscode-debug-azure-function.md
       - name: Work with multiple modules
         href: tutorial-multiple-modules-in-vscode.md
+      - name: Debug C# module
+        href: how-to-vscode-debug-csharp-module.md
+      - name: Debug Azure Functions
+        href: how-to-vscode-debug-azure-function.md
+  - name: CI/CD in VSTS
+    href: how-to-ci-cd.md
   - name: Store data at the edge
     href: sql-storage.md
   - name: Troubleshoot
@@ -80,6 +80,32 @@
     href: security.md
   - name: IoT Edge glossary
     href: iot-edge-glossary.md
+- name: Related
+  items:
+  - name: Solutions
+    items:
+    - name: IoT Suite Preconfigured Solutions
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Platform services
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: IoT Hub Device Provisioning Service
+      href: /azure/iot-dps
+    - name: Maps
+      href: /azure/azure-maps
+    - name: Service SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT Device SDKs
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
 - name: Resources
   items:
   - name: Azure Certified for IoT device catalog

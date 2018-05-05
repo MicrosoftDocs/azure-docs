@@ -20,7 +20,6 @@ ms.author: tdykstra
 
 ---
 # Azure Functions JavaScript developer guide
-[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 The JavaScript experience for Azure Functions makes it easy to export a function, which is passed as a `context` object for communicating with the runtime and for receiving and sending data via bindings.
 

@@ -3,13 +3,12 @@ title: Batch test your LUIS app - Azure | Microsoft Docs
 description: Use Language Understanding (LUIS) batch testing to find utterances with incorrect intents and entities.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 ---
 
 # Batch testing
@@ -26,7 +25,7 @@ ms.author: v-geberr;
 
     ![Import Dataset File](./media/luis-how-to-batch-test/batchtest-importset.png)
 
-    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. See [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch) for more information.
+    Import errors are reported in a red notification bar at the top of the browser. When an import has errors, no dataset is created. For more information, see [Common errors](luis-concept-batch-test.md#common-errors-importing-a-batch).
 
 3. In the **Dataset Name** field, enter a name for your dataset file. The dataset file includes an **array of utterances** including the *labeled intent* and *entities*. Review the [example batch file](luis-concept-batch-test.md#batch-file-format) for syntax. 
 
