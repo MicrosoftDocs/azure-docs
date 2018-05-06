@@ -58,8 +58,8 @@ The following steps show the logic that is used to calculate **ageGroup** from d
 
 1. Try to find the country by the country code in the list. If the country is not found, fall back to **Default**.
 2. If the **MinorConsent** node is present in the country element:
-    a. Calculate the minimum date that the user would have had to have been born on to be considered an adult. Example: birth date is 3/14/2015 and **MinorConsent** is 18, minimum birth date would be 3/14/2000.
-    b. Compare the minimum birth date with the actual birth date. If the minimum birth date is before the user’s birth date, the calculation returns **Minor** as the age group calculation.
+    <br>a. Calculate the minimum date that the user would have had to have been born on to be considered an adult. Example: birth date is 3/14/2015 and **MinorConsent** is 18, minimum birth date would be 3/14/2000.
+    <br>b. Compare the minimum birth date with the actual birth date. If the minimum birth date is before the user’s birth date, the calculation returns **Minor** as the age group calculation.
 3. If the **MinorNoConsentRequired** node is present in the country element, repeat steps 2a and 2b using the value from **MinorNoConsentRequired**. The output of 2b returns **MinorNoConsentRequired** if the minimum birth date is before the user’s birth date. 
 4. If neither calculations returned true, the calculation returns **Adult**.
 
