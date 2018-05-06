@@ -76,8 +76,8 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Privacy & cookies
-    href: https://aka.ms/csspech/privacy
+#  - name: Privacy & cookies
+#    href: https://aka.ms/csspech/privacy
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Shipping your application

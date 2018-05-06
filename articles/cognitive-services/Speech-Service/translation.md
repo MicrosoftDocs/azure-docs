@@ -16,9 +16,6 @@ ms.author: wolfma
 # Sample for Translation
 
 > [!NOTE]
-> Please visit the @csspeech/download page for instructions to download this (and other) samples.
-
-> [!NOTE]
 > The C++ sample is coming very soon.
 
 > [!IMPORTANT]

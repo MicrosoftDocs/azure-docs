@@ -16,9 +16,6 @@ ms.author: wolfma
 # Sample for Intent Recognition
 
 > [!NOTE]
-> Please visit the @csspeech/download page for instructions to download this (and other) samples.
-
-> [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
 > # [C#]

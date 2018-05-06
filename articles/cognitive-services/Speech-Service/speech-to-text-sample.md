@@ -15,9 +15,6 @@ ms.author: wolfma
 
 # Sample for Speech-to-Text
 
-> [!NOTE]
-> Please visit the @csspeech/download page for instructions to download this (and other) samples.
-
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
