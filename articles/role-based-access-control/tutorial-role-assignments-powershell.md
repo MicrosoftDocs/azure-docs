@@ -57,7 +57,8 @@ To assign a role, you need a user, group, or service principal.
 1. Create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command with a name of your choice.
 
    ```azurepowershell
-   New-AzureADGroup -DisplayName "RBAC Tutorial Group" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+   New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
+     -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
    ```
 
    ```Example
@@ -162,7 +163,9 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
 1. Assign the [Reader](built-in-roles.md#reader) role to the group at the resource group scope.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId -RoleDefinitionName "Reader" -ResourceGroupName "rbac-tutorial-resource-group"
+    New-AzureRmRoleAssignment -ObjectId $groupId `
+      -RoleDefinitionName "Reader" `
+      -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
     ```Example
@@ -180,7 +183,8 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
 1. Get information about the rbactutorialstorage storage account using the [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) command.
 
     ```azurepowershell
-    Get-AzureRmStorageAccount -ResourceGroupName "rbac-tutorial-resource-group" -AccountName "rbactutorialstorage"
+    Get-AzureRmStorageAccount -ResourceGroupName "rbac-tutorial-resource-group" `
+      -AccountName "rbactutorialstorage"
     ```
 
     ```Example
@@ -214,7 +218,11 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
 1. Assign the [Contributor](built-in-roles.md#contributor) role to the group at the storage account resource scope.
 
     ```azurepowershell
-    New-AzureRmRoleAssignment -ObjectId $groupId -RoleDefinitionName "Contributor" -ResourceGroupName "rbac-tutorial-resource-group" -ResourceName "rbactutorialstorage" -ResourceType Microsoft.Storage/storageAccounts
+    New-AzureRmRoleAssignment -ObjectId $groupId `
+      -RoleDefinitionName "Contributor" `
+      -ResourceGroupName "rbac-tutorial-resource-group" `
+      -ResourceName "rbactutorialstorage" `
+      -ResourceType Microsoft.Storage/storageAccounts
     ```
 
     ```Example
@@ -256,10 +264,12 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
 1. List the role assignments for the storage account resource.
 
     ```azurepowershell
-    Get-AzureRmRoleAssignment -ObjectId $groupId
-    Get-AzureRmRoleAssignment -ObjectId $groupId -ResourceGroupName "rbac-tutorial-resource-group" -ResourceName "rbactutorialstorage" -ResourceType "Microsoft.Storage/storageAccounts"
+    Get-AzureRmRoleAssignment -ObjectId $groupId `
+      -ResourceGroupName "rbac-tutorial-resource-group" `
+      -ResourceName "rbactutorialstorage" `
+      -ResourceType "Microsoft.Storage/storageAccounts"
     ```
-    
+
     ```Example
     RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Storage/storageAccounts/rbactutorialstorage/providers/Microsoft.Authorization/roleAssignments/33333333-3333-3333-3333-333333333333
     Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rbac-tutorial-resource-group/providers/Microsoft.Storage/storageAccounts/rbactutorialstorage
@@ -299,13 +309,19 @@ To remove role assignments for users, groups, and applications, use [Remove-Azur
 1. Use the following command to remove the Contributor role assignment for the group at the storage account scope.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId -RoleDefinitionName "Contributor" -ResourceGroupName "rbac-tutorial-resource-group" -ResourceName "rbactutorialstorage" -ResourceType "Microsoft.Storage/storageAccounts"
+    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+      -RoleDefinitionName "Contributor" `
+      -ResourceGroupName "rbac-tutorial-resource-group" `
+      -ResourceName "rbactutorialstorage" `
+      -ResourceType "Microsoft.Storage/storageAccounts"
     ```
 
 1. Use the following command to remove the Reader role assignment for the group at the resource group scope.
 
     ```azurepowershell
-    Remove-AzureRmRoleAssignment -ObjectId $groupId -RoleDefinitionName "Reader" -ResourceGroupName "rbac-tutorial-resource-group"
+    Remove-AzureRmRoleAssignment -ObjectId $groupId `
+      -RoleDefinitionName "Reader" `
+      -ResourceGroupName "rbac-tutorial-resource-group"
     ```
 
 ## Clean up resources
