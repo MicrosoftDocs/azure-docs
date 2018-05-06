@@ -20517,7 +20517,7 @@
 			"redirect_document_id": false
         },        
         {
-            "source_path": "articles/cognitive-services/QnAMaker/guides/createkb.md",
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/CreateKB.md",
             "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/create-knowledge-base",
 			"redirect_document_id": false
         },        
