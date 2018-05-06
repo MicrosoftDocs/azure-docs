@@ -20,14 +20,13 @@ ms.author: estfan; LADocs
 
 # Connect to SQL Server or Azure SQL Database from Azure Logic Apps
 
-This article shows how you can access data 
-in your SQL database from inside a logic app. 
-That way, you can automate tasks and workflows that handle 
-your data by building logic apps with the SQL Server connector. 
-This connector works for both SQL Server on 
-premises and for Azure SQL Database in the cloud. 
+This article shows how you can access data in your SQL 
+database from inside a logic app with the SQL Server connector. 
+That way, you can create logic apps that automate tasks and 
+workflows for managing your data. The connector works for both 
+SQL Server on premises and for Azure SQL Database in the cloud. 
 
-You can create logic apps that run when triggered by events in your 
+You can build logic apps that run when triggered by events in your 
 SQL database or in other systems, such as Dynamics CRM Online. 
 Your logic apps can also get, insert, or delete data, and also execute 
 SQL queries or stored procedures. For example, you can build a logic app 
@@ -54,18 +53,18 @@ or [create a SQL Server database](https://docs.microsoft.com/sql/relational-data
 
   Your tables must have data so that your logic app can return 
   results when calling operations, such as the "Get rows" action. 
-  If you create an Azure SQL Database, you can create sample databases, 
+  If you want to create an Azure SQL Database, you can use sample databases, 
   which are included with Azure SQL Database. 
 
 * Your SQL server name, database name, your user name, and your password. 
 You need these credentials so that you can authorize your logic to access your SQL server. 
 
-  * For Azure SQL Database, you can find this information in the connection string, 
+  * For Azure SQL Database, you can find these details in the connection string, 
   or in the Azure portal under the SQL Database properties:
 
     "Server=tcp:<*yourServerName*>.database.windows.net,1433;Initial Catalog=<*yourDatabaseName*>;Persist Security Info=False;User ID=<*yourUserName*>;Password=<*yourPassword*>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
-  * For SQL Server, you can find this information in the connection string: 
+  * For SQL Server, you can find these details in the connection string: 
 
     "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
@@ -104,8 +103,9 @@ For this example, use the Azure portal.
 
 2. In the search box, enter "sql server" as your filter. 
 From the triggers list, select the SQL trigger that you want. 
-For this example, select this trigger: 
-**SQL Server - When an item is created**
+
+   For this example, select this trigger: 
+   **SQL Server - When an item is created**
 
    ![Select "SQL Server - When an item is created" trigger](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
 
