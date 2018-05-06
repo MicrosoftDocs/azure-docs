@@ -18,16 +18,12 @@ ms.author: wolfma
 > [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
-> # [C#]
->
 > ```csharp
 > using System;
 > using System.Threading.Tasks;
 > using Microsoft.CognitiveServices.Speech;
 > using Microsoft.CognitiveServices.Speech.Intent;
 > ```
->
-> # [C++]
 >
 > ```cpp
 > #include <speechapi_cxx.h>
@@ -40,8 +36,6 @@ ms.author: wolfma
 > - - -
 
 ## Intent Recognition Using Microphone
-
-# [C#]
 
 ```csharp
 // Create a speech factory associated with your speech subscription
@@ -87,8 +81,6 @@ using (var recognizer = factory.CreateIntentRecognizer())
     }
 }
 ```
-
-# [C++]
 
 ```cpp
 // Creates an instance of a speech factory with specified
