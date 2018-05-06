@@ -225,7 +225,22 @@ The downloaded snapshot contains any symbol files that were found on your web ap
 
 ## How snapshots work
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 milliseconds. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+The Snapshot Collector is implemented as an [Application Insights Telemetry Processor](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). When your application runs, the Snapshot Collector Telemetry Processor is added to your application's telemetry pipeline.
+Each time your application calls [TrackException](app-insights-asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
+Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
+
+The Snapshot Collector also monitors exceptions as they are thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
+If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
+
+The main process continues to run and serve traffic to users with very little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process where it is turned into a minidump and uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot. 
+
+> [!TIP]
+> - A process snapshot is a suspended clone of the running process.
+> - Creating the snapshot takes about 10 to 20 milliseconds.
+> - The default value for `ThresholdForSnapshotting` is 1. This is also the minimum value. Therefore, your app has to trigger the same exception **twice** before a snapshot is created.
+> - Set `IsEnabledInDeveloperMode` to true if you want to generate snapshots while debugging in Visual Studio.
+> - The snapshot creation rate is limited by the `SnapshotsPerTenMinutesLimit` setting. By default, the limit is one snapshot every ten minutes.
+> - No more than 50 snapshots per day may be uploaded.
 
 ## Current limitations
 
@@ -239,7 +254,11 @@ The Snapshot Debugger requires symbol files on the production server to decode v
 For Azure Compute and other types, ensure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 ### Optimized builds
-In some cases, local variables cannot be viewed in release builds because of optimizations that are applied during the build process.
+In some cases, local variables cannot be viewed in release builds because of optimizations that are applied by the JIT compiler.
+However, in Azure App Services, the Snapshot Collector can deoptimize throwing methods that are part of its Collection Plan.
+
+> [!TIP]
+> Install the Application Insights Site Extension in your App Service to get deoptimization support.
 
 ## Troubleshooting
 
@@ -249,12 +268,15 @@ These tips help you troubleshoot problems with the Snapshot Debugger.
 
 Make sure that you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify that the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
+### Upgrade to the latest version of the NuGet package
+
+Use Visual Studio's NuGet Package Manager to ensure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector. Release notes can be found at https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+
 ### Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process takes that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the uploader process are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
+After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the uploader process are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
-
 2. Select the **Advanced Tools** blade, or search for **Kudu**.
 3. Click **Go**.
 4. In the **Debug console** drop-down list box, select **CMD**.
@@ -289,7 +311,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 ```
 
 > [!NOTE]
-> The example above is from version 1.2.0 of the Microsoft.ApplicationInsights.SnapshotCollector Nuget package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
+> The example above is from version 1.2.0 of the Microsoft.ApplicationInsights.SnapshotCollector NuGet package. In earlier versions, the uploader process is called `MinidumpUploader.exe` and the log is less detailed.
 
 In the previous example, the instrumentation key is `c12a605e73c44346a984e00000000000`. This value should match the instrumentation key for your application.
 The minidump is associated with a snapshot with the ID `139e411a23934dc0b9ea08a626db16c5`. You can use this ID later to locate the associated exception telemetry in Application Insights Analytics.
@@ -380,6 +402,10 @@ To search for a specific snapshot ID from the Uploader logs, type that ID in the
 2. Using the timestamp from the Uploader log, adjust the Time Range filter of the search to cover that time range.
 
 If you still don't see an exception with that snapshot ID, then the exception telemetry wasn't reported to Application Insights. This situation can happen if your application crashed after it took the snapshot but before it reported the exception telemetry. In this case, check the App Service logs under `Diagnose and solve problems` to see if there were unexpected restarts or unhandled exceptions.
+
+### Edit network proxy or firewall rules
+
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Snapshot Debugger service. Here is [a list of IP addresses and ports used by the Snapshot Debugger](app-insights-ip-addresses#snapshot-debugger).
 
 ## Next steps
 
