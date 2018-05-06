@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 04/24/2018
+ms.date: 05/06/2018
 ms.author: davidmu
 
 ---
@@ -35,7 +35,7 @@ The following example shows a possible data deletion flow:
 5. The application orchestrates deletion of user data in other organizational systems as needed using the object ID or other identifiers.
 6. The application confirms the deletion of data and provides next steps to the user.
 
-## Exporting customer data
+## Export customer data
 
 The process to export customer data from Azure AD B2C is similar to the deletion process.
 

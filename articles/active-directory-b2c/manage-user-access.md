@@ -22,7 +22,8 @@ This article provides information about how you can manage user access to your a
 - Gathering data of birth and country data from the user
 - Capturing terms of use agreement and gating access
 
-[!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
+>[!Note] 
+>This article provides information that can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## Control minor access
 
