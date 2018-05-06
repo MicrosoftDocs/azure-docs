@@ -18,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# Get started with Relay Hybrid Connections Websockets
+# Get started with Relay Hybrid Connections Websockets in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). Learn how to use Microsoft .NET to create a client application that sends messages to a corresponding listener application. 
