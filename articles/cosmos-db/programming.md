@@ -760,12 +760,12 @@ Here, the input to the stored procedure is passed in the request body. Note that
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
@@ -778,12 +778,11 @@ Triggers, unlike stored procedures, cannot be executed directly. Instead they ar
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 
