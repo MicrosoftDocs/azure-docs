@@ -25,12 +25,15 @@ On Windows, you can deploy the required files next to your application, which gu
 
 | Name | Function
 |:-----|:----|
-| `carbon.dll` | core SDK, required for native and managed deployment
-| `carbon_csharp_bindings.dll` | managed wrapper in C# onto of the core SDK
+| `Microsoft.CognitiveServices.Speech.core.dll` | core SDK, required for native and managed deployment
+| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | required for managed deployment
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | required for managed deployment
 
 ## Linux
 
-For a native application you need to ship the Speech SDK library, `libcarbon.so`. Depending on the Linux version or distro you are targeting, you may also need to include the following dependencies:
+For a native application you need to ship the Speech SDK library, `libMicrosoft.CognitiveServices.Speech.core.so`.
+Make sure you select the version (x32, x64) matching your application.
+Depending on the Linux version or distro you are targeting, you may also need to include the following dependencies:
 
 * The shared libraries of the GNU C Library (including the POSIX Threads Programming library, `libpthreads`)
 * The OpenSSL library (`libssl.so.1.0.0`)
