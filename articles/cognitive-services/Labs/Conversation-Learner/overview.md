@@ -1,5 +1,5 @@
 ---
-title: Learn about Conversation Learner - Microsoft Cognitive Services | Microsoft Docs
+title: What is Conversation Learner? - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: Learn about Conversation Learner and how it works.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 04/30/2018
 ms.author: v-jaswel
 ---
 
-# Overview
+# What is Conversation Learner?
 
 Conversation Learner enables you to build and teach conversational interfaces that learn from example interactions. 
 

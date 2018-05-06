@@ -56,7 +56,7 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="tutorial-power-bi-key-phrases.md">Text Analytics with Power BI</a>
+    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Text Analytics with Power BI</a>
     - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Text Analytics in PowerApps</a>
 - title: Reference
   items:
