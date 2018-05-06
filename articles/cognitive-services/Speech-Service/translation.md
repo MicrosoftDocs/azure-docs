@@ -29,7 +29,7 @@ ms.author: wolfma
 > [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
-> # [C#](#tab/csharp)
+> # [C#]
 >
 > [!code-csharp [Using Statements](code/translation_samples.cs#toplevel)]
 >
@@ -39,7 +39,7 @@ ms.author: wolfma
 
 The code snippet below shows how to translate speech input from English to German, and also get the voice output of the translated text. It uses the microphone.
 
-# [C#](#tab/csharp)
+# [C#]
 
 [!code-csharp[Translation Using Microphone](code/translation_samples.cs#TranslationWithMicrophoneAsync)]
 
@@ -50,7 +50,7 @@ The code snippet below shows how to translate speech input from English to Germa
 The code snippet below shows how to translate speech input from English to German and French.
 It uses file as input.
 
-# [C#](#tab/csharp)
+# [C#]
 
 [!code-csharp[Translation Using File Input](code/translation_samples.cs#TranslationWithFileAsync)]
 

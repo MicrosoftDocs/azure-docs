@@ -130,7 +130,7 @@ https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 The following code samples illustrate how to get an access token using Windows PowerShell, the `curl` utility available in most Linux distributions (or Windows Subsystem for Linux), or the C# programming language. A sample HTTP request and response are also shown. Replace `YOUR_SUBSCRIPTION_KEY` in the samples with your own subscription key.
 
-# [PowerShell](#tab/Powershell)
+# [PowerShell]
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -147,14 +147,14 @@ $OAuthToken
 
 ```
 
-# [curl](#tab/curl)
+# [curl]
 
 ```
 curl -v -X POST "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
 " -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# [C#](#tab/CSharp)
+# [C#]
 
 ```cs
     /*
@@ -217,7 +217,7 @@ The following examples show how to use an authorization token when you call the 
 > [!NOTE]
 > Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file. Replace `YOUR_ACCESS_TOKEN` with the authorization token you got in the previous step [Get an authorization token](#get-an-authorization-token).
 
-# [PowerShell](#tab/Powershell2)
+# [PowerShell]
 
 ```Powershell
 
@@ -241,13 +241,13 @@ $RecoResponse
 
 ```
 
-# [curl](#tab/curl2)
+# [curl]
 
 ```
 curl -v -X POST "https://westus.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# [C#](#tab/CSharp2)
+# [C#]
 
 ```cs
 HttpWebRequest request = null;
