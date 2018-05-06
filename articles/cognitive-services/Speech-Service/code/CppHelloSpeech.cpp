@@ -13,7 +13,7 @@ void recognizeSpeech() {
     wstring subscriptionKey{ L"<Please replace with your subscription key>" };
     wstring region{ L"<Please replace with your service region>" };
 
-    auto factory = Recognition::SpeechFactory::FromSubscription(subscriptionKey, region);
+    auto factory = SpeechFactory::FromSubscription(subscriptionKey, region);
 
     auto recognizer = factory->CreateSpeechRecognizer();
 

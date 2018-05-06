@@ -24,7 +24,7 @@ namespace CsharpHelloWorld
                 Console.WriteLine("Say something...");
                 var result = await recognizer.RecognizeAsync();
 
-                if (result.RecognitionStatus != RecognitionStatus.Recognized)
+                if (result.RecognitionStatus == RecognitionStatus.Recognized)
                 {
                     Console.WriteLine($"We recognized: {result.RecognizedText}");
                 }
