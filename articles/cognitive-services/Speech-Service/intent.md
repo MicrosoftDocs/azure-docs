@@ -35,7 +35,7 @@ ms.author: wolfma
 >
 > - - -
 
-## Intent Recognition Using Microphone
+Intent Recognition Using Microphone
 
 ```csharp
 // Create a speech factory associated with your speech subscription

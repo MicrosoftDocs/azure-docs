@@ -24,7 +24,7 @@ The application is based on the [Microsoft Cognitive Services SDK NuGet Package]
 
 > [!NOTE]
 > This quick start requires a PC with a working microphone.
-> For a sample that recognizes speech from a given audio input file see the [sample]](speech-to-text-sample.md?tabs=cpp#speech-recognition-from-a-file).
+> For a sample that recognizes speech from a given audio input file see the [sample](speech-to-text-sample.md?tabs=cpp#speech-recognition-from-a-file).
 
 > [!NOTE]
 > Please ensure that your Visual Studio installation includes the **Desktop development with C++** workload.

@@ -15,11 +15,8 @@ ms.author: wolfma
 
 # Sample for Translation
 
-> [!NOTE]
-> The C++ sample is coming very soon.
-
 > [!IMPORTANT]
-> Currently, the translation service requires different subscription keys. Please let us know if you want to use the translation service.
+> Currently, the translation service requires different subscription keys. Let us know if you want to use the translation service.
 
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
