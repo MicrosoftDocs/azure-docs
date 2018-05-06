@@ -44,7 +44,7 @@ az group create --name $rg --location eastus
 Create your application using the following deployment command:
 
 ```azurecli-interactive
-az sbz deployment create --resource-group $rg --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json
+az mesh deployment create --resource-group $rg --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-configuration/master/container-configuration.json
 ```
 
 In just over a minute, your command should return with `"provisioningState": "Succeeded"`. Given below is the output from the command when using [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
@@ -138,7 +138,7 @@ At this point, your application has been deployed. You can check to see its stat
 The application name for this quickstart application is helloWorldApp, to gather the details on the application execute the following command:
 
 ```azurecli-interactive
-az sbz app show --resource-group $rg --name helloWorldApp
+az mesh app show --resource-group $rg --name helloWorldApp
 ```
 
 ## Browse to the application
@@ -148,7 +148,7 @@ Once the application status is returned as ""provisioningState": "Succeeded", yo
 The network resource for this quickstart application is helloWorldNetwork, here is the command to get the IP address:
 
 ```azurecli-interactive
-az sbz network show --resource-group $rg --name helloWorldNetwork
+az mesh network show --resource-group $rg --name helloWorldNetwork
 ```
 
 The command will return with information like the json snippet below when running the command in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
@@ -175,13 +175,13 @@ In the example above, the service end point IP is 40.121.196.175.  Take your cor
 You can use the "app list" command to get a list of applications you have deployed to your subscription.
 
 ```cli
-az sbz app list --output table
+az mesh app list --output table
 ```
 
 ## See the application logs
 
 ```azurecli-interactive
-az sbz codepackage logs -g $rg --app-name helloWorldApp --code-package-name <needToFindThis>
+az mesh codepackage logs -g $rg --app-name helloWorldApp --code-package-name <needToFindThis>
 ```
 
 ## Clean up resources
@@ -189,7 +189,7 @@ az sbz codepackage logs -g $rg --app-name helloWorldApp --code-package-name <nee
 When you are ready to delete the application run the following command, you'll be prompted to confirm deletion enter `y` to confirm the command.
 
 ```azurecli-interactive
-az sbz app delete -g $rg -n helloWorldApp
+az mesh app delete -g $rg -n helloWorldApp
 ```
 
 If you no longer need any of the resources you created in this quickstart, you can execute the [az group delete][az-group-delete] command to remove the resource group and all resources it contains. This command deletes the container deployed to service fabric mesh and all related resources.
