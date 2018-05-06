@@ -38,11 +38,11 @@ The application is based on the [Microsoft Cognitive Services SDK NuGet Package]
 
 In Visual Studio 2017, create a new Visual C++ Windows Desktop Windows Console Application with the name "CppHelloSpeech":
 
-![Create Visual C++ Windows Desktop Windows Console Application](images/speechsdk-05-vs-cpp-new-console-app.png)
+![Create Visual C++ Windows Desktop Windows Console Application](media/sdk/speechsdk-05-vs-cpp-new-console-app.png)
 
 If you're running on a 64-bit Windows installation, optionally switch your build platform to `x64`:
 
-![Switch the build platform to x64](images/speechsdk-07-vs-cpp-switch-to-x64.png)
+![Switch the build platform to x64](media/sdk/speechsdk-07-vs-cpp-switch-to-x64.png)
 
 ## Install and reference the Speech SDK NuGet package
 
@@ -53,20 +53,20 @@ If you're running on a 64-bit Windows installation, optionally switch your build
 > the **Individual components** tab, and look for **NuGet package manager**.
 > If the checkbox to its left is not set, make sure to set it and click on **Modify** to save changes.
 >
-> ![Enable NuGet package manager in Visual Studio ](images/speechsdk-05-vs-enable-nuget-package-manager.png)
+> ![Enable NuGet package manager in Visual Studio ](media/sdk/speechsdk-05-vs-enable-nuget-package-manager.png)
 
 In the Solution Explorer, right-click the solution and click on **Manage NuGet Packages for Solution**.
 
-![Right-click Manage NuGet Packages for Solution](images/speechsdk-09-vs-cpp-manage-nuget-packages.png)
+![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-09-vs-cpp-manage-nuget-packages.png)
 
 In the upper-right corner, in the **Package Source** field, choose "Nuget.org".
 Search for and install the "Microsoft.CognitiveServices.Speech" package and install it into the CppHelloSpeech project.
 
-![Install Microsoft.CognitiveServices.Speech NuGet Package](images/speechsdk-11-vs-cpp-manage-nuget-install.png)
+![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-11-vs-cpp-manage-nuget-install.png)
 
 In the license screen that pops up, accept the license:
 
-![Accept the license](images/speechsdk-12-vs-cpp-manage-nuget-license.png)
+![Accept the license](media/sdk/speechsdk-12-vs-cpp-manage-nuget-license.png)
 
 ## Add the sample code
 
@@ -81,16 +81,16 @@ Replace the code with the following:
 
 The code should compile without errors now:
 
-![Successful build](images/speechsdk-16-vs-cpp-build.png)
+![Successful build](media/sdk/speechsdk-16-vs-cpp-build.png)
 
 Launch the program under the debugger with the Launch button or using the F5 keyboard shortcut:
 
-![Launch the app into debugging](images/speechsdk-17-vs-cpp-f5.png)
+![Launch the app into debugging](media/sdk/speechsdk-17-vs-cpp-f5.png)
 
 A console window should pop up, prompting you to say something (in English).
 The result of the recognition will be displayed on screen.
 
-![Console output after successful recognition](images/speechsdk-18-vs-cpp-console-output-release.png)
+![Console output after successful recognition](media/sdk/speechsdk-18-vs-cpp-console-output-release.png)
 
 ## Downloading the sample
 
