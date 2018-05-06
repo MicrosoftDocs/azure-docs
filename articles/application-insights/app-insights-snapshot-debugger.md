@@ -19,7 +19,7 @@ ms.author: mbullwin
 
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](app-insights-asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise by [downloading the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger). In Visual Studio, you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
 
 Snapshot collection is available for:
 * .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
@@ -210,7 +210,7 @@ In the Debug Snapshot view, you see a call stack and a variables pane. When you 
 
 ![View Debug Snapshot in the portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Snapshots might contain sensitive information, and by default they are not viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
+Snapshots might include sensitive information, and by default they aren't viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
 
 ## Debug snapshots with Visual Studio 2017 Enterprise
 1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise.
@@ -221,7 +221,7 @@ Snapshots might contain sensitive information, and by default they are not viewa
 
     ![View debug snapshot in Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-The downloaded snapshot contains any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
+The downloaded snapshot includes any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
 
 ## How snapshots work
 
@@ -232,7 +232,7 @@ Each time your application calls TrackException, a counter is incremented for th
 The Snapshot Collector also monitors exceptions as they are thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
 If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
 
-The main process continues to run and serve traffic to users with very little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process where it is turned into a minidump and uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot. 
+The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (.pdb) files.
 
 > [!TIP]
 > - A process snapshot is a suspended clone of the running process.
@@ -254,7 +254,7 @@ The Snapshot Debugger requires symbol files on the production server to decode v
 For Azure Compute and other types, ensure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 ### Optimized builds
-In some cases, local variables cannot be viewed in release builds because of optimizations that are applied by the JIT compiler.
+In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.
 However, in Azure App Services, the Snapshot Collector can deoptimize throwing methods that are part of its Collection Plan.
 
 > [!TIP]
@@ -266,15 +266,15 @@ These tips help you troubleshoot problems with the Snapshot Debugger.
 
 ### Verify the instrumentation key
 
-Make sure that you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify that the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
+Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
 ### Upgrade to the latest version of the NuGet package
 
-Use Visual Studio's NuGet Package Manager to ensure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector. Release notes can be found at https://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Use Visual Studio's NuGet Package Manager to make sure you're using the latest version of Microsoft.ApplicationInsights.SnapshotCollector. Release notes can be found at https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ### Check the uploader logs
 
-After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it is deleted from disk. The log files for the uploader process are retained on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
+After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
 2. Select the **Advanced Tools** blade, or search for **Kudu**.
@@ -283,7 +283,7 @@ After a snapshot is created, a minidump file (.dmp) is created on disk. A separa
 5. Click **LogFiles**.
 
 You should see at least one file with a name that begins with `Uploader_` or `SnapshotUploader_` and a `.log` extension. Click the appropriate icon to download any log files or open them in a browser.
-The file name includes a unique suffix that identifies the App Service instance. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it is recorded in the log file. Here's an example of a successful snapshot and upload:
+The file name includes a unique suffix that identifies the App Service instance. If your App Service instance is hosted on more than one machine, there are separate log files for each machine. When the uploader detects a new minidump file, it's recorded in the log file. Here's an example of a successful snapshot and upload:
 
 ```
 SnapshotUploader.exe Information: 0 : Received Fork request ID 139e411a23934dc0b9ea08a626db16c5 from process 6368 (Low pri)
@@ -335,7 +335,7 @@ For applications that are _not_ hosted in App Service, the uploader logs are in 
 For roles in Cloud Services, the default temporary folder may be too small to hold the minidump files, leading to lost snapshots.
 The space needed depends on the total working set of your application and the number of concurrent snapshots.
 The working set of a 32-bit ASP.NET web role is typically between 200 MB and 500 MB.
-You should allow for at least two concurrent snapshots.
+Allow for at least two concurrent snapshots.
 For example, if your application uses 1 GB of total working set, you should ensure that there is at least 2 GB of disk space to store snapshots.
 Follow these steps to configure your Cloud Service role with a dedicated local resource for snapshots.
 
@@ -385,7 +385,7 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 
 ### Use Application Insights search to find exceptions with snapshots
 
-When a snapshot is created, the throwing exception is tagged with a snapshot ID. When the exception telemetry is reported to Application Insights, that snapshot ID is included as a custom property. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
+When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
 
 1. Browse to your Application Insights resource in the Azure portal.
 2. Click **Search**.
