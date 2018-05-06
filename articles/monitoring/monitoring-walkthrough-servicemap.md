@@ -1,6 +1,6 @@
 ---
-title: Service Map solution self paced demo | Microsoft Docs
-description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This is a self paced demo that walks through using Service Map to identify and diagnose a simulated problem in a web application.
+title: Service Map solution in Azure self-paced demo | Microsoft Docs
+description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This is a self-paced demo that walks through using Service Map to identify and diagnose a simulated problem in a web application.
 services:  monitoring
 documentationcenter: ''
 author: bwren
@@ -18,8 +18,8 @@ ms.author: bwren
 
 ---
 
-# Self paced demo - Service Map
-This is a self paced demo that walks through using the [Service Map solution](monitoring-service-map.md) in Azure to identify and diagnose a simulated problem in a web application. Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It also consolidates data collected by other services and solutions to assist you in analyzing performance and identifying issues. You also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
+# Self-paced demo - Service Map
+This is a self-paced demo that walks through using the [Service Map solution](monitoring-service-map.md) in Azure to identify and diagnose a simulated problem in a web application. Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It also consolidates data collected by other services and solutions to assist you in analyzing performance and identifying issues. You also use [log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to drill down on collected data in order to identify the root problem.
 
 
 ## Scenario description
@@ -30,7 +30,7 @@ You've just received a notification that the ACME Customer Portal application is
 - [Log Analytics log searches](../log-analytics/log-analytics-log-searches.md)
 
 
-## Walk through
+## Walkthrough
 
 ### 1. Connect to the OMS Experience Center
 This walk through uses the [Operations Management Suite Experience Center](https://experience.mms.microsoft.com/), which provides a complete Log Analytics environment with sample data. Start by following this link, provide your information and then select the **Insight and Analytics** scenario.
