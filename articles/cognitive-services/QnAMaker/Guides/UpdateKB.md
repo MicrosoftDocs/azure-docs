@@ -1,5 +1,6 @@
 ---
-title: Update your knowledge base with QnA Maker | Microsoft Docs
+title: Update your knowledge base with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to update your knowledge base in a variety of ways.
 services: cognitive-services
 author: pchoudhari
@@ -17,16 +18,16 @@ There are several ways you might want to update your knowledge base. Choose what
 ## Editorial QnA updates
 Edit the QnA table directly. In addition, you can add/delete a QnA Pair, or add an alteration of an existing QnA pair. This is ideal for quick editorial fixes to your knowledge base
 
-![alt text](../Images/editKBTable.png)
+![](../media/editKBTable.png)
 
 To save your changes, press Save and retrain button.
 
-![alt text](../Images/kbSaveRetrain.png)
+![](../media/kbSaveRetrain.png)
 
 ## Update the sources ##
 If you need to update the sources of data of your knowledge base, go to the settings tab and update the sources.
 
-![alt text](../Images/kbSettings.png)
+![](../media/kbSettings.png)
 
 Once done with changes, click on Save and retrain
 
@@ -38,8 +39,8 @@ You have an option to download the entire knowledge base by clicking on Download
 >[!WARNING]
 >Uploading a knowledge base overwrites the existing QnAs in the knowledge base.
 
-![alt text](../Images/kbDownloadLink.png)
+![](../media/kbDownloadLink.png)
 
 To save your changes, press Save and retrain button.
 
-![alt text](../Images/kbSaveRetrain.png)
+![](../media/kbSaveRetrain.png)

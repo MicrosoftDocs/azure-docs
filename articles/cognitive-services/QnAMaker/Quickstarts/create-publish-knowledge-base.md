@@ -1,5 +1,5 @@
 ---
-title: Quickstart on creating a KB - Microsoft Cognitive Services | Microsoft Docs
+title: Quickstart on creating a KB - QnA Maker - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a step-by-step tutorial on creating a knowledge base in QnA Maker
 services: cognitive-services
