@@ -48,7 +48,9 @@ In order to complete the use of Speech priming, you need the following informati
 * The LUIS app ID.
 * An endpoint domain, referred to as "Hostname" in Speech SDK, such as "westus.api.cognitive.microsoft.com," where the first subdomain is the region where the app is published.
 
+<!-- TBD: where did this go -- it isn't in the sample of the sdk 
 For more information, see the [Speech to Intent](../speech-service/sdk/tutorials/intent) tutorial.
+-->
 
 When your LUIS app is deleted or the Speech service is deleted, your model data is removed. 
 
