@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
 
 ---
@@ -31,6 +31,54 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## 1.1.819.0
+Status 5/4/2018: Released for auto upgrade, will be available for download soon.
+
+### Azure AD Connect sync
+#### New features and improvements
+
+
+- This release updates the SQL Server Express installation to SQL Server 2012 SP4. This update provides fixes for several security vulnerabilities.  For more information see, [the SQL Server 2012 SP4 release information](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information).
+- Updated the Azure AD Connect Wizard Troubleshooting Utility, This update provides analysis for more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups, and several usability improvements.
+- A new Store Analysis tool (Storechk.exe) is now shipped as part of the Azure AD Connect. 
+- Device Writeback configuration is now managed solely within the Azure AD Connect Wizard.
+- A new PowerShell script has been added that can be used to set permissions on a customer provided AD Connector account.
+- A new PowerShell Module called ADSyncTools.psm1 has been added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities.
+- This release includes the public preview of the integration of PingFederate in Azure AD Connect. Now customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our online [documentation](active-directory-aadconnect-get-started-custom.md).
+- Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
+
+#### Fixed issues 
+
+
+- Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent syncrule is no longer applicable
+- Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup
+- Azure AD Connect Wizard: On the AAD Sign-in page display the verification checkbox whenever there is any mismatch in AD domains and Azure AD Verified domains
+- Auto-upgrade PowerShell fix to set auto upgrade state correctly in certain cases after auto upgrade attempted.
+- Azure AD Connect Wizard: Updated telemetry to capture previously missing information
+- Azure AD Connect Wizard: Install PTA agent before converting a domain to managed
+- Azure AD Connect Wizard: Do not convert users to managed (convert only domain) for PTA
+- Azure AD Connect Wizard: AD FS Multi Domain Regex is not correct when user UPN has ' special character Regex update to support special characters
+- Azure AD Connect Wizard: Remove spurious "Configure source anchor attribute" message when no change 
+- Azure AD Connect Wizard: AD FS support for the dual federation scenario
+- Azure AD Connect Wizard: AD FS Claims are not updated for added domain when converting a managed domain to federated
+- Azure AD Connect Wizard: During detection of installed packages, we find stale Dirsync/Azure AD Sync/Azure AD Connect related products. We will now attempt to uninstall the stale products.
+- Azure AD Connect Wizard: Correct Error Message Mapping when installation of passthrough authentication agent fails
+- Azure AD Connect Wizard: Removed "Configuration" container from Domain OU Filtering page
+- Sync Engine install: remove unnecessary legacy logic that occasionally failed from Sync Engine install msi
+- Azure AD Connect Wizard: Fix popup help text on Optional Features page for Password Hash Sync
+- Sync Engine runtime: Fix the scenario where a CS object has an imported delete and Sync Rules attempt to re-provision the object.
+- Sync Engine runtime: Add help link for Online connectivity troubleshooting guide to the event log for an Import Error
+- Sync Engine runtime: Reduced memory usage of Sync Scheduler when enumerating Connectors
+- Azure AD Connect Wizard: Fix an issue resolving a custom Sync Service Account which has no AD Read privileges
+- Azure AD Connect Wizard: Improve logging of Domain and OU filtering selections
+- Azure AD Connect Wizard: AD FS Add default claims to federation trust created for MFA scenario
+- Azure AD Connect Wizard: AD FS Deploy WAP: Adding server fails to use new certificate
+- Azure AD Connect Wizard: DSSO exception when onPremCredentials aren't initialized for a domain 
+- Preferentially flow the AD distinguishedName attribute from the Active User object.
+- Fixed a cosmetic bug where the Precedence of the first OOB Sync Rule was set to 99 instead of 100
+
+
 
 ## 1.1.751.0
 Status 4/12/2018: Released for download only
