@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/01/2018
+ms.date: 05/07/2018
 ms.author: billmath
 ---
 
@@ -38,7 +38,7 @@ To view the results of a completed instance of an access review that is recurrin
 
 ## Removing users from an access review
 
-[!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 By default, a deleted user will remain deleted in Azure AD for 30 days, during which time they can be restored by an administrator if necessary.  After 30 days, that user is permanently deleted.  In addition, using the Azure Active Directory portal, a Global Administrator can explicitly [permanently delete a recently deleted user](active-directory-users-restore.md) before that time period is reached.  One a user has been permanently deleted, subsequently data about that user will be removed from active access reviews.  Audit information about deleted users remains in the audit log.
 
