@@ -12,7 +12,7 @@ ms.date: 05/07/2018
 ms.author: darosa
 
 ---
-# Event Hubs for Kafka ecosystems
+# Event Hubs for Kafka Ecosystems
 
 Event Hubs for Kafka Ecosystems provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs for Kafka Ecosystem supports [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) and newer client versions, and works with your existing Kafka applications, including MirrorMaker. Change your connection string and start running your Kafka applications on Event Hubs.
 
@@ -38,7 +38,7 @@ Scale in Event Hubs is controlled by how many throughput units you purchase, wit
 
 ### Security and authentication
 
-Azure Event Hubs requires SSL or TLS for all communication and uses Shared Access Signatures (SAS) for autentication. This is also true for a Kafka endpoint within Event Hubs. For compatibility with Kafka, Event Hubs uses SASL PLAIN for authentication and SASL SSL for transport security. For more information about security in Event Hubs, see [Event Hubs authentication and security](event-hubs-authentication-and-security-model-overview.md).
+Azure Event Hubs requires SSL or TLS for all communication and uses Shared Access Signatures (SAS) for authentication. This requirement is also true for a Kafka endpoint within Event Hubs. For compatibility with Kafka, Event Hubs uses SASL PLAIN for authentication and SASL SSL for transport security. For more information about security in Event Hubs, see [Event Hubs authentication and security](event-hubs-authentication-and-security-model-overview.md).
 
 ## Other Event Hubs features available for Kafka
 
