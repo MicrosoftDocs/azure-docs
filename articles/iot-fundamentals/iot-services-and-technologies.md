@@ -23,9 +23,7 @@ Microsoft has built a portfolio that supports the needs of all customers, enabli
 - Platform as a Service (PaaS): build your application using [Azure IoT solution accelerators](https://www.azureiotsuite.com/), which are a collection of enterprise-grade preconfigured solutions that enable you to accelerate the development of custom IoT solutions.
 - Software as a Service (SaaS): get started fast with [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), the new SaaS solution to develop IoT applications without being exposed to the complexity of IoT solution. If your organization lacks the resources to build your own IoT solution, Azure IoT Central is a codeless IoT solution that can create device models, dashboards, and rules in minutes.
 
-![The industry's most comprehensive portfolio of technologies and solutions][img-paas-saas-technologies-solutions]
-
-[![The industry's most comprehensive portfolio of technologies and solutions](media/iot-comparison/paas-saas-technologies-solutions.png)](media/iot-comparison/paas-saas-technologies-solutions.png#lightbox)
+![Azure IoT technologies and solutions][img-paas-saas-technologies-solutions]
 
 ## Solutions
 
