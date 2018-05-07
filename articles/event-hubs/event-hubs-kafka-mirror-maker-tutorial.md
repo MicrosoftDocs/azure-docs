@@ -101,7 +101,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 ### Run MirrorMaker
 
-Run the Kafka MirrorMaker script from the root Kafka directory using the newly updated configuration files.
+Run the Kafka MirrorMaker script from the root Kafka directory using the newly updated configuration files. Make sure to either copy the config files to the root Kafka directory or update their paths in the following command.
 
 ```bash
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
