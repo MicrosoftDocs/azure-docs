@@ -23,7 +23,7 @@ The regional **Text to Speech** endpoints are shown here. Use the one appropriat
 Region|	Endpoint
 -|-
 West US| `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-East Asia| `https://eastaisa.tts.speech.microsoft.com/cognitiveservices/v1`
+East Asia| `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
 North Europe| `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
