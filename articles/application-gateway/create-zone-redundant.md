@@ -238,24 +238,24 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
 ## Frequently asked questions
 
-1. Will I be billed for application gateway in preview?
+-  Will I be billed for application gateway in preview?
 
    During preview, there is no charge. You will be billed for resources other than application gateway, such as Key Vault, virtual machines etc.
-2. What regions is the preview available in?
+- What regions is the preview available in?
 
    The preview is currently available in the East US 2 region. More regions will be added soon.
-3. Is the portal supported in the preview?
+- Is the portal supported in the preview?
 
    No, support is limited to a private PowerShell module and Resource Manager template during the private preview.
-4. What is the general availability timeline?
+- What is the general availability timeline?
 
    We are working toward a mid-2018 GA timeline.
 
-5. Is production workload supported during private preview?
+- Is production workload supported during private preview?
 
    No, there is no SLA or support during the private preview. It is not recommended to put production workloads during previews. Support is limited to direct interaction with product group using the email alias for preview.
 
-6. How do I report issues?
+- How do I report issues?
 
    The private preview may contain bugs and may have frequent code deployments. Use the support alias nvadev@microsoft.com for reporting issues and assistance.
 
