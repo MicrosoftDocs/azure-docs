@@ -61,7 +61,7 @@ The machine learning forecasting examples in the follow code samples rely on the
 
 ### Import any dependencies for this sample
 
-These dependencies must be imported for the following code samples
+These dependencies must be imported for the following code samples:
 
 
 ```python
@@ -1138,7 +1138,7 @@ univariate_model_errors
 
 
 
-## Machine Learning Models
+## Build machine learning models
 
 In addition to traditional univariate models, Azure Machine Learning Package for Forecasting also enables you to create machine learning models.
 
@@ -1408,8 +1408,7 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
 
 ## Operationalization: deploy and consume
 
-In this section, you deploy a pipeline as an Azure Machine Learning web service and consume it for training and scoring.
-Currently, only pipelines that are not fitted are supported for deployment. Scoring the deployed web service retrains the model and generates forecasts on new data.
+In this section, you deploy a pipeline as an Azure Machine Learning web service and consume it for training and scoring. Scoring the deployed web service retrains the model and generates forecasts on new data.
 
 ### Set model deployment parameters
 
@@ -1517,7 +1516,7 @@ To score a large dataset, use the [parallel scoring](https://docs.microsoft.com/
 results = aml_web_service.score(score_context=score_context, method='parallel')
 ```
 
-# Next steps
+## Next steps
 
 Learn more about the Azure Machine Learning Package for Forecasting in these articles:
 
