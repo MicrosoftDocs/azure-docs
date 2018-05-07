@@ -1,6 +1,6 @@
----
+ W---
 title: Run scripts in a Windows VM
-description: This topic describes how to run scripts within a virtual machine
+description: This topic describes how to run scripts within a Windows virtual machine
 services: automation
 ms.service: automation
 author: georgewallace
@@ -24,39 +24,37 @@ The [Custom Script Extension](extensions-customscript.md) is primarily used for 
 
 ## Run command
 
-The [Run Command](run-command.md) feature provides general machine and application management for VMs using scripts.
+The [Run Command](run-command.md) feature provides general VM and application management and troubleshooting using scripts.
 
-* Requires VM contributor or higher priviledges
-* Available by default
-* VM does not need to be network connected or have RDP access
+* Available by default (no installation)
+* VM does not need to be network connected
 * Can run any custom script (PowerShell for Windows, shell script for Linux)
+* Requires VM contributor or higher priviledges
 * Available through [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), or [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 
 ## Hybrid Runbook Worker
 
-The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) runs user's runbooks (scripts) from the Automation account in the VM.
+The [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) provides general machine and application management with user's custom scripts stored in an Automation account.
 
-* Requires manual onboarding (VM Contributor or higher), Automation account (Contributor), Log Analytics workspace (Contributor) with Automation solution
-* Manual installation
-* VM needs to be network connected
-* Scripts are stored in Automation Account
+* Scripts stored and managed in an Automation Account
 * Runs PowerShell, PowerShell workflow, Python, or Graphical runbooks
-* Runbooks are stored and managed in an Automation Account
-* There is no time limit on script runtime
-* Supports job concurrency (multiple jobs can run at same time)
+* No time limit on script run time
+* Multiple scripts can run concurrently
 * Full script output is returned and stored
-* Job history is available (90 days)
-* Run As capability - Hybrid Runbook Workers can run as Local System or with user-supplied credentials
-* Run jobs via the Azure portal or API
+* Job history available for 90 days
+* Scripts can run as Local System or with user-supplied credentials
+* Run scripts through the Azure portal or API
+* Requires [manual installation](../../automation/automation-windows-hrw-install.md)
+* Requires these previledges: VM Contributor (to install), Contributor on Automation account (to install and run), Contributor on Log Analytics workspace (to install)
+* VM needs to be network connected
 
 ## Serial console
 
 The [Serial console](serial-console.md) provides direct access to a VM, similar to having a keyboard connected to the VM.
 
 * Available in the portal
-* Requires VM Contributor or higher privileges
+* Requires VM Contributor privileges
 * Requires boot diagnostics enabled on the VM and a storage account
-* Not able to run scripts
-* User must login with local user account
-* Commands must be typed in character by character
+* Must login to VM with a local user account
+* Commands are typed in character by character
 * Session audit logs stored in boot diagnostics logs
