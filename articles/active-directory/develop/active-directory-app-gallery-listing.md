@@ -46,9 +46,30 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
 *   **OpenID Connect**: Create the multitenant application in Azure AD and implement the [Azure AD consent framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) for your application. Send the login request to a common endpoint so that any customer can provide consent to the application. You can control user access based on the tenant ID and the user's UPN received in the token. To integrate your application with Azure AD, follow the [developers' instructions](active-directory-authentication-scenarios.md).
 
+    * Select appropriate option from the below image
+    ![TimeLine of listing OpenID Connect application into the gallery](./media/active-directory-app-gallery-listing/openid.png)
+
+    * If you want to add your application to list in the gallery using OpenID Connect, select **OpenID Connect & OAuth 2.0**
+
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **SAML 2.0** or **WS-Fed**: Your application needs to have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
 
+    * Select appropriate option from the below image
+    ![TimeLine of listing SAML 2.0 or WS-Fed application into the gallery](./media/active-directory-app-gallery-listing/saml.png)
+
+    * If you want to add your application to list in the gallery using **SAML 2.0** or **WS-Fed**, select **SAMl 2.0/WS-Fed**
+
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
 *   **Password SSO**: Create a web application that has an HTML sign-in page to configure [password-based single sign-on](../active-directory-appssoaccess-whatis.md). Password-based SSO, also referred to as password vaulting, enables you to manage user access and passwords to web applications that don't support identity federation. It is also useful for scenarios in which several users need to share a single account, such as to your organization's social media app accounts.
+
+    * Select appropriate option from the below image
+    ![TimeLine of listing Password SSO application into the gallery](./media/active-directory-app-gallery-listing/passwordsso.png)
+
+    * If you want to add your application to list in the gallery using Password SSO, select **Password SSO**
+
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ##	Update/Remove existing listing
 
