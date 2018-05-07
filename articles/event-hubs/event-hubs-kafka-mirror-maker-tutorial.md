@@ -79,7 +79,7 @@ Update the consumer configuration file `source-kafka.config`, which tells Mirror
 ##### source-kafka.config
 
 ```config
-bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc	#Kafka endpoint
+bootstrap.servers={SOURCE.KAFKA.IP.ADDRESS1}:{SOURCE.KAFKA.PORT1},{SOURCE.KAFKA.IP.ADDRESS2}:{SOURCE.KAFKA.PORT2},etc
 group.id=example-mirrormaker-group
 exclude.internal.topics=true
 client.id=mirror_maker_consumer
@@ -92,7 +92,7 @@ Now update the producer config file `mirror-eventhub.config`, which tells Mirror
 ##### mirror-eventhub.config
 
 ```config
-bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093		#Event Hubs endpoint
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 client.id=mirror_maker_producer
 
 #Required for Event Hubs
@@ -103,7 +103,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 ### Run MirrorMaker
 
-Run the Kafka MirrorMaker script from the root Kafka directory using the newly updated configuration files.
+Run the Kafka MirrorMaker script from the root Kafka directory using the newly updated configuration files. Make sure to either copy the config files to the root Kafka directory or update their paths in the following command.
 
 ```bash
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
