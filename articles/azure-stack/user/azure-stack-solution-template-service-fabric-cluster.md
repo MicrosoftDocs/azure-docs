@@ -217,6 +217,6 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
     -StoreLocation CurrentUser -StoreName My -Verbose
    ````
    
-> [!NOTE]  
-> There is no *https://* before the name of the cluster in the script. Port 19000 is required.
+  > [!NOTE]  
+  > There is no *https://* before the name of the cluster in the script. Port 19000 is required.
  
