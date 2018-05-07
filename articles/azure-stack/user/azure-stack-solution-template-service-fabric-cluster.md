@@ -47,13 +47,12 @@ The following are required to deploy the Service Fabric cluster:
 ## Add a secret to Key Vault
 To deploy a Service Fabric cluster, you must specify the correct KeyVault *Secret Identifier* or URL for the Service Fabric cluster. The Azure Resource Manager template takes a KeyVault as input and then retrieves the Cluster certificate during installation of the Service Fabric cluster. 
 
-> ![IMPORTANT]  
+> [!IMPORTANT]  
 > You must use PowerShell to add a secret to KeyVault for use with Service Fabric. Do not use the portal.  
-
 
 Use the following script to create the KeyVault and add the *cluster certificate* to it. (See the [prerequisites](#prerequisites).) Before you run the script, review the sample script and update the indicated parameters to match your environment. This script will also output the values you need to provide to the Azure Resource Manager template. 
 
-> ![TIP]  
+> [!TIP]  
 > Before the script can succeed, there must be a public offer that includes the services for Compute, Network, Storage, and KeyVault. 
 
   ```PowerShell
@@ -161,26 +160,21 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
         
        > [!NOTE]  
        > This certificate is not the Cluster certificate that was previously added to KeyVault.  
+    c. Ensure that you have “Personal Information Exchange” selected in the extension dropdown of the File Explorer window.  
 
-
-    c. Ensure that you have “Personal Information Exchange” selected in the extension dropdown of the File Explorer window.
-
-       ![Personal information exchange](media/azure-stack-solution-template-service-fabric-cluster/image8.png)
-
+       ![Personal information exchange](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
     d. On the *Certificate Store* page, select **Personal**, and then complete the wizard.  
-       ![Certificate store](media/azure-stack-solution-template-service-fabric-cluster/image9.png)
-
-
+       ![Certificate store](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 2. To find the FQDN of your Service Fabric cluster:
 
     a. Go to the resource group that is associated with your Service Fabric cluster and locate the *Public IP address* resource. Select the object associated with the Public IP address to open the *Public IP address* blade. 
 
-      ![Public IP address](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
+       ![Public IP address](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
     b. On the Public IP address blade, the FQDN displays as *DNS name*.
 
-      ![DNS name](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
+       ![DNS name](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
 3. To find the URL for the Service Fabric Explorer, and the Client connection endpoint, review the results of the Template deployment.
 
@@ -197,32 +191,32 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. Install the *Microsoft Azure Service Fabric SDK* from [Prepare your development environment on Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) in the Azure Service Fabric documentation.  
 
-2. After the installation is complete, configure the system Environment variables to ensure that the Service Fabric cmdlets are accessible from PowerShell. 
+2. After the installation is complete, configure the system Environment variables to ensure that the Service Fabric cmdlets are accessible from PowerShell.  
     
     a. Go to **Control Panel** > **System and Security** > **System**, and then select **Advanced system settings**.
     
-    ![Control panel](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
+       ![Control panel](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. On the **Advanced** tab of *System Properties*, select **Environment Variables**. 
-    c. For *System variables*, edit **Path** and make sure that **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** is at the top of the list of environment variables.
+    b. On the **Advanced** tab of *System Properties*, select **Environment Variables**.  
+    c. For *System variables*, edit **Path** and make sure that **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** is at the top of the list of environment variables.  
 
-      ![Environment variable list](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
+       ![Environment variable list](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
 3. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-````PowerShell  
- Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
- CLUSTER FQDN\]:19000" \`
+   ````PowerShell  
+    Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
+    CLUSTER FQDN\]:19000" \`
 
- -X509Credential -ServerCertThumbprint
- 761A0D17B030723A37AA2E08225CD7EA8BE9F86A \`
+    -X509Credential -ServerCertThumbprint
+    761A0D17B030723A37AA2E08225CD7EA8BE9F86A \`
 
- -FindType FindByThumbprint -FindValue
- 0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
+    -FindType FindByThumbprint -FindValue
+    0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
- -StoreLocation CurrentUser -StoreName My -Verbose
-````
+    -StoreLocation CurrentUser -StoreName My -Verbose
+   ````
    
 > [!NOTE]  
-> There is no *https://* before the name of the cluster. Port 19000 is requires.
+> There is no *https://* before the name of the cluster in the script. Port 19000 is required.
  
