@@ -5,6 +5,8 @@
   items:
   - name: About Service Fabric Mesh
     href: service-fabric-mesh-overview.md
+  - name: Install SDK and developer tools
+    href: service-fabric-mesh-setup-developer-environment-sdk.md
 
 - name: Quickstarts
   items:
