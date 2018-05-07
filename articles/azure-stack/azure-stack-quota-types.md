@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
 
@@ -41,9 +41,9 @@ ms.reviewer: xiaofmao
 | Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
 
 > [!NOTE]  
-> It can take up to two hours before a new storage quota is enforced. 
+> It can take up to two hours before a storage quota is enforced. 
 > 
-> 
+
 
 ## Network quota types
 | **Item** | **Default value** | **Description** |

@@ -1,11 +1,13 @@
 ---
 title: Monitor network communication - tutorial - Azure portal | Microsoft Docs
-description: Learn how to monitor network communication between a virtual machine and an endpoint with Azure Network Watcher's connection monitor capability.
+description: Learn how to monitor network communication between two virtual machines with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
+tags: azure-resource-manager
+Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.devlang: na
@@ -17,7 +19,7 @@ ms.author: jdial
 ms.custom: mvc
 ---
 
-# Tutorial: Monitor network communication with connection monitor using the Azure portal
+# Tutorial: Monitor network communication between two virtual machines using the Azure portal
 
 Successful communication between a virtual machine (VM) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
@@ -160,4 +162,4 @@ In this tutorial, you learned how to monitor a connection between two VMs. You l
 At some point, you may find that resources in a virtual network are unable to communicate with resources in other networks connected by an Azure virtual network gateway. Advance to the next tutorial to learn how to diagnose a problem with a virtual network gateway.
 
 > [!div class="nextstepaction"]
-> [Diagnose communication problems between networks](network-watcher-troubleshoot-manage-portal.md)
+> [Diagnose communication problems between networks](diagnose-communication-problem-between-networks.md)
