@@ -58,6 +58,10 @@
       href: cluster_management.md
     - name: Nodes and Node Arrays
       href: nodes.md
+    - name: Images
+      href: images.md
+    - name: Auto-Scaling
+      href: autoscale_api.md
   - name: Projects
     items:
     - name: Cluster-Init Projects
@@ -67,51 +71,49 @@
   - name: Disaster Recovery
     items:
     - name: Synchronization
-      href:
+      href: dr_synchronization.md
     - name: Virtualization
-      href:
+      href: dr_virtualization.md
   - name: Monitoring
     items:
     - name: Monitoring
-      href:
+      href: monitoring.md
     - name: Alerts
-      href:
-    - name: Custom Alerts
-      href:
+      href: alerts.md
     - name: Usage
-      href:
+      href: usage.md
   - name: Reporting
     items:
     - name: Reporting
-      href:
+      href: reporting.md
     - name: Event Log
-      href:
+      href: event_log.md
   - name: Data Management
     items:
     - name: Overview
-      href:
+      href: data_overview.md
     - name: Endpoint Creation
-      href:
+      href: endpoint_creation.md
     - name: Data Encrytion
-      href:
+      href: data_encryption.md
     - name: Transferring Data
-      href:
+      href: transferring_data.md
     - name: Enabling Return Nodes
-      href:
+      href: return_nodes.md
   - name: Storage
     items:
     - name: Storage
-      href:
+      href: storage.md
     - name: Blobs
-      href:
-  - name: Auto-Scaling
-    href: autoscale_api.md
-  - name: Images
-    items:
-    - name: Images
-      href:
-    - name: Custom Images
-      href:
+      href: blobs.md
+  - name: User Creation and RBAC
+    href:
+- name: How-To
+  items:
+  - name: Custom Images
+    href: custom_images.md
+  - name: Custom Alerts
+    href: custom_alerts.md
 - name: Reference
   items:
   - name: CLI
