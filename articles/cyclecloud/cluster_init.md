@@ -1,6 +1,6 @@
 # Cluster Init
 
-Azure CyleCloud's Cluster Init provides cluster developers a very simple means of customizing nodes at startup without requiring custom Chef recipes. cluster init is a phase of the node provisioning process in every CycleCloud cluster. It allows you to install software and data onto your cluster in a variety of different ways.
+Azure CyleCloud's Cluster Init provides cluster developers a very simple means of customizing nodes at startup without requiring custom Chef recipes. Cluster Init is a phase of the node provisioning process in every CycleCloud cluster. It allows you to install software and data onto your cluster in a variety of different ways.
 
 With cluster init you can:
 
@@ -10,7 +10,7 @@ With cluster init you can:
 
 ## Cluster Init Setup
 
-Cluster Init is a hierarchy of scripts, packages, and data that is generally stored in a CycleCloud Locker in a cloud storage provider, for example Amazon S3. When a cluster is defined, you can specify the Locker containing the desired cluster init. During the Software Configuration phase for each node in your cluster, the cluster init files will be downloaded and the scripts executed to customize the node.
+Cluster Init is a hierarchy of scripts, packages, and data that is generally stored in a CycleCloud Locker within your Azure account. When a cluster is defined, you can specify the Locker containing the desired cluster init. During the Software Configuration phase for each node in your cluster, the cluster init files will be downloaded and the scripts executed to customize the node.
 
 When you configure your cloud provider account for CycleCloud via the `initialize` command, you provide a name for your initial Locker which will be turned into an Azure storage bucket for your cluster init files.  For example, if you specify a name of 'demo' when running the `initialize` command, you would get a bucket named `com.cyclecloud.demo.locker`. Inside this bucket, you can place cluster init files. An example of how you might structure the contents of the bucket:
 
@@ -86,16 +86,16 @@ For example, the cluster init directory on a Linux instance will look like this:
 
 Files in the cluster init scratch directory will be replicated on the local drive of each instance. The scratch directory provides fast local access to its files, but data stored here will not persist when a node is terminated.
 
-In Linux, the cluster init scratch directory is found at `/mnt/cluster-init/scratch` and on Windows at `C:\cluster-init\scratch`. Upon start-up, each instance will sync all files from the cloud storage scratch directory (for example `s3://com.cyclecloud.demo.locker/clusterinit/default/scratch/`) to the local `/mnt/cluster-init/scratch` directory.
+In Linux, the cluster init scratch directory is found at `/mnt/cluster-init/scratch` and on Windows at `C:\cluster-init\scratch`. Upon start-up, each instance will sync all files from the cloud storage scratch directory (for example `az://com.cyclecloud.demo.locker/clusterinit/default/scratch/`) to the local `/mnt/cluster-init/scratch` directory.
 
 It is not recommended to modify files directly in the cluster init `scratch` directory since they are synced from cloud storage.  Every instance in the cluster has a general purpose `scratch` directory on its local drive. This directory is intended to be used for temporary scratch space or local reference files. As with the cluster init scratch directory, data stored here will not be persisted if a node is terminated. On Linux, this directory is located at `/mnt/scratch` and on Windows it is the `C:\` drive.
 
 
 ## Shared
 
-Most CycleCloud clusters include a shared filesystem (usually shared from the head node in the case of Condor or Grid Engine clusters). For clusters with a shared filesystem, the cluster init `shared` directory will be replicated from S3 to the filer at start-up and shared with all instances in the cluster. This directory is intended to be used for data which needs to be shared with all nodes in the cluster.
+Most CycleCloud clusters include a shared filesystem (usually shared from the head node in the case of Condor or Grid Engine clusters). For clusters with a shared filesystem, the cluster init `shared` directory will be replicated from az to the filer at start-up and shared with all instances in the cluster. This directory is intended to be used for data which needs to be shared with all nodes in the cluster.
 
-In Linux, the cluster-init shared directory is found at `/mnt/cluster-init/shared` and on Windows at `C:\cluster-init\shared`. The shared directory is synced once from the shared S3 directory onto the filer.
+In Linux, the cluster-init shared directory is found at `/mnt/cluster-init/shared` and on Windows at `C:\cluster-init\shared`. The shared directory is synced once from the shared Azure directory onto the filer.
 
 It is not recommended to modify files directly in the cluster init
 `shared` directory since they are synced from cloud storage. In clusters with a shared drive, by default, every instance has access to a general purpose shared directory as well. On Linux, this directory is located at `/shared` and on Windows it is the `S:\` drive.
@@ -118,7 +118,7 @@ For example, if we wanted to add an SSH key to the `authorized_keys` file for th
 		#!/bin/bash echo "ssh-rsa
 		AAAAB3NzaC1yc2EAAAABIwAAAQEAy-INCOMPLETE_KEY" >> /root/.ssh/authorized_keys
 
-This file would be located in S3 at a location of `s3://com.cyclecloud.demo.locker/cluster-init/default/executables/01-add-root-key.sh`. When it is run, it will append the SSH key to the `authorized_keys` file and then create the file: `/mnt/cluster-init/run/executables/01-add-root-key.sh.run` to indicate that the script has run to completion.
+This file would be located in Azure at a location of `az://com.cyclecloud.demo.locker/cluster-init/default/executables/01-add-root-key.sh`. When it is run, it will append the SSH key to the `authorized_keys` file and then create the file: `/mnt/cluster-init/run/executables/01-add-root-key.sh.run` to indicate that the script has run to completion.
 
 If the script does not run to completion, STDOUT and STDERR are stored for later debugging in the directory `/mnt/cluster-init/log/exexutables` or `C:\cluster-init\log\executables` with filenames similar to the one being run but appended with a timestamp. For example, if the above script had an error we would see log files named:
 

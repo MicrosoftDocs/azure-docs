@@ -118,8 +118,8 @@
   items:
   - name: CLI
     href:
-  - name: Cookbooks
-    href:
+  - name: Common Cookbook Reference
+    href: common_cookbook_reference.md
   - name: HealthCheck
     href:
   - name: Node Configuration
