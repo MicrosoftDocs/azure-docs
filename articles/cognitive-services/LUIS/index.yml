@@ -19,7 +19,7 @@ abstract:
 sections:
 
 
-- title: 5-Minute Quickstarts
+- title: Programmatic Quickstarts
   items:
   - type: paragraph
     text: 'Learn how to use LUIS to add intelligence to your app:'
@@ -64,7 +64,7 @@ sections:
 
 
 
-- title: Quickstarts
+- title: Authoring Quickstarts
   items:
   - type: list
     style: unordered
