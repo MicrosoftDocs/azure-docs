@@ -34,8 +34,9 @@
     - name: Customize device wake word # OK
       href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
-  href: samples.md
   items:
+  - name: Download samples
+    href: samples.md
   - name: Speech Recognition
     href: speech-to-text-sample.md
   - name: Intent Recognition
@@ -76,8 +77,8 @@
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-#  - name: Privacy & cookies
-#    href: https://aka.ms/csspech/privacy
+  - name: Privacy & cookies
+    href: https://privacy.microsoft.com/privacystatement
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Shipping your application
