@@ -38,6 +38,7 @@
 #### [Programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
+#### [Install](data-lake-analytics-data-lake-tools-install.md)
 #### [Browse and view jobs](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Debug custom C# code](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Troubleshoot recurring jobs](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
