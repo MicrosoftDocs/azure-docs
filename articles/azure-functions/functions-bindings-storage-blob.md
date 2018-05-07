@@ -29,7 +29,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported for blob triggers. Blob storage triggers require a general-purpose storage account. Use the [Event Grid trigger](functions-bindings-event-grid.md) for [blob events](../storage/blobs/storage-blob-event-overview.md) in blob-only storage accounts. For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
+> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are supported for blob input and output bindings but not for blob triggers. Blob storage triggers require a general-purpose storage account. Use the [Event Grid trigger](functions-bindings-event-grid.md) for [blob events](../storage/blobs/storage-blob-event-overview.md) in blob-only storage accounts. For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
 
 ## Packages
 
