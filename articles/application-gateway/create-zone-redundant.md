@@ -1,5 +1,5 @@
 ---
-title: Create a zone redundant application gateway
+title: Create a zone redundant Azure application gateway
 description: Learn how to create a zone redundant application gateway that does not require a seperarte gateway in each zone.
 services: application-gateway
 author: amsriva
@@ -264,15 +264,15 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
 |Issue  |Details  |ETA for fix  |
 |---------|---------|---------|
-|Billing     |No billing currently|Available at GA|
+|Billing     |No billing currently|Subsequent updates|
 |Diagnostics logs (not metrics)     |Performance and request/response logs don’t appear currently|May  2018|
-|Portal/CLI/SDK     |No support for portal, CLI, or SDK. The portal must not be used to issue updates to preview gateways.|Available at GA|
+|Portal/CLI/SDK     |No support for portal, CLI, or SDK. The portal must not be used to issue updates to preview gateways.|Subsequent updates|
 |Update via template fails occasionally     |This is due to race condition with KeyVault access policy|Once the Key Vault and User Assigned Identity is created, it can be removed from the template and only references to secret and identity are required in the template.|
-|Autoscaling     |No support for autoscaling currently|Available at GA. Future updates private preview deployments will incrementally add this functionality.|
+|Autoscaling     |No support for autoscaling currently|Subsequent updates. Future updates private preview deployments will incrementally add this functionality.|
 |WAF     |Currently WAF is not supported|TBD|
 |User supplied certificates and Dynamic VIPs     |These are not supported in the new model. Use Key Vault for storing certificates and static VIPs.|By design|
 |Same subnet for old and preview version of application gateway     |A subnet with an existing application gateway (old model) cannot be used for the private preview version.|By design|
-|HTTP/2, FIPS mode, WebSocket, Azure Web Apps as backend     |Currently unsupported |Available at GA|
+|HTTP/2, FIPS mode, WebSocket, Azure Web Apps as backend     |Currently unsupported |Subsequent updates|
 
 
 ## Support and feedback
