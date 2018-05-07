@@ -33,6 +33,12 @@ In effect, the system tries to learn a language model for the basic structure of
 
 ![Sequence to sequence model for response generation](./media/overview/sequence-to-sequence-model.png)
 
+#### References to research on Neural Network based Response Generation:
+
+* Alan Ritter, Colin Cherry, Bill Dolan. [Data-Driven Response Generation in Social Media](http://www.aclweb.org/anthology/D11-1054), EMNLP 2011
+* Alessandro Sordoni, Michel Galley, Michael Auli, Chris Brockett, Yangfeng Ji, Meg Mitchell, Jian-Yun Nie, Jianfeng Gao, and Bill Dolan, [A Neural Network Approach to Context-Sensitive Generation of Conversational Responses](https://arxiv.org/abs/1506.06714), NAACL 2015.
+* Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan, [A Diversity-Promoting Objective Function for Neural Conversation Models](https://arxiv.org/abs/1510.03055), NAACL 2016.
+
 ## Personality modeling
 
  With any data-driven conversational model, there is the challenge of consistently giving a coherent “personality”. PERSONA is defined as the character experienced during conversational interactions. A persona can be viewed as made up of elements of identity, language behavior, and interaction style. In the current version of Personality Chat, the focus is on language behavior and interaction style.
@@ -42,6 +48,11 @@ This model represents each individual speaker as a vector or embedding. It encod
 For the default personas, attributes and curated responses are used to find the closest matched speaker cluster. This cluster is then chosen as the Persona ID for each of the default personalities. Continued customization can happen for any type of personality by taking a set of bot/brand responses. Conversations are then made that accurately emulate that individual’s persona in terms of linguistic response behavior and other main characteristics.
 
 ![Persona modeling using speaker clusters](./media/overview/persona-modeling.png)
+
+#### References to research on Neural Network based Response Generation
+
+* Jiwei Li, Michel Galley, Chris Brockett, Jianfeng Gao, and Bill Dolan. [A Personalized Neural Conversation Model.](https://arxiv.org/abs/1603.06155) ACL 2016.
+* Yi Luan, Chris Brockett, Bill Dolan, Jianfeng Gao and Michel Galley. [Multi-Task Learning for Speaker-Role Adaptation in Neural Conversation Models](https://arxiv.org/abs/1710.07388). IJCNLP 2017.
 
 ## Small talk intent understanding
 
