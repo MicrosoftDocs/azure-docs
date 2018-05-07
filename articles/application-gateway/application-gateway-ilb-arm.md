@@ -1,10 +1,10 @@
----
+﻿---
 title: Using Azure Application Gateway with Internal Load Balancer - PowerShell | Microsoft Docs
 description: This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway with an internal load balancer (ILB) by using Azure Resource Manager
@@ -60,7 +60,7 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 ### Step 1
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ### Step 2

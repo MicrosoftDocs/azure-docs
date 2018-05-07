@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: iot-suite
+ author: dominicbetts
+ ms.service: iot-suite
+ ms.topic: include
+ ms.date: 04/24/2018
+ ms.author: dobett
+ ms.custom: include file
+---
+
 ## View device telemetry
 
 You can view the telemetry sent from your device on the **Devices** page in the solution.
@@ -41,4 +53,4 @@ To invoke methods on your devices, use the **Devices** page in the remote monito
 
 ## Next steps
 
-The article [Customize the remote monitoring preconfigured solution](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the preconfigured solution.
+The article [Customize the remote monitoring solution accelerator](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) describes some ways to customize the solution accelerator.

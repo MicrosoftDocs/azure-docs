@@ -1,4 +1,4 @@
----
+﻿---
 title: Scale an Azure Service Fabric cluster | Microsoft Docs
 description: In this tutorial, you learn how to quickly scale a Service Fabric cluster.
 services: service-fabric
@@ -48,7 +48,7 @@ Before you begin this tutorial:
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

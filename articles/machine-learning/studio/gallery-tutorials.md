@@ -3,8 +3,9 @@ title: Azure AI Gallery tutorials | Microsoft Docs
 description: Discover and share tutorials in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 70f0eb31-7dca-4907-a5d7-504357dcd889
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
 
 ---
 # Discover and share tutorials in Azure AI Gallery

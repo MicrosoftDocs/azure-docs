@@ -4,8 +4,8 @@ description: 'Learn how to control flow of data in Azure Data Factory by branchi
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -306,7 +306,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 3. In the **Pipeline Run** window, do the following steps: 
 
     1. Enter **adftutorial/dummy/input** for the **sourceBlobContainer** parameter. Ensure that the dummy folder does not exist in the adftutorial container. 
-    2. Enter **adftutorial/dummy/inputt** for the **sinkBlobContainer** parameter. 
+    2. Enter **adftutorial/dummy/output** for the **sinkBlobContainer** parameter. 
     3. Enter an **email address** of the **receiver**. 
     4. Click **Finish**.
 

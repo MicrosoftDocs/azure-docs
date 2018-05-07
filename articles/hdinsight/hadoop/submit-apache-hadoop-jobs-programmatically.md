@@ -11,10 +11,8 @@ author: mumian
 ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
 

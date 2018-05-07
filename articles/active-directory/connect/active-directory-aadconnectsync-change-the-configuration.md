@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/13/2018
+ms.date: 03/16/2018
 ms.author: billmath
 
 ---
@@ -241,7 +241,7 @@ By default, the UserType attribute is not imported into the Azure AD Connect Spa
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
  2. Right-click the **Azure AD Connector** and select **Properties**.
  3. In the pop-up dialog box, go to the **Select Attributes** tab.
- 4. Make sure the PreferredDataLocation attribute is checked in the attribute list.
+ 4. Make sure the UserType attribute is checked in the attribute list.
  5. Click **OK** to save.
 
 ![Add source attribute to Azure AD Connector schema](./media/active-directory-aadconnectsync-change-the-configuration/usertype2.png)
@@ -289,7 +289,7 @@ The inbound synchronization rule permits the attribute value to flow from the so
 ![Create inbound synchronization rule](./media/active-directory-aadconnectsync-change-the-configuration/usertype3.png)
 
 ### Step 5: Create an outbound synchronization rule to flow the attribute value to Azure AD
-The outbound synchronization rule permits the attribute value to flow from the metaverse to the PreferredDataLocation attribute in Azure AD:
+The outbound synchronization rule permits the attribute value to flow from the metaverse to the UserType attribute in Azure AD:
 
 1. Go to the Synchronization Rules Editor.
 2. Set the search filter **Direction** to be **Outbound**.

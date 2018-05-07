@@ -38,8 +38,8 @@ Enter a friendly **Name** for your SSL certificate and enter the **Domain Name**
 
 Select your **Subscription**, **Resource Group**, and **Certificate SKU**
 
-> [!WARNING]
-> App Service Certificates can only be used by other App Services within the same subscription.  
+> [!TIP]
+> App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so , you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, read [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## Step 3 - Store the certificate in Azure Key Vault
@@ -97,7 +97,7 @@ In the **[Azure portal](https://portal.azure.com/)**, click the **App Service** 
 
 Click the name of your app to which you want to assign this certificate.
 
-In the **Settings**, click **SSL certificates**.
+In the **Settings**, click **SSL settings**.
 
 Click **Import App Service Certificate** and select the certificate that you just purchased.
 
@@ -202,5 +202,7 @@ If your SSL certificate is configured for auto-renewal, but it is not automatica
 
 ## More resources
 
+* [Enforce HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
+* [Enforce TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
 * [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md)
 * [FAQ : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

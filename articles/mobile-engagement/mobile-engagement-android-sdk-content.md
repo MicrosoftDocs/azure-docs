@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # SDK Content
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This document lists and describes the content of the SDK archive.
 
 `mobile-engagement-VERSION.jar`

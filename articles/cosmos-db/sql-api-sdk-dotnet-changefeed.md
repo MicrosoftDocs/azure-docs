@@ -4,8 +4,7 @@ description: Learn all about the Change Feed Processor API and SDK including rel
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
@@ -13,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 04/19/2018
 ms.author: maquaran
 
 ---
@@ -26,11 +25,11 @@ ms.author: maquaran
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
@@ -40,6 +39,16 @@ ms.author: maquaran
 |**Current supported framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## Release notes
+
+### Stable builds
+
+### <a name="1.3.2"/>1.3.2
+* Fixes in the pending work estimation.
+
+### <a name="1.3.1"/>1.3.1
+* Stability improvements.
+* Support for manual checkpointing.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
 ### <a name="1.2.0"/>1.2.0
 * Adds support for .NET Standard 2.0. The package now supports `netstandard2.0` and `net451` framework monikers.
@@ -58,6 +67,23 @@ ms.author: maquaran
 * GA SDK
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.14.1 and below.
 
+### Pre-release builds
+
+### <a name="2.0.1-prerelease"/>2.0.1-prerelease
+* New v2 API:
+  * Builder pattern for flexible construction of the processor: the ChangeFeedProcessorBuilder class.
+    * Can take any combination of parameters.
+    * Can take DocumentClient instance for monitoring and/or lease collection (not available in v1).
+  * IChangeFeedObserver.ProcessChangesAsync now takes CancellationToken.
+  * IRemainingWorkEstimator - the remaining work estimator can be used separately from the processor.
+  * New extensibility points:
+    * IParitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
+    * ILease, ILeaseManager - for custom lease management.
+    * IPartitionProcessor - for custom processing changes on a partition.
+* Logging - uses [LibLog](https://github.com/damianh/LibLog) library.
+* 100% backward compatible with v1 API.
+* Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21.1 and above.
+
 ## Release & Retirement dates
 Microsoft will provide notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
 
@@ -69,6 +95,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.3.2](#1.3.2) |April 18, 2018 |--- |
+| [1.3.1](#1.3.1) |March 13, 2018 |--- |
 | [1.2.0](#1.2.0) |October 31, 2017 |--- |
 | [1.1.1](#1.1.1) |August 29, 2017 |--- |
 | [1.1.0](#1.1.0) |August 13, 2017 |--- |

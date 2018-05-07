@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/09/2018
 ms.author: asgang
 
 ---
@@ -54,7 +54,7 @@ For the purpose of creating this article, we used VMware virtual machines with D
 
 ## Enable disaster recovery of the Dynamics AX application by using Site Recovery
 ### Protect your Dynamics AX application
-To enable the complete application replication and recovery, each component of Dynamics AX must be protected. 
+To enable the complete application replication and recovery, each component of Dynamics AX must be protected.
 
 ### 1. Set up Active Directory and DNS replication
 
@@ -135,7 +135,7 @@ Add a script (via Azure Automation) after the Application Object Server VM group
 
 ### Perform a test failover
 
-For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide. 
+For more information specific to Active Directory during test failover, see the "Active Directory disaster recovery solution" companion guide.
 
 For more information specific to SQL server during test failover, see [Replicate applications with SQL Server and Azure Site Recovery](site-recovery-sql.md).
 

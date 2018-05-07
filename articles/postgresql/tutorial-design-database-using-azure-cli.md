@@ -1,5 +1,5 @@
 ---
-title:  Tutorial - Design your first Azure Database for PostgreSQL using Azure CLI
+title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure CLI'
 description: This tutorial shows how to create, configure, and query your first Azure Database for PostgreSQL server using Azure CLI.
 services: postgresql
 author: rachel-msft
@@ -10,9 +10,10 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 04/01/2018
 ---
-# Tutorial: Design your first Azure Database for PostgreSQL using Azure CLI 
+
+# Tutorial: Design an Azure Database for PostgreSQL using Azure CLI 
 In this tutorial, you use Azure CLI (command-line interface) and other utilities to learn how to:
 > [!div class="checklist"]
 > * Create an Azure Database for PostgreSQL server
@@ -27,7 +28,7 @@ You may use the Azure Cloud Shell in the browser, or [install Azure CLI 2.0]( /c
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
 
 If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account#az_account_set) command.
 ```azurecli-interactive
@@ -40,31 +41,6 @@ Create an [Azure resource group](../azure-resource-manager/resource-group-overvi
 az group create --name myresourcegroup --location westus
 ```
 
-## Add the extension
-Add the updated Azure Database for PostgreSQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.3"
-}
-```
-
-If version 0.0.3 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 ## Create an Azure Database for PostgreSQL server
 Create an [Azure Database for PostgreSQL server](overview.md) using the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command. A server contains a group of databases managed as a group. 
 
@@ -74,7 +50,7 @@ az postgres server create --resource-group myresourcegroup --name mydemoserver -
 ```
 
 > [!IMPORTANT]
-> The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
+> The server admin login and password that you specify here are required to log in to the server and its databases later in this quickstart. Remember or record this information for later use.
 
 By default, **postgres** database gets created under your server. The [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) database is a default database meant for use by users, utilities, and third-party applications. 
 
@@ -144,7 +120,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
   
   ```azurecli-interactive
-psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver ---dbname=postgres
+psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
 ```
 
 2.  Once you are connected to the server, create a blank database at the prompt:
@@ -158,9 +134,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## Create tables in the database
-Now that you know how to connect to the Azure Database for PostgreSQL, we can go over how to complete some basic tasks.
+Now that you know how to connect to the Azure Database for PostgreSQL, you can complete some basic tasks:
 
-First, we can create a table and load it with some data. Let's create a table that tracks inventory information:
+First, create a table and load it with some data. For example, create a table that tracks inventory information:
 ```sql
 CREATE TABLE inventory (
 	id serial PRIMARY KEY, 
@@ -175,7 +151,7 @@ You can see the newly created table in the list of tables now by typing:
 ```
 
 ## Load data into the table
-Now that we have a table, we can insert some data into it. At the open command prompt window, run the following query to insert some rows of data:
+Now that there is a table created, insert some data into it. At the open command prompt window, run the following query to insert some rows of data:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

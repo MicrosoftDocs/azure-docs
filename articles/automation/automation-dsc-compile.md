@@ -1,19 +1,13 @@
 ﻿---
-title: Compiling configurations in Azure Automation DSC | Microsoft Docs
+title: Compiling configurations in Azure Automation DSC
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-
-ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 03/02/2018
-ms.author: magoedte; gwallace
+manager: carmonm
 ---
 
 # Compiling configurations in Azure Automation DSC
@@ -246,6 +240,7 @@ The following example shows a DSC configuration that uses an Automation credenti
 ```powershell
 Configuration CredentialSample
 {
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
     $Cred = Get-AutomationPSCredential "SomeCredentialAsset"
 
     Node $AllNodes.NodeName
@@ -281,6 +276,9 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -AutomationAccountName "MyAutomationAccount" -ConfigurationName "CredentialSample" -ConfigurationData $ConfigData
 ```
 
+> [!NOTE]
+> When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
+
 ## Importing node configurations
 
 You can also import node configurations (MOFs) that you have compiled outside of Azure. One advantage of this is that node configurations can be signed.
@@ -293,7 +291,7 @@ authorized source.
 > [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
 
-You can learn how to sign node configurations at https://msdn.microsoft.com/en-us/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
+You can learn how to sign node configurations at https://msdn.microsoft.com/powershell/wmf/5.1/dsc-improvements#how-to-sign-configuration-and-module.
 
 ### Importing a node configuration in the Azure portal
 

@@ -124,7 +124,7 @@ sudo systemctl start elasticsearch.service
 This command produces no output, so verify that Elasticsearch is running on the VM with this `curl` command:
 
 ```bash
-curl -XGET 'localhost:9200/'
+sudo curl -XGET 'localhost:9200/'
 ```
 
 If Elasticsearch is running, you see output like the following:

@@ -3,9 +3,9 @@ title: Azure Policy definition structure | Microsoft Docs
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what action to take.
 services: azure-policy
 keywords:
-author: bandersmsft
-ms.author: banders
-ms.date: 01/17/2018
+author: DCtheGeek
+ms.author: dacoulte
+ms.date: 04/30/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
@@ -14,6 +14,8 @@ ms.custom:
 # Azure Policy definition structure
 
 Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what action to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+
+The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -63,10 +65,12 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
-* `all`: evaluate resource groups and all resource types 
+* `all`: evaluate resource groups and all resource types
 * `indexed`: only evaluate resource types that support tags and location
 
-We recommend that you set **mode** to `all`. All policy definitions created through the portal use the `all` mode. If you use  PowerShell or Azure CLI, you need to specify the **mode** parameter and set it to `all`. 
+We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `all` in Azure PowerShell and to `null` in Azure CLI, which is equivalent to `indexed`, for backwards compatibility.
+
+`indexed` should be used when creating policies that will enforce tags or locations. This isn't required but it will prevent resources that don't support tags and locations from showing up as non-compliant in the compliance results. The one exception to this is **resource groups**. Policies that are attempting to enforce location or tags on a resource group should set **mode** to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource group tags](scripts/enforce-tag-rg.md).
 
 ## Parameters
 
@@ -96,6 +100,8 @@ Within the metadata property you can use **strongType** to provide a multi-selec
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 
@@ -122,7 +128,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -161,16 +167,22 @@ You can nest logical operators. The following example shows a **not** operation 
 A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-When using the **like** condition, you can provide a wildcard (*) in the value.
+When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
 
-When using the **match** condition, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Approved VM images](scripts/allowed-custom-images.md).
+When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
@@ -178,12 +190,28 @@ Conditions are formed by using fields. A field represents properties in the reso
 The following fields are supported:
 
 * `name`
+* `fullName`
+  * Returns the full name of the resource, including any parents (e.g. "myServer/myDatabase")
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * This bracket syntax supports tag names that contain periods
 * property aliases - for a list, see [Aliases](#aliases).
+
+### Alternative Accessors
+**Field** is the primary accessor used in policy rules. It directly inspects the resource that is being evaluated. However, policy supports one other accessor, **source**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
 
 ### Effect
 Policy supports the following types of effect:
@@ -208,8 +236,7 @@ For **append**, you must provide the following details:
 
 The value can be either a string or a JSON format object.
 
-With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a child resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks
-.
+With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
 
 

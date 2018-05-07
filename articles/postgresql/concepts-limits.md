@@ -8,10 +8,10 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/20/2018
 ---
 # Limitations in Azure Database for PostgreSQL
-The Azure Database for PostgreSQL service is in public preview. The following sections describe capacity and functional limits in the database service.
+The following sections describe capacity and functional limits in the database service.
 
 ## Pricing Tier Maximums
 Azure Database for PostgreSQL has multiple pricing tiers you can choose from when creating a server. For more information, see [Pricing tiers in Azure Database for PostgreSQL](concepts-pricing-tiers.md).  
@@ -38,7 +38,6 @@ There is a maximum number of connections, compute units, and storage in each pri
 |Memory Optimized| Gen 5| 4| 250|
 |Memory Optimized| Gen 5| 8| 480|
 |Memory Optimized| Gen 5| 16| 950|
-|Memory Optimized| Gen 5| 32| 1900|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already

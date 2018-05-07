@@ -10,7 +10,7 @@ ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
 ms.prod:
-ms.service: microsoft-keyvault
+ms.service: key-vault
 ms.technology:
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
 

@@ -1,6 +1,6 @@
 ---
 title: Monitoring in Azure Database for MySQL
-description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, limits, storage, and connection statistics.
+description: This article describes the metrics for monitoring and alerting for Azure Database for MySQL, including CPU, storage, and connection statistics.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -8,17 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/15/2018
 ---
 # Monitoring in Azure Database for MySQL
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for MySQL provides various metrics that give insight into the behavior of the resources supporting the MySQL server. 
 
 ## Metrics
-All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. 
-
-You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 
-
-Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). Other tasks include setting up automated actions, performing advanced analytics, and archiving history. For more information, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### List of metrics
 These metrics are available for Azure Database for MySQL:
@@ -26,8 +22,6 @@ These metrics are available for Azure Database for MySQL:
 |Metric|Metric Display Name|Unit|Description|
 |---|---|---|---|---|
 |cpu_percent|CPU percent|Percent|The percentage of CPU in use.|
-|compute_limit|Compute Unit limit|Count|This server's maximum number of compute units|
-|compute_consumption_percent|Compute Unit percentage|Percent|The percentage of compute units used out of the server's maximum.|
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |io_consumption_percent|IO percent|Percent|The percentage of IO in use.|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
@@ -38,5 +32,5 @@ These metrics are available for Azure Database for MySQL:
 
 
 ## Next steps
-- For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). 
+- See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.
 - For more information on how to access and export metrics using the Azure portal, REST API, or CLI, see the [Azure Metrics Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

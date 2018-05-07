@@ -37,7 +37,7 @@ To complete this tutorial:
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Identify slow server operations
-Application Insights collects performance details for the different operations in your application.  By identifying those operations with the longest duration, you can diagnose potential problems or best target your ongoing development to improve the overall performance of the application.
+Application Insights collects performance details for the different operations in your application. By identifying those operations with the longest duration, you can diagnose potential problems or best target your ongoing development to improve the overall performance of the application.
 
 1. Select **Application Insights** and then select your subscription.  
 1. To open the **Performance** panel either select **Performance** under the **Investigate** menu or click the **Server Response Time** graph.

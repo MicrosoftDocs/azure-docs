@@ -4,15 +4,15 @@ description: Learn how to copy data from supported source stores to Azure SQL Da
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 
 ---
@@ -128,7 +128,7 @@ To use service principal based AAD application token authentication, follow thes
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
             },
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
@@ -508,7 +508,7 @@ If you have source data with rows of size greater than 1 MB, you may want to spl
 
 ### SQL Data Warehouse resource class
 
-To achieve best possible throughput, consider to assign larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase. Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+To achieve best possible throughput, consider assigning a larger resource class to the user being used to load data into SQL Data Warehouse via PolyBase.
 
 ### tableName in Azure SQL Data Warehouse
 

@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: Understanding custom policies of the starter
 description: A topic on Azure Active Directory B2C custom policies
 services: active-directory-b2c
 documentationcenter: ''
-author: rojasja
+author: davidmu1
 manager: mtillman
-editor: rojasja
+editor: ''
 
-ms.assetid:
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/25/2017
-ms.author: joroja
+ms.author: davidmu
 
 ---
 
@@ -40,7 +37,7 @@ This claims schemas is divided into three sections:
 3.	And eventually a third section that lists any additional, optional claims that can be collected from the user, stored in the directory and sent in tokens during sign in. New claims type to be collected from the user and/or sent in the token can be added in this section.
 
 > [!IMPORTANT]
-> The claims schema contains restrictions on certain claims such as passwords and usernames. The Trust Framework (TF) policy treats Azure AD as any other claims provider and all its restrictions are modelled in the premium policy. A policy could be modified to add more restrictions, or use another claims provider for credential storage which will have its own restrictions.
+> The claims schema contains restrictions on certain claims such as passwords and usernames. The Trust Framework (TF) policy treats Azure AD as any other claims provider and all its restrictions are modelled in the custom policy. A policy could be modified to add more restrictions, or use another claims provider for credential storage which will have its own restrictions.
 
 The available claim types are listed below.
 
@@ -52,12 +49,12 @@ The following claims are required for user journeys to work properly:
 |-------------|-------------|
 | *UserId* | Username |
 | *signInName* | Sign in name |
-| *tenantId* | Tenant identifier (ID) of the user object in Azure AD B2C Premium |
-| *objectId* | Object identifier (ID) of the user object in Azure AD B2C Premium |
+| *tenantId* | Tenant identifier (ID) of the user object in Azure AD B2C |
+| *objectId* | Object identifier (ID) of the user object in Azure AD B2C |
 | *password* | Password |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Password policies used by Azure AD B2C Premium to determine password strength, expiry, etc. |
+| *passwordPolicies* | Password policies used by Azure AD B2C to determine password strength, expiry, etc. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -67,9 +64,9 @@ The following claims are required for user journeys to work properly:
 | *email* | Email address that can be used to contact the user |
 | *signInNamesInfo.emailAddress* | Email address that the user can use to sign in |
 | *otherMails* | Email addresses that can be used to contact the user |
-| *userPrincipalName* | Username as stored in the Azure AD B2C Premium |
+| *userPrincipalName* | Username as stored in the Azure AD B2C |
 | *upnUserName* | Username for creating user principal name |
-| *mailNickName* | User's mail nick name as stored in the Azure AD B2C Premium |
+| *mailNickName* | User's mail nick name as stored in the Azure AD B2C |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Claim that specifies whether attributes were collected from the user |
 | *executed-PhoneFactor-Input* | Claim that specifies whether a new phone number was collected from the user |

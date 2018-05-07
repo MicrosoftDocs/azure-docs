@@ -4,7 +4,7 @@ description: Learn how to securely pass credentials to Azure virtual machines us
 services: virtual-machines-windows
 documentationcenter: ''
 author: zjalexander
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'

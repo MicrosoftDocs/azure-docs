@@ -4,7 +4,7 @@ description: Learn about options with Microsoft HPC Pack to create and manage a 
 services: virtual-machines-windows,cloud-services,batch
 documentationcenter: ''
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 

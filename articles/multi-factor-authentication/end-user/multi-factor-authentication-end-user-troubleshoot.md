@@ -85,7 +85,7 @@ If you don’t have another method configured, contact your company support and 
 If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
 
 ## App passwords are not working
-First, make sure that you have entered the app password correctly. The generated app password replaces your normal password, but only for older desktop applications that don't support two-step verification. If it still isn't working, try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your company support and have them [delete your existing app passwords](../multi-factor-authentication-manage-users-and-devices.md) and then you can create a new one.
+First, make sure that you have entered the app password correctly. The generated app password replaces your normal password, but only for older desktop applications that don't support two-step verification. If it still isn't working, try signing-in and [create a new app password](multi-factor-authentication-end-user-app-passwords.md).  If it still doesn't work, contact your company support and have them [delete your existing app passwords](../../active-directory/authentication/howto-mfa-userdevicesettings.md) and then you can create a new one.
 
 ## I didn't find an answer to my problem.
 If you've tried these troubleshooting steps but are still running into problems, contact your company support. They should be able to assist you.

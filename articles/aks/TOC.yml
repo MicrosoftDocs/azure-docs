@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
@@ -47,6 +47,8 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
+    - name: Kubernetes Volume - Disks
+      href: azure-disk-volume.md
     - name: Kubernetes Volume - Files
       href: azure-files-volume.md
     - name: Persistent Volume - Disks
@@ -55,10 +57,16 @@
       href: azure-files-dynamic-pv.md
   - name: Configure networking
     items:
+    - name: Networking overview
+      href: networking-overview.md
     - name: Static IP address
       href: static-ip.md
+    - name: Internal load balancer
+      href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: HTTP application routing
+      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -77,6 +85,10 @@
       href: jenkins-continuous-deployment.md
     - name: Using OpenFaaS with AKS
       href: openfaas.md
+    - name: Run Spark jobs on AKS
+      href: spark-job.md
+    - name: Using GPUs on AKS
+      href: gpu-cluster.md
   - name: Kubernetes basics
     items:
     - name: Use Kubernetes dashboard
@@ -85,6 +97,8 @@
     items:
     - name: SSH node access
       href: aks-ssh.md
+    - name: Get kubelet logs
+      href: kubelet-logs.md
 - name: Reference
   items:
   - name: Azure CLI

@@ -3,7 +3,7 @@ title: Security Playbook in Azure Security Center | Microsoft Docs
 description: This document helps you to use security playbooks in Azure Security Center to automate your response to security incidents.
 services: security-center
 documentationcenter: na
-author: YuriDio
+author: terrylan
 manager: mbaldwin
 editor: ''
 
@@ -42,7 +42,7 @@ Follow these steps to create a new security playbook from Security Center:
 
 	![Create logic app](./media/security-center-playbooks/security-center-playbooks-fig3.png)
 
-5. The **Logic App Designer** appears. Click **Blank Logic App **to create a new playbook. You can also select **Security** under the categories and use one of the templates.
+5. The **Logic App Designer** appears. Click **Blank Logic App** to create a new playbook. You can also select **Security** under the categories and use one of the templates.
  	
 	![Logical app designer](./media/security-center-playbooks/security-center-playbooks-fig4.png)
 

@@ -9,7 +9,7 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 01/18/2018
+ms.date: 03/15/2018
 ms.author: tomfitz
 ---
 
@@ -39,7 +39,7 @@ To become a publisher in the Azure Marketplace, you must:
 
 1. Create a Microsoft ID - Create your Microsoft account using an email address that belongs to your company's domain, but not to a single individual. This email address is used for both the Microsoft Developer Center and Cloud Partner Portal. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Submit [Azure Marketplace Nomination Form](https://aka.ms/ampnomination) - For **Solution that you intend to publish?**, select **Managed Application**. Once the form is submitted, the Marketplace Onboarding team reviews the application and validates the request. The approval process can take one to three days. When your nomination is approved, you receive a promotional code to waive the registration fee for the developer center. If you do **not** complete the Marketplace Nomination Form, you are asked to pay a $99 registration fee.
-1. Register in [Developer Center](https://developer.microsoft.com) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country in which it is registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
+1. Register in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) - Microsoft validates that your organization is a valid legal entity with a valid TAX ID for the country in which it is registered. The approval process can take 5 to 10 days. To avoid the registration fee, use the promotional code you received in email from the nomination process. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 1. Log in to [Cloud Partner Portal](https://cloudpartner.azure.com) - In the publisher profile, associate your Developer Center account with the Marketplace Publisher Profile. For more information, see [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide).
 
 ## Create a new Azure application offer
@@ -104,7 +104,7 @@ A SKU appears under the parent offer in the marketplace. It appears as its own p
 
 You can add multiple authorizations. We recommend that you create an AD user group and specify its ID in **PrincipalId**. This way, you can add more users to the user group without the need to update the SKU.
 
-For more information about RBAC, see [Get started with RBAC in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+For more information about RBAC, see [Get started with RBAC in the Azure portal](../role-based-access-control/overview.md).
 
 ## Marketplace form
 

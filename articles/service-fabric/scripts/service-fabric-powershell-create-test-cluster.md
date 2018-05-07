@@ -13,7 +13,7 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 01/29/2018
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---
@@ -24,7 +24,7 @@ This sample script creates a three-node test Service Fabric cluster secured with
 
 The command creates a self-signed certificate and uploads it to a new key vault, which is created in the same resource group as the cluster. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) and then run `Login-AzureRmAccount` to create a connection with Azure. 
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) and then run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Sample script
 

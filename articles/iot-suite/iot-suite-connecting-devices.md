@@ -1,7 +1,7 @@
 ---
 title: Provision Windows devices to remote monitoring in C - Azure | Microsoft Docs
-description: Describes how to connect a device to the Azure IoT Suite preconfigured remote monitoring solution using an application written in C running on Windows.
-services: ''
+description: Describes how to connect a device to the Remote Monitoring solution accelerator using an application written in C running on Windows.
+services: iot-suite
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 03/14/2018
 ms.author: dobett
 
 ---
-# Connect your device to the remote monitoring preconfigured solution (Windows)
+# Connect your device to the remote monitoring solution accelerator (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the remote monitoring preconfigured solution.
+This tutorial shows you how to connect a physical device to the remote monitoring solution accelerator.
 
 ## Create a C client solution on Windows
 
@@ -92,7 +92,7 @@ Add the Parson JSON library to the **RMDevice** project and add the required `#i
     #include "schemaserializer.h"
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
-    #include "parson.h"
+    #include <string.h>
     ```
 
     > [!NOTE]
@@ -114,11 +114,11 @@ Add code to invoke the **remote\_monitoring\_run** function, then build and run 
     }
     ```
 
-1. Choose **Build** and then **Build Solution** to build the device application. Ignore the warning about the **gmtime** function.
+1. Choose **Build** and then **Build Solution** to build the device application.
 
 1. In **Solution Explorer**, right-click the **RMDevice** project, choose **Debug**, and then choose **Start new instance** to run the sample. The console displays messages as:
 
-    * The application sends sample telemetry to the preconfigured solution.
+    * The application sends sample telemetry to the solution accelerator.
     * Receives desired property values set in the solution dashboard.
     * Responds to methods invoked from the solution dashboard.
 

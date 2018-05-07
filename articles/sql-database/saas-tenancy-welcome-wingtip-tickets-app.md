@@ -3,18 +3,12 @@ title: "Welcome to Wingtips app - Azure SQL Database | Microsoft Docs"
 description: "Learn about database tenancy models, and about the sample Wingtips SaaS application, for Azure SQL Database in the cloud environment."
 keywords: "sql database tutorial"
 services: "sql-database"
-documentationcenter: ""
 author: "billgib"
 manager: "craigg"
-editor: "MightyPen"
-
 ms.service: "sql-database"
 ms.custom: "scale out apps"
-ms.workload: "Active"
-ms.tgt_pltfrm: "na"
-ms.devlang: "na"
 ms.topic: "article"
-ms.date: "11/17/2017"
+ms.date: 04/01/2018
 ms.author: "billgib"
 ---
 # The Wingtip Tickets SaaS application

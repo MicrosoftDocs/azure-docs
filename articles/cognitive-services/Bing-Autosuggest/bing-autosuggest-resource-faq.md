@@ -4,9 +4,8 @@ description: Get answers to common questions about Microsoft Cognitive Services 
 services: cognitive-services
 author: HeidiSteen
 manager: jhubbard
-
 ms.service: cognitive-services
-ms.technology: autosuggest
+ms.component: bing-autosuggest
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: heidist
@@ -34,7 +33,7 @@ It's easy to install a CORS proxy to allow our [tutorial app](tutorials/autosugg
 
 Next, change the Bing Autosuggest API endpoint in the HTML file to:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
 Finally, start the CORS proxy with the following command:
 
