@@ -116,7 +116,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about intents](luis-concept-intent.md)
+> [Learn how to add a simple entity to your app](luis-quickstart-primary-and-secondary-data.md)
 
 
 <!--References-->
