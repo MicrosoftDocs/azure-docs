@@ -14,7 +14,7 @@ ms.author: darosa
 ---
 # Event Hubs for Kafka Ecosystems
 
-Event Hubs for Kafka Ecosystems provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs for Kafka Ecosystem supports [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) and newer client versions, and works with your existing Kafka applications, including MirrorMaker. Change your connection string and start running your Kafka applications on Event Hubs.
+Event Hubs for Kafka Ecosystems provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs for Kafka Ecosystem supports [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) and newer client versions, and works with your existing Kafka applications, including MirrorMaker. Change your connection string and start streaming events from your applications that use the Kafka protocol into Event Hubs.
 
 ## What does Event Hubs for Kafka Ecosystems provide?
 
