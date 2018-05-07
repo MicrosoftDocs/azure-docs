@@ -18,15 +18,16 @@ ms.author: vinagara
 
 ---
 
+# Managing log alert on Log Analytics and Application Insights
 This article shows how you can manage [log alerts](monitor-alerts-unified-log.md) programmatically at scale, in Azure using [Azure Resource Manager template](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) and [Azure CLi](../azure-resource-manager/resource-group-template-deploy-cli.md). Currently Azure Alerts, supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
-# Managing log alert on Log Analytics
+## Managing log alert on Log Analytics
 Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is integrated into the [new Azure alerts experience](monitoring-overview-unified-alerts.md); while it still runs off Log Analytics APIs and remains compatibility with schema used earlier to manage [alerts in OMS portal](..//log-analytics/log-analytics-alerts-creating.md).
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in a workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](monitoring-alerts-extend.md). 
 
-## Azure Resource Manager Template
+### Using Azure Resource Manager Template
 Log alerts for Log Analytics are created by alert rules that run a saved search on a regular interval. If the results of the query match specified criteria, an alert record is created and one or more actions are run. 
 
 Resource template for [Log analytics saved search](../log-analytics/log-analytics-log-searches.md) and [Log analytics alerts](../log-analytics/log-analytics-alerts.md) are available in Log Analytics section of documentation. Learn more about, [Adding Log Analytics saved searches and alerts](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); which includes illustrative samples as well as schema details.
@@ -36,10 +37,10 @@ The Log Analytics Alert REST API is RESTful and can be accessed via the Azure Re
 
 Learn more  about [create and manage alert rules in Log Analytics with REST API](../log-analytics/log-analytics-api-alerts.md); including examples of accessing the API from Powershell.
 
-# Managing log alert on Application Insights
+## Managing log alert on Application Insights
 Log alerts for Azure Application Insights have been introduced as part of the new Azure alerts under Azure Monitor. Hence it runs under Azure Monitor API as [Scheduled Query Rules](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) REST operation group.
 
-## Azure Resource Manager Template
+### Using Azure Resource Manager Template
 Log alert for Application Insights resources has a type of `Microsoft.Insights/scheduledQueryRules/`. For more information on this resource type, see [Azure Monitor - Scheduled Query Rules API reference](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
 
 The following is the structure for [Scheduled Query Rules creation](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) based resource template, with sample data set as variables.
