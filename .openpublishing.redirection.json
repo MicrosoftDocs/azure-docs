@@ -20640,6 +20640,16 @@
             "source_path": "articles/cognitive-services/QnAMaker/SubscriptionKeys.md",
             "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/key-management",
 			"redirect_document_id": false
-		}
+        },
+        {
+            "source_path": "articles/mobile-engagement/index.md",
+            "redirect_url": "/azure/#pivot=products&panel=mobile",
+			"redirect_document_id": false
+        },
+        {
+            "source_path": "articles/mobile-engagement/mobile-engagement-android-adm-integrate.md",
+            "redirect_url": "/azure/#pivot=products&panel=mobile",
+			"redirect_document_id": false
+        }
     ]
 }
