@@ -87,6 +87,8 @@
       href: monitoring-alerts-rate-limiting.md
     - name: Create action groups with Resource Manager
       href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Implement a Logic App action
+      href: monitoring-action-groups-logic-app.md
   - name: Use diagnostic logs
     items:
     - name: Archive
