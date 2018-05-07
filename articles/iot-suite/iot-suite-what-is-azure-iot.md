@@ -1,7 +1,7 @@
 ---
-title: Azure solutions for Internet of Things (IoT Suite) | Microsoft Docs
-description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT Suite, and the preconfigured solutions.
-services: ''
+title: Azure solutions for Internet of Things | Microsoft Docs
+description: A overview of IoT on Azure including a sample solution architecture and how it relates to Azure IoT solution accelerators, and the solution accelerators.
+services: iot-suite
 suite: iot-suite
 documentationcenter: ''
 author: dominicbetts
@@ -26,6 +26,6 @@ Now that you have learned about the typical IoT Architecture, explore the differ
 
 To find out more about the individual Azure IoT services, see:
 
-* [What is Azure IoT Suite?](iot-suite-what-are-preconfigured-solutions.md)
+* [What are the IoT solution accelerators?](iot-suite-what-are-solution-accelerators.md)
 * [What is Microsoft IoT Central?](https://docs.microsoft.com/microsoft-iot-central/overview-iot-central)
 * [What is Azure IoT Hub?](../iot-hub/iot-hub-what-is-iot-hub.md)

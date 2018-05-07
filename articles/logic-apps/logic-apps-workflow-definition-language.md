@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 04/30/2018
 ms.author: estfan
 ---
 
@@ -58,10 +58,11 @@ Here is the high-level structure for a workflow definition:
 
 ## Parameters
 
-In the `parameters` section, define all the parameters 
-that accept inputs for the workflow at runtime. 
+In the `parameters` section, define all the workflow parameters 
+that your logic app uses at deployment for accepting inputs. 
+Both parameter declarations and parameter values are required at deployment. 
 Before you can use these parameters in other workflow sections, 
-make sure that you declare all the parameters in these sections.
+make sure that you declare all the parameters in these sections. 
 
 Here is the general structure for a parameter definition:  
 
@@ -87,7 +88,7 @@ Here is the general structure for a parameter definition:
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |  
 | metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |  
 ||||
-  
+
 ## Triggers and actions  
 
 In a workflow definition, the `triggers` and `actions` sections 
@@ -101,6 +102,11 @@ In the `outputs` section, define the data that
 your workflow can return when finished running. 
 For example, to track a specific status or value from each run, 
 specify that the workflow output returns that data. 
+
+> [!NOTE]
+> When responding to incoming requests from a service's REST API, 
+> do not use `outputs`. Instead, use the `Response` action type. 
+> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 Here is the general structure for an output definition: 
 
@@ -126,11 +132,6 @@ details in the Azure portal or use the
 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
 PowerBI so that you can create dashboards. 
-
-> [!NOTE]
-> When responding to incoming requests from a service's REST API, 
-> do not use `outputs`. Instead, use the `Response` action type. 
-> For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 <a name="expressions"></a>
 

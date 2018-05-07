@@ -4,7 +4,11 @@
   items:
     - name: What is Bing News Search?
       href: search-the-web.md
-- name: Quickstarts
+    - name: News Search endpoints
+      href: endpoint-news.md
+    - name: Analytics for News Search API
+      href: bing-news-stats.md
+- name: API Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -59,12 +63,8 @@
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
 - name: Resources
   items:
-  - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
-  - name: Try it!
-    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/911449-bing-news-search-api
   - name: Stack Overflow
@@ -73,6 +73,12 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api
+  - name: Try it!
+    href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: News Search endpoints
     href: endpoint-news.md
   - name: Supported countries and markets

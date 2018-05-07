@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure operational security
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid: 
