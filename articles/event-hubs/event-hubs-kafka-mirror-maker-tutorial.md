@@ -30,6 +30,8 @@ An Azure Event Hubs Kafka endpoint enables users to connect to Azure Event Hubs 
 
 This example will show how to mirror a Kafka broker in a Kafka enabled Event Hub using Kafka MirrorMaker.
 
+   [Kafka MirrorMaker with Event Hubs](./media/event-hubs-mirror-maker-kafka/evnent-hubs-mirror-maker1.PNG)
+
 ## Prerequisites
 
 To complete this tutorial, make sure you have:
