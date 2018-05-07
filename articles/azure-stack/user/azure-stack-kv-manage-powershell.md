@@ -47,9 +47,9 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 **Output**
 
-If your subscription is enabled for vault operations, the output shows “RegistrationState” equals “Registered” for all resource types of a key vault.
+If your subscription is enabled for vault operations, the output shows “RegistrationState” is “Registered” for all resource types of a key vault.
 
-![Registration state](media/azure-stack-kv-manage-powershell/image1.png)
+![Key vault registration state](media/azure-stack-kv-manage-powershell/image1.png)
 
 If vault operations are not enabled, invoke the following command to register the Key Vault service in your subscription:
 
@@ -77,7 +77,7 @@ New-AzureRmResourceGroup -Name “VaultRG” -Location local -verbose -Force
 
 ![New resource group](media/azure-stack-kv-manage-powershell/image3.png)
 
-Now, use the **New-AzureRMKeyVault** command to create a key vault in the resource group that you created earlier. This command reads three mandatory parameters: resource group name, key vault name, and geographic location. 
+Now, use the **New-AzureRMKeyVault** command to create a key vault in the resource group that you created earlier. This command reads three mandatory parameters: resource group name, key vault name, and geographic location.
 
 Run the following command to create a key vault:
 
@@ -89,9 +89,11 @@ New-AzureRmKeyVault -VaultName “Vault01” -ResourceGroupName “VaultRG” -L
 
 ![New key vault](media/azure-stack-kv-manage-powershell/image4.png)
 
-The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it uses the **Vault URI** property shown in the output. For example, the vault Uniform Resource Identifier (URI) in this case is "https://vault01.vault.local.azurestack.external". Applications that interact with this key vault through REST API must use this URI.
+The output of this command shows the properties of the key vault that you created. When an application accesses this vault, it must use the **Vault URI** property, which is "https://vault01.vault.local.azurestack.external" in this example.
 
-In Active Directory Federation Services (AD FS)-based deployments, when you create a key vault by using PowerShell, you might receive a warning that says "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
+### Active Directory Federation Services (AD FS) deployment
+
+In an AD FS deployment, you might get this warning: "Access policy is not set. No user or application has access permission to use this vault." To resolve this issue, set an access policy for the vault by using the [Set-AzureRmKeyVaultAccessPolicy](azure-stack-kv-manage-powershell.md#authorize-an-application-to-use-a-key-or-secret) command:
 
 ```PowerShell
 # Obtain the security identifier(SID) of the active directory user
@@ -122,7 +124,7 @@ The **Destination** parameter is used to specify that the key is software protec
 
 You can now reference the created key by using its URI. If you create or import a key that has same name as an existing key, the original key is updated with the values specified in the new key. You can access the previous version by using the version-specific URI of the key. For example:
 
-* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" to always get the current version. 
+* Use "https://vault10.vault.local.azurestack.external:443/keys/key01" to always get the current version.
 * Use "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" to get this specific version.
 
 ### Get a key
