@@ -113,7 +113,7 @@ The following is the structure for [Scheduled Query Rules creation](https://docs
 }
 ```
 > [!IMPORTANT]
-> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules creation](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) API call or resource template. 
+> Tag field with hidden-link to target resource is mandatory in use of [Scheduled Query Rules ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API call or resource template. 
 
 The sample json above can be saved as (say) sampleScheduledQueryRule.json for the purpose of this walkthrough and can be deployed using [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -133,7 +133,7 @@ On successful operation, 201 will be returned to state new alert rule creation o
 
 
 ## Next steps
-* Understand [Webhook actions for log alerts](monitor-alerts-unified-log.md)
+* Understand [Webhook actions for log alerts](monitor-alerts-unified-log-webhook.md)
 * Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).   
