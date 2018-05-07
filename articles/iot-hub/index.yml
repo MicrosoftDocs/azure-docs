@@ -48,7 +48,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/iot-hub/iot-hub-csharp-csharp-process-c2d">Configure automated message routing in IoT Hub</a>
+    - html: <a href="/azure/iot-hub/tutorial-routing">Configure automated message routing in IoT Hub</a>
 - title: Reference
   items:
   - type: list
