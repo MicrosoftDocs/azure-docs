@@ -17,7 +17,7 @@ ms.date: 5/7/2018
 ms.author: ksurendra
 
 ---
-# How to login to a virtual machine (Windows or Linux) using SSH by opening a prt in Azure Portal
+# How to login to a virtual machine (Windows or Linux) using SSH by opening a port in Azure Portal
 When a new VM is created on Azure, by-default the Protocol TCP on Port 22 is Disabled. This will not let you SSH into the VM either from Azure’s Cloud Shell or external access from a Mac Terminal or Putty.
 
 When trying to do an `ssh username@vm-ipaddress` you may see a nothing happening or an error message like `ssh: connect to host <ip-address> port 22: Connection timed out`
