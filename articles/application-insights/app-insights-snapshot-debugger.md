@@ -264,6 +264,19 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 
 These tips help you troubleshoot problems with the Snapshot Debugger.
 
+## Use the snapshot health check
+If you don't see snapshot available for a particular exception, it could be caused by several reasons including outdate snapshot collector versions, daily threshold hit, the snapshot is just taking time to be uploaded, and so on. In order to assist you diagnosing such issues, we built a Snapshot Health Check service to smartly analyze why there is no snapshot.
+
+If you don't see snapshots associated with an exception, there will be a link in the End-to-end trace viewer blade for entering snapshot health check.
+
+![Enter snapshot health check](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Then, you will see an interactive chat-bot like session running health check on various aspect of your service and offering advices.
+
+![Health Check](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+There are also a few manual steps you can do to diagnose the health of your snapshot service. Please refer to sections below:
+
 ### Verify the instrumentation key
 
 Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
