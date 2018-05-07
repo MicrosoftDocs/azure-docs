@@ -21,7 +21,7 @@ A customizable editorial set for common small talk queries is available. It can 
 You can visit the Project Personality Chat labs page and chat with the available demo, and request for early-access when the service is available.
 Today, you can also integrate the customizable editorial-only library into your bots through the Microsoft Bot Framework SDK. <br>
 [Samples: Integrate Personality Chat in a bot](https://github.com/Microsoft/BotBuilder-PersonalityChat/) <br>
-[Try the Personality Chat library](https://github.com/Microsoft/BotBuilder-PersonalityChat/)
+[Try the Personality Chat library](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp)
 
 ## Generating responses using neural networks
 
