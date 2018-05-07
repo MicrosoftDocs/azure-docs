@@ -30,8 +30,10 @@ Log search rules are created by Azure Alerts to automatically run specified log 
 
 Log search rules are defined by the following details:
 - **Log Query**.  The query that runs every time the alert rule fires.  The records returned by this query are used to determine whether an alert is created. *Azure Application Insights* query can also include [cross-application calls](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), provided the user has access rights to the external applications. 
+
     > [!IMPORTANT]
     > Suppport for [cross application query for Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) is in preview - the functionality and user experience is subject to change. Usage of [cross workspace query](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) and [cross-resource query for Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) is currently **not supported**  in Azure alerts.
+
 - **Time Period**.  Specifies the time range for the query. The query returns only records that were created within this range of the current time. Time period restricts the data fetched for log query to prevent abuse and circumvents any time command (like ago) is used in log query. <br>*For example, If the time period is set to 60 minutes, and the query is run at 1:15 PM, only records created between 12:15 PM and 1:15 PM is returned to execute log query. Now if the log query uses time command like ago (7d), the log query would be run only for data between 12:15 PM and 1:15 PM - as if data exists for only the past 60 minutes. And not for seven days of data as specified in log query.*
 - **Frequency**.  Specifies how often the query should be run. Can be any value between 5 minutes and 24 hours. Should be equal to or less than the time period.  If the value is greater than the time period, then you risk records being missed.<br>*For example, consider a time period of 30 minutes and a frequency of 60 minutes.  If the query is run at 1:00, it returns records between 12:30 and 1:00 PM.  The next time the query would run is 2:00 when it would return records between 1:30 and 2:00.  Any records created between 1:00 and 1:30 would never be evaluated.*
 - **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of log search alert rules.
@@ -92,7 +94,7 @@ The query would create an average value for each computer at 5-minute intervals.
 In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold 3 times over the time period.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
 
 
-## Log search alert rule - Create & Modify
+## Log search alert rule - Creation & Modification
 
 Log alert as well as its consisting log search alert rule can be viewed, created, or modified from:
 - Azure portal
