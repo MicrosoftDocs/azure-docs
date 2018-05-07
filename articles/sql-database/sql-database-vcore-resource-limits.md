@@ -35,11 +35,11 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|
 |Max log size|307|307|461|922|1229|1229|
 |TempDB size(DB)|32|64|128|256|384|384|
-|Target IOPS|320|640|1280|2560|5120|7680|
+|Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|000
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
@@ -57,7 +57,7 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Max log size|307|307|461|614|1229|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS|640|1280|2560|5120|7680|10240|15360|25600
+|Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4800|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|1|1|
@@ -79,7 +79,7 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|4096|4096|4096|4096|
 |Max log size|1229|1229|1229|1229|
 |TempDB size(DB)|384|384|384|384|
-|Target IOPS|7680|10240|15360|25600
+|Target IOPS (64 KB)|6000|7000|7000|7000|
 |Max concurrent workers (requests)|1600|2400|3200|4800|8000|
 |Max allowed sessions|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|
@@ -103,7 +103,7 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|
-|Target IOPS|5000|10000|20000|40000|80000|120000|
+|Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|200|400|800|1600|3200|4800|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -126,7 +126,7 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS|5000|10000|20000|40000|60000|80000|120000|200000
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4800|8000|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|1|1|1|1|
