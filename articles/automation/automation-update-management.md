@@ -220,6 +220,17 @@ The following tables provide a listing of the Update classifications in Update M
 |Critical and security updates     | Updates for a specific problem or a product-specific, security-related issue.         |
 |Other updates     | All other updates that are not critical in nature or security updates.        |
 
+## Ports
+
+The following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
+
+* *.ods.opinsights.azure.com
+* *.oms.opinsights.azure.com
+* ods.systemcenteradvisor.com
+* *.blob.core.windows.net
+
+For additional information on ports that the Hybrid Runbook Worker requires, [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role)
+
 ## Search logs
 
 In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page
