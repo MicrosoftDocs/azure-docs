@@ -19,18 +19,17 @@ Common Cookbook attributes are subject to change. Attribute settings are commonl
 
 For more information on the Opscode Chef framework itself, see the [Opscode website](http://docs.opscode.com/).
 
-
 ## Using Chef Attributes
 
 Chef `attributes` configure the operation of the `run_list` for an individual node or node array. They should be set in the node's `[[[configuration]]]` sub-section. For example, to set the CycleServer Admin Password for a node configured to run CycleServer::
 
-      [[node cycle_server]]
+    [[node cycle_server]]
 
   	[[[configuration]]]
 
   	run_list = role[monitor], recipe[cyclecloud::searchable], recipe[cfirst], \
-                     recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
-                     recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
+    recipe[cuser::admins], recipe[cshared::client], recipe[cycle_server::4-2-x], \
+    recipe[cluster_init], recipe[ccallback::start], recipe[ccallback::stop]
 
   	cycle_server.admin.pass=P\@ssw0rd
 
@@ -49,11 +48,29 @@ using the default configuration::
 
 The table below lists all of the attributes of the thunderball resource.
 
-table
+
+| Attribute  | Description                                                                      |
+| ---------- | -------------------------------------------------------------------------------- |
+| checksum   | SHA256 checksum for the artifact to be downloaded.                               |
+| client     | Command line client to use. Defaults to `:pogo`.                                 |
+| config     | Custom thunderball configuration to use.                                         |
+| dest_file  | The file path to download to. `storedir` is ignored when `dest_file` is in use.  |
+| storedir   | Location files are downloaded to. Defaults to `thunderball.storedir`.            |
+| url        | The location of the file to be downloaded (full or partial).                     |
 
 Custom configuration sections can be used in order to download objects from another repository.
 
-table
+| Attribute   | Description                                                                                                                                              |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| base        | Base URL.                                                                                                                                                |
+| client      | Command line tool to interact with provider.                                                                                                             |
+| endpoint    | URL endpoint to use.                                                                                                                                     |
+| filename    | Config file to use.                                                                                                                                      |
+| password    | Password for Azure.                                                                                                                                      |
+| proxy_host  | Host to use as proxy.                                                                                                                                    |
+| proxy_port  | Port to use for proxy.                                                                                                                                   |
+| user        | Local system user that will use this configuration. Configuration file is placed in this user’s home directory (`filename` is ignored when this is used) |
+| username    | Access_key/username for Azure.                                                                                                                           |
 
 > [!NOTE]
 > AWS only: The `[:region:]` special symbol can be used to configure thunderball on a per-region basis
@@ -78,17 +95,12 @@ An example of using a custom configuration to download an application tarball:
 
 These may be applied to any node configured to run a CycleServer instance.
 
-* cycle_server.admin.name
-	Set the user name for the CycleServer administrator account.  Valid values: any username, default: admin
-
-* cycle_server.admin.pass
-	Set the password for the CycleServer administrator account.  Valid values: any password, for example: P\@ssw0rd
-
-* cycle_server.http_port
-  Set the HTTP port for CycleServer.  Default: 8080
-
-* cycle_server.https_port
-  Set the HTTPS port for CycleServer.  Default: 8443
+| Attribute                 | Description                                                                                                   |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| cycle_server.admin.name   | Set the user name for the CycleServer administrator account.  Valid values: any username. Defaults to admin.  |
+| cycle_server.admin.pass   | Set the password for the CycleServer administrator account.  Valid values: any password.                      |
+| cycle_server.http_port    | Set the HTTP port for CycleServer.  Defaults to 8080.                                                         |
+| cycle_server.https_port   | Set the HTTPS port for CycleServer.  Default: 8443                                                            |
 
 ## Cluster User
 
@@ -98,8 +110,7 @@ The cluster user is a non-root, non-sudo user that can log into nodes in the clu
 > These attributes should be set to the same values for all nodes in a cluster. Using node defaults is a
 > good way to accomplish this.
 
-* cyclecloud.shared_user.name
-  Set the user name for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Username' attribute on the cluster.
-
-* cyclecloud.shared_user.password
-  Set the password for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Password' attribute on the cluster.
+| Attribute                        | Description                                                                                                                |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| cyclecloud.shared_user.name      |  Set the user name for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Username' attribute on the cluster. |
+| cyclecloud.shared_user.password  | Set the password for the shared cluster user. Prior to CycleCloud 1.10 this was the 'Password' attribute on the cluster.   |
