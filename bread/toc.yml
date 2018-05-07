@@ -330,7 +330,7 @@
     - name: IoT Hub Device Provisioning Service
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
-    - name: IoT Suite
+    - name: IoT solution accelerators
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
     - name: Maps
