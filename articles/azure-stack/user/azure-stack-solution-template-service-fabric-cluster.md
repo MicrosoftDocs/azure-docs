@@ -167,7 +167,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
     d. On the *Certificate Store* page, select **Personal**, and then complete the wizard.  
        ![Certificate store](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. To find the FQDN of your Service Fabric cluster:
+2. To find the FQDN of your Service Fabric cluster:  
 
     a. Go to the resource group that is associated with your Service Fabric cluster and locate the *Public IP address* resource. Select the object associated with the Public IP address to open the *Public IP address* blade.  
 
@@ -199,6 +199,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
       ![Control panel](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
     b. On the **Advanced** tab of *System Properties*, select **Environment Variables**.  
+
     c. For *System variables*, edit **Path** and make sure that **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** is at the top of the list of environment variables.  
 
       ![Environment variable list](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
