@@ -62,8 +62,8 @@
     items:
     - name: Cluster-Init Projects
       href: cluster_init_projects.md
-    - name: Firewall rules
-      href:
+    - name: Cluster Init
+      href: cluster_init.md
   - name: Disaster Recovery
     items:
     - name: Synchronization
