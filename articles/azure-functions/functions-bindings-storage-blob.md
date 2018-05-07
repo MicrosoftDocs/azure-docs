@@ -29,7 +29,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported for blob triggers. Blob storage triggers require a general-purpose storage account. For input and output bindings you can use blob-only storage accounts.
+> [Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are not supported for blob triggers. Blob storage triggers require a general-purpose storage account. Use the [Event Grid trigger](functions-bindings-event-grid.md) for [blob events](../storage/blobs/storage-blob-event-overview.md) in blob-only storage accounts. For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
 
 ## Packages
 
@@ -41,10 +41,16 @@ The Blob storage bindings are provided in the [Microsoft.Azure.WebJobs](http://w
 
 Use a Blob storage trigger to start a function when a new or updated blob is detected. The blob contents are provided as input to the function.
 
-> [!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. To avoid this initial delay, consider one of the following options:
-> - Use an App Service plan with Always On enabled.
-> - Use another mechanism to trigger the blob processing, such as a queue message that contains the blob name. For an example, see the [blob input bindings example later in this article](#input---example).
+### High scale
+
+High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second. For the best performance at high scale, consider the following alternatives to the blob trigger:
+
+* [Event Grid trigger](functions-bindings-event-grid.md) - Event Grid has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md). For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
+* [Queue trigger](functions-bindings-storage-queues.md) - No built-in support; you would have to create queue messages when creating or updating blobs. For an example that assumes you've done that, see the [blob input binding example later in this article](#input---example).
+
+### Cold-start delay
+
+If your function app is on the Consumption plan, there can be up to a 10-minute delay in processing new blobs if a function app has gone idle. To avoid this cold-start delay, you can switch to an App Service plan with Always On enabled, or use a different trigger type. The trigger type options are the same as the ones listed in the previous section.
 
 ## Trigger - example
 
