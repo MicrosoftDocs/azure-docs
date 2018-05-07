@@ -24,7 +24,7 @@ This article provides details of Log alerts are one of the types of alerts suppo
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
 
 
-## Log search alert rule - definition & types
+## Log search alert rule - definition and types
 
 Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](monitoring-action-groups.md). 
 
@@ -51,7 +51,7 @@ The differences between alert rule types are as follows.
 ### Number of results alert rules
 **Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. This type of alert rule is ideal for working with events such as Windows event logs, Syslog, WebApp Response, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time period.
 
-**Threshold**: The threshold for a **Number of results alert rules is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
+**Threshold**: The threshold for a Number of results alert rules is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
 
 To alert on a single event, set the number of results to greater than 0 and check for the occurrence of a single event that was created since the last time the query was run. Some applications may log an occasional error that shouldn't necessarily raise an alert.  For example, the application may retry the process that created the error event and then succeed the next time.  In this case, you may not want to create the alert unless multiple events are created within a particular time period.  
 
@@ -70,12 +70,16 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 - **Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
 - **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval. Aggregate function in query must be named/called: AggregatedValue and provide a numeric value. 
-- **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**   
+- **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer** 
+
     > [!NOTE]
     > For Metric measurement alert rules that are based on Application Insights, you can specify the field for grouping the data. To do this, use the **Aggregate on** option in the rule definition.   
+    
 - **Interval**:  Defines the time interval over which the data is aggregated.  For example, if you specified **five minutes**, a record would be created for each instance of the group field aggregated at 5-minute intervals over the time period specified for the alert.
+
     > [!NOTE]
     > Bin function must be used in query to specify interval. As bin() can result in unequal time intervals  - Alert will automatically convert bin command to  bin_at command with appropriate time at runtime, to ensure results with a fixed point
+    
 - **Threshold**: The threshold for Metric measurement alert rules is defined by an aggregate value and a number of breaches.  If any data point in the log search exceeds this value, it's considered a breach.  If the number of breaches in for any object in the results exceeds the specified value, then an alert is created for that object.
 
 #### Example
@@ -94,7 +98,7 @@ The query would create an average value for each computer at 5-minute intervals.
 In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold 3 times over the time period.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
 
 
-## Log search alert rule - Creation & Modification
+## Log search alert rule - creation and modification
 
 Log alert as well as its consisting log search alert rule can be viewed, created, or modified from:
 - Azure portal
@@ -130,7 +134,7 @@ For details as well as examples on using Resource Manager templates, kindly refe
  
 
 ## Next steps
-* Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md)
-* Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md)
-* Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
+* Understand [log alerts in Azure](monitor-alerts-unified-log-webhook.md).
+* Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
