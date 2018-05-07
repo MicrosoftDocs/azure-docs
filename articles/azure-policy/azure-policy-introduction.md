@@ -18,6 +18,9 @@ IT governance creates clarity between business goals and IT projects. Good IT go
 
 Azure Policy is a service in Azure that you use to create, assign and, manage policy definitions. Policy definitions enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy runs an evaluation of your resources, scanning for those not compliant with the policy definitions you have. For example, you can have a policy to allow only certain type of virtual machines. Another requires that all resources have a particular tag. These policies are then evaluated when creating and updating resources.
 
+> [!IMPORTANT]
+> Azure Policy's compliance evaluation is now provided for all assignments regardless of pricing tier. If your assignments do not show the compliance data, please ensure that the subscription is registered with the Microsoft.PolicyInsights resource provider.
+
 ## How is it different from RBAC?
 
 There are a few key differences between policy and role-based access control (RBAC). RBAC focuses on user actions at different scopes. For example, you might be added to the contributor role for a resource group at the desired scope. The role allows you to make changes to that resource group. Policy focuses on resource properties during deployment and for already existing resources. For example, through policies, you can control the types of resources that can be provisioned. Or, you can restrict the locations in which the resources can be provisioned. Unlike RBAC, policy is a default allow and explicit deny system.
