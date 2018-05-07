@@ -96,10 +96,6 @@
       href: endpoint_creation.md
     - name: Data Encrytion
       href: data_encryption.md
-    - name: Transferring Data
-      href: transferring_data.md
-    - name: Enabling Return Nodes
-      href: return_nodes.md
   - name: Storage
     items:
     - name: Storage
@@ -110,10 +106,14 @@
     href:
 - name: How-To
   items:
-  - name: Custom Images
+  - name: Create Custom Images
     href: custom_images.md
-  - name: Custom Alerts
+  - name: Create Custom Alerts
     href: custom_alerts.md
+  - name: Transferring Data
+    href: transferring_data.md
+  - name: Enabling Return Nodes
+    href: return_nodes.md
 - name: Reference
   items:
   - name: CLI
