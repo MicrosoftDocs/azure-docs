@@ -200,7 +200,7 @@ For more information about how you can manage resource policies with Azure CLI, 
 
 In an assignment, a resource is non-compliant if it doesn't follow policy or initiative rules. The following table shows how different policy effects work with the condition evaluation for the resulting compliance state:
 
-| **Resource State** | **Effect** | **Policy Evaluation** | **Compliance State** |
+| Resource state | Effect | Policy evaluation | Compliance state |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Non-Compliant |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Compliant |

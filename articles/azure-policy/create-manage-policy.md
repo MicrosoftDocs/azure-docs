@@ -229,7 +229,7 @@ $parameters = '{
 $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
-## View policy definitions
+### View policy definitions with PowerShell
 
 To see all policy definitions in your subscription, use the following command:
 
@@ -280,7 +280,7 @@ az policy definition create --name 'denyCoolTiering' --description 'Deny cool ac
 }'
 ```
 
-## View policy definitions
+### View policy definitions with Azure CLI
 
 To see all policy definitions in your subscription, use the following command:
 
@@ -391,7 +391,8 @@ In this example, Trent Baker, one of Contoso's Sr. Virtualization specialists, w
 
    ![Request exclusion](media/create-manage-policy/request-exclusion.png)
 
-   **Note:** Depending on the policy and its effect, the exclusion could also be granted to specific resources within a resource group inside the scope of the assignment. As a **Deny** effect was used in this tutorial, it would not make sense to set the exclusion on a specific resource that already exists.
+   > [!NOTE]
+   > Depending on the policy and its effect, the exclusion could also be granted to specific resources within a resource group inside the scope of the assignment. As a **Deny** effect was used in this tutorial, it would not make sense to set the exclusion on a specific resource that already exists.
 
 4. Click **Select** and then click **Save**.
 

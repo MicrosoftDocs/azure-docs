@@ -77,9 +77,9 @@ An initiative definition is collection of policy definitions that are tailored t
 
 Under this initiative, you would have policy definitions such as:
 
-1. **Monitor unencrypted SQL Database in Security Center** – For monitoring unencrypted SQL databases and servers.
-2. **Monitor OS vulnerabilities in Security Center** – For monitoring servers that do not satisfy the configured baseline.
-3. **Monitor missing Endpoint Protection in Security Center** – For monitoring servers without an installed endpoint protection agent.
+- **Monitor unencrypted SQL Database in Security Center** – For monitoring unencrypted SQL databases and servers.
+- **Monitor OS vulnerabilities in Security Center** – For monitoring servers that do not satisfy the configured baseline.
+- **Monitor missing Endpoint Protection in Security Center** – For monitoring servers without an installed endpoint protection agent.
 
 ## Initiative assignment
 
@@ -93,17 +93,16 @@ Like policy parameters, initiative parameters help simplify initiative managemen
 
 For example, take a scenario where you have an initiative definition - **initiativeC**, with two policy definitions. Each policy definition having one defined parameter:
 
-| Policy | name of parameter |Type of parameter  |Note |
+| Policy | Name of parameter |Type of parameter  |Note |
 |---|---|---|---|
 | policyA | allowedLocations | array  |This parameter expects a list of strings for a value since the parameter type has been defined as an array |
 | policyB | allowedSingleLocation |string |This parameter expects one word for a value since the parameter type has been defined as a string |
 
 In this scenario, when defining the initiative parameters for **initiativeC**, you have three options:
 
-1. Use the parameters of the policy definitions within this initiative: In this example, *allowedLocations* and *allowedSingleLocation* become initiative parameters for **initiativeC**.
-2. Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA’s parameter – allowedLocations** and **policyB’s parameter – allowedSingleLocation**.
-You can also provide values when assigning this initiative.
-3. Provide a list of *value* options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
+- Use the parameters of the policy definitions within this initiative: In this example, *allowedLocations* and *allowedSingleLocation* become initiative parameters for **initiativeC**.
+- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA’s parameter – allowedLocations** and **policyB’s parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
+- Provide a list of *value* options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
 
 For example, you might create a list of value options in an initiative definition that contain *EastUS*, *WestUS*, *CentralUS*, and *WestEurope*. If so, you are unable to input a different value such as *Southeast Asia* during the initiative assignment, because it is not part of the list.
 
