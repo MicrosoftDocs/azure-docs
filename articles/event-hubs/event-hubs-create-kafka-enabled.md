@@ -33,11 +33,11 @@ If you do not have an Azure subscription, create a [free account](https://azure.
  1. Log on to the [Azure portal][Azure portal], and click **Create a resource** at the top left of the screen.
  2. Search for Event Hubs and select as shown below.   
     
-    ![Search for Event Hubs in the portal](./media/event-hubs-create/create-event-hub9.png)
+    ![Search for Event Hubs in the portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
  3. **Create namespace**, by providing an unique name and enable Kafka on the namespace. Click on create.
     
-    ![Create a namespace](./media/event-hubs-create/create-event-hub1.png)
+    ![Create a namespace](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
  4. Once the namespace is created, on the settings tab, click on the **Shared access policies** to get the connection string.
 
@@ -55,8 +55,8 @@ If you do not have an Azure subscription, create a [free account](https://azure.
 ## Next steps
 To learn more about Event Hubs, visit these links:
 
-* [Stream into Event Hubs from your Kafka applications](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-what-is-event-hubs.md)
+* [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 
 
