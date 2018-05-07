@@ -27,7 +27,19 @@ sections:
     style: unordered
     items:
     - html: <a href="get-started.md">Get started with Speech service</a>
-    - html: <a href="quickstart-csharp-windows">Recognize speech using the Speech SDK for C#</a>
+    - html: <a href="quickstart-csharp-windows.md">Recognize speech using the Speech SDK for C#</a>
+    - html: <a href="cpp-windows.md">Recognize speech using the Speech SDK for C++ and Windows</a>
+    - html: <a href="cpp-linux.md">Recognize speech using the Speech SDK for C++ and Linux</a>
+
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="speech-to-text-sample.md">Speech Recognition</a>
+    - html: <a href="intent.md">Intent Recognition</a>
+    - html: <a href="translation.md">Translation</a>
+
 
 - title: Reference
   items:

@@ -11,6 +11,10 @@
     href: get-started.md
   - name: Recognize speech in C# # OK
     href: quickstart-csharp-windows.md
+  - name: Recognize speech in C++ for Windows # OK
+    href: cpp-windows.md
+  - name: Recognize speech in C++ for Linux # OK
+    href: cpp-linux.md
 - name: How-to guides
   items:
     - name: Recognize speech # OK
@@ -30,7 +34,15 @@
     - name: Customize device wake word # OK
       href: speech-devices-sdk-create-kws.md
 - name: Samples # OK
-  href: samples.md
+  items:
+  - name: Download samples
+    href: samples.md
+  - name: Speech Recognition
+    href: speech-to-text-sample.md
+  - name: Intent Recognition
+    href: intent.md
+  - name: Translation
+    href: translation.md
 - name: Concepts
   items:
   - name: Speech to Text # OK
@@ -66,7 +78,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Privacy & cookies
-    href: https://aka.ms/csspech/privacy
+    href: https://privacy.microsoft.com/privacystatement
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Shipping your application

@@ -659,7 +659,7 @@ Process finished with exit code 0
 
 ## Text Recognition with Computer Vision API using Java<a name="RecognizeText"> </a>
 
-Use the [RecognizeText method](https://ocr.portal.azure-api.net/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
+Use the [RecognizeText method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### Handwriting recognition Java example
 

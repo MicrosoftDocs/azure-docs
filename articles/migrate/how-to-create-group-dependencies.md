@@ -52,7 +52,7 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Learn more](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
+[Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
 
 ## Refine the group based on dependency visualization
 Once you have installed agents on all the machines of the group, you can visualize the dependencies of the group and refine it by following the below steps.
