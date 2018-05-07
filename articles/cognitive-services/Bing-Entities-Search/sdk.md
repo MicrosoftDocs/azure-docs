@@ -20,6 +20,9 @@ The Bing Entity Search API samples include scenarios that:
 4.	Search for local businesses such as restaurants and get rich information.
 5.	Trigger a bad request and error handling.
 
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
+
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
     * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0)

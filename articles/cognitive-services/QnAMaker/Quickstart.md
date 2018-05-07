@@ -1,5 +1,5 @@
 ---
-title: QnA Maker quick-start video | Microsoft Docs
+title: QnA Maker quick-start video - Azure Cognitive Services | Microsoft Docs
 description: View an 8-minute video that presents a quick overview of all the features of the QnA Maker tool.
 services: cognitive-services
 author: pchoudhari
@@ -7,7 +7,7 @@ manager: rsrikan
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 05/07/2018
 ms.author: pchoudh
 ---
 

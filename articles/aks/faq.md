@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions for Azure Container Service
-description: Provides answers to some of the common questions about Azure Container Service.
+title: Frequently asked questions for Azure Kubernetes Service
+description: Provides answers to some of the common questions about Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -11,15 +11,15 @@ ms.date: 2/14/2018
 ms.author: nepeters
 ---
 
-# Frequently asked questions about Azure Container Service (AKS)
+# Frequently asked questions about Azure Kubernetes Service (AKS)
 
-This article addresses frequent questions about Azure Container Service (AKS).
+This article addresses frequent questions about Azure Kubernetes Service (AKS).
 
 > [!IMPORTANT]
-> Azure Container Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Azure Kubernetes Service (AKS) is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 >
 
-## Which Azure regions provide the Azure Container Service (AKS) today?
+## Which Azure regions provide the Azure Kubernetes Service (AKS) today?
 
 - Canada Central
 - Canada East

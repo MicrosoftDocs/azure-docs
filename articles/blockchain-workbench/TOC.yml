@@ -1,0 +1,34 @@
+- name: Azure Blockchain Workbench Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Blockchain Workbench
+    href: blockchain-workbench-overview.md
+- name: Concepts
+  items:
+  - name: Architecture
+    href: blockchain-workbench-architecture.md
+  - name: Integration patterns
+    href: blockchain-workbench-integration-patterns.md
+- name: How-to guides
+  items: 
+  - name: Deploy Workbench
+    href: blockchain-workbench-deploy.md
+  - name: Manage Workbench users
+    href: blockchain-workbench-manage-users.md
+  - name: Create blockchain app
+    href: blockchain-workbench-create-app.md
+  - name: Use blockchain app
+    href: blockchain-workbench-use.md
+  - name: Troubleshoot apps
+    href: blockchain-workbench-troubleshooting.md
+- name: Reference
+  items:
+  - name: Configuration
+    href: blockchain-workbench-configuration-overview.md
+  - name: Database views
+    href: blockchain-workbench-database-views.md
+  - name: REST API
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+  - name: Messaging API
+    href: blockchain-workbench-messages-overview.md
