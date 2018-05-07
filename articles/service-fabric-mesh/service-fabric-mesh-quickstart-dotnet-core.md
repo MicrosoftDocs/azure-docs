@@ -26,6 +26,10 @@ This quickstart shows how to deploy your first .NET Core application to Service 
 
 You can easily create a free Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
+|     |
+| --- |
+| Service Fabric Mesh is in currently in preview, and only supports the **East US** region. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). |
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete this quickstart. If you choose to install and use the CLI locally, this quickstart requires that you're running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. To install or upgrade to the latest version of the CLI, see [Install Azure CLI 2.0][azure-cli-install]. 
@@ -48,7 +52,7 @@ az group create --name <resourceGroupName> --location eastus
 Create your application in the resource group using the `deployment create` command:
 
 ```azurecli-interactive
-az sbz deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/quickstart/sbz_rp.linux.json
+az mesh deployment create --resource-group <resourceGroupName> --template-uri https://seabreezequickstart.blob.core.windows.net/templates/quickstart/sbz_rp.linux.json
 ```
 
 In a few seconds, your command should return with `"provisioningState": "Succeeded"` . 
@@ -57,14 +61,14 @@ In a few seconds, your command should return with `"provisioningState": "Succeed
 Your application is now deployed. You can check the application's status using the `app show` command. The application name for the deployed quickstart application is "SbzVoting", so fetch its details. 
 
 ```azurecli-interactive
-az sbz app show --resource-group <resourceGroupName> --name SbzVoting
+az mesh app show --resource-group <resourceGroupName> --name SbzVoting
 ```
 
 ## List the deployed applications
 You can use the "app list" command to get a list of applications you have deployed to your subscription. 
 
 ```azurecli-interactive
-az sbz app list -o table
+az mesh app list -o table
 ```
 
 ## Open the application
@@ -73,7 +77,7 @@ Once the application status is returned as ""provisioningState": "Succeeded", ge
 The network resource for the quickstart application is "SbzVotingNetwork", so fetch its details.
 
 ```azurecli-interactive
-az sbz network show --resource-group <resourceGroupName> --name SbzVotingNetwork
+az mesh network show --resource-group <resourceGroupName> --name SbzVotingNetwork
 ```
 The command should now return with the following information:
 
