@@ -24,7 +24,7 @@ This article provides details of Log alerts are one of the types of alerts suppo
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
 
 
-## Log search alert rule - defination & types
+## Log search alert rule - definition & types
 
 Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](monitoring-action-groups.md). 
 
