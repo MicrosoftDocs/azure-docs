@@ -1,5 +1,5 @@
 ---
-title: Use Custom Vision Service from a C# application - Cognitive Services | Microsoft Docs
+title: Use Custom Vision Service from a C# application - Azure Cognitive Services | Microsoft Docs
 description: Explore a basic C# app that uses the Custom Vision API in Microsoft Cognitive Services. Create a project, add tags, upload images, train your project, and make a prediction by using the default endpoint.
 services: cognitive-services
 author: anrothMSFT
@@ -79,7 +79,7 @@ The following code snippets implement the primary functionality of this example:
     var iteration = trainingApi.TrainProject(project.Id);
 
     // The returned iteration will be in progress, and can be queried periodically to see when it has completed
-    while (iteration.Status == "Training")
+    while (iteration.Status == "Completed")
     {
         Thread.Sleep(1000);
 
@@ -98,12 +98,12 @@ The following code snippets implement the primary functionality of this example:
     ```
 
 * __Create a prediction endpoint__:
-
+ 
     ```csharp
     // Create a prediction endpoint, passing in obtained prediction key
     PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
     ```
-
+ 
 * __Send an image to the prediction endpoint__:
 
     ```csharp
@@ -114,7 +114,7 @@ The following code snippets implement the primary functionality of this example:
     // Loop over each prediction and write out the results
     foreach (var c in result.Predictions)
     {
-        Console.WriteLine($"\t{c.Tag}: {c.Probability:P1}");
+        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
     }
     ```
 

@@ -1,5 +1,6 @@
 ---
-title: Create your knowledge base for QnA content | Microsoft Docs
+title: Create your knowledge base for QnA content - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Use QnA Maker to auto-extract question-and-answer pairs from most FAQ URLs and documents.
 services: cognitive-services
 author: pchoudhari
@@ -38,14 +39,14 @@ If QnA pairs are not auto-extracted, you can editorially add them later.
 ## Steps to create a knowledge base
 1. In QnA Maker, select **Create new service**.
 
-   ![Top navigation](../Images/myKbService.png)
+   ![Top navigation](../media/myKbService.png)
 
 2. Add sources for your knowledge base.
 
-   ![Page for adding sources](../Images/createKbService.png)
+   ![Page for adding sources](../media/createKbService.png)
 
 3. Select **Create**.
 
-   ![Create button](../Images/createKbService2.png)
+   ![Create button](../media/createKbService2.png)
 
 That’s it--your knowledge base has been created. Now you can choose to test, update, or publish.
