@@ -927,6 +927,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-storage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-storage.md",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-diagnostics-troubleshooting.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-troubleshooting",
             "redirect_document_id": false
@@ -18642,6 +18647,66 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-creating.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-creating",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-solution-file.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-solution-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-automation.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-searches-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-views.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-views",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-best-practices.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solution-targeting.md",
+            "redirect_url": "/azure/monitoring/monitoring-solution-targeting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map-configure.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map-scom.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map-scom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
+            "redirect_url": "/azure/monitoring/monitoring-walkthrough-servicemap",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -20510,6 +20575,11 @@
             "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
+            "redirect_document_id": false
         }
     ]
 }
