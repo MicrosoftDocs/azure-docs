@@ -46,7 +46,7 @@ Use a Blob storage trigger to start a function when a new or updated blob is det
 High scale can be loosely defined as containers that have more than 100,000 blobs in them or storage accounts that have more than 100 blob updates per second. For the best performance at high scale, consider the following alternatives to the blob trigger:
 
 * [Event Grid trigger](functions-bindings-event-grid.md) - Event Grid has built-in support for [blob events](../storage/blobs/storage-blob-event-overview.md). For an example, see the [Image resize with Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md) tutorial.
-* [Queue trigger](functions-bindings-storage-queues.md) - No built-in support; you would have to create queue messages when creating or updating blobs. For an example that assumes you've done that, see the [blob input binding example later in this article](#input---example).
+* [Queue trigger](functions-bindings-storage-queue.md) - No built-in support; you would have to create queue messages when creating or updating blobs. For an example that assumes you've done that, see the [blob input binding example later in this article](#input---example).
 
 ### Cold-start delay
 
