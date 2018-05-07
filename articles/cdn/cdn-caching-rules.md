@@ -19,7 +19,7 @@ ms.author: v-deasim
 # Control Azure CDN caching behavior with caching rules
 
 > [!NOTE] 
-> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai**. For **Azure CDN Premium from Verizon**, you can use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
+> Caching rules are available only for **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles. For **Azure CDN Premium from Verizon** profiles, you must use the [Azure CDN rules engine](cdn-rules-engine.md) in the **Manage** portal for similar functionality.
  
 Azure Content Delivery Network (CDN) offers two ways to control how your files are cached: 
 
