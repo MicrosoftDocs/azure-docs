@@ -13,12 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/07/2018
 ms.author: maheshu
 
 ---
 # Enable Azure Active Directory Domain Services using the Azure portal
 This article shows how to enable Azure Active Directory Domain Services (Azure AD DS) using the Azure portal.
+
+## Before you start...
+
+The following is needed to enable Azure AD Domain Services. Check to see you have the following ready before starting the wizard:
+
+1. **A valid Azure subscription**
+2. A valid **DNS domain name** for your managed domain.
+3. **A dedicated subnet** for Azure AD Domain Services. Ensure that there are no other processes running in the subnet you are planning to enable Azure AD Domain Services in. Otherwise, you are able to create a new subnet during setup.
+4. If you are using an existing Virtual Network and subnet, make sure your **network connection** allows access to the ports required to service your domain. Read more about networking recommendations [here.](active-directory-ds-networking.md)
+5. Ensure you have **3-5 available private IP address spaces** within your subnet and Virtual Network for Azure AD Domain Services to operate on.
+
+
+## Set up Azure AD Domain Services
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
