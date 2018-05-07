@@ -1,9 +1,9 @@
 ---
 title: Workflow Definition Language functions - Azure Logic Apps | Microsoft Docs
-description: Learn about the functions that you can use in logic app workflow definitions
+description: Learn about functions for creating logic apps with the Workflow Definition Language
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 documentationcenter: 
 
@@ -21,8 +21,8 @@ ms.author: estfan; LADocs
 
 This article describes the functions that you can use when creating 
 workflows with [Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
-For more about logic app definitions, 
-see [Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
+For more about authoring logic app definitions, see 
+[Workflow Definition Language for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md). 
 
 > [!NOTE]
 > In the syntax for parameter definitions, a question mark (?) 
