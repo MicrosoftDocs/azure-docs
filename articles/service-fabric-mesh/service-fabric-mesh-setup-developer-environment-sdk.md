@@ -1,5 +1,5 @@
 ---
-title: Set up a Windows dev env for Service Fabric Mesh on Azure
+title: Setup new Windows environment for Service Fabric Mesh on Azure
 description: Details all of the prerequisites required to create a Service Fabric Application to deploy to Azure Service Fabric Mesh.
 services: Azure Service Fabric Mesh
 keywords: 
@@ -11,6 +11,8 @@ ms.service: service-fabric-mesh
 manager: timlt
 #Customer intent: As a developer, I need to prepare install the prerequisites to enable service fabric mesh development in visual studio.
 ---
+
+# Setup your Windows environment for Service Fabric Mesh
 
 To build and run Azure Service Fabric applications on your Windows development machine, install the Service Fabric runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#enable-powershell-script-execution
