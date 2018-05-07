@@ -1,6 +1,7 @@
 - name: Bing Custom Search Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
     - name: What is Bing Custom Search?
       href: overview.md
@@ -23,15 +24,15 @@
       href: ./tutorials/custom-search-web-page.md
 - name: How-to guides 
   items:        
-    - name: Configure your custom search experience
+    - name: Configure custom search experience
       href: define-your-custom-view.md
-    - name: Call your custom search
+    - name: Call custom search
       href: search-your-custom-view.md
-    - name: Configure your hosted UI experience
+    - name: Configure hosted UI experience
       href: hosted-ui.md
-    - name: Share your custom search
+    - name: Share custom search
       href: share-your-custom-search.md
-    - name: Configure your custom autosuggest experience
+    - name: Configure custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Get custom suggestions
       href: get-custom-suggestions.md
