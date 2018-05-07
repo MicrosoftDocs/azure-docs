@@ -15,7 +15,7 @@ ms.author: nepeters
 
 A persistent volume represents a piece of storage that has been provisioned for use with Kubernetes pods. A persistent volume can be used by one or many pods and can be dynamically or statically provisioned. For more information on Kubernetes persistent volumes, see [Kubernetes persistent volumes][kubernetes-volumes].
 
-This document details using persistent volumes with Azure disks in an Azure Container Service (AKS) cluster.
+This document details using persistent volumes with Azure disks in an Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
 > An Azure disk can only be mounted with Access mode type ReadWriteOnce, which makes it available to only a single AKS node. If needing to share a persistent volume across multiple nodes, consider using [Azure Files][azure-files-pvc].
