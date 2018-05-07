@@ -87,6 +87,8 @@ You can use Event Grid for both input and output of events in CloudEvents schema
 | CloudEvents format | Event Grid format
 | Event Grid format  | Event Grid format
 
+For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
+
 ### Input schema
 
 To set the input schema on a custom topic to CloudEvents, use the following parameter in Azure CLI when you create your topic `--input-schema cloudeventv01schema`. The custom topic now expects incoming events in CloudEvents v0.1 format.

@@ -1,4 +1,4 @@
-- name: Azure Container Service (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Overview
   items:
@@ -57,12 +57,16 @@
       href: azure-files-dynamic-pv.md
   - name: Configure networking
     items:
+    - name: Networking overview
+      href: networking-overview.md
     - name: Static IP address
       href: static-ip.md
     - name: Internal load balancer
       href: internal-lb.md
     - name: Ingress and TLS
       href: ingress.md
+    - name: HTTP application routing
+      href: http-application-routing.md
   - name: Security and authentication
     items:
     - name: Create service principal

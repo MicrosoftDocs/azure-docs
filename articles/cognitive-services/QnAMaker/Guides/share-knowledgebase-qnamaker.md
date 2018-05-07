@@ -1,5 +1,6 @@
 ---
-title: Share your knowledge base with others with QnAMaker | Microsoft Docs
+title: Share your knowledge base with others with QnA Maker - Microsoft Cognitive Services | Microsoft Docs
+titleSuffix: Azure
 description: Add other users to your knowledge base, so they can contribute to it as well.
 services: cognitive-services
 author: pchoudhari
@@ -20,21 +21,21 @@ Share your knowledge base only with people you know or trust. Users can edit/pub
 ## Add users to your KB ##
 Go to the settings tab and add users.
 
-![alt text](../Images/addUserToService.png)
+![](../media/addUserToService.png)
 
 To save your changes, press Save and retrain button.
 
-![alt text](../Images/kbSaveRetrain.png)
+![](../media/kbSaveRetrain.png)
 
 ## Merge changes ##
 In case you have unsaved changes, and another user updates the knowledge base, you will be asked to refresh before you can save your changes.
 
-![alt text](../Images/refreshKb.png)
+![](../media/refreshKb.png)
 
 When you refresh, you will be able to see the merged changes in orange.
 
-![alt text](../Images/mergedKb.png)
+![](../media/mergedKb.png)
 
 Now, you can continue to work on your changes or Save & Retrain the merged changes.
 
-![alt text](../Images/kbSaveRetrain.png)
+![](../media/kbSaveRetrain.png)

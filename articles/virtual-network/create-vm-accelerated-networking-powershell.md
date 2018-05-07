@@ -267,7 +267,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Please note, a VMSS has VM upgrades that apply updates using three different settings, automatic, rolling and manual.  In these instructions the policy is set to automatic so that the VMSS will pick up the changes immediately after restarting.  To set it to automatic so that the changes are immediately picked up: 
 
-```azurecli
+```azurepowershell
 $vmss.UpgradePolicy.AutomaticOSUpgrade = $true
 
 Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
@@ -277,7 +277,7 @@ Update-AzureRmVmss -ResourceGroupName "myResourceGroup" `
 
 Finally, restart the VMSS:
 
-```azurecli
+```azurepowershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" ` 
     -VMScaleSetName "myScaleSet"
 ```
