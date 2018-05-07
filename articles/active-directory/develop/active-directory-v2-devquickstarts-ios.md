@@ -2,11 +2,8 @@
 title: Add sign-in to an iOS application using the Azure AD v2.0 endpoint | Microsoft Docs
 description: How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries.
 services: active-directory
-documentationcenter: ''
-author: brandwe
+author: xerners
 manager: mtillman
-editor: ''
-
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
 ms.workload: identity
