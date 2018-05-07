@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 05/03/2018
+ms.date: 05/07/2018
 ms.author: danlep
 
 ---
@@ -18,7 +18,7 @@ ms.author: danlep
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Until now, Batch tasks have run directly on virtual machines (VMs) in a Batch pool, but now you can set up a Batch pool to run tasks in Docker containers. This article shows you how to use the Batch .NET SDK to create a pool of compute nodes that support running container tasks, and how to run container tasks on the pool.
 
-Using containers provides an easy way to run Batch tasks without having to manage application packages and dependencies. Containers deploy applications as lightweight, portable, self-sufficient units that can run in a variety of environments. For example, you can build and test a container locally, then upload the container image to a registry in Azure or elsewhere. The container deployment model ensures that the runtime environment of your application is always correctly installed and configured, regardless of where you host the application. 
+Using containers provides an easy way to run Batch tasks without having to manage an environment and dependencies to run applications. Containers deploy applications as lightweight, portable, self-sufficient units that can run in a variety of environments. For example, you can build and test a container locally, then upload the container image to a registry in Azure or elsewhere. The container deployment model ensures that the runtime environment of your application is always correctly installed and configured, regardless of where you host the application. Container-based tasks in Batch can also take advantage of features of non-container tasks, including application packages and management of resource files and output files. 
 
 This article assumes familiarity with Docker container concepts and how to create a Batch pool and job using the .NET SDK. The code snippets are meant to be used in a client application similar to the [DotNetTutorial sample](batch-dotnet-get-started.md), and are examples of code you would need to support container applications in Batch.
 
