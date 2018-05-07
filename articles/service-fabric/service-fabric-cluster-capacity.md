@@ -67,9 +67,9 @@ The durability tier is used to indicate to the system the privileges that your V
 
 This privilege is expressed in the following values:
 
-* Gold - The infrastructure jobs can be paused for a duration of two hours per UD. Gold durability can be enabled only on full-node VM SKUs like L32s, GS5, G5, DS15_v2, D15_v2. In general, all the VM Sizes listed at http://aka.ms/vmspecs that are marked as 'Instance is isolated to hardware dedicated to a single customer' in the note, are full-node VMs.
-* Silver - The infrastructure Jobs can be paused for a duration of 10 minutes per UD and is available on all standard VMs of single core and above.
-* Bronze - No privileges. This is the default. Only use this durability level for Node Types that run _only_ stateless workloads. 
+* Gold - Updates you make to your VMSS can be delayed until approved by the Service Fabric cluster. Updates and maintenance initiated by Azure can be delayed for up two hours, allowing additional time for replicas to recover from earlier failures. Gold durability can be enabled only on full-node VM sizes like L32s, GS5, G5, DS15_v2, D15_v2. In general, all the VM sizes listed at http://aka.ms/vmspecs that are marked as 'Instance is isolated to hardware dedicated to a single customer' in the note are full-node VMs.
+* Silver - Updates you make to your VMSS can be delayed until approved by the Service Fabric cluster. Updates and maintenance initiated by Azure cannot be delayed for any significant period of time. Silver durability is available on all standard VMs of single core and above.
+* Bronze - This is the default. Updates and maintenance affecting your VMs will not be delayed by the Service Fabric cluster.
 
 > [!WARNING]
 > NodeTypes running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed. It is possible that such jobs can still impact your workloads, causing downtime or other issues. For any sort of production workload, running with at least Silver is recommended. You must maintain a minimum count of five nodes for any node-type that has a durability of Gold or Silver. 
@@ -108,10 +108,11 @@ Use Silver or Gold durability for all node types that host stateful services you
     > Changing the VM SKU Size for virtual machine scale sets not running at least Silver durability is not recommended. Changing VM SKU Size is a data-destructive in-place infrastructure operation. Without at least some ability to delay or monitor this change, it is possible that the operation can cause data loss for stateful services or cause other unforeseen operational issues, even for stateless workloads. 
     > 
 	
-- Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled
+- Maintain a minimum count of five nodes for any virtual machine scale set that has durability level of Gold or Silver enabled.
+- Each VM scale set with durability level Silver or Gold must map to its own node type in the Service Fabric cluster. Mapping multiple VM scale sets to a single node type will prevent coordination between the Service Fabric cluster and the Azure infrastructure from working properly.
 - Do not delete random VM instances, always use virtual machine scale set scale down feature. The deletion of random VM instances has a potential of creating imbalances in the VM instance spread across UD and FD. This imbalance could adversely affect the systems ability to properly load balance amongst the service instances/Service replicas.
 - If using Autoscale, then set the rules such that scale in (removing of VM instances) are done only one node at a time. Scaling down more than one instance at a time is not safe.
-- If Scaling down a primary node type, you should never scale it down more than what the reliability tier allows.
+- If deleting or deallocating VMs on the primary node type, you should never reduce the count of allocated VMs below what the reliability tier requires. These operations will be blocked indefinitely in a scale set with a durability level of Silver or Gold.
 
 ## The reliability characteristics of the cluster
 The reliability tier is used to set the number of replicas of the system services that you want to run in this cluster on the primary node type. The more the number of replicas, the more reliable the system services are in your cluster.  
