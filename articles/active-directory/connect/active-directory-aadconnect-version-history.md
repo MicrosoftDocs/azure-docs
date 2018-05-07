@@ -33,10 +33,12 @@ Required permissions | For permissions required to apply an update, see [account
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.1.819.0
-Status 5/4/2018: Released for auto upgrade, will be available for download soon.
 
-### Azure AD Connect sync
-#### New features and improvements
+5/4/2018: Released for auto upgrade, will be available for download soon.
+
+
+
+### New features and improvements
 
 
 - This release updates the SQL Server Express installation to SQL Server 2012 SP4. This update provides fixes for several security vulnerabilities.  For more information see, [the SQL Server 2012 SP4 release information](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information).
@@ -48,7 +50,7 @@ Status 5/4/2018: Released for auto upgrade, will be available for download soon.
 - This release includes the public preview of the integration of PingFederate in Azure AD Connect. Now customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our online [documentation](active-directory-aadconnect-get-started-custom.md).
 - Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
 
-#### Fixed issues 
+### Fixed issues 
 
 
 - Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent syncrule is no longer applicable
