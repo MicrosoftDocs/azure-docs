@@ -24,7 +24,7 @@ This article provides details of Log alerts are one of the types of alerts suppo
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
 
 
-# Log search alert rules
+## Log search alert rule - defination & types
 
 Log search rules are created by Azure Alerts to automatically run specified log queries at regular intervals.  If the results of the log query match particular criteria, then an alert record is created. The rule can then automatically run one or more actions using [Action Groups](monitoring-action-groups.md). 
 
@@ -46,7 +46,7 @@ The differences between alert rule types are as follows.
 - *Number of results* alert rules always creates a single alert, while *Metric measurement* alert rule creates an alert for each object that exceeds the threshold.
 - *Number of results* alert rules create an alert when the threshold is exceeded a single time. *Metric measurement* alert rules can create an alert when the threshold is exceeded a certain number of times over a particular time interval.
 
-## Number of results alert rules
+### Number of results alert rules
 **Number of results** alert rules create a single alert when the number of records returned by the search query exceed the specified threshold. This type of alert rule is ideal for working with events such as Windows event logs, Syslog, WebApp Response, and Custom logs.  You may want to create an alert when a particular error event gets created, or when multiple error events are created within a particular time period.
 
 **Threshold**: The threshold for a **Number of results alert rules is greater than or less than a particular value.  If the number of records returned by the log search match this criteria, then an alert is created.
@@ -55,7 +55,7 @@ To alert on a single event, set the number of results to greater than 0 and chec
 
 In some cases, you may want to create an alert in the absence of an event.  For example, a process may log regular events to indicate that it's working properly.  If it doesn't log one of these events within a particular time period, then an alert should be created.  In this case, you would set the threshold to **less than 1**.
 
-### Example
+#### Example
 Consider a scenario where you want to know when your web-based App gives a response to users with code 500 (that is) Internal Server Error. You would create an alert rule with the following details:  
 - **Query:** requests | where resultCode == "500"<br>
 - **Time period:** 30 minutes<br>
@@ -64,7 +64,7 @@ Consider a scenario where you want to know when your web-based App gives a respo
 
 Then alert would run the query every 5 minutes, with 30 minutes of data - to look for any record where result code was 500. If even one such record is found, it fires the alert and triggers the action configured.
 
-## Metric measurement alert rules
+### Metric measurement alert rules
 
 - **Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
 - **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval. Aggregate function in query must be named/called: AggregatedValue and provide a numeric value. 
@@ -92,14 +92,14 @@ The query would create an average value for each computer at 5-minute intervals.
 In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold 3 times over the time period.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
 
 
-# Create log search alert rule
+## Log search alert rule - Create & Modify
 
 Log alert as well as its consisting log search alert rule can be viewed, created, or modified from:
 - Azure portal
 - REST APIs (including via PowerShell)
 - Azure Resource Manager Templates
 
-## Azure portal
+### Azure portal
 Since the introduction of the [new Azure alerts](monitoring-overview-unified-alerts.md), now users can manage all types of alerts in Azure portal from a single location and similar steps. Learn more about [using new Azure Alerts](monitor-alerts-unified-usage.md).
 
 Also, users can perfect their queries in Analytics platform of choice in Azure and then *import them for use in Alerts  by saving the query*. Steps to follow:
@@ -112,14 +112,14 @@ Then when [creating a log alert in Alerts ](monitor-alerts-unified-usage.md), yo
 > [!NOTE]
 > Using **Log (Saved Query)** results in an import to Alerts. Hence any changes done after in Analytics will not be reflective in log search alert rules and vice-versa.
 
-## REST APIs
+### REST APIs
 APIs provided for Log alerts are RESTful and can be accessed via the Azure Resource Manager REST API. Hence can be accessed over PowerShell, as well other options to leverage the APIs.
 
 For details as well as examples on using REST API, kindly refer to:
 - [Log Analytics Alert REST API](../log-analytics/log-analytics-api-alerts.md) -  to create and manage log search alert rules for Azure Log Analytics
 - [Azure Monitor Scheduled Query Rules REST API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - to create and manage log search alert rules for Azure Application Insights
 
-## Azure Resource Manager Template
+### Azure Resource Manager Template
 Users can also use the flexibility provided by [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) to create and update resources - for creating or updating Log alerts.
 
 For details as well as examples on using Resource Manager templates, kindly refer to:
