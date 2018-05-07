@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/04/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -80,6 +80,7 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
 - You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
 - The extension shows you the last three applications that you launched in **Recently Used** section.
+- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.

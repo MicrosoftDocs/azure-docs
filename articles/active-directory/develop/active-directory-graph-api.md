@@ -47,7 +47,7 @@ Azure AD Graph API provides the following features:
 * **Secured by permission scopes**: Azure AD Graph API exposes permission scopes that enable secure access to Azure AD data using OAuth 2.0. It supports a variety of client app types, including:
   
   * user interfaces that are given delegated access to data via authorization from the signed-in user (delegated)
-  * service/daemon applications that operation in the background without a signed-in user being present and use application-defined role-based access control
+  * service/daemon applications that operate in the background without a signed-in user being present and use application-defined role-based access control
     
     Both delegated and application permissions represent a privilege exposed by the Azure AD Graph API and can be requested by client applications through application registration permissions features in the [Azure portal](https://portal.azure.com). [Azure AD Graph API Permission Scopes](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) provides information on what's available for use by your client application.
 

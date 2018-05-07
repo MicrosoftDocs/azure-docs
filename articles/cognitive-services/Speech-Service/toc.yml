@@ -70,9 +70,9 @@
 - name: Resources
   items:
   - name: Pricing
-    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-speech-service/
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
   - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/555934-custom-speech-service
+    href: https://cognitive.uservoice.com/forums/912208-speech-service
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure Roadmap
