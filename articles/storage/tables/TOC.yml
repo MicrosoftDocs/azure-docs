@@ -22,7 +22,7 @@
     href: /azure/cosmos-db/table-storage-how-to-use-dotnet
     maintainContext: true  
   - name: F#
-    href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
     maintainContext: true
   - name: Java
     href: /azure/cosmos-db/table-storage-how-to-use-java
@@ -69,6 +69,6 @@
 - name: Resources
   items:
   - name: Table storage REST APIs
-    href: /rest/api/storageservices/table-service-rest-api
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
     maintainContext: true 
 
