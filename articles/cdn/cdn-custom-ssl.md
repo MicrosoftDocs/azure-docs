@@ -72,13 +72,20 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. Under Certificate management type, select **CDN managed**.
 
-4. Select **On** to enable HTTPS.
+5. Select **On** to enable HTTPS.
 
     ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
 
+6. Proceed to [Validate the domain](#validate-the-domain).
+
 
 ## Option 2: Enable the HTTPS feature with your own certificate 
+
+> [!IMPORTANT]
+> This feature is available only with **Azure CDN Standard from Microsoft** profiles. 
+>
  
+
 You can use your own certificate on Azure CDN to deliver content via HTTPS. This process is done through an integration with Azure Key Vault. Azure Key Vault allows customers to store their certificates securely. Azure CDN service leverages this secure mechanism to get the certificate. Using your own certificate requires a few additional steps.
 
 ### Step 1: Prepare your Azure Key vault account and certificate
@@ -89,7 +96,8 @@ You can use your own certificate on Azure CDN to deliver content via HTTPS. This
 
 ### Step 2: Grant Azure CDN access to your key vault
  
-You must grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
     ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)
@@ -124,16 +132,20 @@ You must grant Azure CDN permission to access the certificates (secrets) in your
     - The available certificate versions. 
  
 5. Select **On** to enable HTTPS.
+  
+6. When you use your own certificate, domain validation is not required. Proceed to [Wait for propagation](#wait-for-propagation).
 
 
 ## Validate the domain
 
-If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record, proceed to  
+If you already have a custom domain in use that is mapped to your custom endpoint with a CNAME record or you're using your own certificate, proceed to  
 [Custom domain is mapped to your CDN endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record). Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, proceed to [Custom domain is not mapped to your CDN endpoint](#custom-domain-is-not-mapped-to-your-cdn-endpoint).
 
 ### Custom domain is mapped to your CDN endpoint by a CNAME record
 
-When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to validate ownership of your custom domain. 
+When you added a custom domain to your endpoint, you created a CNAME record in the DNS table of your domain registrar to map it to your CDN endpoint hostname. If that CNAME record still exists and does not contain the cdnverify subdomain, the DigiCert certificate authority (CA) uses it to automatically validate ownership of your custom domain. 
+
+If you're using your own certificate, domain validation is not required.
 
 Your CNAME record should be in the following format, where *Name* is your custom domain name and *Value* is your CDN endpoint hostname:
 
@@ -145,7 +157,7 @@ For more information about CNAME records, see [Create the CNAME DNS record](http
 
 If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and adds it to the Subject Alternative Names (SAN) certificate. DigitCert won't send you a verification email and you won't need to approve your request. The certificate is valid for one year and will be auto-renewed before it expires. Proceed to [Wait for propagation](#wait-for-propagation). 
 
-The automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
+Automatic validation typically takes a few mins. If you don’t see your domain validated within an hour, open a support ticket.
 
 >[!NOTE]
 >If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include DigiCert as a valid CA. A CAA record allows domain owners to specify with their DNS providers which CAs are authorized to issue certificates for their domain. If a CA receives an order for a certificate for a domain that has a CAA record and that CA is not listed as an authorized issuer, it is prohibited from issuing the certificate to that domain or subdomain. For  information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).

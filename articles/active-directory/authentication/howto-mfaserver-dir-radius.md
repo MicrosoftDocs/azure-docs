@@ -1,21 +1,17 @@
 ---
 title: RADIUS Authentication and Azure MFA Server | Microsoft Docs
-description: This is the Azure Multi-factor authentication page that will assist in deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
+description: Deploying RADIUS Authentication and Azure Multi-Factor Authentication Server.
 
-ms.assetid: f4ba0fb2-2be9-477e-9bea-04c7340c8bce
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: get-started-article
 ms.date: 08/25/2017
+
 ms.author: joflore
-ms.reviewer: alexwe
-ms.custom: H1Hack27Feb2017, it-pro
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
 ---
 # Integrate RADIUS authentication with Azure Multi-Factor Authentication Server
 
