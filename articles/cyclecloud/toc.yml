@@ -105,9 +105,7 @@
     - name: Blobs
       href:
   - name: Auto-Scaling
-    items:
-    - name: Overview
-      href:
+    href: autoscale_api.md
   - name: Images
     items:
     - name: Images
@@ -121,7 +119,7 @@
   - name: Common Cookbook Reference
     href: common_cookbook_reference.md
   - name: HealthCheck
-    href:
+    href: healthcheck.md
   - name: Node Configuration
     href:
   - name: Performance Tuning
