@@ -161,10 +161,10 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
+Advance to the next tutorial to learn about upgrading Kubernetes to a new version.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with Log Analytics][aks-tutorial-monitor]
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
