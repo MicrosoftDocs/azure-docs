@@ -89,7 +89,7 @@ After the key is successfully created, you can select it under **Keys** and view
 
 7. Select **Create** to start the deployment.
 
-After the secret is successfully created, you can select it under **Secrets** and view or modify its properties. The properties section contains a **Secret Identifier**, which is a URI by which external applications can access this secret.
+After the secret is successfully created, you can select it under **Secrets** and view or modify its properties. The **Secret Identifier** is a URI that external applications can use to access this secret.
 
 ![URI secret](media/azure-stack-kv-manage-portal/image5.png)
 
