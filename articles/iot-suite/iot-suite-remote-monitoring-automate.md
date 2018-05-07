@@ -1,13 +1,13 @@
 ---
 title: Detect device issues in remote monitoring solution - Azure | Microsoft Docs
 description: This tutorial shows you how to use rules and actions to automatically detect threshold-based device issues in the remote monitoring solution.
-services: ''
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
@@ -20,11 +20,14 @@ This tutorial shows the capabilities of the rules engine in the remote monitorin
 
 Contoso has a rule that generates a critical alert when the pressure reported by a **Chiller** device exceeds 250 PSI. As an operator, you want to identify **Chiller** devices that may have problematic sensors by looking for initial pressure spikes. To identify these devices, you create a rule to generate a warning when the pressure exceeds 150 PSI.
 
+You have also been told that a critical alert needs to be triggered when the average humidity of the **Chiller** device in the past 5 minutes is greater than 80% and the temperature of the **Chiller** device in the past 5 minutes is greater than 75 degrees fahrenheit.
+
 In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * View the rules in your solution
 > * Create a new rule
+> * Create a new rule with multiple conditions
 > * Edit an existing rule
 > * Delete a rule
 
@@ -32,67 +35,104 @@ In this tutorial, you learn how to:
 
 To follow this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## View the rules in your solution
 
-The **Rules and Actions** page in the solution displays a list of all the current rules:
+The **Rules** page in the solution displays a list of all the current rules:
 
-![Rules and Actions page](media/iot-suite-remote-monitoring-automate/rulesactions.png)
+![Rules and Actions page](media/iot-suite-remote-monitoring-automate/rulesactions_v2.png)
 
 To view only the rules that apply to **Chiller** devices, apply a filter:
 
-![Filter the list of rules](media/iot-suite-remote-monitoring-automate/rulesactionsfilter.png)
+![Filter the list of rules](media/iot-suite-remote-monitoring-automate/rulesactionsfilter_v2.png)
 
 You can view more information about a rule and edit it when you select it in the list:
 
-![View rule details](media/iot-suite-remote-monitoring-automate/rulesactionsdetail.png)
+![View rule details](media/iot-suite-remote-monitoring-automate/rulesactionsdetail_v2.png)
 
 To disable, enable, or delete one or more rules, select multiple rules in the list:
 
-![Select multiple rules](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect.png)
+![Select multiple rules](media/iot-suite-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
 
 ## Create a new rule
 
 To add a new rule that generates a warning when the pressure in a **Chiller** device exceeds 150 PSI, choose **New rule**:
 
-![Create rule](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule.png)
+![Create rule](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_v2.png)
 
 Use the following values to create the rule:
 
 | Setting          | Value                                 |
 | ---------------- | ------------------------------------- |
-| Name             | Chiller warning                       |
-| Source           | **Chillers** device group             |
-| Trigger field    | pressure                              |
-| Trigger operator | Greater than                          |
-| Trigger value    | 150                                   |
-| Severity level   | Warning                               |
+| Rule name        | Chiller warning                       |
 | Description      | Chiller pressure has exceeded 150 PSI |
+| Device group     | **Chillers** device group             |
+| Calculation      | Instant                               |
+| Condition 1 Field| pressure                              |
+| Condition 1 operator | Greater than                      |
+| Condition 1 value    | 150                               |
+| Serverity level  | Warning                               |
 
 To save the new rule, choose **Apply**.
 
-You can view when the rule is triggered on the **Rules and Actions** page or on the **Dashboard** page.
+You can view when the rule is triggered on the **Rules** page or on the **Dashboard** page.
+
+## Create a new rule with multiple conditions
+
+To create a new rule with multiple conditions that generates a critical alert when the average humidity of the **Chiller** device in the past 5 minutes is greater than 80% and the temperature of the **Chiller** device in the past 5 minutes is greater than 75 degrees fahrenheit, choose **New rule**:
+
+![Create mult rule](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+
+Use the following values to create the rule:
+
+| Setting          | Value                                 |
+| ---------------- | ------------------------------------- |
+| Rule name        | Chiller humidity and temp critical    |
+| Description      | Humidity and temperature are critical |
+| Device group     | **Chillers** device group             |
+| Calculation      | Average                               |
+| Time period      | 5                                     |
+| Condition 1 Field| humidity                              |
+| Condition 1 operator | Greater than                      |
+| Condition 1 value    | 80                               |
+| Serverity level  | Critical                              |
+
+To add the second condition, click on "+ Add condition".
+
+![Create condition 2](media/iot-suite-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
+
+Use the following values on the new condition:
+
+| Setting          | Value                                 |
+| ---------------- | ------------------------------------- |
+| Condition 2 Field| temperature                           |
+| Condition 2 operator | Greater than                      |
+| Condition 2 value    | 75                                |
+
+To save the new rule, choose **Apply**.
+
+You can view when the rule is triggered on the **Rules** page or on the **Dashboard** page.
 
 ## Edit an existing rule
 
-To make a change to an existing rule, select it in the list of rules. Then, in the **Rule Detail** panel choose **Edit mode**.
+To make a change to an existing rule, select it in the list of rules.
 
-![Edit rule](media/iot-suite-remote-monitoring-automate/rulesactionsedit.png)
+![Edit rule](media/iot-suite-remote-monitoring-automate/rulesactionsedit_v2.png)
 
-## Disable a rule
+<!--## Disable a rule
 
 To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
 
 ![Disable rule](media/iot-suite-remote-monitoring-automate/rulesactionsdisable.png)
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.
+You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
 
-## Delete a rule
+<!--## Delete a rule
 
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
-You can delete multiple rules at the same time if you select multiple rules in the list.
+You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
 ## Next steps
 

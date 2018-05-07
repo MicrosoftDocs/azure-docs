@@ -7,11 +7,9 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: curtand
