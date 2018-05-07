@@ -89,7 +89,7 @@ The following tables detail each step of filling out your offer listing.
 **Storefront details - Marketing artifacts**
 | Storefront settings       | Best practices          | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Offer logo (.png format, 58x48)**    | Your logo should be designed and optimized for a digital medium.<br>Upload logo in PNG format for the offer’s search page. |
+| **Offer logo (.png format, 48x48)**    | Your logo should be designed and optimized for a digital medium.<br>Upload logo in PNG format for the offer’s search page. |
 | **Offer logo (.png. 216 x 216)**     | Your logo should be designed and optimized for a digital medium. <br>Upload logo in PNG format for the offer’s app details listing page. |
 | **Learn more**   | Include supporting sales and marketing assets under “Learn more,” for example, white papers, brochures, checklists, PowerPoints, and so on. All files should be in PDF format. Don’t sell, educate the prospect. <br>Add the link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
 | **Videos**       | Upload at least one video, up to four videos are permitted. Your video should communicate the value of your offer. Make sure the prospect is the hero of the story, not your company. Your video should speak to the principal challenges and goals of your core decision maker persona. <br>Recommended length: 60-90 seconds. Incorporate you key search words in the name of the videos.<br>Consider adding additional videos such as a how-to video; a getting started video, or a customer testimonial video. |
