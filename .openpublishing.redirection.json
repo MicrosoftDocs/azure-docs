@@ -10072,6 +10072,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/site-recovery/vmware-azure-mobility-deploy-automation-dsc.md",
+            "redirect_url": "physical-manage-configuration-server#install-from-the-command-line",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/site-recovery/vmware-walkthrough-replication.md",
             "redirect_url": "vmware-azure-tutorial",
             "redirect_document_id": false

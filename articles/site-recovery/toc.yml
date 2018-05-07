@@ -201,10 +201,10 @@
         href: vmware-azure-enable-replication.md
     - name: Deploy the Mobility service
       items:
+      - name: Mobility service overview
+        href: vmware-azure-install-mobility-service.md
       - name: Deploy the Mobility service with System Center Configuration Manager
         href: vmware-azure-mobility-install-configuration-mgr.md
-      - name: Deploy the Mobility service with Azure Automation DSC
-        href: vmware-azure-mobility-deploy-automation-dsc.md
     - name: Failover and failback
       items:
       - name: Run a disaster recovery drill to Azure
