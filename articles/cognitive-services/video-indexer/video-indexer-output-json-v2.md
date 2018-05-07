@@ -17,10 +17,7 @@ ms.author: juliako
 > [!Note]
 > The Video Indexer v1 API is going to be deprecated on July 31, 2018. You should start using the Video Indexer v2 API. 
 > 
-> To develop with Video Indexer v2 APIs, use one of these URLs: <br/>
-> [North Europe](https://viprod-ne-apim.portal.azure-api.net) <br/>
-> [WestUS2](https://viprod-wus2-apim.portal.azure-api.net) <br/>
-> [East Asia](https://viprod-ea-apim.portal.azure-api.net) <br/>
+> To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://aka.ms/viapi). 
 
 When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
