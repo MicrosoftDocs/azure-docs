@@ -3,11 +3,13 @@
   - name: Azure Table storage overview
     href: table-storage-overview.md
   - name: Choose Table storage or Table API
-    href: ../../cosmos-db/table-support.md?toc=/azure/cosmos-db/toc.json 
+    href: /azure/cosmos-db/table-support
+    maintainContext: true   
 - name: Quickstarts
   items:
   - name: Create a storage account
-    href: https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=/azure/storage/tables/toc.json 
+    href: /azure/storage/common/storage-quickstart-create-account  
+    maintainContext: true 
   - name: Create a table in the Azure portal
     href: table-storage-quickstart-portal.md
 - name: Tutorials
@@ -17,23 +19,32 @@
 - name: Samples
   items:
   - name: .NET
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-dotnet?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+    maintainContext: true  
   - name: F#
-    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage?toc=/azure/storage/tables/toc.json
+    href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    maintainContext: true
   - name: Java
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-java?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-java
+    maintainContext: true  
   - name: Node.js
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-nodejs?toc=/azure/storage/tables/toc.json  
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs   
+    maintainContext: true
   - name: C++ 
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-c-plus?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus 
+    maintainContext: true
   - name: PHP
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-php?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-php 
+    maintainContext: true 
   - name: Python
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-python?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-python  
+    maintainContext: true 
   - name: Ruby
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-ruby?toc=/azure/storage/tables/toc.json 
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby  
+    maintainContext: true
   - name: PowerShell
-    href: https://docs.microsoft.com/azure/cosmos-db/table-storage-how-to-use-powershell?toc=/azure/storage/tables/toc.json      
+    href: /azure/cosmos-db/table-storage-how-to-use-powershell       
+    maintainContext: true
 - name: Concepts
   items: 
   - name: Design scalable and performant tables 
@@ -53,9 +64,11 @@
 - name: How to Guides
   items:
   - name: How to use the storage emulator
-    href: https://docs.microsoft.com/azure/storage/common/storage-use-emulator?toc=/azure/storage/tables/toc.json 
+    href: /azure/storage/common/storage-use-emulator
+    maintainContext: true  
 - name: Resources
   items:
   - name: Table storage REST APIs
-    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
+    href: /rest/api/storageservices/table-service-rest-api
+    maintainContext: true 
 
