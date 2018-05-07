@@ -20515,6 +20515,11 @@
             "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
+            "redirect_document_id": false
         }
     ]
 }
