@@ -18,9 +18,9 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in May 2018
 
-* **Enhancement** Gender attribute is enhanced with improved accuracy. Gender attribute is one of the attributes that can be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) when `gender` is specified in `returnFaceAttributes`. Due to the attribute feature improvement, other attributes (age, glasses, facialHair, hair, makeup etc.) are also slightly changed.
+* **Enhancement** Gender attribute is enhanced with improved accuracy. Gender attribute is one of the attributes that can be returned from [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) when `gender` is specified in `returnFaceAttributes`. Due to the attribute feature improvement, other attributes (age, glasses, facialHair, hair, makeup etc.) are also slightly changed.
 
-* **Enhancement** The allowed image file size is enlarged from 4MB to 6MB in [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+* **Enhancement** The allowed image file size is enlarged from 4 MB to 6 MB in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ### Release changes in March 2018
 
@@ -30,7 +30,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 ### Release changes in May 2017
 
-* **New Attribute** Hair, makeup, accessories, occlusion, blur, exposure, and noise attributes could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`, or `noise` are specified in `returnFaceAttributes`.
+* **New Attribute** Hair, makeup, accessories, occlusion, blur, exposure, and noise attributes could be returned from [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`, or `noise` are specified in `returnFaceAttributes`.
 
 * **Enhancement** Support 10K persons in a PersonGroup, [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) is also supported for the scale.
 
@@ -39,9 +39,9 @@ This article pertains to Microsoft Face API Service version 1.0.
 * **Enhancement** Concurrency is supported in adding/deleting faces against different FaceLists or different persons in PersonGroup.
 
 ### Release changes in March 2017
-* **New Attribute** Emotion attribute could be returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
+* **New Attribute** Emotion attribute could be returned from [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) if `emotion` is specified in `returnFaceAttributes`.
 
-* **Bug fix** For [FaceList - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
+* **Bug fix** For [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) and [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) APIs, algorithm is upgraded to make sure that the face could be re-detected with rectangle returned from [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) as `targetFace`.
 
 * **Bug fix** Make sure the detectable face size is strictly between 36x36 to 4096x4096 pixels.
 
