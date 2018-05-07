@@ -4,14 +4,13 @@ description: Learn how to create a zone redundant application gateway that does 
 services: application-gateway
 author: amsriva
 manager: jpconnock
-editor: tysonn
 
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 5/4/2018
+ms.date: 5/7/2018
 ms.author: victorh
 
 ---
@@ -59,17 +58,17 @@ Currently zone redundant capability is only available in private preview. You mu
 1. Make sure the subscription you use is whitelisted as previously mentioned.
 2. After you receive a confirmation, sign in to the Azure account and select the appropriate subscription if more than one subscription is present. Make sure you select the subscription that was whitelisted.
 
-   ```Powershell
+   ```PowerShell
    Login-AzureRmAccount
 
    Select-AzureRmSubscription -Subscription "<whitelisted subscription name>”
    ```
 3. Create a new resource group
 
-   ``` Powershell
+   ``` PowerShell
    New-AzureRmResourceGroup -Name <resource group name> -Location "East US 2"
    ```
-4. Download the templates from **TBD** and note the folder where you save them.
+4. Download the templates from [GitHub](https://github.com/amitsriva/CrossZonePreview) and note the folder where you save them.
 5. Create a new deployment in the resource group you created. Modify the template and parameters file appropriately before you deploy. 
 
    The following diagram shows where you can retrieve the tenant ID on the Azure portal:
@@ -87,7 +86,7 @@ The template creates the following resources:
 - **Virtual Network** – The vnet where the application gateway and applications are deployed.
 - **Application Gateway** – Creates an application gateway with instances in the required zones. By default, all zones (1,2,3) are selected. The SKU name is changed to *Standard_v2*. This SKU name is subject to change. Currently, the autoscale configuration has the min and max set to the required number of instances. Once autoscaling is enabled, this can be adjusted.
 
-```Powershell
+```PowerShell
 New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSSLinuxTest9 -TemplateFile <complete path to template.json> -TemplateParameterFile <complete path to parameters.json>
 ```
 ### PowerShell deployment
@@ -96,7 +95,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 2. Download the private PowerShell zip file from the location mentioned in preview registration confirmation email. Unzip the file to your drive and note the location.
 3. Once the preview is enabled, load the preview modules first before signing on to your account:
 
-   ```Powershell
+   ```PowerShell
    $azurePSPath = "<complete path to Azure-PowerShell folder>"
    import-module "$azurePSPath\AzureRM.Profile\AzureRM.Profile.psd1"
    import-module "$azurePSPath\Azure.Storage\Azure.Storage.psd1"
@@ -110,7 +109,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
    Modify the entries as required for your naming preference.
 
-   ```Powershell
+   ```PowerShell
    $location = "eastus2"
    $version = "300"
 
@@ -137,36 +136,36 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    ```
 6. Create the resource group:
 
-   ```Powershell
+   ```PowerShell
    $resourceGroup = New-AzureRmResourceGroup -Name $rgname -Location $location -Force
    ```
 7. Create the User Assigned Identity used to give access to the application gateway to retrieve certificates from the Key Vault.
 
-   ```Powershell
+   ```PowerShell
    $userAssignedIdentity = New-AzureRmResource -ResourceGroupName $rgname -Location $location -ResourceName $userAssignedIdentityName -ResourceType Microsoft.ManagedIdentity/userAssignedIdentities -Force
    ```
 8. Create the Key Vault used to store your certificates:
 
-   ```Powershell
+   ```PowerShell
    $keyVault = New-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgname -Location $location -EnableSoftDelete
    ```
 9. Upload certificate to Key Vault as a secret:
 
-   ```Powershell
+   ```PowerShell
    $securepfxpwd = ConvertTo-SecureString -String "<password>" -AsPlainText -Force
 
    $cert = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name         $certificateName -FilePath ‘<path to pfx file>'  -Password $securepfxpwd
    ```
 10. Assign access policy to the Key Vault using the User Assigned Identity. This allows the application gateway instances to access the Key Vault secret:
 
-   ```Powershell
+   ```PowerShell
    Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $rgname -PermissionsToSecrets get -ObjectId $userAssignedIdentity.Properties.principalId
    ```
 11. Create the Network Security Group (NSG) to allow access to the application gateway subnet on ports where new listeners are created.
 
     For example, for HTTP/HTTPS on default ports the NSG would allow inbound access to 80, 443 and 65200-65535 for management operations.
 
-   ```Powershell
+   ```PowerShell
    $srule01 = New-AzureRmNetworkSecurityRuleConfig -Name "listeners" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * -DestinationAddressPrefix * -DestinationPortRange 22,80,443 -Access Allow -Priority 100
 
    $srule02 = New-AzureRmNetworkSecurityRuleConfig -Name "managementPorts" -Direction Inbound -SourceAddressPrefix * -SourcePortRange * -Protocol * -DestinationAddressPrefix * -DestinationPortRange "65200-65535" -Access Allow -Priority 101
@@ -176,7 +175,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
 12. Create VNet and subnets:
 
-   ```Powershell
+   ```PowerShell
    $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 
    $gwSubnetName -AddressPrefix "$AddressPrefix/24" -NetworkSecurityGroup $nsg
 
@@ -184,13 +183,13 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
    ```
 13. Create a public IP address of type reserved/static:
 
-   ```Powershell
+   ```PowerShell
    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName $rgname -name $publicIpName -location $location -AllocationMethod Static -Sku Standard -Force
    ```
 
 14. Create the application gateway:
 
-   ```Powershell
+   ```PowerShell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name $gipconfigname -Subnet $gwSubnet
 
    $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name $fipconfig01Name -PublicIPAddress $publicip
@@ -233,7 +232,7 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
 15. Retrieve the created application gateway’s public IP address:
 
-   ```Powershell
+   ```PowerShell
    $pip = Get-AzureRmPublicIpAddress -Name $publicIpName -ResourceGroupName $rgname $pip.IpAddress
    ```
 
