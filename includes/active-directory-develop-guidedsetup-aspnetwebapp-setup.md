@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/04/2018
 ms.author: andret
 ms.custom: include file 
 ---
@@ -37,9 +37,9 @@ This section shows the steps to install and configure the authentication pipelin
 2. Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:
 
     ```powershell
-    Install-Package Microsoft.Owin.Security.OpenIdConnect
-    Install-Package Microsoft.Owin.Security.Cookies
-    Install-Package Microsoft.Owin.Host.SystemWeb
+    Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 3.1.0
+    Install-Package Microsoft.Owin.Security.Cookies -Version 3.1.0
+    Install-Package Microsoft.Owin.Host.SystemWeb -Version 3.1.0
     ```
     
 <!--start-collapse-->
@@ -57,9 +57,11 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 >
 >> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
-1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
+1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs` so that the using declarations become the following:
 
     ```csharp
+    using System;
+    using System.Threading.Tasks;
     using Microsoft.Owin;
     using Owin;
     using Microsoft.IdentityModel.Protocols;
@@ -73,19 +75,19 @@ The steps below are used to create an OWIN middleware Startup Class to configure
 
     ```csharp
     public class Startup
-    {        
+    {
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
-    
+
         // RedirectUri is the URL where the user will be redirected to after they sign in.
         string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
-    
+
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
-    
+
         // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
-    
+
         /// <summary>
         /// Configure OWIN to use OpenIdConnect 
         /// </summary>
@@ -93,7 +95,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
         public void Configuration(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
                 app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
@@ -119,7 +121,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
                 }
             );
         }
-    
+
         /// <summary>
         /// Handle failed authentication requests by redirecting the user to the home page with an error in the query string
         /// </summary>
@@ -132,7 +134,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
             return Task.FromResult(0);
         }
     }
-    
+
     ```
 
 

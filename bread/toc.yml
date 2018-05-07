@@ -21,12 +21,12 @@
       - name: Managed Service Identity
         tocHref: /azure/active-directory/managed-service-identity/
         topicHref: /azure/active-directory/managed-service-identity/
-  - name: Active Directory B2C
-    tocHref: /azure/active-directory-b2c/
-    topicHref: /azure/active-directory-b2c/
-  - name: Active Directory Domain Services
-    tocHref: /azure/active-directory-domain-services/
-    topicHref: /azure/active-directory-domain-services/
+      - name: B2C
+        tocHref: /azure/active-directory-b2c/
+        topicHref: /azure/active-directory-b2c/
+      - name: Domain Services
+        tocHref: /azure/active-directory-domain-services/
+        topicHref: /azure/active-directory-domain-services/
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -330,7 +330,7 @@
     - name: IoT Hub Device Provisioning Service
       tocHref: /azure/iot-dps/
       topicHref: /azure/iot-dps/
-    - name: IoT Suite
+    - name: IoT solution accelerators
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/   
     - name: Maps

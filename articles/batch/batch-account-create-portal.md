@@ -34,8 +34,7 @@ For background about Batch accounts and scenarios, see the [feature overview](ba
 
 ## Create a Batch account
 
-> [!NOTE]
-> When creating a Batch account, you should generally choose the default **Batch service** mode, in which pools are allocated behind the scenes in Azure-managed subscriptions. In the alternative **user subscription** mode, which is no longer recommended for most scenarios, Batch VMs and other resources are created directly in your subscription when a pool is created. To create a Batch account in user subscription mode, you must also register your subscription with Azure Batch, and associate the account with an Azure Key Vault.
+[!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
 1. Sign in to the [Azure portal][azure_portal].
 2. Click **Create a resource**, and search the Marketplace for **Batch Service**.

@@ -78,7 +78,12 @@ To enable HTTPS on a custom domain, follow these steps:
 
 
 ## Option 2: Enable the HTTPS feature with your own certificate 
+
+> [!IMPORTANT]
+> This feature is available only with **Azure CDN Standard from Microsoft** profiles. 
+>
  
+
 You can use your own certificate on Azure CDN to deliver content via HTTPS. This process is done through an integration with Azure Key Vault. Azure Key Vault allows customers to store their certificates securely. Azure CDN service leverages this secure mechanism to get the certificate. Using your own certificate requires a few additional steps.
 
 ### Step 1: Prepare your Azure Key vault account and certificate
@@ -89,7 +94,8 @@ You can use your own certificate on Azure CDN to deliver content via HTTPS. This
 
 ### Step 2: Grant Azure CDN access to your key vault
  
-You must grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+Grant Azure CDN permission to access the certificates (secrets) in your Azure Key Vault account.
+
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
     ![Create new access policy](./media/cdn-custom-ssl/cdn-new-access-policy.png)

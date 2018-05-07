@@ -1,18 +1,17 @@
 ---
 title: 'Azure AD SSPR from the Windows 10 login screen | Microsoft Docs'
 description: Configure Windows 10 login screen Azure AD password reset and I forgot my PIN
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: get-started-article
+ms.date: 04/27/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.service: active-directory
-ms.workload: identity
-ms.topic: get-started-article
-ms.date: 04/27/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Azure AD password reset from the login screen
