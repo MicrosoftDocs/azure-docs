@@ -1,6 +1,5 @@
 ---
-title: Supported languages - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Supported languages - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: Learn what languages are supported for QnA Maker.
 services: cognitive-services
 author: nstulasi
@@ -8,7 +7,7 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 # Supported languages
