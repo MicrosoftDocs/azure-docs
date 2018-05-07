@@ -16,6 +16,9 @@ ms.author: wolfma
 # Sample for Intent Recognition
 
 > [!NOTE]
+> For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
+
+> [!NOTE]
 > For all samples below, we assume the following top-level declarations are in place:
 >
 > ```csharp
