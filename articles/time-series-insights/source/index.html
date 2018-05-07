@@ -10,14 +10,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>    
     
     <!-- PROD RESOURCE LINKS -->
-    <link rel="stylesheet" type="text/css" href="sampleStyles.css"></link>
-    <script src="https://unpkg.com/tsiclient@1.1.5/tsiclient.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tsiclient@1.1.5/tsiclient.css"></link> 
+    <link rel="stylesheet" type="text/css" href="clientsample/sampleStyles.css"></link>
+    <script src="https://unpkg.com/tsiclient@1.1.8/tsiclient.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tsiclient@1.1.8/tsiclient.css"></link>
 
     <!-- DEV RESOURCE LINKS -->
     <!-- <link rel="stylesheet" type="text/css" href="pages/sampleStyles.css"></link> -->
-    <!-- <script src="dist/tsiclient.js"></script>
-    <link rel="stylesheet" type="text/css" href="dist/tsiclient.css"></link> -->
+    <!-- <script src="../dist/tsiclient.js"></script>
+    <link rel="stylesheet" type="text/css" href="../dist/tsiclient.css"></link> -->
 </head>
 <body>
     <div id="loginModal" style="display: none">
@@ -142,8 +142,8 @@
         // START: AUTHENTICATION RELATED CODE USING ADAL.JS
             // Set up ADAL
             var authContext = new AuthenticationContext({
-                clientId: 'b54d43ab-4c7d-41cc-bea4-f39016158011',
-                postLogoutRedirectUri: 'https://tsiclientsample.azurewebsites.net',
+                clientId: '120d688d-1518-4cf7-bd38-182f158850b6',
+                postLogoutRedirectUri: 'https://insights.timeseries.azure.com',
                 cacheLocation: 'localStorage'
             });
             
@@ -546,7 +546,6 @@
             tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions10.map(function(ae){return ae.toTsx()})).then(function(result){
                 var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions10);
                 var grid = new tsiClient.ux.Grid(document.getElementById('chart16'));
-                console.log(transformedResult);
                 grid.renderFromAggregates(transformedResult, {}, [{color: 'pink'}, {color: 'yellow'}]);
             });
         });
@@ -570,9 +569,6 @@
                 var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions11);
                 var heatmap = new tsiClient.ux.Heatmap(document.getElementById('chart17'));
                 heatmap.render(transformedResult, {timestamp: '2017-04-15T13:00:00Z', theme: "dark"}, aggregateExpressions11);
-
-                var heatmap2 = new tsiClient.ux.Heatmap(document.getElementById('chart18'));
-                heatmap2.render(transformedResult, {timestamp: '2017-04-15T13:00:00Z', theme: "dark"}, aggregateExpressions11);
             });
         });
     </script>

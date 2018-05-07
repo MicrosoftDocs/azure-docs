@@ -21,6 +21,8 @@ ms.author: bryanla
 
 # Tutorial: Explore the Time Series Insights JavaScript client library
 
+To help developers query and visualize data stored in Time Series Insights, we’ve developed a JavaScript D3-based control library that makes this work easy. Using a sample web application, we've designed at library that makes it easy for developers to understand and get started using these controls. 
+
 This tutorial guides you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming model. The topics discussed provide you with opportunities to experiment, gain a deeper understanding of how to access TSI data, and use chart controls to render and visualize data. The goal is to provide you with enough details, that you can use the library in your own web application.
 
 In this tutorial, you learn about:
@@ -30,24 +32,15 @@ In this tutorial, you learn about:
 > * The TSI JavaScript client library
 > * How the sample application uses the library to visualize TSI data
 
-<!--
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
--->
-
 ## Prerequisites
 
-<!--
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
--->
 This tutorial uses the "Developer Tools" feature (also known as DevTools or F12), found in most modern web browsers such as [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others. If you're not already familiar, you may want to explore this feature in your browser before continuing. 
 
 ## The Time Series Insights Sample Application
 
 Throughout this tutorial, the Time Series Insights Sample Application is used to explore the source code behind the application, including usage of the TSI JavaScript client library. The application is a Single-Page web Application (SPA), showcasing the use of the library for querying and visualizing data from a sample TSI environment. 
 
-1. Navigate to the [Time Series Insights sample application](https://tsiclientsample.azurewebsites.net/). You see a page similar to the following, prompting you for sign-in:
+1. Navigate to the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample). You see a page similar to the following, prompting you for sign-in:
    ![TSI Client Sample sign-in prompt](media/tut-explore-js-client-lib/tcs-sign-in.png)
 
 2. Click the "Log in" button and enter your credentials. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). The first time you use the application with a given account, you are prompted to give your consent to the application. Consent allows the application to sign in under your account, and access the TSI APIs to retrieve data on your behalf.  
@@ -123,36 +116,136 @@ The TSI Client library APIs makes heavy use of aggregate expressions. An aggrega
 Populating and rendering of chart controls follow this general pattern:
 
 1. Declare an array of aggregate expressions.  
-   - TODO: detail
+
+   ```javascript
+   var aes =  []
+   ```
+
 2. Build 1 to n aggregate expression objects, and add them to the aggregate expression array.  
-   - TODO: detail
+
+   ```javascript
+   var ae = new tsiClient.ux.aggregateExpression(predicateObject, measureObject, measureTypes, searchSpan, splitByObject, color, alias, contextMenuActions)
+   aes.push(ae)
+   ```
+   **aggregateExpression parameters**
+
+   | Parameter | Description | Example |
+   | --------- | ----------- | ------- |
+   | predicateObject | Filtering expression on the data. |{predicateString: "Factory = 'Factory3'"} |
+   | measureObject   | The measure property name.        | {property: 'Temperature', type: "Double"} |
+   | measureTypes    | Desired aggregations of the measure property | ['avg', 'min'] |
+   | searchSpan      | The duration and interval size of the aggregate expression. | { from: startDate, to: endDate, bucketSize: '2m' } |
+   | splitByObject   | The string property you wish to split by (optional – can be null). | {property: 'Station', type: 'String'} |
+   | color           | The color of the objects you wish to render. | 'pink' |
+   | alias           | A friendly name for the aggregate expression | 'Factory3Temperature' |
+   | contextMenuActions | An array of actions to be bound to the time series objects in a visualization (optional) | See [Pop-up menus in the Advanced features section](#popup-context-menus) |
+
 3. Call a TSI Query using `TsiClient.Server` APIs to request the aggregate data  
-   - TODO: detail
+
+   ```javascript
+   tsiClient.server.getAggregates(token, envFQDN, aeTsxArray)
+   ```
+   **getAggregates parameters**
+
+   | Parameter | Description | Example |
+   | --------- | ----------- | ------- |
+   | token     | Access token for the TSI API |	See sample code…using adal.js: authContext.getTsiToken() **TBD** |
+   | envFQDN	 | Fully Qualified Domain Name for the TSI environment | From the Azure portal, for example `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com` |
+   | aeTsxArray | Array of TSI query expressions | Using the `aes` variable as described above: `aes.map(function(ae){return ae.toTsx()}` |
+
 4. Transform the compressed result returned from the TSI Query, into JSON for visualization
-   - TODO: detail
-5. Create a chart control using `TsiClient.UX` APIs, and attach it to one of the `<div>` elements on the page.
-   - TODO: detail
-6. Populate the chart control with the transformed JSON data object(s)
-   - TODO: detail
 
-## Rendering charts
+   ```javascript
+   var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aes);
+   ```
 
-Let's look at some of the code behind some of the standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with id values `chart3`, `chart4`, and `chart5`. 
+5. Create a chart control using `TsiClient.UX` APIs, and bind it to one of the `<div>` elements on the page.
 
-### Pie chart example
+   ```javascript
+   var lineChart = new tsiClient.ux.BarChart(document.getElementById('chart3'));
+   ```
 
-### Line chart example
+6. Populate the chart control with the transformed JSON data object(s) and render it on the page:
 
-### Bar chart example
+   ```javascript
+   lineChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aes);
+   ```
 
 
-TODO: Go through the steps from the video.
+## Rendering controls
 
-## States and events
+Today, the library exposes eight unique analytics controls. They include a line chart, pie chart, bar chart, heatmap, hierarchy controls, an accessible grid, discrete event timelines, and state transition timelines. We will continue to expand the control components of the library in the future.  
 
-TODO: Go through the steps from the video.
+### Line, bar, pie chart examples 
 
-## Popup context menus
+First let's look at the code behind some standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with id values `chart3`, `chart4`, and `chart5`. 
+
+Recall from step #3 in the [Page source and structure section](#page-source-and-structure), chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the 3 charts being populated are all under the "Multiple Chart Types From the Same Data" title `<div>`,  and bound to the 3 `<div>` elements beneath it:
+
+   [!code-javascript[code-sample1-line-bar-pie](source/index.html?range=60-74&highlight=1,5,9,13)]
+
+The following section of JavaScript code uses the patterns outlined earlier, to build the TSI aggregate expressions, and use them to query for TSI data and render the 3 charts. Note the 3 types used from the `tsiClient.ux` namespace, `LineChart`, `BarChart`, `PieChart`, to create and render the charts respectively. Also note that all 3 charts use the same aggregate expression data:
+
+   [!code-javascript[code-sample2-line-bar-pie](source/index.html?range=236-257&highlight=13-14,16-17,19-20)]
+
+The finished charts appears as follow:
+
+  ![Multiple Chart Types From the Same Data](media/tut-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)
+
+## Advanced features
+
+The library also exposes some optional advanced features that you may want to take advantage of.  
+
+### States and events
+
+One example of the advanced functionality provided is the ability to add state transitions and discrete events to charts. For example, this is useful for highlighting incidents, alerting, and state switches like on/off. 
+
+Here we look at the code behind the section of HTML under the `// Example 10` comment, which renders a line control under the "Line Charts with Multiple Series Types" title, bound to the `<div>` with id value `chart10`:
+
+- First a structure is declared to hold an array of the state-change elements to be tracked, containing
+   - A string key named `"Component States"` 
+   - An array of value objects for each state, each of which includes:
+     - A string key containing a JavaScript ISO timestamp
+     - An array containing characteristics of the state
+       - a color
+       - a description
+- Then a structure called `"Incidents"` is declared, which holds an array of the event elements to be tracked. The array structure is the same shape as the one outlined for Component States, 
+
+- Finally the line chart is rendered, using chart options parameters: `events:` and `states:`. Note the other option parameters, for specifying a `tooltip:`, `theme:` or `grid:`. 
+
+   [!code-javascript[code-sample-states-events](source/index.html?range=332-384&highlight=5,26,51)]
+
+Visually, the diamond markers/popups are used to indicate incidents, and the colored bars/popups along the time scale indicate state changes:
+
+   ![Line Charts with Multiple Series Types](media/tut-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)
+
+### Popup context menus
+
+Another example of advanced functionality are custom context menus (i.e. right-click popup menus), which are useful to enable actions and logical next steps within the scope of your application.
+
+Here we look at the code behind the HTML under `// Example 13/14/15`. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title, bound to the `<div>` element with id value `chart13`. Using context menus, the line chart provides the capability to dynamically create a pie and bar chart, bound to `<div>` elements with ids `chart14` and `chart15`. In addition, both the pie and bar charts use context menus to enable the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window.
+
+- x
+- y 
+
+Lines 484 to 514 illustrate an example of how to create custom actions on context menu from time series in a line chart, allowing you to take actions to create bar and pie charts in the application, from the line chart.  These actions are then passed as a parameter when creating new AggregateExpressions, as shown in the “Call Actions” section above.
+
+   [!code-javascript[code-sample-context-menus](source/index.html?range=456-535&highlight=7,16,29,61-64)]
+
+   ![Line Chart with Context Menu to Create Pie/Bar Chart](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)
+
+
+### Brushes
+
+Brushes can be used to scope a time range to define actions like zoom and explore. 
+
+The code used to illustrate brushes is also shown in the "Line Chart with Context Menu to Create Pie/Bar Chart" example that shows [Popup context menus](#popup-context-menus-section). Similar to a context menu declaration, the `brushActions` structure declares 2 key/value items, a "name" key to declare the menu item text, and an "action" key to declare the corresponding action function. Here 2 actions are defined, to print the parameters available to illustrate the data available for subsequent actions from the context menu.
+
+As with context menus, brush actions are added as another chart option property, such as the `brushContextMenuActions: brushActions` property being passed to the `linechart.Render` call.
+
+   [!code-javascript[code-sample-brushes](source/index.html?range=521-535&highlight=1,13)]
+
+   ![Line Chart with Context Menu to Create Pie/Bar Chart using brushes](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
 
 ## Next steps
 
