@@ -117,7 +117,7 @@ As an example, let's work with a simple social network with four people. We look
 The `Microsoft.Azure.Graphs.Elements` namespace provides `Vertex`, `Edge`, `Property` and `VertexProperty` classes for deserializing GraphSON responses to well-defined .NET objects.
 
 ## Run Gremlin using CreateGremlinQuery
-Gremlin, like SQL, supports read, write, and query operations. For example, the following snippet shows how to create vertices, edges, perform some sample queries using `CreateGremlinQuery<T>`, and asynchronously iterate through these results using `ExecuteNextAsync` and `HasMoreResults.
+Gremlin, like SQL, supports read, write, and query operations. For example, the following snippet shows how to create vertices, edges, perform some sample queries using `CreateGremlinQuery<T>`, and asynchronously iterate through these results using `ExecuteNextAsync` and `HasMoreResults`.
 
 ```cs
 Dictionary<string, string> gremlinQueries = new Dictionary<string, string>
