@@ -1,14 +1,14 @@
 ---
 title: Targeting Management Solutions in Azure | Microsoft Docs
 description: Targeting management solutions allows you to limit management solutions to a specific set of agents.  This article describes how to create a scope configuration and apply it to a solution.
-services: operations-management-suite
+services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
-ms.service: operations-management-suite
+ms.service: monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -61,7 +61,7 @@ Apply a scope configuration using the following process.
 Following are the criteria for agents and solutions that can't be used with solution targeting.
 
 - Solution targeting only applies to solutions that deploy to agents.
-- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](operations-management-suite-solutions-creating.md).
+- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](monitoring-solutions-creating.md).
 - You can only filter out agents that connect directly to Log Analytics.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
 
 ### Exceptions

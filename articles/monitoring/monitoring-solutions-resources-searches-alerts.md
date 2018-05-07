@@ -1,13 +1,13 @@
 ---
 title: Saved searches and alerts in management solutions | Microsoft Docs
 description: Management solutions typically include saved searches in Log Analytics to analyze data collected by the solution.  They may also define alerts to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a Resource Manager template so they can be included in management solutions.
-services: operations-management-suite
+services:  monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 
-ms.service: operations-management-suite
+ms.service:  monitoring
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,18 +25,18 @@ ms.custom: H1Hack27Feb2017
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions](operations-management-suite-solutions.md) will typically include 
-[saved searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](operations-management-suite-solutions-creating.md).
+[Management solutions](monitoring-solutions.md) will typically include 
+[saved searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](operations-management-suite-solutions-creating.md)  
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](monitoring-solutions-creating.md)  
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a management solution](operations-management-suite-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
+This article assumes that you're already familiar with how to [create a management solution](monitoring-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
+All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](monitoring-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
 
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a SavedSearch resource.
 
@@ -305,7 +305,7 @@ Following is a sample of a solution that includes that includes the following re
 - Schedule
 - Action group
 
-The sample uses [standard solution parameters](operations-management-suite-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters]( monitoring-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 ```
 	{
@@ -493,6 +493,6 @@ The following parameter file provides samples values for this solution.
 ```
 
 ## Next steps
-* [Add views](operations-management-suite-solutions-resources-views.md) to your management solution.
-* [Add Automation runbooks and other resources](operations-management-suite-solutions-resources-automation.md) to your management solution.
+* [Add views](monitoring-solutions-resources-views.md) to your management solution.
+* [Add Automation runbooks and other resources](monitoring-solutions-resources-automation.md) to your management solution.
 
