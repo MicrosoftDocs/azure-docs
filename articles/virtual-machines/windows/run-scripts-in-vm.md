@@ -1,4 +1,4 @@
- W---
+---
 title: Run scripts in a Windows VM
 description: This topic describes how to run scripts within a Windows virtual machine
 services: automation
