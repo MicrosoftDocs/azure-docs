@@ -56,9 +56,9 @@ The following are the REST endpoints for the unified Speech service Text to Spee
 
 Region|	Endpoint
 -|-
-West US|	https://westus.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
-East Asia|	https://eastasia.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
-North Europe|	https://northeurope.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+West US|	`https://westus.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+East Asia|	`https://eastasia.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+North Europe|	`https://northeurope.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
 > If you created a custom voice font, use your custom endpoint instead.

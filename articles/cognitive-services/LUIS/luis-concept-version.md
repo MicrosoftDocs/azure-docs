@@ -54,6 +54,8 @@ The owner and all [collaborators](luis-how-to-collaborate.md) have full access t
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
+
+Learn how to design [intents](luis-concept-intent.md) into the model.
 
 [LUIS]:luis-reference-regions.md
