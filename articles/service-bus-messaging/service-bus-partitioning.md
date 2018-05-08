@@ -2,29 +2,25 @@
 title: Create partitioned Azure Service Bus queues and topics | Microsoft Docs
 description: Describes how to partition Service Bus queues and topics by using multiple message brokers.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
 
-ms.assetid: a0c7d5a2-4876-42cb-8344-a1fc988746e7
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 05/08/2016
 ms.author: sethm
 
 ---
 # Partitioned queues and topics
+
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 For information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
-Partitioning is enabled by default at entity creation on all queues and topics in both Standard and Premium messaging. You can create Standard messaging tier entities without partitioning, but queues and topics in a Premium namespace are always partitioned; this option cannot be disabled. 
+Note the following considerations:
 
-It is not possible to change the partitioning option on an existing queue or topic in either Standard or Premium tiers, you can only set the option when you create the entity.
+- Partitioning is available at entity creation for all queues and topics in Premium messaging, but it is not enabled by default. You must explicitly enable it in the entity options in the Azure portal. 
+- It is not possible to change the partitioning option on an existing queue or topic; you can only set the option when you create the entity.
 
 ## How it works
 
