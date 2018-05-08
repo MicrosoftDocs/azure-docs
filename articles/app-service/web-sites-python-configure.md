@@ -26,9 +26,9 @@ It describes additional features of Git deployment, such as virtual environment 
 ## Bottle, Django, or Flask?
 The Azure Marketplace contains templates for the Bottle, Django, and Flask frameworks. If you are developing your first web app in Azure App Service, you can create one quickly from the Azure portal:
 
-* [Creating web apps with Bottle](https://portal.azure.com/#create/PTVS.Bottle)
-* [Creating web apps with Django](https://portal.azure.com/#create/PTVS.Django)
-* [Creating web apps with Flask](https://portal.azure.com/#create/PTVS.Flask)
+* [Web app with Bottle](https://portal.azure.com/#create/PTVS.Bottle)
+* [Web app with Django](https://portal.azure.com/#create/PTVS.Django)
+* [Web app with Flask on Linux](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## Web app creation on Azure portal
 This tutorial assumes an existing Azure subscription and access to the Azure portal.
