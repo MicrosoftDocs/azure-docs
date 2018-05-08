@@ -53,6 +53,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 *   **SAML 2.0** or **WS-Fed**: Your application needs to have the capability to do the SAML/WS-Fed SSO integration in SP or IDP mode. If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
+
     ![TimeLine of listing SAML 2.0 or WS-Fed application into the gallery](./media/active-directory-app-gallery-listing/saml.png)
 
     * If you want to add your application to list in the gallery using **SAML 2.0** or **WS-Fed**, select **SAMl 2.0/WS-Fed** as above.
@@ -65,7 +66,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
 
     * If you want to add your application to list in the gallery using Password SSO, select **Password SSO** as above.
 
-    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##	Update/Remove existing listing
 
@@ -74,7 +75,7 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 * Select appropriate option from the below image
 
     ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/updateorremove.png)
-
+    
     * If you want to update an existing application, select **Update existing application listing**.
 
     * If you want to remove an existing application from the Azure AD gallery, select **Remove existing application listing**
