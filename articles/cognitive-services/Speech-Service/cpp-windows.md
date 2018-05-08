@@ -24,7 +24,7 @@ The application is based on the [Microsoft Cognitive Services SDK NuGet Package]
 
 > [!NOTE]
 > This quick start requires a PC with a working microphone.
-> For a sample that recognizes speech from a given audio input file see the [sample](speech-to-text-sample.md?tabs=cpp#speech-recognition-from-a-file).
+> For a sample that recognizes speech from a given audio input file see the [sample](speech-to-text-sample.md#speech-recognition-from-a-file).
 
 > [!NOTE]
 > Please ensure that your Visual Studio installation includes the **Desktop development with C++** workload.
@@ -72,7 +72,7 @@ In the license screen that pops up, accept the license:
 
 Replace the code with the following:
 
-[!code-cpp[Quickstart Code](code/CppHelloSpeech.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
 > Replace the subscription key with one that you obtained.
