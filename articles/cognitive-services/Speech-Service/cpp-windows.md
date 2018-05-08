@@ -72,7 +72,7 @@ In the license screen that pops up, accept the license:
 
 Replace the code with the following:
 
-[!code-cpp[Quickstart Code](code/CppHelloSpeech.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
 
 > [!IMPORTANT]
 > Replace the subscription key with one that you obtained.
