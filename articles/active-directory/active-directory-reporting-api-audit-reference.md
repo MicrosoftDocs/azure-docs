@@ -19,6 +19,10 @@ ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory audit API reference
+
+
+
+
 This topic is part of a collection of topics about the Azure Active Directory reporting API.  
 Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.
 The scope of this topic is to provide you with reference information about the **audit API**.
