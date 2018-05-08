@@ -1,7 +1,8 @@
 ---
-title: Quickstart Self-service password reset quickstart
+title: Quickstart Azure AD self-service password reset
 description: In this quickstart, you will quickly configure Azure AD self-service password reset to allow users to reset their own passwords
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: quickstart
@@ -35,7 +36,7 @@ A pilot group to test with that the non-administrator user is a member of, if yo
 
 3. From the **Authentication methods** page, choose the following:
    * **Number of methods required to reset**: 1
-   * **Methods available to users**: 
+   * **Methods available to users**:
       * **Mobile phone**
       * **Office phone**
    * Click **Save**
@@ -68,6 +69,6 @@ It's easy to disable self-service password reset. Open your Azure AD tenant and 
 In this quickstart, you’ve learned how to configure self-service password reset for your users. To complete these steps, continue to the Azure portal:
 
 > [!div class="nextstepaction"]
-> [Enable self-service password reset](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+> [Enable self-service password reset](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure AD authentication methods available and the quantity required"

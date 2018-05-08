@@ -2,21 +2,59 @@
 
 # Overview
 
+## [What is authenticaion](../active-directory/authentication/overview-authentication.md)
 ## [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
-## [How it works](../active-directory/authentication/concept-mfa-howitworks.md)
-## [How to get Azure MFA](../active-directory/authentication/concept-mfa-licensing.md)
+## [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
 
-# Get started
+# Quickstarts
 
-## [Choose where to deploy](../active-directory/authentication/concept-mfa-whichversion.md)
-## [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
-## [MFA for O365 users](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
+## [Configure Multi-Factor Authentication](../active-directory/authentication/quickstart-mfa.md)
+## [Configure password reset](../active-directory/authentication/quickstart-sspr.md)
 
-# How to
+# Tutorials
 
-## Azure MFA
-### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)
+## [Define authentication methods](../active-directory/authentication/tutorial-authenticationmethods.md)
+## [Enroll users for MFA/SSPR]
+## [Configure authentication options]
+## [Configure banned password list]
+## [Enable a SSPR pilot]
+## [Enable MFA using conditional access]
+## [Enable MFA using Identy Protection]
+
+# Samples
+
+# Concepts
+
+## Self-service password reset
+### [How password reset works](../active-directory/authentication/concept-sspr-howitworks.md)
+### [Password reset options](../active-directory/authentication/concept-sspr-customization.md)
+### [Password reset policies](../active-directory/authentication/concept-sspr-policy.md)
+### [What license do I need](../active-directory/authentication/concept-sspr-licensing.md)
+### [Ban bad passwords]
+
+## Multi-Factor Authentication
+### [How MFA works](../active-directory/authentication/concept-mfa-howitworks.md)
+### [What version is right](../active-directory/authentication/concept-mfa-whichversion.md)
+### [License your users](../active-directory/authentication/concept-mfa-licensing.md)
 ### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
+
+
+## [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
+## [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
+
+# How to Guides
+
+## [Choose authentication methods]
+
+## Password reset
+### [SSPR Deployment guide](../active-directory/authentication/howto-sspr-deployment.md)
+### [SSPR Data requirements](../active-directory/authentication/howto-sspr-authenticationdata.md)
+### [Password writeback](../active-directory/authentication/howto-sspr-writeback.md)
+### [On-premises banned password list]
+### [SSPR and Windows 10](../active-directory/authentication/tutorial-sspr-windows.md)
+
+## Cloud-based MFA
+### [Deploy cloud-based MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 ### [Enable or disable MFA](../active-directory/authentication/howto-mfa-userstates.md)
 ### [User and device settings](../active-directory/authentication/howto-mfa-userdevicesettings.md)
 ### [Configure settings](../active-directory/authentication/howto-mfa-mfasettings.md)
@@ -29,6 +67,7 @@
 #### [Advanced configuration for NPS extension](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
 #### [Remote Desktop Gateway](../active-directory/authentication/howto-mfa-nps-extension-rdg.md)
 #### [VPN](../active-directory/authentication/howto-mfa-nps-extension-vpn.md)
+### [Migration from MFA Server]
 
 ## MFA Server
 ### [Deploy MFA on-premises](../active-directory/authentication/howto-mfaserver-deploy.md)
@@ -51,9 +90,18 @@
 #### [Advanced VPN Configurations](../active-directory/authentication/howto-mfaserver-nps-vpn.md)
 
 ## Develop
-### [Building into custom apps (SDK)](../active-directory/authentication/howto-mfa-sdk.md)
+### [Support Modern Authentication]
+### [Build MFA into custom apps](../active-directory/authentication/howto-mfa-sdk.md)
 
-## [Reporting](../active-directory/authentication/howto-mfa-reporting.md)
+## Reporting
+### [SSPR Reports]](../active-directory/authentication/howto-sspr-reporting.md)
+### [MFA Reports]](../active-directory/authentication/howto-mfa-reporting.md)
+
+# Deprecate
+
+## SSPR
+### [Troubleshoot](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
+### [FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
 
 ## [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
@@ -62,6 +110,19 @@
 ### [NPS extension errors](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
 ### [Ask a question](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
 
+# Reference
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=active-directory)
+## [Azure PowerShell cmdlets](/powershell/azure/overview)
+## [Java API Reference](/java/api)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
+## [Service limits and restrictions](../active-directory/active-directory-service-limits-restrictions.md)
+
 # Resources
+## [Azure feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
+## [Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

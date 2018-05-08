@@ -2,6 +2,7 @@
 title: Quickstart Azure Multi-Factor Authentication
 description: In this quickstart, you will quickly configure Azure Multi-Factor Authentication to protect access to the Azure Portal
 
+services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: quickstart
@@ -20,8 +21,10 @@ In this quickstart, you configure Azure Multi-Factor Authentication (Azure MFA) 
 
 ## Prerequisites
 
-You need a working Azure AD tenant with at least a trial license enabled. An account with Global Administrator privileges. A standard non-administrator user with a password you know for testing, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
-A pilot group to test with that the non-administrator user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
+* You need a working Azure AD tenant with at least a trial license enabled. 
+* An account with Global Administrator privileges.
+* A standard non-administrator user with a password you know for testing, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
+* A pilot group to test with that the non-administrator user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
 
 ## Log in to Azure
 
@@ -79,4 +82,4 @@ If you have completed your pilot, you can clean up the resources used in this qu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure MFA detailed tutorial]
+> [Azure MFA detailed tutorial](howto-mfa-getstarted.md)
