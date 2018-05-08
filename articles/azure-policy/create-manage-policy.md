@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # Create and manage policies to enforce compliance
 
-Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements. In this tutorial, you learn to use Azure Policy to do some of the more common tasks related to creating, assigning and managing policies across your organization, such as:
+Understanding how to create and manage policies in Azure is important for staying compliant with your corporate standards and service level agreements. In this tutorial, you learn to use Azure Policy to do some of the more common tasks related to creating, assigning, and managing policies across your organization, such as:
 
 > [!div class="checklist"]
 > - Assign a policy to enforce a condition for resources you create in the future
@@ -20,11 +20,11 @@ Understanding how to create and manage policies in Azure is important for stayin
 > - Resolve a non-compliant or denied resource
 > - Implement a new policy across an organization
 
-If you would like to assign a policy to identify the current compliance state of your existing resources, the quickstart articles go over how to do so. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you would like to assign a policy to identify the current compliance state of your existing resources, the quickstart articles go over how to do so. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Assign a policy
 
-The first step in enforcing compliance with Azure Policy is to assign a policy definition. A policy definition defines under what condition a policy is enforced and what effect to take. In this example, assign a built-in policy definition called *Require SQL Server version 12.0*, to enforce the condition that all SQL Server databases must be v12.0 to be compliant.
+The first step in enforcing compliance with Azure Policy is to assign a policy definition. A policy definition defines under what condition a policy is enforced and what effect to take. In this example, assign a built-in policy definition, called *Require SQL Server version 12.0*, to enforce the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
@@ -62,10 +62,14 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
 2. Select **+ Policy definition** at the top of the page. This opens to the **Policy definition** page.
 3. Enter the following:
 
-   - The subscription in which the policy definition resides. Select your subscription by using the ellipsis on **Definition location**.
+   - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
+
+     > [!NOTE]
+     > If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the policy to. The same is true for an initiative definition.
+
    - The name of the policy definition - *Require VM SKUs smaller than the G series*
    - The description of what the policy definition is intended to do – *This policy definition enforces that all VMs created in this scope have SKUs smaller than the G series to reduce cost.*
-   - Chose from existing options, or create a new category for this policy definition.
+   - Choose from existing options, or create a new category for this policy definition.
    - Copy the following json code and then update it for your needs with:
       - The policy parameters.
       - The policy rules/conditions, in this case – VM SKU size equal to G series
@@ -313,7 +317,7 @@ It returns all available policy definitions, including built-in policies. Each p
 
 ## Create and assign an initiative definition
 
-With an initiative definition, you can group several policy definitions to achieve one overarching goal. You create an initiative definition to ensure that resources within the scope of the definition stay compliant with the policy definitions that make up the initiative definition.  See the [Azure Policy overview](azure-policy-introduction.md) for more information on initiative definitions.
+With an initiative definition, you can group several policy definitions to achieve one overarching goal. You create an initiative definition to ensure that resources within the scope of the definition stay compliant with the policy definitions that make up the initiative definition.  For more information about initiative definitions, see [Azure Policy overview](azure-policy-introduction.md).
 
 ### Create an initiative definition
 
@@ -321,7 +325,7 @@ With an initiative definition, you can group several policy definitions to achie
 
    ![Select definitions](media/create-manage-policy/select-definitions.png)
 
-2. Select **+ Initiative Definition** at the top of the page. This opens the **Initiative definition** page.
+2. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition** page.
 
    ![Initiative definition](media/create-manage-policy/initiative-definition.png)
 
@@ -329,11 +333,11 @@ With an initiative definition, you can group several policy definitions to achie
 
 4. Enter the **Name** and **Description** of the initiative.
 
-   This example will ensure that resources are in compliance with policy definitions about getting secure. So, the name of the initiative would be **Get Secure**, and the description would be: **This initiative has been created to handle all policy definitions associated with securing resources**.
+   This example will ensure that resources are in compliance with policy definitions about getting secure. So, the name of the initiative would be **Get Secure** and the description would be: **This initiative has been created to handle all policy definitions associated with securing resources**.
 
-5. For **Category**, chose from existing options or create a new category.
+5. For **Category**, choose from existing options or create a new category.
 
-6. Browse through the list of **Available Definitions** (right half of **Initiative definition** page) and select the policy definition(s) you would like to add to this initiative. For our **Get secure** initiative, add the following built-in policy definitions by clicking the **+** next to the policy definition information or clicking a policy definition row and then the **+ Add** option in the details page:
+6. Browse through the list of **Available Definitions** (right half of **Initiative definition** page) and select the policy definition(s) you would like to add to this initiative. For the **Get secure** initiative, add the following built-in policy definitions by clicking the **+** next to the policy definition information or clicking a policy definition row and then the **+ Add** option in the details page:
    - Require SQL Server version 12.0
    - [Preview]: Monitor unprotected web applications in Security Center.
    - [Preview]: Monitor permissive network across in Security Center.
@@ -350,17 +354,17 @@ With an initiative definition, you can group several policy definitions to achie
 
 1. Select **Definitions** under **AUTHORING** in the left side of the Azure Policy page.
 2. Locate the **Get Secure** initiative definition you previously created and select it.
-3. Select **Assign** at the top of the page. This opens to the **Get Secure: Assign Initiative** page.
+3. Select **Assign** at the top of the page to open to the **Get Secure: Assign Initiative** page.
 
    ![Assign a definition](media/create-manage-policy/assign-definition.png)
 
-   Alternatively, you can right-click on the selected row or left-click on the ellipsis at the end of the row for a contextual menu, and select **Assign**.
+   Alternatively, you can right-click on the selected row or left-click on the ellipsis at the end of the row for a contextual menu.  Then select **Assign**.
 
    ![Right-click a row](media/create-manage-policy/select-right-click.png)
 
 4. Fill out the **Get Secure: Assign Initiative** page by entering the following example information. You can use your own information.
 
-   - Scope: The subscription you saved the initiative to will be the default.  You can change this to assign the initiative to a resource group within the subscription save location.
+   - Scope: The subscription you saved the initiative to will be the default.  You can change scope to assign the initiative to a resource group within the subscription save location.
    - Exclusions: Configure any resources within the scope to prevent the initiative assignment from being applied to them.
    - Initiative definition and Assignment name: Get Secure (pre-populated as name of initiative being assigned).
    - Description: This initiative assignment is tailored to enforce this group of policy definitions.

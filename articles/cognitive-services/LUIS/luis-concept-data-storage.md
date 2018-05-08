@@ -7,7 +7,7 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 05/08/2018
 ms.author: v-geberr
 ---
 
@@ -27,6 +27,14 @@ You can delete utterances from the list of user utterances that LUIS suggests in
 If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained for 60 days before the account and data are deleted permanently.
 
 Deleting account is available from the **Settings** page. Select your account name in the top right navigation bar to get to the **Settings** page.
+
+## Data inactivity as an expired subscription
+For the purposes of data retention and deletion, a LUIS app that has been inactive may at _Microsoft’s discretion_ be treated as an expired subscription. An app is considered as an expired subscription when it has been inactive for 90 days and when it: 
+
+* Has had **no** calls are made to it.
+* Has not been modified.
+* Does not have a current key assigned to it.
+* Has not had a user sign in to it.
 
 ## Next steps
 
