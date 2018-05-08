@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/27/2018
+ms.date: 05/07/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want to quickly build
@@ -24,7 +24,6 @@ All your Dockerfile expertise is directly transferrable to ACR Build. You don't 
 In this tutorial, part one of a series:
 
 > [!div class="checklist"]
-> * Get ACR Build
 > * Get the sample application source code
 > * Build a container image in Azure
 > * Deploy a container to Azure Container Instances
@@ -36,41 +35,9 @@ In subsequent tutorials, you learn to use ACR Build's build tasks for automated 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have Azure CLI version 2.0.31 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
-
-### Get ACR Build
-
-While ACR Build is in preview, you must manually install the **acrbuildext** Azure CLI extension using the following steps.
-
-Uninstall any previous version of the extension:
-
-```azurecli-interactive
-az extension remove -n acrbuildext
-```
-
-Install the current version of the extension:
-
-```azurecli-interactive
-az extension add --source https://acrbuild.blob.core.windows.net/cli/acrbuildext-0.0.4-py2.py3-none-any.whl -y
-```
-
-Execute `az acr build --help` to verify successful installation:
-
-```console
-$ az acr build --help
-This command is from the following extension: acrbuildex
-tCommand
-    az acr build: Queues a new build based on the specified parameters
-.Arguments
-    --context -c  [Required]: The local source code directory path (eg, './src') or the url to a git
-                              repository (eg, 'https://github.com/docker/rootfs.git') or a remote
-                              tarball (eg, 'http://server/context.tar.gz').
-    --registry -r [Required]: The name of the container registry. You can configure the default
-                              registry name using `az configure --defaults acr=<registry name>`.
-[...]
-```
 
 ### GitHub account
 
@@ -126,13 +93,13 @@ az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --loca
 Now that you have a registry, use ACR Build to build a container image from the sample code. Execute the [az acr build][az-acr-build] command to perform a *Quick Build*:
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
 ```
 
 Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that ACR Build runs in the cloud. Because ACR Build uses `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Build immediately.
 
 ```console
-$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 --context .
+$ az acr build --registry $ACR_NAME --image helloacrbuild:v1 .
 Sending build context (41.042 KiB) to ACR
 Queued a build with ID: eastus1
 Sending build context to Docker daemon  191.5kB

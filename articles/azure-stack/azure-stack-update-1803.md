@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -38,8 +38,18 @@ The Azure Stack 1803 update build number is **20180329.1**.
 
 
 ### Prerequisites
-- Install the Azure Stack [1802 Update](azure-stack-update-1802.md) before you apply the Azure Stack 1803 update.    
+- Install the Azure Stack [1802 Update](azure-stack-update-1802.md) before you apply the Azure Stack 1803 update.   
 
+- Install **AzS Hotfix – 1.0.180312.1- Build 20180222.2** before you apply the Azure Stack 1803 update. This hotfix updates Windows Defender, and is available when you download updates for Azure Stack.
+
+  To install the hotfix, follow the normal procedures for [installing updates for Azure Stack](azure-stack-apply-updates.md). The name of the update appears as **AzS Hotfix – 1.0.180312.1**, and includes the following files: 
+    - PUPackageHotFix_20180222.2-1.exe
+    - PUPackageHotFix_20180222.2-1.bin
+    - Metadata.xml
+
+  After uploading these files to a storage account and container, run the install from the Update tile in the admin portal. 
+  
+  Unlike updates to Azure Stack, installing this update does not change the version of Azure Stack. To confirm this update is installed, view the list of **Installed updates**.
 
 ### Post-update steps
 - After the installation of 1803, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).

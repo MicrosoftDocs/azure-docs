@@ -50,6 +50,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Event Grid](#azure-event-grid-limits)
+* [Azure Maps](#azure-maps-limits)
 * [Azure Redis Cache](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -58,7 +59,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Cloud Services](#cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Container Service (AKS)](#container-service-aks-limits)
+* [Kubernetes Service](#container-service-aks-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
@@ -126,7 +127,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### Container Service (AKS) limits
+### Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
@@ -277,6 +278,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Azure Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
+
+### Azure Maps limits
+[!INCLUDE [maps-limits](../includes/maps-limits.md)]
 
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
