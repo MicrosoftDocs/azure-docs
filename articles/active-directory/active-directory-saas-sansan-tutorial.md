@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | PC web                  | `https://ap.sansan.com/<company name>`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. Sansan application supports multiple Identifier and Reply URL patterns for different environmnets (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**, the detailed steps are explained later in the tutorial.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. Sansan application supports multiple Identifier and Reply URL patterns for different environments (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**. The detailed steps are explained later in the tutorial.
 
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
@@ -150,13 +150,13 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	>[!NOTE]
 	>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
-8. To update **Sansan** application with multiple Identifier and Reply URLs using **Powershell script** perform the following steps:
+8. To update **Sansan** application with multiple Identifiers and Reply URL values using **Powershell script** perform the following steps:
 
 	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
 
-	a. Go to the **properties** page of **Sansan** application and copy the **Object Id** using **Copy** button and paste it into notepad.
+	a. Go to the **Properties** page of **Sansan** application and copy the **Object ID** using **Copy** button and paste it into Notepad.
 
-	b. The **Object Id** which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in powershell script used later in the tutorial. 
+	b. The **Object ID**, which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in powershell script used later in the tutorial. 
 
 	c. Now open an elevated Windows PowerShell command prompt.
 	
@@ -210,6 +210,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	}
 	```
 ### Creating an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
 ![Create Azure AD User][100]
