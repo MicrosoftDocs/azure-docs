@@ -12,7 +12,7 @@ ms.author: alkohli
 
 ---
 # Use the Microsoft Azure Import/Export service to import data to Azure Blob storage
-In this article, we provide step-by-step instructions on how to use the Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encyrpted disk drives containing your data to an Azure datacenter.  
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.  
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before you create an import job to transfer data into Azure Blob Storage, carefu
 
 - You must have an active Azure subscription that can be used for the Import/Expert service.
 - You need one or more Azure Storage accounts. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
-- You must have adquate number of HDDs/SSDs required for your data.
+- You must have adequate number of HDDs/SSDs required for your data.
     - The disks must belong to the list of [Supported disk types](storage-import-export-requirements.md#supported-disks). 
     - The disks must be prepared using the procedure described in [Prepare the disks with WAImportExport tool V1](storage-import-export-tool-preparing-hard-drives-import-v1). 
 - You need access to a Windows system where you will install WAImportExport tool. This tool is available in two versions. We recommend that for this import job you use the V1 tool. 
@@ -66,7 +66,7 @@ Perform the following steps to prepare the drives.
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-2. In **Basics**, do the following:
+2. In **Basics**, do the following steps:
 
     - Select **Import into Azure**.
     - Enter a string for job name.
@@ -76,34 +76,34 @@ Perform the following steps to create an import job in the Azure portal.
         - The name may contain only lowercase letters, numbers, hyphens, and underscores.
         - The name must start with a letter, and may not contain spaces. 
 
-3. In **Job details**, do the following:
+3. In **Job details**, do the following steps:
 
     - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
     - Select the destination storage account where data will reside. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In **Return shipping info**, do the following:
+4. In **Return shipping info**, do the following steps:
 
     - Select the carrier from the dropdown list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
-5. In the **Summary**, do the following:
+5. In the **Summary**, do the following steps:
 
     - Provide the Azure datacenter shipping address to ship disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete Import job creation.
 
 ## Step 3: Ship the drives 
 
-FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. You must provide a valid FedEx, UPS, or DHL carrier account number to be used by Microsoft for shipping the drives back. 
+FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. Provide a valid FedEx, UPS, or DHL carrier account number that Microsoft will use to ship the drives back. 
 - A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
 - A DHL account number is required for shipping drives back from Asia and Australia locations. If you do not have one, create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account.
 - When shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
 
 ## Step 4: Update the job with tracking information
 
-After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking numbe. Do the following steps.
+After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. Do the following steps.
  
 1. Select and click the job.
 2. Click **Update job status and tracking info once drives are shipped**. 
