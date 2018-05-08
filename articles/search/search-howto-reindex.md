@@ -32,8 +32,8 @@ Plan on frequent, full rebuilds during active development, when index schemas ar
 | Modification | Rebuild status|
 |--------------|---------------|
 | Change a field name, data type, or its [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) | Changing a field definition typically incurs a rebuild penalty, with the exception of these [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index): Retrievable, SearchAnalyzer, SynonymMaps. You can add the Retrievable, SearchAnalyzer, and SynonymMaps attributes to an existing field without having to rebuild its index.|
-| Add a field | No strict requirement on rebuild. Existing indexed documents are given a null value for the new field. On a future reindex, values from source data are added to documents. |
-| Delete a field | No strict requirement on rebuild. A deleted field isn't used, but physically the field definition and contents remain in the index until the next rebuild. |
+| Add a field | No strict requirement on rebuild. Existing indexed documents are given a null value for the new field. On a future reindex, values from source data replace the nulls added by Azure Search. |
+| Delete a field | You can't directly delete a field from an Azure Search index. Instead, you should have your application ignore the "deleted" field to avoid using it. Physically, the field definition and contents remain in the index until the next time you rebuild your index using a schema that omits the field in question.|
 
 > [!Note]
 > A rebuild is also required if you switch tiers. If at some point you decide on more capacity, there is no in-place upgrade. A new service must be created at the new capacity point, and indexes must be built from scratch on the new service. 
