@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2018
+ms.date: 05/07/2018
 ms.author: andret
 ms.custom: include file 
 ---
@@ -26,7 +26,7 @@ This section shows the steps to install and configure the authentication pipelin
 
 ### Create your ASP.NET project
 
-1. In Visual Studio: `File` > `New` > `Project`<br/>
+1. In Visual Studio: `File` > `New` > `Project`
 2. Under *Visual C#\Web*, select `ASP.NET Web Application (.NET Framework)`.
 3. Name your application and click *OK*
 4. Select `Empty` and select the checkbox to add `MVC` references
@@ -37,11 +37,11 @@ This section shows the steps to install and configure the authentication pipelin
 2. Add *OWIN middleware NuGet packages* by typing the following in the Package Manager Console window:
 
     ```powershell
-    Install-Package Microsoft.Owin.Security.OpenIdConnect -Version 3.1.0
-    Install-Package Microsoft.Owin.Security.Cookies -Version 3.1.0
-    Install-Package Microsoft.Owin.Host.SystemWeb -Version 3.1.0
+    Install-Package Microsoft.Owin.Security.OpenIdConnect
+    Install-Package Microsoft.Owin.Security.Cookies
+    Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### About these libraries
 >The libraries above enable single sign-on (SSO) using OpenID Connect via cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so the user doesn't need to retype the password, and no additional verification is needed.
@@ -51,20 +51,19 @@ This section shows the steps to install and configure the authentication pipelin
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > [!TIP]
-> If your project doesn't have a `Startup.cs` file in the root folder:<br/>
-> 1. Right-click on the project's root folder: >	`Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Name it `Startup.cs`<br/>
+> If your project doesn't have a `Startup.cs` file in the root folder:
+> 1. Right-click on the project's root folder: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Name it `Startup.cs`
 >
 >> Make sure the class selected is an OWIN Startup Class and not a standard C# class. Confirm this by checking if you see `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` above the namespace.
 
-1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs` so that the using declarations become the following:
+1. Add *OWIN* and *Microsoft.IdentityModel* references to `Startup.cs`:
 
     ```csharp
-    using System;
-    using System.Threading.Tasks;
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -97,7 +96,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -106,13 +105,16 @@ The steps below are used to create an OWIN middleware Startup Class to configure
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -134,9 +136,7 @@ The steps below are used to create an OWIN middleware Startup Class to configure
             return Task.FromResult(0);
         }
     }
-
     ```
-
 
 <!--start-collapse-->
 > ### More Information
