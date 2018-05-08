@@ -22,12 +22,25 @@ With Maya and 3ds Max, you can run jobs using the [BatchLabs](https://github.com
 
 The Batch Rendering service currently supports the following applications:
 
-•	Autodesk Maya I/O 2017 Update 4 (version 17.4.5459)
-•	Autodesk 3ds Max I/O 2018 Update 1 (version 20.1.0.238)
-•	Autodesk Arnold for Maya (version 5.0.1.1)
-•	Autodesk Arnold for 3ds Max (version 1.0.836)
-•	Chaos Group V-Ray for Maya (version 3.52.03)
-•	Chaos Group V-Ray for 3ds Max (version 3.60.02)
+On CentOS 7 rendering nodes:
+- Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
+- Autodesk Maya I/O 2018 Update 2 cut 201711281015
+- Autodesk Arnold for Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya 2018 (Arnold version 5.0.1.4) MtoA-2.1.0.3-2018
+- Chaos Group V-Ray for Maya 2017 (version 3.60.04) 
+- Chaos Group V-Ray for Maya 2018 (version 3.60.04) 
+- Blender (2.68)
+
+On Windows Server 2016 rendering nodes:
+- Autodesk Maya I/O 2017 Update 5 (version 17.4.5459) 
+- Autodesk Maya I/O 2018 Update 2 (version 18.2.0.6476) 
+- Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254) 
+- Autodesk Arnold for Maya (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
+- Autodesk Arnold for Maya (Arnold version 5.0.1.4) MtoA-2.0.2.3-2018
+- Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4 )(version 1.2.926) 
+- Chaos Group V-Ray for Maya (version 3.52.03) 
+- Chaos Group V-Ray for 3ds Max (version 3.60.02)
+- Blender (2.79)
 
 
 ## Prerequisites
@@ -78,14 +91,7 @@ Scroll down and click **Graphics and rendering licensing** to open the **Choose 
 
 ![Select graphics and rendering license for the pool](./media/batch-rendering-service/graphics-licensing.png)
 
-The specific license versions provided are as follows:
-
-- Maya 2017
-- 3ds Max 2018
-- Arnold for Maya 5.0.1.1
-- Arnold for 3ds Max 1.0.836
-- V-Ray for Maya 3.52.03
-- V-Ray for 3ds Max 3.60.01
+The specific license versions provided match the versions in the "Supported Applications" section above.
 
 ### Custom images
 
