@@ -45,7 +45,7 @@ For:
 ## Who can access the data?
 * Users in the Security Admin or Security Reader role
 * Global Admins
-* Any app that has authorization to access the API (app authorization can be setup only based on Global Admin’s permission)
+* Any app that has authorization to access the API (app authorization can be set up only based on Global Admin’s permission)
 
 ## Prerequisites
 In order to access this report through the Reporting API, you must have:
@@ -79,7 +79,7 @@ To get the next batch of records, use the Next link. Get the skiptoken informati
 You can narrow down the number of records that are returned by an API call in form of a filter.  
 For sign-in API-related data, the following filters are supported:
 
-* **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. You should not use this filter if you want to return thousands of objects.     
+* **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. Don't use this filter if you want to return thousands of objects.     
 * **$filter=\<your filter statement\>** - to specify, on the basis of supported filter fields, the type of records you care about
 
 ## Supported filter fields and operators
@@ -216,7 +216,7 @@ Case-insensitive
 **Notes**:
 
 * Case-insensitive
-* You need to add the full namespace when querying  Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
+* Add the full namespace when querying  Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
 ### target/objectId
@@ -237,7 +237,7 @@ Case-insensitive
 **Notes**:
 
 * Case-insensitive 
-* You need to add the full namespace when querying Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
+* Add the full namespace when querying Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
 ## Next Steps
