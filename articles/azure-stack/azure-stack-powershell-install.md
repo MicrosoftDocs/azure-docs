@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 4/20/2018
+ms.date: 5/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -31,13 +31,13 @@ This article has detailed instructions to install PowerShell for Azure Stack.
 
 PowerShell commands for Azure Stack are installed through the PowerShell Gallery. You can use the following procedure to validate if PSGallery is registered as a repository, open an elevated PowerShell session and run the following command:
 
-```PowerShell
+```PowerShell  
 Get-PSRepository -Name "PSGallery" 
 ```
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
 
-```PowerShell
+```PowerShell  
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -80,22 +80,22 @@ Install-Module -Name AzureStack -RequiredVersion 1.2.11
 
 To confirm the installation, run the following command:
 
-    ```PowerShell
-    Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
-    ```
+```PowerShell  
+Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
+```
 
-  If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
+If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
 
 ## Install PowerShell in a disconnected or a partially connected scenario (with limited Internet connectivity)
 
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the [migration guide](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
+> The release of the AzureRM 1.2.12 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the [migration guide](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 
-   ```PowerShell
+   ```PowerShell  
    $Path = "<Path that is used to save the packages>"
 
    Save-Package `
@@ -116,7 +116,7 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
    ```
 
 > [!Important]  
-> If you are not running Azure Stack with update 1084 or greater, change the **requiredversion** parameter value to `1.2.11`. 
+> If you are not running Azure Stack with update 1804 or greater, change the **requiredversion** parameter value to `1.2.11`. 
 
 2. Copy the downloaded packages over to a USB device.
 

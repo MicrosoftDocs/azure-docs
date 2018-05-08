@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -94,7 +94,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
   - **offer**  
     For example: `UbuntuServer`  
     The offer name segment of the VM image that users use when they deploy the VM image. An example is **WindowsServer**. Do not include a space or other special characters in this field.  
-  - **sky**  
+  - **sku**  
     For example: `14.04.3-LTS`  
     The SKU name segment of the VM Image that users use when they deploy the VM image. An example is **Datacenter2016**. Do not include a space or other special characters in this field.  
   - **version**  
@@ -111,27 +111,27 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 ## Add a custom VM image to the Marketplace by using PowerShell
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
+1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-```PowerShell  
-      # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-      Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" `
-        -ArmEndpoint $ArmEndpoint
+  ```PowerShell  
+    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+    Add-AzureRMEnvironment `
+      -Name "AzureStackAdmin" `
+      -ArmEndpoint $ArmEndpoint
 
-      Set-AzureRmEnvironment `
-        -Name "AzureStackAdmin" `
-        -GraphAudience $GraphAudience
+    Set-AzureRmEnvironment `
+      -Name "AzureStackAdmin" `
+      -GraphAudience $GraphAudience
 
-      $TenantID = Get-AzsDirectoryTenantId `
-        -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-        -EnvironmentName AzureStackAdmin
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
-      Add-AzureRmAccount `
-        -EnvironmentName "AzureStackAdmin" `
-        -TenantId $TenantID
-      ```
-```
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
+
    * **Active Directory Federation Services**. Use the following cmdlet:
 
         ```PowerShell
@@ -151,10 +151,12 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 3. Create a storage account in global Azure or Azure Stack to store your custom VM image. For instructions see [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 4. Prepare a Windows or Linux operating system image in VHD format (not VHDX), upload the image to your storage account, and get the URI where the VM image can be retrieved by PowerShell.
-        Add-AzureRmAccount `
-          -EnvironmentName "AzureStackAdmin" `
-          -TenantId $TenantID
-        ```
+
+  ```PowerShell
+    Add-AzureRmAccount `
+      -EnvironmentName "AzureStackAdmin" `
+      -TenantId $TenantID
+  ```
 
 5. (Optionally) You can upload an array of data disks as part of the VM image. Create your data disks using the New-DataDiskObject cmdlet. Open PowerShell from an elevated prompt, and run:
 
@@ -163,10 +165,10 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
   ````
 
-  How is this associated with the VM image?
+<!-- How is this associated with the VM image?
 
   note from the call: $datadisk = New-DataDiskObject -Lun 2 -Uri ““https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd” 
-Add-AzsPlatformimage -Publisher "Canonical" -Offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0” -OSType "Linux" -OSUri “https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd”  -datadisks $datadisk
+Add-AzsPlatformimage -Publisher "Canonical" -Offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0” -OSType "Linux" -OSUri “https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd”  -datadisks $datadisk -->
 
 6. Open PowerShell with an elevated prompt, and run:
 
@@ -176,7 +178,7 @@ Add-AzsPlatformimage -Publisher "Canonical" -Offer "UbuntuServer" -sku "14.04.3-
 
     For more information about the Add-AzsPlatformimage cmdlet and New-DataDiskObject cmdlet, see the Microsoft PowerShell [Azure Stack Operator module documentation](https://docs.microsoft.com/powershell/module/).
 
-## Remove a VM by using Powershell
+## Remove a VM image by using PowerShell
 
 When you no longer need the virtual machine image that you uploaded, you can delete it from the Marketplace by using the following cmdlet:
 

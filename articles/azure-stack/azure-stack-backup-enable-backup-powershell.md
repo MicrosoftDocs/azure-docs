@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2018
+ms.date: 5/08/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
 
@@ -36,9 +36,9 @@ For instructions on configuring the PowerShell environment, see [Install PowerSh
 
 ## Generate a new encryption key
 
-Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
-
-##  Load the Connect and Infrastructure modules
+Install and configured PowerShell for Azure Stack and the Azure Stack tools.
+ - See [Get up and running with PowerShell in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+ - See [Download Azure Stack tools from GitHub](azure-stack-powershell-download.md)
 
 Open Windows PowerShell with an elevated prompt, and run the following commands:
    

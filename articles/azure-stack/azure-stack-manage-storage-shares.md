@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 04/20/2017
+ms.date: 05/08/2017
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -162,8 +162,7 @@ Migration consolidates all a containers blob on the new share.
 
     Then examine $destinationshares:
 
-    ````PowerShell
-    $destinationshares
+    ````PowerShell $destinationshares
     ````
 
     ![Example: $destination shares](media/azure-stack-manage-storage-shares/examine-destinationshares.png)

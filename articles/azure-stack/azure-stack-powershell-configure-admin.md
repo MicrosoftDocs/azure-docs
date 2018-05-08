@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -55,11 +55,7 @@ Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint "https://adminmanageme
 
 # After registering the AzureRM environment, cmdlets can be 
 # easily targeted at your Azure Stack instance.
-<<<<<<< HEAD
-Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
-=======
 Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
->>>>>>> 3c647b728b003ab3ea66c93abe6ff5381f90c51e
 ````
 
 ## Test the connectivity

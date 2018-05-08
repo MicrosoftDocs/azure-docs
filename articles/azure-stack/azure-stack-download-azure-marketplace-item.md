@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: thoroet
 ---
@@ -70,7 +70,7 @@ From the machine that has internet connectivity, use the following steps to down
 
 4. Download the latest version of marketplace syndication tool by using the following script:  
 
-   ```PowerShell
+   ```PowerShell  
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -88,8 +88,8 @@ From the machine that has internet connectivity, use the following steps to down
 
 5. Import the syndication module and launch the tool by running the following commands:  
 
-   ```powershell
-   Import-Module .\ Syndication\AzureStack.MarketplaceSyndication.psm1
+   ```PowerShell  
+   Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Sync-AzSOfflineMarketplaceItem `
      -destination "<Destination folder path>" `
@@ -135,7 +135,7 @@ From the machine that has internet connectivity, use the following steps to down
 5. Publish the marketplace item to Azure Stack by using the **Add-AzsGalleryItem**. For example:
 
    ```powershell
-   New-AzsGalleryItem -GalleryItemUri 'http://galleryitemuri'
+   Add-AzsGalleryItem -GalleryItemUri 'http://galleryitemuri'
    ```
 
 6. After the gallery item is published, you can view it from the **New** > **Marketplace** pane.  
