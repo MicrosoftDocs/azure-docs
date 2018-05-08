@@ -28,13 +28,13 @@ There are several ways to find LUIS endpoint usage information. With PowerShell 
 
 When you use the Azure portal cloud shell, you are always on the most current PowerShell version. 
 
-Use the **Launch Cloud Shell** button below to open the Azure cloud shell or open a browser with [https://shell.azure.com](https://shell.azure.com). 
+Use the **Launch Cloud Shell** following below to open the Azure cloud shell or open a browser with [https://shell.azure.com](https://shell.azure.com). 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 
 ## LUIS endpoint usage information
 
-The PowerShell 6.x cmdlet, `Get-AzureRmCognitiveServicesAccountUsage`, provides usage information for Azure Cognitive services including LUIS. [Get-AzureRmCognitiveServicesAccountUsage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0) requires the resource group and resource name of the service. 
+The PowerShell 6.x cmdlet, `Get-AzureRmCognitiveServicesAccountUsage`, provides usage information for Microsoft Cognitive Services including LUIS. [Get-AzureRmCognitiveServicesAccountUsage](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0) requires the resource group and resource name of the service. 
 
 The command syntax is:
 
