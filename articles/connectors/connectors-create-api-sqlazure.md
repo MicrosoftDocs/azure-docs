@@ -37,6 +37,8 @@ and then send email alerts.
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+For connector-specific technical information, see the 
+<a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server connector reference</a>.
 
 ## Prerequisites
 
@@ -52,7 +54,7 @@ See [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 or [create a SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database). 
 
   Your tables must have data so that your logic app can return 
-  results when calling operations, such as the "Get rows" action. 
+  results when calling operations, such as the "Get rows" action, which returns records. 
   If you want to create an Azure SQL Database, you can use sample databases, 
   which are included with Azure SQL Database. 
 
@@ -153,7 +155,7 @@ choose **New step** > **Add an action**.
 2. In the search box, enter "sql server" as your filter. 
 From the actions list, select any SQL action that you want. 
 
-   For this example, select this action: 
+   For this example, select this action, which gets a single record: 
    **SQL Server - Get row**
 
    ![Enter "sql server", select "SQL Server - Get row"](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
@@ -162,11 +164,11 @@ From the actions list, select any SQL action that you want.
    [create your SQL connection now](#create-connection). 
    Or, if your connection already exists, 
    select the **Table name** that you want from the list, 
-   and enter the **Row ID** for the row that you want.
+   and enter the **Row ID** for the record that you want.
 
    ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/table-row-id.png)
    
-   This example only returns a row from a table, nothing else. 
+   This example returns only one row from the selected table, nothing else. 
    To view the data in this row, you might add other actions 
    that create a file with fields from the row for later review, 
    and store that file in a cloud storage account. To learn about 
@@ -178,20 +180,51 @@ which updates your logic app.
 
 ## Process data in bulk
 
-When you want to work with more than one record, 
-you can have your logic app iterate over items by using 
-[*until loops*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
-within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
-However, sometimes you might have to work with large record sets 
-with thousands or millions of rows, but want to minimize calling the database. 
-You can divide those records into smaller sets by using *pagination*. 
-This solution helps you better control the resulting output and 
-more cleanly organize your results. 
+When you work with result sets so large that the SQL 
+connector doesn't return all the results at the same time, 
+or you want better control over the size and structure for your result sets, 
+you can use <a href="https://docs.microsoft.com/sql/reporting-services/report-design/pagination-in-reporting-services-report-builder-and-ssrs" target="blank">*pagination*</a> 
+so that you can manage those results as smaller sets. 
 
-To use this solution, create a stored procedure, which creates smaller 
-data sets with the **SELECT - ORDER BY** statement, in your SQL instance. 
-You can then call that procedure by using the SQL Server 
-connector's **Execute stored procedure** action in a "do until" loop. 
+### Set up pagination for "Get rows"
+
+When you use the **SQL Server - Get rows** action, 
+but your results exceed the connector's 
+<a href="https://docs.microsoft.com/connectors/sql/" target="_blank">default page size</a>, 
+you get only the first <a href="https://docs.microsoft.com/sql/relational-databases/pages-and-extents-architecture-guide" target="blank">page</a> of results. To get the other pages, 
+you can turn on the **Pagination** setting for the **Get rows** action. 
+This setting lets your logic app continually ask the SQL connector 
+for the remaining pages, but return all the results as a single 
+message when the action finishes.  
+
+1. On the **Get rows** action, open **Settings**. 
+
+   ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings.png)
+
+2. Change the **Pagination** setting from **Off** to **On**. 
+To avoid returning a result set that's too big, 
+you can also specify a **Limit** on the results.
+
+   ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings-pagination.png)
+
+3. When you're ready, choose **Done**.
+
+### Create a stored procedure
+
+When getting or inserting multiple rows, your logic 
+app can iterate through these items by using an 
+[*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop), 
+which has these [limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+But, sometimes your logic app has to work with record sets so large, 
+such as thousands or millions of rows, that you want to minimize 
+costs for each call to the database. 
+
+Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance 
+and uses the **SELECT - ORDER BY** statement to organize those records 
+the way you want. That way, you can better control the size and structure 
+for those record sets. Your logic app can call the stored procedure by using 
+the SQL Server connector's **Execute stored procedure** action. 
+
 For solution details, see these articles:
 
 * <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">SQL Pagination for bulk data transfer with Logic Apps</a>
