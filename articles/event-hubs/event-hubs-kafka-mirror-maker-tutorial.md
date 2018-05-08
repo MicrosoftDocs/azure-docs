@@ -14,7 +14,7 @@ ms.author: bahariri
 
 ---
 
-# Using Kafka MirrorMaker with Event Hubs for Kafka Ecosystem
+# Using Kafka MirrorMaker with Event Hubs for Kafka ecosystems
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs)
@@ -111,5 +111,5 @@ With MirrorMaker running, any events sent to the source Kafka cluster are receiv
 ## Next steps
 
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Learn about Event Hubs for Kafka ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * Learn more about [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to stream events from Kafka on-premises to Kafka enabled event hubs on cloud.

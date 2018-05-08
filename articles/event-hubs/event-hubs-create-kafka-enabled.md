@@ -18,7 +18,7 @@ ms.author: shvija
 
 Azure Event Hubs is a Big Data streaming Platform as a Service (PaaS) that ingests millions of events per second, and provides low latency and high throughput for real-time analytics and visualization.
 
-Azure Event Hubs for Kafka ecosystem provides you with an endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your Event Hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs for Kafka Ecosystem supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
+Azure Event Hubs for Kafka ecosystems provides you with an endpoint. This endpoint enables your Event Hubs namespace to natively understand [Apache Kafka](https://kafka.apache.org/intro) message protocol and APIs. With this capability, you can communicate with your Event Hubs as you would with Kafka topics without changing your protocol clients or running your own clusters. Event Hubs for Kafka ecosystems supports [Apache Kafka versions 1.0](https://kafka.apache.org/10/documentation.html) and later.
 
 This article describes how to create an Event Hubs namespace and get the connection string required to connect Kafka applications to Kafka enabled Event Hubs.
 
@@ -55,7 +55,7 @@ You can now stream events from your applications that use the Kafka protocol int
 To learn more about Event Hubs, visit these links:
 
 * [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Learn about Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+* [Learn about Event Hubs for Kafka ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
 * [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
 
 
