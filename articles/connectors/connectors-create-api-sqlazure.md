@@ -214,8 +214,8 @@ such as thousands or millions of rows, that you want to minimize the
 costs for calls to the database. 
 
 Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
-the **SELECT - ORDER BY** statement to organize those record sets the way you want. 
-This solution gives your more control over the size and structure for those record sets. 
+the **SELECT - ORDER BY** statement to organize the results the way you want. 
+This solution gives you more control over the size and structure of your results. 
 Your logic app calls the stored procedure by using the SQL Server 
 connector's **Execute stored procedure** action. 
 
