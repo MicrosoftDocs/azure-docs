@@ -118,36 +118,43 @@ To verify the DNS zone after you import the file, you can use any one of the fol
 
 * You can list the records by using the PowerShell cmdlet `Get-AzureRmDnsRecordSet`.
 * You can use `nslookup` to verify name resolution for the records. Because the zone isn't delegated yet, you need to specify the correct Azure DNS name servers explicitly. The following sample shows how to retrieve the name server names assigned to the zone. This also shows how to query the "www" record by using `nslookup`.
-```
-C:\>az network dns record-set ns list -g myresourcegroup -z  --output json 
-  [
-   .......
-   "name": "@",
-    "nsRecords": [
-      {
-        "additionalProperties": {},
-        "nsdname": "ns1-03.azure-dns.com."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns2-03.azure-dns.net."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns3-03.azure-dns.org."
-      },
-      {
-        "additionalProperties": {},
-        "nsdname": "ns4-03.azure-dns.info."
-      }
-    ],
-    "resourceGroup": "myresourcegroup",
-    "ttl": 86400,
-    "type": "Microsoft.Network/dnszones/NS"
-  }
-]
 
-        C:\> nslookup www.contoso.com ns1-03.azure-dns.com
+    ```azurecli
+    az network dns record-set ns list -g myresourcegroup -z  --output json 
+    ```
+
+    ```json
+    [
+      {
+       .......
+       "name": "@",
+        "nsRecords": [
+          {
+            "additionalProperties": {},
+            "nsdname": "ns1-03.azure-dns.com."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns2-03.azure-dns.net."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns3-03.azure-dns.org."
+          },
+          {
+            "additionalProperties": {},
+            "nsdname": "ns4-03.azure-dns.info."
+          }
+        ],
+        "resourceGroup": "myresourcegroup",
+        "ttl": 86400,
+        "type": "Microsoft.Network/dnszones/NS"
+      }
+    ]
+    ```
+
+    ```cmd
+    nslookup www.contoso.com ns1-03.azure-dns.com
 
         Server: ns1-01.azure-dns.com
         Address:  40.90.4.1
@@ -155,7 +162,7 @@ C:\>az network dns record-set ns list -g myresourcegroup -z  --output json
         Name:www.contoso.com
         Addresses:  134.170.185.46
         134.170.188.221
-```
+    ```
 
 ### Step 3. Update DNS delegation
 

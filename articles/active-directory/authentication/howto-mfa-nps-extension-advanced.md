@@ -1,23 +1,19 @@
 ---
 title: Configure the Azure MFA NPS extension | Microsoft Docs
 description: After you install the NPS extension, use these steps for advanced configuration like IP whitelisting and UPN replacement.
-services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
 
-ms.assetid:
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+services: multi-factor-authentication
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: joflore
-ms.reviewer: richagi
-ms.custom: it-pro
----
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+
+---
 # Advanced configuration options for the NPS extension for Multi-Factor Authentication
 
 The Network Policy Server (NPS) extension extends your cloud-based Azure Multi-Factor Authentication features into your on-premises infrastructure. This article assumes that you already have the extension installed, and now want to know how to customize the extension for you needs. 
