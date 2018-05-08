@@ -251,7 +251,7 @@ To learn more about AKS, and walk through a complete code to deployment example,
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

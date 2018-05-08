@@ -75,7 +75,7 @@ This section looks at patterns focused on the aspects of the message-based API t
 
 In this scenario, an event occurs within a smart contract, for example, a state change or the execution of a specific type of transaction. This event is broadcast via an Event Grid to downstream consumers, and those consumers then take appropriate actions.
 
-An example of this scenario is that when a transaction occurs, a consumer would be alerted and could take action, such as recording the information in a SQL DB or the Common Data Service. This is the same pattern that Workbench follows to populate it's *off chain* SQL DB.
+An example of this scenario is that when a transaction occurs, a consumer would be alerted and could take action, such as recording the information in a SQL DB or the Common Data Service. This is the same pattern that Workbench follows to populate its *off chain* SQL DB.
 
 Another would be if a smart contract transitions to a particular state, for example when a contract goes into an *OutOfCompliance*. When this state change happens, it could trigger an alert to be sent to an administrator's mobile phone.
 
@@ -187,7 +187,7 @@ In this model where a message in a standard format cannot be sent directly, the 
 
 A common integration scenario is the inclusion of telemetry data retrieved from sensors in a smart contract. Based on data delivered by sensors, smart contracts could take informed actions and alter the state of the contract.
 
-For example, if a truck delivering medicine had its temperature soar to 110 degrees, it may impact the effectiveness of the medicine and may cause a public safety issue if not detected and removed from the supply chain. if a driver accelerated his car to 100 miles per hour, the resulting sensor information could trigger a cancelation of insurance by
+For example, if a truck delivering medicine had its temperature soar to 110 degrees, it may impact the effectiveness of the medicine and may cause a public safety issue if not detected and removed from the supply chain. If a driver accelerated his car to 100 miles per hour, the resulting sensor information could trigger a cancelation of insurance by
 his insurance provider. If the car was a rental car, GPS data could indicate when the driver went outside a geography covered by his rental agreement and charge a penalty.
 
 The challenge is that these sensors can be delivering data on a constant basis and it is not appropriate to send all of this data to a smart contract. A typical approach is to limit the number of messages sent to the blockchain while delivering all messages to a secondary store. For example, deliver messages received at only fixed interval, for example, once per hour, and when a contained value falls outside of an agreed upon range for a smart contract. Checking values that fall outside of tolerances, ensures that the data relevant to the contracts business logic is received and executed. Checking the value at the interval confirms that the sensor is still reporting. All data is sent to a secondary reporting store to enable broader reporting, analytics, and machine learning. For example, while getting sensor readings for GPS may not be required every minute for a smart contract, they could provide interesting data to be used in reports or mapping routes.
@@ -216,13 +216,13 @@ In addition to REST and message-based API, Azure Blockchain Workbench also provi
 
 The data integration is well known:
 
--   Azure Blockchain Workbench stores metadata about applications, workflows, contracts, and transactions as part of it's normal operating behavior.
+-   Azure Blockchain Workbench stores metadata about applications, workflows, contracts, and transactions as part of its normal operating behavior.
 -   External systems or tools provide one or more dialogs to facilitate the collection of information about the database, such as database server name, database name, type of authentication, login credentials, and which database views to utilize.
 -   Queries are written against SQL database views to facilitate downstream consumption by external systems, services, reporting, developer tools, and enterprise productivity tools.
 
 ## Storage integration
 
-Many scenarios may require the need to incorporate attestable files. For multiple reasons, it will be inappropriate to put files on a blockchain. Instead, a common approach is to perform a one way hash against a file and share that hash on a distributed ledger. Performing the hash again at any future time should return the same result. If the file is
+Many scenarios may require the need to incorporate attestable files. For multiple reasons, it will be inappropriate to put files on a blockchain. Instead, a common approach is to perform a cryptographic hash (for example, SHA-256)  against a file and share that hash on a distributed ledger. Performing the hash again at any future time should return the same result. If the file is
 modified, even if just one pixel is modified in an image, the hash will return a different value.
 
 ![Storage integration](media/blockchain-workbench-integration-patterns/storage-integration.png)

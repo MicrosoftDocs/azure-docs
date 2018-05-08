@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/07/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -105,7 +105,7 @@ To add an additional NIC to the configuration server, add it before you register
 
 ### Configure settings and add the VMware server
 
-1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC to receive replication traffic. Then select **Save**. You can't change this setting after it's configured.
+1. In the configuration server management wizard, select **Setup connectivity**, and then select the NIC that the process server uses to receive replication traffic from VMs. Then select **Save**. You can't change this setting after it's configured.
 2. In **Select Recovery Services vault**, select your Azure subscription and the relevant resource group and vault.
 3. In **Install third-party software**, accept the license agreement. Select **Download and Install** to install MySQL Server.
 4. Select **Install VMware PowerCLI**. Make sure all browser windows are closed before you do this. Then select **Continue**.

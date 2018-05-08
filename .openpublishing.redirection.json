@@ -45,7 +45,7 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
         },
-        
+
         {
             "source_path": "articles/machine-learning/service/aml-pricing.md",
             "redirect_url": "https://azure.microsoft.com/pricing/details/machine-learning-services",
@@ -924,6 +924,11 @@
         {
             "source_path": "articles/architecture-overview.md",
             "redirect_url": "/azure/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cloud-services/cloud-services-dotnet-diagnostics-storage.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-storage.md",
             "redirect_document_id": false
         },
         {
@@ -4007,6 +4012,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/aks/tutorial-kubernetes-monitor.md",
+            "redirect_url": "/azure/monitoring/monitoring-container-health",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
             "redirect_url": "/azure/aks/jenkins-continuous-deployment",
             "redirect_document_id": false
@@ -4045,7 +4055,7 @@
             "source_path": "articles/devtest-lab/devtest-lab-add-vm-with-artifacts.md",
             "redirect_url": "/azure/lab-services/devtest-lab-add-vm",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/devtest-lab/devtest-lab-announcements.md",
             "redirect_url": "/azure/lab-services/devtest-lab-announcements",
@@ -4110,7 +4120,7 @@
             "source_path": "articles/devtest-lab/devtest-lab-create-formulas.md",
             "redirect_url": "/azure/lab-services/devtest-lab-manage-formulas",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/devtest-lab/devtest-lab-create-lab.md",
             "redirect_url": "/azure/lab-services/devtest-lab-create-lab",
@@ -10069,6 +10079,11 @@
         {
             "source_path": "articles/site-recovery/vmware-walkthrough-prerequisites.md",
             "redirect_url": "vmware-physical-azure-support-matrix",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/site-recovery/vmware-azure-mobility-deploy-automation-dsc.md",
+            "redirect_url": "physical-manage-configuration-server#install-from-the-command-line",
             "redirect_document_id": false
         },
         {
@@ -18642,6 +18657,66 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-creating.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-creating",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-solution-file.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-solution-file",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-automation.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-automation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-searches-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-resources-views.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-resources-views",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solutions-best-practices.md",
+            "redirect_url": "/azure/monitoring/monitoring-solutions-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-solution-targeting.md",
+            "redirect_url": "/azure/monitoring/monitoring-solution-targeting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map-configure.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-service-map-scom.md",
+            "redirect_url": "/azure/monitoring/monitoring-service-map-scom",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/operations-management-suite/operations-management-suite-walkthrough-servicemap.md",
+            "redirect_url": "/azure/monitoring/monitoring-walkthrough-servicemap",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/azure-functions/durable-functions-counter.md",
             "redirect_url": "/azure/azure-functions/durable-functions-monitor",
             "redirect_document_id": true
@@ -18945,12 +19020,12 @@
             "source_path": "articles/location-based-services/about-location-based-services.md",
             "redirect_url": "/azure/azure-maps/about-azure-maps",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/location-based-services/geocoding-coverage.md",
             "redirect_url": "/azure/azure-maps/geocoding-coverage",
             "redirect_document_id": true
-        },        
+        },
         {
             "source_path": "articles/location-based-services/how-to-manage-account-keys.md",
             "redirect_url": "/azure/azure-maps/how-to-manage-account-keys",
@@ -19046,7 +19121,7 @@
             "redirect_url": "/azure/active-directory/develop",
             "redirect_document_id": false
 
-        }, 
+        },
         {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-android.md",
             "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-android",
@@ -19470,7 +19545,7 @@
             "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
             "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
             "redirect_document_id": true
-        },         
+        },
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
             "redirect_url": "/azure/active-directory/authentication/howto-mfa-userstates",
@@ -19480,7 +19555,7 @@
             "source_path": "articles/active-directory/privileged-identity-management/active-directory-securing-privileged-access.md",
             "redirect_url": "/azure/active-directory/admin-roles-best-practices",
             "redirect_document_id": false
-        },        
+        },
         {
             "source_path": "articles/media-services/hybrid-design-drm-sybsystem.md",
             "redirect_url": "/azure/media-services/previous/hybrid-design-drm-sybsystem",
@@ -20510,6 +20585,61 @@
             "source_path": "articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
             "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls",
             "redirect_document_id": true
-        }
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
+            "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
+            "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/active-learning-qnamaker.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/CreateKB.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/create-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/PublishKB.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/publish-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/share-knowledgebase-qnamaker.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/publish-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/TrainKB.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Guides/UpdateKB.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/edit-knowledge-base",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Home.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Overview/overview",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/HTTPEndPoint.md",
+            "redirect_url": "https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstart.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp",
+			"redirect_document_id": false
+        },        
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/SubscriptionKeys.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/key-management",
+			"redirect_document_id": false
+		}
     ]
 }

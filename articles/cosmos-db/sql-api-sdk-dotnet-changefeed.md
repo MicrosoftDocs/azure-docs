@@ -47,6 +47,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
+  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 
@@ -69,7 +70,14 @@ ms.author: maquaran
 
 ### Pre-release builds
 
+### <a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Minor API changes:
+  * Removed ChangeFeedProcessorOptions.IsAutoCheckpointEnabled that was marked as obsolete.
+
 ### <a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Stability improvements:
+  * Better handling of lease store initialization. When lease store is empty, only one instance of processor can initialize it, the others will wait.
+  * More stable/efficient lease renewal/release. Renewing and releasing a lease one partition is independent from renewing others. In v1 that was done sequentially for all partitions.
 * New v2 API:
   * Builder pattern for flexible construction of the processor: the ChangeFeedProcessorBuilder class.
     * Can take any combination of parameters.
@@ -82,6 +90,7 @@ ms.author: maquaran
     * IPartitionProcessor - for custom processing changes on a partition.
 * Logging - uses [LibLog](https://github.com/damianh/LibLog) library.
 * 100% backward compatible with v1 API.
+* New code base.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21.1 and above.
 
 ## Release & Retirement dates
