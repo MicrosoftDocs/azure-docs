@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 05/05/2018
 ms.author: shlo
 
 ---
@@ -28,22 +28,7 @@ Lookup activity is helpful when you want to dynamically retrieve a list of files
 
 The following data sources are currently supported for lookup:
 
-- Amazon Redshift
-- Azure Blob storage
-- Azure Cosmos DB
-- Azure Data Lake Store
-- Azure File storage
-- Azure SQL Database
-- Azure SQL Data Warehouse
-- Azure Table storage
-- Dynamics 365
-- Dynamics CRM
-- File System
-- PostgreSQL
-- Salesforce
-- Salesforce Service Cloud
-- SFTP
-- SQL Server
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
 The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
 

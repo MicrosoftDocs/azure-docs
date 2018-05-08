@@ -1,6 +1,6 @@
 --- 
-title: Anomaly Finder API for Microsoft Cognitive Services | Microsoft Docs 
-description: Use advanced algorithms in the Anomaly Finder API to help you identify anomalies in time series data and return information in Microsoft Cognitive Services. 
+title: What is Anomaly Finder? - Microsoft Cognitive Services | Microsoft Docs 
+description: Use advanced algorithms in Anomaly Finder to help you identify anomalies in time series data and return information in Microsoft Cognitive Services. 
 services: cognitive-services 
 author: tonyxing
  
@@ -11,9 +11,9 @@ ms.date: 04/19/2018
 ms.author: tonyxing
 --- 
  
-# What is the Anomaly Finder API?
+# What is Anomaly Finder?
 
-The Anomaly Finder API enables you to monitor data over time and detect anomalies with machine learning that adapts to your unique data by automatically applying the right statistical model regardless of industry, scenario, or data volume. Using a time series as input, the API returns whether or not a data point is an anomaly, determines the expected value, and upper and lower bounds for visualization. 
+Anomaly Finder enables you to monitor data over time and detect anomalies with machine learning that adapts to your unique data by automatically applying the right statistical model regardless of industry, scenario, or data volume. Using a time series as input, the Anomaly Finder API returns whether or not a data point is an anomaly, determines the expected value, and upper and lower bounds for visualization. 
 As a prebuilt AI service, Anomaly Finder doesn’t require any machine learning expertise beyond understanding how to use a RESTful API. This makes development simple and versatile since it works with any time series data and can also be built into streaming data systems. Anomaly Finder encompasses a broad span of use cases – for instance, financial tools for managing fraud, theft, changing markets, and potential business incidents, or monitoring IoT device traffic while preserving anonymity. This solution can also be monetized as part of a service for end-customers to understand changes in data, spending, return on investment, or user activity.
 Try out the Anomaly Finder API and gain deeper understanding of your data. 
 

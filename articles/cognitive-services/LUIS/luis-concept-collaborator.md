@@ -47,6 +47,8 @@ Exported apps are JSON-formatted files, which can be compared for changes. Combi
 
 ## Next steps
 
+Understand [versioning](luis-concept-version.md) concepts. 
+
 See [App Settings](luis-how-to-collaborate.md) to learn how to manage collaborators in your LUIS app.
 
 See [Add email to access list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342) with the Authoring APIs.
