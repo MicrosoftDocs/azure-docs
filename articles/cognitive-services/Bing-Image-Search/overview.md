@@ -11,9 +11,10 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: scottwhi
 ---
+
 # What is Bing Image Search?
 
-The Bing Image Search API provides an experience similar to [Bing Images](https://www.bing.com/images) by letting you send a user search query to Bing and get back a list of relevant images.
+Bing Image Search API provides an experience similar to [Bing Images](https://www.bing.com/images) by letting you send a user search query to Bing and get back a list of relevant images.
 
 If you're building an images-only search results page to find images that are relevant to the user's search query, call this API instead of calling the more general [Web Search API](../bing-web-search/search-the-web.md). If you want images and other types of content such as webpages, news, and videos, then call the Web Search API.
 
@@ -50,7 +51,7 @@ The response contains an [Images](https://docs.microsoft.com/rest/api/cognitives
 
 ```json
 {
-    "name": "File:Rich Passage Minto Sailing Dinghy.jpg - Wikipedia",
+    "name": "Rich Passage Sailing Dinghy",
     "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=73118C8B4E3...",
     "thumbnailUrl": "https:\/\/tse1.mm.bing.net\/th?id=OIP.GNarK7m...",
     "datePublished": "2011-10-29T11:26:00",
@@ -58,7 +59,7 @@ The response contains an [Images](https://docs.microsoft.com/rest/api/cognitives
     "hostPageUrl": "http:\/\/www.bing.com\/cr?IG=73118C8B4E3D4C3687...",
     "contentSize": "79239 B",
     "encodingFormat": "jpeg",
-    "hostPageDisplayUrl": "en.wikipedia.org\/wiki\/File:Rich_Passage...",
+    "hostPageDisplayUrl": "en.contoso.org\/wiki\/File:Rich_Passage...",
     "width": 526,
     "height": 688,
     "thumbnail": {
@@ -138,22 +139,22 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
     "pivotSuggestions": [{
         "pivot": "microsoft",
         "suggestions": [{
-            "text": "OtterBox Surface",
-            "displayText": "OtterBox",
+            "text": "Contoso Surface",
+            "displayText": "Contoso",
             "webSearchUrl": "https:\/\/www.bing.com\/images\/search?q=OtterBox+Surface&FORM=IRQBPS",
-            "searchLink": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=OtterBox...",
+            "searchLink": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=Contoso...",
                     "searchLink": "https:\/\/api.cognitive.microsoft.com\/api...",
             "thumbnail": {
-                "thumbnailUrl": "https:\/\/tse3.mm.bing.net\/th?q=OtterBox+Surface..."
+                "thumbnailUrl": "https:\/\/tse3.mm.bing.net\/th?q=Contoso+Surface..."
             }
         },
         {
-            "text": "Sony Surface",
-            "displayText": "Sony",
-            "webSearchUrl": "https:\/\/www.bing.com\/images\/search?q=Sony+Surface&FORM=IRQBPS",
+            "text": "Adatum Surface",
+            "displayText": "Adatum",
+            "webSearchUrl": "https:\/\/www.bing.com\/images\/search?q=Adatum+Surface&FORM=IRQBPS",
             "searchLink": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?q=...",
             "thumbnail": {
-                "thumbnailUrl": "https:\/\/tse3.mm.bing.net\/th?q=Sony+Surface&pid=Ap..."
+                "thumbnailUrl": "https:\/\/tse3.mm.bing.net\/th?q=Adatum+Surface&pid=Ap..."
             }
         },
         ...
@@ -163,7 +164,7 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
         "pivot": "surface",
         "suggestions": [{
             "text": "Microsoft Surface4",
-            "displayText": "Surface2",
+            "displayText": "Surface4",
             "webSearchUrl": "https:\/\/www.bing.com\/images\/search?q=Microsoft+Surface...",
             "searchLink": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/images\/search?...",
             "thumbnail": {
