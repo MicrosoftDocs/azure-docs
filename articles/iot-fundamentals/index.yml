@@ -28,7 +28,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/iot-central/quick-deploy-iot-central">Learn how to create a new Azure IoT Central application.</a>
-    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Learn how to deploy the remote monitoring preconfigured solution.</a>    
+    - html: <a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Learn how to deploy the remote monitoring solution accelerator.</a>    
     - html: <a href="/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started">Learn how to create an IoT hub and connect your first simulated device to Azure (Node.js).</a>
     - html: <a href="/azure/iot-edge/quickstart-linux">Deploy your first IoT Edge module and process data on a simulated device on Windows, Linux or a Mac.</a>
     - html: <a href="/azure/azure-maps/quick-demo-map-app">Launch a map search app using Azure Maps.</a>
@@ -37,11 +37,11 @@ sections:
 - title: Technologies and solutions
   items:
   - type: paragraph
-    text: Get started fast with preconfigured solutions and SaaS offerings.
+    text: Get started fast with solution accelerators and SaaS offerings.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/iot-suite">IoT Suite</a>
+    - html: <a href="/azure/iot-suite">IoT solution accelerators</a>
     - html: <a href="/azure/iot-central">IoT Central</a>
   - type: paragraph
     text: Build on Platform as a Service (PaaS) offerings.

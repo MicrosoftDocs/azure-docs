@@ -1,22 +1,17 @@
 ﻿---
 title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 03/06/2018
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.assetid:
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 03/06/2018
-ms.author: twooley
-ms.reviewer: sasubram 
+ms.reviewer: sasubram
 
 ---
 
@@ -127,16 +122,5 @@ For information about what licenses your organization needs to use Azure AD B2B,
 
 ### Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure AD admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure AD B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article index for application management in Azure AD](active-directory-apps-index.md)

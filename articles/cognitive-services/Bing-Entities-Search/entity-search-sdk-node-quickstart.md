@@ -16,6 +16,9 @@ ms.author: v-gedod
 
 The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
 
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
+
 ## Application dependencies
 
 To set up a console application using the Bing Entity Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.
