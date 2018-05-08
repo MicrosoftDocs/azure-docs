@@ -85,18 +85,20 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## Work with alerts
+## Work with alerts (classic)
 
-You can use the information in the section to work with alerts.
+You can use the information in the section to work with classic alerts.
 
-### Get alert rules in a resource group
+[!NOTE] CLI 2.0 commands are not available for newer alerts yet.  
+
+### Get alert (classic) rules in a resource group
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### Create a metric alert rule
+### Create a metric alert (classic) rule
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -106,7 +108,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### Delete an alert rule
+### Delete an alert (classic) rule
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
