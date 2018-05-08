@@ -21,7 +21,7 @@ This article gives answers to Azure Media Services v3 frequently asked questions
 
 ## Can I use the Azure portal to manage v3 resources?
 
-You cannot use Portal to manage v3 resources yet. You can use one of the supported SDKs. Find samples [here](https://github.com/johndeu/BUILD2018.)
+Not yet. You can use one of the supported SDKs. Find samples [here](https://github.com/johndeu/BUILD2018.)
 
 ## Next steps
 
