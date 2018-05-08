@@ -79,13 +79,17 @@ You could display a collage of all the image thumbnails or you could display a s
 
 You can also expand the thumbnail as the user hovers the cursor over it. Be sure to attribute the image if you expand it. For example, by extracting the host from [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) and displaying it below the image. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md).
 
+<!-- Removing image until we can replace it with a sanatized version.
 ![Expanded view of thumbnail image](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
+-->
 
 If the user clicks the thumbnail, you can use [contentUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-contenturl) to display the full-size image to the user. Be sure to attribute the image.
 
 If `shoppingSourcesCount` or `recipeSourcesCount` are greater than zero, add badging, such as a shopping cart, to the thumbnail to indicate that shopping or recipes exist for the item in the image.
 
+<!-- this is a sanitized version but we're removing all images for now until everything is sanitized.
 ![Shopping sources badge](./media/cognitive-services-bing-images-api/bing-images-shopping-source.PNG)
+-->
 
 To get insights about the image, such as web pages that include the image or people that were recognized in the image, use [imageInsightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-imageinsightstoken). For details, see [Image Insights](./image-insights.md).
 
@@ -181,20 +185,17 @@ The following example shows the pivot suggestions for *Microsoft Surface*.
 }
 ```
 
-You could then display to the user the optional query terms in case one of them interests them. For example,
+You could then display to the user the optional query terms in case they're of interest to the user.
 
-- OtterBox Surface
-- Sony Surface
-- Microsoft Surface4
-- Microsoft Tablet
-
-The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. If the original query is Microsoft Surface, the pivots would be Microsoft and Surface. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query and the `displayText` field contains the term that replaces the pivot in the original query. For example, Release Date of Surface.
+The `pivotSuggestions` field contains the list of segments (pivots) that the original query was broken into. For each pivot, the response contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects that contain suggested queries. The `text` field contains the suggested query and the `displayText` field contains the term that replaces the pivot in the original query. For example, Release Date of Surface.
 
 You can use the `text` and `thumbnail` fields to display the pivot query strings to the user in case the pivot query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
 
+<!-- Need a sanitized version of the image
 The following shows an example of the pivot queries.
 
 ![Pivot suggestions](./media/cognitive-services-bing-images-api/bing-image-pivotsuggestion.GIF)
+-->
 
 ## Expanding the query
 
@@ -242,9 +243,11 @@ The following example shows the expanded queries for *Microsoft Surface*.
 
 The `queryExpansions` field contains a list of [Query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#query_obj) objects. The `text` field contains the expanded query and the `displayText` field contains the expansion term. You can use the `text` and `thumbnail` fields to display the expanded query strings to the user in case the expanded query string is really what they're looking for. Make the thumbnail and text clickable using the `webSearchUrl` URL or `searchLink` URL. Use `webSearchUrl` to send the user to the Bing search results, or `searchLink` if you provide your own results page.
 
+<!-- Removing until we can replace with a sanitized image.
 The following shows an example Bing implementation that uses expanded queries. If the user clicks the Microsoft Surface Pro 3 link, they're taken to the Bing search results page, which shows them images of the Pro 3.
 
 ![Query expansion suggestions](./media/cognitive-services-bing-images-api/bing-image-queryexpansion.GIF)
+-->
 
 ## Throttling requests
 
