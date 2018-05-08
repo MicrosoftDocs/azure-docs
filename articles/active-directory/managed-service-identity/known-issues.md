@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
+ms.component: msi
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: 

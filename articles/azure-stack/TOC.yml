@@ -137,7 +137,7 @@
           href: azure-stack-manage-storage-accounts.md
         - name: Manage storage capacity
           href: azure-stack-manage-storage-shares.md
-        - name: Manage physical storage capacity for Azure Stack
+        - name: Manage physical memory capacity
           href: azure-stack-manage-storage-physical-memory-capacity.md
     - name: Replace hardware
       items:
@@ -267,6 +267,8 @@
         href: azure-stack-compute-add-scalesets.md
       - name: Offer Linux virtual machines
         href: azure-stack-linux.md
+      - name: Add a Red Hat virtual machine
+        href: azure-stack-redhat-create-upload-vhd.md
       - name: Offer a Kubernetes Cluster
         href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
