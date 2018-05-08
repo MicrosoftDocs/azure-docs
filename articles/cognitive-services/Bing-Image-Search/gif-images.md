@@ -18,8 +18,13 @@ The following URL is a query for animated .gif images.
 ````
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ````
+To see examples of results, use the following URL to search bing.com.
+````
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+
+````
 ## Query parameters
-For more information about query parameters and options, see the [Image Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference). An exmaple follows under the heading [Example search for animated gif using Java](#markdown-header-example-search-for-animated-gif-using-java).
+For more information about query parameters and options, see the [Image Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference). An exmaple follows under the heading [Example search for animated gif using Java](markdown-header-example-search-for-animated-gif-using-java).
 
 ## Tips and suggestions
 
