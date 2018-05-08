@@ -18,7 +18,7 @@
     href: /azure/iot-hub
   - name: IoT Hub Device Provisioning Service
     href: /azure/iot-dps
-  - name: Maps
+  - name: Azure Maps
     href: /azure/azure-maps
   - name: Service SDKs
     href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks

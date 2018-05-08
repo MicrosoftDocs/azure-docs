@@ -24,8 +24,6 @@ This article shows an Azure API management policy sample that demonstrates how t
 
 Paste the code into the **on-error** block.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Log errors to Stackify.policy.xml)]
-
 ## Next steps
 
 Learn more about APIM policies:
