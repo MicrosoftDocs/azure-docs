@@ -12,14 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/08/2018
 ms.author: shlo
 
 ---
 # Lookup activity in Azure Data Factory
-You can use lookup activity to read or look up a record, table name, or value from any external source. This output can further be referenced by succeeding activities. 
 
-Lookup activity is helpful when you want to dynamically retrieve a list of files, records, or tables from a configuration file or a data source. The output from the activity can be further used by other activities to perform specific processing on those items only.
+Lookup activity can be used to retrieve a dataset from any of the ADF-supported data source.  It can be used in the following scenario:
+- Dynamically determine which objects (files, tables, etc) to operate on in a subsequent activity, instead of hard-coding the object name
+
+Lookup activity can read and return the content of a configuration file, a configuration table, or the result of executing a query or stored procedure.  The output from Lookup activity can be used in a subsequent copy or transformation activity if it is a singleton value, or used in a ForEach activity if it is an array of attributes.
 
 > [!NOTE]
 > This article applies to version 2 of Azure Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Data Factory version 1 documentation](v1/data-factory-introduction.md).
@@ -30,7 +32,7 @@ The following data sources are currently supported for lookup:
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
-The maximum number of rows returned by Lookup activity is **5000**, and up to **10MB** in size.
+The maximum number of rows returned by Lookup activity is **5000**, and up to **2MB** in size.
 
 ## Syntax
 

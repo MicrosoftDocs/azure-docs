@@ -3,7 +3,7 @@ title: User retention analysis for web applications with Azure Application Insig
 description: How many users return to your app?
 services: application-insights
 documentationcenter: ''
-author: botatoes
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights

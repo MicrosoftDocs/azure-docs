@@ -21,7 +21,7 @@ void SpeechRecognitionWithMicrophone()
     // and service region (e.g., "westus").
     auto factory = SpeechFactory::FromSubscription(L"YourSubscriptionKey", L"YourServiceRegion");
 
-    // Creates a speech recognizer using microphone as audio input.
+    // Creates a speech recognizer using microphone as audio input. The default language is "en-us".
     auto recognizer = factory->CreateSpeechRecognizer();
     wcout << L"Say something...\n";
 
@@ -39,6 +39,36 @@ void SpeechRecognitionWithMicrophone()
     }
 }
 // </SpeechRecognitionWithMicrophone>
+
+// Speech recognition in the specified language, using microphone.
+// <SpeechRecognitionWithLanguage>
+void SpeechRecognitionWithLanguage()
+{
+    // Creates an instance of a speech factory with specified
+    // subscription key and service region. Replace with your own subscription key
+    // and service region (e.g., "westus").
+    auto factory = SpeechFactory::FromSubscription(L"YourSubscriptionKey", L"YourServiceRegion");
+
+    // Creates a speech recognizer in the specified language using microphone as audio input.
+    auto lang = L"de-de";
+    auto recognizer = factory->CreateSpeechRecognizer(lang);
+    wcout << L"Say something in " << lang << L"...\n";
+
+    // Starts recognition. It returns when the first utterance has been recognized.
+    auto result = recognizer->RecognizeAsync().get();
+
+    // Checks result.
+    if (result->Reason != Reason::Recognized)
+    {
+        wcout << L"There was an error, reason " << (int)result->Reason << L"-" << result->ErrorDetails << '\n';
+    }
+    else
+    {
+        wcout << L"We recognized: " << result->Text << '\n';
+    }
+}
+// </SpeechRecognitionWithLanguage>
+
 
 // Speech recognition using file input
 // <SpeechRecognitionWithFile>
