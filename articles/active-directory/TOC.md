@@ -53,6 +53,7 @@
 #### [Invitation email](active-directory-b2b-invitation-email.md)
 #### [Invitation redemption](active-directory-b2b-redemption-experience.md)
 #### [Add B2B users without an invitation](active-directory-b2b-add-user-without-invite.md)
+#### [Allow or block invitations](active-directory-b2b-allow-deny-list.md)
 #### [Conditional access for B2B](active-directory-b2b-mfa-instructions.md)
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
@@ -273,6 +274,7 @@
 ### [Administrative units](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md)
 ### [Manage emergency access administrative accounts](active-directory-admin-manage-emergency-access-accounts.md)
+### [Securing privileged roles](admin-roles-best-practices.md)
 
 ## Access reviews
 ### [Access reviews overview](active-directory-azure-ad-controls-access-reviews-overview.md)
@@ -287,6 +289,7 @@
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
 #### [Conditions](active-directory-conditional-access-conditions.md)
+#### [Location conditions](active-directory-conditional-access-locations.md)
 #### [Controls](active-directory-conditional-access-controls.md)
 #### [Get started](active-directory-conditional-access-azure-portal-get-started.md)
 #### [Best practices](active-directory-conditional-access-best-practices.md)

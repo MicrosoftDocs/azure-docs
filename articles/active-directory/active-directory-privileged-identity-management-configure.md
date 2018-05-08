@@ -3,17 +3,15 @@ title: Configure Azure AD Privileged Identity Management | Microsoft Docs
 description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim 
 ---
 # What is Azure AD Privileged Identity Management?

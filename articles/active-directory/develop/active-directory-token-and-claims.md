@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/22/2018
+ms.date: 05/22/2018
 ms.author: hirsin
 ms.custom: aaddev
 
@@ -161,6 +161,8 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 
 > [!NOTE]
 >If a non-password method of authentication was used (Windows Hello, the Authenticator app, biometrics like a face or fingerprint) to attain the token, changing the user's password will not force the user to re-authenticate (but it will force their Authenticator app to re-authenticate).  This is because their chosen authentication input (a face, e.g.) has not changed, and therefore can be used again to re-authenticate.
+>
+> Confidential clients are not impacted by password change revocations.  A confidential client with a refresh token issued before a password change will continue to be abl to use that refresh token to get more tokens. 
 
 ## Sample Tokens
 
