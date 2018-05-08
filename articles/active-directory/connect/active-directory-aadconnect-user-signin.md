@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 05/08/2018
 ms.author: billmath
 
 ---
@@ -25,7 +25,7 @@ If you’re already familiar with the Azure AD identity model and want to learn 
 * [Password hash synchronization](#password-hash-synchronization) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) with [Seamless Single Sign-on (SSO)](active-directory-aadconnect-sso.md)
 * [Federated SSO (with Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
-* * [Federation with PingFederate](#federation-with-pingfederate)
+* [Federation with PingFederate](#federation-with-pingfederate)
 
 > [!NOTE] 
 > It is important to remember that by configuring federation for Azure AD, you establish trust between your Azure AD tenant and your federated domains. With this trust federated domain users will have access to Azure AD cloud resources within the tenant.  

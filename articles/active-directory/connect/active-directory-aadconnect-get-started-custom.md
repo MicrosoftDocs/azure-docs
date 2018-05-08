@@ -302,7 +302,7 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 ## Configuring federation with PingFederate
 Configuring PingFederate with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.  However the following prerequisites are required.
 - PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
-- •	An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
+- An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### Verify the domain
 After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
