@@ -20640,6 +20640,11 @@
             "source_path": "articles/cognitive-services/QnAMaker/SubscriptionKeys.md",
             "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/key-management",
 			"redirect_document_id": false
-		}
+        },
+        {
+            "source_path": "articles/media-services/previous/media-services-configure-elemental-live-encoder.md",
+            "redirect_url": "/azure/media-services/previous/media-services-overview",
+            "redirect_document_id": false
+        }
     ]
 }
