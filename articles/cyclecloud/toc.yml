@@ -86,8 +86,8 @@
     items:
     - name: Reporting
       href: reporting.md
-    - name: Event Log
-      href: event_log.md
+    - name: Event Logging
+      href: event_logging.md
   - name: Data Management
     items:
     - name: Overview
