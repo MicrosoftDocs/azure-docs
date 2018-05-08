@@ -7,8 +7,8 @@ author: asmalser
 manager: mtillman
 editor: ''
 
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

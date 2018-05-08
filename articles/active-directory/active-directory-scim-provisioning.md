@@ -7,8 +7,8 @@ author: asmalser-msft
 manager: mtillman
 editor: ''
 
-ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
