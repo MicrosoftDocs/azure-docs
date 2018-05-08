@@ -24,7 +24,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 
 ````
 ## Query parameters
-For more information about query parameters and options, see the [Image Search API reference](https://review.docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference?branch=pr-en-us-1644#query-parameters). An exmaple follows under the heading [Example search for animated gif using Java](#gifExample).
+For more information about query parameters and options, see the [Image Search API reference](https://review.docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference?branch=pr-en-us-1644#query-parameters). An example follows under the heading [Example search for animated gif using Java](#gifExample).
 
 ## Tips and suggestions
 
