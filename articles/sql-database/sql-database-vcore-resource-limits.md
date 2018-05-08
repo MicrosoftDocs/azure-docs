@@ -148,7 +148,7 @@ For single databases, the following tables show the resources available for a si
 |Max data size (GB)|2048|4096|4096|4096|
 |Max log size|614|1229|1229|1229|
 |TempDB size(DB)|384|384|384|384|
-|Target IOPS|60000|80000|120000|200000
+|Target IOPS (64 KB)|60000|80000|120000|200000
 |Max concurrent workers (requests)|2400|3200|4800|8000|
 |Max allowed sessions|30000|30000|30000|30000|
 |Number of replicas|1|1|1|1|
