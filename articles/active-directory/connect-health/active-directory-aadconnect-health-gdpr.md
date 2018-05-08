@@ -59,15 +59,15 @@ If you want to stop data collection of specific server, please follow steps at d
 
 1.	Click on **General Settings** under configuration in the main blade. 
 2.	Click on **Stop Data Collection** button on the top of the blade. The other options of tenant configuration settings will be disabled once the process starts.  
-
-![Stop data collection](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
+ 
+ ![Stop data collection](./media/active-directory-aadconnect-health-gdpr/gdpr4.png)
   
 3.	Ensure the list of onboarded services which are affected by stopping data collections. 
 4.	Enter the exact tenant name to enable the **Delete** action button
 5.	Click on **Delete** to trigger the deletion of all services. Connect Health will stop receiving, processing, reporting any data sent from your onboarded services. The entire process of can take up to 24 hours. Notice that this step is not reversible. 
 6.	After the process is completed, you will not see any registered services in Connect Health any more. 
 
-![After data collection stopped](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
+ ![After data collection stopped](./media/active-directory-aadconnect-health-gdpr/gdpr5.png)
 
 ## Re-enable data collection and monitoring in Azure AD Connect Health
 To re-enable monitoring in Azure AD Connect Health for a previously deleted monitored service, you must uninstall and [reinstall the health agent](active-directory-aadconnect-health-agent-install.md) on all the servers.
