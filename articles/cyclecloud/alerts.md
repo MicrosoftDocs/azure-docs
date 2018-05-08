@@ -73,12 +73,12 @@ filter expressions.
 
 Example 1: Alert on instances running outside of the "us­east­1" region
 
-      WHERE !startswith("us­east", Region)
+    WHERE !startswith("us­east", Region)
 
 Example 2: Alert on execute nodes in the "example" cluster which were running for less
 than 1 hour
 
-	   WHERE ClusterName === "example" && SessionUpTime < `1h` && startswith("execute", NodeName) && MachineState === “Terminated”
+	  WHERE ClusterName === "example" && SessionUpTime < `1h` && startswith("execute", NodeName) && MachineState === “Terminated”
 
 > [!NOTE]
 > When writing a query for the first time, it can be helpful to use the `cycle_server execute` command to > test out various queries. Switch to the CycleCloud installation directory and run `./cycle_server execute <query>` to view instant results. For example: `./cycle_server execute 'SELECT Region, InstanceId FROM Cloud.Instance WHERE !startswith("us­east", Region)`
@@ -99,17 +99,16 @@ and loop over the result set in the body, printing out details of each record. B
 of a message subject and body for reporting on instances running outside of the 'us­east'
 regions:
 
-| Subject:
-| {%= size(Results) %} instances found running outside of us­east
+    Subject:
+    {%= size(Results) %} instances found running outside of us­east
 
-| Body:
-| <h2>The following instances are running outside of us­east:</h2>
-| <ul>
-| {% for Instance in Results %}
-|	<li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
-| {% endfor %}
-| </ul>
-
+    Body:
+    <h2>The following instances are running outside of us­east:</h2>
+    <ul>
+    {% for Instance in Results %}
+    <li>{%= Instance.InstanceId %} is running in {%= Instance.Region %}</li>
+    {% endfor %}
+    </ul>
 
 # Email Configuration and Logging Levels
 
