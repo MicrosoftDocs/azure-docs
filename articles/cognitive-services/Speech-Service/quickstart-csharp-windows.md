@@ -60,7 +60,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
 
-    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
