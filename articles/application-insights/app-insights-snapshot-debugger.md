@@ -190,11 +190,12 @@ Owners of the Azure subscription can inspect snapshots. Other users must be gran
 
 To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
 
-1. Open the Access Control (IAM) blade.
-1. Click the +Add button.
-1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
+1. Navigate to the Application Insights resource in the Azure portal.
+1. Click **Access Control (IAM)**.
+1. Click the **+Add** button.
+1. Select **Application Insights Snapshot Debugger** from the **Roles** drop-down list.
 1. Search for and enter a name for the user to add.
-1. Click the Save button to add the user to the role.
+1. Click the **Save** button to add the user to the role.
 
 
 > [!IMPORTANT]
@@ -279,7 +280,7 @@ If that doesn't solve the problem, then refer to the following manual troublesho
 
 ### Verify the instrumentation key
 
-Make sure you're using the correct instrumentation key in your published application. Usually, Application Insights reads the instrumentation key from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
+Make sure you're using the correct instrumentation key in your published application. Usually, the instrumentation key is read from the ApplicationInsights.config file. Verify the value is the same as the instrumentation key for the Application Insights resource that you see in the portal.
 
 ### Upgrade to the latest version of the NuGet package
 
@@ -290,7 +291,7 @@ Use Visual Studio's NuGet Package Manager to make sure you're using the latest v
 After a snapshot is created, a minidump file (.dmp) is created on disk. A separate uploader process creates that minidump file and uploads it, along with any associated PDBs, to Application Insights Snapshot Debugger storage. After the minidump has uploaded successfully, it's deleted from disk. The log files for the uploader process are kept on disk. In an App Service environment, you can find these logs in `D:\Home\LogFiles`. Use the Kudu management site for App Service to find these log files.
 
 1. Open your App Service application in the Azure portal.
-2. Select the **Advanced Tools** blade, or search for **Kudu**.
+2. Click **Advanced Tools**, or search for **Kudu**.
 3. Click **Go**.
 4. In the **Debug console** drop-down list box, select **CMD**.
 5. Click **LogFiles**.
@@ -398,7 +399,7 @@ Follow these steps to configure your Cloud Service role with a dedicated local r
 
 ### Use Application Insights search to find exceptions with snapshots
 
-When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using the Search blade in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
+When a snapshot is created, the throwing exception is tagged with a snapshot ID. That snapshot ID is included as a custom property when the exception telemetry is reported to Application Insights. Using **Search** in Application Insights, you can find all telemetry with the `ai.snapshot.id` custom property.
 
 1. Browse to your Application Insights resource in the Azure portal.
 2. Click **Search**.
