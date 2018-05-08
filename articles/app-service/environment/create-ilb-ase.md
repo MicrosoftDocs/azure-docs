@@ -59,6 +59,8 @@ To create an ILB ASE:
 
 4. Select or create a VNet.
 
+	* If you select a new VNet, you can specify a name and location. If you intend to host Linux apps on this ASE, only these 6 regions are supported at the moment: **West US, East US, West Europe, North Europe, Australia East, Southeast Asia.** 
+
 5. If you select an existing VNet, you need to create a subnet to hold the ASE. Make sure to set a subnet size large enough to accommodate any future growth of your ASE. We recommend a size of `/25`, which has 128 addresses and can handle a maximum-sized ASE. The minimum size you can select is a `/28`. After infrastructure needs, this size can only be scaled to a maximum of 3 instances.
 
 	* Go beyond the default maximum of 100 instances in your App Service plans.
@@ -102,7 +104,7 @@ If you set **VIP Type** to **Internal**, your ASE name is not used in the domain
 
 You create an app in an ILB ASE in the same way that you create an app in an ASE normally.
 
-1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web** or **Mobile** or **API App**.
+1. In the Azure portal, select **Create a resource** > **Web + Mobile** > **Web App**.
 
 2. Enter the name of the app.
 
@@ -110,9 +112,13 @@ You create an app in an ILB ASE in the same way that you create an app in an ASE
 
 4. Select or create a resource group.
 
-5. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
+5. Select your OS. 
 
-6. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
+	* If you want to create a Linux app using a custom Docker container, you can just bring your own container using the instructions here. 
+
+6. Select or create an App Service plan. If you want to create a new App Service plan, select your ASE as the location. Select the worker pool where you want your App Service plan to be created. When you create the App Service plan, select your ASE as the location and the worker pool. When you specify the name of the app, the domain under your app name is replaced by the domain for your ASE.
+
+7. Select **Create**. If you want the app to appear on your dashboard, select the **Pin to dashboard** check box.
 
 	![App Service plan creation][2]
 
