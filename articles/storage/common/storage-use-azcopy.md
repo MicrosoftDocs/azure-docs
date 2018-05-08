@@ -24,7 +24,7 @@ There are two versions of AzCopy that you can download. AzCopy on Windows is bui
 
 ## Download and install AzCopy on Windows
 
-Download the [latest version of AzCopy on Windows](http://aka.ms/downloadazcopy).
+Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy).
 
 After installing AzCopy on Windows using the installer, open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
