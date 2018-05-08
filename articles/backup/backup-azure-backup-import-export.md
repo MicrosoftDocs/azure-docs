@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/7/2018
+ms.date: 5/8/2018
 ms.author: saurse;nkolli;trinadhk
 
 ---
@@ -54,12 +54,14 @@ Before initiating the Offline Backup workflow, complete the following prerequisi
 * Create a [Recovery Services vault](backup-azure-recovery-services-vault-overview.md). To create a vault, refer to the steps in [this article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Make sure that only the [latest version of the Azure Backup agent](https://aka.ms/azurebackup_agent) has been installed on the Windows Server/Windows client, as applicable and the computer is registered with the Recovery Services Vault.
 * Azure PowerShell 3.7.0 or greater is required on the computer running Azure Backup agent. It is recommended you [install the latest version of Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
-* On the computer running Azure Backup agent, make sure one of the following browsers are installed, and JavaScript is enabled.
-    * Microsoft Edge
-    * Internet Explorer 11  
+* On the computer running Azure Backup agent, make sure Microsoft Edge or Internet Explorer 11 is installed, and JavaScript is enabled. 
 * Create an Azure Storage account in the same subscription as the Recovery Services vault. 
-* The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow. Make sure you have the [necessary permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create the Azure Active Directory application.
-* Register the Microsoft.ImportExport resource provider with the subscription containing the Azure Storage account.
+* Make sure you have the [necessary permissions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create the Azure Active Directory application. The Offline Backup workflow creates an Azure Active Directory application in the subscription associated with the Azure Storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import Service, required for the Offline Backup workflow. 
+* Register the Microsoft.ImportExport resource provider with the subscription containing the Azure Storage account. To register the resource provider:
+    1. In the main menu, Click **Subscriptions**.
+    2. If you are subscribed to multiple subscriptions, select the subscription you're using for the offline backup. If you use only one subscription, then your subscription appears.
+    3. In the subscription menu, click **Resource Providers** to view the list of providers.
+    4. In the list of providers scroll down to Microsoft.ImportExport. If the Status is NotRegistered, click **Register**.
     ![registering the resource provider](./media/backup-azure-backup-import-export/registerimportexport.png)
 * A staging location, which might be a network share or any additional drive on the computer, internal or external, with enough disk space to hold your initial copy, is created. For example, if you are trying to back up a 500-GB file server, ensure that the staging area is at least 500 GB. (A smaller amount is used due to compression.)
 * When sending disks to Azure, use only 2.5 inch SSD, or 2.5-inch or 3.5-inch SATA II/III internal hard drives. You can use hard drives up to 10 TB. Check the [Azure Import/Export service documentation](../storage/common/storage-import-export-service.md#hard-disk-drives) for the latest set of drives that the service supports.
