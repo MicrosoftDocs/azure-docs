@@ -103,7 +103,7 @@ sections:
   - type: paragraph
     text: If you want an unsupported dialect or unique voice for your application, you can create <a href="http://aka.ms/customvoice">custom voice fonts</a> from your own speech samples.
   - type: paragraph
-    text: 'The following are common use cases for the *Text-to-Speech* REST API:'
+    text: The following are common use cases for the <b>Text-to-Speech</b> REST API&#58;
   - type: list
     style: unordered
     items:
