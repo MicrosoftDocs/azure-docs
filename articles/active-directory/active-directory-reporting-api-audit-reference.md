@@ -21,7 +21,7 @@ ms.reviewer: dhanyahk
 # Azure Active Directory audit API reference
 
 > [!TIP] 
-> Check out our new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
+> Check out the new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
 
 
 This article is part of a collection of articles about the Azure Active Directory reporting API.  
@@ -37,9 +37,9 @@ See:
 
 For:
 
-- Frequently asked questions, read our [FAQ](active-directory-reporting-faq.md) 
+- Frequently asked questions, read the [FAQ](active-directory-reporting-faq.md) 
 
-- Issues, please [file a support ticket](active-directory-troubleshooting-support-howto.md) 
+- Issues, [file a support ticket](active-directory-troubleshooting-support-howto.md) 
 
 
 ## Who can access the data?
@@ -54,7 +54,7 @@ In order to access this report through the Reporting API, you must have:
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API
-You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. In order for PowerShell to correctly interpret the OData filter syntax used in AAD Graph REST calls, you must use the backtick (aka: grave accent) character to “escape” the $ character. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (ie: $filter).
+You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. You must use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (ie: $filter).
 
 The focus of this article is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-audit-samples.md#powershell-script).
 
@@ -75,8 +75,9 @@ To get the next batch of records, use the Next link. Get the skiptoken informati
 
 
 ## Supported filters
+
 You can narrow down the number of records that are returned by an API call in form of a filter.  
-For sign-in API related data, the following filters are supported:
+For sign-in API-related data, the following filters are supported:
 
 * **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. You should not use this filter if you want to return thousands of objects.     
 * **$filter=\<your filter statement\>** - to specify, on the basis of supported filter fields, the type of records you care about
