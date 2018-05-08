@@ -18,7 +18,7 @@ ms.custom: mvc
 ---
 
 # Delete an Azure Log Analytics workspace with the Azure portal
-This topic shows how to use the Azure portal to delete a Log Analytics workpace that you may no longer require. 
+This article shows how to use the Azure portal to delete a Log Analytics workspace that you may no longer require. 
 
 ## To delete a workspace 
 When you delete a Log Analytics workspace, all data related to your workspace is deleted from the service within 30 days.  You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operations. Consider the other Azure services and sources that store its data in Log Analytics, such as:
