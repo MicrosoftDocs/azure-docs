@@ -179,6 +179,7 @@ For **incremental syncshronizations**, the time it takes depends on the number c
 
 The table below summarizes commonly-observed synchronization times for provisioning scenarios where Azure AD is the source system and the target system is a SaaS application, such as ServiceNow, Workplace, Salesforce, or Google Apps:
 
+
 | Configuration | Users in scope | Initial sync time | Incremental sync time |
 | -------- | -------- | -------- | -------- |
 | Sync assigned users and groups only |   < 1,000 users |  < 30 minutes | < 30 minutes |
@@ -194,8 +195,8 @@ The table below summarizes commonly-observed synchronization times for provision
 
 For the configuration **Sync assigned user and groups only**, you can use the forumlas below to determine the approximate minimum and maximum expected **initial synchronization** times:
 
-	*Minimum minutes =  0.01 x [Number of assigned users and groups]*
-	*Maximum minutes = 0.08 x [Number of assigned users and groups] *
+	Minimum minutes =  0.01 x [Number of assigned users and groups]
+	Maximum minutes = 0.08 x [Number of assigned users and groups] 
 
 Variations in the time it takes to complete an **initial synchronization** are influenced by these factors:
 
