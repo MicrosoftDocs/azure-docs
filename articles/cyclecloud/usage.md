@@ -11,7 +11,7 @@ To display your cluster usage, click on **Create New Alert** within the cluster 
 > [!NOTE]
 > Usage Alerts are informational only. Going over your budget will not stop or pause the instance. The spend amount per cluster is cumulative per time period selected.
 
-![Usage Alert](~/images/setup-step.3.png)
+![Usage Alert](~/images/usage_alert.png)
 
 Current spend within budget:
 

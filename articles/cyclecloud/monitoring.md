@@ -13,7 +13,7 @@ service.
 
 ## Supported Services
 
-*[Ganglia](http://ganglia.sourceforge.net/)*
+**[Ganglia](http://ganglia.sourceforge.net/)**
 
 Every version of CycleCloud ships with Ganglia monitoring support for collecting
 performance metrics such as cpu/memory/bandwidth usage. If your cluster is
@@ -21,7 +21,7 @@ configured to use Ganglia (the default in most cases), automatic monitoring
 will work as long as port 8652 is open between CycleCloud and the cluster's
 master node (the one running the gmetad service).
 
-*[Grid Engine](http://gridscheduler.sourceforge.net/)*
+**[Grid Engine](http://gridscheduler.sourceforge.net/)**
 
 If you are running the Grid Scheduling Edition of CycleCloud, Grid Engine
 monitoring will automatically be configured when a Grid Engine cluster is
