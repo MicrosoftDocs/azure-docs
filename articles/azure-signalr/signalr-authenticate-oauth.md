@@ -19,9 +19,11 @@ ms.author: wesmc
 ---
 # Tutorial: Azure SignalR Service authentication
 
+Microsoft Azure SignalR Service is currently in [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first. 
 
-In this tutorial, you'll learn how to implement your own authentication and integrate it with the Azure SignalR Service. 
+In this tutorial, you'll learn how to implement your own authentication and integrate it with the Microsoft Azure SignalR Service. 
 
 The authentication initially used in the quickstart's chat room application is too simple for real-world scenarios. The application allows each client to claim who they are, and the server simply accepts that. This approach is not very useful in real-world applications where a rogue user would impersonate others to access sensitive data. 
 
@@ -600,9 +602,7 @@ After a few moments, the resource group and all of its contained resources are d
 
 ## Next steps
 
-In this tutorial, you added authentication with OAuth to provide a better approach to authentication with Azure SignalR Service. To learn more about using Azure SignalR Server, continue to the next tutorial that demonstrates integration with Azure Functions.
+In this tutorial, you added authentication with OAuth to provide a better approach to authentication with Azure SignalR Service. To learn more about using Azure SignalR Server, continue to the Azure CLI samples for SignalR Service.
 
 > [!div class="nextstepaction"]
-> [Integrate Azure Functions with Azure SignalR Service](./signalr-integrate-functions.md)
-
-
+> [Azure SignalR CLI Samples](./signalr-cli-samples.md)

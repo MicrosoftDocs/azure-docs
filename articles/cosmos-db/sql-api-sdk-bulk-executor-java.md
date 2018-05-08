@@ -41,7 +41,7 @@ ms.author: ramkris
 
 <tr><td>**BulkExecutor library in GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
 
-<tr><td>**API documentation**</td><td>[.Net API reference documentation]()</td></tr>
+<tr><td>**API documentation**</td><td>[.Net API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
 
 <tr><td>**Get started**</td><td>[Get started with the BulkExecutor library Java SDK](bulk-executor-java.md)</td></tr>
 
