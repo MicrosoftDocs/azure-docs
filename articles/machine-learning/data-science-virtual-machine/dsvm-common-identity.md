@@ -23,7 +23,7 @@ ms.author: gokuma
 
 By default, on Azure VM including the Data Science VM (DSVM) local user accounts are created while provisioning the VM and the users authenticate to the VM with these credentials. If you have multiple VMs that you need to access, this approach can quickly get cumbersome to manage credentials. Common user accounts and  management using a standards-based identity provider allows you to use a single set of credentials to access multiple resources on Azure including multiple DSVMs. 
 
-Active Directory (AD) is a popular identity provider and is supported both on Azure as a service as well as On-premises. You can leverage AD or Azure AD to authenticate users on both a standalone the Data Science VM (DSVM)  or a cluster of DSVM on an Azure Virtual Machine Scale Sets (VMSS). This is done by joining the DSVM instances to an AD domain. If you are already have an Active Directory to manage the identities, you can use it as your common identity provider. In case you do not have an AD, you can run a managed AD on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(AADDS). 
+Active Directory (AD) is a popular identity provider and is supported both on Azure as a service as well as On-premises. You can leverage AD or Azure AD to authenticate users on both a standalone the Data Science VM (DSVM)  or a cluster of DSVM on an Azure virtual machine scale sets (VMSS). This is done by joining the DSVM instances to an AD domain. If you already have an Active Directory to manage the identities, you can use it as your common identity provider. In case you do not have an AD, you can run a managed AD on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(AADDS). 
 
 The documentation for [Azure Active directory (AAD)](https://docs.microsoft.com/azure/active-directory/) provides detailed [instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity) to managed active directory including connecting the AAD to your On-premises directory if you have one. 
 
@@ -33,7 +33,7 @@ Rest of this article describes the steps to set up a fully managed AD domain ser
 
 AADDS makes it simple to manage your identities by providing a fully managed service on Azure. On this Active directory domain, users and groups are managed.  The steps to set up an Azure hosted AD domain and user accounts in your directory are:
 
-1. Add user(s) to Active directory on Portal by clicking on Azure Active Directory in the left menu.  
+1. Add user(s) to Active directory on portal by clicking on Azure Active Directory in the left menu.  
 
 ![add-user-to-ad](./media/add-user-to-ad.png)
 
@@ -44,19 +44,19 @@ AADDS makes it simple to manage your identities by providing a fully managed ser
 
 3.	Create Azure AD Domain Services
 
-To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task#4 of the above article. 
+To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task #4 of the above article. 
 
 4.	Create a DSVM Subnet 
 5.	Create a Data Science VM instance in the DSVM subnet (not Domain services subnet)
 6.	Follow [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to AD. 
 
-7.	Next mount a shared Azure Files to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file level permissions you will need a NFS running on one or more VMs)
+7.	Next mount a shared Azure Files to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file level permissions you will need an NFS running on one or more VMs)
 
-    a. Create a Azure File Share
+    a. Create an Azure File Share
     ![create-file-share](./media/create-file-share.png)
 
     
-    b. Mount it on the Linux DSVM. When you click on “Connect” button for the Azure Files in your storage account on the Azure Portal, the exact command to run in bash shell on the Linux DSVM will be shown. The command will look like this:
+    b. Mount it on the Linux DSVM. When you click on “Connect” button for the Azure Files in your storage account on the Azure portal, the exact command to run in bash shell on the Linux DSVM will be shown. The command will look like this:
 
 ```
 sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
@@ -64,9 +64,9 @@ sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount p
 8.	Say, you mounted your Azure Files in /data/workspace. Now create directories for each of your users in the share. /data/workspace/user1, /data/workspace/user2 and so on. Create a ```notebooks``` directory in each user's workspace. 
 9. Create symbolic links for the ```notebooks``` in ```$HOME/userx/notebooks/remote```.   
 
-Now, you have the users in your active directory hosted in Azure and able to log in to any DSVM (both SSH, Jupyterhub) that is joined to the AADDS  using the AD credentials. Since the user workspace is on shared Azure Files the user will have access to their notebooks and other work from any DSVM when using Jupyterhub. 
+Now, you have the users in your active directory hosted in Azure and able to log in to any DSVM (both SSH, Jupyterhub) that is joined to the AADDS  using the AD credentials. Since the user workspace is on shared Azure Files, the user will have access to their notebooks and other work from any DSVM when using Jupyterhub. 
 
-For auto scaling, you can leverage the VM Scale Sets to create a pool of VMs that are all joined to the domain in this fashion and with the shared disk mounted. Users can log in to any available machine in the scale set and have access to shared disk where their notebooks are saved. 
+For auto scaling, you can use the VMSS to create a pool of VMs that are all joined to the domain in this fashion and with the shared disk mounted. Users can log in to any available machine in the VMSS and have access to shared disk where their notebooks are saved. 
 
 # Next Steps
 
