@@ -2,25 +2,19 @@
 
 title: Getting support for Azure Active Directory B2B collaboration | Microsoft Docs
 description: What is the support experience for Azure Active Directory B2B collaboration?
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 05/26/2017
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.assetid:
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 05/26/2017
-ms.author: twooley
 ms.reviewer: sasubram
 
 ---
-
 
 # Getting support for B2B collaboration
 

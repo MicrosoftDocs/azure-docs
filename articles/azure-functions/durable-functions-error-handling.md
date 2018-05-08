@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 04/30/2018
 ms.author: azfuncdf
 ---
 
@@ -123,6 +123,9 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
     }
 }
 ```
+
+> [!NOTE]
+> This mechanism does not actually terminate in-progress activity function execution. Rather, it simply allows the orchestrator function to ignore the result and move on. See the [Timers](durable-functions-timers.md#usage-for-timeout) documentation for more information.
 
 ## Unhandled exceptions
 
