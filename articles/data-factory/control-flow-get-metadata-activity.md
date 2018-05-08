@@ -107,10 +107,9 @@ The following metadata types can be specified in the GetMetadata activity field 
 		},
 		"typeProperties": {
 			"folderPath":"container/folder",
-			"Filename": "file.json",
+			"filename": "file.json",
 			"format":{
 				"type":"JsonFormat"
-				"nestedSeperator": ","
 			}
 		}
 	}
@@ -128,7 +127,7 @@ dataset | The reference dataset whose metadata activity is to be retrieved by th
 
 ## Sample output
 
-The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference:
+The GetMetadata result is shown in activity output. Below are two samples with exhaustive metadata options selected in field list as reference. To use the result in subsequent activity, use the pattern of `@{activity('MyGetMetadataActivity').output.itemName}`.
 
 ### Get a file's metadata
 
