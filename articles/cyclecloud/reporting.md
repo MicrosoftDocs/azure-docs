@@ -66,3 +66,5 @@ form and descriptions of each section:
 3. **Partitions** ­is a list of discrete values to use to partition the derived type data. Each partition multiplies the number of data points stored for each interval by the number of discrete values contained in that partition. Because of this, partitions should be chosen carefully, using only attributes that contain a limited number of possible values such as cluster name, machine state, etc.
 
 4. **Metric/Partition options** determine ­the definition for the selected partition or metric. Changes will not take effect until the save button is pressed.
+
+
