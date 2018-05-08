@@ -55,7 +55,7 @@ AADDS makes it simple to manage your identities by providing a fully managed ser
 
 2.	Create Azure AD Domain Services
 
-To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task #4 of the above article. 
+    To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task #4 of the above article. 
 
 3.	Create a separate DSVM Subnet in the  virtual network created in Task #2 of the preceeding step
 4.	Create one or more Data Science VM instances in the DSVM subnet 
