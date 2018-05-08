@@ -12,14 +12,16 @@ ms.date: 04/21/2018
 ms.author: saneppal
 ---
 # Import a knowledge base in QnA Maker Preview
-QnA Maker announced General Availability on May 7, 2018 at \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in the near future.
+QnA Maker announced General Availability on May 7, 2018 at \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in the November 2018. Read about the changes in the QnAMaker GA announcement [blogpost](https://aka.ms/qnamakerga-blog).
+
+QnAMaker now has a [pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
 ## Prerequisites
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 > * Setup a new [QnA Maker service](./set-up-qnamaker-service-azure.md)
 
-## Import a knowledge base 
+## Migrate a knowledge base from QnAMaker Preview portal
 1. Navigate to [QnA Maker Preview portal](https://aka.ms/qnamaker-old-portal
 ) and click on **My services**.
 2. Select the knowledge base you want to migrate by clicking on the edit icon.
@@ -30,7 +32,7 @@ QnA Maker announced General Availability on May 7, 2018 at \\\build\ conference.
 
     ![Download knowledge base](../media/qnamaker-how-to-migrate-kb/Preview-download.png)
 
-4. In the current [QnA Maker portal](https://qnamaker.ai), learn how to [create a knowledge base](./create-knowledge-base.md).
+4. In the GA [QnA Maker portal](https://qnamaker.ai), learn how to [create a knowledge base](./create-knowledge-base.md).
 5. Create a new empty knowledge base. To create an empty knowledge base, skip uploading and data sources in Step 4.
 
     ![Create empty knowledge base](../media/qnamaker-how-to-migrate-kb/create-empty-kb.png)
