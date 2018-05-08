@@ -33,32 +33,43 @@ Rest of this article describes the steps to set up a fully managed AD domain ser
 
 AADDS makes it simple to manage your identities by providing a fully managed service on Azure. On this Active directory domain, users and groups are managed.  The steps to set up an Azure hosted AD domain and user accounts in your directory are:
 
-1. Add user(s) to Active directory on portal by clicking on Azure Active Directory in the left menu
+1. Add user(s) to Active directory on portal 
 
-    ![add-user-to-ad](./media/add-user-to-ad.png)
+    a. Sign in to the [Azure Active Directory admin center](https://aad.portal.azure.com) with an account that's a global admin for the directory.
+    
+    b. Select **Azure Active Directory** and then **Users and groups**.
+    
+    c. On **Users and groups**, select **All users**, and then select **New user**.
+   
+   ![Selecting the Add command](./media/add-user.png)
+    
+    d. Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "[domain name].onmicrosoft.com" or a verified, non-federated [custom domain name](../../active-directory/add-custom-domain.md) such as "contoso.com."
+    
+    e. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
+    
+    f. Optionally, you can open and fill out the information in **Profile**, **Groups**, or **Directory role** for the user. 
+    
+    g. On **User**, select **Create**.
+    
+    h. Securely distribute the generated password to the new user so that the user can sign in.
 
-2.	Set user login, password, and role
+2.	Create Azure AD Domain Services
 
-    ![set-user-cred](./media/set-user-cred.png)
-
-3.	Create Azure AD Domain Services
 To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task #4 of the above article. 
 
-4.	Create a DSVM Subnet 
-5.	Create a Data Science VM instance in the DSVM subnet (not Domain services subnet)
-6.	Follow [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to AD. 
+3.	Create a separate DSVM Subnet in the  virtual network created in Task #2 of the preceeding step
+4.	Create one or more Data Science VM instances in the DSVM subnet 
+5.	Follow [instructions](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) to add DSVM to AD. 
+6.	Next mount a shared Azure Files to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file level permissions you will need an NFS running on one or more VMs)
 
-7.	Next mount a shared Azure Files to host your home or notebook directory to enable mounting your workspace on any machine. (If you need tight file level permissions you will need an NFS running on one or more VMs)
-
-    a. Create an Azure File Share
-    ![create-file-share](./media/create-file-share.png)
+    a. [Create an Azure File Share](../../storage/files/storage-how-to-create-file-share.md)
     
-    b. Mount it on the Linux DSVM. When you click on “Connect” button for the Azure Files in your storage account on the Azure portal, the exact command to run in bash shell on the Linux DSVM will be shown. The command will look like this:
+    b. Mount it on the Linux DSVM. When you click on “Connect” button for the Azure Files in your storage account on the Azure portal, the  command to run in bash shell on the Linux DSVM will be shown. The command will look like this:
 ```
 sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
 ```
-8.	Say, you mounted your Azure Files in /data/workspace. Now create directories for each of your users in the share. /data/workspace/user1, /data/workspace/user2 and so on. Create a ```notebooks``` directory in each user's workspace. 
-9. Create symbolic links for the ```notebooks``` in ```$HOME/userx/notebooks/remote```.   
+7.	Say, you mounted your Azure Files in /data/workspace. Now create directories for each of your users in the share. /data/workspace/user1, /data/workspace/user2 and so on. Create a ```notebooks``` directory in each user's workspace. 
+8. Create symbolic links for the ```notebooks``` in ```$HOME/userx/notebooks/remote```.   
 
 Now, you have the users in your active directory hosted in Azure and able to log in to any DSVM (both SSH, Jupyterhub) that is joined to the AADDS  using the AD credentials. Since the user workspace is on shared Azure Files, the user will have access to their notebooks and other work from any DSVM when using Jupyterhub. 
 
