@@ -1,5 +1,5 @@
 ---
-title: Supported languages in Bing Spell Check API (Azure Cognitive Services) | Microsoft Docs
+title: Supported languages in Bing Autosuggest API (Azure Cognitive Services) | Microsoft Docs
 description: List of generally available and preview language support for Bing Spell Check API operations.
 services: cognitive-services
 author: swhite-msft
@@ -10,7 +10,9 @@ ms.topic: article
 ms.date: 09/26/2017
 ms.author: scottwhi
 ---
-# Supported language list and status
+# Supported languages
+
+The following lists the languages supported by Bing Autosuggest API.
 
 | Language    | Language code |
 |:----------- |:-------------:|
