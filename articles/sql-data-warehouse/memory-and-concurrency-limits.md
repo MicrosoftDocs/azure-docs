@@ -61,13 +61,12 @@ The service levels for Gen1 range from DW100 to DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. 
-
-Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 ### Gen2
  
 **Static resource classes**
+
 The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
 
 | Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
@@ -87,7 +86,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 **Dynamic resource classes**
 
 > [!NOTE]
-> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries.  The concurrency slots used by smallrc increases as the service level increases. 
+> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries.  The concurrency slots and memory used by smallrc increases as the service level increases. 
 >
 >
 
