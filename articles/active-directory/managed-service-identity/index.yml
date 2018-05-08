@@ -31,7 +31,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use MSI to securely access Azure resources
+    text: Learn how to use Managed Service Identity (MSI) to securely access Azure resources
   - type: paragraph  
     text: Windows VM/VMSS
   - type: list
@@ -43,8 +43,26 @@ sections:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Access Azure Key Vault</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Access Azure Cosmos DB</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Access Azure Resource Manager with a user assigned identity</a>
-  
-- title: Samples
+  - type: paragraph
+    text: Linux VM/VMSS
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Access Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Access Azure Storage using an access key</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Access Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Access Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Access Azure Resource Manager with a user assigned identity</a>
   
 - title: Reference
-  
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
