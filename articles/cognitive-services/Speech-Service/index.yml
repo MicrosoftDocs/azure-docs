@@ -31,7 +31,7 @@ sections:
       - image:
           src: media/index/logo_cplusplus.svg
       - image:
-          src: media/index/logo_java.svg
+          src: media/index/logo_java.jpg
     rows:
       - title: Windows
         values:
@@ -121,7 +121,7 @@ sections:
       - image:
           src: media/index/uwp.jpg
       - image:
-          src: media/index/logo_java.svg     
+          src: media/index/logo_java.jpg     
       - image:      
           src: media/index/logo_objc.jpg
       - image:
