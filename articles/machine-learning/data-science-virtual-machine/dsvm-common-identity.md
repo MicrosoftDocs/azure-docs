@@ -23,7 +23,7 @@ ms.author: gokuma
 
 By default, on Azure VM including the Data Science VM (DSVM) local user accounts are created while provisioning the VM and the users authenticate to the VM with these credentials. If you have multiple VMs that you need to access, this approach can quickly get cumbersome to manage credentials. Common user accounts and  management using a standards-based identity provider allows you to use a single set of credentials to access multiple resources on Azure including multiple DSVMs. 
 
-Active Directory (AD) is a popular identity provider and is supported both on Azure as a service as well as On-premises. You can leverage AD or Azure AD to authenticate users on both a standalone the Data Science VM (DSVM)  or a cluster of DSVM on an Azure virtual machine scale sets (VMSS). This is done by joining the DSVM instances to an AD domain. If you already have an Active Directory to manage the identities, you can use it as your common identity provider. In case you do not have an AD, you can run a managed AD on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(AADDS). 
+Active Directory (AD) is a popular identity provider and is supported both on Azure as a service as well as On-premises. You can leverage AD or Azure AD to authenticate users on both a standalone the Data Science VM (DSVM)  or a cluster of DSVM on an Azure virtual machine scale set. This is done by joining the DSVM instances to an AD domain. If you already have an Active Directory to manage the identities, you can use it as your common identity provider. In case you do not have an AD, you can run a managed AD on Azure through a service called [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/)(AADDS). 
 
 The documentation for [Azure Active directory (AAD)](https://docs.microsoft.com/azure/active-directory/) provides detailed [instructions](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution#synchronized-identity) to managed active directory including connecting the AAD to your On-premises directory if you have one. 
 
@@ -66,7 +66,7 @@ sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount p
 
 Now, you have the users in your active directory hosted in Azure and able to log in to any DSVM (both SSH, Jupyterhub) that is joined to the AADDS  using the AD credentials. Since the user workspace is on shared Azure Files, the user will have access to their notebooks and other work from any DSVM when using Jupyterhub. 
 
-For auto scaling, you can use the VMSS to create a pool of VMs that are all joined to the domain in this fashion and with the shared disk mounted. Users can log in to any available machine in the VMSS and have access to shared disk where their notebooks are saved. 
+For auto scaling, you can use the virtual machine scale set to create a pool of VMs that are all joined to the domain in this fashion and with the shared disk mounted. Users can log in to any available machine in the virtual machine scale set and have access to shared disk where their notebooks are saved. 
 
 # Next Steps
 
