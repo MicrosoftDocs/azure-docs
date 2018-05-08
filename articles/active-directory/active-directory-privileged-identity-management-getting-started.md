@@ -3,18 +3,16 @@ title: Get started with Azure AD Privileged Identity Management | Microsoft Docs
 description: Learn how to manage privileged identities with the Azure Active Directory Privileged Identity Management application in Azure portal.
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 2299db7d-bee7-40d0-b3c6-8d628ac61071
 ms.service: active-directory
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2017
-ms.author: barclayn
+ms.author: curtand
 ms.custom: pim  
 ---
 # Start using Azure AD Privileged Identity Management
