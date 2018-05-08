@@ -18,9 +18,6 @@ ms.author: wolfma
 > [!NOTE]
 > For instructions to download this sample and others, see [Samples for Speech SDK](samples.md).
 
-> [!IMPORTANT]
-> Currently, the translation service requires different subscription keys. Let us know if you want to use the translation service.
-
 [!include[Get a Subscription Key](includes/get-subscription-key.md)]
 
 > [!NOTE]
