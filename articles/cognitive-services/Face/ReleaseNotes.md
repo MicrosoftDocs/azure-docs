@@ -32,7 +32,7 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 * Added `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`, and `noise` attributes in [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
 
-* Supportted 10K persons in a PersonGroup and [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* Supported 10K persons in a PersonGroup and [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 * Supported pagination in [PersonGroup Person - List](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) with optional parameters: `start` and `top`.
 
@@ -68,4 +68,4 @@ This article pertains to Microsoft Face API Service version 1.0.
 
 * Deprecated the PersonGroup and Person data in Face V0. Those data cannot be accessed with the Face V1.0 service.
 
-* Deprecated the V0 endpoint of Face API on 06/30/2016.
+* Deprecated the V0 endpoint of Face API on June 30, 2016.
