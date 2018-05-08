@@ -17,7 +17,7 @@ ms.custom:
 
 
 
-# Azure Maps - Search Categories
+# Azure Maps - Search categories
 
 Azure Maps provides a powerful [Category Search API](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) that returns points of interest (POI) filtered by category.
 
