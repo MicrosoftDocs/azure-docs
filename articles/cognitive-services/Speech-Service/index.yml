@@ -61,7 +61,7 @@ sections:
 - title: Speech-to-Text
   items:
   - type: paragraph
-    text: Our Speech SDK supports *Speech-to-Text* (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command. For the full list of supported languages in each recognition mode, see [supported languages](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-to-text).
+    text: Our Speech SDK supports <b>Speech-to-Text<b/> (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command. For the full list of supported languages in each recognition mode, see <a href="https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-to-text">supported languages</a>.
   - type: paragraph
     text: 'The following are common use cases for *Speech-to-Text* via the Speech SDK:'
   - type: list
@@ -74,7 +74,7 @@ sections:
   - type: paragraph
     text: 'The Speech SDK supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.'
   - type: paragraph
-    text: A key differentiator of Microsoft Speech Service is the ability to [customize Speech-to-Text acoustic and language models](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text/concepts/custom-models?branch=pr-en-us-36555) to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
+    text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
 - title: Reference
   items:
