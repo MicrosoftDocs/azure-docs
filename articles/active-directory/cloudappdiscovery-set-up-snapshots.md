@@ -4,15 +4,15 @@ description: Provides information about finding and managing applications with C
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
-author: curtand
+author: barbkess
 manager: mtillman
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: nigu
 ms.custom: it-pro
 
