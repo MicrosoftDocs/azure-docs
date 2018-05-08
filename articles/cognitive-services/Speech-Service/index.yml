@@ -58,12 +58,12 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API (Device SDK)</a></li></ul>
 
 - title: Speech-to-Text
   items:
   - type: paragraph
-    text: Our Speech SDK supports <b>Speech-to-Text</b> (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command. For the full list of supported languages in each recognition mode, see <a href="https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-to-text">supported languages</a>.
+    text: Our Speech SDK supports <b>Speech-to-Text</b> (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command.
   - type: paragraph
     text: The following are common use cases for <b>Speech-to-Text</b> via the Speech SDK&#58;
   - type: list
@@ -81,7 +81,7 @@ sections:
 - title: Speech-Translation
   items:
   - type: paragraph
-    text: The Speech SDK can also be used for <b>Speech-Translation</b> as well.  With streaming *Speech-Translation* via the Speech SDK, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice. For the full list of supported languages, see [supported languages](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-translation).
+    text: The Speech SDK can also be used for <b>Speech-Translation</b> as well.  With streaming <b>Speech-Translation</b> via the Speech SDK, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
   - type: paragraph
     text: Use cases for <b>Speech-Translation</b> via the Speech SDK include the following&#58;
   - type: list
@@ -95,20 +95,21 @@ sections:
 - title: Text-to-Speech
   items:
   - type: paragraph
-    text: Our Speech SDK supports <b>Speech-to-Text</b> (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command. For the full list of supported languages in each recognition mode, see <a href="https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-to-text">supported languages</a>.
+    text: Currently <b>Text-to-Speech</b> (TTS), or speech synthesis, is supported via a REST API that converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many languages.
   - type: paragraph
-    text: 'The following are common use cases for *Speech-to-Text* via the Speech SDK:'
+    text: Our Speech SDK provides access to Speech-to-Text and Speech-Translation. Text-to-Speech employs REST POST calls over HTTP.
+  - type: paragraph
+    text: The <b>Text-to-Speech</b> REST API supports *Speech-Synthesis-Markup-Language* (SSML) tags, so you can specify exact phonetic pronunciation for troublesome words. SSML can also indicate speech characteristics (including emphasis, rate, volume, gender, and pitch) right in the text.
+  - type: paragraph
+    text: If you want an unsupported dialect or unique voice for your application, you can create <a href="http://aka.ms/customvoice">custom voice fonts</a> from your own speech samples.
+  - type: paragraph
+    text: 'The following are common use cases for the *Text-to-Speech* REST API:'
   - type: list
     style: unordered
     items:
-    - text: 'Recognize brief a utterance, such as a command, without interim results'
-    - text: 'Transcribe a long, previously-recorded utterance, such as a voicemail message'
-    - text: 'Transcribe streaming speech in real-time, with partial results, for dictation'
-    - text: 'Determine what users want to do based on a spoken natural-language request'        
-  - type: paragraph
-    text: 'The Speech SDK supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.'
-  - type: paragraph
-    text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
+    - text: Speech output as an alternative screen output for visually-impaired users
+    - text: Voice prompting for in-car applications such as navigation
+    - text: Conversational user interfaces in concert with the <b>Speech-to-Text</b> API
 
 - title: Older SDKs
   items:
@@ -173,11 +174,11 @@ sections:
       - image:
           src: media/index/logo_python.svg
       - image:
-          src: media/index/logo_swift.svg     
+          src: media/index/logo_swift.jpg     
       - image:      
           src: media/index/logo_gopher.svg
       - image:
-          src: media/index/logo_c.jpg     
+          src: media/index/c.jpg     
     rows:
       - title: Comming soon
         values:
