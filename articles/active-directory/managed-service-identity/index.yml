@@ -38,6 +38,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Access Azure Data Lake Store</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Access Azure Storage using an access key</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Access Azure SQL</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Access Azure Key Vault</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Access Azure Cosmos DB</a>
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Access Azure Resource Manager with a user assigned identity</a>
   
 - title: Samples
   
