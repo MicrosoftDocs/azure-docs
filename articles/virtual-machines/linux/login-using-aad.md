@@ -76,7 +76,7 @@ To log in to a Linux VM with Azure AD credentials, install the Azure Active Dire
 
 ```azurecli-interactive
 az vm extension set \
-    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH.Edp \
+    --publisher Microsoft.Azure.ActiveDirectory.LinuxSSH \
     --name AADLoginForLinux \
     --resource-group myResourceGroup \
     --vm-name myVM
