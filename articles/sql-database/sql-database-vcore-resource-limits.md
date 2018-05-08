@@ -22,7 +22,7 @@ For single databases, the following tables show the resources available for a si
 
 ### General Purpose service tier
 
-#### Generation 4 processor
+#### Generation 4 compute platform
 |Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
@@ -44,7 +44,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor
+#### Generation 5 compute platform
 |Performance level|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|
@@ -66,7 +66,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor (continued)
+#### Generation 5 compute platform (continued)
 |Performance level|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |
 |H/W generation|5|5|5|5|
@@ -91,7 +91,7 @@ For single databases, the following tables show the resources available for a si
 
 ### Business Critical service tier
 
-#### Generation 4 processor
+#### Generation 4 compute platform
 |Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
@@ -99,7 +99,7 @@ For single databases, the following tables show the resources available for a si
 |Memory (GB)|7|14|28|56|112|168|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1|2|4|8|20|36|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|
@@ -113,7 +113,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor
+#### Generation 5 compute platform
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
@@ -121,7 +121,7 @@ For single databases, the following tables show the resources available for a si
 |Memory (GB)|11|22|44|88|132|176|264|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
@@ -135,7 +135,7 @@ For single databases, the following tables show the resources available for a si
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor (continued)
+#### Generation 5 compute platform (continued)
 |Performance level|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|
@@ -143,7 +143,7 @@ For single databases, the following tables show the resources available for a si
 |Memory (GB)|132|176|264|440|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|25.252|37.936|68.104|131.64|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|2048|4096|4096|4096|
 |Max log size|614|1229|1229|1229|
@@ -192,7 +192,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 
 ### General Purpose service tier
 
-#### Generation 4 processor
+#### Generation 4 compute platform
 |Performance level|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
@@ -204,7 +204,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Max data size (GB)|512|756|1536|2048|3584|4096|
 |Max log size|154|227|461|614|1075|1229|
 |TempDB size(DB)|32|64|128|256|384|384|
-|Target IOPS|320|640|1280|2560|5120|7680|
+|Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -216,7 +216,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor
+#### Generation 5 compute platform
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
@@ -228,7 +228,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Max data size (GB)|512|756|1536|2048|3072|4096|4096|4096|
 |Max log size|154|227|461|614|922|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS|640|1280|2560|5120|7680|10240|15360|25600|
+|Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|2520|3360|5040|8400
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -242,7 +242,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 
 ### Business Critical service tier
 
-#### Generation 4 processor
+#### Generation 4 compute platform
 |Performance level|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
@@ -250,11 +250,11 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Memory (GB)|7|14|28|56|112|168|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1|2|4|8|20|36|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |Max data size (GB)|1024|1024|1024|1024|1024|1024|
 |Max log size|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|
-|Target IOPS|5000|10000|20000|40000|80000|120000|
+|Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max concurrent workers (requests)|210|420|840|1680|3360|5040|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|
@@ -265,7 +265,7 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
 
-#### Generation 5 processor
+#### Generation 5 compute platform
 |Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
@@ -273,12 +273,12 @@ For SQL Database elastic pools, the following tables show the resources availabl
 |Memory (GB)|11|22|44|88|132|176|264|440|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
-|Storage type|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|Attached SSD|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data size (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Max log size|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Target IOPS|5000|10000|20000|40000|60000|80000|120000|200000
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
 |Max concurrent workers (requests)|210|420|840|1680|2520|3360|5040|8400|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Max pool density|N/A|50|100|100|100|100|100|100|
