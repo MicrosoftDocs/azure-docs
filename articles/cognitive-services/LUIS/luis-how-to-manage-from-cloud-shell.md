@@ -1,5 +1,5 @@
 ---
-title: Monitor LUIS from Azure Cloud Shell | Microsoft Docs
+title: View LUIS usage from Azure Cloud Shell | Microsoft Docs
 description: Learn how to get usage information in Azure Cloud Shell for LUIS.
 services: cognitive-services
 author: v-geberr
