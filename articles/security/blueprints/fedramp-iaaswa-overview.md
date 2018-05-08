@@ -23,7 +23,9 @@ ms.author: jomolesk
 
 ## Overview
 
-The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a FedRAMP-compliant infrastructure as a service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP High requirements and this solution, please see [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md). ***Note: This solution deploys to Azure Government.***
+The [Federal Risk and Authorization Management Program (FedRAMP)](https://www.fedramp.gov) is a U.S. government-wide program that provides a standardized approach to security assessment, authorization, and continuous monitoring for cloud products and services. This Azure Security and Compliance Blueprint Automation provides guidance for the deployment of a FedRAMP-compliant infrastructure as a service (IaaS) environment suitable for a simple Internet-facing web application. This solution automates deployment and configuration of Azure resources for a common reference architecture, demonstrating ways in which customers can meet specific security and compliance requirements and serves as a foundation for customers to build and configure their own solutions on Azure. The solution implements a subset of controls from the FedRAMP High baseline, based on NIST SP 800-53. For more information about FedRAMP High requirements and this solution, please see [FedRAMP High Requirements - High-Level Overview](fedramp-controls-overview.md).
+> [!NOTE]
+> This solution deploys to Azure Government.
 
 This Azure Security and Compliance Blueprint Automation automatically deploys an IaaS web application reference architecture with pre-configured security controls to help customers achieve compliance with FedRAMP requirements. The solution consists of Azure Resource Manager templates and PowerShell scripts that guide resource deployment and configuration.
 
@@ -38,7 +40,7 @@ Click [here](https://aka.ms/fedrampblueprintrepo) for deployment instructions.
 ## Architecture diagram and components
 This solution deploys a reference architecture for an IaaS web application with a SQL Server backend. The architecture includes a web tier, data tier, Active Directory infrastructure, Application Gateway, and Load Balancer. Virtual machines deployed to the web and data tiers are configured in an Availability Set, and SQL Server instances are configured in an AlwaysOn availability group for high availability. Virtual machines are domain-joined, and Active Directory group policies are used to enforce security and compliance configurations at the operating system level. A bastion host provides a secure connection for administrators to access deployed resources. **Azure recommends configuring a VPN or Azure ExpressRoute connection for management and data import into the reference architecture subnet.**
 
-![IaaS Web Applicaiton for FedRAMP reference architecture diagram](images/fedramp-iaaswa-architecture.png?raw=true "IaaS Web Applicaiton for FedRAMP reference architecture diagram")
+![IaaS Web Application for FedRAMP reference architecture diagram](images/fedramp-iaaswa-architecture.png?raw=true "IaaS Web Application for FedRAMP reference architecture diagram")
 
 This solution uses the following Azure services. Details of the deployment architecture are located in the [deployment architecture](#deployment-architecture) section.
 
@@ -66,7 +68,7 @@ This solution uses the following Azure services. Details of the deployment archi
 - Azure Cloud Witness
 - Recovery Services vault
 - Azure Key Vault
-- Azure Active Directory (AAD)
+- Azure Active Directory (Azure AD)
 - Azure Resource Manager
 - Operations Management Suite (OMS)
 - Azure Monitor
@@ -107,7 +109,7 @@ Customers may also configure the following SQL Server security measures:
 -	[Firewall rules](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) prevent all access to database servers until proper permissions are granted. The firewall grants access to databases based on the originating IP address of each request.
 -	[SQL Threat Detection](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started) enables the detection and response to potential threats as they occur by providing security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
 -	[Always Encrypted columns](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive data never appears as plaintext inside the database system. After enabling data encryption, only client applications or app servers with access to the keys can access plaintext data.
--	[SQL Database dynamic data masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) can be done after the reference architecture deploys. **Note: Customers will need to adjust dynamic data masking settings to adhere to their database schema.**
+-	[SQL Database dynamic data masking](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) can be done after the reference architecture deploys. Customers will need to adjust dynamic data masking settings to adhere to their database schema.
 
 **Azure Disk Encryption**: Azure Disk Encryption is used to encrypted Windows IaaS virtual machine disks. [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution is integrated with Azure Key Vault to help control and manage the disk-encryption keys.
 
@@ -168,7 +170,7 @@ Additionally, the following OMS solutions are installed as a part of this archit
 ## Threat model
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/fedrampWAdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Applicaiton for FedRAMP threat model](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton for FedRAMP threat model")
+![IaaS Web Application for FedRAMP threat model](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton for FedRAMP threat model")
 
 ## Compliance documentation
 
@@ -178,7 +180,9 @@ The [Azure Security and Compliance Blueprint - FedRAMP IaaS WebApp High Control 
 
 ## Deploy the solution
 
-This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo). ***Note: This solution deploys to Azure Government.***
+This Azure Security and Compliance Blueprint Automation is comprised of JSON configuration files and PowerShell scripts that are handled by Azure Resource Manager's API service to deploy resources within Azure. Detailed deployment instructions are available [here](https://aka.ms/fedrampblueprintrepo).
+> [!NOTE]
+> This solution deploys to Azure Government.
 
 #### Quickstart
 1. Clone or download [this](https://aka.ms/fedrampblueprintrepo) GitHub repository to your local workstation.
