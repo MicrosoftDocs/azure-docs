@@ -18,7 +18,7 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ---
 
-# Install PowerShell for Azure Stack  
+# Install PowerShell for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -26,13 +26,13 @@ Azure Stack compatible Azure PowerShell modules are required to work with Azure 
 
 This article has detailed instructions to install PowerShell for Azure Stack.
 
-> [!NOTE]
-> The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the "Major" version.
+> [!Note]
+> The following steps require PowerShell 5.0. To check your version, run $PSVersionTable.PSVersion and compare the **Major** version.
 
 PowerShell commands for Azure Stack are installed through the PowerShell Gallery. You can use the following procedure to validate if PSGallery is registered as a repository, open an elevated PowerShell session and run the following command:
 
 ```PowerShell
-Set-PSRepository -Name "PSGallery"
+Get-PSRepository -Name "PSGallery" 
 ```
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
@@ -40,6 +40,8 @@ If the repository is not registered, open an elevated PowerShell session and run
 ```PowerShell
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
+> [!Note]  
+> This step requires Internet access. 
 
 ## Uninstall existing versions of PowerShell
 
@@ -54,26 +56,26 @@ Before installing the required version, make sure that you uninstall any previou
     Get-Module AzureRm.AzureStackStorage | Uninstall-Module -Force
   ```
 
- - Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules. 
+ - Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 
-The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected, or in a disconnected scenario.  
+The following sections describe the steps required to install PowerShell for Azure Stack. PowerShell can be installed on Azure Stack that is operated in connected, partially connected, or in a disconnected scenario.
 
-## Install PowerShell in a connected scenario (with internet connectivity)
+## Install PowerShell in a connected scenario (with Internet connectivity)
 
 Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them, refer to the [manage API version profiles](user/azure-stack-version-profiles.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
 
-  ```PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
-  Install-Module `
-    -Name AzureRm.BootStrapper
+  ```PowerShell  
+# Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+Install-Module -Name AzureRm.BootStrapper 
 
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile `
-    -Profile 2017-03-09-profile -Force
+# Install and import the API Version Profile required by Azure Stack into the current PowerShell session. 
+Use-AzureRmProfile -Profile 2017-03-09-profile -Force 
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.12
+# Install Module Version 1.2.12 if Azure Stack is running 1804 at a minimum 
+Install-Module -Name AzureStack -RequiredVersion 1.2.12 
+
+# Install Module Version 1.2.11 if Azure Stack is running a lower version then 1804 
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 
   ```
 
 To confirm the installation, run the following command:
@@ -84,12 +86,12 @@ To confirm the installation, run the following command:
 
   If the installation is successful, the AzureRM and AzureStack modules are displayed in the output.
 
-## Install PowerShell in a disconnected or a partially connected scenario (with limited internet connectivity)
+## Install PowerShell in a disconnected or a partially connected scenario (with limited Internet connectivity)
 
-In a disconnected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
+In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
 > [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the [migration guide](https://github.com/bganapa/azure-powershell/blob/stack-migration/documentation/migration-guides/Stack/migration-guide.1.2.12.md).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 
@@ -110,8 +112,11 @@ In a disconnected scenario, you must first download the PowerShell modules to a 
      -Name AzureStack `
      -Path $Path `
      -Force `
-     -RequiredVersion 1.2.11 
+     -RequiredVersion 1.2.12 
    ```
+
+> [!Important]  
+> If you are not running Azure Stack with update 1084 or greater, change the **requiredversion** parameter value to `1.2.11`. 
 
 2. Copy the downloaded packages over to a USB device.
 
@@ -142,17 +147,14 @@ In scenarios that require a proxy server to access the internet, you must first 
 1. Open an elevated PowerShell prompt.
 2. Run the following commands:
 
-  ```PowerShell  
+````PowerShell  
   #To use Windows credentials for proxy authentication
-
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = 
-      [System.Net.CredentialCache]::DefaultCredentials
-
+  [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
   #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
 
   [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
-  ```
+````
 
 ## Next steps
 
