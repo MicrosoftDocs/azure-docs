@@ -16,7 +16,7 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code.
+  description: Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.  Learn how to create and manage MSIs with our quickstarts and tutorials.
   aside:
     image:
       alt: 
@@ -41,13 +41,6 @@ sections:
   items:
   - type: paragraph
     text: Learn how to use MSI to securly access Azure resources
-  - type: list
-    style: unordered
-    items:
-    text: Windows VM/VMSS
-    
-
-      
   
 - title: Samples
   
