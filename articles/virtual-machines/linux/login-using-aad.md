@@ -40,7 +40,9 @@ The following Linux distributions are currently supported during the preview of 
 
 | Distribution | Version |
 | --- | --- |
-| Ubuntu Server | Ubuntu 16.04 LTS and Ubuntu Server 17.10 |
+| CentOS | CentOS 6.9 and CentOS 7.4 |
+| RedHat Enterprise Linux | RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 and Ubuntu Server 17.10 |
 
 The following Azure regions are currently supported during the preview of this feature:
 
