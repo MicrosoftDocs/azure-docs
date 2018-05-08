@@ -51,7 +51,7 @@ Export
 
 ## Supported hardware 
 
-For the Azure Import/Export service, you need supported HDDs and supported external USB adaptors to copy data.
+For the Azure Import/Export service, you need supported disks and supported SATA connectors to copy data.
 
 ### Supported disks
 The following list of disks is supported for use with the Import/Export service.
