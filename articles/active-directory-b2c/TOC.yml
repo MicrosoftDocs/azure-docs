@@ -141,8 +141,6 @@
         href: active-directory-b2c-reference-language-customization.md
       - name: Use the reporting API
         href: active-directory-b2c-reference-usage-reporting-api.md
-      - name: Manage user access
-        href: manage-user-access.md
       - name: Manage user data
         href: manage-user-data.md
       - name: Migrate users
@@ -211,6 +209,8 @@
           href: active-directory-b2c-reference-password-change-custom.md
         - name: Enable keep me signed in
           href: active-directory-b2c-reference-kmsi-custom.md
+      - name: Manage user access
+        href: manage-user-access.md
       - name: Troubleshooting
         items:
         - name: Collect logs using Application Insights
