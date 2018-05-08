@@ -150,15 +150,15 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	>[!NOTE]
 	>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
-8. To update **Sansan** application with multiple Identifier and Reply URLs using Powershell script perform the following steps:
+8. To update **Sansan** application with multiple Identifier and Reply URLs using **Powershell script** perform the following steps:
 
 	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
 
 	a. Go to the **properties** page of **Sansan** application and copy the **Object Id** using **Copy** button and paste it into notepad.
 
-	b. The **Object Id** which you have copied from Azure portal will be used as **ServicePrincipalObjectId** which is explained later in the tutorial. 
+	b. The **Object Id** which you have copied from Azure portal will be used as **ServicePrincipalObjectId** in powershell script used later in the tutorial. 
 
-	c. Open an elevated Windows PowerShell command prompt.
+	c. Now open an elevated Windows PowerShell command prompt.
 	
 	>[!NOTE] 
 	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
