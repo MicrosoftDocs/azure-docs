@@ -42,7 +42,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 
-## Subscribe to the API
+## Obtaining access token using the Authorization API
 
 Once you subscribed to the Authorization API, you will be able to obtain access tokens. These access tokens are used to authenticate against the Operations API. 
 
