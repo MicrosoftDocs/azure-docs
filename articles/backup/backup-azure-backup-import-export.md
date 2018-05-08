@@ -48,7 +48,7 @@ The following Azure Backup features or workloads support use of Offline Backup.
 ## Prerequisites
 
   > [!NOTE]
-  > The following prerequisites and workflow apply only to Offline backup of files and folders using the [latest MARS agent](https://aka.ms/azurebackup_agent). To perform Offline backups for workloads using System Center DPM or Azure Backup Server, refer to [this article](backup-azure-mabsdpm-import-export.md). 
+  > The following prerequisites and workflow apply only to Offline backup of files and folders using the [latest MARS agent](https://aka.ms/azurebackup_agent). To perform Offline backups for workloads using System Center DPM or Azure Backup Server, refer to [this article](backup-azure-backup-server-import-export.md). 
 
 Before initiating the Offline Backup workflow, complete the following prerequisites: 
 * Create a [Recovery Services vault](backup-azure-recovery-services-vault-overview.md). To create a vault, refer to the steps in [this article](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
