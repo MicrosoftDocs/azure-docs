@@ -20,7 +20,7 @@ Understanding how to create and manage policies in Azure is important for stayin
 > - Resolve a non-compliant or denied resource
 > - Implement a new policy across an organization
 
-If you would like to assign a policy to identify the current compliance state of your existing resources, the quickstart articles go over how to do so. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you would like to assign a policy to identify the current compliance state of your existing resources, the quickstart articles go over how to do so. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Assign a policy
 
@@ -62,7 +62,9 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
 2. Select **+ Policy definition** at the top of the page. This opens to the **Policy definition** page.
 3. Enter the following:
 
-   - The subscription in which the policy definition resides. Select your subscription by using the ellipsis on **Definition location**.
+   - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
+      > [!NOTE]
+      > If you plan to apply this policy definition to multiple subscriptions, the location must by a management group that contains the subscriptions you will assign the policy to. This same is true for an initiative definition.
    - The name of the policy definition - *Require VM SKUs smaller than the G series*
    - The description of what the policy definition is intended to do – *This policy definition enforces that all VMs created in this scope have SKUs smaller than the G series to reduce cost.*
    - Chose from existing options, or create a new category for this policy definition.
