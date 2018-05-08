@@ -221,7 +221,7 @@ In this tutorial, you work with the **device-simulation** and **storage-adapter*
 1. To clone the .NET version of the **storage-adapter** repository, run the following command:
 
     ```cmd
-    git clone https://github.com/Azure/storage-adapter.git
+    git clone https://github.com/Azure/pcs-storage-adapter-dotnet.git
     ```
 
     The device simulation service uses the storage adapter service to connect to the Cosmos DB service in Azure. The remote monitoring solution stores the simulated device configuration data in a Cosmos DB database.

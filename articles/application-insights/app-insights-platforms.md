@@ -3,7 +3,7 @@ title: 'Application Insights: languages, platforms and integrations| Microsoft D
 description: Languages, platforms and integrations available for Application Insights
 services: application-insights
 documentationcenter: ''
-author: OlegAnaniev-MSFT
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
-ms.author: mbullwin
+ms.author: mbullwin; olegan
 
 ---
 # Developer analytics: languages, platforms, and integrations
