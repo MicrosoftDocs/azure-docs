@@ -11,38 +11,36 @@ ms.date: 05/08/2018
 ms.author: alkohli
 
 ---
-# Use the Microsoft Azure Import/Export service to import data to Azure Blob storage
+# Use the Azure Import/Export service to import data to Azure Blob Storage
+
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage. To import data into Azure Blobs, the service requires you to ship encrypted disk drives containing your data to an Azure datacenter.  
 
 ## Prerequisites
 
 Before you create an import job to transfer data into Azure Blob Storage, carefully review and complete the following list of prerequisites for this service. 
 
-- You must have an active Azure subscription that can be used for the Import/Expert service.
-- You need one or more Azure Storage accounts. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
-- You must have adequate number of HDDs/SSDs required for your data.
-    - The disks must belong to the list of [Supported disk types](storage-import-export-requirements.md#supported-disks). 
-    - The disks must be prepared using the procedure described in [Prepare the disks with WAImportExport tool V1](storage-import-export-tool-preparing-hard-drives-import-v1). 
-- You need access to a Windows system where you will install WAImportExport tool. This tool is available in two versions. We recommend that for this import job you use the V1 tool. 
-    - The server where you install WAImportExport tool V1 must have a [Supported OS](storage-import-export-requirements.md#supported-operating-systems). 
-    - [Download the WAImportExport tool V1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on this server. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-- Identify the data to be imported into Azure Storage. Import the directories and standalone files on a local server or a network share. 
+- An active Azure subscription that can be used for the Import/Export service.
+- At least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
+- A Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
+- Enable BitLocker on the Windows system. See [How to enable BitLocker](https://technet.microsoft.com/library/cc731549(v=ws.10).aspx).
+- [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 
 
 ## Step 1: Prepare the drives
 
-Prepare the disk drives using the WAImportExport tool and generate a journal file. The journal files store basic information about your job and drive such as drive serial number and storage account name. This file is used during import job creation. 
+This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details. 
 
 Perform the following steps to prepare the drives.
 
-1.	Attach the hard drives directly using SATA or external USB adaptors to a Windows system.
-1.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. Do not use mountpoints.
+1.	Connect your disk drives to the Windows system via SATA connectors.
+1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 2.  Enable BitLocker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
-3.  Copy data to encrypted single NTFS volumes on disks. Use drag and drop or Robocopy or any such copy tool.
-5.	Open a PowerShell or command line window with administrative privileges. Change directory to the unzipped folder. Type:
+3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
+5.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
     `cd C:\WaImportExportV1`
-6.	Create a journal file for the disk. Type:
+6.	To prepare the disk, run the following command. Depending on the data size, this may take several hours to days.
 
     ```
     ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
@@ -115,7 +113,7 @@ If the tracking number is not updated within 2 weeks of creating the job, the jo
 
 ## Next steps
 
-* [Setting up the WAImportExport tool](storage-import-export-tool-how-to.md)
-* [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+* [Set up the WAImportExport tool](storage-import-export-tool-how-to.md)
+* [Transfer data with AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
