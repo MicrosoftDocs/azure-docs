@@ -43,12 +43,23 @@ sections:
         - href:
         - href: cpp-linux
         - href:
-      - title: Device SDK
+      - title: Device SDK (Android)
         values:
         - href:
         - href:
         - href: speech-sdk-reference
 
+- title: Samples and Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Examples
+      html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
+    - title: API Reference
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java</a></li></ul>
+  
 - title: Samples
   items:
   - type: list
