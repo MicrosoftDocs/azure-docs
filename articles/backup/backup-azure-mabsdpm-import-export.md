@@ -1,5 +1,5 @@
 ---
-title: Azure Backup - Offline backup or initial seeding using the Azure Import/Export service | Microsoft Docs
+title: Azure Backup - Offline backup for DPM and Azure Backup Server | Microsoft Docs
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
 services: backup
 documentationcenter: ''
@@ -13,15 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2018
+ms.date: 5/8/2018
 ms.author: saurse;nkolli;trinadhk
 
 ---
-# Offline-backup workflow in Azure Backup
-Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.  
+# Offline-backup workflow for DPM and Azure Backup Server
+Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Azure Backup compresses the initial backups. Through the process of offline seeding, Azure Backup can use disks to upload the compressed initial backup data offline to Azure.
 
-The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md) that enables you to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that needs to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further details steps that complete this workflow.
+The offline-seeding process of Azure Backup is tightly integrated with the [Azure Import/Export service](../storage/common/storage-import-export-service.md) that enables you to transfer data to Azure by using disks. If you have terabytes (TBs) of initial backup data that needs to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy on one or more hard drives to an Azure datacenter. This article provides an overview and further details steps that complete this workflow for System Center DPM and Azure Backup Server.
 
+> [!NOTE]
+> The process of Offline backup for the Microsoft Azure Recovery Services (MARS) agent is distinct from System Center DPM and Azure Backup Server. For information on using Offline backup with MARS agent, see [this article](backup-azure-backup-import-export.md). Offline Backup is not supported for System State backups done using the Azure Backup agent. 
+>
 
 ## Overview
 With the offline-seeding capability of Azure Backup and Azure Import/Export, it is simple to upload the data offline to Azure by using disks. The Offline Backup process involves the following steps:
@@ -40,9 +43,6 @@ Offline Backup is supported for all deployment models of Azure Backup that offsi
 > * Backup of files and folders with the Microsoft Azure Recovery Services (MARS) Agent or the Azure Backup agent. 
 > * Backup of all workloads and files with System Center Data Protection Manager (SC DPM) 
 > * Backup of all workloads and files with Microsoft Azure Backup Server <br/>
-
-   > [!NOTE]
-   > The process of Offline backup for MARS agent is distinct from System Center DPM and Azure Backup Server. For information on using Offline backup with MARS agent, see [this article](backup-azure-backup-import-export.md). Offline Backup is not supported for System State backups done using the Azure Backup agent. 
 
 ## Prerequisites
 Ensure that the following prerequisites are met before initiating the Offline Backup workflow
