@@ -26,13 +26,12 @@ That way, you can create logic apps that automate tasks and
 workflows for managing your data. The connector works for both 
 SQL Server on premises and for Azure SQL Database in the cloud. 
 
-You can build logic apps that run when triggered by events in your 
-SQL database or in other systems, such as Dynamics CRM Online. 
+You can build logic apps that run when triggered by events in 
+your SQL database or in other systems, such as Dynamics CRM Online. 
 Your logic apps can also get, insert, or delete data, and also execute 
-SQL queries or stored procedures. For example, you can build a logic app 
-that automatically checks for new records created in Dynamics CRM Online, 
-adds items to your SQL database when new records are found, 
-and then send email alerts.
+SQL queries or stored procedures. For example, you can build a logic 
+app that automatically checks for new records in Dynamics CRM Online, 
+adds items to your SQL database for any new records, and then sends email alerts.
 
 If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
@@ -54,9 +53,8 @@ See [Quickstart: Create your first logic app](../logic-apps/quickstart-create-fi
 or [create a SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database). 
 
   Your tables must have data so that your logic app can return 
-  results when calling operations, such as the "Get rows" action, which returns records. 
-  If you want to create an Azure SQL Database, you can use sample databases, 
-  which are included with Azure SQL Database. 
+  results when calling operations. If you create an Azure SQL Database, 
+  you can use sample databases, which are included. 
 
 * Your SQL server name, database name, your user name, and your password. 
 You need these credentials so that you can authorize your logic to access your SQL server. 
@@ -122,15 +120,12 @@ From the triggers list, select the SQL trigger that you want.
 which specify how often your logic app checks the table.
 
    This example only checks the selected table, nothing else. 
-   To do something more interesting, your logic app needs actions 
-   that respond to the trigger and to perform the tasks you want. 
+   To do something more interesting, add actions that perform the tasks you want. 
    
    For example, to view the new item in the table, 
-   you might add other actions that create a file 
-   with fields from the table for later review, 
-   and sends email alerts for new items. 
-   To learn about other actions in this 
-   connector or other connectors, see 
+   you might add other actions, such as create a file 
+   that has fields from the table, and then send email alerts. 
+   To learn about other actions for this connector or other connectors, see 
    [Logic Apps connectors](../connectors/apis-list.md).
 
 5. When you're done, on the designer toolbar, choose **Save**. 
@@ -162,8 +157,7 @@ From the actions list, select any SQL action that you want.
 
 3. If you're prompted for connection details, 
    [create your SQL connection now](#create-connection). 
-   Or, if your connection already exists, 
-   select the **Table name** that you want from the list, 
+   Or, if your connection exists, select a **Table name**, 
    and enter the **Row ID** for the record that you want.
 
    ![Enter the table name and row ID](./media/connectors-create-api-sqlazure/table-row-id.png)
@@ -193,16 +187,16 @@ but your results exceed the connector's
 <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">default page size</a>, 
 you get only the first <a href="https://docs.microsoft.com/sql/relational-databases/pages-and-extents-architecture-guide" target="blank">page</a> of results. To get the other pages, 
 you can turn on the **Pagination** setting for the **Get rows** action. 
-This setting lets your logic app continually ask the SQL connector 
-for the remaining pages, but return all the results as a single 
-message when the action finishes.  
+This setting has your logic app ask the SQL connector 
+for the remaining pages, but return all the results 
+as a single message when the action finishes.  
 
 1. On the **Get rows** action, open **Settings**. 
 
    ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings.png)
 
 2. Change the **Pagination** setting from **Off** to **On**. 
-To avoid returning a result set that's too big, 
+To avoid returning a result set that's too large, 
 you can also specify a **Limit** on the results.
 
    ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings-pagination.png)
@@ -213,17 +207,17 @@ you can also specify a **Limit** on the results.
 
 When getting or inserting multiple rows, your logic 
 app can iterate through these items by using an 
-[*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop), 
-which has these [limits](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+[*until loop*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) 
+within these [limits](../logic-apps/logic-apps-limits-and-config.md). 
 But, sometimes your logic app has to work with record sets so large, 
-such as thousands or millions of rows, that you want to minimize 
-costs for each call to the database. 
+such as thousands or millions of rows, that you want to minimize the 
+costs for calls to the database. 
 
-Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance 
-and uses the **SELECT - ORDER BY** statement to organize those records 
-the way you want. That way, you can better control the size and structure 
-for those record sets. Your logic app can call the stored procedure by using 
-the SQL Server connector's **Execute stored procedure** action. 
+Instead, you can create a <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*stored procedure*</a> that runs in your SQL instance and uses 
+the **SELECT - ORDER BY** statement to organize those record sets the way you want. 
+This solution gives your more control over the size and structure for those record sets. 
+Your logic app calls the stored procedure by using the SQL Server 
+connector's **Execute stored procedure** action. 
 
 For solution details, see these articles:
 
