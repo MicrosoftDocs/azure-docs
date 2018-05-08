@@ -15,7 +15,6 @@ manager: timlt
 # Setup your Windows environment for Service Fabric Mesh
 
 To build and run Azure Service Fabric applications on your Windows development machine, install the Service Fabric runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
-https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started#enable-powershell-script-execution
 
 |     |
 | --- |
