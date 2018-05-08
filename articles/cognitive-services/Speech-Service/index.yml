@@ -58,7 +58,7 @@ sections:
     - title: Examples
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API</a></li></ul>
 
 - title: Speech-to-Text
   items:
@@ -110,7 +110,6 @@ sections:
   - type: paragraph
     text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
-
 - title: Older SDKs
   items:
   - type: paragraph
@@ -119,24 +118,55 @@ sections:
     style: dataMatrix
     columns:
       - image:
-          src: media/index/logo_java.svg
+          src: media/index/uwp.jpg
       - image:
-          src: media/index/logo_swift.jpg
+          src: media/index/logp_java.svg     
+      - image:      
+          src: media/index/logo_objc.jpg
       - image:
-          src: media/index/logo_js.svg
+          src: media/index/logo_js.svg     
+      - image:
+          src: media/index/logo_rest.svg
+      - image:
+          src: media/index/logo_rest.svg                 
     rows:
       - title: Windows
         values:
-        - href: quickstart-csharp-windows
-        - href: cpp-windows
+        - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+        - href: 
         - href:
+        - href:
+        - href:
+        - href:             
       - title: Android
         values:
         - href:
-        - href: cpp-linux
+        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
         - href:
+        - href:
+        - href:
+        - href:          
       - title: iOS
         values:
         - href:
         - href:
-        - href: speech-sdk-reference
+        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+        - href:
+        - href:
+        - href:
+      - title: Web
+        values:
+        - href:
+        - href:
+        - href: 
+        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
+        - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
+        - href:                  
+      - title: Text-to-Speech
+        values:
+        - href:
+        - href:
+        - href: 
+        - href:
+        - href:
+        - href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
