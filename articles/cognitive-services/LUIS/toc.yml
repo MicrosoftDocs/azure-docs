@@ -200,7 +200,7 @@
     - name: Manage Azure endpoint keys
       href: AzureIbizaSubscription.md
     - name: View usage from Cloud Shell
-      name: luis-how-to-manage-from-powershell.md
+      href: luis-how-to-manage-from-powershell.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Collaborate on a LUIS app
