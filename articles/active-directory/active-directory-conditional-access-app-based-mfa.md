@@ -21,7 +21,7 @@ ms.reviewer: calebb
 # Quickstart: Configure per cloud app MFA with Azure Active Directory conditional access 
 
 
-To simplify the sign-in experience of your users, you might want to allow them to sign-in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication. This might be, for example true, for access to your organization's email system or your HR apps.  
+To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication. This might be, for example true, for access to your organization's email system or your HR apps.  
 
 This quickstart shows how you can require multi-factor authentication only for a set of selected cloud apps in your environment using an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md).
 
