@@ -2,17 +2,16 @@
 title: Computer Vision API Java quick starts | Microsoft Docs 
 description: Get information and code samples to help you quickly get started using Java and the Computer Vision API in Cognitive Services. 
 services: cognitive-services 
-author: KellyDF 
-manager: corncar 
+author: easyj2j
 
-ms.service: cognitive-services 
-ms.component: computer-vision 
+ms.service: cognitive-services
+ms.component: computer-vision
 ms.topic: article
-ms.date: 06/15/2017 
-ms.author: kefre 
+ms.date: 5/07/2018
+ms.author: v-johnma
 --- 
 
-# Computer Vision Java Quick Starts
+# Use the Computer Vision API with Java
 
 This article provides information and code samples to help you quickly get started using Java and the Computer Vision API to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage)
@@ -24,11 +23,12 @@ This article provides information and code samples to help you quickly get start
 ## Prerequisites
 
 * Get the Microsoft Computer Vision Android SDK [here](https://github.com/Microsoft/Cognitive-vision-android).
-* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+
+* An Azure subscription key. You can get free subscription keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md)..
 
 ## Analyze an image with Computer Vision API using Java <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * A detailed list of tags related to the image content.
 * A description of image content in a complete sentence.
 * The coordinates, gender, and age of any faces contained in the image.
@@ -320,7 +320,7 @@ Process finished with exit code 0
 
 ## Get a thumbnail with Computer Vision API using Java <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
+Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. The aspect ratio you set for the thumbnail can be different from the aspect ratio of the input image.
 
 ### Get a thumbnail Java example request
 
@@ -458,7 +458,7 @@ A successful response contains the thumbnail image binary. If the request fails,
 
 ## Optical Character Recognition (OCR) with Computer Vision API using Java<a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR Java example request
 
@@ -659,7 +659,7 @@ Process finished with exit code 0
 
 ## Text Recognition with Computer Vision API using Java<a name="RecognizeText"> </a>
 
-Use the [RecognizeText method](https://ocr.portal.azure-api.net/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
+Use the [RecognizeText method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
 
 ### Handwriting recognition Java example
 

@@ -202,7 +202,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### Set auotoscale settings
+### Set autoscale settings
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

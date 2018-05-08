@@ -7,11 +7,9 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
@@ -51,6 +49,8 @@ All users have a single home directory that authenticates them, but they can als
 
     ![Screenshot showing the switcher](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Any Azure key vaults that you have are also affected by a subscription move, so [change the key vault tenant ID](../key-vault/key-vault-subscription-move-fix.md) before resuming operations.
 
 Changing the subscription directory is a service-level operation. It doesn't affect subscription billing ownership, and the Account Admin can still change Service Admin using the [Account Center](https://account.azure.com/subscriptions). If you want to delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md). 
 
