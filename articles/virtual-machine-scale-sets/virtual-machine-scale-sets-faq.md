@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure virtual machine scale sets FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about virtual machine scale sets.
 services: virtual-machine-scale-sets
@@ -449,9 +449,9 @@ If the extension definition in the virtual machine scale set model is updated an
 
 If an existing VM is service-healed, it appears as a reboot, and the extensions are not rerun. If it is reimaged, it's like replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run.
  
-### How do I join a virtual machine scale set to an Azure AD domain?
+### How do I join a virtual machine scale set to an Active Directory domain?
 
-To join a virtual machine scale set to an Azure Active Directory (Azure AD) domain, you can define an extension. 
+To join a virtual machine scale set to an Active Directory (AD) domain, you can define an extension. 
 
 To define an extension, use the JsonADDomainExtension property:
 
