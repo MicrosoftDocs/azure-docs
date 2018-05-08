@@ -1,5 +1,5 @@
 # [Azure IoT Fundamentals](../iot-fundamentals/index.yml)
-# [IoT Solution Accelerators Documentation](index.md)
+# [IoT solution accelerators documentation](index.md)
 
 # Overview
 ## [IoT architecture concepts](iot-suite-what-is-azure-iot.md)
@@ -71,6 +71,7 @@
 ### [Deploy using the CLI](iot-suite-remote-monitoring-deploy-cli.md)
 ### [Deploy locally](iot-suite-remote-monitoring-deploy-local.md)
 ### [Visualize data with Time Series Insights](iot-suite-time-series-insights.md)
+### [Integrate with Data Lake](iot-suite-integrate-data-lake.md)
 ### Connect a physical device
 #### [C on Windows](iot-suite-connecting-devices.md)
 #### [C on Linux](iot-suite-connecting-devices-linux.md)
