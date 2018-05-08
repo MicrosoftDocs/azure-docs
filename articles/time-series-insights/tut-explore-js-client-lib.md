@@ -56,7 +56,7 @@ First let's view the HTML and JavaScript source code behind the page that render
 
 1. Open "Developer Tools" in your browser, and inspect the HTML elements that make up the current page, also known as the HTML or DOM tree.
 
-2. Expand the `<head>` and `<body>` elements and notice the following sections :
+2. Expand the `<head>` and `<body>` elements and notice the following sections:
    - Under `<head>`, you find elements that pull in additional files to assist in the functioning of the page:
      - a `<script>` element for referencing the Azure Active Directory Authentication Library (adal.min.js) - also known as ADAL, this is a JavaScript library that provides OAuth 2.0 authentication (sign-in) and token acquisition for accessing APIs:
 
@@ -76,10 +76,10 @@ First let's view the HTML and JavaScript source code behind the page that render
    [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
 3. Expand the `<div class="chartsWrapper">` element, and you find more child `<div>` elements, used to position each chart control example. Notice there are several pairs of `<div>` elements, one for each chart example:
-   - The first (`class="rowOfCardsTitle"`) contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full Size Legends"
+   - The first (`class="rowOfCardsTitle"`) contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full-Size Legends"
    - The second (`class="rowOfCards"`) is a parent, containing additional child `<div>` elements that position the actual chart control(s) within a row. 
 
-  ![Viewing the body divs](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
+  ![Viewing the body "divs"](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
 4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI service APIs, rendering of the chart controls, and more:
 
@@ -96,7 +96,7 @@ The following concepts are universal and applicable to the TSI Client library AP
 
 ### Authentication
 
-As mentioned earlier, this is a Single-Page Application and it uses the OAuth 2.0 support in ADAL for user authentication. Here are a couple of points of interest in this section of the script:
+As mentioned earlier, this sample is a Single-Page Application and it uses the OAuth 2.0 support in ADAL for user authentication. Here are some points of interest in this section of the script:
 
 1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
@@ -110,13 +110,13 @@ As discussed earlier, the `<div>` elements within the `<body>` provide the layou
 
 ### Aggregate expressions
 
-The TSI Client library APIs makes heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms". This is similar to the way the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo) uses search span, where predicate, measures, and split-by value. Most library APIs take an array of aggregate expressions, which are used by the service to build a TSI data query.
+The TSI Client library APIs make heavy use of aggregate expressions. An aggregate expression provides the ability to construct one or more "search terms." The APIs are similar to the way the [Time Series Insights explorer](https://insights.timeseries.azure.com/demo) uses search span, where predicate, measures, and split-by value. Most library APIs take an array of aggregate expressions, which are used by the service to build a TSI data query.
 
 ### Call pattern
 
-Populating and rendering of chart controls follows a general pattern. You'll find this pattern used throughout the page JavaScript, that instantiates and loads the TSI Sample Application controls :
+Populating and rendering of chart controls follows a general pattern. You find this pattern used throughout the page JavaScript, that instantiates and loads the TSI Sample Application controls:
 
-1. Declare an array of to hold 1 or more TSI aggregate expressions.  
+1. Declare an array of to hold one or more TSI aggregate expressions.  
 
    ```javascript
    var aes =  [];
@@ -152,7 +152,7 @@ Populating and rendering of chart controls follows a general pattern. You'll fin
    | --------- | ----------- | ------- |
    | token     | Access token for the TSI API |	`authContext.getTsiToken()` See [authentication section.](#authentication) |
    | envFQDN	 | Fully Qualified Domain Name for the TSI environment | From the Azure portal, for example `10000000-0000-0000-0000-100000000108.env.timeseries.azure.com` |
-   | aeTsxArray | Array of TSI query expressions | Use the `aes` variable as described above: `aes.map(function(ae){return ae.toTsx()}` |
+   | aeTsxArray | Array of TSI query expressions | Use the `aes` variable as described previously: `aes.map(function(ae){return ae.toTsx()}` |
 
 4. Transform the compressed result returned from the TSI Query, into JSON for visualization.
 
@@ -178,17 +178,17 @@ The library currently exposes eight unique analytics controls. They include a li
 
 ### Line, bar, pie chart examples 
 
-First let's look at the code behind some standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, we examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with id values `chart3`, `chart4`, and `chart5`. 
+First let's look at the code behind some standard chart controls demonstrated in the application, and the programming model/patterns for creating them. Specifically, you examine the section of HTML under the `// Example 3/4/5` comment, which renders controls with ID values `chart3`, `chart4`, and `chart5`. 
 
-Recall from step #3 in the [Page source and structure section](#page-source-and-structure), chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the 3 charts being populated are all under the "Multiple Chart Types From the Same Data" title `<div>`, bound to the 3 `<div>` elements beneath it:
+Recall from step #3 in the [Page source and structure section](#page-source-and-structure), chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts being populated are all under the "Multiple Chart Types From the Same Data" title `<div>`, bound to the three `<div>` elements beneath it:
 
    [!code-javascript[code-sample1-line-bar-pie](source/index.html?range=60-74&highlight=1,5,9,13)]
 
-The following section of JavaScript code uses the pattern outlined earlier, to build TSI aggregate expressions, use them to query for TSI data, and render the 3 charts. Note the 3 types used from the `tsiClient.ux` namespace, `LineChart`, `BarChart`, `PieChart`, to create and render the respective charts. Also note that all 3 charts are able to use the same aggregate expression data, `transformedResult`:
+The following section of JavaScript code uses the pattern outlined earlier, to build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Note the three types used from the `tsiClient.ux` namespace, `LineChart`, `BarChart`, `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data, `transformedResult`:
 
    [!code-javascript[code-sample2-line-bar-pie](source/index.html?range=236-257&highlight=13-14,16-17,19-20)]
 
-The 3 charts appear as follows when rendered:
+The three charts appear as follows when rendered:
 
   [![Multiple Chart Types From the Same Data](media/tut-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tut-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
@@ -198,11 +198,11 @@ The library also exposes some optional advanced features that you may want to ta
 
 ### States and events
 
-One example of the advanced functionality provided is the ability to add state transitions and discrete events to charts. For example, this is useful for highlighting incidents, alerting, and state switches like on/off. 
+One example of the advanced functionality provided is the ability to add state transitions and discrete events to charts. This feature is useful for highlighting incidents, alerting, and state switches like on/off. 
 
-Here we look at the code behind the section of HTML under the `// Example 10` comment. The code renders a line control under the "Line Charts with Multiple Series Types" title, binding it to the `<div>` with id value `chart10`:
+Here you look at the code behind the section of HTML under the `// Example 10` comment. The code renders a line control under the "Line Charts with Multiple Series Types" title, binding it to the `<div>` with ID value `chart10`:
 
-1. First a structure named `events4` is definded, to hold the state-change elements to be tracked. It contains:
+1. First a structure named `events4` is defined, to hold the state-change elements to be tracked. It contains:
    - A string key named `"Component States"` 
    - An array of value objects that represent the states, each of which includes:
      - A string key containing a JavaScript ISO timestamp
@@ -212,7 +212,7 @@ Here we look at the code behind the section of HTML under the `// Example 10` co
 
 2. Then the `events5` structure is defined for `"Incidents"`, which holds an array of the event elements to be tracked. The array structure is the same shape as the one outlined for `events4`. 
 
-3. Finally the line chart is rendered, passing the 2 structures in with the chart options parameters: `events:` and `states:`. Note the other option parameters, for specifying a `tooltip:`, `theme:` or `grid:`. 
+3. Finally the line chart is rendered, passing the two structures in with the chart options parameters: `events:` and `states:`. Note the other option parameters, for specifying a `tooltip:`, `theme:` or `grid:`. 
 
    [!code-javascript[code-sample-states-events](source/index.html?range=332-384&highlight=5,26,51)]
 
@@ -222,27 +222,27 @@ Visually, the diamond markers/popups are used to indicate incidents, and the col
 
 ### Popup context menus
 
-Another example of advanced functionality are custom context menus (i.e. right-click popup menus), which are useful to enable actions and logical next steps within the scope of your application.
+Another examples of advanced functionality are custom context menus (right-click popup menus), which are useful to enable actions and logical next steps within the scope of your application.
 
-Here we look at the code behind the HTML under `// Example 13/14/15`. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title, bound to the `<div>` element with id value `chart13`. Using context menus, the line chart provides the capability to dynamically create a pie and bar chart, bound to `<div>` elements with ids `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
+Here we look at the code behind the HTML under `// Example 13/14/15`. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title, bound to the `<div>` element with ID value `chart13`. Using context menus, the line chart provides the capability to dynamically create a pie and bar chart, bound to `<div>` elements with IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
 
-1. First a series of custom actions are defined. Each contains an array with one or more elements, where each element defines defines a single context menu item: 
-   - `barChartActions`: defines the context menu for the pie chart, which contains 1 element to define a single item :
-     - `name`: the text used for the menu item, ie: "Print parameters to console"
-     - `action`: the action associated with the menu item, which is always an anonymous function that takes 3 arguments based on the aggregate expression used to create the chart. In this case, they are written to the browser console window:
+1. First a series of custom actions are defined. Each contains an array with one or more elements, where each element defines a single context menu item: 
+   - `barChartActions`: defines the context menu for the pie chart, which contains one element to define a single item:
+     - `name`: the text used for the menu item: "Print parameters to console"
+     - `action`: the action associated with the menu item, which is always an anonymous function that takes three arguments based on the aggregate expression used to create the chart. In this case, they are written to the browser console window:
        - `ae`: the aggregate expression array
        - `splitBy`: the splitBy value
-       - `timestamp`:  the timestamp
-   - `pieChartActions`: defines the context menu for the bar chart, which contains 1 element to define a single item. The shape and schema is the same as the previous `barChartActions`, but notice the `action` function is dramatically different, as it instantiates and renders the bar chart. Also note that it uses the `ae` argument to specify the aggregate expression array, passed at runtime during popup of the menu item. The function also sets the `ae.contextMenu` property with the `barChartActions` context menu.
-   - `contextMenuActions`: defines the context menu for the line chart, which contains 3 elements to define 3 menu items. The shape and schema for each element is the same as the previous ones. Just like `barChartActions`, the first item writes the 3 function arguments to the browser console window. Similar to `pieChartActions`, the second 2 items instantiate and render the pie and bar charts, respectively. The second 2 items also set their `ae.contextMenu` properties with the `pieChartActions` and `barChartActions` context menus, respectively.
+       - `timestamp`: the timestamp
+   - `pieChartActions`: defines the context menu for the bar chart, which contains one element to define a single item. The shape and schema is the same as the previous `barChartActions`, but notice the `action` function is dramatically different, as it instantiates and renders the bar chart. Also note that it uses the `ae` argument to specify the aggregate expression array, passed at runtime during popup of the menu item. The function also sets the `ae.contextMenu` property with the `barChartActions` context menu.
+   - `contextMenuActions`: defines the context menu for the line chart, which contains three elements to define three menu items. The shape and schema for each element is the same as the previous ones. Just like `barChartActions`, the first item writes the three function arguments to the browser console window. Similar to `pieChartActions`, the second two items instantiate and render the pie and bar charts, respectively. The second two items also set their `ae.contextMenu` properties with the `pieChartActions` and `barChartActions` context menus, respectively.
 
-2. Then 2 aggregate expressions are pushed onto the `aes` aggregate expression array, specifying the `contextMenuActions` array for each. These will be used with the line chart control.
+2. Then two aggregate expressions are pushed onto the `aes` aggregate expression array, specifying the `contextMenuActions` array for each. These are used with the line chart control.
 
-3. Finally, the line chart is intially rendered, from which both the pie and bar chart can be rendered at runtime.
+3. Finally, only the line chart is initially rendered, from which both the pie and bar chart can be rendered at runtime.
 
    [!code-javascript[code-sample-context-menus](source/index.html?range=456-535&highlight=7,16,29,61-64,78)]
 
-The screen shot shows the charts, with their respective pop-up context menus. Note that the pie and bar charts were created dynamically, using the line chart context menu options:
+The screen shot shows the charts, with their respective pop-up context menus. The pie and bar charts were created dynamically, using the line chart context menu options:
 
    [![Line Chart with Context Menu to Create Pie/Bar Chart](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
 
@@ -253,8 +253,8 @@ Brushes can be used to scope a time range to define actions like zoom and explor
 The code used to illustrate brushes is also shown in the previous "Line Chart with Context Menu to Create Pie/Bar Chart" example, covering [Popup context menus](#popup-context-menus-section). 
 
 1. Brush actions are very similar to a context menu, defining a series of custom actions for the brush. Each contains an array with one or more elements, where each element defines a single context menu item:
-   - `name`: the text used for the menu item, ie: "Print parameters to console"
-   - `action`: the action associated with the menu item, which is always an anonymous function that takes 2 arguments. In this case, they are written to the browser console window:
+   - `name`: the text used for the menu item: "Print parameters to console"
+   - `action`: the action associated with the menu item, which is always an anonymous function that takes two arguments. In this case, they are written to the browser console window:
       - `fromTime`: the "from" timestamp of the brush selection
       - `toTime`:  the "to" timestamp of the brush selection
 
