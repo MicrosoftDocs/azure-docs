@@ -3,7 +3,7 @@ title: Azure Application Insights Snapshot Debugger for .NET apps | Microsoft Do
 description: Debug snapshots are automatically collected when exceptions are thrown in production .NET apps
 services: application-insights
 documentationcenter: ''
-author: pharring
+author: mrbullwinkle
 manager: carmonm
 
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: mbullwin
+ms.author: mbullwin; pharring
 
 ---
 # Debug snapshots on exceptions in .NET apps
@@ -263,6 +263,19 @@ However, in Azure App Services, the Snapshot Collector can deoptimize throwing m
 ## Troubleshooting
 
 These tips help you troubleshoot problems with the Snapshot Debugger.
+
+## Use the snapshot health check
+If you don't see snapshot available for a particular exception, it could be caused by several reasons including outdate snapshot collector versions, daily threshold hit, the snapshot is just taking time to be uploaded, and so on. In order to assist you diagnosing such issues, we built a Snapshot Health Check service to smartly analyze why there is no snapshot.
+
+If you don't see snapshots associated with an exception, there will be a link in the End-to-end trace viewer blade for entering snapshot health check.
+
+![Enter snapshot health check](./media/app-insights-snapshot-debugger/enter-snapshot-health-check.png)
+
+Then, you will see an interactive chat-bot like session running health check on various aspect of your service and offering advices.
+
+![Health Check](./media/app-insights-snapshot-debugger/healthcheck.png)
+
+There are also a few manual steps you can do to diagnose the health of your snapshot service. Please refer to sections below:
 
 ### Verify the instrumentation key
 

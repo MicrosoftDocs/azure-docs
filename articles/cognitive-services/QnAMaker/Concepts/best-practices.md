@@ -1,14 +1,13 @@
 ---
-title: Best practices - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Best practices when using QnA Maker
+title: Best practices - QnA Maker - Azure Cognitive Services | Microsoft Docs
+description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 services: cognitive-services
 author: nstulasi
 manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 
@@ -24,10 +23,10 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 To improve the probability that a given user query is answered with an appropriate response, ensure that you are making maximum use of the ranking features QnA Maker supports.
 
 ### Add alternate questions
-[Alternate questions](../How-To/edit-knowledge-base.md) improve the likelihood of a match with a user query. Alternate questions are useful when there are multiple ways in which the same question may be asked. This can include changes in the sentence structure (for example, *"Is parking available?"* versus *"Do you have car park?"*) or changes in the word-style and slang (for example, *"Hi"* versus *"Yo"*, *"Hey there!"*).
+[Alternate questions](../How-To/edit-knowledge-base.md) improve the likelihood of a match with a user query. Alternate questions are useful when there are multiple ways in which the same question may be asked. This can include changes in the sentence structure (for example, *"Is parking available?"* versus *"Do you have car park?"*) or changes in the word-style and slang (for example, *"Hi"* versus *"Yo"*, *"Hey there!"*) .
 
 ### Use metadata filters
-[Metadata](../How-To/edit-knowledge-base.md) adds the ability to narrow down the results of a user query based on filters. The knowledge base answer can differ based on the metadata tag even if the query is the same (for example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different i.e. Metadata is *Location:Seattle* versus *Location:Redmond*.)
+[Metadata](../How-To/edit-knowledge-base.md) adds the ability to narrow down the results of a user query based on filters. The knowledge base answer can differ based on the metadata tag even if the query is the same (for example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different i.e. Metadata is  *Location:Seattle* versus *Location:Redmond*.)
 
 ### Use synonyms
 While there is some support for synonyms in the English language, use [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords that take different form (Example: *buy* -> *purchase* or *netbanking* -> *net banking*. Synonyms should be added at the QnA Maker service-level and shared by all knowledge bases in the service.
