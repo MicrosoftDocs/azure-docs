@@ -8,28 +8,41 @@
   expanded: true
   items:
   - name: .NET 
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+    maintainContext: true
   - name: Node.js
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+    maintainContext: true
   - name: Java
-    href: https://docs.microsoft.com/vsts/build-release/apps/cd/azure/azure-devops-project-java
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-java
+    maintainContext: true
   - name: Python
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-python
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-python
+    maintainContext: true
   - name: PHP
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-php
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-php
+    maintainContext: true
   - name: Ruby
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+    maintainContext: true
   - name: Go
-    href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/azure/azure-devops-project-go
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-go
+    maintainContext: true
 - name: Tutorials
   items:
   - name: 1 - GitHub and DevOps Project
-    href: https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github
+    href: /vsts/build-release/actions/azure-devops-project-github
+    maintainContext: true
   - name: 2 - Deploy to VMs
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-vms
+    href: /vsts/build-release/actions/azure-devops-project-vms
+    maintainContext: true
   - name: 3 - Deploy to Azure SQL DB
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-sqldb
+    href: /vsts/build-release/actions/azure-devops-project-sqldb
+    maintainContext: true
   - name: 4 - Deploy to AKS
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-aks
+    href: /vsts/build-release/actions/azure-devops-project-aks
+    maintainContext: true
   - name: 5 - Deploy to Azure Service Fabric
-    href: https://docs.microsoft.com/en-us/vsts/build-release/actions/azure-devops-project-servicefabric
+    href: /vsts/build-release/actions/azure-devops-project-servicefabric
+    maintainContext: true
+    

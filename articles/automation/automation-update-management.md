@@ -130,7 +130,7 @@ If the agent is not able to communicate with Log Analytics and it is configured 
 
 Newly added Linux agents will show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+To confirm an Operations Manager management group is communicating with Log Analytics, see [Validate Operations Manager Integration with Log Analytics](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-log-analytics).
 
 ## Data collection
 
