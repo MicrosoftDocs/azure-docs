@@ -33,11 +33,13 @@ Rest of this article describes the steps to set up a fully managed AD domain ser
 
 AADDS makes it simple to manage your identities by providing a fully managed service on Azure. On this Active directory domain, users and groups are managed.  The steps to set up an Azure hosted AD domain and user accounts in your directory are:
 
-1. Add user(s) to Active directory on portal by clicking on Azure Active Directory in the left menu.  
-![add-user-to-ad](./media/add-user-to-ad.png)
+1. Add user(s) to Active directory on portal by clicking on Azure Active Directory in the left menu
+
+    ![add-user-to-ad](./media/add-user-to-ad.png)
 
 2.	Set user login, password, and role
-![set-user-cred](./media/set-user-cred.png)
+
+    ![set-user-cred](./media/set-user-cred.png)
 
 3.	Create Azure AD Domain Services
 To create an Azure ADDS, follow instructions in the article "[Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)" (Task 1 to Task 5). It is important that the existing user passwords in Active directory are updated so that the password in AADDS is synched. It is also important to add the DNS to AADDS as listed in Task #4 of the above article. 
