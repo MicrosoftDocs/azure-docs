@@ -162,39 +162,39 @@ class SearchResults{
 ## Results
 The code gets the following results as JSON objects:
 
-````
+```json
     {
-      "webSearchUrl": "https://www.bing.com/images/search?view\u003ddetailv2\u0026FORM\u003dOIIRPO\u0026q\u003dinteresting\u0026id\u003d9FF0FFA42AADA1357F042443D2103B40EAAA225F\u0026simid\u003d607992720817980595",
-      "name": "Very Interesting GIF - Thats Very Interesting - Discover \u0026 Share GIFs",
-      "thumbnailUrl": "https://tse1.mm.bing.net/th?id\u003dOIP.yJX6Vz345JPKZ-jQ3sfZOwHaDI\u0026pid\u003dApi",
+      "webSearchUrl": "https://www.bing.com/images/search?view\u003ddetai...",
+      "name": "Very Interesting GIF - Thats Very Interesting - ...",
+      "thumbnailUrl": "https://tse1.mm.bing.net/th?id\u003dOIP.yJX6Vz345JPK...",
       "datePublished": "2017-03-12T01:35:00.0000000Z",
-      "contentUrl": "https://media.tenor.co/images/c895fa573df8e493ca67e8d0dec7d93b/raw",
-      "hostPageUrl": "https://www.tenor.co/view/thats-very-interesting-christianbale-americanhustle-gif-4574477",
+      "contentUrl": "https://media.contoso.co/images/c895fa573df8e493ca8d0dec7d93b/raw",
+      "hostPageUrl": "https://www.contoso.co/view/thats-very-interesting-christi...",
       "contentSize": "1295633 B",
       "encodingFormat": "animatedgif",
-      "hostPageDisplayUrl": "https://www.tenor.co/view/thats-very-interesting-christianbale...",
+      "hostPageDisplayUrl": "https://www.contoso.co/view/thats-very-christian...",
       "width": 440,
       "height": 186,
       "thumbnail": {
         "width": 474,
         "height": 200
       },
-      "imageInsightsToken": "ccid_yJX6Vz34*mid_9FF0FFA42AADA1357F042443D2103B40EAAA225F*simid_607992720817980595*thid_OIP.yJX6Vz345JPKZ-jQ3sfZOwHaDI",
+      "imageInsightsToken": "ccid_yJX6Vz34*mid_9FF0FFA42AADA1357F042443D2103B40EA...",
       "insightsMetadata": {
         "recipeSourcesCount": 0,
         "bestRepresentativeQuery": {
           "text": "That\u0027s Very Interesting",
           "displayText": "That\u0027s Very Interesting",
-          "webSearchUrl": "https://www.bing.com/images/search?q\u003dThat%27s+Very+Interesting\u0026id\u003d9FF0FFA42AADA1357F042443D2103B40EAAA225F\u0026FORM\u003dIDBQDM"
+          "webSearchUrl": "https://www.bing.com/images/search?q\u003dThat..."
         },
         "pagesIncludingCount": 19,
         "availableSizesCount": 2
       },
-      "imageId": "9FF0FFA42AADA1357F042443D2103B40EAAA225F",
+      "imageId": "9FF0FFA42AADA1357F042443D21030EAAA225F",
       "accentColor": "62452D"
     },
 
-````
+```
 
 ## Next steps
 - [C# quickstart](quickstarts/csharp.md)

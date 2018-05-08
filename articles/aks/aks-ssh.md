@@ -16,6 +16,20 @@ ms.custom: mvc
 
 Occasionally, you may need to access an Azure Kubernetes Service (AKS) node for maintenance, log collection, or other troubleshooting operations. Azure Kubernetes Service (AKS) nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
 
+## Reset SSH keys
+
+If you have deployed an AKS without SSH keys, or do not have access to the proper SSH keys, these can be reset using the Azure portal.
+
+Browse to your AKS cluster, select an AKS node (virtual machine), and select **Reset password** to reset the SSH public key.
+
+![AKS VM with reset password button](media/aks-ssh/reset-password.png)
+
+Select **Reset SSH public key**, enter the AKS cluster username, which is **azueruser** by default, and copy in an SSH public key. Select **Update** when complete.
+
+![AKS portal VM with reset password button](media/aks-ssh/reset-password-2.png)
+
+Once the SSH key has been reset, you can create an SSH connecting using the corresponding private key.
+
 ## Get AKS node address
 
 Get the IP address of an AKS cluster node using the `az vm list-ip-addresses` command. Replace the resource group name with the name of your AKS resource group.
@@ -53,7 +67,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-Copy your SSH key to the pod, replace the pod name with the proper value.
+Copy the private SSH key to the pod, replace the pod name with the proper value.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
