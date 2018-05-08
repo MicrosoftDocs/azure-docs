@@ -238,7 +238,7 @@ It’s always a good strategy to do a postmortem after an attack and adjust the 
 
 - How effective was the DDoS response strategy, and how can it be improved?
 
-If you suspect you are under a DDoS attack, please escalate through your normal Azure Support channels.
+If you suspect you're under a DDoS attack, escalate through your normal Azure Support channels.
 
 ## DDoS Protection reference architectures
 
@@ -293,7 +293,7 @@ This reference architecture shows configuring DDoS Protection Standard for an [A
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
-For more details on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
+For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json)
 documentation.
 
 ### Azure API Management
