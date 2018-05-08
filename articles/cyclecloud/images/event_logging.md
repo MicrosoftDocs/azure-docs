@@ -2,7 +2,7 @@
 
 A log of all Azure CycleCloud activity can be found in the Event Log, which is located in the user menu:
 
-![Event Log](~images/event_log.png)
+![Event Log](~/images/event_log.png)
 
 You can search the log for a specific event or keyword with the Search bar located in the upper right corner. The log can also be changed to show information based on three parameters:
 
