@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/07/2018
+ms.date: 05/08/2018
 ms.author: danis
 
 ---
@@ -197,7 +197,7 @@ Extension execution output is logged to the following file:
 | 10 | VM is already connected to a Log Analytics workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
 | 12 | The dpkg package manager is locked | Make sure all dpkg update operations on the machine have finished and retry. |
-| 19 | OMI installation failure | 
+| 19 | OMI package installation failure | 
 | 20 | SCX package installation failure |
 | 51 | This extension is not supported on the VM's operation system | |
 | 55 | Cannot connect to the Microsoft Operations Management Suite service | Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID. |

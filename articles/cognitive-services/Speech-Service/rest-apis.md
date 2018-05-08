@@ -21,9 +21,9 @@ In the Speech to Text API, only the endpoints used differ from the previous Spee
 
 Region|	Endpoint
 -|-
-West US| `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-East Asia| `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-North Europe| `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
+West US| `https://westus.stt.speech.microsoft.com/cognitiveservices/v1`
+East Asia| `https://eastasia.stt.speech.microsoft.com/cognitiveservices/v1`
+North Europe| `https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
 > If you customized the acoustic model, the language model, or the pronunciation model, use your custom endpoint instead.

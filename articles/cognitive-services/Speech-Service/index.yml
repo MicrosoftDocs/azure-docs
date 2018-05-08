@@ -16,11 +16,39 @@ metadata:
   ms.date: 05/01/2018
   ms.author: v-wiazur
   
-abstract:
-  description: Learn how to use the Speech service to create powerful, speech-enabled features in applications. <b>Speech to Text</b> converts continuous human speech to text. <b>Text to Speech</b> converts text to audio files of natural-sounding, synthesized speech. <b>Speech Translation</b> provides translations of speech to other languages, with text or speech output. Quickstarts, SDKs, and API references show you how to perform these tasks.
-
+abstract: 
+  description: The cloud-based Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, user dialog using natural speech conversation, and speech transcription and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to <a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text/concepts/custom-models?branch=pr-en-us-36555">customize Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, <a href="https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech/concepts/custom-voice?branch=pr-en-us-36555">customized Text-to-speech</a> and <a href="http://aka.ms/customtranslator">customized Speech-Translation</a> are available as well.<br/>Our Speech SDK is available on multiple platforms in several programming languages -- taking care of live microphone management, real-time streaming, or batch-based file communication depending on your applications needs.
 sections:
-
+- title: 10-Minute Quickstarts - New APIs
+  items:
+  - type: paragraph
+    text: 'Learn how to install and use the Speeck SDK with our quickstarts:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_csharp.svg
+      - image:
+          src: media/index/logo_cplusplus.svg
+      - image:
+          src: media/index/logo_java.svg
+    rows:
+      - title: Windows
+        values:
+        - href: quickstart-csharp-windows
+        - href: cpp-windows
+        - href:
+      - title: Linux
+        values:
+        - href:
+        - href: cpp-linux
+        - href:
+      - title: Device SDK
+        values:
+        - href:
+        - href:
+        - href: speech-sdk-reference
+        
 - title: Quickstarts
   items:
   - type: list

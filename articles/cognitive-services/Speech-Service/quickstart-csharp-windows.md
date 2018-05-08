@@ -60,36 +60,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
 
-    ```csharp
-    static async Task RecoFromMicrophoneAsync()
-    {
-        var subscriptionKey = "<Please replace with your subscription key>";
-        var region = "<Please replace with your service region>";
-
-        var factory = SpeechFactory.FromSubscription(subscriptionKey, region);
-
-        using (var recognizer = factory.CreateSpeechRecognizer())
-        {
-            Console.WriteLine("Say something...");
-            var result = await recognizer.RecognizeAsync();
-
-            if (result.RecognitionStatus == RecognitionStatus.Recognized)
-            {
-                Console.WriteLine($"We recognized: {result.RecognizedText}");
-            }
-            else
-            {
-                Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
-            }
-            Console.WriteLine("Please press a key to continue.");
-            Console.ReadLine();
-        }
-    }
-    static void Main(string[] args)
-    {
-        RecoFromMicrophoneAsync().Wait();
-    }
-    ```
+    [!code-csharp[Quickstart Code](code/Program.cs#code)]
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 

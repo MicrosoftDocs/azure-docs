@@ -10,6 +10,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Translation;
 // </toplevel>
 
 namespace MicrosoftSpeechSDKSamples
@@ -20,8 +21,6 @@ namespace MicrosoftSpeechSDKSamples
         // <TranslationWithMicrophoneAsync>
         public static async Task TranslationWithMicrophoneAsync()
         {
-            const string GermanVoice = "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)";
-
             // Creates an instance of a speech factory with specified
             // subscription key and service region. Replace with your own subscription key
             // and service region (e.g., "westus").
@@ -29,38 +28,71 @@ namespace MicrosoftSpeechSDKSamples
 
             // Sets source and target languages
             string fromLanguage = "en-US";
-            List<string> toLanguages = new List<string>() { "de-DE" };
+            List<string> toLanguages = new List<string>() { "de" };
+
+            // Sets voice name of synthesis output.
+            const string GermanVoice = "de-DE-Hedda";
 
             // Creates a translation recognizer using microphone as audio input, and requires voice output.
             using (var recognizer = factory.CreateTranslationRecognizer(fromLanguage, toLanguages, GermanVoice))
             {
-                // This is needed for now. Should be removed when moving to production environment.
-                recognizer.Parameters.Set(SpeechParameterNames.DeploymentId, "d4501bd5-a593-45bf-82a6-36ffc59d80a5");
-
                 // Subscribes to events.
                 recognizer.IntermediateResultReceived += (s, e) => {
                     Console.WriteLine($"\nPartial result: recognized in {fromLanguage}: {e.Result.RecognizedText}.");
-                    foreach (var element in e.Result.Translations)
+                    if (e.Result.TranslationStatus == TranslationStatus.Success)
                     {
-                        Console.WriteLine($"    Translated into {element.Key}: <{element.Value}>");
+                        foreach (var element in e.Result.Translations)
+                        {
+                            Console.WriteLine($"    Translated into {element.Key}: {element.Value}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"    Translation failed. Status: {e.Result.TranslationStatus.ToString()}, FailureReason: {e.Result.FailureReason}");
                     }
                 };
 
                 recognizer.FinalResultReceived += (s, e) => {
-                    Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus}, recognized text in {fromLanguage}: {e.Result.RecognizedText}.");
-                    foreach (var element in e.Result.Translations)
+                    if (e.Result.RecognitionStatus != RecognitionStatus.Recognized)
                     {
-                        Console.WriteLine($"    Translated into {element.Key}: <{element.Value}>");
+                        Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus.ToString()}, FailureReason: {e.Result.RecognitionFailureReason}.");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus.ToString()}, recognized text in {fromLanguage}: {e.Result.RecognizedText}.");
+                        if (e.Result.TranslationStatus == TranslationStatus.Success)
+                        {
+                            foreach (var element in e.Result.Translations)
+                            {
+                                Console.WriteLine($"    Translated into {element.Key}: {element.Value}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"    Translation failed. Status: {e.Result.TranslationStatus.ToString()}, FailureReason: {e.Result.FailureReason}");
+                        }
                     }
                 };
 
                 recognizer.SynthesisResultReceived += (s, e) =>
                 {
-                    Console.WriteLine($"Synthesis result received. Size of audio data: {e.Result.Audio.Length}");
-                    using (var m = new MemoryStream(e.Result.Audio))
+                    if (e.Result.Status == SynthesisStatus.Success)
                     {
-                        SoundPlayer simpleSound = new SoundPlayer(m);
-                        simpleSound.PlaySync();
+                        Console.WriteLine($"Synthesis result received. Size of audio data: {e.Result.Audio.Length}");
+                        using (var m = new MemoryStream(e.Result.Audio))
+                        {
+                            SoundPlayer simpleSound = new SoundPlayer(m);
+                            simpleSound.PlaySync();
+                        }
+                    }
+                    else if (e.Result.Status == SynthesisStatus.SynthesisEnd)
+                    {
+                        Console.WriteLine($"Synthesis result: end of synthesis result.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Synthesis error. Status: {e.Result.Status.ToString()}, Failure reason: {e.Result.FailureReason}");
                     }
                 };
 
@@ -97,7 +129,7 @@ namespace MicrosoftSpeechSDKSamples
 
             // Sets source and target languages
             string fromLanguage = "en-US";
-            List<string> toLanguages = new List<string>() { "de-DE", "fr-FR" };
+            List<string> toLanguages = new List<string>() { "de", "fr" };
 
             var translationEndTaskCompletionSource = new TaskCompletionSource<int>();
 
@@ -105,23 +137,42 @@ namespace MicrosoftSpeechSDKSamples
             // Replace with your own audio file name.
             using (var recognizer = factory.CreateTranslationRecognizerWithFileInput(@"YourAudioFile.wav", fromLanguage, toLanguages))
             {
-                // This is needed for now. Should be removed when moving to production environment.
-                recognizer.Parameters.Set(SpeechParameterNames.DeploymentId, "d4501bd5-a593-45bf-82a6-36ffc59d80a5");
-
                 // Subscribes to events.
                 recognizer.IntermediateResultReceived += (s, e) => {
                     Console.WriteLine($"\nPartial result: recognized in {fromLanguage}: {e.Result.RecognizedText}.");
-                    foreach (var element in e.Result.Translations)
+                    if (e.Result.TranslationStatus == TranslationStatus.Success)
                     {
-                        Console.WriteLine($"    Translated into {element.Key}: <{element.Value}>");
+                        foreach (var element in e.Result.Translations)
+                        {
+                            Console.WriteLine($"    Translated into {element.Key}: {element.Value}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"    Translation failed. Status: {e.Result.TranslationStatus.ToString()}, FailureReason: {e.Result.FailureReason}");
                     }
                 };
 
                 recognizer.FinalResultReceived += (s, e) => {
-                    Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus}, recognized text in {fromLanguage}: {e.Result.RecognizedText}.");
-                    foreach (var element in e.Result.Translations)
+                    if (e.Result.RecognitionStatus != RecognitionStatus.Recognized)
                     {
-                        Console.WriteLine($"    Translated into {element.Key}: <{element.Value}>");
+                        Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus.ToString()}, FailureReason: {e.Result.RecognitionFailureReason}.");
+                        return;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\nFinal result: Status: {e.Result.RecognitionStatus.ToString()}, recognized text in {fromLanguage}: {e.Result.RecognizedText}.");
+                        if (e.Result.TranslationStatus == TranslationStatus.Success)
+                        {
+                            foreach (var element in e.Result.Translations)
+                            {
+                                Console.WriteLine($"    Translated into {element.Key}: {element.Value}");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"    Translation failed. Status: {e.Result.TranslationStatus.ToString()}, FailureReason: {e.Result.FailureReason}");
+                        }
                     }
                 };
 
