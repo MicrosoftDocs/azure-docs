@@ -40,7 +40,7 @@ If you're not using the portal to create your cluster or you're updating an exis
 
 After you have a template, you can enable the DNS service with the following steps:
 
-1. Check that the `apiversion` is set to `2017-07-01-preview` for the `Microsoft.ServiceFabric/clusters` resource, and if not, update it as shown in the following snippet:
+1. Check that the `apiversion` is set to `2017-07-01-preview` or later for the `Microsoft.ServiceFabric/clusters` resource, and, if not, update it as shown in the following snippet:
 
     ```json
     {
