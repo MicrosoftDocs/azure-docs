@@ -65,7 +65,7 @@ Getting started takes less than 5 minutes.
 
 ## Time Series Insights explorer
 This diagram shows an example of time series insights data viewed through the explorer:
-![Time Series Insights explorer] (media/time-series-insights-explorer/explorer4.png)
+![Time Series Insights explorer](media/time-series-insights-explorer/explorer4.png)
 
 ## Next steps
  - [Explore using Time Series Insights explorer in a demonstration environment](./time-series-quickstart.md)
