@@ -49,16 +49,6 @@ sections:
         - href:
         - href: speech-sdk-reference
 
-- title: Quickstarts
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="get-started.md">Get started with Speech service</a>
-    - html: <a href="quickstart-csharp-windows.md">Recognize speech using the Speech SDK for C#</a>
-    - html: <a href="cpp-windows.md">Recognize speech using the Speech SDK for C++ and Windows</a>
-    - html: <a href="cpp-linux.md">Recognize speech using the Speech SDK for C++ and Linux</a>
-
 - title: Samples
   items:
   - type: list
@@ -68,6 +58,23 @@ sections:
     - html: <a href="intent.md">Intent Recognition</a>
     - html: <a href="translation.md">Translation</a>
 
+- title: Speech-to-Text
+  items:
+  - type: paragraph
+    html: Our Speech SDK supports *Speech-to-Text* (STT), or speech recognition.  The Speech SDK transcribes audio streams into text that your application can accept as input. Your application can then, for example, enter the text into a document or act upon it as a command. For the full list of supported languages in each recognition mode, see [supported languages](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages?branch=pr-en-us-39478#speech-to-text).
+  - type: paragraph
+    text: 'The following are common use cases for *Speech-to-Text* via the Speech SDK:'
+  - type: list
+    style: unordered
+    items:
+    - text: 'Recognize brief a utterance, such as a command, without interim results'
+    - text: 'Transcribe a long, previously-recorded utterance, such as a voicemail message'
+    - text: 'Transcribe streaming speech in real-time, with partial results, for dictation'
+    - text: 'Determine what users want to do based on a spoken natural-language request'        
+  - type: paragraph
+    text: 'The Speech SDK supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.'
+  - type: paragraph
+    html: A key differentiator of Microsoft Speech Service is the ability to [customize Speech-to-Text acoustic and language models](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-to-text/concepts/custom-models?branch=pr-en-us-36555) to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
 - title: Reference
   items:
