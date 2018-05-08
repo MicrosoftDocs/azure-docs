@@ -24,13 +24,13 @@ namespace CsharpHelloWorld
                 Console.WriteLine("Say something...");
                 var result = await recognizer.RecognizeAsync();
 
-                if (result.RecognitionStatus == RecognitionStatus.Recognized)
+                if (result.RecognitionStatus != RecognitionStatus.Recognized)
                 {
-                    Console.WriteLine($"We recognized: {result.RecognizedText}");
+                    Console.WriteLine($"There was an error, status {result.RecognitionStatus.ToString()}, reason {result.RecognitionFailureReason}");
                 }
                 else
                 {
-                    Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
+                    Console.WriteLine($"We recognized: {result.RecognizedText}");
                 }
                 Console.WriteLine("Please press a key to continue.");
                 Console.ReadLine();
