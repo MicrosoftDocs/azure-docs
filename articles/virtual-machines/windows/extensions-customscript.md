@@ -121,6 +121,25 @@ Data about the state of extension deployments can be retrieved from the Azure po
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
+To see the output of the script that is executed as part of the Custom Script Execution cmdlet, add the -Status switch to the above powershell cmdlet as shown below.
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName -Status
+```
+The above cmdlet returns the output in the "Statuses" property which is a list. Expand the property to see the actual text output in the "Message" property
+
+```powershell
+(Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName -Status).Statuses[0].Message
+```
+
+> [!NOTE]  
+> If running the above cmdlet in an Azure Automation runbook of type "workflow", add the cmdlet within an InlineScript { } block and return the output from the block... 
+$status = InlineScript {
+(Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName -Status).Statuses[0].Message
+}
+>
+> 
+
 Extension execution output is logged to files found under the following directory on the target virtual machine.
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension
