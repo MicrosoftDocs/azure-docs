@@ -130,7 +130,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | PC web                  | `https://ap.sansan.com/<company name>`|
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. Sansan application supports multiple Identifier and Reply URL patterns for different environmnets (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**, the detailed steps are explained later in the tutorial.
 
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
@@ -141,75 +141,74 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-### Sansan application supports multipe Identifier and Reply URLS using PowerShell?
-
-**To Update Sansan application with multipe Identifier and Reply URLS, perform the following steps:**
-
-1. Open an elevated Windows PowerShell command prompt.
-
-	>[!NOTE] 
-	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
-
-2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-
-3. Use the following script to update multipe URLs to an application:
-
-```
-
-Param(
-[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
-[Parameter(Mandatory=$false)][string[]]$ReplyUrls,
-[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
-)
-
-Connect-AzureAD
-
-### Assign the values to the variables
-
-$ServicePrincipalObjectId = "2ee2359f-4795-4a7a-9b75-0e9bf79894d2"
-$ReplyUrls = @("https://ap.sansan.com/contoso", "https://internal.api.sansan.com/contoso")
-$IdentifierUrls = @("https://internal.api.sansan.com/saml2/contoso", "https://ap.sansan.com/v/saml2/contoso", "https://ap.sansan.com/s/saml2/contoso")
-
-$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
-
-if($ReplyUrls.Length)
-{
-echo "Updating Reply urls"
-Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
-echo "updated"
-}
-if($IdentifierUrls.Length)
-{
-echo "Updating Identifier urls"
-$applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
-echo "Found Applications =" $applications.Length
-$i = 0;
-do
-{  
-  $application = $applications[$i];
-  if($application.AppId -eq $servicePrincipal.AppId){
-  Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
-  $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
-  echo "Updated"
-  return;
-  }
-  $i++;
-}while($i -lt $applications.Length);
-echo "Not able to find the matched application with this service principal"
-}
-
-
-```
-
 6. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
 7. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
->[!NOTE]
->PC browser setting also work for Mobile app and Mobile browser along with PC web.  
+	>[!NOTE]
+	>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
 
+8. To update **Sansan** application with multiple Identifier and Reply URLs using Powershell script perform the following steps:
+
+	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
+
+	a. Go to the **properties** page of **Sansan** application and copy the **Object Id** using **Copy** button and paste it into notepad.
+
+	b. The **Object Id** which you have copied from Azure portal will be used as **ServicePrincipalObjectId** which is explained later in the tutorial. 
+
+	c. Open an elevated Windows PowerShell command prompt.
+	
+	>[!NOTE] 
+	> You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+
+	d. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+
+	e. Use the following script to update multiple URLs to an application:
+
+	```poweshell
+	 Param(
+	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+	[Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+	)
+
+	Connect-AzureAD
+
+	# Assign the values to the variables
+	$ServicePrincipalObjectId = "2ee2359f-4795-4a7a-9b75-0e9bf79894d2"
+	$ReplyUrls = @("https://ap.sansan.com/contoso", "https://internal.api.sansan.com/contoso")
+	$IdentifierUrls = @("https://internal.api.sansan.com/saml2/contoso", "https://ap.sansan.com/v/saml2/contoso", "https://ap.sansan.com/s/saml2/contoso")
+
+	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+	if($ReplyUrls.Length)
+	{
+	echo "Updating Reply urls"
+	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+	echo "updated"
+	}
+	if($IdentifierUrls.Length)
+	{
+	echo "Updating Identifier urls"
+	$applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+	echo "Found Applications =" $applications.Length
+	$i = 0;
+	do
+	{  
+	$application = $applications[$i];
+	if($application.AppId -eq $servicePrincipal.AppId){
+	Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+	$servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+	echo "Updated"
+	return;
+	}
+	$i++;
+	}while($i -lt $applications.Length);
+	echo "Not able to find the matched application with this service principal"
+	}
+	```
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
