@@ -28,7 +28,7 @@ There are many ways and different technologies that can be used to create a pool
 * Pool for Batch Processing
 * Pool for interactive VMs
 
-## Batch Processing
+## Batch Processing Pool
 If you want to set up a pool of DSVM mainly to run jobs in a batch offline, then you can use [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) service or [Azure Batch](https://docs.microsoft.com/azure/batch/). 
 
 ### Azure Batch AI
@@ -63,7 +63,7 @@ The [script that mounts the Azure Files](https://raw.githubusercontent.com/Azure
 
 Azure VM Scale sets support autoscaling where you can set rules on when to create additional instances and under what circumstances to scale down instances including bringing it down to zero instances to save on cloud hardware usage costs when the VMs are not used at all. The documentation pages of VM scale sets provide detailed steps for [auto scaling](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
-# Next Steps
+## Next Steps
 
 * [Set up Common Identity](dsvm-common-identity.md)
 * [Securely store credentials to access cloud resources](dsvm-secure-access-keys.md)
