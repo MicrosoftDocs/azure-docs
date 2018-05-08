@@ -1,6 +1,6 @@
 ---
 title: Deploy a .NET app in a container to Azure Service Fabric | Microsoft Docs
-description: Learn how to package an existing .NET application in Visual Studio in a Docker Container. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. The application uses Azure SQL DB to persist data.
+description: Learn how to containerize an existing .NET application using Visual Studio and debug containers in Service Fabric locally. The containerized application is pushed to an Azure container registry and deployed to a Service Fabric cluster. When deployed to Azure, the application uses Azure SQL DB to persist data.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,20 +13,20 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/01/2018
+ms.date: 05/07/2018
 ms.author: ryanwi,mikhegn
 ---
 
 # Tutorial: Deploy a .NET application in a Windows container to Azure Service Fabric
 
-This tutorial shows you how to deploy an existing ASP.NET application in a Windows container on Azure.  The application persists data in a SQL server database, 
+This tutorial shows you how to containerize an existing ASP.NET application and package it as a Service Fabric application.  Run the containers locally on the Service Fabric development cluster and then deploy the application to Azure.  The application persists data in [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Containerize an existing application
-> * Create an Azure SQL DB
-> * Create an Azure Container Registry
+> * Containerize an existing application using Visual Studio
+> * Create an Azure SQL database
+> * Create an Azure container registry
 > * Deploy a Service Fabric application to Azure
 
 ## Prerequisites
@@ -55,7 +55,7 @@ The container is now ready to be built and packaged in a Service Fabric applicat
 ## Create an Azure SQL DB
 When running the Fabrikam Fiber CallCenter application in production, the data needs to be persisted in a database. There is currently no way to guarantee persistent data in a container, therefore you cannot store production data in SQL Server in a container.
 
-We recommend [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary.
+We recommend [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). To set up and run a managed SQL Server DB in Azure, run the following script.  Modify the script variables as necessary. *clientIP* is the IP address of your development computer.  If you are behind a corporate firewall, the IP address of your development computer may not be IP address exposed to the internet.  You can also set the server firewall rule for the SQL database through the [Azure portal](https://portal.azure.com), which lists the IP address of your computer.
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -104,9 +104,6 @@ New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
 Write-Host "Server name is $servername"
 ```
 
->[!NOTE]
->This application fails gracefully if no SQL database is reachable. You can choose to go ahead and deploy the application with no SQL server.
-
 ## Update the web config
 Back in the **FabrikamFiber.Web** project, update the connection string in the **web.config** file, to point to the SQL Server in the container.  Update the *Server* part of the connection string for the server created by the previous script. 
 
@@ -116,13 +113,13 @@ Back in the **FabrikamFiber.Web** project, update the connection string in the *
   
 ```
 >[!NOTE]
->You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication. If you want to use a different SQL Server when building a release build of your web application, add another connection string to your web.release.config file.
+>You can use any SQL Server you prefer for local debugging, as long as it is reachable from your host. However, **localdb** does not support `container -> host` communication. If you want to use a different SQL database when building a release build of your web application, add another connection string to your *web.release.config* file.
 
 ## Run the containerized application locally
-Press **F5** to run and debug the application in your container.
+Press **F5** to run and debug the application in a container on the local Service Fabric development cluster.
 
 ## Create a container registry
-Container images need to be stored in a container registry.  Create an [Azure container registry](/azure/container-registry/container-registry-intro) using the following script.  Before deploying the application to Azure, you push the container image to this registry.
+Now that the application runs locally, start preparing to deploy to Azure.  Container images need to be stored in a container registry.  Create an [Azure container registry](/azure/container-registry/container-registry-intro) using the following script.  Before deploying the application to Azure, you push the container image to this registry.  When the application deploys to the cluster in Azure, the container image is pulled from this registry.
 
 ```powershell
 # Variables
@@ -136,7 +133,7 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupnam
 ```
 
 ## Create a Service Fabric cluster on Azure
-Service Fabric applications run on a cluster, a network-connected set of virtual or physical machines.
+Service Fabric applications run on a cluster, a network-connected set of virtual or physical machines.  Before you can deploy the application to Azure, first create a Service Fabric cluster in Azure.
 
 You can:
 - Create a test cluster from Visual Studio. This option allows you to create a secure cluster directly from Visual Studio with your preferred configurations. 
@@ -148,16 +145,16 @@ When creating the cluster, choose a SKU that supports running containers (such a
 
 2. Sign in by using your Azure account so that you can have access to your subscription(s). 
 
-3. Select the dropdown for the **Connection Endpoint** and select the "<Create New Cluster...>" option.    
+3. Select the dropdown for the **Connection Endpoint** and select the **Create New Cluster...** option.    
         
-4. In the "Create cluster" dialog, modify the following settings:
+4. In the **Create cluster** dialog, modify the following settings:
 
-    1. Specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
+    1. Specify the name of your cluster in the **Cluster Name** field, as well as the subscription and location you want to use.
     2. Optional: You can modify the number of nodes. By default you have three nodes, the minimum required for testing Service Fabric scenarios.
-    3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
-    4. Select the "VM Detail" tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
-    5. Optional: On the "Advanced" tab you can modify the list of ports you want opened on the load balancer that will be created along with the cluster. You can also add an existing Application Insights key to be used to route application log files to.
-    6. When you are done modifying settings, select the "Create" button. 
+    3. Select the **Certificate** tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
+    4. Select the **VM Detail** tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
+    5. In the **Advanced** tab, list the application port to open in the load balancer when the cluster deploys. In Solution Explorer, open FabrikamFiber.Web->PackageRoot->ServiceManifest.xml.  The port for the web front-end is listed in **Endpoint**.  You can also add an existing Application Insights key to be used to route application log files to.
+    6. When you are done modifying settings, select the **Create** button. 
 5. Creation takes several minutes to complete; the output window will indicate when the cluster is fully created.
     
 
@@ -208,8 +205,8 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
   -VirtualNetworkRuleName $VNetRuleName `
   -VirtualNetworkSubnetId $subnetID;
 ```
-## Deploy the application
-Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.  In Solution Explorer, right-click the **FabrikamFiber.CallCenterApplication** application project and select **Publish**.  In **Connection Endpoint**, select the endpoint of the cluster that you created previously.  In **Azure Container Registry**, select the container registry that you created previously.  Click **Publish** to deploy the application to the cluster in Azure.
+## Deploy the application to Azure
+Now that the application is ready, you can deploy it to the cluster in Azure directly from Visual Studio.  In Solution Explorer, right-click the **FabrikamFiber.CallCenterApplication** application project and select **Publish**.  In **Connection Endpoint**, select the endpoint of the cluster that you created previously.  In **Azure Container Registry**, select the container registry that you created previously.  Click **Publish** to deploy the application to the cluster in Azure.
 
 ![Publish application][publish-app]
 
@@ -236,13 +233,12 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## Next steps
-
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Containerize an existing application
-> * Create an Azure SQL DB
-> * Create an Azure Container Registry
+> * Containerize an existing application using Visual Studio
+> * Create an Azure SQL database
+> * Create an Azure container registry
 > * Deploy a Service Fabric application to Azure
 
 In the next part of the tutorial, learn how to set up [monitoring for your container](service-fabric-tutorial-monitoring-wincontainers.md).
