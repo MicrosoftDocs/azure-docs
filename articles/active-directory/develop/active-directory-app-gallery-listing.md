@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 05/09/2018
 ms.author: bryanla
 ms.custom: aaddev
 
@@ -101,6 +101,10 @@ The timeline for the process of listing a SAML 2.0 or WS-Fed application in the 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
    ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/timeline2.png)
+
+The timeline for the process of listing the application in the gallery with user provisioning support is 40-45 business days.
+
+   ![TimeLine of listing saml application into the gallery](./media/active-directory-app-gallery-listing/provisioningtimeline.png)
 
 ## Escalations
 
