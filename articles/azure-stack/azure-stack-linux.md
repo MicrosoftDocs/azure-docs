@@ -29,7 +29,7 @@ To download Linux images from the Azure Marketplace, use the procedures in the f
 
 [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
 
-Note that there are frequent updates to these imjages, so check Marketplace Management often to keep up-to-date.
+Note that there are frequent updates to these images, so check Marketplace Management often to keep up-to-date.
 
 ## Prepare your own image
 
