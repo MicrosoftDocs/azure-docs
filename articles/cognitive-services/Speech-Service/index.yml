@@ -120,15 +120,15 @@ sections:
       - image:
           src: media/index/uwp.jpg
       - image:
-          src: media/index/logp_java.svg     
+          src: media/index/logo_java.svg     
       - image:      
           src: media/index/logo_objc.jpg
       - image:
           src: media/index/logo_js.svg     
       - image:
-          src: media/index/logo_rest.svg
+          src: media/index/logo_rest_sr.svg
       - image:
-          src: media/index/logo_rest.svg                 
+          src: media/index/logo_rest_tts.svg                 
     rows:
       - title: Windows
         values:
@@ -161,12 +161,28 @@ sections:
         - href: 
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
-        - href:                  
-      - title: Text-to-Speech
+        - href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput           
+
+- title: In Development
+  items:
+  - type: paragraph
+    text: 'To be availble soon:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_python.svg
+      - image:
+          src: media/index/logo_swift.svg     
+      - image:      
+          src: media/index/logo_gopher.svg
+      - image:
+          src: media/index/logo_c.jpg     
+    rows:
+      - title: Comming soon
         values:
-        - href:
         - href:
         - href: 
         - href:
-        - href:
-        - href: https://docs.microsoft.com/en-us/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
+        - href:             
+
