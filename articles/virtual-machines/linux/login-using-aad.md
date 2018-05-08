@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/01/2018
+ms.date: 05/08/2018
 ms.author: iainfou
 ---
 
@@ -44,10 +44,10 @@ The following Linux distributions are currently supported during the preview of 
 
 The following Azure regions are currently supported during the preview of this feature:
 
-- South Central US
+- All public Azure regions
 
 >[!IMPORTANT]
-> To use this preview feature, only deploy a supported Linux distro and in a supported Azure region.
+> To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
