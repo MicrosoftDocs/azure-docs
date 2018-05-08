@@ -13,7 +13,7 @@ ms.author: ghogen
 ---
 # Connecting to Cognitive Services News Search API by using Connected Services in Visual Studio
 
-By using the Cognitive Services News Search API, you can ....
+By using the Cognitive Services News Search API, you can enable apps and services to harness the power of an ad-free search engine scoped to the web.
 
 This article and its companion articles provide details for using the Visual Studio Connected Service feature for Cognitive Services News Search API. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
@@ -77,7 +77,7 @@ This article and its companion articles provide details for using the Visual Stu
    }
    ```
  
-## Use the Bing News Search API to detect attributes of an image
+## Use the Bing News Search API to add Intelligent Search to a web page
 
 1.  In Startup.cs, in the ConfigureServices method, add a call to IServiceCollection.AddSingleton to make the configuration object that contains the key settings available to the code in your project.
  
@@ -91,7 +91,7 @@ This article and its companion articles provide details for using the Visual Stu
    ```
 
 
-1. Add a new file under Models folder, called BingNewsModel.cs
+1. Add a new file under Models folder, called BingNewsModel.cs. Use your own project's namespace instead of MyWebApplication.
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -100,7 +100,7 @@ This article and its companion articles provide details for using the Visual Stu
     using System.Linq;
     using System.Threading.Tasks;
     
-    namespace Demo.Models
+    namespace MyWebApplication.Models
     {
         public class BingNewsModel
         {
@@ -112,7 +112,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    This model will be used to store the results of a call to the Bing News Search service.
  
-1. In the Controllers folder, add a new file called DemoIntelligentSearchController.cs, and copy in the following contents.
+1. In the Controllers folder, add a new controller called IntelligentSearchController.cs, and copy in the following contents.
 
    ```csharp
     using System;
@@ -120,21 +120,21 @@ This article and its companion articles provide details for using the Visual Stu
     using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using Demo.Models;
+    using MyWebApplication.Models;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
     using Microsoft.Extensions.Configuration;
     
-    namespace Demo.Controllers
+    namespace MyWebApplication.Controllers
     {
         // A controller to handle News Search requests
-        public class DemoIntelligentSearchController : Controller
+        public class IntelligentSearchController : Controller
         {
             private IConfiguration configuration;
   
             // Set up the configuration that contains the keys (from the appsettings.json file)
             // that you will use to access the service  
-            public DemoIntelligentSearchController(IConfiguration configuration)
+            public IntelligentSearchController(IConfiguration configuration)
             {
                 this.configuration = configuration;
             }
@@ -172,14 +172,30 @@ This article and its companion articles provide details for using the Visual Stu
 
    In this code, the constructor sets up the configuration object that contains your keys. The method for the "Search" route is just a redirection to the BingSearchResult function, which calls the GetNewsSearchClient method to get the NewsSearchAPI client object.  The NewsSearchAPI client object contains the SearchAsync method which actually calls the service and returns the results in the SearchResult model that you just created. 
 
-1. To add support for submitting searches and viewing the results, add a new file BingSearchResult.cshtml to the Views folder.
+1. Add a class MyHandler, which was referenced in the preceding code. This just delegates the asynchronous call to the Search service to its base class, DelegatingHandler.
+
+   ```csharp
+    class MyHandler : DelegatingHandler
+    {
+        protected async override Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        {
+            // Call the inner handler.
+            var response = await base.SendAsync(request, cancellationToken);
+            
+            return response;
+        }
+    }
+   ```
+
+1. To add support for submitting searches and viewing the results, add a view BingSearchResult.cshtml to a new folder, IntelligentSearch, in the Views folder. Copy in the following code.
 
     ```cshtml
     @using System
-    @model Demo.Models.BingNewsModel
+    @model MyWebApplication.Models.BingNewsModel
     
     @{
-        ViewData["Title"] = "NewsSearchResult";
+        ViewData["Title"] = "BingSearchResult";
         Layout = "~/Views/Shared/_Layout.cshtml";
     }
     
@@ -187,7 +203,7 @@ This article and its companion articles provide details for using the Visual Stu
     
     <div class="row">
         <section>
-            <form asp-controller="DemoIntelligentSearch" asp-action="Search" method="POST" class="form-horizontal" enctype="multipart/form-data">
+            <form asp-controller="IntelligentSearch" asp-action="Search" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 <table width ="90%">
                     <tr>
                         <td>
@@ -225,7 +241,7 @@ This article and its companion articles provide details for using the Visual Stu
     </div>
     ```
 
-1. Start the web application, enter the URL for the page you just created, and post a search request using the Search button.
+1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request using the Search button.
            
 ## Clean up resources
 
@@ -237,4 +253,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Bing News Search API by reading the [Bing News Search API Documentation](index.md).
+Learn more about the Bing News Search API by reading the [Bing News Search Documentation](index.yml).
