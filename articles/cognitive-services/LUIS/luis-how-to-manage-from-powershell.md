@@ -16,15 +16,15 @@ The Azure portal allows you to use PowerShell cmdlets to work with Azure resourc
 
 These cmdlets include creating a LUIS subscription, getting information about the subscription, and removing the subscription. 
 
-## Launch cloud shell
-In order to use PowerShell in the Azure portal [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), you need to have an Azure storage account. If you don't have one, the [process will create one](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage-powershell) for you. The storage account is necessary for any PowerShell scripts you want to store in the cloud.  
+## Cloud shell storage account and authentication
+In order to use PowerShell in the Azure portal [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), you need to have an Azure storage account. If you don't have a [storage account](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), you will be prompted to create one. The storage account is necessary. Storage allows you to save PowerShell scripts in the cloud shell.  
 
 You also need to authenticate to Azure in the cloud shell to access any resources. 
 
 Once you have a storage account and are authenticated, you can run PowerShell cmdlets.
 
 ## Open Cloud Shell
-There are several ways to find LUIS endpoint usage information. With PowerShell 6.x, a PowerShell cmdlet gives you endpoint hits. 
+With PowerShell 6.x, a PowerShell cmdlet gives you endpoint hit information via a cmdlet. 
 
 When you use the Azure portal cloud shell, you are always on the most current PowerShell version. 
 
@@ -39,10 +39,10 @@ The PowerShell 6.x cmdlet, `Get-AzureRmCognitiveServicesAccountUsage`, provides 
 The command syntax is:
 
 ```
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName luis-westus-rg -Name luis-westus-1
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
-In the preceding example, the resource group name is `luis-westus-rg` and the LUIS service subscription name is `luis-westus-1`. Both these names are chosen when the LUIS service is created. 
+In the following example, the resource group name is `luis-westus-rg` and the LUIS service subscription name is `luis-westus-1`. Both these names are chosen when the LUIS service is created. 
 
 The cmdlet returns usage information:
 
@@ -56,10 +56,10 @@ QuotaPeriod   : 30.00:00:00
 NextResetTime : 2018-06-07T18:28:52Z
 ```
 
-Save the command as a Powershell file in the Azure storage account associated with the cloud shell and execute at any time. 
+Save the command as a Powershell file, *.ps1, in the Azure storage account associated with the cloud shell and execute at any time. 
 
 ![Run script from storage](./media/luis-how-to-manage-from-powershell/run-script-from-storage.png)
 
-Once the script is saved in the cloud drive, you can run the PowerShell script from the Azure phone app's cloud shell. 
+Once the script is saved on the cloud drive, you can run the PowerShell script from the Azure phone app's cloud shell. 
 
 ![Run script from storage in phone app](./media/luis-how-to-manage-from-powershell/phone-app.png)
