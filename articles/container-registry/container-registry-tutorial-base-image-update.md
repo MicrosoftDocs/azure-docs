@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/27/2018
+ms.date: 05/07/2018
 ms.author: marsma
 ms.custom: mvc
 # Customer intent: As a developer or devops engineer, I want container
@@ -33,7 +33,7 @@ In this tutorial, the last in the series:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you'd like to use the Azure CLI locally, you must have the Azure CLI version 2.0.31 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
+If you'd like to use the Azure CLI locally, you must have the Azure CLI version **2.0.32** or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0][azure-cli].
 
 ## Prerequisites
 
@@ -41,7 +41,6 @@ If you'd like to use the Azure CLI locally, you must have the Azure CLI version 
 
 This tutorial assumes you've already completed the steps in the first two tutorials in the series, in which you:
 
-* Install ACR Build extension in Azure CLI
 * Create Azure container registry
 * Fork sample repository
 * Clone sample repository
@@ -88,7 +87,7 @@ In the following sections, you create a build task, update the `NODE_VERSION` va
 Start by building the base image with an ACR Build *Quick Build*. As discussed in the [first tutorial](container-registry-tutorial-quick-build.md) in the series, this not only builds the image, but pushes it to your container registry if the build is successful.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
+az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
 ## Create build task
@@ -185,7 +184,7 @@ ENV NODE_VERSION 9.11.1a
 Run a Quick Build in ACR Build to build the modified base image. Take note of the **Build ID** in the output.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base --context .
+az acr build --registry $ACR_NAME --image baseimages/node:9-alpine --file Dockerfile-base .
 ```
 
 Once the build is complete and ACR Build has pushed the new base image to your registry, it triggers a build of the application image. It may take few moments for the ACR Build task you created earlier to trigger the application image build, as it must detect the newly completed and pushed base image.

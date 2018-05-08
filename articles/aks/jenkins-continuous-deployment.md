@@ -1,6 +1,6 @@
 ---
-title: Jenkins continuous deployment with Kubernetes in Azure Container Service
-description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Container Service
+title: Jenkins continuous deployment with Kubernetes in Azure Kubernetes Service
+description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Kubernetes Service
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Continuous deployment with Jenkins and Azure Container Service
+# Continuous deployment with Jenkins and Azure Kubernetes Service
 
-This document demonstrates how to set up a basic continuous deployment workflow between Jenkins and an Azure Container Service (AKS) cluster.
+This document demonstrates how to set up a basic continuous deployment workflow between Jenkins and an Azure Kubernetes Service (AKS) cluster.
 
 The example workflow includes the following steps:
 
@@ -30,7 +30,7 @@ The example workflow includes the following steps:
 You need the following items in order to complete the steps in this article.
 
 - Basic understanding of Kubernetes, Git, CI/CD, and Azure Container Registry (ACR).
-- An [Azure Container Service (AKS) cluster][aks-quickstart] and [AKS credentials configured][aks-credentials] on your development system.
+- An [Azure Kubernetes Service (AKS) cluster][aks-quickstart] and [AKS credentials configured][aks-credentials] on your development system.
 - An [Azure Container Registry (ACR) registry][acr-quickstart], the ACR login server name, and [ACR credentials][acr-authentication] with push and pull access.
 - Azure CLI installed on your development system.
 - Docker installed on your development system.

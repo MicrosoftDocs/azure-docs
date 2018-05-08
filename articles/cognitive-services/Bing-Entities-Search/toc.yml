@@ -4,7 +4,11 @@
   items:
     - name: What is Bing Entity Search?
       href: search-the-web.md
-- name: Quickstarts
+    - name: Entity Search endpoint
+      href: entity-search-endpoint.md
+    - name: Analytics for Entities Search API
+      href: bing-entity-stats.md
+- name: API Quickstarts
   expanded: true
   items:
   - name: C#
