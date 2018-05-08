@@ -249,9 +249,6 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 - Is the portal supported in the preview?
 
    No, support is limited to a private PowerShell module and Resource Manager template during the private preview.
-- What is the general availability timeline?
-
-   We are working toward a mid-2018 GA timeline.
 
 - Is production workload supported during private preview?
 
@@ -259,27 +256,27 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 
 - How do I report issues?
 
-   The private preview may contain bugs and may have frequent code deployments. Use the support alias nvadev@microsoft.com for reporting issues and assistance.
+   The private preview may contain bugs and may have frequent code deployments. Use the support alias appgwxzone@microsoft.com for reporting issues and assistance.
 
 ## Known issues and limitations
 
 
-|Issue  |Details  |ETA for fix  |
+|Issue  |Details  |
 |---------|---------|---------|
-|Billing     |No billing currently|Subsequent updates|
-|Diagnostics logs (not metrics)     |Performance and request/response logs don’t appear currently|May  2018|
-|Portal/CLI/SDK     |No support for portal, CLI, or SDK. The portal must not be used to issue updates to preview gateways.|Subsequent updates|
+|Billing     |No billing currently|
+|Diagnostics logs (not metrics)     |Performance and request/response logs don’t appear currently|
+|Portal/CLI/SDK     |No support for portal, CLI, or SDK. The portal must not be used to issue updates to preview gateways.|
 |Update via template fails occasionally     |This is due to race condition with KeyVault access policy|Once the Key Vault and User Assigned Identity is created, it can be removed from the template and only references to secret and identity are required in the template.|
-|Autoscaling     |No support for autoscaling currently|Subsequent updates.|
-|WAF     |Currently WAF is not supported|To be determined.|
-|User supplied certificates and Dynamic VIPs     |These are not supported in the new model. Use Key Vault for storing certificates and static VIPs.|By design|
-|Same subnet for old and preview version of application gateway     |A subnet with an existing application gateway (old model) cannot be used for the private preview version.|By design|
-|HTTP/2, FIPS mode, WebSocket, Azure Web Apps as backend     |Currently unsupported |Subsequent updates|
+|Autoscaling     |No support for autoscaling currently|
+|WAF     |Currently WAF is not supported|
+|User supplied certificates and Dynamic VIPs     |These are not supported in the new model. Use Key Vault for storing certificates and static VIPs.|
+|Same subnet for old and preview version of application gateway     |A subnet with an existing application gateway (old model) cannot be used for the private preview version.|
+|HTTP/2, FIPS mode, WebSocket, Azure Web Apps as backend     |Currently unsupported |
 
 
 ## Support and feedback
 
-For support and feedback, contact to nvadev@microsoft.com. The application gateway product group is happy to hear your feedback for enhancements and provide guidance where required.
+For support and feedback, contact to appgwxzone@microsoft.com. The application gateway product group is happy to hear your feedback for enhancements and provide guidance where required.
 
 ## Next steps
 
