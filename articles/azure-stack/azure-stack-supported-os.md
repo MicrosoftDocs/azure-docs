@@ -23,9 +23,7 @@ ms.reviewer: JeffGoldner
 
 ## Windows
 
-Azure Stack supports the Windows guest operating systems that are listed in the following table. Windows client images are not available in the Marketplace.
-
-During deployment, Azure Stack injects a suitable version of the guest agent into the image.
+Azure Stack supports the Windows guest operating systems listed in the following table:
 
 | Operating system | Description | Available in Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -39,9 +37,9 @@ During deployment, Azure Stack injects a suitable version of the guest agent int
 
 ***Note 1:*** *To deploy Windows 10 client operating systems on Azure Stack, you must have [Windows per User Licensing](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) or purchase through a Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
 
-Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance isn't supported. 
+Marketplace images are available for Pay-as-you-use or BYOL (EA/SPLA) licensing. Use of both on a single Azure Stack instance isn't supported. During deployment, Azure Stack injects a suitable version of the guest agent into the image.
 
-Only Datacenter editions are available in the marketplace; customers can bring their own server images including other editions.
+ Datacenter editions are available in the marketplace for downloading; customers can bring their own server images including other editions. Windows client images aren't available in the Marketplace.
 
 ## Linux
 

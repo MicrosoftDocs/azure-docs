@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/08/2018
 ms.author: jeffgo
 
 ---
@@ -36,7 +36,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 * Versions of the Linux kernel that are earlier than 2.6.37 do not support non-uniform memory access (NUMA) on Hyper-V with larger virtual machine sizes. This issue primarily impacts older distributions that use the upstream Red Hat 2.6.32 kernel and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems that run custom kernels that are older than 2.6.37 or RHEL-based kernels that are older than 2.6.32-504 must set the `numa=off` boot parameter on the kernel command line in grub.conf. For more information, see Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Do not configure a swap partition on the operating system disk. The Linux Agent can be configured to create a swap file on the temporary resource disk.  More information about this can be found in the following steps.
 * All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1MB before conversion. More details can be found in the steps below. See also [Linux Installation Notes](create-upload-generic.md#general-linux-installation-notes) for more information.
-* Azure Stack does not support cloud-init. You VM must be configured with a supported version of the Windows Azure Linux Agent (WALA). At the time of this writing, the agent downloaded from RedHat in the following steps is a supported version.
+* Azure Stack does not support cloud-init. You VM must be configured with a supported version of the Windows Azure Linux Agent (WALA).
 
 ### Prepare a RHEL 7 virtual machine from Hyper-V Manager
 
