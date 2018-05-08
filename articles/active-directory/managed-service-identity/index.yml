@@ -17,20 +17,11 @@ metadata:
   ms.author: daveba
 abstract:
   description: Managed Service Identity (MSI) provides Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication without having any credentials in your code.  Learn how to create and manage MSIs with our quickstarts and tutorials.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: 
-      width: 250  
-    title: 
-    href: 
-    width: 250
 sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to use Managed Service Identity (MSI) to access th Azure Resource Manager API'
+    text: 'Learn how to use Managed Service Identity (MSI) to access the Azure Resource Manager API'
   - type: list
     style: unordered
     items:
@@ -40,7 +31,13 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use MSI to securly access Azure resources
+    text: Learn how to use MSI to securely access Azure resources
+  - type: paragraph  
+    text: Windows VM/VMSS
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Access Azure Data Lake Store</a>
   
 - title: Samples
   
