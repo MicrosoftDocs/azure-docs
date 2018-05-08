@@ -28,7 +28,7 @@ EventFlow binaries are available as a set of NuGet packages. To add EventFlow to
 
 ![EventFlow NuGet packages in Visual Studio NuGet package manager UI](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For example, you can add the following packages to sent EventSource events to Application Insights:
+You will see a list of various packages show up, labeled with "Inputs" and "Outputs". EventFlow supports various different logging providers and analyzers. The service hosting EventFlow should include appropriate packages depending on the source and destination for the application logs. In addition to the core ServiceFabric package, you also need at least one Input and Output configured. For example, you can add the following packages to send EventSource events to Application Insights:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` to capture data from the service's EventSource class, and from standard EventSources such as *Microsoft-ServiceFabric-Services* and *Microsoft-ServiceFabric-Actors*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (we are going to send the logs to an Azure Application Insights resource)
@@ -154,5 +154,5 @@ Start your service and observe the Debug output window in Visual Studio. After t
 ## Next steps
 
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with OMS](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)

@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Azure Mobile Engagement Web SDK release notes
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 ## 2.0.2 (10/18/2016)
 * Fixed crash on private browsing (Safari).
 * Fixed crash on browsers with cookies disabled.

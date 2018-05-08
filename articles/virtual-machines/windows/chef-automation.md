@@ -4,7 +4,7 @@ description: Learn how to use Chef to do automated virtual machine deployment an
 services: virtual-machines-windows
 documentationcenter: ''
 author: diegoviso
-manager: timlt
+manager: jeconnoc
 tags: azure-service-management,azure-resource-manager
 editor: ''
 

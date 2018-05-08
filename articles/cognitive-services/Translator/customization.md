@@ -4,9 +4,8 @@ description: Use the Microsoft Translator Hub to build your own machine translat
 services: cognitive-services
 author: Jann-Skotdal
 manager: chriswendt1
-
 ms.service: cognitive-services
-ms.technology: translator
+ms.component: translator-text
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: v-jansko
@@ -34,8 +33,9 @@ More details about the various levels of customization, based on available data,
 ## Collaborative Translations Framework
 
 > [!NOTE]
-> As of February 1, 2018, AddTranslation() and AddTranslationArray() will fail and nothing will be written.
-Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
+> As of February 1, 2018, AddTranslation() and AddTranslationArray() are no longer available for use with the Translator Text API V2.0. These methods will fail and nothing will be written. The Translator Text API V3.0 does not support these methods.
+
+>Similar functionality is available in the Translator Hub API. See [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
 
 ## Next steps
 > [!div class="nextstepaction"]

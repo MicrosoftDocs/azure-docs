@@ -1,22 +1,14 @@
 ---
-title: Leverage query parallelization in Azure Stream Analytics| Microsoft Docs
-description: Learn how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
-keywords: data streaming, streaming data processing, tune analytics
+title: Use query parallelization and scale in Azure Stream Analytics
+description: This article describes how to scale Stream Analytics jobs by configuring input partitions, tuning the query definition, and setting job streaming units.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/07/2018
 ---
 # Leverage query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition.
@@ -32,8 +24,8 @@ Scaling a Stream Analytics job takes advantage of partitions in the input or out
 
 ### Inputs
 All Azure Stream Analytics input can take advantage of partitioning:
--	EventHub (need to set the partition key explicitly)
--	IoT Hub  (need to set the partition key explicitly)
+-	EventHub (need to set the partition key explicitly with PARTITION BY keyword)
+-	IoT Hub  (need to set the partition key explicitly with PARTITION BY keyword)
 -	Blob storage
 
 ### Outputs
@@ -42,13 +34,13 @@ When you work with Stream Analytics, you can take advantage of partitioning in t
 -	Azure Data Lake Storage
 -	Azure Functions
 -	Azure Table
--	Blob storage
+-	Blob storage (can set the partition key explicitly)
 -	CosmosDB  (need to set the partition key explicitly)
 -	EventHub (need to set the partition key explicitly)
 -	IoT Hub  (need to set the partition key explicitly)
 -	Service Bus
 
-PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-a-grouping-key) 
+PowerBI, SQL, and SQL Data-Warehouse outputs don’t support partitioning. However you can still partition the input as described in [this section](#multi-step-query-with-different-partition-by-values) 
 
 For more information about partitions, see the following articles:
 
@@ -59,18 +51,19 @@ For more information about partitions, see the following articles:
 ## Embarrassingly parallel jobs
 An *embarrassingly parallel* job is the most scalable scenario we have in Azure Stream Analytics. It connects one partition of the input to one instance of the query to one partition of the output. This parallelism has the following requirements:
 
-1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For event hubs, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
+1. If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, this means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. If your query logic does not require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 
 2. Once the data is laid out on the input side, you must make sure that your query is partitioned. This requires you to use **PARTITION BY** in all the steps. Multiple steps are allowed, but they all must be partitioned by the same key. Currently, the partitioning key must be set to **PartitionId** in order for the job to be fully parallel.  
 
-3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#Outputs) for more details.
+3. Most of our output can take advantage of partitioning, however if you use an output type that doesn't support partitioning your job won't be fully parallel. Refer to the [output section](#outputs) for more details.
 
-4. The number of input partitions must equal the number of output partitions. Blob storage output doesn't currently support partitions. But that's okay, because it inherits the partitioning scheme of the upstream query. Here are examples of partition values that allow a fully parallel job:  
+4. The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
    * 8 event hub input partitions and 8 event hub output partitions
-   * 8 event hub input partitions and blob storage output  
-   * 8 blob storage input partitions and blob storage output  
-   * 8 blob storage input partitions and 8 event hub output partitions  
+   * 8 event hub input partitions and blob storage output
+   * 8 event hub input partitions and blob storage output partitioned by a custom field with arbitrary cardinality
+   * 8 blob storage input partitions and blob storage output
+   * 8 blob storage input partitions and 8 event hub output partitions
 
 The following sections discuss some example scenarios that are embarrassingly parallel.
 
@@ -219,7 +212,7 @@ This query can be scaled to 24 SUs.
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

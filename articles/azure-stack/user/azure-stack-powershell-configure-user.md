@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure the Azure Stack user's PowerShell environment | Microsoft Docs
 description: Configure the Azure Stack user's PowerShell environment
 services: azure-stack
@@ -13,8 +13,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 4/26/2017
 ms.author: mabrigg
+ms.reviewer: Balsu.G
 
 ---
 

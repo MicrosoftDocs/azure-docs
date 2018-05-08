@@ -1,40 +1,26 @@
 ---
-title: Managing statistics on tables in SQL Data Warehouse | Microsoft Docs
-description: Getting started with statistics on tables in Azure SQL Data Warehouse.
+title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
+description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: ''
-
-ms.assetid: faa1034d-314c-4f9d-af81-f5a9aedf33e4
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: tables
-ms.date: 11/06/2017
-ms.author: barbkess
-
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/17/2018
+ms.author: cakarst
+ms.reviewer: igorstan
 ---
-# Managing statistics on tables in SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Overview][Overview]
-> * [Data Types][Data Types]
-> * [Distribute][Distribute]
-> * [Index][Index]
-> * [Partition][Partition]
-> * [Statistics][Statistics]
-> * [Temporary][Temporary]
-> 
-> 
 
+# Creating, updating statistics on tables in Azure SQL Data Warehouse
+Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
+
+## Why use statistics?
 The more Azure SQL Data Warehouse knows about your data, the faster it can execute queries against it. Collecting statistics on your data and then loading it into SQL Data Warehouse is one of the most important things you can do to optimize your queries. This is because the SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost, which is in most cases the plan that executes the fastest. For example, if the optimizer estimates that the date you are filtering in your query will return one row, it can choose a different plan than if it estimates that the selected date will return 1 million rows.
 
 The process of creating and updating statistics is currently a manual process, but it is simple to do.  Soon you will be able to automatically create and update statistics on single columns and indexes.  By using the following information, you can greatly automate the management of the statistics on your data. 
 
-## Getting started with statistics
+## Scenarios
 Creating sampled statistics on every column is an easy way to get started. Out-of-date statistics lead to suboptimal query performance. However, updating statistics on all columns as your data grows can consume memory. 
 
 The following are recommendations for different scenarios:
@@ -91,7 +77,7 @@ WHERE
 
 **Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date.  Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
-For further explanation, see [Statistics][Statistics] on MSDN.
+For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
 ## Implementing statistics management
 It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
@@ -104,7 +90,7 @@ The following guiding principles are provided for updating your statistics durin
 * Consider updating static distribution columns less frequently.
 * Remember, each statistic object is updated in sequence. Simply implementing `UPDATE STATISTICS <TABLE_NAME>` isn't always ideal, especially for wide tables with lots of statistics objects.
 
-For further explanation, see  [Cardinality Estimation][Cardinality Estimation] on MSDN.
+For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
 ## Examples: Create statistics
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
@@ -169,7 +155,7 @@ You can also combine the options together. The following example creates a filte
 CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-For the full reference, see [CREATE STATISTICS][CREATE STATISTICS] on MSDN.
+For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
 ### Create multi-column statistics
 To create a multi-column statistics object, simply use the previous examples, but specify more columns.
@@ -359,9 +345,9 @@ This statement is easy to use. Just remember that it updates *all* statistics on
 > 
 > 
 
-For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables][Temporary]. The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
+For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
-For the full syntax, see [Update Statistics][Update Statistics] on MSDN.
+For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
 ## Statistics metadata
 There are several system views and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out of date by using the stats-date function to see when statistics were last created or updated.
@@ -371,21 +357,21 @@ These system views provide information about statistics:
 
 | Catalog view | Description |
 |:--- |:--- |
-| [sys.columns][sys.columns] |One row for each column. |
-| [sys.objects][sys.objects] |One row for each object in the database. |
-| [sys.schemas][sys.schemas] |One row for each schema in the database. |
-| [sys.stats][sys.stats] |One row for each statistics object. |
-| [sys.stats_columns][sys.stats_columns] |One row for each column in the statistics object. Links back to sys.columns. |
-| [sys.tables][sys.tables] |One row for each table (includes external tables). |
-| [sys.table_types][sys.table_types] |One row for each data type. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |One row for each column. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each object in the database. |
+| [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |One row for each schema in the database. |
+| [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |One row for each statistics object. |
+| [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |One row for each column in the statistics object. Links back to sys.columns. |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |One row for each table (includes external tables). |
+| [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |One row for each data type. |
 
 ### System functions for statistics
 These system functions are useful for working with statistics:
 
 | System function | Description |
 |:--- |:--- |
-| [STATS_DATE][STATS_DATE] |Date the statistics object was last updated. |
-| [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] |Summary level and detailed information about the distribution of values as understood by the statistics object. |
+| [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date the statistics object was last updated. |
+| [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
 ### Combine statistics columns and functions into one view
 This view brings columns that relate to statistics and results from the STATS_DATE() function together.
@@ -473,37 +459,5 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compar
 - Custom error 2767 is not supported.
 
 ## Next steps
-For more details, see [DBCC SHOW_STATISTICS][DBCC SHOW_STATISTICS] on MSDN.
+For further improve query performance, see [Monitor your workload](sql-data-warehouse-manage-monitor.md)
 
-  To learn more, see the articles on [Table Overview][Overview], [Table Data Types][Data Types], [Distributing a Table][Distribute], [Indexing a Table][Index],  [Partitioning a Table][Partition], and [Temporary Tables][Temporary].
-  
-   For more about best practices, see [SQL Data Warehouse Best Practices][SQL Data Warehouse Best Practices].  
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->  
-[Cardinality Estimation]: https://msdn.microsoft.com/library/dn600374.aspx
-[CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]:https://msdn.microsoft.com/library/ms174384.aspx
-[Statistics]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
-[sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
-[sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
-[sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
-[sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
-[UPDATE STATISTICS]: https://msdn.microsoft.com/library/ms187348.aspx
-
-<!--Other Web references-->  

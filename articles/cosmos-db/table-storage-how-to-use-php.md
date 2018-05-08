@@ -3,9 +3,8 @@ title: How to use Azure Storage Table service or Azure Cosmos DB Table API from 
 description: Learn how to use the Table service API from PHP to create and delete a table, and insert, delete, and query the table.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
@@ -13,9 +12,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-
+ms.date: 04/05/2018
+ms.author: sngun
 ---
 # How to use Azure Storage Table service or Cosmos DB Table API from PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -24,23 +22,18 @@ ms.author: mimig
 ## Overview
 This guide shows you how to perform common scenarios using the Azure Storage Table service and Azure Cosmos DB Table API. The samples are written in PHP and use the [Azure Storage Table PHP Client Library][download]. The scenarios covered include **creating and deleting a table**, and **inserting, deleting, and querying entities in a table**. For more information on the Azure Table service, see the [Next steps](#next-steps) section.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## Create an Azure service account
 
-You can work with tables using Azure Table storage or Azure Cosmos DB Table API. You can learn more about the differences between the services by reading [Table offerings](table-introduction.md#table-offerings). You'll need to create an account for the service you're going to use. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### Create an Azure Storage account
+### Create an Azure storage account
 
-The easiest way to create your first Storage account is by using the [Azure portal](https://portal.azure.com). To learn more, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-You can also create a Storage account by using [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) or [Azure CLI](../storage/common/storage-azure-cli.md).
+### Create an Azure Cosmos DB Table API account
 
-If you prefer not to create a Storage account at this time, you can also use the Azure Storage emulator to run and test your code in a local environment. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
-
-### Create an Azure Cosmos DB account
-
-For instructions on creating an Azure Cosmos DB account, see [Create a Table API account](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Create a PHP application
 
@@ -432,9 +425,6 @@ The **TableRestProxy->batch** method allows you to execute multiple operations i
 * **addDeleteEntity** (adds a deleteEntity operation)
 
 The following example shows how to execute **insertEntity** and **deleteEntity** operations in a single request. 
-
-> [!NOTE]
-> Azure Cosmos DB does not yet support batch operations for tables. 
 
 ```php
 require_once 'vendor/autoload.php';

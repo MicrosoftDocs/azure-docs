@@ -4,7 +4,7 @@ title: Create Service Fabric cluster in the Azure portal | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure using the Azure portal and Azure Key Vault.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: vturecek
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
-ms.author: chackdan
+ms.author: aljo
 
 ---
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -129,7 +129,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 
 To make setting up a secure test cluster easy for you, we have provided the **Basic** option. If you already have a certificate and have uploaded it to your keyvault (and enabled the key vault for deployment), then use the **Custom** option
 
-#####Basic Option
+##### Basic Option
 Follow the screens to add or reuse an existing keyvault and add a certificate. The addition of the certificate is a synchronous process and so you will have to wait for the certificate to be created.
 
 
@@ -149,7 +149,7 @@ You are now ready to proceed to the rest of the create cluster process.
 
 ![CreateKeyVault4]
 
-#####Custom Option
+##### Custom Option
 Skip this section, if you have already performed the steps in the **Basic** Option.
 
 ![SecurityCustomOption]

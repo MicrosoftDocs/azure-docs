@@ -4,15 +4,15 @@ description: Learn how to copy data from DB2 to supported sink data stores by us
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/28/2018
 
 ms.author: jingwang
 
@@ -65,7 +65,6 @@ The following properties are supported for DB2 linked service:
 | type | The type property must be set to: **Db2** | Yes |
 | server |Name of the DB2 server. |Yes |
 | database |Name of the DB2 database. |Yes |
-| schema |Name of the schema in the database. The schema name is case-sensitive. |No |
 | authenticationType |Type of authentication used to connect to the DB2 database.<br/>Allowed value is: **Basic**. |Yes |
 | username |Specify user name to connect to the DB2 database. |Yes |
 | password |Specify password for the user account you specified for the username. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |

@@ -5,7 +5,7 @@ keywords: lambda-architecture
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: 273aeae9-e31c-4a43-b216-5751c46f212e

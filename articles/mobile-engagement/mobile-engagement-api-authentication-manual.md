@@ -17,7 +17,11 @@ ms.date: 08/19/2016
 ms.author: piyushjo
 
 ---
-# Authenticate with Mobile Engagement REST APIs: manual setup
+# Authenticate with Mobile Engagement REST APIs - manual setup
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This documentation is an appendix to [Authenticate with Mobile Engagement REST APIs](mobile-engagement-api-authentication.md). Make sure you read that article first to understand the context. It also describes an alternate way to do the one-time authentication setup for the Mobile Engagement REST APIs by using the Azure portal.
 
 > [!NOTE]

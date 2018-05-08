@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 03/14/2018
 ms.author: ryanwi
 ---
 
@@ -37,7 +37,7 @@ Before you get started, make sure that you've [set up your development environme
 
    ![New project dialog box in Visual Studio][1]
 
-5. You can create any type of Service Fabric application from the next dialog box. For this quickstart, choose **Stateful Service**.
+5. You can create any type of Service Fabric application from the next dialog box. For this quickstart, choose **.Net Core 2.0** > **Stateful Service**.
 
 6. Name the service **MyStatefulService**. Then select **OK**.
 

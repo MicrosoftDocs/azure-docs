@@ -4,8 +4,7 @@ description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB M
 services: cosmos-db
 documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: ''
+manager: kfile
 
 ms.assetid: 
 ms.service: cosmos-db

@@ -4,20 +4,25 @@ description: Learn how to add fault tolerance in Azure Data Factory Copy Activit
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 03/27/2018
 ms.author: jingwang
 
 robots: noindex
 ---
 # Add fault tolerance in Copy Activity by skipping incompatible rows
+
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> * [Version 1 - GA](data-factory-copy-activity-fault-tolerance.md)
+> * [Version 2 - Preview](../copy-activity-fault-tolerance.md)
+
 > [!NOTE]
 > This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [fault tolerance in copy activity of Data Factory version 2](../copy-activity-fault-tolerance.md).
 
@@ -37,7 +42,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 
     For example: Copy data from a CSV file in Blob storage to a SQL database with a schema definition that contains six columns. The CSV file rows that contain six columns are copied successfully to the sink store. The CSV file rows that contain more or fewer than six columns are detected as incompatible and are skipped.
 
-- **Primary key violation when writing to a relational database**
+- **Primary key violation when writing to SQL Server/Azure SQL Database/Azure Cosmos DB**
 
     For example: Copy data from a SQL server to a SQL database. A primary key is defined in the sink SQL database, but no such primary key is defined in the source SQL server. The duplicated rows that exist in the source cannot be copied to the sink. Copy Activity copies only the first row of the source data into the sink. The subsequent source rows that contain the duplicated primary key value are detected as incompatible and are skipped.
 

@@ -108,7 +108,7 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-After you hav verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
+After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
 ## Push the custom image to Docker Hub
 

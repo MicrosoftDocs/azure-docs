@@ -3,7 +3,7 @@ title: Live Metrics Stream with custom metrics and diagnostics in Azure Applicat
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
+ms.author: mbullwin; Soubhagya.Dash
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency 
@@ -112,12 +112,15 @@ The custom filters criteria you specify are sent back to the Live Metrics compon
 ![Create api key](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### Add API key to Configuration
+
+# [.NET Standard](#tab/.net-standard)
+
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Or in code, set it on the QuickPulseTelemetryModule:
@@ -127,6 +130,34 @@ Or in code, set it on the QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# [.NET Core] (#tab/.net-core)
+
+Modify your startup.cs file as follows:
+
+First add
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Then under the Configure method add:
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 

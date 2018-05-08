@@ -3,10 +3,10 @@ title: Deploy Azure Stream Analytics with Azure IoT Edge | Microsoft Docs
 description: Deploy Azure Stream Analytics as a module to an edge device
 services: iot-edge
 keywords: 
-author: msebolt
+author: kgremban
 manager: timlt
 
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
