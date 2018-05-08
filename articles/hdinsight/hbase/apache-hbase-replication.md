@@ -11,7 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 05/07/2018
 ms.author: jgao
 
 ---
@@ -143,6 +143,45 @@ Some of the hard-coded values in the template:
 HBase replication uses the IP addresses of the ZooKeeper VMs. You must set up static IP addresses for the destination HBase ZooKeeper nodes. To set up static IP, see [Set up two virtual networks in the same region](#set-up-two-virtual-networks-in-the-same-region) in this article.
 
 For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
+
+## Setup DNS
+
+In this section, you install Bind on the two DNS virtual machines, and then configure the DNS forwarding on the two virutal mahcines.
+
+To install Bind, yon need to find the public IP address of the two DNS virutal machines.
+
+1. Open the [Azure portal](https://portal.azure.com).
+2. Open the DNS virtual machine by selecting **Resources groups > [the resource group name] > [vnet1DNS]**.  The resource group name is the one you create in the last procedure. The default DNS virtual machine names are *vnet1DNS* and *vnet2NDS*.
+3. Select **Properties** to open the properites page of the virtual network.
+4. Write down the **Public IP address**, and also verify the **Private IP address**.  The private IP address shall be **10.1.0.4** for vnet1DNS and **10.2.0.4** for vnet2DNS.  
+
+To install Bind, use the following procedure:
+
+1. Use SSH to connect to the __public IP address__ of the virtual machine. The following example connects to a virtual machine at 40.68.254.142:
+
+    ```bash
+    ssh sshuser@40.68.254.142
+    ```
+
+    Replace `sshuser` with the SSH user account you specified when creating the cluster.
+
+    > [!NOTE]
+	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
+    >
+    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
+    > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
+    > * [Git (https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+
+2. To install Bind, use the following commands from the SSH session:
+
+    ```bash
+	sudo apt-get update -y
+	sudo apt-get install bind9 -y
+    ```
+
+
+
 
 ## Load test data
 
