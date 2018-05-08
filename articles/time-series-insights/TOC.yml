@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
   - name: Explore TSI JavaScript client library
-    href: tut-explore-js-client-lib.md
+    href: tutorial-explore-js-client-lib.md
 - name: Concepts
   items:
   - name: Plan your environment
