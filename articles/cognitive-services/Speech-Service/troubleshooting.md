@@ -20,9 +20,9 @@ This article provides information to help you solve issues you might encounter w
 
 You may have the wrong endpoint for your region or service. Double-check the URI to make sure it is correct. Also see the next section, as this could also be a problem with your subscription key or authorization token.
 
-## Error `HTTP 403 Forbidden`
+## Error `HTTP 403 Forbidden` or Error `HTTP 401 Unauthorized`
 
-This error is often caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with status 403.
+This error is often caused by authentication issues. Connection requests without a valid `Ocp-Apim-Subscription-Key` or `Authorization` header are rejected with status 401 or 403.
 
 * If you are using a subscription key for authentication, the cause could be:
 
@@ -34,30 +34,29 @@ This error is often caused by authentication issues. Connection requests without
     - the authorization token is invalid
     - the authorization token is expired
 
-
 ### Validate your subscription key
 
 You can verify to make sure you have a valid subscription key by running one of the commands below.
 
 > [!NOTE]
-> Replace `YOUR_SUBSCRIPTION_KEY` with your own subscription key.
+> Replace `YOUR_SUBSCRIPTION_KEY` and `YOUR_REGION` with your own subscription key and associated region, respectively.
 
 * PowerShell
 
     ```Powershell
     $FetchTokenHeader = @{
-      'Content-type'='application/x-www-form-urlencoded';
-      'Content-Length'= '0';
+      'Content-type'='application/x-www-form-urlencoded'
+      'Content-Length'= '0'
       'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
     }
-    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
+    $OAuthToken = Invoke-RestMethod -Method POST -Uri https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken -Headers $FetchTokenHeader
     $OAuthToken
     ```
 
 * cURL
 
     ```
-    curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+    curl -v -X POST "https://YOUR_REGION.api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0"
     ```
 
 ### Validate an authorization token
