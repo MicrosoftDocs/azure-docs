@@ -56,7 +56,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'WebPage'
 - _type: 'VideoObjectElementType'
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Video results](media/web-search-sdk-node-results.png)
+-->
 
 ## Next steps
 
