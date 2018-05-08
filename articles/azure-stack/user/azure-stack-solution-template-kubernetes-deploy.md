@@ -97,45 +97,6 @@ Give the service principal access to your subscription so that the principal can
 
 7. Click **Save**.
 
-## Add an Ubuntu server image
-
-Add the following Ubuntu Server image from the Marketplace:
-
-1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
-
-2. Select **More services** > **Marketplace Management**.
-
-3. Select **+ Add from Azure**.
-
-4. Enter `UbuntuServer`.
-
-5. Select the server with the following profile:
-    - **Publisher**: Canonical
-    - **Offer**: UbuntuServer
-    - **SKU**: 16.04-LTS
-    - **Version**: 16.04.201802220
-
-6. Select **Download.**
-
-## Add a custom script for Linux
-
-Add the Kubernetes Cluster to the Marketplace:
-
-1. Open the [Administration portal](https://adminportal.local.azurestack.external).
-
-2. Select **More services** > **Marketplace Management**.
-
-3. Select **+ Add from Azure**.
-
-4. Enter `Custom Script for Linux`.
-
-5. Select the script with the following profile:
-    - **Offer**: Custom Script for Linux 2.0
-    - **Version**: 2.0.3
-    - **Publisher**: Microsoft Corp
-
-6. Select **Download.**
-
 ## Deploy a Kubernetes Cluster
 
 1. Open the [Azure Stack portal](https://portal.local.azurestack.external).

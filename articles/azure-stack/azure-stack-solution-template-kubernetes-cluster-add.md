@@ -27,7 +27,7 @@ ms.reviewer: waltero
 
 You can offer a Kubernetes Cluster as a Marketplace item to your users. Your users can deploy Kubernetes in a single, coordinated operation.
 
-The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace.
+The following article look at using an Azure Resource Manager template to deploy and provision the resources for a standalone Kubernetes cluster. Before you start, check your Azure Stack and global Azure tenant settings. Collect the required information about your Azure Stack. Add necessary resources to your tenant and to the Azure Stack Marketplace. The cluster depends on an Ubuntu server, custom script, and the Kubernetes Cluster items to be in the marketplace.
 
 ## Create a plan, an offer, and a subscription
 
@@ -56,6 +56,46 @@ Create a plan, an offer, and a subscription for the Kubernetes Cluster Marketpla
     d. Set the **Directory tenant** to the Azure AD tenant for your Azure Stack. 
 
     e. Select **Offer**. Select the name of the offer that you created. Make note of the Subscription ID.
+
+## Add an Ubuntu server image
+
+Add the following Ubuntu Server image to the Marketplace:
+
+1. Sign in to the [Administration portal](https://adminportal.local.azurestack.external).
+
+2. Select **More services** > **Marketplace Management**.
+
+3. Select **+ Add from Azure**.
+
+4. Enter `UbuntuServer`.
+
+5. Select the server with the following profile:
+    - **Publisher**: Canonical
+    - **Offer**: UbuntuServer
+    - **SKU**: 16.04-LTS
+    - **Version**: 16.04.201802220
+
+6. Select **Download.**
+
+## Add a custom script for Linux
+
+Add the Kubernetes Cluster from the Marketplace:
+
+1. Open the [Administration portal](https://adminportal.local.azurestack.external).
+
+2. Select **More services** > **Marketplace Management**.
+
+3. Select **+ Add from Azure**.
+
+4. Enter `Custom Script for Linux`.
+
+5. Select the script with the following profile:
+    - **Offer**: Custom Script for Linux 2.0
+    - **Version**: 2.0.3
+    - **Publisher**: Microsoft Corp
+
+6. Select **Download.**
+
 
 ## Add the Kubernetes Cluster to the marketplace
 
