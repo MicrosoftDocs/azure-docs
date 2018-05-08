@@ -253,6 +253,12 @@ Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
   curl -s https://get.sdkman.io | bash
   sdk install gradle
   ```
+
+You also need to install the Service Fabric Yeo generator for Java executables. Make sure you have [Yeoman installed](#set-up-yeoman-generators-for-containers-and-guest-executables) and then run the following command:
+
+  ```bash
+  sudo npm install -g generator-azuresfjava
+  ```
  
 ## Install the Eclipse plug-in (optional)
 

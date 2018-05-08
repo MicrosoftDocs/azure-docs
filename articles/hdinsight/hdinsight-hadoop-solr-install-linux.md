@@ -84,7 +84,7 @@ Use the following steps to add example data to Solr, and then query it:
     For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
      > [!IMPORTANT]
-     > Steps later in this document use an SSL tunnel to connect to the Solr web UI. To use these steps, you must establish an SSL tunnel and then configure your browser to use it.
+     > Steps later in this document use an SSH tunnel to connect to the Solr web UI. To use these steps, you must establish an SSH tunnel and then configure your browser to use it.
      >
      > For more information, see the [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md) document.
 

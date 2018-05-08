@@ -1,4 +1,4 @@
-﻿---
+---
 layout: HubPage
 hide_bc: true
 experimental: true
@@ -271,7 +271,7 @@ featureFlags:
                             <li></li>
                             <li></li>
                             <li class="bottomRightItem">
-                                <a href="https://aka.ms/j3wr7y">
+                                <a href="https://docs.microsoft.com/azure/index#pivot=products&panel=all">
                                     <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">View all Azure Services<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
                             </li>
@@ -869,13 +869,13 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
                                                 <p>Anomaly Finder</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/conversation-learner/overview">
-                                                <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                <img src="media/index/API_Conversation_Learner.svg" alt="" />
                                                 <p>Conversation Learner</p>
                                             </a>
                                         </li>
@@ -1198,6 +1198,12 @@ featureFlags:
                                             <a href="/azure/cli">
                                                 <img src="https://docs.microsoft.com/media/common/i_cligeneric.svg" alt="" />
                                                 <p>CLI</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/blockchain-workbench">
+                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <p>Blockchain Workbench</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -3493,13 +3499,13 @@ featureFlags:
 
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                                    <img src="media/index/API_Bing_Web_Search.svg" alt="" />
+                                                                    <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                                     <span>Anomaly Finder</span>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview">
-                                                                    <img src="media/index/API_QnAMaker.svg" alt="" />
+                                                                    <img src="media/index/API_Conversation_Learner.svg" alt="" />
                                                                     <span>Conversation Learner</span>
                                                                 </a>
                                                             </li>
@@ -4569,6 +4575,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/blockchain-workbench/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blockchain Workbench</h3>
+                                                    <p>Connect your blockchain to the cloud without the heavy lifting</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5551,7 +5576,7 @@ featureFlags:
                                                     Docker
                                                 </h3>
                                                 <p>
-                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio  Tools for Docker</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>
