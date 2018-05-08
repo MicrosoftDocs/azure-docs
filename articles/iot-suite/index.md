@@ -24,7 +24,7 @@ Get started quickly with the IoT solution accelerators to build your IoT solutio
                     <div class="cardText">
                         <p>Learn about the solution accelerators, key scenarios, and how to get started</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-what-are-preconfigured-solutions">Solution accelerators overview</a></li>
+                            <li><a href="/azure/iot-suite/iot-suite-what-are-solution-accelerators">Solution accelerators overview</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-deploy">Deploy a solution accelerator</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Out of the box solution capabilities</a></li>
                             <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">Monitoring capabilities</a></li>
