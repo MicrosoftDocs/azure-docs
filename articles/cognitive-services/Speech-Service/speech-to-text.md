@@ -41,7 +41,7 @@ Some capabilities of the **Speech to Text** API are not available via REST. The 
 | Transcribe streaming audio with optional interim results | No | Yes |
 | Understand speaker intents via LUIS | No\* | Yes |
 
-\* *The SDK can call LUIS for you and provide entity and intent results, all under your Speech subscription. With the REST API, you can call LUIS yourself to derive intents and entities, but you need a separate LUIS subscription.*
+\* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 
 ## Next steps
 
