@@ -34,8 +34,10 @@ The [Speech SDK](speech-sdk.md) provides the simplest way to use **Speech to Tex
     Recognizer | Function
     -|-
     Speech recognizer|Provides text transcription of speech
-    Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition
+    Intent recognizer|Derives speaker intent via [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) after recognition\*
     Translation recognizer|Translates the transcribed text to another language (see [Speech Translation](how-to-translate-speech.md))
+
+    \* *For intent recognition, you need to use a separate LUIS subscription key when creating a speech factory for the intent recognizer.*
     
 4. Tie up the events for asynchronous operation, if desired. The recognizer then calls your event handlers when it has interim and final results. Otherwise, your application will receive a final transcription result.
 

@@ -18,13 +18,13 @@ Each video includes a video ID that you can use to get more information about th
   
 To get insights about a video, capture its [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) token in the response. 
 
-```
+```json
     "value" : [
         {
             . . .
             "name" : "How to sail - What to Wear for Dinghy Sailing",
             "description" : "An informative video on what to wear...",
-            "contentUrl" : "https:\/\/www.youtube.com\/watch?v=vzmPjHBZ--g",
+            "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=vzmPjHBZ--g",
             "videoId" : "6DB795E11A6E3CBAAD636DB795E11A6E3CBAAD63",
             . . .
         }
@@ -71,12 +71,12 @@ The following is the response to the previous request. The top-level object is a
                 "datePublished" : "2014-03-04T16:11:09",
                 "publisher" : [
                     {
-                        "name" : "YouTube"
+                        "name" : "Fabrikam"
                     }
                 ],
-                "contentUrl" : "https:\/\/www.youtube.com\/watch?v=...",
+                "contentUrl" : "https:\/\/www.fabrikam.com\/watch?v=...",
                 "hostPageUrl" : "https:\/\/www.bing.com\/cr?IG=7284B07...",
-                "hostPageDisplayUrl" : "https:\/\/www.youtube.com\/watch?...",
+                "hostPageDisplayUrl" : "https:\/\/www.fabrikam.com\/watch?...",
                 "duration" : "PT4M56S",
                 "motionThumbnailUrl" : "https:\/\/tse1.mm.bing.net\/th?id=OM...",
                 "allowHttpsEmbed" : true,
