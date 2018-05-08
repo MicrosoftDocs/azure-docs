@@ -243,7 +243,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 1. Start the web application locally, enter the URL for the page you just created (/IntelligentSearch/BingSearchResult), and post a search request using the Search button.
 
-   ![Bing News Search Results](media/vs-bing-news-search-connected-service/Cog-Search-News-Search-Results.PNG)
+   ![Bing News Search Results](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## Clean up resources
 
