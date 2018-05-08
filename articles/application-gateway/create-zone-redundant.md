@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 5/7/2018
+ms.date: 5/8/2018
 ms.author: victorh
 
 ---
@@ -48,7 +48,7 @@ The new zone redundant topology looks like this diagram:
 
 ### Prerequisites
 
-Currently zone redundant capability is only available in private preview. You must email nvadev@microsoft.com to be  whitelisted. Once you receive a confirmation, you can proceed to the next steps. Include the following information in your email for whitelisting:
+Currently zone redundant capability is only available in private preview. You must email appgwxzone@microsoft.com to be whitelisted. Once you receive a confirmation, you can proceed to the next steps. Include the following information in your email for whitelisting:
 
 - Subscription ID
 - Region name
