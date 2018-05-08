@@ -68,7 +68,5 @@ Create your own solution:
 
    - [Using the sign-in activity report API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
-## Next Steps
 
-If you are curious to see all available Azure AD Graph API endpoints, use this link: [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta).
 
