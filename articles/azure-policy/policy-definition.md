@@ -93,7 +93,7 @@ For example, you could define a policy for a resource property to limit the loca
 
 The type of a parameter can be either string or array. The metadata property is used for tools like the Azure portal to display user-friendly information.
 
-Within the metadata property you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
+Within the metadata property, you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
 
 - `"location"`
 - `"resourceTypes"`
@@ -111,9 +111,18 @@ In the policy rule, you reference parameters with the following syntax:
 }
 ```
 
+## Definition location
+
+While creating an initiative or policy definition, it is important that you specify the definition location.
+
+The definition location determines the scope to which the initiative or policy definition can be assigned to. The location can be specified as a management group or a subscription.
+
+> [!NOTE]
+> If you plan to apply this policy definition to multiple subscriptions, the location must by a management group that contains the subscriptions you will assign the initiative or policy to.
+
 ## Display name and description
 
-You can use **displayName** and **description** to identify the policy definition, and provide context for when it is used.
+You can use **displayName** and **description** to identify the policy definition and provide context for when it is used.
 
 ## Policy rule
 
@@ -190,7 +199,7 @@ The following fields are supported:
 
 - `name`
 - `fullName`
-  - Returns the full name of the resource, including any parents (e.g. "myServer/myDatabase")
+  - Returns the full name of the resource, including any parents (for example "myServer/myDatabase")
 - `kind`
 - `type`
 - `location`
@@ -211,7 +220,7 @@ The following fields are supported:
 
 **Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
+When policy is evaluating existing resources in the background, it sets **action** to a `/write` authorization action on the resource's type.
 
 ### Effect
 
