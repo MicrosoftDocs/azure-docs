@@ -87,11 +87,11 @@ The following table shows the maximum concurrent queries and concurrency slots f
 **Dynamic resource classes**
 
 > [!NOTE]
-> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries.  On Gen1, smallrc continues to behave as a static resource class with a fixed amount of memory allocated across all services levels.  The concurrency slots used by smallrc increases as the service level increases. 
+> The smallrc resource class on Gen2 dynamically adds memory as the service level increases and only supports a max 32 concurrent queries.  The concurrency slots used by smallrc increases as the service level increases. 
 >
 >
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Unlike Gen1, dynamic resource classes on Gen2 are truly dynamic.  Gen2 follows a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Unlike Gen1, dynamic resource classes on Gen2 are truly dynamic.  Gen2 uses a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
@@ -108,11 +108,12 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
+
 #### Gen1
 
 Static resource classes
 
-The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  These apply to Gen1.
+The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md) on **Gen1**.
 
 | Service level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
@@ -131,11 +132,11 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 Dynamic resource classes
 > [!NOTE]
-> The smallrc resource class on Gen1 allocates a fixed amount of memory per query, similar in fashion to the static resource class staticrc10.  Therefore smallrc offers the ability to scale to 128 concurrent queries. 
+> The smallrc resource class on Gen1 allocates a fixed amount of memory per query, similar in fashion to the static resource class staticrc10.  Because smallrc is static, it has the ability to scale to 128 concurrent queries. 
 >
 >
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md).  These apply to Gen1.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md) on **Gen1**.
 
 | Service level | Maximum concurrent queries | Concurrency slots available | smallrc | mediumrc | largerc | xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
