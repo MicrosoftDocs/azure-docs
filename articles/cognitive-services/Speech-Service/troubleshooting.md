@@ -64,18 +64,18 @@ You can verify to make sure you have a valid subscription key by running one of 
 If you use an authorization token for authentication, run one of the following commands to verify that the authorization token is still valid. Tokens are valid for 10 minutes.
 
 > [!NOTE]
-> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, and `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step.
+> Replace `YOUR_AUDIO_FILE` with the path to your prerecorded audio file, `YOUR_ACCESS_TOKEN` with the authorization token returned in the previous step,
+> and `YOUR_REGION` with the correct region.
 
 * PowerShell
 
     ```Powershell
-    ToDo : Check URL in this sample and in the next Curl sample
     $SpeechServiceURI =
-    'https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed'
+    'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
     
     # $OAuthToken is the authorization token returned by the token service.
     $RecoRequestHeader = @{
-      'Authorization' = 'Bearer '+ $OAuthToken;
+      'Authorization' = 'Bearer '+ $OAuthToken
       'Transfer-Encoding' = 'chunked'
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
@@ -92,7 +92,7 @@ If you use an authorization token for authentication, run one of the following c
 * cURL
 
     ```
-    curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
+    curl -v -X POST "https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Transfer-Encoding: chunked" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
     ```
 
 ---
