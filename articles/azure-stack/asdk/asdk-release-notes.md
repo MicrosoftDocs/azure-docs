@@ -29,7 +29,7 @@ These release notes provide information about improvements, fixes, and known iss
 ### New features 
 This build includes the following improvements and fixes for Azure Stack.  
 
-- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are created during deployment:
+- <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available:
   - *Default Provider subscription*. Use this subscription for core infrastructure only. Do not deploy resources or resource providers on this subscription.
   - *Metering subscription*. Use this subscription for resource provider deployment. Resources deployed on this subscription are not charged.
   - *Consumption subscription*. Use this subscription for any other workload that the you want to deploy. Resources deployed here are charged normal usage prices.
