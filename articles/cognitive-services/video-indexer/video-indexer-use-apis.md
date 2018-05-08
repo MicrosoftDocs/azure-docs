@@ -28,13 +28,8 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
     > [!Important]
     > 1. You must use the same provider you used when you signed up for Video Indexer.
-    > 2. Before Azure AD users from a domain can isgn in, the AAD domain admin must enable that domain registration [here](https://api-portal.videoindexer.ai/aadadminconsent).
+    > 2. Before Azure AD users from a domain can sign in, the AAD domain admin must enable that domain registration [here](https://api-portal.videoindexer.ai/aadadminconsent).
     > 3. Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require AAD.
-
-	If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
-	
-	1. 	Contact us at visupport@microsoft.com to register your AAD organization’s domain (contoso.onmicrosoft.com).
-	2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. To do this, the organization's admin must navigate to https://api-portal.videoindexer.ai/signin-callback?provider=Aad, sign in and give consent.
 	
 2. Subscribe.
 
