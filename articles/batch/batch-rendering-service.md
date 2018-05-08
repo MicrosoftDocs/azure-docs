@@ -22,7 +22,7 @@ With Maya and 3ds Max, you can run jobs using the [BatchLabs](https://github.com
 
 The Batch Rendering service currently supports the following applications:
 
-On CentOS7 rendering nodes:
+On CentOS 7 rendering nodes:
 - Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
 - Autodesk Maya I/O 2018 Update 2 cut 201711281015
 - Autodesk Arnold for Maya 2017 (Arnold version 5.0.1.1) MtoA-2.0.1.1-2017
@@ -31,7 +31,7 @@ On CentOS7 rendering nodes:
 - Chaos Group V-Ray for Maya 2018 (version 3.60.04) 
 - Blender (2.68)
 
-On WindowsServer2016 rendering nodes:
+On Windows Server 2016 rendering nodes:
 - Autodesk Maya I/O 2017 Update 5 (version 17.4.5459) 
 - Autodesk Maya I/O 2018 Update 2 (version 18.2.0.6476) 
 - Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254) 
