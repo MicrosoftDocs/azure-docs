@@ -59,15 +59,36 @@ sections:
       html: <ul><li><a href="speech-to-text-sample.md">Speech Recognition</a></li><li><a href="intent.md">Intent Recognition</a></li><li><a href="translation.md">Translation</a></li></ul>
     - title: API Reference
       html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java</a></li></ul>
-  
-- title: Samples
+
+- title: Older SDKs
   items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="speech-to-text-sample.md">Speech Recognition</a>
-    - html: <a href="intent.md">Intent Recognition</a>
-    - html: <a href="translation.md">Translation</a>
+  - type: paragraph
+    text: 'To be updated with new APIs soon:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/logo_java.svg
+      - image:
+          src: media/index/logo_swift.jpg
+      - image:
+          src: media/index/logo_js.svg
+    rows:
+      - title: Windows
+        values:
+        - href: quickstart-csharp-windows
+        - href: cpp-windows
+        - href:
+      - title: Linux
+        values:
+        - href:
+        - href: cpp-linux
+        - href:
+      - title: Device SDK (Android)
+        values:
+        - href:
+        - href:
+        - href: speech-sdk-reference
 
 - title: Speech-to-Text
   items:
