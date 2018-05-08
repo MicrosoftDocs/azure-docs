@@ -24,7 +24,7 @@ The application gateway zone redundant platform is a new SKU that offers many en
 - **Faster deployment and update time**
 
 > [!NOTE]
-> The zone redundant application gateway is currently in private preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for details.
+> The zone redundant application gateway is currently in private preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 ## Supported regions
 
