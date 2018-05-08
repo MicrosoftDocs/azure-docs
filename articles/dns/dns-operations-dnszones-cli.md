@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage DNS zones in Azure DNS - Azure CLI 2.0 | Microsoft Docs
 description: You can manage DNS zones using Azure CLI 2.0. This article shows how to update, delete and create DNS zones on Azure DNS.
 services: dns
@@ -44,7 +44,7 @@ Verify that you have the following items before beginning your configuration.
 
 ### Sign in to your Azure account
 
-Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 
 ```
 az login

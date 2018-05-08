@@ -173,7 +173,7 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 Performance will be different depending on whether your provisioning job is performing an initial sync, or an incremental sync.
 
-For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects can take a very long time.
+For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
 
 For incremental syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
 

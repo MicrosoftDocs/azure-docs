@@ -3,10 +3,9 @@ title: Cortana prebuilt app reference | Microsoft Docs
 description: Reference for the Cortana personal assistant, a prebuilt application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr

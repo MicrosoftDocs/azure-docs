@@ -7,7 +7,7 @@ author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-news-search
+ms.component: bing-news-search
 ms.topic: article
 ms.date: 1/24/2018
 ms.author: v-gedod
@@ -18,6 +18,9 @@ The Bing News Search API samples include scenarios that:
 2. Query most recent news for search terms with `freshness` and `sortBy` parameters, verify number of results, and print out `totalEstimatedMatches`, URL, description, published time and name of provider of the first news result.
 3. Query category news for `movie` and `TV entertainment` with safe search, verify number of results, and print out category, name, URL, description, published time and name of provider of the first news result.
 4. Query news trending topics in Bing, verify number of results and print out name, text of query, `webSearchUrl`, `newsSearchUrl` and image URL of the first news result.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

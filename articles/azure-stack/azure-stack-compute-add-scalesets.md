@@ -63,7 +63,7 @@ $User = "<your Azure Stack service administrator user name>"
 $Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
 
 $AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Connect-AzureRmAccount -Environment $AzsEnv -Credential $Creds
+$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 

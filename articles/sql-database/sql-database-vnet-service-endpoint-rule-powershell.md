@@ -45,6 +45,10 @@ The following list shows the sequence of other *major* cmdlets that you must run
 - You can already log in to Azure, such as through the [Azure portal][http-azure-portal-link-ref-477t].
 - You can already run PowerShell scripts.
 
+> [!NOTE]
+> Please ensure that service endpoints are turned on for the Vnet/Subnet that you want to add to your Server otherwise creation of the 
+> Vnet Firewall Rule will fail.
+
 #### One script divided into four chunks
 
 Our demonstration PowerShell script is divided into a sequence of smaller scripts. The division eases learning and provides flexibility. The scripts must be run in their indicated sequence. If you do not have time now to run the scripts, our actual test output is displayed after script 4.

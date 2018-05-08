@@ -96,7 +96,7 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
    ```PowerShell
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
-    Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Use commands such as the following examples to work with alerts:

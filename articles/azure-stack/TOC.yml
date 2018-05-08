@@ -189,18 +189,25 @@
         href: azure-stack-delegated-provider.md
       - name: Quota types
         href: azure-stack-quota-types.md
-    - name: Offer SQL or MySQL as PaaS
+    - name: PaaS services overview
+      href: azure-stack-tools-paas-services.md
+    - name: Offer SQL as PaaS
+      href: azure-stack-sql-resource-provider.md
       items:
-      - name: PaaS services overview
-        href: azure-stack-tools-paas-services.md
-      - name: Deploy MySQL resource provider
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: Deploy SQL resource provider
+      - name: Deploy the SQL Server resource provider
         href: azure-stack-sql-resource-provider-deploy.md
       - name: Add hosting servers
         href: azure-stack-sql-resource-provider-hosting-servers.md
       - name: Create SQL databases
         href: azure-stack-sql-resource-provider-databases.md
+      - name: Update the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-update.md   
+      - name: Maintain the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-maintain.md                  
+      - name: Remove the SQL Server resource provider
+        href: azure-stack-sql-resource-provider-remove.md 
+    - name: Offer MySQL as PaaS
+      href: azure-stack-mysql-resource-provider-deploy.md
     - name: Offer App Service as PaaS
       items:
       - name: App Service on Azure Stack overview
@@ -245,6 +252,8 @@
         href: azure-stack-compute-add-scalesets.md
       - name: Offer Linux virtual machines
         href: azure-stack-linux.md
+      - name: Offer a Kubernetes Cluster
+        href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
       items:
       - name: Overview

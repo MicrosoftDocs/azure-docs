@@ -141,7 +141,7 @@ If you currently don't have licenses you need to go through the process of deter
 
 4. Click **Save**
 
-In this window you also have the option to Download the MFA Server. You can get additional details for how to size and plan your deployment by reviewing the article [Getting started with the Azure Multi-factor Authentication server](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
+In this window you also have the option to Download the MFA Server. You can get additional details for how to size and plan your deployment by reviewing the article [Getting started with the Azure Multi-factor Authentication server](../active-directory/authentication/howto-mfaserver-deploy.md)
 
 For more instructions on how to manage your Multi-Factor Auth Provider, see [Getting Started with an Azure Multi-Factor Auth
 Provider.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)

@@ -38,8 +38,6 @@ In this tutorial, you learn how to:
 
 Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## Create a test API 
 
 The steps in this section show how to create a blank API with no backend. It also shows how to add an operation to the API. Calling the operation after completing steps in this section produces an error. You will get no errors after you complete steps in the "Enable response mocking" section.

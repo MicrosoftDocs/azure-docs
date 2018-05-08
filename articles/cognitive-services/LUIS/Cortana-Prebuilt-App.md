@@ -3,10 +3,9 @@ title: Use Cortana prebuilt app from LUIS | Microsoft Docs
 description: Use Cortana personal assistant, a prebuilt application from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: v-geberr
@@ -22,13 +21,14 @@ ms.author: v-geberr
 > * The prebuilt domain intents are customizable. For example, if you want to provide reviews of hotels, you can train and customize the **Places.GetReviews** intent from the **Places** domain to recognize requests for hotel reviews.
 > * The prebuilt domains are extensible. For example, if you want to use the **Places** prebuilt domain in a bot that searches for restaurants, and need an intent for getting the type of cuisine, you can build and train a **Places.GetCuisine** intent.
 
-In addition to allowing you to build your own applications, LUIS also provides intents and entities from the Microsoft Cortana personal assistant as a prebuilt app. The behavior of this publicly available LUIS app cannot be changed. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client aplication to have access to both this prebuilt application and your own LUIS application, then your client application has to reference both LUIS apps.
+In addition to allowing you to build your own applications, LUIS also provides intents and entities from the Microsoft Cortana personal assistant as a prebuilt app. The behavior of this publicly available LUIS app cannot be changed. The intents and entities in this application cannot be edited or integrated into other LUIS apps. If you’d like your client application to have access to both this prebuilt application and your own LUIS application, then your client application has to reference both LUIS apps.
 
 The prebuilt personal assistant app is available in these cultures (locales): English, French, Italian, Spanish, and Chinese.
 
 ## Get the endpoint for the Cortana prebuilt app
 
-You can access the Cortana prebuilt app using the following endpoints. 
+You can access the Cortana prebuilt app using the following endpoints: 
+
 | Language | Endpoint|
 |--------| ------------------|
 | English| https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/c413b2ef-382c-45bd-8ff0-f76d60e2a821|
