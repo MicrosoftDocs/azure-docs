@@ -4,20 +4,19 @@ description: A tutorial for article personalization with Azure Custom Decision S
 services: cognitive-services
 author: slivkins
 manager: slivkins
-
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 05/08/2018
 ms.author: slivkins;marcozo;alekh;marossi
 ---
 
 # Article personalization
 
-This tutorial focuses on personalizing the selection of articles on the front page of a website. A typical scenario is when Azure Custom Decision Service is applied to *multiple* lists of articles on the same front page. Perhaps the page is a news website that covers only politics and sports. It would show three ranked lists of articles: politics, sports, and recent.
+This tutorial focuses on personalizing the selection of articles on the front page of a website. The Custom Decision Service affects *multiple* lists of articles on the front page, for instance. Perhaps the page is a news website that covers only politics and sports. It would show three ranked lists of articles: politics, sports, and recent.
 
 ## Applications and action sets
 
-Here's how to fit your scenario into the framework. We create three applications, one for each list that is being optimized:  app-politics, app-sports, and app-recent. To specify the candidate articles for each application, there are two action sets: one for politics and one for sports. The action set for app-recent comes automatically as a union of the other two sets.
+Here's how to fit your scenario into the framework. Let's imagine three applications, one for each list that is being optimized:  app-politics, app-sports, and app-recent. To specify the candidate articles for each application, there are two action sets: one for politics and one for sports. The action set for app-recent comes automatically as a union of the other two sets.
 
 > [!TIP]
 > Action sets can be shared across applications in Custom Decision Service.
@@ -55,7 +54,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
     ![New app dialog box](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
-    After you register all three applications in the above scenario, they are listed as follows:
+    After you register all three applications in the above scenario, they are listed:
 
     ![List of apps](./media/custom-decision-service-tutorial/apps.png)
 
@@ -65,7 +64,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
     ![New feed dialog box](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-    Action feeds can be used by any app, regardless of where they're specified. After you specify both action feeds in a scenario, they are listed as follows:
+    Action feeds can be used by any app, regardless of where they're specified. After you specify both action feeds in a scenario, they are listed:
 
     ![List of feeds](./media/custom-decision-service-tutorial/feeds.png)
 
@@ -73,7 +72,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
 ## Use the APIs
 
-Custom Decision Service serves rankings of articles via the Ranking API. To invoke this API, insert the following code into the HTML head of the front page:
+The Custom Decision Service ranks articles via the Ranking API. To use this API, insert the following code into the HTML head of the front page:
 
 ```html
 <!-- Define the "callback function" to render UI -->
@@ -86,7 +85,7 @@ Custom Decision Service serves rankings of articles via the Ranking API. To invo
 <!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
-The HTTP response from the Ranking API is a JSONP-formatted string. For app-politics, for example, the string looks like this:
+The HTTP response from the Ranking API is a JSONP-formatted string. For app-politics, for example, the string looks like:
 
 ```json
 callback({
