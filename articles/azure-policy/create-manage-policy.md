@@ -65,7 +65,7 @@ Now that you've assigned a built-in policy definition, you can do more with Azur
    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
 
      > [!NOTE]
-     > If you plan to apply this policy definition to multiple subscriptions, the location must by a management group that contains the subscriptions you will assign the policy to. The same is true for an initiative definition.
+     > If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the policy to. The same is true for an initiative definition.
 
    - The name of the policy definition - *Require VM SKUs smaller than the G series*
    - The description of what the policy definition is intended to do – *This policy definition enforces that all VMs created in this scope have SKUs smaller than the G series to reduce cost.*

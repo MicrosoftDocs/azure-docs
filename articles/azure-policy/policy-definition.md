@@ -118,7 +118,7 @@ While creating an initiative or policy definition, it is important that you spec
 The definition location determines the scope to which the initiative or policy definition can be assigned to. The location can be specified as a management group or a subscription.
 
 > [!NOTE]
-> If you plan to apply this policy definition to multiple subscriptions, the location must by a management group that contains the subscriptions you will assign the initiative or policy to.
+> If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the initiative or policy to.
 
 ## Display name and description
 
