@@ -14,16 +14,17 @@ ms.date: 5/7/2018
 ms.author: victorh
 
 ---
-# Create a zone redundant application gateway
+# Create a zone redundant Azure application gateway - private preview
 
 The application gateway zone redundant platform is a new SKU that offers many enhancements over the existing application gateway SKU including:
-- **Zone resiliency**
-
-   An application gateway deployment can now span multiple zones, removing the need to provision and pin separate application gateway instances in each zone with a traffic manager.
+- **Zone resiliency** - An application gateway deployment can now span multiple Availability Zones, removing the need to provision and pin separate application gateway instances in each zone with a traffic manager. You can choose a single zone or multiple zones where application gateway instances are deployed, thus ensuring zone failure resiliency. The backend pool for applications can be similarly distributed across availability zones.
 - **Performance enhancements**
-- **Static VIP**
+- **Static VIP** - The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway does not change after a restart.
 - **Key vault integration for customer SSL certificates**
 - **Faster deployment and update time**
+
+> [!NOTE]
+> The zone redundant application gateway is currently in private preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/) for details.
 
 ## Supported regions
 
@@ -92,8 +93,9 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 ### PowerShell deployment
 
 1. Ensure that the subscription used is whitelisted as previously mentioned in the prerequisites.
-2. Download the private PowerShell zip file from the location mentioned in preview registration confirmation email. Unzip the file to your drive and note the location.
-3. Once the preview is enabled, load the preview modules first before signing on to your account:
+2. Download and install the private PowerShell MSI from [GitHub](https://github.com/amitsriva/CrossZonePreview/blob/master/Azure-Cmdlets-5.7.0.19009-x64.msi).
+3. Download the private PowerShell zip file from the location mentioned in preview registration confirmation email. Unzip the file to your drive and note the location.
+4. Once the preview is enabled, load the preview modules first before signing on to your account:
 
    ```PowerShell
    $azurePSPath = "<complete path to Azure-PowerShell folder>"
@@ -268,8 +270,8 @@ New-AzureRmResourceGroupDeployment -Name Deployment1 -ResourceGroupName AmitVMSS
 |Diagnostics logs (not metrics)     |Performance and request/response logs don’t appear currently|May  2018|
 |Portal/CLI/SDK     |No support for portal, CLI, or SDK. The portal must not be used to issue updates to preview gateways.|Subsequent updates|
 |Update via template fails occasionally     |This is due to race condition with KeyVault access policy|Once the Key Vault and User Assigned Identity is created, it can be removed from the template and only references to secret and identity are required in the template.|
-|Autoscaling     |No support for autoscaling currently|Subsequent updates. Future updates private preview deployments will incrementally add this functionality.|
-|WAF     |Currently WAF is not supported|TBD|
+|Autoscaling     |No support for autoscaling currently|Subsequent updates.|
+|WAF     |Currently WAF is not supported|To be determined.|
 |User supplied certificates and Dynamic VIPs     |These are not supported in the new model. Use Key Vault for storing certificates and static VIPs.|By design|
 |Same subnet for old and preview version of application gateway     |A subnet with an existing application gateway (old model) cannot be used for the private preview version.|By design|
 |HTTP/2, FIPS mode, WebSocket, Azure Web Apps as backend     |Currently unsupported |Subsequent updates|
