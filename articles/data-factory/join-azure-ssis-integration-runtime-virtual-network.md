@@ -100,6 +100,8 @@ Or you can define user-defined routes (UDRs) to force outbound Internet traffic 
 
 In both cases, apply a 0.0.0.0/0 route with the next hop type as **Internet** on the subnet which hosts the Azure-SSIS IR, so that communication between the Data Factory service and the Azure-SSIS IS IR can succeed. 
 
+![Add a route](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+
 If you're concerned about losing the ability to inspect outbound Internet traffic from that subnet, you can also add an NSG rule on the subnet to restrict outbound destinations to [Azure data center IP addresses](https://www.microsoft.com/download/details.aspx?id=41653).
 
 See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) for an example. You have to run the script weekly to keep the Azure data center IP address list up-to-date.
@@ -127,7 +129,7 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 5. On the **Virtual network** page, select **Properties**. 
 6. Select the copy button for **RESOURCE ID** to copy the resource ID for the virtual network to the clipboard. Save the ID from the clipboard in OneNote or a file.
 7. Select **Subnets** on the left menu. Ensure that the number of **available addresses** is greater than the nodes in your Azure-SSIS integration runtime.
-8. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or, register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
+8. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or, register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.)
 
    a. In Azure portal, select **Subscriptions** on the left menu.
 
@@ -166,7 +168,7 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 	d. Confirm that you see **Microsoft Azure Batch** in the list of contributors.	
 	   ![Confirm Azure Batch access](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-in-list.png)
 
-5. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or, register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch.
+5. Verify that the Azure Batch provider is registered in the Azure subscription that has the virtual network. Or, register the Azure Batch provider. If you already have an Azure Batch account in your subscription, then your subscription is registered for Azure Batch. (If you create the Azure-SSIS IR in the Data Factory portal, the Azure Batch provider is automatically registered for you.)
 
    a. In Azure portal, select **Subscriptions** on the left menu.
 
