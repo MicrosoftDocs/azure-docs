@@ -111,7 +111,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
     * The copy computer can access the staging location for the offline-seeding workflow by using the same network path that was provided in the **Initiate offline backup** workflow.
     * BitLocker is enabled on the copy computer.
     * Azure PowerShell 3.7.0, or greater, is installed.
-    * The latest comptible browsers (Edge or Internet Explorer 11)are installed and JavaScript is enabled. 
+    * The latest compatible browsers (Edge or Internet Explorer 11) are installed and JavaScript is enabled. 
     * The copy computer can access the Azure portal. If necessary, the copy computer can be the same as the source computer.
     
     > [!IMPORTANT] 
@@ -145,7 +145,7 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
     ![Azure disk preparation complete](./media/backup-azure-backup-import-export/console2.png)<br/>
 
-6. At the end of the command execution you can update the shipping information.
+6. At the end of the command execution, you can update the shipping information.
 
 7. Ship the disks to the address that the tool provided and keep the tracking number for future reference.
 
@@ -157,8 +157,8 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 ## Update shipping details on the Azure Import job
 
 The following procedure updates the Azure Import job shipping details. This information includes details about:
-* the name of the carrier who will deliver the disks to Azure,
-* return shipping details so your disks can be returned once the data has been successfully imported into the Azure storage account.
+* the name of the carrier who delivers the disks to Azure
+* return shipping details for your disks
 
 1. Sign in to your Azure subscription.
 2. In the main menu, click **All services** and in the All services dialog, type Import. When you see **Import/Export jobs**, click it.
