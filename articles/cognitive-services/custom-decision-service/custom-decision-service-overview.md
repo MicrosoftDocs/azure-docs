@@ -6,14 +6,14 @@ author: alekh
 manager: slivkins
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 05/08/2018
 ms.author: slivkins;marcozo;alekh;marossi
 ---
 # What is Custom Decision Service?
 
 Azure Custom Decision Service helps you create intelligent systems with a cloud-based, contextual decision-making API that sharpens with experience. Custom Decision Service uses reinforcement learning and adapts the content in your application to maximize user engagement. The system includes user feedback into its decisions in real time and responds to emergent trends and breaking stories in minutes.
 
-In a typical application, a front page links to several articles or other types of content. As the front page loads, it requests Custom Decision Service to provide a ranking of articles to include on the page. When you choose an article, a second request is sent to Custom Decision Service to log the outcome of that decision.
+In a typical application, a front page links to several articles or other types of content. As the front page loads, it requests the Custom Decision Service to rank articles included on the page. When you choose an article, a second request is sent to the Custom Decision Service that logs the outcome of that decision.
 
 Custom Decision Service is easy to use. The easiest integration mode requires only an RSS feed for your content and a few lines of JavaScript to be added into your application.
 
