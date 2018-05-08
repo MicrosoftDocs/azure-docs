@@ -105,8 +105,6 @@ This article and its companion articles provide details for using the Visual Stu
         public class BingNewsModel
         {
             public News SearchResult { get; set; } 
-    
-    
             public string SearchText { get; set; }
         }
     }
@@ -140,7 +138,6 @@ This article and its companion articles provide details for using the Visual Stu
             {
                 this.configuration = configuration;
             }
-
 
             // Call the Bing News Search API and put the result in the model object.    
             public async Task<IActionResult> BingSearchResult(BingNewsModel model)
