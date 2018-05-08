@@ -45,7 +45,7 @@ Throughout this tutorial, the Time Series Insights Sample Application is used to
 
 2. Click the "Log in" button and enter or select your credentials. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). 
 
-   ![TSI Client Sample consent prompt](media/tut-explore-js-client-lib/tcs-sign-in-enter-account.png)
+   ![TSI Client Sample credentials prompt](media/tut-explore-js-client-lib/tcs-sign-in-enter-account.png)
 
 3. After successful sign-in, you will see a page similar to the following, containing several styles of example charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
    ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
@@ -222,7 +222,7 @@ Visually, the diamond markers/popups are used to indicate incidents, and the col
 
 ### Popup context menus
 
-Another examples of advanced functionality are custom context menus (right-click popup menus), which are useful to enable actions and logical next steps within the scope of your application.
+Another example of advanced functionality are custom context menus (right-click popup menus), which are useful to enable actions and logical next steps within the scope of your application.
 
 Here we look at the code behind the HTML under `// Example 13/14/15`. This code initially renders a line chart under the "Line Chart with Context Menu to Create Pie/Bar Chart" title, bound to the `<div>` element with ID value `chart13`. Using context menus, the line chart provides the capability to dynamically create a pie and bar chart, bound to `<div>` elements with IDs `chart14` and `chart15`. In addition, both the pie and bar charts also use context menus to enable their own features: the ability to copy data from the pie to bar chart, and print the bar chart data to the browser console window, respectively.
 
