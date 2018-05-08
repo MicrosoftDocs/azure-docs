@@ -22,7 +22,7 @@ namespace MicrosoftSpeechSDKSamples
             // and service region (e.g., "westus").
             var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-            // Creates a speech recognizer using microphone as audio input.
+            // Creates a speech recognizer using microphone as audio input. The default language is "en-us".
             using (var recognizer = factory.CreateSpeechRecognizer())
             {
                 // Starts recognizing.
@@ -34,7 +34,7 @@ namespace MicrosoftSpeechSDKSamples
                 // Checks result.
                 if (result.RecognitionStatus != RecognitionStatus.Recognized)
                 {
-                    Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
+                    Console.WriteLine($"There was an error. Status:{result.RecognitionStatus.ToString()}, Reason:{result.RecognitionFailureReason}");
                 }
                 else
                 {
@@ -42,6 +42,38 @@ namespace MicrosoftSpeechSDKSamples
                 }
             }
             // </recognitionWithMicrophone>
+        }
+
+        // Speech recognition in the specified spoken language.
+        public static async Task RecognitionWithLanguageAsync()
+        {
+            // <recognitionWithLanguage>
+            // Creates an instance of a speech factory with specified
+            // subscription key and service region. Replace with your own subscription key
+            // and service region (e.g., "westus").
+            var factory = SpeechFactory.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+            // Creates a speech recognizer for the specified language, using microphone as audio input.
+            var lang = "de-de";
+            using (var recognizer = factory.CreateSpeechRecognizer(lang))
+            {
+                // Starts recognizing.
+                Console.WriteLine($"Say something in {lang} ...");
+
+                // Starts recognition. It returns when the first utterance has been recognized.
+                var result = await recognizer.RecognizeAsync().ConfigureAwait(false);
+
+                // Checks result.
+                if (result.RecognitionStatus != RecognitionStatus.Recognized)
+                {
+                    Console.WriteLine($"There was an error. Status:{result.RecognitionStatus.ToString()}, Reason:{result.RecognitionFailureReason}");
+                }
+                else
+                {
+                    Console.WriteLine($"We recognized: {result.RecognizedText}");
+                }
+            }
+            // </recognitionWithLanguage>
         }
 
         // Speech recognition from file.
@@ -63,7 +95,7 @@ namespace MicrosoftSpeechSDKSamples
                 // Checks result.
                 if (result.RecognitionStatus != RecognitionStatus.Recognized)
                 {
-                    Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
+                    Console.WriteLine($"There was an error. Status:{result.RecognitionStatus.ToString()}, Reason:{result.RecognitionFailureReason}");
                 }
                 else
                 {
@@ -96,7 +128,7 @@ namespace MicrosoftSpeechSDKSamples
                 // Checks results.
                 if (result.RecognitionStatus != RecognitionStatus.Recognized)
                 {
-                    Console.WriteLine($"There was an error, status {result.RecognitionStatus}, reason {result.RecognitionFailureReason}");
+                    Console.WriteLine($"There was an error. Status:{result.RecognitionStatus.ToString()}, Reason:{result.RecognitionFailureReason}");
                 }
                 else
                 {
@@ -119,14 +151,28 @@ namespace MicrosoftSpeechSDKSamples
             using (var recognizer = factory.CreateSpeechRecognizer())
             {
                 // Subscribes to events.
-                recognizer.IntermediateResultReceived += (s, e) =>
-                        { Console.WriteLine($"\n    Partial result: {e.Result.RecognizedText}."); };
-                recognizer.FinalResultReceived += (s, e) =>
-                        { Console.WriteLine($"\n    Final result: Status: {e.Result.RecognitionStatus}, Text: {e.Result.RecognizedText}."); };
-                recognizer.RecognitionErrorRaised += (s, e) =>
-                        { Console.WriteLine($"\n    An error occurred. Status: {e.Status.ToString()}"); };
-                recognizer.OnSessionEvent += (s, e) =>
-                        { Console.WriteLine($"\n    Session event. Event: {e.EventType.ToString()}."); };
+                recognizer.IntermediateResultReceived += (s, e) => {
+                    Console.WriteLine($"\n    Partial result: {e.Result.RecognizedText}.");
+                };
+
+                recognizer.FinalResultReceived += (s, e) => {
+                    if (e.Result.RecognitionStatus == RecognitionStatus.Recognized)
+                    {
+                        Console.WriteLine($"\n    Final result: Status: {e.Result.RecognitionStatus.ToString()}, Text: {e.Result.RecognizedText}.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"\n    Final result: Status: {e.Result.RecognitionStatus.ToString()}, FailureReason: {e.Result.RecognitionFailureReason}.");
+                    }
+                };
+
+                recognizer.RecognitionErrorRaised += (s, e) => {
+                    Console.WriteLine($"\n    An error occurred. Status: {e.Status.ToString()}, FailureReason: {e.FailureReason}");
+                };
+
+                recognizer.OnSessionEvent += (s, e) => {
+                    Console.WriteLine($"\n    Session event. Event: {e.EventType.ToString()}.");
+                };
 
                 // Starts continuos recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
                 Console.WriteLine("Say something...");
