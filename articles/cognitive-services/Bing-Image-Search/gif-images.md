@@ -24,7 +24,7 @@ https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animate
 
 ````
 ## Query parameters
-For more information about query parameters and options, see the [Image Search API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference). An exmaple follows under the heading [Example search for animated gif using Java](markdown-header-example-search-for-animated-gif-using-java).
+For more information about query parameters and options, see the [Image Search API reference](https://review.docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference?branch=pr-en-us-1644#query-parameters). An exmaple follows under the heading [Example search for animated gif using Java](#gifExample).
 
 ## Tips and suggestions
 
@@ -32,7 +32,7 @@ For more information about query parameters and options, see the [Image Search A
 - To help improve perceived performance, load the thumbnail first before loading the source url.  
 - For first-run or landing page experience where you don't have a user query yet, try using our trending gif searches to help from the [trending images API](trending-images.md).  
 
-
+<a name="gifExample" />
 ## Example search for animated gif using Java
 
 The following URL searches for animated .gif images: `q=interesting`
