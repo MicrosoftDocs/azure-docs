@@ -154,7 +154,7 @@ In this example, you create a policy that auto-accelerates users to an AD FS sig
 
 #### Step 1: Create an HRD policy
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 If you have a single federated domain that authenticates users for applications, you need to create only one HRD policy.  
