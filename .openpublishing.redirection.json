@@ -12428,7 +12428,7 @@
         },
         {
             "source_path": "articles/azure-stack/validate-pki-certs.md",
-            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {
