@@ -26,16 +26,15 @@ In this tutorial, you do the following actions:
 > * Create a lab account
 > * Add a user to the Lab Creator role
 
-## Prerequisites
-
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- Azure Lab Services is currently in a gated preview. To create a lab account, [sign up for the preview](https://aka.ms/azlabspreviewsignup).
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a lab account
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. From the main menu on the left side, select **Create a resource** (at the top of the list), point to **Developer tools**, and click **Lab Services (preview)**.
+2. From the main menu on the left side, select **Create a resource**.
+3. Search for **Lab Services** in the Azure Marketplace, and select **Lab Services** in the drop-down list. 
+4. Select **Lab Sercices (Preview)** in the flitered list of services. 
 1. In the **Create a lab account** window, select **Create**.
 2. In the **Lab account** window, do the following actions: 
     1. For **Lab account name**, enter a name. 
