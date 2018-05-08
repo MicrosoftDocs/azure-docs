@@ -1,18 +1,16 @@
 ---
 title: Grant B2B users in Azure AD access to your on-premises applications | Microsoft Docs
 description: Shows how to give cloud B2B users access to on-prem apps with Azure AD B2B collaboration.
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/20/2018
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.service: active-directory
-ms.topic: article
-ms.workload: identity
-ms.date: 04/20/2018
-ms.author: twooley
 ms.reviewer: sasubram
 
 ---
