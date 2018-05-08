@@ -30,7 +30,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
     > 1. You must use the same provider you used when you signed up for Video Indexer.
     > 2. Before Azure AD users from a domain can sign in, the AAD domain admin must enable that domain registration [here](https://api-portal.videoindexer.ai/aadadminconsent).
     > 3. Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require AAD.
-	
+
 2. Subscribe.
 
 	Select the [Products](https://api-portal.videoindexer.ai/products) tab. Then, select Authorization and subscribe. 
@@ -41,18 +41,17 @@ This article shows how the developers can take advantage of the [Video Indexer A
 
 	![Sign up](./media/video-indexer-use-apis/video-indexer-api03.png)
 
-
-## Subscribe to the API
+## Obtain access token using the Authorization API
 
 Once you subscribed to the Authorization API, you will be able to obtain access tokens. These access tokens are used to authenticate against the Operations API. 
 
 Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
+
 - User level -  user level access tokens let you perform operations on the user level. E.g.,  get associated accounts.
 - Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
 - Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
 
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
-
  
 You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](http://api-portal.videoindexer.ai/).
 
@@ -68,88 +67,87 @@ This section lists some recommendations when using Video Indexer API.
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
 ```csharp
-    var apiUrl = "https://api.videoindexer.ai";
-    var accountId = "..."; 
-    var location = "westus2";
-    var apiKey = "..."; 
+var apiUrl = "https://api.videoindexer.ai";
+var accountId = "..."; 
+var location = "westus2";
+var apiKey = "..."; 
 
-    System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
+System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
 
-    // create the http client
-    var handler = new HttpClientHandler(); 
-    handler.AllowAutoRedirect = false; 
-    var client = new HttpClient(handler);
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey); 
+// create the http client
+var handler = new HttpClientHandler(); 
+handler.AllowAutoRedirect = false; 
+var client = new HttpClient(handler);
+client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey); 
 
-    // obtain account access token
-    var accountAccessTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/AccessToken?allowEdit=true").Result;
-    var accountAccessToken = accountAccessTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
+// obtain account access token
+var accountAccessTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/AccessToken?allowEdit=true").Result;
+var accountAccessToken = accountAccessTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
 
-    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
+client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key");
 
-    // upload a video
-    var content = new MultipartFormDataContent();
-    Debug.WriteLine("Uploading...");
-    var videoUrl = "..."; // replace with the video url 
-    var uploadRequestResult = client.PostAsync(string.Format($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}"), content).Result;
-    var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
+// upload a video
+var content = new MultipartFormDataContent();
+Debug.WriteLine("Uploading...");
+var videoUrl = "..."; // replace with the video url 
+var uploadRequestResult = client.PostAsync(string.Format($"{apiUrl}/{location}/Accounts/{accountId}/Videos?accessToken={accountAccessToken}&name=some_name&description=some_description&privacy=private&partition=some_partition&videoUrl={videoUrl}"), content).Result;
+var uploadResult = uploadRequestResult.Content.ReadAsStringAsync().Result;
 
-    // get the video id from the upload result
-    var videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
-    Debug.WriteLine("Uploaded");
-    Debug.WriteLine("Video ID: " + videoId);           
+// get the video id from the upload result
+var videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
+Debug.WriteLine("Uploaded");
+Debug.WriteLine("Video ID: " + videoId);           
 
-    // obtain video access token            
-    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
-    var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
-    var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
+// obtain video access token            
+client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", apiKey);
+var videoTokenRequestResult = client.GetAsync($"{apiUrl}/auth/{location}/Accounts/{accountId}/Videos/{videoId}/AccessToken?allowEdit=true").Result;
+var videoAccessToken = videoTokenRequestResult.Content.ReadAsStringAsync().Result.Replace("\"", "");
 
-    client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key"); //workaround
+client.DefaultRequestHeaders.Remove("Ocp-Apim-Subscription-Key"); //workaround
 
-    // wait for the video index to finish
-    while (true)
-    {
-	Thread.Sleep(10000);
+// wait for the video index to finish
+while (true)
+{
+  Thread.Sleep(10000);
 
-	var videoGetIndexRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/Index?accessToken={videoAccessToken}&language=English").Result;
-	var videoGetIndexResult = videoGetIndexRequestResult.Content.ReadAsStringAsync().Result;
+  var videoGetIndexRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/Index?accessToken={videoAccessToken}&language=English").Result;
+  var videoGetIndexResult = videoGetIndexRequestResult.Content.ReadAsStringAsync().Result;
 
-	var processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
+  var processingState = JsonConvert.DeserializeObject<dynamic>(videoGetIndexResult)["state"];
 
-	Debug.WriteLine();
-	Debug.WriteLine("State:");
-	Debug.WriteLine(processingState);
+  Debug.WriteLine();
+  Debug.WriteLine("State:");
+  Debug.WriteLine(processingState);
 
-	// job is finished
-	if (processingState != "Uploaded" && processingState != "Processing")
-	{
-	    Debug.WriteLine();
-	    Debug.WriteLine("Full JSON:");
-	    Debug.WriteLine(videoGetIndexResult);
-	    break;
-	}
+  // job is finished
+  if (processingState != "Uploaded" && processingState != "Processing")
+  {
+      Debug.WriteLine();
+      Debug.WriteLine("Full JSON:");
+      Debug.WriteLine(videoGetIndexResult);
+      break;
+  }
+}
 
-    }
+// search for the video
+var searchRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/Search?accessToken={accountAccessToken}&id={videoId}").Result;
+var searchResult = searchRequestResult.Content.ReadAsStringAsync().Result;
+Debug.WriteLine();
+Debug.WriteLine("Search:");
+Debug.WriteLine(searchResult);
 
-    // search for the video
-    var searchRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/Search?accessToken={accountAccessToken}&id={videoId}").Result;
-    var searchResult = searchRequestResult.Content.ReadAsStringAsync().Result;
-    Debug.WriteLine();
-    Debug.WriteLine("Search:");
-    Debug.WriteLine(searchResult);
+// get insights widget url
+var insightsWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/InsightsWidget?accessToken={videoAccessToken}&widgetType=Keywords&allowEdit=true").Result;
+var insightsWidgetLink = insightsWidgetRequestResult.Headers.Location;
+Debug.WriteLine("Insights Widget url:");
+Debug.WriteLine(insightsWidgetLink);
 
-    // get insights widget url
-    var insightsWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/InsightsWidget?accessToken={videoAccessToken}&widgetType=Keywords&allowEdit=true").Result;
-    var insightsWidgetLink = insightsWidgetRequestResult.Headers.Location;
-    Debug.WriteLine("Insights Widget url:");
-    Debug.WriteLine(insightsWidgetLink);
-
-    // get player widget url
-    var playerWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/PlayerWidget?accessToken={videoAccessToken}").Result;
-    var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
-    Debug.WriteLine();
-    Debug.WriteLine("Player Widget url:");
-    Debug.WriteLine(playerWidgetLink);
+// get player widget url
+var playerWidgetRequestResult = client.GetAsync($"{apiUrl}/{location}/Accounts/{accountId}/Videos/{videoId}/PlayerWidget?accessToken={videoAccessToken}").Result;
+var playerWidgetLink = playerWidgetRequestResult.Headers.Location;
+Debug.WriteLine();
+Debug.WriteLine("Player Widget url:");
+Debug.WriteLine(playerWidgetLink);
 
 ```
 

@@ -52,8 +52,8 @@ The Cognitive Services Speech SDK for Linux is available for building of 64-bit 
 1. Download and extract the `.tar.gz` archive with the Speech SDK binaries:
 
    ```sh
-   wget -O csspeech-linux.tar.gz https://aka.ms/csspeech/linuxbinary
-   tar --strip 1 -xzf csspeech-linux.tar.gz -C "$SPEECHSDK_ROOT"
+   wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
+   tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
 1. Validate the contents of the top-level directory of the extracted package:
@@ -72,7 +72,7 @@ The Cognitive Services Speech SDK for Linux is available for building of 64-bit 
 The following code recognizes English speech from your microphone.
 Place it into a file named `quickstart-linux.cpp`:
 
-[!code-cpp[Quickstart Code](code/quickstart-linux.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)]
 
 Please replace the subscription key in the code with the one you obtained.
 
@@ -84,13 +84,13 @@ Please replace the subscription key in the code with the one you obtained.
 * Run the following command to build the application on an x64 machine:
 
   ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++11 -lpthread -lMicrosoft.CognitiveServices.Speech -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
 * Run the following command to build the application on an x86 machine:
 
   ```sh
-  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++11 -lpthread -lMicrosoft.CognitiveServices.Speech -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
+  g++ quickstart-linux.cpp -o quickstart-linux -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
 ## Running
