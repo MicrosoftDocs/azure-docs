@@ -23,9 +23,9 @@ ms.reviewer: dhanyahk
 > [!TIP] 
 > Check out our new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
 
-This topic is part of a collection of topics about the Azure Active Directory reporting API.  
+This article is part of a collection of articles about the Azure Active Directory reporting API.  
 Azure AD reporting provides you with an API that enables you to access sign-in activity report data using code or related tools.
-The scope of this topic is to provide you with reference information about the **sign-in activity report API**.
+The scope of this article is to provide you with reference information about the **sign-in activity report API**.
 
 See:
 

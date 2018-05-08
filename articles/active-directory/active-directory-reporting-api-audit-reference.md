@@ -24,9 +24,9 @@ ms.reviewer: dhanyahk
 > Check out our new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
 
 
-This topic is part of a collection of topics about the Azure Active Directory reporting API.  
+This article is part of a collection of articles about the Azure Active Directory reporting API.  
 Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.
-The scope of this topic is to provide you with reference information about the **audit API**.
+The scope of this article is to provide you with reference information about the **audit API**.
 
 See:
 
@@ -56,7 +56,7 @@ In order to access this report through the Reporting API, you must have:
 ## Accessing the API
 You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. In order for PowerShell to correctly interpret the OData filter syntax used in AAD Graph REST calls, you must use the backtick (aka: grave accent) character to “escape” the $ character. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (ie: $filter).
 
-The focus of this topic is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-audit-samples.md#powershell-script).
+The focus of this article is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## API Endpoint
 You can access this API using the following URI:  
