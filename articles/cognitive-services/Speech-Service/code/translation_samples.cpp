@@ -27,7 +27,7 @@ void TranslationWithMicrophone()
 
     // Sets source and target languages
     auto fromLanguage = L"en-US";
-    vector<wstring> toLanguages { L"de-DE", L"fr-FR" };
+    vector<wstring> toLanguages { L"de", L"fr" };
 
     // Creates a translation recognizer using microphone as audio input.
     auto recognizer = factory->CreateTranslationRecognizer(fromLanguage, toLanguages);
@@ -47,10 +47,10 @@ void TranslationWithMicrophone()
     }
     else
     {
-        wcout << "We recognized in " << fromLanguage << ":" << result->Text << '\n';
+        wcout << "We recognized in " << fromLanguage << ": " << result->Text << '\n';
         for (const auto& it : result->Translations)
         {
-            wcout << L"    Translated into " << it.first.c_str() << ":" << it.second.c_str();
+            wcout << L"    Translated into " << it.first.c_str() << ": " << it.second.c_str() << '\n';
         }
     }
 }
@@ -67,7 +67,7 @@ void TranslationWithFile()
 
     // Sets source and target languages
     auto fromLanguage = L"en-US";
-    vector<wstring> toLanguages{ L"de-DE", L"fr-FR" };
+    vector<wstring> toLanguages{ L"de", L"fr" };
 
     // Creates a translation recognizer using file as audio input.
     // Replaces with your own audio file name.
@@ -87,10 +87,10 @@ void TranslationWithFile()
     }
     else
     {
-        wcout << "We recognized in " << fromLanguage << ":" << result->Text << '\n';
+        wcout << "We recognized in " << fromLanguage << ": " << result->Text << '\n';
         for (const auto& it : result->Translations)
         {
-            wcout << L"    Translated into " << it.first.c_str() << ":" << it.second.c_str();
+            wcout << L"    Translated into " << it.first.c_str() << ": " << it.second.c_str() << '\n';
         }
     }
 }
@@ -103,7 +103,7 @@ static void OnPartialResult(const TranslationTextResultEventArgs& e)
     wcout << L"IntermediateResult: Recognized text:" << e.Result.Text << '\n';
     for (const auto& it : e.Result.Translations)
     {
-        wcout << L"    Translated into " << it.first.c_str() << ":" << it.second.c_str();
+        wcout << L"    Translated into " << it.first.c_str() << ": " << it.second.c_str() << '\n';
     }
 }
 
@@ -112,13 +112,20 @@ static void OnFinalResult(const TranslationTextResultEventArgs& e)
     wcout << L"FinalResult: status:" << (int)e.Result.TranslationStatus << L". Recognized Text: " << e.Result.Text << '\n';
     for (const auto& it : e.Result.Translations)
     {
-        wcout << L"    Translated into " << it.first.c_str() << ":" << it.second.c_str();
+        wcout << L"    Translated into " << it.first.c_str() << ": " << it.second.c_str() << '\n';
     }
 }
 
 static void OnSynthesisResult(const TranslationSynthesisResultEventArgs& e)
 {
-    wcout << L"Translation syntheis result: size of audio data: " << e.Result.Audio.size();
+    if (e.Result.SynthesisStatus == SynthesisStatusCode::Success)
+    {
+        wcout << L"Translation synthesis result: size of audio data: " << e.Result.Audio.size();
+    }
+    else if (e.Result.SynthesisStatus == SynthesisStatusCode::Error)
+    {
+        wcout << L"Translation synthesis error: " << e.Result.FailureReason;
+    }
 }
 
 static void OnNoMatch(const TranslationTextResultEventArgs& e)
@@ -141,7 +148,7 @@ void TranslationContinuousRecognitionUsingEvents()
 
     // Sets source and target languages
     auto fromLanguage = L"en-US";
-    vector<wstring> toLanguages{ L"de-DE", L"fr-FR" };
+    vector<wstring> toLanguages{ L"de", L"fr" };
 
     // Creates a translation recognizer using microphone as audio input.
     auto recognizer = factory->CreateTranslationRecognizer(fromLanguage, toLanguages);
