@@ -29,7 +29,7 @@ With one subscription, the unified Speech service gives developers an easy way t
 
 ## Using the Speech service
 
-The function of the Speech service is made available in as many as three ways, depending on the function, including [an SDK](speech-sdk.md) that abstracts away the details of the network protocols.
+The Speech service is made available in two ways. [The SDK](speech-sdk.md) abstracts away the details of the network protocols. The [REST API](rest-apis.md) works with any programming language but does not offer all the functions offered by the SDK.
 
 |<br>Method|Speech<br>to Text|Text to<br>Speech|Speech<br>Translation|<br>Description|
 |-|-|-|-|-|

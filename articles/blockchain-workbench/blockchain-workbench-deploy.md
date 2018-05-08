@@ -77,7 +77,7 @@ Next, you need to modify the application manifest to use application roles withi
 
 ### Add Graph API key to application
 
-Blockchain Workbench uses Azure AD as the main identity management system for users interacting with blockchain applications. In order for Blockchain Workbench to access Azure AD and retrieve user information, such as names and emails, you need to add an access key. Blockchain Workbench uses the key to authentication with Azure AD.
+Blockchain Workbench uses Azure AD as the main identity management system for users interacting with blockchain applications. In order for Blockchain Workbench to access Azure AD and retrieve user information, such as names and emails, you need to add an access key. Blockchain Workbench uses the key to authenticate with Azure AD.
 
 1. For the application you registered, select **Settings** in the registered application details pane.
 2. Select **Keys**.
@@ -130,23 +130,6 @@ The application ID and tenant information are required for deployment. Collect a
     | Setting to store  | Use in deployment |
     |------------------|-------------------|
     | Application ID | Azure Active Directory setup > Application ID |
-
-### Create an Azure AD Key Vault application
-
-Blockchain Workbench deployment requires registration of an Azure AD Key Vault application.
-
-1. In the Azure portal left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New application registration**.
-2. Provide a **Name** and **Sign-on URL** for the application. You can use placeholder values since they can be changed later during the deployment.
-
-    ![Create Key Vault app registration](media/blockchain-workbench-deploy/key-vault-app-create.png)
-
-    | Setting  | Value  |
-    |---------|---------|
-    | Name | `Blockchain Key Vault app` |
-    | Application type | Web app / API |
-    | Sign-on URL | `https://keyvaultclient |
-
-5. Select **Create** to register the Azure AD Key Vault application.
 
 ### Get tenant domain name
 
@@ -220,8 +203,9 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Monitoring | Choose whether you want Azure Monitor to be used to monitor your blockchain network. |
-    | Connect to existing OMS instance | Choose whether you want to use an existing Operations Management Suite instance or create a new one. 
+    | Monitoring | Choose whether you want Azure Monitor to be used to monitor your blockchain network |
+    | Connect to existing OMS instance | Choose whether you want to use an existing Operations Management Suite instance or create a new one |
+    | OMS Workspace Location | Choose a region for the OMS Workspace. This should match the region for the Blockchain Workbench location |
 
 12. Click **OK** to finish the Azure Monitor section.
 

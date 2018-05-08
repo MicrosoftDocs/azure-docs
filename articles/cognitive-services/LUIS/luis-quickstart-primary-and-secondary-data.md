@@ -196,7 +196,7 @@ When no longer needed, delete the LUIS app. To do so, select the three dot menu 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about entities](luis-concept-entity-types.md)
+> [Learn how to add a list entity](luis-quickstart-intent-and-list-entity.md)
 
 
 <!--References-->
