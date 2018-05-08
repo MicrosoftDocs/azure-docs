@@ -16,7 +16,7 @@ ms.custom:
 ---
 
 
-# Consumption Model
+# Consumption model
 
 Online Routing provides a set of parameters for a detailed description of vehicle-specific Consumption Model.
 Depending on the value of **vehicleEngineType** we support two principal Consumption Models: _Combustion_ and _Electric_. Specifying parameters that belong to different models in the same request is an error.
