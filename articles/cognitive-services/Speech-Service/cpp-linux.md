@@ -72,7 +72,7 @@ The Cognitive Services Speech SDK for Linux is available for building of 64-bit 
 The following code recognizes English speech from your microphone.
 Place it into a file named `quickstart-linux.cpp`:
 
-[!code-cpp[Quickstart Code](code/quickstart-linux.cpp#code)]
+[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Linux/quickstart-linux/quickstart-linux.cpp#code)
 
 Please replace the subscription key in the code with the one you obtained.
 
