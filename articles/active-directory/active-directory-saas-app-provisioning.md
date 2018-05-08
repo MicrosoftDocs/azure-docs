@@ -171,15 +171,46 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 **How long will it take to provision my users?**
 
-Performance will be different depending on whether your provisioning job is performing an initial sync, or an incremental sync.
+Performance will be different depending on whether your provisioning job is performing an initial synchronization, or an incremental synchronization.
 
-For initial syncs, the time it takes to complete will be directly dependent on how many users, groups, and group members are present in the source system. Very small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects can take a very long time.
+For **initial synchronizations**, the time it takes to complete will depend on how many users, groups, and group members are present in the source system, in addition to how many users and groups in scope for provisioning. Small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
 
-For incremental syncs, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can often be synced within a 40 minute cycle. 
+For **incremental syncshronizations**, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can be synced within a single incremental sync cycle. 
 
-Note that overall performance is dependent on both the source and target systems. Some target systems implement request rate limits and throttling that can impact performance during large sync operations, and the pre-built Azure AD provisioning connectors for those systems take this into account.
+The table below summarizes commonly-observed synchronization times for provisioning scenarios where Azure AD is the source system and the target system is a SaaS application, such as ServiceNow, Workplace, Salesforce, or Google Apps:
 
-Performance is also slower if there are many errors (recorded in the [audit logs](active-directory-saas-provisioning-reporting.md)) and the provisioning service has gone into a "quarantine" state.
+| Configuration | Users in scope | Initial sync time | Incremental sync time |
+| -------- | -------- | -------- | -------- |
+| Sync assigned users and groups only |   < 1,000 users |  < 30 minutes | < 30 minutes |
+| Sync assigned users and groups only |   < 10,000 users | 142 - 708 minutes | < 30 minutes |
+| Sync assigned users and groups only |   < 100,000 users | 1,170 - 2,340 minutes | < 30 minutes |
+| Sync assigned users only |   < 1,000 users | < 30 - 62 minutes | < 30 minutes |
+| Sync assigned users only |   < 10,000 users | 167 - 436 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |   < 1,000 users | < 30 minutes  | < 30 minutes |
+| Sync all users and groups in Azure AD |   < 10,000 users | < 30 - 120 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |   < 100,000 users | 713 - 1,425 minutes | < 30 minutes |
+| Sync all users in Azure AD|   < 1,000 users | < 30 minutes | < 30 minutes |
+| Sync all users in Azure AD |   < 10,000 users | 43 - 86 minutes | < 30 minutes |
+
+For the configuration **Sync assigned user and groups only**, you can use the forumlas below to determine the approximate minimum and maximum expected **initial synchronization** times:
+
+	*Minimum minutes =  0.01 x [Number of assigned users and groups]*
+	*Maximum minutes = 0.08 x [Number of assigned users and groups] *
+
+Variations in the time it takes to complete an **initial synchronization** are influenced by these factors:
+
+* The total number of users and groups in scope for provisioning
+
+* The total number of users, groups, and group members present in the source system (Azure AD)
+
+* Whether or not users in scope for provisioning are matched to existing users in the target application, or need to be created for the first time. Sync jobs where all users are created for the first time take approximately *twice as long* as sync jobs where all users are matched to existing users.
+
+* Performance is slower if there are many errors (recorded in the [audit logs](active-directory-saas-provisioning-reporting.md)) and the provisioning service has gone into a "quarantine" state	
+
+* Some target systems implement request rate limits and throttling that can impact performance during large sync operations, and the pre-built Azure AD provisioning connectors for those systems take this into account.
+
+* Syncing assigned groups takes longer than other configurations
+
 
 **How can I improve the performance of synchronization?**
 
