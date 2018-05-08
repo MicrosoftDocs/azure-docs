@@ -41,7 +41,7 @@ When you install the synchronization services, you can leave the optional config
 ### User sign-in
 After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
-![User Sign in](./media/active-directory-aadconnect-get-started-custom/usersignin3.png)
+![User Sign in](./media/active-directory-aadconnect-get-started-custom/usersignin4.png)
 
 | Single Sign On option | Description |
 | --- | --- |
@@ -300,25 +300,31 @@ When you select the domain to be federated, Azure AD Connect provides you with n
 >
 
 ## Configuring federation with PingFederate
-Configuring PingFederate with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.
+Configuring PingFederate with Azure AD Connect is simple with just a few clicks. The following is required before the configuration.  However the following prerequisites are required.
+- PingFederate 8.4 or higher.  For more information see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+- •	An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### Verify the domain
-After selecting Federation with PingFederate, and proceeding through the other options, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
+After selecting Federation with PingFederate, you will be asked to verify the domain you want to federate.  Select the domain from the drop-down box.
 
 ![Verify Domain](./media/active-directory-aadconnect-get-started-custom/ping1.png)
 
 ### Export the PingFederate settings
-Next, you will need to export the PingFederate settings and share them with your PingFederate administrator.  Click the **Export Settings** button.
-This generates the text file that they will need to provide to their PingFederate administrator. The PingFederate administrator can then provide you with the PingFederate Server URL.
 
-Enter the PingFederate Server URL in the box provided.
 
-Check the **My PingFederate administrator has enabled federation for the &lt;my domain&gt; domain.** and click on **Next**.
+PingFederate must be configured as the federation server for each federated Azure domain.  Click the Export Settings button and share this information with your PingFederate administrator.  The federation server administrator will update the configuration, then provide the PingFederate server URL and port number so Azure AD Connect can verify the metadata settings.  
 
 ![Verify Domain](./media/active-directory-aadconnect-get-started-custom/ping2.png)
 
+Contact your PingFederate administrator to resolve any validation issues.  The following is an example of a PingFederate server that does not have a valid trust relationship with Azure:
+
+![Trust](./media/active-directory-aadconnect-get-started-custom/ping5.png)
+
+
+
+
 ### Verify federation connectivity
-Next you will be asked to verify connectivity and that you have provided the correct DNS information so that the PingFederate server can be reached.
+Azure AD Connect will attempt to validate the authentication endpoints retrieved from the PingFederate metadata in the previous step.  Azure AD Connect will first attempt to resolve the endpoints using your local DNS servers.  Next it will attempt to resolve the endpoints using an external DNS provider.  Contact your PingFederate administrator to resolve any validation issues.  
 
 ![Verify Connectivity](./media/active-directory-aadconnect-get-started-custom/ping3.png)
 
@@ -362,8 +368,9 @@ Azure AD Connect verifies the DNS settings for you when you click the Verify but
 
 ![Verify](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
 
-In addition, perform the following verification steps:
+To validate end-to-end authentication is successful you should manually perform one or more the following tests:
 
+* Once synchronization in complete, use the Verify federated login additional task in Azure AD Connect to verify authentication for an on-premises user account of your choice.
 * Validate that you can sign in from a browser from a domain joined machine on the intranet: Connect to https://myapps.microsoft.com and verify the sign-in with your logged in account. The built-in AD DS administrator account is not synchronized and cannot be used for verification.
 * Validate that you can sign in from a device from the extranet. On a home machine or a mobile device, connect to https://myapps.microsoft.com and supply your credentials.
 * Validate rich client sign-in. Connect to https://testconnectivity.microsoft.com, choose the **Office 365** tab and chose the **Office 365 Single Sign-On Test**.
