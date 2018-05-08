@@ -237,6 +237,9 @@
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
       topicHref: /azure/cognitive-services/web-language-model/home    
+    - name: Personality Chat
+      tocHref: /azure/cognitive-services/project-personality-chat/
+      topicHref: /azure/cognitive-services/project-personality-chat/overview    
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
