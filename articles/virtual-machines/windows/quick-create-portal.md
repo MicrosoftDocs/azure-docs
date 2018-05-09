@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -55,7 +55,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-1. Click the **Connect** button on the virtual machine properties. 
+1. Click the **Connect** button on the virtual machine properties page. 
 
     ![Connect to an Azure VM from the portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
 	
