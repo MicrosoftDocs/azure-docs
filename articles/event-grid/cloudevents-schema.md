@@ -74,7 +74,7 @@ Currently, Azure Event Grid has preview support for CloudEvents JSON format inpu
 To use CloudEvent, you must enable an extension for Azure CLI:
 
 ```azurecli
-az extension add –-name eventgrid
+az extension add --name eventgrid
 ```
 
 You can use Event Grid for both input and output of events in CloudEvents schema. You can use CloudEvents for system events, like Blob Storage events and IoT Hub events, and custom events. It can also transform those events on the wire back and forth.
@@ -86,6 +86,8 @@ You can use Event Grid for both input and output of events in CloudEvents schema
 | Event Grid format  | CloudEvents format
 | CloudEvents format | Event Grid format
 | Event Grid format  | Event Grid format
+
+For all event schemas, Event Grid requires validation when publishing to an event grid topic and when creating an event subscription. For more information, see [Event Grid security and authentication](security-authentication.md).
 
 ### Input schema
 

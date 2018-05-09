@@ -3,18 +3,16 @@ title: How to activate or deactivate a role | Microsoft Docs
 description: Learn how to activate roles for privileged identities with the Azure Privileged Identity Management application.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 1ce9e2e7-452b-4f66-9588-0d9cd2539e45
 ms.service: active-directory
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: users-groups-roles
 ms.date: 02/14/2017
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim
 ---
 # How to activate or deactivate roles in Azure AD Privileged Identity Management
