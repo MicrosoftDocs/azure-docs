@@ -2472,6 +2472,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-remove-hrw.md",
+            "redirect_url": "/azure/automation/automation-hybrid-runbook-worker",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-offering-get-started.md",
+            "redirect_url": "/azure/automation/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-vm-change-tracking.md",
             "redirect_url": "/azure/automation/automation-change-tracking",
             "redirect_document_id": false
@@ -3843,7 +3853,7 @@
         },
         {
             "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
-            "redirect_url": "/azure/user/azure-stack-manage-storage-physical-memory-capacity",
+            "redirect_url": "/azure/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -12418,7 +12428,7 @@
         },
         {
             "source_path": "articles/azure-stack/validate-pki-certs.md",
-            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {
@@ -20587,6 +20597,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-security-and-privacy-considerations.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-whatis.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+			"redirect_document_id": false
+        },
+		{
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
             "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
             "redirect_document_id": false
@@ -20640,6 +20665,12 @@
             "source_path": "articles/cognitive-services/QnAMaker/SubscriptionKeys.md",
             "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/key-management",
 			"redirect_document_id": false
-		}
+        },
+        {
+            "source_path": "articles/media-services/previous/media-services-configure-elemental-live-encoder.md",
+            "redirect_url": "/azure/media-services/previous/media-services-overview",
+            "redirect_document_id": false
+        }
+		
     ]
 }
