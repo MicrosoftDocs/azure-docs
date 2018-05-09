@@ -5,7 +5,7 @@ description: Learn how to troubleshoot an Azure Windows classic VM by attaching 
 services: virtual-machines-windows
 documentationCenter: ''
 authors: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 
 ms.service: virtual-machines-windows

@@ -1,107 +1,116 @@
 ---
-title: Visually author Azure data factories | Microsoft Docs
-description: Learn how to visually author Azure Data factories
+title: Visual authoring in Azure Data Factory | Microsoft Docs
+description: Learn how to use visual authoring in Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/9/2018
+ms.date: "03/27/2018"
 ms.author: shlo
 
 ---
-# Visually author data factories
-With the Azure Data Factory UX experience, users can visually author and deploy resources in their data factory without writing a single line of code. This code-free interface allows you to drag and drop activities on a pipeline canvas, perform test runs, debug iteratively, and deploy & monitor your pipeline runs. You can choose to use the ADF UX tool in two ways:
+# Visual authoring in Azure Data Factory
+The Azure Data Factory user interface experience (UX) lets you visually author and deploy resources for your data factory without having to write any code. You can drag activities to a pipeline canvas, perform test runs, debug iteratively, and deploy and monitor your pipeline runs. There are two approaches for using the UX to perform visual authoring:
 
-1. Work directly with the Data Factory service
-2. Configure VSTS Git Integration for collaboration, source control, or versioning
+- Author directly with the Data Factory service.
+- Author with Visual Studio Team Services (VSTS) Git integration for collaboration, source control, or versioning.
 
-## Authoring with Data Factory
-The first option is authoring directly with Data Factory mode. This approach is different from authoring through VSTS Code Repository in that there is no repository storing the JSON entities of your changes, nor is it optimized for collaboration or version control.
+## Author directly with the Data Factory service
+Visual authoring with the Data Factory service differs from visual authoring with VSTS in two ways:
 
-![Configure Data Factory](media/author-visually/configure-data-factory.png)
+- The Data Factory service doesn't include a repository for storing the JSON entities for your changes.
+- The Data Factory service isn't optimized for collaboration or version control.
 
-In Data Factory mode, there is only the 'Publish' mode. Any changes you make are published directly to the Data Factory service.
+![Configure the Data Factory service ](media/author-visually/configure-data-factory.png)
 
-![Data Factory Publish](media/author-visually/data-factory-publish.png)
+When you use the UX **Authoring canvas** to author directly with the Data Factory service, only the **Publish All** mode is available. Any changes that you make are published directly to the Data Factory service.
 
-## Authoring with VSTS Git Integration
-Authoring with VSTS Git integration allows for source control and collaboration while authoring your data factory pipelines. Users have the option to associate a data factory with a VSTS Git Account repository for source control, collaboration, and versioning etc. A single VSTS GIT account can have multiple repositories. However, a VSTS Git repository can only be associated with a single data factory. If you don't have a VSTS account and repository already, create one [here](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student).
+![Publish mode](media/author-visually/data-factory-publish.png)
 
-### Configure VSTS Git Repo with Azure Data Factory
-Users can configure a VSTS GIT repo with a data factory through two methods.
-
-#### Method 1: 'Let's get started' Page
-
-Go to the 'Let's get started' page and click 'Configure Code Repository'
-
-![Configure Code Repository](media/author-visually/configure-repo.png)
-
-From there, a side panel appears for configuring the repository settings.
-
-![Configure Repository Settings](media/author-visually/repo-settings.png)
-* **Repository Type**: Visual Studio Team Services Git (Currently, Github is not supported.)
-* **Visual Studio Team Services Account**: The account name can be found from https://{account name}.visualstudio.com. Sign in to your VSTS account [here](https://www.visualstudio.com/team-services/git/) and access your Visual Studio profile to see your repositories and projects
-* **ProjectName:** The project name can be found from https://{account name}.visualstudio.com/{project name}
-* **RepositoryName:** The repository name. VSTS projects contain Git repositories to manage your source code as your project grows. Either create a new repository or use an existing repository already in the project.
-* **Import existing Data Factory resources to repository**: By checking this box, you can import your current data factory resources authored on the UX canvas to the associated VSTS GIT repository in JSON format. This action exports each resource individually (that is, linked services and datasets are exported into separate JSONs).    If you clear this check box, the existing resources are not imported into the Git repository.
-
-#### Method 2: From Authoring Canvas
-
-In the  'Authoring canvas', click the 'Data Factory' drop-down menu under your data factory name. Then, click 'Configure Code Repository.' Similar to **Method 1**, a side panel appears for configuring the repository settings. See the previous sections for information about the settings.
-
-![Configure Code Repository 2](media/author-visually/configure-repo-2.png)
-
-### Version Control
-Version control, also referred to as source control, systems allow developers to collaborate on code and track changes made to the code base. Source control is an essential tool for multi-developer projects.
-
-Each VSTS Git repository once associated with a data factory has a master branch. From there, every user who has access to the VSTS Git repository has two options when making changes: sync and publish.
-
-![Sync Publish](media/author-visually/sync-publish.png)
-
-#### Sync
-
-Once you click 'sync', you can pull changes from the master branch to your local branch, or push changes from your local branch to the master branch.
-
-![Syncing Changes](media/author-visually/sync-change.png)
-
-#### Publish
- Publish changes in master branch to Data Factory service.
+## Author with VSTS Git integration
+Visual authoring with VSTS Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a VSTS Git account repository for source control, collaboration, versioning, and so on. A single VSTS Git account can have multiple repositories, but a VSTS Git repository can be associated with only one data factory. If you don't have a VSTS account or repository, follow [these instructions](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) to create your resources.
 
 > [!NOTE]
-> The **master branch is not representative of what's deployed in the Data Factory service.** The master branch *must* be published manually to the Data Factory service.
+> You can store script and data files in a VSTS GIT repository. However, you have to upload the files manually to Azure Storage. A Data Factory pipeline does not automatically upload script or data files stored in a VSTS GIT repository to Azure Storage.
 
+### Configure a VSTS Git repository with Azure Data Factory
+You can configure a VSTS GIT repository with a data factory through two methods.
 
+<a name="method1"></a>
+#### Configuration method 1: Let's get started page
+In Azure Data Factory, go to the **Let's get started** page. Select **Configure Code Repository**:
 
+![Configure a VSTS code repository](media/author-visually/configure-repo.png)
 
-## Expression Language
+The **Repository Settings** configuration pane appears:
 
-Users can specify expressions in defining property values by using the expression language supported by Azure Data Factory. See [Expressions and functions in Azure Data Factory](control-flow-expression-language-functions.md) for more about which expressions are supported.
+![Configure the code repository settings](media/author-visually/repo-settings.png)
 
-Specify expressions in property values in the UX like so.
+The pane shows the following VSTS code repository settings:
 
-![Expression Language](media/author-visually/expression-language.png)
+| Setting | Description | Value |
+|:--- |:--- |:--- |
+| **Repository Type** | The type of the VSTS code repository.<br/>**Note**: GitHub is not currently supported. | Visual Studio Team Services Git |
+| **Azure Active Directory** | Your Azure AD tenant name. | <your tenant name> |
+| **Visual Studio Team Services Account** | Your VSTS account name. You can locate your VSTS account name at `https://{account name}.visualstudio.com`. You can [sign in to your VSTS account](https://www.visualstudio.com/team-services/git/) to access your Visual Studio profile and see your repositories and projects. | \<your account name> |
+| **ProjectName** | Your VSTS project name. You can locate your VSTS project name at `https://{account name}.visualstudio.com/{project name}`. | \<your VSTS project name> |
+| **RepositoryName** | Your VSTS code repository name. VSTS projects contain Git repositories to manage your source code as your project grows. You can create a new repository or use an existing repository that's already in your project. | \<your VSTS code repository name> |
+| **Collaboration branch** | Your VSTS collaboration branch that will be used for publishing. By default, it is `master`. Change this in case you want to publish resources from another branch. | \<your collaboration branch name> |
+| **Root folder** | Your root folder in your VSTS collaboration branch. | \<your root folder name> |
+| **Import existing Data Factory resources to repository** | Specifies whether to import existing data factory resources from the UX **Authoring canvas** into a VSTS Git repository. Select the box to import your data factory resources into the associated Git repository in JSON format. This action exports each resource individually (that is, the linked services and datasets are exported into separate JSONs). When this box isn't selected, the existing resources aren't imported. | Selected (default) |
 
-## Parameters
-Users can specify parameters for Pipelines and Datasets, in the 'Parameters' tab. In addition, utilize parameters in properties easily by pressing "Add Dynamic Content."
+#### Configuration method 2: UX authoring canvas
+In the Azure Data Factory UX **Authoring canvas**, locate your data factory. Select the **Data Factory** drop-down menu, and then select **Configure Code Repository**.
 
-![Dynamic Content](media/author-visually/dynamic-content.png)
+A configuration pane appears. For details about the configuration settings, see the descriptions in <a href="#method1">Configuration method 1</a>.
 
-From there, you can either utilize an existing parameter or specify a new parameter in your property value.
+![Configure the code repository settings for UX authoring](media/author-visually/configure-repo-2.png)
 
-![Parameters](media/author-visually/parameters.png)
+### Use version control
+Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
 
-## Feedback
-Click on the 'Feedback' icon to give us (Microsoft) feedback on various features or any issues that you might be facing.
+Each VSTS Git repository that's associated with a data factory has a a collaboration branch. (`master` is the default collaboration branch). Users can also create feature branches by clicking **+ New Branch** and do development in the feature branches.
 
-![Feedback](media/monitor-visually/feedback.png)
+![Change the code by syncing or publishing](media/author-visually/sync-publish.png)
+
+When you are ready with the feature development in your feature branch, you can click **Create pull request**. This will take you to VSTS GIT where you can raise pull requests, do code reviews, and merge changes to your collaboration branch. (`master` is the default). You are only allowed to publish to the Data Factory service from your collaboration branch. 
+
+![Create a new pull request](media/author-visually/create-pull-request.png)
+
+#### Publish code changes
+AFter you have merged changes to the collaboration branch (`master` is the default), select **Publish** to manually publish your code changes in the master branch to the Data Factory service.
+
+![Publish changes to the Data Factory service](media/author-visually/publish-changes.png)
+
+> [!IMPORTANT]
+> The master branch is not representative of what's deployed in the Data Factory service. The master branch *must* be published manually to the Data Factory service.
+
+## Use the expression language
+You can specify expressions for property values by using the expression language that's supported by Azure Data Factory. 
+
+Specify expressions for property values by selecting **Add Dynamic Content**:
+
+![Use the expression language](media/author-visually/dynamic-content-1.png)
+
+## Use functions and parameters
+
+You can use functions or specify parameters for pipelines and datasets in the Data Factory **expression builder**:
+
+For information about the supported expressions, see [Expressions and functions in Azure Data Factory](control-flow-expression-language-functions.md).
+
+![Add Dynamic Content](media/author-visually/dynamic-content-2.png)
+
+## Provide feedback
+Select **Feedback** to comment about features or to notify Microsoft about issues with the tool:
+
+![Feedback](media/author-visually/provide-feedback.png)
 
 ## Next steps
-
-To learn about monitoring and managing pipelines, see  [Monitor and manage pipelines programmatically](monitor-programmatically.md) article
+To learn more about monitoring and managing pipelines, see [Monitor and manage pipelines programmatically](monitor-programmatically.md).

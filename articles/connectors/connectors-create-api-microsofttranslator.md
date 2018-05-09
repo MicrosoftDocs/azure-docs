@@ -4,7 +4,7 @@ description: Overview of the Microsoft Translator connector with REST API parame
 services: ''
 suite: ''
 documentationcenter: ''
-author: MandiOhlinger
+author: ecfan
 manager: anneta
 editor: ''
 tags: connectors
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
+ms.author: estfan; ladocs
 
 ---
 # Get started with the Microsoft Translator connector

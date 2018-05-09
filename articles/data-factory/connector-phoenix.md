@@ -4,15 +4,15 @@ description: Learn how to copy data from Phoenix to supported sink data stores b
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/19/2017
 ms.author: jingwang
 
 ---
@@ -43,11 +43,11 @@ The following properties are supported for Phoenix linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Phoenix** | Yes |
 | host | The IP address or host name of the Phoenix server. (that is, 192.168.222.160)  | Yes |
-| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.  | No |
+| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765. If you connect to Azure HDInsights, specify port as 443. | No |
 | httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). The default value is `hbasephoenix` if using WindowsAzureHDInsightService.  | No |
 | authenticationType | The authentication mechanism used to connect to the Phoenix server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name used to connect to the Phoenix server.  | No |
-| password | The password corresponding to the user name. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let the copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | No |
+| password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using SSL. The default value is false.  | No |
 | trustedCertPath | The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.  | No |
 | useSystemTrustStore | Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.  | No |
@@ -64,7 +64,7 @@ The following properties are supported for Phoenix linked service:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
+            "port" : "443",
             "httpPath" : "hbasephoenix",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",

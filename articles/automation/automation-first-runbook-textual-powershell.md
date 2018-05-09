@@ -1,22 +1,14 @@
----
-title: My first PowerShell runbook in Azure Automation | Microsoft Docs
+﻿---
+title: My first PowerShell runbook in Azure Automation
 description: Tutorial that walks you through the creation, testing, and publishing of a simple PowerShell runbook.
-services: automation
-documentationcenter: ''
-author: georgewallace
-manager: jwhit
-editor: ''
 keywords: azure powershell, powershell script tutorial, powershell automation
-
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
+services: automation
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
 ms.topic: article
-ms.date: 08/31/2017
-ms.author: magoedte;sngun
-
+manager: carmonm
 ---
 # My first PowerShell runbook
 
@@ -84,7 +76,7 @@ The runbook that you created is still in Draft mode. you need to publish it befo
 12. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Step 5 - Add authentication to manage Azure resources
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Add-AzureRmAccount** cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzureRmAccount** cmdlet.
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell page.
 2. You don't need the **Write-Output** line anymore, so go ahead and delete it.
@@ -92,7 +84,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
    <br>
@@ -102,11 +94,11 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 ## Step 6 - Add code to start a virtual machine
 Now that your runbook is authenticating to your Azure subscription, you can manage resources. You add a command to start a virtual machine. You can pick any virtual machine in your Azure subscription, and for now you hardcode that name in the runbook.
 
-1. After *Add-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
+1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
    
    ```
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
    ```
@@ -125,7 +117,7 @@ Your runbook currently starts the virtual machine that you hardcoded in the runb
     [string]$ResourceGroupName
    )
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
    ```

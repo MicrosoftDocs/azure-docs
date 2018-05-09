@@ -92,7 +92,7 @@ This section guides you through connecting your Azure AD to the Pingboard user a
 
 12. Select **Save** to start the initial synchronization of users assigned to Pingboard.
 
-The initial synchronization takes longer to perform than subsequent syncs, which occur approximately every 20 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity reports. The reports describe all actions performed by the provisioning service on your Pingboard app.
+The initial synchronization takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the service is running. Use the **Synchronization Details** section to monitor progress and follow links to provisioning activity logs. The logs describe all actions performed by the provisioning service on your Pingboard app.
 
 For more information on how to read the Azure AD provisioning logs, see [Report on automatic user account provisioning](active-directory-saas-provisioning-reporting.md).
 

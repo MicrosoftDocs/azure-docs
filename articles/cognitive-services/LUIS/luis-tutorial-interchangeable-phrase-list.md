@@ -1,14 +1,13 @@
 ---
-title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs 
+title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
@@ -18,9 +17,9 @@ Improve the accuracy of intent scores and identify entities for words that have 
 ## Import a new app
 1. Download the [example LUIS app][LuisSampleApp] that's designed for this tutorial. You will use it in the next step. 
 
-2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into [www.LUIS.ai][www.luis.ai] as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
+2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train]() your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in [www.LUIS.ai][www.luis.ai]. 
+3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
 4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
@@ -29,7 +28,7 @@ Improve the accuracy of intent scores and identify entities for words that have 
 ## Test a trained utterance
 Use the published endpoint to query an utterance that the app already knows. Because LUIS already knows the utterance, the score is high and the entity is detected.
 
-1. On the [Language Understanding (LUIS)][www.luis.ai] website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
+1. On the [Language Understanding (LUIS)][LUIS] website, on the **Publish** page for the new app, select the endpoint URL in the **Resources and Keys** section. 
 
     ![Publish the endpoint URL](./media/luis-tutorial-interchangeable-phrase-list/luis-publish-url.png)
 
@@ -158,12 +157,12 @@ You must teach LUIS that *want* and *require* mean the same thing in this app do
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Train the app, but don't publish it. Now you have two models. You can compare values in the two models.
+5. In the top navigation bar, select **Train** to train the app, but don't publish it. Now you have two models. You can compare values in the two models.
 
 ## Compare the phrase list model to the published model
 In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](Train-Test.md#interactive-testing). 
 
-1. Open the test pane, and enter the following utterance:
+1. Open the **Test** pane, and enter the following utterance:
 
     `I require a computer replacement`
 
@@ -239,6 +238,6 @@ The **Hardware** entity shows a score of 0.595 with the phrase list. Before the 
 | Published | - | 0.84 | - |
 | Currently editing |✔| 0.92 | 0.595 |
 
-  [www.luis.ai]:https://www.luis.ai
+  [LUIS]:luis-reference-regions.md
   [LuisFeatures]: luis-concept-feature.md
   [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

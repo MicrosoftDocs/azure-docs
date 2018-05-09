@@ -3,7 +3,7 @@ title: Create an Azure API Management instance | Microsoft Docs
 description: Follow the steps of this tutorial to create a new Azure API Management instance.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cflower
 editor: ''
 
@@ -31,7 +31,7 @@ Log in to the Azure portal at http://portal.azure.com.
 
 ## Create a new service
 
-1. In the [Azure portal](https://portal.azure.com/), select **New** > **Enterprise Integration** > **API management**.
+1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Enterprise Integration** > **API management**.
 
     Alternatively, choose **New**, type `API management` in the search box, and press Enter. Click **Create**.
 

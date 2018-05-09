@@ -65,7 +65,7 @@ Gets the health of a Service Fabric stateful service replica or stateless
     service instance.
 
 Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filter the
-        collection of health events reported on the replica based on the health state. .
+        collection of health events reported on the replica based on the health state.
 
 ### Arguments
 
@@ -73,7 +73,7 @@ Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filt
 | --- | --- |
 | --partition-id    [Required]| The identity of the partition.|
 | --replica-id      [Required]| The identifier of the replica.|
-| --events-health-state-filter| Allows filtering the collection of HealthEvent objects returned              based on health state. The possible values for this parameter              include integer value of one of the following health states. Only              events that match the filter are returned. All events are used to              evaluate the aggregated health state. If not specified, all              entries are returned. The state values are flag-based enumeration,              so the value could be a combination of these value obtained using              bitwise 'OR' operator. For example, If the provided value is 6              then all of the events with HealthState value of OK (2) and              Warning (4) are returned. - Default - Default value. Matches any              HealthState. The value is zero. - None - Filter that doesn’t match              any HealthState value. Used in order to return no results on a              given collection of states. The value is 1. - Ok - Filter that              matches input with HealthState value Ok. The value is 2. - Warning              - Filter that matches input with HealthState value Warning. The              value is 4. - Error - Filter that matches input with HealthState              value Error. The value is 8. - All - Filter that matches input              with any HealthState value. The value is 65535.|
+| --events-health-state-filter| Allows filtering the collection of HealthEvent objects returned              based on health state. The possible values for this parameter              include integer value of one of the following health states. Only              events that match the filter are returned. All events are used to              evaluate the aggregated health state. If not specified, all              entries are returned. The state values are flag-based enumeration,              so the value could be a combination of these values obtained using              bitwise 'OR' operator. For example, If the provided value is 6              then all of the events with HealthState value of OK (2) and              Warning (4) are returned. - Default - Default value. Matches any              HealthState. The value is zero. - None - Filter that doesn’t match              any HealthState value. Used in order to return no results on a              given collection of states. The value is 1. - Ok - Filter that              matches input with HealthState value Ok. The value is 2. - Warning              - Filter that matches input with HealthState value Warning. The              value is 4. - Error - Filter that matches input with HealthState              value Error. The value is 8. - All - Filter that matches input              with any HealthState value. The value is 65535.|
 | --timeout -t             | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -83,14 +83,13 @@ Gets the health of a Service Fabric replica. Use EventsHealthStateFilter to filt
 | --debug                  | Increase logging verbosity to show all debug logs.|
 | --help -h                | Show this help message and exit.|
 | --output -o              | Output format.  Allowed values: json, jsonc, table, tsv.  Default:              json.|
-| --query                  | JMESPath query string. See http://jmespath.org/ for more              information and examples.|
+| --query                  | JMESPath query string. For more information, see http://jmespath.org/.|
 | --verbose                | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl replica info
 Gets the information about a replica of a Service Fabric partition.
 
-The respons include the ID, role, status, health, node name, uptime, and other details about
-        the replica.
+The response includes the id, role, status, health, node name, uptime, and other details about the replica.
 
 ### Arguments
 
@@ -98,7 +97,7 @@ The respons include the ID, role, status, health, node name, uptime, and other d
 | --- | --- |
 | --partition-id [Required]| The identity of the partition.|
 | --replica-id   [Required]| The identifier of the replica.|
-| --continuation-token  | The continuation token parameter is used to obtain next set of           results. A continuation token with a non empty value is included in           the response of the API when the results from the system do not fit           in a single response. When this value is passed to the next API call,           the API returns next set of results. If there are no further results           then the continuation token does not contain a value. The value of           this parameter should not be URL encoded.|
+| --continuation-token  | The continuation token parameter is used to obtain next set of           results. A continuation token with a non empty value is included in           the response of the API when the results from the system do not fit           in a single response. When this value is passed to the next API call,           the API returns next set of results. If there are no further results,           then the continuation token does not contain a value. The value of           this parameter should not be URL encoded.|
 | --timeout -t          | Server timeout in seconds.  Default: 60.|
 
 ### Global Arguments
@@ -108,7 +107,7 @@ The respons include the ID, role, status, health, node name, uptime, and other d
 | --debug               | Increase logging verbosity to show all debug logs.|
 | --help -h             | Show this help message and exit.|
 | --output -o           | Output format.  Allowed values: json, jsonc, table, tsv.  Default:           json.|
-| --query               | JMESPath query string. See http://jmespath.org/ for more information           and examples.|
+| --query               | JMESPath query string. For more information, see http://jmespath.org/.|
 | --verbose             | Increase logging verbosity. Use --debug for full debug logs.|
 
 ## sfctl replica list

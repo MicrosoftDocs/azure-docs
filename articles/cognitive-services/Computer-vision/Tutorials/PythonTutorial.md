@@ -1,15 +1,14 @@
----
+﻿---
 title: Computer Vision API Python tutorial | Microsoft Docs
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks in Microsoft Cognitive Services. Visualize your results using popular libraries.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
-
+author: KellyDF
+manager: corncar
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
 ms.date: 02/25/2017
-ms.author: juliakuz
+ms.author: kefre
 ---
 
 # Computer Vision API Python Tutorial
@@ -26,7 +25,7 @@ This tutorial shows you how to use the Computer Vision API in Python and how to 
 
 ### Running the Tutorial
 
-To use this notebook, you will need a subscription key for the Computer Vision API. Visit the [Subscription page](https://azure.microsoft.com/en-us/try/cognitive-services/) to sign up. On the “Sign in” page, use your Microsoft account to sign in and you will be able to subscribe and get free keys. After completing the sign-up process, paste your key into the variables section of the notebook (reproduced below). Either the primary or the secondary key works. Make sure to enclose the key in quotes to make it a string.
+To use this notebook, you will need a subscription key for the Computer Vision API. Visit the [Subscription page](https://azure.microsoft.com/try/cognitive-services/) to sign up. On the “Sign in” page, use your Microsoft account to sign in and you will be able to subscribe and get free keys. After completing the sign-up process, paste your key into the variables section of the notebook (reproduced below). Either the primary or the secondary key works. Make sure to enclose the key in quotes to make it a string.
 
 ```python
 # Variables

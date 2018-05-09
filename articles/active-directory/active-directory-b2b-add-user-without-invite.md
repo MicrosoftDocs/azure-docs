@@ -4,19 +4,17 @@ title: Add B2B collaboration users to Azure Active Directory without an invitati
 description: You can let a guest user add other guest users to your Azure AD without redeeming an invitation in Azure Active Directory B2B collaboration.
 services: active-directory
 documentationcenter: ''
-author: sasubram
-manager: mtillman
-editor: ''
-tags: ''
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
 ms.date: 03/15/2017
-ms.author: sasubram
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
@@ -32,16 +30,8 @@ Grant these privileges when:
 
 ### Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
+- [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
+- [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
+- [Delegate invitations for Azure Active Directory B2B collaboration](active-directory-b2b-delegate-invitations.md)
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure Active Directory admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure Active Directory B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure Active Directory B2B collaboration frequently asked questions (FAQ)](active-directory-b2b-faq.md)
-* [Azure Active Directory B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)

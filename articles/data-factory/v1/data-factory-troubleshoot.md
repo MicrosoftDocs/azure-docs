@@ -1,11 +1,11 @@
----
+﻿---
 title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: douglaslMS
+manager: craigg
+
 
 ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
-ms.author: spelluru
+ms.author: douglasl
 
 robots: noindex
 ---
@@ -32,7 +32,7 @@ If you receive this error, the Azure Data Factory resource provider has not been
 2. Log in to your Azure account using the following command.
 
 	```powershell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to register the Azure Data Factory provider.
 
@@ -43,7 +43,7 @@ If you receive this error, the Azure Data Factory resource provider has not been
 ### Problem: Unauthorized error when running a Data Factory cmdlet
 You are probably not using the right Azure account or subscription with the Azure PowerShell. Use the following cmdlets to select the right Azure account and subscription to use with the Azure PowerShell.
 
-1. Login-AzureRmAccount - Use the right user ID and password
+1. Connect-AzureRmAccount - Use the right user ID and password
 2. Get-AzureRmSubscription - View all the subscriptions for the account.
 3. Select-AzureRmSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
 

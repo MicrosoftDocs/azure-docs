@@ -3,8 +3,9 @@ title: Azure AI Gallery experiments | Microsoft Docs
 description: Discover and share experiments in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
@@ -14,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: roopalik;garye
 
 ---
 # Discover experiments in Azure AI Gallery

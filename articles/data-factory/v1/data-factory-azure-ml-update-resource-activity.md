@@ -4,8 +4,8 @@ description: Describes how to create create predictive pipelines using Azure Dat
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services

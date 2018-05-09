@@ -3,18 +3,15 @@ title: 'Azure Active Directory B2C: QQ configuration | Microsoft Docs'
 description: Provide sign-up and sign-in to consumers with QQ accounts in your applications that are secured by Azure Active Directory B2C.
 services: active-directory-b2c
 documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
+editor: ''
 
-ms.assetid: 18c2cf94-8004-4de1-81c2-e45be65ce12d
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure Active Directory B2C: Provide sign-up and sign-in to consumers with QQ accounts

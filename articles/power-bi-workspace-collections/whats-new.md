@@ -3,8 +3,8 @@ title: What's new in Power BI Workspace Collections
 description: Get the latest info on what's new in Power BI Workspace Collections
 services: power-bi-embedded
 documentationcenter: ''
-author: guyinacube
-manager: erikre
+author: markingmyname
+manager: kfile
 editor: ''
 tags: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # What's new in Power BI Workspace Collections
 

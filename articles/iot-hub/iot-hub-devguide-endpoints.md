@@ -19,6 +19,8 @@ ms.author: dobett
 ---
 # Reference - IoT Hub endpoints
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
 ## IoT Hub names
 
 You can find the name of the IoT hub that hosts your endpoints in the portal on the **Overview** blade. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
@@ -83,7 +85,7 @@ IoT Hub only supports writing data to Azure Storage containers as blobs in the [
 * The batch reaches a certain size.
 * Or a certain amount of time has elapsed.
 
-IoT Hub will does write an empty blob if there is no data to write.
+IoT Hub will write to an empty blob if there is no data to write.
 
 IoT Hub defaults to the following file naming convention:
 

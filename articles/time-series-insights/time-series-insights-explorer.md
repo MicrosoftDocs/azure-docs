@@ -33,7 +33,7 @@ Within minutes of connecting your event source to your Time Series Insights envi
 
 2. Once you select an environment, either use the **FROM** and **TO** configurations at the top, or click and drag over your desired time span.  Click the magnifying glass at the top right, or right-click over the selected timespan and select **Search**.  
 
-3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.
+3. You can also refresh availability automatically every minute, by selecting the **Auto On** button.  Note, the 'Auto-On' button only applies to the availability chart, not the content of the main visualization.
 
 4. Notice, the Azure cloud icon takes you to your environment in the Azure portal.
 

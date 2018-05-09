@@ -3,21 +3,21 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 
-ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
 ---
+
 # What is application access and single sign-on with Azure Active Directory?
 Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
@@ -64,14 +64,14 @@ Configuring password-based single sign-on enables the users in your organization
 Azure AD can support password-based single sign-on for any cloud-based app that has an HTML-based sign-in page. By using a custom browser plugin, AAD automates the user’s sign-in process via securely retrieving application credentials such as the username and the password from the directory, and enters these credentials into the application’s sign-in page on behalf of the user. There are two use cases:
 
 1. **Administrator manages credentials** – Administrators can create and manage application credentials, and assign those credentials to users or groups who need access to the application. In these cases, the end user does not need to know the credentials, but still gains single sign-on access to the application simply by clicking on it in their access panel or via a provided link. This enables both, lifecycle management of the credentials by the administrator, as well as convenience for end users whereby they do not need to remember or manage app-specific passwords. The credentials are obfuscated from the end user during the automated sign-in process; however they are technically discoverable by the user using web-debugging tools, and users and administrators should follow the same security policies as if the credentials were presented directly by the user. Administrator-provided credentials are useful when providing account access that is shared among many users, such as social media or document sharing applications.
-2. **User manages credentials** – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
+2. **User manages credentials** – Administrators can assign applications to end users or groups, and allow the end users to enter their own credentials directly upon accessing the application for the first time in their access panel. This creates a convenience for end users whereby they do not need to continually enter the app-specific passwords each time they access the application. Users can continue to manage their passwords by updating or deleting them as needed. This use case can also be used as a stepping stone to administrative management of the credentials, whereby the administrator can set new credentials for the application at a future date without changing the app access experience of the end user.
 
 In both cases, credentials are stored in an encrypted state in the directory, and are only passed over HTTPS during the automated sign-in process. Using password-based single sign-on, Azure AD offers a convenient identity access management solution for apps that are not capable of supporting federation protocols.
 
 Password-based SSO relies on a browser extension to securely retrieve the application and user-specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-* Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+* Internet Explorer 11 -- on Windows 7 or later
 * Edge on Windows 10 Anniversary Edition or later 
 * Chrome -- on Windows 7 or later, and on MacOS X or later
 * Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later

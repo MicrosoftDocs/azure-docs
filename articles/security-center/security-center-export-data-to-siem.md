@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/01/2018
 ms.author: barclayn
 
 ---
@@ -59,7 +59,7 @@ Here is a couple of Splunk queries that you can use to pull alert data:
 | **Description of Query**                                | **Query**                                                                                                                              |
 |---------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | All Alerts                                              | index=main Microsoft.Security/locations/alerts                                                                                         |
-| Summarize count of operations by their name             | **Alerts** index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
+| Summarize count of operations by their name             | index=main sourcetype="amal:security" \| table operationName \| stats count by operationName                                |
 | Get Alerts info: Time, Name, State, ID, and Subscription | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 

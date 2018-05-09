@@ -13,9 +13,7 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
 
@@ -124,6 +122,8 @@ During configuration, for the default storage endpoint you specify a blob contai
 
 ### Optional metastores
 You can create optional Hive or Oozie metastores. However, not all cluster types support metastores, and Azure SQL Data Warehouse isn't compatible with metastores. 
+
+For more information, see [Use external metadata stores in Azure HDInsight](./hdinsight-use-external-metadata-stores.md).
 
 > [!IMPORTANT]
 > When you create a custom metastore, don't use dashes, hyphens, or spaces in the database name. This can cause the cluster creation process to fail.

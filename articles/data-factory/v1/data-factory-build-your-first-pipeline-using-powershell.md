@@ -1,11 +1,11 @@
----
+﻿---
 title: Build your first data factory (PowerShell) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Azure PowerShell.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: 
+editor: 
 
 ms.assetid: 22ec1236-ea86-4eb7-b903-0e79a58b90c7
 ms.service: data-factory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
-ms.author: spelluru
+ms.author: shlo
 
 robots: noindex
 ---
@@ -53,7 +53,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```    
    * Run the following command to view all the subscriptions for this account.
 	```PowerShell

@@ -4,8 +4,8 @@ description: Learn how to copy data to/from Azure SQL Database using Azure Data 
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 484f735b-8464-40ba-a9fc-820e6553159e
 ms.service: data-factory

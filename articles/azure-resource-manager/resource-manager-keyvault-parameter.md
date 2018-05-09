@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
 
 ---
@@ -20,7 +20,7 @@ ms.author: tomfitz
 
 When you need to pass a secure value (like a password) as a parameter during deployment, you can retrieve the value from an [Azure Key Vault](../key-vault/key-vault-whatis.md). You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID. You do not need to manually enter the value for the secret each time you deploy the resources. The key vault can exist in a different subscription than the resource group you are deploying to. When referencing the key vault, you include the subscription ID.
 
-When creating the key vault, set the *enabledForTemplateDeployment* property to *true*. By setting this value to true, you permit access from Resource Manager templates during deployment.
+When creating the key vault, set the *enabledForTemplateDeployment* property to *true*. By setting this value to true, you allow access from Resource Manager templates during deployment.
 
 ## Deploy a key vault and secret
 
@@ -59,7 +59,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## Enable access to the secret
 
-Whether you are using a new key vault or an existing one, ensure that the user deploying the template can access the secret. The user deploying a template that references a secret must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../active-directory/role-based-access-built-in-roles.md#owner) and [Contributor](../active-directory/role-based-access-built-in-roles.md#contributor) roles both grant this access.
+Whether you are using a new key vault or an existing one, ensure that the user deploying the template can access the secret. The user deploying a template that references a secret must have the `Microsoft.KeyVault/vaults/deploy/action` permission for the key vault. The [Owner](../role-based-access-control/built-in-roles.md#owner) and [Contributor](../role-based-access-control/built-in-roles.md#contributor) roles both grant this access.
 
 ## Reference a secret with static ID
 
@@ -128,6 +128,13 @@ Now, create a parameter file for the preceding template. In the parameter file, 
 }
 ```
 
+If you need to use a version of the secret other than the current version, use the `secretVersion` property.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 Now, deploy the template and pass in the parameter file. You can use the example template from GitHub, but you must use a local parameter file with the values set to your environment.
 
 For Azure CLI, use:
@@ -154,7 +161,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## Reference a secret with dynamic ID
 
-The previous section showed how to pass a static resource ID for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you cannot hard-code the resource ID in the parameters file. Unfortunately, you cannot dynamically generate the resource ID in the parameters file because template expressions are not permitted in the parameters file.
+The previous section showed how to pass a static resource ID for the key vault secret. However, in some scenarios, you need to reference a key vault secret that varies based on the current deployment. In that case, you can't hard-code the resource ID in the parameters file. Unfortunately, you can't dynamically generate the resource ID in the parameters file because template expressions aren't allowed in the parameters file.
 
 To dynamically generate the resource ID for a key vault secret, you must move the resource that needs the secret into a linked template. In your parent template, you add the linked template and pass in a parameter that contains the dynamically generated resource ID. The following image shows how a parameter in the linked template references the secret.
 

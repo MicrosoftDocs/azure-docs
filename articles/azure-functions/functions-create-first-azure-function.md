@@ -14,9 +14,10 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, cc996988-fb4f-47
+
 
 ---
 # Create your first function in the Azure portal
@@ -27,17 +28,15 @@ Azure Functions lets you execute your code in a [serverless](https://azure.micro
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Sign in to Azure
+## Log in to Azure
 
-Open the Azure portal. To do this, sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
+Sign in to the Azure portal at <http://portal.azure.com> with your Azure account.
 
 ## Create a function app
 
 You must have a function app to host the execution of your functions. A function app lets you group functions as a logic unit for easier management, deployment, and sharing of resources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 Next, you create a function in the new function app.
 
@@ -61,7 +60,7 @@ Now, you can run the new function by sending an HTTP request.
 
 2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
 
-    The following is an example of the response in the Edge browser (other browsers may include displayed XML):
+    The following example shows the response in the Edge browser (other browsers may include displayed XML):
 
     ![Function response in the browser.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
@@ -73,7 +72,7 @@ Now, you can run the new function by sending an HTTP request.
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## Next steps
 
