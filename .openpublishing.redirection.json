@@ -47,7 +47,7 @@
         },
         {
             "source_path": "articles/machine-learning/desktop-workbench/data-prep-operationalization.md",
-            "redirect_url": "/azure/machine-learning/desktop-workbench/data-prep-python-extensibility-overview",
+            "redirect_url": "/azure/machine-learning/preview/data-prep-python-extensibility-overview",
             "redirect_document_id": true
         },
         {
