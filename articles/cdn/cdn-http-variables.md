@@ -60,7 +60,7 @@ The following table describes the supported HTTP variables. A blank value is ret
 | Request URI (Relative) | %{request_uri} | Indicates the relative path, including the query string, defined in the request URI. | /marketing/foo.js?loggedin=true |
 | Request URI (Relative without query string) | %{uri} | Indicates the relative path to the requested content. <br /><br/>Key information:<br />- This relative path excludes the query string.<br />- This relative path reflects URL rewrites. A URL will be rewritten under the following conditions:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- URL Rewrite Feature: This feature rewrites the relative path defined in the request URI.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Edge CNAME URL: This type of request is rewritten to the corresponding CDN URL. |/800001/corigin/rewrittendir/foo.js |
 | Request URI | %{request} | Describes the request. <br />Syntax: &lt;HTTP method&gt; &lt;relative path&gt; &lt;HTTP protocol&gt; | GET /marketing/foo.js?loggedin=true HTTP/1.1 |
-| Response Header Value | %{resp_&lt;ResponseHeader&gt;} | Returns the value corresponding to the response header identified by the &lt;ResponseHeader&rt; term. <br /><br />If the name of the response header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent). | Sample Usage: %{resp_Content_Length}<br /><br />Sample Value: 100 |
+| Response Header Value | %{resp_&lt;ResponseHeader&gt;} | Returns the value corresponding to the response header identified by the &lt;ResponseHeader&gt; term. <br /><br />If the name of the response header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent). | Sample Usage: %{resp_Content_Length}<br /><br />Sample Value: 100 |
 
 ## Usage
 The following table describes the proper syntax for specifying an HTTP variable.
@@ -157,15 +157,15 @@ Key information:
 
 The following example relies on the following sample request URL:
 
-https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
+https:\//cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
 
 The following string demonstrates various methods for manipulating variables:
 
-https://www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
+https:\//www%{http_host:3}/mobile/%{request_uri:7:10}/%{request_uri:-5:-8}.htm
 
 Based on the sample request URL, the above variable manipulation will produce the following value:
 
-https://www.mydomain.com/mobile/marketing/proposal.htm
+https:\//www.mydomain.com/mobile/marketing/proposal.htm
 
 
 ### Pattern removal
@@ -178,7 +178,7 @@ Text that matches a specific pattern can be removed from either the beginning or
 
 #### Example:
 
-In this sample scenario, the request_uri variable is set to:
+In this sample scenario, the *request_uri* variable is set to:
 
 `/800001/myorigin/marketing/product.html?language=en-US`
 
