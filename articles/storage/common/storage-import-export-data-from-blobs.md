@@ -12,16 +12,44 @@ ms.author: alkohli
 
 ---
 # Use the Microsoft Azure Import/Export service to export data to Azure Blob storage
-In this article, we provide step-by-step instructions on using Azure Import/Export service to securely transfer large amounts of data from Azure Blob storage. 
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely transfer large amounts of data from Azure Blob storage. 
 
-To export data from Azure Blobs, the service requires you to ship empty drives to which data is tranferred the Azure datacenter. The service exports data from your storage account to the drives. The drives are then shipped to you.
+To export data from Azure Blobs, the service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives. The drives are then shipped back to you.
 
 ## Prerequisites
 
-## Step 1: Prepare your drives
-Following pre-checks are recommended for preparing your drives for an export job:
+Before you create an export job to transfer data out of Azure Blob Storage, carefully review and complete the following list of prerequisites for this service. 
+You must:
 
-1. Check the number of disks required using the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use.
+- Have an active Azure subscription that can be used for the Import/Export service.
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
+- Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+- [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
+
+## Step 1: Prepare your drives
+
+This step helps you check the number of drives required for the export job.
+
+1. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+    
+    `cd C:\WaImportExportV1`
+
+2. To check the number of disks required for the selected blobs, run the following command:
+
+    WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>
+
+    The parameters are described in the following table:
+    
+    |Command-line parameter|Description|  
+    |--------------------------|-----------------|  
+    |**/logdir:**<LogDirectory\>|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|  
+    |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
+    |**/sk:**<StorageAccountKey\>|Required only if a container SAS is not specified. The account key for the storage account for the export job.|  
+    |**/csas:**<ContainerSas\>|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
+    |**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
+    |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|  
+ 
 2. Check that you can read/write to the hard drive that will be shipped for the export job.
 
 ## Step 2: Create an export job
@@ -65,21 +93,13 @@ Perform the following steps to create an import job in the Azure portal.
 
 ## Step 3: Ship the drives
 
-FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. You must provide a valid FedEx, UPS, or DHL carrier account number to be used by Microsoft for shipping the drives back. 
-- A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
-- A DHL account number is required for shipping drives back from Asia and Australia locations. If you do not have one, you can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account. 
-
-In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
+[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 ## Step 4: Update the job with tracking information
 
-After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. Do the following steps. 
+After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. If the tracking number is not updated within 2 weeks of creating the job, the job expires. Do the following steps. 
 
-1. Click the import job.
-2. Click **Update job status and tracking info once drives are shipped**. 
-3. Select the check box **Mark as shipped**.
-4. Provide the **Carrier** and **Tracking number**. If the tracking number is not updated within 2 weeks of creating the job, the job expires. 
-5. Monitor the job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
+[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
    > [!NOTE]
    > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.

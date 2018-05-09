@@ -18,11 +18,12 @@ This article provides step-by-step instructions on how to use the Azure Import/E
 ## Prerequisites
 
 Before you create an import job to transfer data into Azure Blob Storage, carefully review and complete the following list of prerequisites for this service. 
+You must:
 
-- An active Azure subscription that can be used for the Import/Export service.
-- At least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
-- Adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
-- A Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
+- Have an active Azure subscription that can be used for the Import/Export service.
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
+- Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
 - Enable BitLocker on the Windows system. See [How to enable BitLocker](https://technet.microsoft.com/library/cc731549(v=ws.10).aspx).
 - [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 
@@ -98,18 +99,12 @@ Perform the following steps to create an import job in the Azure portal.
 
 ## Step 3: Ship the drives 
 
+[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 
 ## Step 4: Update the job with tracking information
 
-After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. Do the following steps.
- 
-1. Select and click the job.
-2. Click **Update job status and tracking info once drives are shipped**. 
-3. Select the checkbox against **Mark as shipped**.
-4. Provide the **Carrier** and **Tracking number**.
-
-If the tracking number is not updated within 2 weeks of creating the job, the job expires. You can track the job progress on the portal dashboard. For a description of each job state, go to [Viewing your job status](#viewing-your-job-status).
+[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 
 ## Next steps
