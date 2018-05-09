@@ -12,13 +12,13 @@ ms.author: rosh, v-gedod
 ---
 
 # Search for .gif images
-The Bing Image Search API enables you to also search across the entire Web for the most relevant .gif images.  This API makes it easy for developers to integrate engaging gifs in various conversation scenarios. 
+The Bing Image Search API enables you to also search across the entire Web for the most relevant .gif images.  Developers can integrate engaging gifs in various conversation scenarios. 
 
 The following URL is a query for animated .gif images.
 ````
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ````
-The [q](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query) parameter specifies the search terms.  The previous query also specifies `animatedGif` using the [imageType](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) filter parameter.
+The [q](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/gif-images?branch=pr-en-us-40635#query) parameter specifies the search terms.  The previous query also specifies `animatedGif` using the [imageType](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype) filter parameter.
 
 To see examples of results, use the following URL to search bing.com.
 ````
@@ -31,10 +31,10 @@ For more information about query parameters and options, see the [Image Search A
 
 ## Tips and suggestions
 
-- You can specify [maxFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#maxFileSize) and [minFileSize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#minFileSize) parameters. We recommend setting the maxFileSize=2000000 as majority of gifs in our index are under 2MB.  This also helps to control the data size if bandwidth is a concern, such as in mobile cellular scenarios.
+- You can specify [maxfilesize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#maxFileSize) and [minfilesize](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#minFileSize) parameters. We recommend setting the maxFileSize=2000000 as majority of gifs in our index are under 2MB.  This also helps to control the data size if bandwidth is a concern, such as in mobile cellular scenarios.
 - To help improve perceived performance, load the thumbnail first before loading the source url.  
 - For first-run or landing page experience where you don't have a user query yet, try using our trending gif searches to help from the [trending images API](trending-images.md).
-- There are three settings for the [safeSearch](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#safeSearch) parameter.  The `strict` option blocks adult content. 
+- There are three settings for the [safeSearch](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parameter.  The `strict` option blocks adult content. 
 - See [mkt](supported-countries-markets.md) for full list of languages and locations supported.
 
 <a name="gifExample" />
