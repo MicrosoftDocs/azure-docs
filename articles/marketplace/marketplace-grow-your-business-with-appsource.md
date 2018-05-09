@@ -99,7 +99,7 @@ The following tables detail each step of filling out your offer listing.
 
 When your offer is listed on AppSource, you’ve earned the right to display the “Available on AppSource” badge on your website. 
 
-    ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
+ ![AppSource badge](./media/marketplace-appsource/appsourcebadge.png)
     
 Adding this badge to your site promotes that your offer on AppSource, and you can link potential customers directly to the listing page. The AppSource badge is available in three sizes. You can download the badge along with guidance on how to use it at [Promote your app's availability on Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
 
