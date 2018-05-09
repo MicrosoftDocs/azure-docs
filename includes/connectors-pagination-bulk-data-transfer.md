@@ -31,7 +31,7 @@ turn on pagination for specific actions:
 * <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
 * <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a> 
 
-Here is an example for the SQL Server connector's **Get Rows** action:
+Here is an example for the **Get rows** action:
 
 1. To find whether the action supports pagination, 
 open the action's **Settings**. 
