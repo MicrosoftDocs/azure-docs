@@ -38,7 +38,8 @@ This following documentation provides information about the various device optio
 2.	After providing the credentials for Azure AD, you can chose the operation to be performed on the Device options page.
     ![Device operations](./media/active-directory-aadconnect-device-options/deviceoptionsselection.png)
 
-Next Steps
-Configure Hybrid Azure AD join
-Configure / Disable device writeback
+## Next Steps
+
+* [Configure Hybrid Azure AD join](../device-management-hybrid-azuread-joined-devices-setup.md)
+* [Configure / Disable device writeback](./active-directory-aadconnect-feature-device-writeback.md)
 
