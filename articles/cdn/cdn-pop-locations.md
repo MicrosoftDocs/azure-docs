@@ -40,7 +40,7 @@ This article lists current point-of-presence (POP) locations, sorted by region, 
 | Africa | Cape Town, South Africa<br />Johannesburg, South Africa | Johannesburg, South Africa | |
 | Middle East | | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar |
 | India | Chennai, India<br />Mumbai, India | Bangalore, India<br />Chennai, India<br />Delhi, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Busan, Korea<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
+| Asia | Hong Kong<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Seoul, South Korea<br />Taipei, Taiwan<br />Bangkok, Thailand | Hong Kong<br />Batam, Indonesia<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Kaohsiung, Taiwan | Hong Kong<br />Indonesia<br />Japan<br />Malaysia<br />Philippines<br />Singapore<br />Taiwan<br />Thailand<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 

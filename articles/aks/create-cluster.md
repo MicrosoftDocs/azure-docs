@@ -3,7 +3,7 @@ title: Create an Azure Kubernetes Service (AKS) cluster
 description: Create an AKS cluster with the CLI or the Azure portal.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

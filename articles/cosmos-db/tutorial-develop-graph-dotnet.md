@@ -106,7 +106,7 @@ Next, create a graph container by using the using the [CreateDocumentCollectionA
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serialize vertices and edges to .NET objects

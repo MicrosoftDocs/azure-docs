@@ -5,7 +5,7 @@
  author: msraiye
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/30/2018
+ ms.date: 5/9/2018
  ms.author: raiye
  ms.custom: include file
 ---
@@ -160,6 +160,21 @@ You can enable Write Accelerator via the Portal where you specify your disk cach
 
 ![Write Accelerator on the Azure Portal](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
+### Enabling through Azure CLI
+You can use the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) to enable Write Accelerator. 
+
+To enable Write Accelerator on an existing disk, please use the command below, substituting the diskName, VMName, and ResourceGroup for your own: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 1=true
+```
+To attach a disk with Write Accelerator enabled please use the below command with your values:
+```
+az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+```
+To disable Write Accelerator, set the property to false: 
+```
+az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+```
 
 ### Enabling through Rest APIs
 In order to deploy through Azure Rest API, you need to install the Azure armclient
