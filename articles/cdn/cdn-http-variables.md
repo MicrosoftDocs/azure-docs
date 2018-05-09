@@ -28,9 +28,8 @@ HTTP variables provide the means through which you can retrieve HTTP request and
 - [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite)
 
 ## Definitions
-The following table describes the supported HTTP variables.
+The following table describes the supported HTTP variables. A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
 
-A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
 
 | Name | Variable | Description | Sample value |
 | ---- | -------- | ----------- | ------------ |
@@ -66,8 +65,9 @@ A blank value is returned when GEO metadata (for example, postal code) is unavai
 ## Usage
 The following table describes the proper syntax for specifying an HTTP variable.
 
+
 | Syntax | Example | Description |
-| ---- | -------- | ------------ |
+| ------ | -------- | ---------- |
 | %{&lt;HTTPVariable&gt;} | %{host} | Use this syntax to get the entire value corresponding to the specified &lt;HTTPVariable&gt;. |
 | %{&lt;HTTPVariableDelimiter&gt;} | %{host,} | Use this syntax to set the case for the entire value corresponding to the specified  &lt;HTTPVariableDelimiter&gt;. |
 | %{&lt;HTTPVariableDelimiterExpression&gt;} | %{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$2.$3:80} | Use a regular expression for &lt;HTTPVariableDelimiterExpression&gt; to replace, delete, or manipulate an HTTP variable's value. |
@@ -79,7 +79,7 @@ A delimiter can be specified after an HTTP variable to achieve any of the follow
 
 - Transform the value associated with the variable.
 
-     Example: Convert the entire value to lower-case.
+     Example: Convert the entire value to lowercase.
 
 - Delete the value associated with the variable.
 
@@ -145,7 +145,7 @@ Key information:
 
      - Positive: The starting character of the substring is calculated from the first character in the string.
      - Zero: The starting character of the substring is the first character in the string.
-    - Negative: The starting character of the substring is calculated from the last character in the string.
+     - Negative: The starting character of the substring is calculated from the last character in the string.
 
 - The length of the substring is determined by the *Length* term:
 
@@ -153,7 +153,7 @@ Key information:
      - Positive: Determines the length of the substring from the starting character to the right.
      - Negative: Determines the length of the substring from the starting character to the left.
 
-Example:
+#### Examples:
 
 The following example relies on the following sample request URL:
 
@@ -176,7 +176,7 @@ Text that matches a specific pattern can be removed from either the beginning or
 | %{Variable#Pattern} | Remove text when the specified pattern is found at the beginning of a variable's value. |
 | %{Variable%Pattern} | Remove text when the specified pattern is found at the end of a variable's value. |
 
-Example:
+#### Example:
 
 In this sample scenario, the request_uri variable is set to:
 
@@ -198,7 +198,7 @@ The find and replace syntax is described in the following table.
 | %{Variable//Find/Replace} | Find and replace all occurrences of the specified pattern. |
 | %{Variable^} |Convert the entire value to uppercase. |
 | %{Variable^Find} | Convert the first occurrence of the specified pattern to uppercase. |
-| %{Variable,} | Convert the entire value to lower-case. |
+| %{Variable,} | Convert the entire value to lowercase. |
 | %{Variable,Find} | Convert the first occurrence of the specified pattern to lowercase. |
 
 ### Find and rewrite
@@ -224,13 +224,13 @@ Key information:
     In the previous example, the hostname is rewritten to `cdn.$2.$3:80` (for example, cdn.mydomain.com:80).
 
 - The case of a pattern placeholder (for example, $1) can be modified through the following flags:
-     - U: Upper-case the expanded value.
+     - U: Uppercase the expanded value.
 
          Sample syntax:
 
          `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
-     - L: Lower-case the expanded value.
+     - L: Lowercase the expanded value.
 
          Sample syntax:
 
