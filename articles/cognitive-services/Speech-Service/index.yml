@@ -174,7 +174,7 @@ sections:
 - title: In Development
   items:
   - type: paragraph
-    text: 'To be availble soon:'
+    text: 'To be available soon:'
   - type: table
     style: dataMatrix
     columns:
