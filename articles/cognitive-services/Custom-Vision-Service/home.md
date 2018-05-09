@@ -17,12 +17,9 @@ The Custom Vision Service is a Microsoft Cognitive Service that lets you build c
 
 ## What does Custom Vision Service do well?
 
-The Custom Vision Service works best when the item you're trying to classify is prominent in your image. It does __image classification__ but not yet __object detection__. It can identify whether an image is of a particular object, but not where that object is within the image.
+The Custom Vision Service works best when the item you're trying to classify is prominent in your image. 
 
-Few images are required to create a classifier. 30 images per class are enough to start your prototype. The methods Custom Vision Service uses are robust to differences, which allows you to start prototyping with so little data.
-
-> [!IMPORTANT]
-> The means Custom Vision Service is not well suited to scenarios where you want to detect subtle differences. For example, minor cracks or dents in quality assurance scenarios.
+Few images are required to create a classifier or detector. 50 images per class are enough to start your prototype. The methods Custom Vision Service uses are robust to differences, which allows you to start prototyping with so little data. The means Custom Vision Service is not well suited to scenarios where you want to detect subtle differences. For example, minor cracks or dents in quality assurance scenarios.
 
 ## Release Notes
 

@@ -21,6 +21,25 @@ Developing globally distributed applications that respond with local latencies w
 
 With Azure Cosmos DB multi-master support, you can perform writes on containers of data (for example, collections, graphs, tables) distributed anywhere in the world. You can update data in any region that is associated with your database account. These data updates can propagate asynchronously. In addition to providing fast access and write latency to your data, multi-master also provides a practical solution for failover and load-balancing issues. In summary, with Azure Cosmos DB you get write latency of <10 ms at the 99th percentile anywhere in the world, 99.999% write and read availability anywhere in the world, and the ability to scale both write and read throughput anywhere around the world.   
 
+> [!IMPORTANT]
+> Multi-master support is in private preview, to use the preview version, [sign up](#sign-up-for-multi-master-support) now.
+
+## Sign up for multi-master support
+
+If you already have an Azure subscription, you can sign up to join the multi-master preview program in the Azure portal. If you’re new to Azure, sign up for a [free trial](https://azure.microsoft.com/free) where you get 12 months of free access to Azure Cosmos DB. Complete the following steps to request access to the multi-master preview program.
+
+1. In the [Azure portal](https://portal.azure.com), click **Create a resource** > **Databases** > **Azure Cosmos DB**.  
+
+2. In the New Account page, provide a name for your Azure Cosmos DB account, choose the API, Subscription, Resource Group and Location.  
+
+3. Next select **Sign up to preview today** under the Multi Mater Preview field.  
+
+   ![Sign up for multi-master preview](./media/multi-region-writers/sign-up-for-multi-master-preview.png)
+
+4. In the **Sign up to preview today** pane, click **OK**. After you submit the request, the status changes to **Pending approval** in the account creation blade.  
+
+After you submit the request, you will receive an email notification that your request has been approved. Due to the high volume of requests, you should receive notification within a week. You do not need to create a support ticket to complete the request. Requests will be reviewed in the order in which they were received.
+
 ## A simple multi-master example – content publishing  
 
 Let's look at a real-world scenario that describes how to use multi-master support with Azure Cosmos DB. Consider a content publishing platform built on Azure Cosmos DB. Here are some requirements that this platform must meet for a great user experience for both publishers and consumers. 

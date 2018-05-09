@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: container-service
 ms.topic: article
-ms.date: 2/14/2018
+ms.date: 05/09/2018
 ms.author: nepeters
 ---
 
@@ -25,9 +25,7 @@ This article addresses frequent questions about Azure Kubernetes Service (AKS).
 - Canada East
 - Central US
 - East US
-- South East Asia
 - West Europe
-- West US 2
 
 ## When will additional regions be added?
 
