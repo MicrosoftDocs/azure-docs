@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: v-jaswel
 ---
-# Quickstart for Bing Autosuggest API with C# 
+# Quickstart for Bing Autosuggest API with C\#
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Bing Autosuggest API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) with C#. The Autosuggest API returns a list of suggested queries based on the partial query string the user enters in the search box. Typically, you would call this API each time the user types a new character in the search box, and then display the suggestions in the search box's drop down list. This article shows how to send a request that returns the suggested query strings for *sail*.
