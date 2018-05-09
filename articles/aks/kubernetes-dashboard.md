@@ -3,7 +3,7 @@ title: Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes dashboard in AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
