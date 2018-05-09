@@ -167,9 +167,7 @@ When in quarantine, the frequency of incremental syncs is gradually reduced to o
 The provisioning job will be removed from quarantine after all of the offending errors being fixed, and the next sync cycle starts. If the provisioning job stays in quarantine for more than four weeks, the provisioning job is disabled.
 
 
-## Frequently asked questions
-
-**How long will it take to provision my users?**
+## How long will it take to provision users?
 
 Performance will be different depending on whether your provisioning job is performing an initial sync or an incremental sync, as described in the last section.
 
@@ -212,6 +210,7 @@ Variations in the time it takes to complete an **initial sync** are influenced b
 
 * Syncing assigned groups takes longer than other configurations
 
+## Frequently asked questions
 
 **How can I track the progress of the current provisioning job?**
 
