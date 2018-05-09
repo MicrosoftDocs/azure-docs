@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
 ms.reviewer:
 
@@ -83,8 +83,7 @@ A subscription is how tenants buy your offers. A subscription is a combination o
 
 Subscriptions help providers organize and access cloud resources and services.
 
-For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. 
-
+For the administrator, a Default Provider Subscription is created during deployment. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for tenants. It should not be used to run customer workloads and applications. Begining with version 1804, the Defualt Provider subscription is supplimented by two additional subscriptions; a Metering subscription, and a Consumption subscription. These additions facilitate separating the management of core infrastructure, additional resource providers, and workloads.  
 
 ## Azure Resource Manager
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
