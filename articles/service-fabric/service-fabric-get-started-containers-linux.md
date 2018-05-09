@@ -168,26 +168,16 @@ Since this image has a workload entry-point defined, you don't need to explicitl
 
 Specify an instance count of "1".
 
+Specify the port you want to expose for the containerized service. For this article, we need to expose port 80 of the container as the web service is listening on port 80.
+
+Specify the port you want to map on to the host machine. For this article, we are exposing port 4000 of the host machine.
+
+Specify the endpoint reference name. For example let us name our endpoint as `myServiceEndpoint`.
+
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
-## Configure port mapping and container repository authentication
-Your containerized service needs an endpoint for communication. Now add the protocol, port, and type to an `Endpoint` in the ServiceManifest.xml file under the 'Resources' tag. For this article, the containerized service listens on port 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Providing the `UriScheme` automatically registers the container endpoint with the Service Fabric Naming service for discoverability. A full ServiceManifest.xml example file is provided at the end of this article. 
-
-Configure the container port-to-host port mapping by specifying a `PortBinding` policy in `ContainerHostPolicies` of the ApplicationManifest.xml file. For this article, `ContainerPort` is 80 (the container exposes port 80, as specified in the Dockerfile) and `EndpointRef` is "myServiceTypeEndpoint" (the endpoint defined in the service manifest). Incoming requests to the service on port 4000 are mapped to port 80 on the container. If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
+## Configure container repository authentication
+ If your container needs to authenticate with a private repository, then add `RepositoryCredentials`. For this article, add the account name and password for the myregistry.azurecr.io container registry. Ensure the policy is added under the 'ServiceManifestImport' tag corresponding to the right service package.
 
 ```xml
    <ServiceManifestImport>
