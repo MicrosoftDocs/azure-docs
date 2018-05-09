@@ -120,8 +120,6 @@ sections:
 
 - title: Older SDKs
   items:
-  - type: paragraph
-    text: 'To be updated with new APIs soon:'
   - type: table
     style: dataMatrix
     columns:
@@ -171,10 +169,8 @@ sections:
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
         - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
 
-- title: In Development
+- title: SDK's in Consideration
   items:
-  - type: paragraph
-    text: 'To be available soon:'
   - type: table
     style: dataMatrix
     columns:
@@ -187,7 +183,7 @@ sections:
       - image:
           src: media/index/c.jpg
     rows:
-      - title: Coming soon
+      - title: SDK
         values:
         - href:
         - href:
