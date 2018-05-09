@@ -174,34 +174,12 @@ which updates your logic app.
 
 ## Process data in bulk
 
-When you work with result sets so large that the SQL 
-connector doesn't return all the results at the same time, 
+When you work with result sets so large that the connector 
+doesn't return all the results at the same time, 
 or you want better control over the size and structure for your result sets, 
-you can use <a href="https://docs.microsoft.com/sql/reporting-services/report-design/pagination-in-reporting-services-report-builder-and-ssrs" target="blank">*pagination*</a> 
-so that you can manage those results as smaller sets. 
+you can use *pagination*, which helps you manage those results as smaller sets. 
 
-### Set up pagination for "Get rows"
-
-When you use the **SQL Server - Get rows** action, 
-but your results exceed the connector's 
-<a href="https://docs.microsoft.com/connectors/sql/" target="_blank">default page size</a>, 
-you get only the first <a href="https://docs.microsoft.com/sql/relational-databases/pages-and-extents-architecture-guide" target="blank">page</a> of results. To get the other pages, 
-you can turn on the **Pagination** setting for the **Get rows** action. 
-This setting has your logic app ask the SQL connector 
-for the remaining pages, but return all the results 
-as a single message when the action finishes.  
-
-1. On the **Get rows** action, open **Settings**. 
-
-   ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings.png)
-
-2. Change the **Pagination** setting from **Off** to **On**. 
-To avoid returning a result set that's too large, 
-you can also specify a **Limit** on the results.
-
-   ![On the "Get rows" action, open "Settings"](./media/connectors-create-api-sqlazure/sql-action-settings-pagination.png)
-
-3. When you're ready, choose **Done**.
+[!INCLUDE connectors-pagination-bulk-data-transfer](../../includes/connections-pagination-bulk-data-transfer.md)
 
 ### Create a stored procedure
 
