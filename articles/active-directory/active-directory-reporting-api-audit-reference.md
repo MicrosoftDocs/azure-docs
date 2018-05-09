@@ -24,8 +24,7 @@ ms.reviewer: dhanyahk
 > Check out the new Microsoft Graph API for [reporting](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), which will eventually replace this API. 
 
 
-This article is part of a collection of articles about the Azure Active Directory reporting API.  
-Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.
+This article is part of a collection of articles about the Azure Active Directory (Azure AD) reporting API. Azure AD reporting provides you with an API that enables you to access audit data using code or related tools.
 The scope of this article is to provide you with reference information about the **audit API**.
 
 See:
@@ -66,8 +65,7 @@ You can access this API using the following URI:
 There is no limit on the number of records returned by the Azure AD audit API (using OData pagination).
 For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
 
-This call returns the data in batches. Each batch has a maximum of 1000 records.  
-To get the next batch of records, use the Next link. Get the skiptoken information from the first set of returned records. The skip token will be at the end of the result set.  
+This call returns the data in batches. Each batch has a maximum of 1000 records. To get the next batch of records, use the **Next** link. Get the skip token information from the first set of returned records. The skip token will be at the end of the result set.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
