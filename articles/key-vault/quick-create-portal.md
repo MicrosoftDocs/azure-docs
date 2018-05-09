@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Create a Key Vault Portal
+title: Azure Quickstart - Create a Key Vault Portal | Microsoft Docs
 description: Quickstart showing how to create an Azure Key Vault using the portal
 services: key-vault
 author: barclayn

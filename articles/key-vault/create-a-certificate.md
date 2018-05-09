@@ -86,12 +86,12 @@ Certificate creation can be completed manually or using a “Self” issuer. Key
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert|
 |GlobalCert|Key Vault offers OV or EV SSL certificates with GlobalSign|
 
- For more information, including geographical availability of these issuer providers, see [Certificate Issuers](certificate-issuers.md).
+ For more information, including geographical availability of these issuer providers, see [Certificate Issuers](/rest/api/keyvault/certificate-issuers.md).
 
 Note that when an order is placed with the issuer provider, it may honor or override the x509 certificate extensions and certificate validity period based on the type of certificate.  
 
  Authorization: Requires the certificates/create permission.
 
  ## See Also
- - [About keys, secrets and certificates](about-keys--secrets-and-certificates.md)
+ - [About keys, secrets and certificates](about-keys-secrets-and-certificates.md)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

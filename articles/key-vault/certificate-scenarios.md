@@ -87,7 +87,7 @@ Note - This process, through step 3.1, is a onetime operation.
 ## Import a certificate  
  Alternatively – a cert can be imported into Key Vault – PFX or PEM.  
 
- For more information on PEM format, see the certificates section of [About keys, secrets, and certificates](about-keys--secrets-and-certificates.md).  
+ For more information on PEM format, see the certificates section of [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md).  
 
  Import certificate – requires a PEM or PFX to be on disk and have a private key. 
 -   You must specify: vault name and certificate name (policy is optional)
@@ -118,5 +118,5 @@ Note - This process, through step 3.1, is a onetime operation.
   (5) - Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
 ## See Also
-- [Certificate operations](certificate-operations.md)
-- [About keys, secrets, and certificates](about-keys--secrets-and-certificates.md)
+- [Certificate operations](/rest/api/keyvault/certificate-operations.md)
+- [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)

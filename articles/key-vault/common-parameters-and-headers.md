@@ -27,7 +27,7 @@ The following information is common to all operations that you might do related 
 - Replace `{resource-group-name}` with the resource group. For more information, see Using Resource groups to manage your Azure resources.
 - Replace `{vault-name}` with your key vault name in the URI.
 - Set the Content-Type header to application/json.
-- Set the Authorization header to a JSON Web Token that you obtain from Azure Active Directory (AAD). For more information, see [Authenticating Azure Resource Manager](authentication--requests-and-responses.md) requests.
+- Set the Authorization header to a JSON Web Token that you obtain from Azure Active Directory (AAD). For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
 
 ## Common error response
 The service will use HTTP status codes to indicate success or failure. In addition, failures contain a response in the following format:
@@ -47,4 +47,4 @@ The service will use HTTP status codes to indicate success or failure. In additi
 
 
 ## See Also
- [Azure Key Vault REST API Reference](../keyvault/index.md)
+ [Azure Key Vault REST API Reference](/rest/api/keyvault/)
