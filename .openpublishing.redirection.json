@@ -45,7 +45,11 @@
             "redirect_url": "https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
             "redirect_document_id": false
         },
-
+        {
+            "source_path": "articles/machine-learning/desktop-workbench/data-prep-operationalization.md",
+            "redirect_url": "/azure/machine-learning/preview/data-prep-python-extensibility-overview",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/machine-learning/service/aml-pricing.md",
             "redirect_url": "https://azure.microsoft.com/pricing/details/machine-learning-services",
