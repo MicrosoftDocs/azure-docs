@@ -29,7 +29,7 @@ DDoS is a type of attack that tries to exhaust application resources. The goal i
 
 Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no extra cost. 
 
-In addition to the core DDoS protection in the platform, a new offering named [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after creation and requires no application or resource changes.
+In addition to the core DDoS protection in the platform, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after creation and requires no application or resource changes.
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](media/azure-ddos-best-practices/image1.png)
 
@@ -55,7 +55,7 @@ Resource attacks target the application layer. They trigger back-end processes i
 
 ## Shared responsibility in the cloud
 
-A defense-in-depth strategy helps combat the increasing types and  sophistication of attacks. Security is a shared responsibility between the customer and Microsoft. Microsoft calls this a [shared responsibility model](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). 
+A defense-in-depth strategy helps combat the increasing variety and sophistication of attacks. Security is a shared responsibility between the customer and Microsoft. Microsoft calls this a [shared responsibility model](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). 
 The following figure shows this division of responsibility:
 
 ![Responsibilities of the customer and of Azure](media/azure-ddos-best-practices/image2.png)
@@ -101,7 +101,7 @@ Azure has two DDoS service offerings that provide protection from network attack
 
 ### DDoS Protection Basic
 
-Basic protection is integrated into the Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network defend against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
+Basic protection is integrated into the Azure by default at no additional cost. The scale and capacity of the globally deployed Azure network provides defense against common network-layer attacks through always-on traffic monitoring and real-time mitigation. DDoS Protection Basic requires no user configuration or application changes. DDoS Protection Basic helps protect all Azure services, including PaaS services like Azure DNS.
 
 ![Map representation of the Azure network, with the text "Global DDoS mitigation presence" and "Leading DDoS mitigation capacity"](media/azure-ddos-best-practices/image3.png)
 
