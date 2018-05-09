@@ -1,5 +1,5 @@
 ---
-title: Add privacy info to the Azure AD Properties area | Microsoft Docs
+title: Add your organization's privacy info in Azure AD | Microsoft Docs
 description: Explains how to add your organization's privacy info to the Azure Active Directory (Azure AD) Properties area.
 services: active-directory
 documentationcenter: ''
@@ -17,15 +17,14 @@ ms.reviewer: bpham
 ms.custom: it-pro
 ---
 
-# How-to: Add privacy info to the Properties area in Azure Active Directory
+# How-to: Add your organization's privacy info in Azure Active Directory
 This article explains how a tenant admin can add privacy-related info to an organization’s Azure Active Directory (Azure AD) tenant, through the Azure portal.
 
 We strongly recommend you add both your global privacy contact and your organization’s privacy statement, so your internal employees and external guests can review your policies. Because privacy statements are uniquely created and tailored for each business, we strongly recommend you contact a lawyer for assistance.
 
->[!Note] 
-> This article provides steps for how to add your privacy-related information, which can be used to support your obligations under the GDPR. If you’re looking for general info about GDPR, see the [GDPR section of the Service Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/gdpr/default.aspx).
+[GDPR-related guidance](.../includes/gdpr-dsr-and-stp-note.md)
 
-**To access the Properties area to add your privacy info**
+## Access the Properties area to add your privacy info**
 
 1.	Sign in to the Azure portal as a tenant administrator.
 
@@ -44,14 +43,10 @@ We strongly recommend you add both your global privacy contact and your organiza
     - **Privacy statement URL.** Type the link to your organization’s document that describes how your organization handles both internal and external guest's data privacy.
 
         >[!Important]
-        >If you don’t include your own privacy statement, your internal employees and external guests see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**.
+        >If you don’t include your own privacy statement, your internal employees and external guests see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user sees this message when they receive an invitation to access an organization through B2B collaboration.
 
 4.	Select **Save**.
 
 ## Next steps
 
-- [Info about Data Protection Impact Assessments (DPIAs)](https://servicetrust.microsoft.com/ViewPage/GDPRDPIA)
-
 - [Info about Data Subject Requests (DSRs)](https://servicetrust.microsoft.com/ViewPage/GDPRDSR)
- 
-- [Info about data breach notifications](https://servicetrust.microsoft.com/ViewPage/GDPRBreach)
