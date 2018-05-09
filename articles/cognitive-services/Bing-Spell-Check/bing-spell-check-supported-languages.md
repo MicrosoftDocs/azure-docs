@@ -12,7 +12,7 @@ ms.author: nolachar
 ---
 # Supported language list and status
 
-The following languages are supported by the Bing Spell Check API.
+These languages are supported by the Bing Spell Check API.
 
 | Language    | Language code |
 |:----------- |:-------------:|
