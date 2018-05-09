@@ -154,6 +154,12 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "sample-javascript",
+      "url": "https://github.com/Microsoft/tsiclient",
+      "branch": "docs",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

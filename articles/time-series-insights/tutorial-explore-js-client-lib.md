@@ -102,7 +102,7 @@ As mentioned earlier, this sample is a Single-Page Application and it uses the O
 
 2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://insights.timeseries.azure.com), also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property contained in the application's Azure AD registration. Once ADAL returns the access token to the application, it is passed as a "bearer token" when accessing the TSI service APIs. 
 
-   [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
+   [!code-javascript[head-sample](/azure/sample-javascript/pages/index.html?range=140-199&highlight=4-9,36-39)]
 
 ### Control identification
 
