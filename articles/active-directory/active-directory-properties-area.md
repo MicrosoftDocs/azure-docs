@@ -24,7 +24,7 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## Access the Properties area to add your privacy info**
+## Access the Properties area to add your privacy info
 
 1.	Sign in to the Azure portal as a tenant administrator.
 
@@ -43,7 +43,7 @@ We strongly recommend you add both your global privacy contact and your organiza
     - **Privacy statement URL.** Type the link to your organization’s document that describes how your organization handles both internal and external guest's data privacy.
 
         >[!Important]
-        >If you don’t include your own privacy statement, your internal employees and external guests see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user sees this message when they receive an invitation to access an organization through B2B collaboration.
+        >If you don’t include your own privacy statement, your internal employees and external guests will see text that says, **<_your org name_> has not provided links to their terms for you to review** in the **Review Permissions** box. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
 
 4.	Select **Save**.
 
