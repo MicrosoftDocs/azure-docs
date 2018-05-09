@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 05/1/2018
 ms.author: billmath
 ---
 
@@ -44,6 +44,8 @@ The troubleshooting task performs the following checks:
 1.	Detect UPN mismatch if the object is synced to Azure Active Directory
 2.	Check if object is filtered due to domain filtering
 3.	Check if object is filtered due to OU filtering
+4.  Check if object synchronization is blocked due to a linked mailbox
+5. Check if object is dynamic distribution group which is not supposed to be synchronized
 
 The rest of this section describes specific results that are returned by the task. In each case, the task provides an analysis followed by recommended actions to resolve the issue.
 
@@ -73,9 +75,18 @@ Object is out of scope due to domain not being configured. In the example below,
 Object is out of scope as the domain is missing run profiles/run steps. In the example below, the object is out of sync scope as the domain that it belongs to is missing run steps for the Full Import run profile.
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
-### Object is filtered due to OU filtering
+## Object is filtered due to OU filtering
 The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.
-![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
+
+## Linked Mailbox issue
+A linked mailbox is supposed to be associated with an external master account located in another trusted account forest. If there is no such external master account, then Azure AD Connect will not synchronize the user account corresponds to the linked mailbox in the Exchange forest to the Azure AD tenant.
+![Linked Mailbox](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch9.png)
+
+## Dynamic Distribution Group issue
+Due to various differences between on-premises Active Directory and Azure Active Directory, Azure AD Connect does not synchronize dynamic distribution groups to the Azure AD tenant.
+
+![Distribution Group](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch10.png)
 
 ## HTML Report
 In addition to analyzing the object, the troubleshooting task also generates an HTML report that has everything known about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.
