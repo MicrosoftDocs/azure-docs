@@ -19552,8 +19552,28 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
-            "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
+            "source_path": "articles/network-watcher/network-watcher-topology-overview.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-powershell.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-rest.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
             "redirect_document_id": true
         },
         {
