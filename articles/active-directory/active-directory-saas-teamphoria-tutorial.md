@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/07/2017
+ms.date: 05/09/2018
 ms.author: jeedes
 
 ---
@@ -24,7 +24,7 @@ Integrating Teamphoria with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Teamphoria
 - You can enable your users to automatically get signed-on to Teamphoria (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure Management portal
+- You can manage your accounts in one central location - the Azure  portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
@@ -55,7 +55,7 @@ To configure the integration of Teamphoria into Azure AD, you need to add Teamph
 
 **To add Teamphoria from the gallery, perform the following steps:**
 
-1. In the **[Azure Management Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure  Portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![Active Directory][1]
 
@@ -90,11 +90,11 @@ To configure and test Azure AD single sign-on with Teamphoria, you need to compl
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure Management portal and configure single sign-on in your Teamphoria application.
+In this section, you enable Azure AD single sign-on in the Azure  portal and configure single sign-on in your Teamphoria application.
 
 **To configure Azure AD single sign-on with Teamphoria, perform the following steps:**
 
-1. In the Azure Management portal, on the **Teamphoria** application integration page, click **Single sign-on**.
+1. In the Azure  portal, on the **Teamphoria** application integration page, click **Single sign-on**.
 
 	![Configure Single Sign-On][4]
 
@@ -137,24 +137,24 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	![Configure Single Sign-On](./media/active-directory-saas-teamphoria-tutorial/Teamphoria_sso_save.png)
 
-	a. **DISPLAY NAME** : Enter the display name of the plugin on the admin page.
+	a. **DISPLAY NAME**: Enter the display name of the plugin on the admin page.
 
-	b. **BUTTON NAME** : The name of the tab which will display on the login page for logging in via SSO.
+	b. **BUTTON NAME**: The name of the tab which will display on the login page for logging in via SSO.
 
-	c. **CERTIFICATE** : Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the box.
+	c. **CERTIFICATE**: Open the Certificate downloaded earlier from the Azure portal in notepad, copy the contents of the same and paste it here in the box.
 
-	d. **ENTRY POINT** : Paste the **SAML Single Sign-On Service URL** copied earlier form the Azure portal.
+	d. **ENTRY POINT**: Paste the **SAML Single Sign-On Service URL** copied earlier from the Azure portal.
 
 	e. Switch the option to **ON** and click on **SAVE**.
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure Management portal called Britta Simon.
+The objective of this section is to create a test user in the Azure  portal called Britta Simon.
 
 ![Create Azure AD User][100]
 
 **To create a test user in Azure AD, perform the following steps:**
 
-1. In the **Azure Management portal**, on the left navigation pane, click **Azure Active Directory** icon.
+1. In the **Azure  portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-teamphoria-tutorial/create_aaduser_01.png) 
 
@@ -214,7 +214,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 **To assign Britta Simon to Teamphoria, perform the following steps:**
 
-1. In the Azure Management portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+1. In the Azure  portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
 	![Assign User][201]
 
