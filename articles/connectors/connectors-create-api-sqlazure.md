@@ -179,7 +179,7 @@ doesn't return all the results at the same time,
 or you want better control over the size and structure for your result sets, 
 you can use *pagination*, which helps you manage those results as smaller sets. 
 
-[!INCLUDE [connectors-pagination-bulk-data-transfer](../../includes/connections-pagination-bulk-data-transfer.md)]
+[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
 
 ### Create a stored procedure
 

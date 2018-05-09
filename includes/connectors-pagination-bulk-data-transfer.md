@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: logic-apps
+ author: ecfan
+ ms.service: logic-apps
+ ms.topic: include
+ ms.date: 05/09/2018
+ ms.author: estfan
+ ms.custom: include file
+---
+
 ### Set up pagination
 
 For some connectors and their actions that retrieve multiple items, 
@@ -24,13 +36,13 @@ Here is an example for the SQL Server connector's **Get Rows** action:
 1. To find whether the action supports pagination, 
 open the action's **Settings**. 
 
-   ![On the action, open "Settings"](./media/connector-pagination-bulk-data-transfer/sql-action-settings.png)
+   ![On the action, open "Settings"](./media/connectors-pagination-bulk-data-transfer/sql-action-settings.png)
 
 2. If the action supports pagination, 
 change the **Pagination** setting from **Off** to **On**. 
 To make sure that the action returns a minimum set of results, 
 specify a value for **Limit**.
 
-   ![Specify that the action return a minimum number of results](./media/connector-pagination-bulk-data-transfer/sql-action-settings-pagination.png)
+   ![Specify that the action return a minimum number of results](./media/connectors-pagination-bulk-data-transfer/sql-action-settings-pagination.png)
 
 3. When you're ready, choose **Done**.
