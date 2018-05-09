@@ -174,7 +174,7 @@ The articles that were previously in the Tutorial section are now in the How-to 
 |Improve prediction accuracy with a [phrase list](luis-tutorial-interchangeable-phrase-list.md), [patterns](luis-tutorial-pattern.md), and [batch testing](luis-tutorial-batch-testing.md)|
 |[Correct spelling](luis-tutorial-batch-testing.md) with Bing Spell Check API v7
 
-### At the Build 2018 Conference, I heard about a Language Understanding feature but I don't remember what it was called? 
+### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called? 
 
 The following features were released at the Build 2018 Conference:
 
@@ -186,6 +186,8 @@ The following features were released at the Build 2018 Conference:
 |Dispatch tool|Part of [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), Dispatch command line [tool](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) to combine multiple LUIS and QnA Maker apps into single LUIS app for better intent recognition in a Bot
 
 Additional authoring [API routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) were included. 
+
+[Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo
 
 ## Next steps
 
