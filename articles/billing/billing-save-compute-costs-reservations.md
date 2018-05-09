@@ -68,4 +68,6 @@ To learn more about Reserved Virtual Machine Instances, see the following articl
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
 - [Reserved Instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
+
+## Need help? Contact support
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
