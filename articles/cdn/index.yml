@@ -45,6 +45,7 @@ sections:
     items:
     - html: <a href="/azure/cdn/cdn-map-content-to-custom-domain">Add a custom domain to your CDN endpoint</a>
     - html: <a href="/azure/cdn/cdn-custom-ssl">Configure HTTPS on a custom domain</a>
+    - html: <a href="/azure/cdn/cdn-caching-rules-tutorial">Set caching rules</a>
 - title: Videos
   items:
   - type: paragraph
@@ -54,7 +55,7 @@ sections:
     items: 
     - image: 
         src: media/index/video-library.svg
-      text: Azure CDN Video Library
+      text: Azure CDN video library
       href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
 - title: Samples
   items:
@@ -64,7 +65,7 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://azure.microsoft.com/en-us/resources/samples/?service=cdn">Code samples</a>    
+    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cdn">Code samples</a>    
 - title: Reference
   items:
   - type: list
@@ -76,4 +77,4 @@ sections:
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.cdn">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.cdn">Java</a></p>
     - title: REST
-      html: <p><a href="/rest/api/cdn/">REST API Reference</a></p>
+      html: <p><a href="/rest/api/cdn/">REST API reference</a></p>
