@@ -12,7 +12,7 @@ ms.author: heidist
 ---
 # What is cognitive search?
 
-Cognitive search is a preview feature of Azure Search, available on all tiers in South Central US and West Europe, that adds AI to indexing workloads. Data extraction, natural language processing, and image processing during indexing finds the latent information in  unstructured or non-searchable content and makes it searchable in Azure Search.
+Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md), available on all tiers in South Central US and West Europe, that adds AI to indexing workloads. Data extraction, natural language processing, and image processing during indexing finds the latent information in  unstructured or non-searchable content and makes it searchable in Azure Search.
 
 AI integration is through *cognitive skills* that enrich source documents through sequential processes, in route to a search index. 
 

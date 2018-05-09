@@ -3,7 +3,7 @@ title: Publish versions of your API using Azure API Management | Microsoft Docs
 description: Follow the steps of this tutorial to learn how to publish multiple versions in API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
