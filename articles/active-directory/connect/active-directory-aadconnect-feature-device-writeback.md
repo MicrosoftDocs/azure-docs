@@ -42,7 +42,10 @@ This provides additional security and assurance that access to applications is g
 1. Run the installation wizard again. Select **Configure device options** from the Additional Tasks page and click **Next**. 
 
     ![Configure device options](./media/active-directory-aadconnect-feature-device-writeback/deviceoptions.png)
- 
+
+>[!NOTE]
+> The new Configure device options is available only in version 1.1.819.0 and newer.
+
 2. On the device options page, select **Configure device writeback**. Option to **Disable device writeback** will not be available until device writeback is enabled. Click on **Next** to move to the next page in the wizard.
     ![Chose device operation](./media/active-directory-aadconnect-feature-device-writeback/configuredevicewriteback1.png)
 
