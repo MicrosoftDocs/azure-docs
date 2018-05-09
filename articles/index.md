@@ -1497,15 +1497,6 @@ featureFlags:
                                     <h3>Management Tools</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Management Tools</h3>
-                                    <ul>
-                                        <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>Backup</p>
