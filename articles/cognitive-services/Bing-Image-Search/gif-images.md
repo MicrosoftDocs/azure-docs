@@ -36,6 +36,7 @@ For more information about query parameters and options, see the [Image Search A
 - For first-run or landing page experience where you don't have a user query yet, try using our trending gif searches to help from the [trending images API](trending-images.md).
 - There are three settings for the [safeSearch](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parameter.  The `strict` option blocks adult content. 
 - See [mkt](supported-countries-markets.md) for full list of languages and locations supported.
+- *AnimatedGifHttps* only returns animated gif images that are from an https address. For security, many applications require connection to external web links over https. For example, the Apple App Store requires connection to web services over HTTPS, which encrypts user data secure while in transit.
 
 <a name="gifExample" />
 ## Example search for animated gif using Java
