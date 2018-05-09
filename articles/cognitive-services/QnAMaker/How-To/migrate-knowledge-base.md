@@ -12,7 +12,7 @@ ms.date: 04/21/2018
 ms.author: saneppal
 ---
 # Import from a knowledge base in QnA Maker Preview
-Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in the near future.	+QnA Maker announced General Availability on May 7, 2018 at \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in the November 2018. Read about the changes in the QnAMaker GA announcement [blogpost](https://aka.ms/qnamakerga-blog).
+QnA Maker announced General Availability on May 7, 2018 at the \\\build\ conference. QnA Maker GA has a new architecture built on Azure. Knowledge bases created with QnA Maker Free Preview will need to be migrated to QnA Maker GA. QnA Maker Preview will be deprecated in November 2018. For more information about the changes in QnA Maker GA, see the QnA Maker GA announcement [blog post](https://aka.ms/qnamakerga-blog).
 
 QnAMaker now has a [pricing model](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
 
