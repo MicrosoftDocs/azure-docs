@@ -107,7 +107,7 @@ request or synchronous connector call:
 
 #### Timeout
 
-Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector. For some actions, you can change the timeout limit, for example, all HTTP-based actions support asynchronous operations. For more information, see [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
+Some connector operations make asynchronous calls or listen for webhook requests, so the timeout for these operations might be longer than these limits. For more information, see the technical details for the specific connector and also [Workflow triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
