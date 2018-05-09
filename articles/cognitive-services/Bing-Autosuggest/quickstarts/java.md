@@ -1,6 +1,6 @@
 ---
 title: Java Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Azure Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -60,56 +60,56 @@ public class Autosuggest {
 // **********************************************
 
 // Replace the subscriptionKey string value with your valid subscription key.
-	static String subscriptionKey = "enter key here";
+  static String subscriptionKey = "enter key here";
 
-	static String host = "https://api.cognitive.microsoft.com";
-	static String path = "/bing/v7.0/Suggestions";
+  static String host = "https://api.cognitive.microsoft.com";
+  static String path = "/bing/v7.0/Suggestions";
 
-	static String mkt = "en-US";
-	static String query = "sail";
+  static String mkt = "en-US";
+  static String query = "sail";
 
-	public static String get_suggestions () throws Exception {
+  public static String get_suggestions () throws Exception {
         String encoded_query = URLEncoder.encode (query, "UTF-8");
         String params = "?mkt=" + mkt + "&q=" + encoded_query;
-		URL url = new URL (host + path + params);
+    URL url = new URL (host + path + params);
 
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("GET");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-		connection.setDoOutput(true);
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    connection.setRequestMethod("GET");
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    connection.setDoOutput(true);
 
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
+    StringBuilder response = new StringBuilder ();
+    BufferedReader in = new BufferedReader(
+    new InputStreamReader(connection.getInputStream()));
+    String line;
+    while ((line = in.readLine()) != null) {
+      response.append(line);
+    }
+    in.close();
 
-		return response.toString();
+    return response.toString();
     }
 
-	public static String prettify (String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+  public static String prettify (String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+  }
 
-	public static void main(String[] args) {
-		try {
-			String response = get_suggestions ();
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+  public static void main(String[] args) {
+    try {
+      String response = get_suggestions ();
+      System.out.println (prettify (response));
+    }
+    catch (Exception e) {
+      System.out.println (e);
+    }
+  }
 }
 ```
 
-**Response**
+### Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -182,7 +182,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
 
-## See also 
+## See also
 
-[Bing Autosuggest overview](../get-suggested-search-terms.md)
-[API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
