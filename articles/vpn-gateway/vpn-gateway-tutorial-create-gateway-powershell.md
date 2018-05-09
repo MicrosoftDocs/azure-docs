@@ -29,6 +29,11 @@ Azure VPN gateways provide cross-premises connectivity between customer premises
 > * Resize a VPN gateway
 > * Reset a VPN gateway
 
+The following diagram shows the virtual network and the VPN gateway created as part of this tutorial.
+
+![VNet and VPN gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
+
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
@@ -165,6 +170,6 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 Advance to the following tutorials to learn about S2S, VNet-to-VNet, and P2S connections.
 
 > [!div class="nextstepaction"]
-> * [Create S2S connections](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Create S2S connections](vpn-gateway-tutorial-vpnconnection-powershell.md)
 > * [Create VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Create P2S connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
