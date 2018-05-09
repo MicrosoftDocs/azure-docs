@@ -31,7 +31,7 @@
 - name: Reference
   items:
   - name: Video Indexer API
-    href: https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4
+    href: https://api-portal.videoindexer.ai/
 - name: Resources
   items:
   - name: Pricing
