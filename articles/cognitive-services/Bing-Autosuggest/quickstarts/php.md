@@ -1,6 +1,6 @@
 ---
 title: PHP Quickstart for Azure Cognitive Services, Bing Autosuggest API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started using the Bing Autosuggest API in Azure Cognitive Services.
 services: cognitive-services
 documentationcenter: ''
 author: v-jaswel
@@ -49,22 +49,22 @@ $query = "sail";
 
 function get_suggestions ($host, $path, $key, $mkt, $query) {
 
-	$params = '?mkt=' . $mkt . '&q=' . $query;
+  $params = '?mkt=' . $mkt . '&q=' . $query;
 
-	$headers = "Content-type: text/json\r\n" .
-		"Ocp-Apim-Subscription-Key: $key\r\n";
+  $headers = "Content-type: text/json\r\n" .
+    "Ocp-Apim-Subscription-Key: $key\r\n";
 
-	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-	// http://php.net/manual/en/function.stream-context-create.php
-	$options = array (
-		'http' => array (
-			'header' => $headers,
-			'method' => 'GET'
-		)
-	);
-	$context  = stream_context_create ($options);
-	$result = file_get_contents ($host . $path . $params, false, $context);
-	return $result;
+  // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+  // http://php.net/manual/en/function.stream-context-create.php
+  $options = array (
+    'http' => array (
+      'header' => $headers,
+      'method' => 'GET'
+    )
+  );
+  $context  = stream_context_create ($options);
+  $result = file_get_contents ($host . $path . $params, false, $context);
+  return $result;
 }
 
 $result = get_suggestions ($host, $path, $subscriptionKey, $mkt, $query);
@@ -73,7 +73,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-**Response**
+### Response
 
 A successful response is returned in JSON, as shown in the following example: 
 
@@ -146,7 +146,7 @@ A successful response is returned in JSON, as shown in the following example:
 > [!div class="nextstepaction"]
 > [Bing Autosuggest tutorial](../tutorials/autosuggest.md)
 
-## See also 
+## See also
 
-[Bing Autosuggest overview](../get-suggested-search-terms.md)
-[API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
