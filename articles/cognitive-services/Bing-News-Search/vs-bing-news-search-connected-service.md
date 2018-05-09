@@ -41,7 +41,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    ![Select your subscription](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
-1. Select the subscription you want to use, and then choose a name for the Bing News Search API, or choose the Edit link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
+1. Select the subscription you want to use, and then choose a name for the Bing News Search API, or choose the **Edit** link to modify the automatically generated name, choose the resource group, and the Pricing Tier.
 
    ![Edit connected service details](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
@@ -70,7 +70,7 @@ This article and its companion articles provide details for using the Visual Stu
    ```json
    "CognitiveServices": {
      "IntelligentSearch": {
-       "ServiceKey": "c271412f3e4c4e1dacc7c4145fa0572a",
+       "ServiceKey": "<your service key>",
        "ServiceEndPoint": "https://api.cognitive.microsoft.com/bing/v7.0",
        "Name": "WebApplicationCore-Search_IntelligentSearch"
      }
@@ -82,7 +82,7 @@ This article and its companion articles provide details for using the Visual Stu
 1.  In Startup.cs, in the ConfigureServices method, add a call to IServiceCollection.AddSingleton to make the configuration object that contains the key settings available to the code in your project.
  
    ```csharp
-           // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
