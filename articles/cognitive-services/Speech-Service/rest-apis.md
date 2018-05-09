@@ -69,7 +69,10 @@ Keep these differences in mind as you refer to the [REST API documentation](http
 
 Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a Speech service `issueToken` endpoint. Example code is shown in the following sections.
 
-An access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
+> [!NOTE]
+> You must use the same endpoint both to obtain a token and to actually call the service. For example, to authorize a Text to Speech request, use the Text to Speech `issueToken` endpoint to get the token for the request. Be sure to use the appropriate regional or custom URI.
+
+Each access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
 
 The following sections show how to get a token and how to use it in a request.
 
