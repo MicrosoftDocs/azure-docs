@@ -58,5 +58,3 @@ Close the **multi-factor authentication** window.
 
 In this tutorial, you have enabled specific authentication methods for use in MFA and SSPR. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to MFA and SSPR before you roll out the solution in a pilot.
 
-> [!div class="nextstepaction"]
-> [Azure Windows virtual machine tutorials]

@@ -3,8 +3,6 @@
 # Overview
 
 ## [What is authenticaion](../active-directory/authentication/overview-authentication.md)
-## [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
-## [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
 
 # Quickstarts
 
@@ -13,15 +11,7 @@
 
 # Tutorials
 
-## [Define authentication methods](../active-directory/authentication/tutorial-authenticationmethods.md)
-## [Enroll users for MFA/SSPR]
-## [Configure authentication options]
-## [Configure banned password list]
-## [Enable a SSPR pilot]
-## [Enable MFA using conditional access]
-## [Enable MFA using Identy Protection]
-
-# Samples
+## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
 
 # Concepts
 
@@ -30,7 +20,6 @@
 ### [Password reset options](../active-directory/authentication/concept-sspr-customization.md)
 ### [Password reset policies](../active-directory/authentication/concept-sspr-policy.md)
 ### [What license do I need](../active-directory/authentication/concept-sspr-licensing.md)
-### [Ban bad passwords]
 
 ## Multi-Factor Authentication
 ### [How MFA works](../active-directory/authentication/concept-mfa-howitworks.md)
@@ -44,13 +33,10 @@
 
 # How to Guides
 
-## [Choose authentication methods]
-
 ## Password reset
 ### [SSPR Deployment guide](../active-directory/authentication/howto-sspr-deployment.md)
 ### [SSPR Data requirements](../active-directory/authentication/howto-sspr-authenticationdata.md)
 ### [Password writeback](../active-directory/authentication/howto-sspr-writeback.md)
-### [On-premises banned password list]
 ### [SSPR and Windows 10](../active-directory/authentication/tutorial-sspr-windows.md)
 
 ## Cloud-based MFA
@@ -90,7 +76,7 @@
 #### [Advanced VPN Configurations](../active-directory/authentication/howto-mfaserver-nps-vpn.md)
 
 ## Develop
-### [Support Modern Authentication]
+
 ### [Build MFA into custom apps](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## Reporting
@@ -100,10 +86,13 @@
 # Deprecate
 
 ## SSPR
+### [Passwords overview](../active-directory/authentication/active-directory-passwords-overview.md)
 ### [Troubleshoot](../active-directory/authentication/active-directory-passwords-troubleshoot.md)
 ### [FAQ](../active-directory/authentication/active-directory-passwords-faq.md)
 
-## [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
+## MFA
+### [What is Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md)
+### [MFA user guide](./end-user/multi-factor-authentication-end-user.md)
 
 ## Troubleshoot
 ### [FAQ](../active-directory/authentication/multi-factor-authentication-faq.md)
