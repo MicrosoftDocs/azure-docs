@@ -19,7 +19,7 @@ metadata:
 abstract: 
   description: The Microsoft Speech Service and SDK provides developers an easy way to create powerful speech-enabled features in their applications, like voice command control, transcription and dictation. Cortana, Microsoft Office, and others use the same technology. A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking. In fact, customized <a href="http://aka.ms/customvoice">Text-to-speech</a> and <a href="http://aka.ms/customtranslator">Speech-Translation</a> are available as well.<br/><br/>Our Speech SDK is available on multiple platforms in several programming languages -- taking care of live microphone management, real-time streaming, or batch-based file communication depending on your applications needs.
 sections:
-- title: 10-Minute Quickstarts - New APIs
+- title: 10-Minute Quickstarts - New SDKs
   items:
   - type: paragraph
     text: 'Learn how to install and use the Speeck SDK with our quickstarts:'
@@ -74,14 +74,14 @@ sections:
     - text: 'Transcribe streaming speech in real-time, with partial results, for dictation'
     - text: 'Determine what users want to do based on a spoken natural-language request'        
   - type: paragraph
-    text: 'The Speech SDK supports interactive speech transcription with real-time continuous recognition and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.'
+    text: The Speech SDK supports interactive speech transcription with real-time continuous <a href="https://azure.microsoft.com/en-us/services/cognitive-services/speech-to-text>Speech-to-Text</a> and interim results. It also supports end-of-speech detection, optional automatic capitalization and punctuation, profanity masking, and text normalization.
   - type: paragraph
     text: A key differentiator of Microsoft Speech Service is the ability to customize <a href="http://aka.ms/customspeech">Speech-to-Text</a> acoustic and language models to accommodate specialized vocabulary, noisy environments, and different ways of speaking.
 
 - title: Speech-Translation
   items:
   - type: paragraph
-    text: The Speech SDK can also be used for <b>Speech-Translation</b> as well.  With streaming <b>Speech-Translation</b> via the Speech SDK, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
+    text: The Speech SDK can also be used for <a href="https://azure.microsoft.com/en-us/services/cognitive-services/speech-translation">Speech-Translation</a> as well.  With streaming <b>Speech-Translation</b> via the Speech SDK, the service returns interim results that can be displayed to the user to indicate translation progress. The results may be returned either as text or as voice.
   - type: paragraph
     text: Use cases for <b>Speech-Translation</b> via the Speech SDK include the following&#58;
   - type: list
@@ -95,7 +95,7 @@ sections:
 - title: Text-to-Speech
   items:
   - type: paragraph
-    text: Currently <b>Text-to-Speech</b> (TTS), or speech synthesis, is supported via a REST API that converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many languages.
+    text: Currently <a href="https://azure.microsoft.com/en-us/services/cognitive-services/text-to-speech">Text-to-Speech</a> (TTS), or speech synthesis, is supported via a REST API that converts plain text to natural-sounding speech, delivered to your application in an audio file. Multiple voices, varying in gender or accent, are available for many languages.
   - type: paragraph
     text: Our Speech SDK provides access to Speech-to-Text and Speech-Translation. Text-to-Speech employs REST POST calls over HTTP.
   - type: paragraph
@@ -110,6 +110,13 @@ sections:
     - text: Speech output as an alternative screen output for visually-impaired users
     - text: Voice prompting for in-car applications such as navigation
     - text: Conversational user interfaces in concert with the <b>Speech-to-Text</b> API
+
+- title: Speech Devices SDK
+  items:
+  - type: paragraph
+    text: With the introduction of the unified Speech Service, Microsoft and its partners now offer an integrated hardware/software platform optimized for developing speech-enabled devices&#58; the <b>Speech Devices SDK</b>. This SDK is suitable for developing smart speech devices for all types of applications.
+  - type: paragraph
+    text: The <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> allows you to build your own ambient devices with a customized wake wordΓÇöso the cue that triggers audio capture is unique to your brand. It also provides superior audio processing from multi-channel sources for more accurate speech recognition, including noise suppression, far-field voice, and beamforming.
 
 - title: Older SDKs
   items:
