@@ -53,19 +53,19 @@ To access this report through the Reporting API, you must have:
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API
-You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. You must use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (ie: $filter).
+You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. You must use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (for exampl, $filter).
 
 The focus of this article is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## API Endpoint
+
 You can access this API using the following URI:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-There is no limit on the number of records returned by the Azure AD audit API (using OData pagination).
-For retention limits on reporting data, check out [Reporting Retention Policies](active-directory-reporting-retention.md).
+There is no limit for the number of records that are returned by the Azure AD audit API (using OData pagination). For retention limits of the reporting data, see [Reporting Retention Policies](active-directory-reporting-retention.md).
 
-This call returns the data in batches. Each batch has a maximum of 1000 records. To get the next batch of records, use the **Next** link. Get the skip token information from the first set of returned records. The skip token will be at the end of the result set.  
+The call returns the data in batches. Each batch has a maximum of 1000 records. To get the next batch of records, use the **Next** link. Get the skip token information from the first set of returned records. The skip token will be at the end of the result set.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
