@@ -53,7 +53,7 @@ To access this report through the Reporting API, you must have:
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API
-You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. You must use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (for exampl, $filter).
+You can either access this API through the [Graph Explorer](https://graphexplorer2.cloudapp.net) or programmatically using, for example, PowerShell. Use the backtick (aka: grave accent) character to “escape” the $ character to ensure that PowerShell can interpret the OData filter syntax used in AAD Graph REST calls. The backtick character serves as [PowerShell’s escape character](https://technet.microsoft.com/library/hh847755.aspx), allowing PowerShell to do a literal interpretation of the $ character, and avoid confusing it as a PowerShell variable name (for example, $filter).
 
 The focus of this article is on the Graph Explorer. For a PowerShell example, see this [PowerShell script](active-directory-reporting-api-audit-samples.md#powershell-script).
 
