@@ -51,7 +51,7 @@
     href: tutorial-mean-stack.md
   - name: 16 - Secure web server with SSL
     href: tutorial-secure-web-server.md
-  - name: 17 - Deploy Packer image and apps to a scale set
+  - name: Deploy a Packer image and apps to a scale set
     href: https://docs.microsoft.com/learn/deploy-custom-vmss-app/index
 - name: Samples
   items:
