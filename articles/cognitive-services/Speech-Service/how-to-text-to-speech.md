@@ -60,7 +60,7 @@ Header|Values|Comments
 A sample request is shown below.
 
 ```
-POST /synthesize
+POST /cognitiveservices/v1
 HTTP/1.1
 Host: westus.tts.speech.microsoft.com
 X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm

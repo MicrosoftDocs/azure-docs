@@ -7,8 +7,8 @@ author: asmalser
 manager: mtillman
 editor: ''
 
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -43,12 +43,12 @@ The **Provisioning** pane begins with a **Mode** menu, which shows what provisio
 Selecting the **Automatic** option displays a screen that is divided in four sections:
 
 ### Admin Credentials
-This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md).
+This section is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md).
 
 Selecting the **Test Connection** button allows you to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
 ### Mappings
-This is where admins can view and edit what user attributes flow between Azure AD and the target application, when user accounts are provisioned or updated.
+This section is where admins can view and edit what user attributes flow between Azure AD and the target application, when user accounts are provisioned or updated.
 
 There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized.
 
@@ -57,13 +57,13 @@ There is a preconfigured set of mappings between Azure AD user objects and each 
 Supported customizations include:
 
 * Enabling and disabling mappings for specific objects, such as the Azure AD user object to the SaaS app's user object.
-* Editing which attributes flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
-* Filter the provisioning actions that Azure AD performs on the targeted application. Instead of having Azure AD fully-synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD only updates existing user accounts in an application and does not create new ones. By only selecting **Create**, Azure only creates new user accounts but does not update existing ones. This feature allows admins to create different mappings for account creation and update workflows.
+* Editing the attributes that flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Filter the provisioning actions that Azure AD performs on the targeted application. Instead of having Azure AD fully synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD only updates existing user accounts in an application and does not create new ones. By only selecting **Create**, Azure only creates new user accounts but does not update existing ones. This feature allows admins to create different mappings for account creation and update workflows.
 
 ### Settings
 This section allows admins to start and stop the Azure AD provisioning service for the selected application, as well as optionally clear the provisioning cache and restart the service.
 
-If provisioning is being enabled for the first time for an application, turn on the service by changing the **Provisioning Status** to **On**. This causes the Azure AD provisioning service to perform an initial sync, where it reads the users assigned in the **Users and groups** section, queries the target application for them, and then performs the provisioning actions defined in the Azure AD **Mappings** section. During this process, the provisioning service stores cached data about what user accounts it is managing, so non-managed accounts inside the target applications that were never in scope for assignment aren't affected by de-provisioning operations. After the initial sync, the provisioning service automatically synchronizes user and group objects on a ten minute interval.
+If provisioning is being enabled for the first time for an application, turn on the service by changing the **Provisioning Status** to **On**. This change causes the Azure AD provisioning service to perform an initial sync, where it reads the users assigned in the **Users and groups** section, queries the target application for them, and then performs the provisioning actions defined in the Azure AD **Mappings** section. During this process, the provisioning service stores cached data about what user accounts it is managing, so non-managed accounts inside the target applications that were never in scope for assignment aren't affected by de-provisioning operations. After the initial sync, the provisioning service automatically synchronizes user and group objects on a ten-minute interval.
 
 Changing the **Provisioning Status** to **Off** simply pauses the provisioning service. In this state, Azure does not create, update, or remove any user or group objects in the app. Changing the state back to on causes the service to pick up where it left off.
 
@@ -72,11 +72,11 @@ Selecting the **Clear current state and restart synchronization** checkbox and s
 ### Synchronization Details
 This section provides addition details about the operation of the provisioning service, including the first and last times the provisioning service ran against the application, and how many user and group objects are being managed.
 
-Links are provided to the **Provisioning activity report**, which provides a log of all users and groups created, updated, and removed between Azure AD and the target application, and to the **Provisioning error report** which provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed. 
+Links are provided to the **Provisioning activity report** that provides a log of all users and groups created, updated, and removed between Azure AD and the target application, and to the **Provisioning error report** that provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed. 
 
 ## Feedback
 
-We hope you like your Azure AD experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and do use your guidance to shape and define what we build next.
+Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  The engineering team is excited about building cool new stuff every day, and they use your guidance to shape and define what to build next.
 
 
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
