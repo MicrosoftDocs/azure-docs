@@ -26,8 +26,6 @@
 ### [What version is right](../active-directory/authentication/concept-mfa-whichversion.md)
 ### [License your users](../active-directory/authentication/concept-mfa-licensing.md)
 ### [Create an Auth Provider](../active-directory/authentication/concept-mfa-authprovider.md)
-
-
 ## [Security guidance](../active-directory/authentication/multi-factor-authentication-security-best-practices.md)
 ## [MFA for Office 365](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 
