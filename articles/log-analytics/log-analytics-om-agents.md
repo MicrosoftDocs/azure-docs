@@ -196,9 +196,9 @@ Management packs for the solutions you have enabled that integrate with Operatio
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-7. In the OMS portal, click the **Settings** tile.
-8. Select **Connected Sources**.
-9. In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
+1. Open the **Advanced settings** menu for the Log Analytics workspace in the Azure portal.
+1. Select **Connected Sources** and then **System Center**.
+1. You should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
    
     > [!NOTE]
     > The **Remove** link will not be available until after 14 days if there is no activity detected from the connected management group.  
