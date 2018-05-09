@@ -19,7 +19,7 @@ ms.custom:
 # Consumption model
 
 Online Routing provides a set of parameters for a detailed description of vehicle-specific Consumption Model.
-Depending on the value of **vehicleEngineType**, two principal Consumption Models are supported : _Combustion_ and _Electric_. Specifying parameters that belong to different models in the same request is an error.
+Depending on the value of **vehicleEngineType**, two principal Consumption Models are supported: _Combustion_ and _Electric_. Specifying parameters that belong to different models in the same request is an error.
 Consumption Model cannot be used with **travelMode** values _bicycle_ and _pedestrian_.
 
 ## Parameter Constraints for Consumption Model
@@ -34,12 +34,12 @@ In both Consumption Models, explicitly specifying some parameters requires speci
 * If \***Efficiency** parameters are specified by the user, then **vehicleWeight** must also be specified. When **vehicleEngineType** is _combustion_, **fuelEnergyDensityInMJoulesPerLiter** must be specified as well.
 * **maxChargeInkWh** and **currentChargeInkWh** must always be specified as a pair (i.e. both or none).
 
-Note that if only **constantSpeedConsumption** is specified, no other consumption aspects are taken into account, i.e. slopes and vehicle acceleration are not considered for consumption computations.
+_Note_: If only **constantSpeedConsumption** is specified, no other consumption aspects like slopes and vehicle acceleration are taken into account for consumption computations.
 
 ## The Combustion Consumption Model
 
 The Combustion Consumption Model is used when **vehicleEngineType** is set to _combustion_.
-The list of parameters that belong to this model are below. Please refer to the Parameters section for detailed description.
+The list of parameters that belong to this model are below. Refer to the Parameters section for detailed description.
 
 * constantSpeedConsumptionInLitersPerHundredkm
 * vehicleWeight
