@@ -45,7 +45,7 @@
       href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
-    - name: 1- Deploy a .NET app using Docker Compose
+    - name: 1- Deploy a .NET application
       href: service-fabric-host-app-in-a-container.md
     - name: 2- Monitor your container
       href: service-fabric-tutorial-monitoring-wincontainers.md

@@ -22,9 +22,9 @@ The regional **Text to Speech** endpoints are shown here. Use the one appropriat
 
 Region|	Endpoint
 -|-
-West US|	`https://westus.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-East Asia|	`https://eastasia.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-North Europe|	`https://northeurope.tts.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
+West US| `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
+East Asia| `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
+North Europe| `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
 
 > [!NOTE]
 > If you have created a custom voice font, use the endpoint you created for it instead of the ones above.
@@ -51,8 +51,8 @@ Header|Values|Comments
 -|-|-
 |`Content-Type` | `application/ssml+xml` | The input text format.
 |`X-Microsoft-OutputFormat`|	 `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | The output audio format.
-|User-Agent	|Application name | The application name is required and must be fewer than 255 characters.
-| Ocp-Apim-Subscription-Key or Authorization	| Subscription key or authorization token.
+|`User-Agent`	|Application name | The application name is required and must be fewer than 255 characters.
+| `Ocp-Apim-Subscription-Key` or `Authorization`	| Subscription key or authorization token.
 
 > [!NOTE]
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats. 
@@ -60,7 +60,7 @@ Header|Values|Comments
 A sample request is shown below.
 
 ```
-POST /speech/recognition/conversation/cognitiveservices/v1
+POST /cognitiveservices/v1
 HTTP/1.1
 Host: westus.tts.speech.microsoft.com
 X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm

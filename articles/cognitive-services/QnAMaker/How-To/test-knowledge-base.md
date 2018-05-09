@@ -1,6 +1,5 @@
 ---
-title: How to test a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: How to test a knowledge base - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: Test your knowledge base before publishing it.
 services: cognitive-services
 author: nstulasi
@@ -18,13 +17,13 @@ Testing your QnA Maker knowledge base is an important part of an iterative proce
 ## Test answer matching
 
 1.  Access your knowledge base by selecting its name on the **My knowledge bases** page.
-2.  To access the Test slide-out panel, select **Test** in your application's top panel
+2.  To access the Test slide-out panel, select **Test** in your application's top panel.
 
     ![Access Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
 3.  Enter a query in the text box and select Enter.
 
-4.  The best-matched answer from the knowledge base is returned as the response
+4.  The best-matched answer from the knowledge base is returned as the response.
 
 ## Clear test panel
 

@@ -1,5 +1,5 @@
 ---
-title: Quickstart on creating a KB - Microsoft Cognitive Services | Microsoft Docs
+title: Quickstart on creating a KB - QnA Maker - Azure Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: a step-by-step tutorial on creating a knowledge base in QnA Maker
 services: cognitive-services
@@ -23,7 +23,7 @@ A QnA Maker knowledge base can be created from pre-existing semi-structured cont
 
 ## Create a QnA Maker Knowledge Base
 
-1. Log in to QnAMaker.ai with your Azure credentials
+1. Log in to QnAMaker.ai with your Azure credentials.
 
 2. On the QnA Maker website, select **Create new knowledge base**.
 
@@ -35,7 +35,7 @@ A QnA Maker knowledge base can be created from pre-existing semi-structured cont
 
     ![Select a QnA service KB](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. Name your KB "My Sample QnA KB"
+5. Name your KB "My Sample QnA KB".
 
 6. Next, to add content to your KB, we will select three types of data sources. Add the 
 [BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions) URL in the URL box.
@@ -63,7 +63,7 @@ Type in 'hi there' in the box and press enter.
 
 14. Dismiss the Test pop-out by clicking on 'Test' again. Open the Publish tab.
 
-14. Click on **Publish**
+14. Click on **Publish**.
 
 15. The QnA Maker service has now been successfully published. The endpoint can be used in your application or bot code.
 

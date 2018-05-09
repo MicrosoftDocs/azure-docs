@@ -1,5 +1,5 @@
 ---
-title: Python Quickstart for Microsoft QnA Maker API (V4) - Microsoft Cognitive Services | Microsoft Docs
+title: Python Quickstart for Microsoft QnA Maker API (V4) - Azure Cognitive Services | Microsoft Docs
 description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -8,7 +8,7 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 05/07/2018
 ms.author: v-jaswel
 
 ---
@@ -316,7 +316,7 @@ You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 <a name="Publish"></a>
 
-## Publish knowledge base.
+## Publish knowledge base
 
 The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
 
@@ -383,7 +383,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="Replace"></a>
 
-## Replace knowledge base.
+## Replace knowledge base
 
 The following code replaces the contents of the specified knowledge base, using the [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) method.
 
@@ -471,7 +471,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="GetQnA"></a>
 
-## Download the contents of a knowledge base.
+## Download the contents of a knowledge base
 
 The following code downloads the contents of the specified knowledge base, using the [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) method.
 
@@ -560,7 +560,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="GetAnswers"></a>
 
-## Get answers to a question using a knowledge base.
+## Get answers to a question using a knowledge base
 
 The following code gets answers to a question using the specified knowledge base, using the **Generate answers** method.
 
@@ -648,7 +648,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 <a name="GetKB"></a>
 
-## Get information about a knowledge base.
+## Get information about a knowledge base
 
 The following code gets information about the specified knowledge base, using the [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) method.
 

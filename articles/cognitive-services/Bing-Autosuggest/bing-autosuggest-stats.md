@@ -12,7 +12,6 @@ ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ---
-
 # How to get analytics for Bing Autosuggest API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

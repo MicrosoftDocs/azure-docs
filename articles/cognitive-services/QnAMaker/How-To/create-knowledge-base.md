@@ -1,6 +1,5 @@
 ---
-title: How to create a knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: How to create a knowledge base - QnA Maker - Azure Cognitive Services | Microsoft Docs
 description: How to create a knowledge base 
 services: cognitive-services
 author: nstulasi
@@ -14,15 +13,15 @@ ms.author: saneppal
 # Create a knowledge base
 QnA Maker makes it very simple to onboard your existing data sources to create a knowledge base. You can create a new QnA Maker knowledge base from FAQ pages, products manuals, structured documents or add them editorially.
 
-1. To get started, sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**
+1. To get started, sign into to the [QnA Maker portal](https://qnamaker.ai) with your azure credentials and click on **Create new service**.
 
     ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
 
-2. If you have not already created a QnA Maker service, select **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base
+2. If you have not already created a QnA Maker service, select **Create a QnA service**. Otherwise, choose a QnA Maker service from the drop-downs in Step 2. Select the QnA Maker service that will host the Knowledge Base.
 
     ![Setup QnA service](../media/qnamaker-how-to-create-kb/setup-qna-resource.png)
 
-3. Enter the following information in order to create the knowledge base
+3. Enter the following information in order to create the knowledge base.
 
     ![Set data sources](../media/qnamaker-how-to-create-kb/set-data-sources.png)
 
@@ -32,7 +31,7 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 ) to see how many documents you can add.
     - If you want to manually add QnAs, you can skip linking files.
 
-4. Select **Create**
+4. Select **Create**.
 
     ![Create KB](../media/qnamaker-how-to-create-kb/create-kb.png)
 
@@ -40,7 +39,7 @@ QnA Maker makes it very simple to onboard your existing data sources to create a
 
     ![Extraction](../media/qnamaker-how-to-create-kb/hang-tight-extraction.png)
 
-6. If your Knowledge Base has been successfully created, you will be redirected to the **Knowledge base** page
+6. If your Knowledge Base has been successfully created, you will be redirected to the **Knowledge base** page.
 
 ## Next steps
 

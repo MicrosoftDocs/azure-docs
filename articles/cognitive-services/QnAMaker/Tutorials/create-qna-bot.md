@@ -1,7 +1,5 @@
 ---
-title: Create a QnA bot with Azure Bot Service - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: a step-by-step tutorial on creating a QnA bot
+title: Create a QnA bot with Azure Bot Service - Azure Cognitive Services | Microsoft Docs
 services: cognitive-services
 author: nstulasi
 manager: sangitap
@@ -13,7 +11,7 @@ ms.author: saneppal
 ---
 
 # Create a QnA Bot with Azure Bot Service
-This tutorial walks you through building a QnA bot with Azure Bot service on the Azure portal
+This tutorial walks you through building a QnA bot with Azure Bot service on the Azure portal.
 
 ## Prerequisite
 Before you build, follow the steps in [Create a knowledge base]() to create a QnA Maker service with questions and answers.
@@ -81,4 +79,4 @@ Your QnA Bot now answers from your knowledge base.
 ## See also
 
 - [Manage your knowledge base](https://qnamaker.ai)
-- [Enable your bot in different channels](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-channels)
+- [Enable your bot in different channels](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

@@ -24,7 +24,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
 ## Create a Visual Studio project
 
-1. In Visual Studio 2017, create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** and then select **Console App (.NET Framework)**. For the project name, enter *CarbonHelloWorld*.
+1. In Visual Studio 2017, create a new Visual C# Console App. In the **New Project** dialog box, from the left pane, expand **Installed** and then select **Console App (.NET Framework)**. For the project name, enter *CsharpHelloSpeech*.
 
     ![Create Visual C# Console App (.NET Framework)](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Create Visual C# Console App")
 
@@ -32,7 +32,7 @@ In this article, you learn how to create a C# console application in Windows usi
 
     ![Right-click Manage NuGet Packages for Solution](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "Manage NuGet Packages for Solution")
 
-3. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for and install the `Microsoft.CognitiveServices.Speech` package and install it into the **CarbonHelloWorld** project.
+3. In the upper-right corner, in the **Package Source** field, select **Nuget.org**. Search for and install the `Microsoft.CognitiveServices.Speech` package and install it into the **CsharpHelloSpeech** project.
 
     ![Install Microsoft.CognitiveServices.Speech NuGet Package](media/sdk/speechsdk-08-vs-cs-nuget-install.png "Install Nuget package")
 
@@ -58,37 +58,9 @@ In this section, you add a new platform to the configuration that matches your p
 
 ## Add the sample code
 
-1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key with one that you obtained for the service.
+1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
 
-    ```csharp
-    static async Task RecoFromMicrophoneAsync()
-    {
-        var subscriptionKey = "<Please replace with your subscription key>";
-    
-        var factory = SpeechFactory.FromSubscription(subscriptionKey, "");
-    
-        using (var recognizer = factory.CreateSpeechRecognizer())
-        {
-            Console.WriteLine("Say something...");
-            var result = await recognizer.RecognizeAsync();
-    
-            if (result.Reason == RecognitionStatus.Success)
-            {
-                Console.WriteLine($"We recognized: {result.RecognizedText}");
-            }
-            else
-            {
-                Console.WriteLine($"There was an error, reason {result.Reason} - {result.RecognizedText}");
-            }
-            Console.WriteLine("Please press a key to continue.");
-            Console.ReadLine();
-        }
-    }
-    static void Main(string[] args)
-    {
-        RecoFromMicrophoneAsync().Wait();
-    }
-    ```
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
@@ -96,9 +68,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 3. Visual Studio's IntelliSense highlights the references to the Speech SDK's classes that could not be resolved. To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
 
-    ```csharp
-    using Microsoft.CognitiveServices.Speech.Recognition;
-    ```
+    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#usingstatement)]
 
     ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png "Resolve IntelliSense issues")
 

@@ -1,6 +1,5 @@
 ---
-title: QnA Maker Limits - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: QnA Maker Limits - Azure Cognitive Services | Microsoft Docs
 description: QnA Maker Limits
 services: cognitive-services
 author: nstulasi
@@ -8,12 +7,12 @@ manager: sangitap
 ms.service: cognitive-services
 ms.component: QnAMaker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 05/07/2018
 ms.author: saneppal
 ---
 
 # QnA Maker Limits
-Comprehensive list of limits across QnA Maker
+Comprehensive list of limits across QnA Maker.
 
 ## Knowledge Bases
 
