@@ -27,9 +27,9 @@ turn on pagination for specific actions:
 * <a href="https://docs.microsoft.com/connectors/db2/" target="_blank">DB2</a>
 * <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365 CRM Online</a>
 * <a href="https://docs.microsoft.com/connectors/excel/" target="_blank">Excel</a>
+* <a href="https://docs.microsoft.com/connectors/oracle/" target="_blank">Oracle Database</a>
 * <a href="https://docs.microsoft.com/connectors/sharepointonline/" target="_blank">SharePoint</a>
 * <a href="https://docs.microsoft.com/connectors/sql/" target="_blank">SQL Server</a> 
-* <a href="https://docs.microsoft.com/connectors/oracle/" target="_blank">Oracle Database</a>
 
 Here is an example for the SQL Server connector's **Get Rows** action:
 
