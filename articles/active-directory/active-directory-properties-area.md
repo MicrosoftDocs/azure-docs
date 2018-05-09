@@ -48,5 +48,5 @@ We strongly recommend you add both your global privacy contact and your organiza
 4.	Select **Save**.
 
 ## Next steps
-
-- [Info about Data Subject Requests (DSRs)](https://servicetrust.microsoft.com/ViewPage/GDPRDSR)
+- [Azure Active Directory B2B collaboration invitation redemption](https://aka.ms/b2bredemption)
+- [Add or change profile information for a user in Azure Active Directory](/active-directory-users-profile-azure-portal.md)
