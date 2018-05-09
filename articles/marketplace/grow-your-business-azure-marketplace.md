@@ -51,7 +51,6 @@ Your listing in the Marketplace can sometimes be your first interaction with a p
 - **Provide an experience:** Customers like to try before they buy. Leads generated from demos, trials, and test drives result in more customer deals. The stronger the trial experience you can provide, the stronger the lead you'll generate. We've found that test drive leads result (on average) in 40 percent closed deals.
 - **Help your audience learn:** Though we encourage you to keep your overview space clear and simple, there's plenty of room to point to additional resources about your product. Use this space to deliver the concise message about what your product does and how it's a fit for your customers' needs. Don't be afraid to direct them to additional materials to learn more. It's a bonus if these learning materials or links can track into your content marketing strategy, so you can be consistently nurturing leads.
 - **Take advantage of ratings and reviews:** Let your customers sell your product for you. Customer advocacy can be the biggest driver of sales and is often where buyers go before they learn more about your product. Having multiple strong reviews also helps bump up your offer in search results and into key featured areas.
-- **Review the Marketplace Content Validation Criteria** At the bottom of this guide, you can read through the validation criteria tha the marketplace content review team will use to assess your offer.These criteria are based on best practices from partner listings, and will help you maximize customer engagement. 
 
 ### Build a great landing page
 A landing page on your company website is a gateway from your demand generation activities to your listing in the Azure Marketplace. 
@@ -231,23 +230,3 @@ The best practice for the information in these reports is to reconcile it with y
 The Analytics section of Cloud Partner Portal Insights provides a rich dashboard based on Power BI. You can use this dashboard to see traffic on your app detail page. New features for this dashboard are rolled out in an ongoing way. 
 
 Also in the Cloud Partner Portal is documentation on Microsoft Campaigns. You can use this mechanism to set up campaigns and track them in the portal.
-
-## Content Validation Checklist
-
-When your offer is reviewed by the marketplace content validation team, it must meet the base criteria in order to be published. To optimize your offer for customer engagement, consider also the recommended best practices below. 
-
-
-|Listing Element  |Base Requirements  |Optimal Requirements  |
-|---------|---------|---------|
-|Lead Destination    |  Configure a lead destination for your offer, so that you can receive the leads from the Marketplace       |  No optimal requirements       |
-|Offer Title     |   Descriptive of solution offering and matches language you use on your own website      |    Contains key search keywords     |
-|Logo    |         |         |
-|Offer Description    |         |         |
-|Categories and Industries    |         |         |
-|Images     |         |         |
-|Videos     |         |         |
-|Call to Action |     |         |
-|Solution Pricing|    |         |
-|Learn More  |        |         |
-|Solution Support and Help |   |    |
-|Privacy Policy and Terms of Use |  |  |

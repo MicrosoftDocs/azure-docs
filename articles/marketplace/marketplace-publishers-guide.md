@@ -1,6 +1,6 @@
 ---
 title: Azure Marketplace and AppSource publisher guide
-description: Step by step guide and publishing checklists for new publishers to Azure Marketplace
+description: Overview of what Azure Marketplace and AppSource are for app and service publishers
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 05/09/2018
 ms.author: ellacroi
 
 ---
