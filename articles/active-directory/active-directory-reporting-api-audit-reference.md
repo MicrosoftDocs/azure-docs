@@ -48,7 +48,7 @@ For:
 * Any app that has authorization to access the API (app authorization can be set up only based on Global Admin’s permission)
 
 ## Prerequisites
-In order to access this report through the Reporting API, you must have:
+To access this report through the Reporting API, you must have:
 
 * An [Azure Active Directory Free or better edition](active-directory-editions.md)
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
@@ -76,14 +76,14 @@ To get the next batch of records, use the Next link. Get the skiptoken informati
 
 ## Supported filters
 
-You can narrow down the number of records that are returned by an API call in form of a filter.  
+You can narrow down the number of records that are returned by an API call with a filter.  
 For sign-in API-related data, the following filters are supported:
 
 * **$top=\<number of records to be returned\>** - to limit the number of returned records. This is an expensive operation. Don't use this filter if you want to return thousands of objects.     
 * **$filter=\<your filter statement\>** - to specify, on the basis of supported filter fields, the type of records you care about
 
 ## Supported filter fields and operators
-To specify the type of records you care about, you can build a filter statement that can contain either one or a combination of the following filter fields:
+To specify the type of records you care about, you can build a filter statement with either one or a combination of the following filter fields:
 
 * [activityDate](#activitydate)  - defines a date or date range
 * [category](#category) - defines the category you want to filter on.
@@ -241,6 +241,8 @@ Case-insensitive
 
 - - -
 ## Next Steps
-* Do you want to see examples for filtered system activities? Check out the [Azure Active Directory audit API samples](active-directory-reporting-api-audit-samples.md).
-* Do you want to know more about the Azure AD reporting API? See [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
+
+- Do you want to see examples for filtered system activities? Check out the [Azure Active Directory audit API samples](active-directory-reporting-api-audit-samples.md).
+
+- Do you want to know more about the Azure AD reporting API? See [Getting started with the Azure Active Directory Reporting API](active-directory-reporting-api-getting-started.md).
 
