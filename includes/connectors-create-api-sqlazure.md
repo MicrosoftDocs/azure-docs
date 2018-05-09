@@ -47,7 +47,7 @@ you're prompted to create the connection with these required details:
    | Username | Yes | <*my-sql-username*> | The username for accessing your database <br><p>- Azure SQL Database: Find this value in the Azure portal under the SQL database properties or in your connection string: <p>"User ID=<*yourUserName*>" <p>- SQL Server: Find this value in your connection string: <p>"UserId=<*yourUserName*>" |
    | Password | Yes | <*my-sql-password*> | The password for accessing your database  <br><p>- Azure SQL Database: Find this value in the Azure portal under the SQL database properties or in your connection string: <p>"Password=<*yourPassword*>" <p>- SQL Server: Find this value in your connection string: <p>"Password=<*yourPassword*>" | 
    | Connect via on-premise gateway | Only for SQL Server | | Select this option when connecting to SQL Server. | 
-   | Authentication Type | No | Windows | Select the authentication type used by your SQL server. | 
+   | Authentication Type | No | Windows or Basic | Select the authentication type used by your SQL server. | 
    | Gateways | Only for SQL Server | <*my-data-gateway*> | Select your on-premises data gateway. If your gateway doesn't appear in the list, check that you correctly [set up your gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). | 
    ||||| 
 
