@@ -28,7 +28,7 @@ There are many ways and different technologies that can be used to create a pool
 * Pool for Batch Processing
 * Pool for interactive VMs
 
-## Batch Processing Pool
+## Batch processing Pool
 If you want to set up a pool of DSVM mainly to run jobs in a batch offline, then you can use [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) service or [Azure Batch](https://docs.microsoft.com/azure/batch/). 
 
 ### Azure Batch AI
@@ -36,7 +36,7 @@ The Ubuntu edition of the DSVM is supported as one of the images in Azure Batch 
 
 Once your Batch AI cluster is created, you can use the same CLI or Python SDK to submit jobs to be run. You only pay for the time that is used to run the batch jobs. 
 
-#### More Information
+#### More information
 * Step-by-step walkthrough of using [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) for managing Batch AI
 * Step-by-step walkthrough of using  [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) for managing Batch AI
 * [Batch AI recipes](https://github.com/Azure/BatchAI) are available demonstrating how to use various AI/deep learning frameworks with Batch AI.
@@ -47,9 +47,9 @@ A pool of interactive DSVMs that are shared by the whole AI / data science team 
 
 The technology used to create an interactive VM pool is the [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) (VMSS), which  lets you create and manage a group of identical, load balanced, and autoscaling VMs. The user logs into the main pool's IP or DNS address. The Scale set automatically routes the session to an available DSVM in the Scale Set. Since user would like similar environment irrespective of the VM they are logging into, all instances of the VM in the Scale Set mounts a shared network drive like an Azure Files or an NFS share. The user's shared workspace is  normally kept on the shared file store that is mounted on each of the instances. 
 
-A sample Azure Resource Manager (ARM) template that creates a VM Scale Set with Ubuntu DSVMs instances can be found on the [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). A sample of the ARM template [parameter file](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) is also provided in the same location. 
+A sample Azure Resource Manager template that creates a VM Scale Set with Ubuntu DSVMs instances can be found on the [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). A sample of the ARM template [parameter file](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) is also provided in the same location. 
 
-You can create the VM scale set from the ARM template by specifying suitable values for the parameter file using Azure CLI. 
+You can create the VM scale set from the Azure resource manager template by specifying suitable values for the parameter file using Azure CLI. 
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
@@ -63,7 +63,7 @@ The [script that mounts the Azure Files](https://raw.githubusercontent.com/Azure
 
 Azure VM Scale sets support autoscaling where you can set rules on when to create additional instances and under what circumstances to scale down instances including bringing it down to zero instances to save on cloud hardware usage costs when the VMs are not used at all. The documentation pages of VM scale sets provide detailed steps for [auto scaling](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
-## Next Steps
+## Next steps
 
 * [Set up Common Identity](dsvm-common-identity.md)
 * [Securely store credentials to access cloud resources](dsvm-secure-access-keys.md)
