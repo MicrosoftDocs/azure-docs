@@ -21,9 +21,9 @@ ms.author: bryanla
 
 # Tutorial: Explore the Time Series Insights JavaScript client library
 
-To help developers query and visualize data stored in Time Series Insights, we’ve developed a JavaScript D3-based control library that makes this work easy. Using a sample web application, we've designed at library that makes it easy for developers to understand and get started using these controls. 
+To help developers query and visualize data stored in Time Series Insights (TSI), we’ve developed a JavaScript D3-based control library that makes this work easy. Using a sample web application, this tutorial will guide you through an exploration of the TSI JavaScript client library, and the related programming model. 
 
-This tutorial guides you through an exploration of the Time Series Insights (TSI) JavaScript client library, and the related programming model. The topics discussed provide you with opportunities to experiment, gain a deeper understanding of how to access TSI data, and use chart controls to render and visualize data. The goal is to provide you with enough details, that you can use the library in your own web application.
+The topics discussed provide you with opportunities to experiment, gain a deeper understanding of how to access TSI data, and use chart controls to render and visualize data. The goal is to provide you with enough details, that you can use the library in your own web application.
 
 In this tutorial, you learn about:
 
@@ -100,7 +100,7 @@ As mentioned earlier, this sample is a Single-Page Application and it uses the O
 
 1. Using ADAL for authentication requires the client application to register itself in the Azure Active Directory (Azure AD) application registry. As an SPA, this application is registered to use the "implicit" OAuth 2.0 authorization grant flow. Correspondingly, the application specifies some of the registration properties at runtime, such as the client ID GUID (`clientId`) and redirect URI (`postLogoutRedirectUri`), to participate in the flow.
 
-2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://api.timeseries.azure.com/), also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property contained in the application's Azure AD registration. Once ADAL returns the access token to the application, it is passed as a "bearer token" when accessing the TSI service APIs. 
+2. Later, the application requests an "access token" from Azure AD. The access token is issued for a finite set of permissions, for a specific service/API identifier (https://insights.timeseries.azure.com), also known as the token "audience." The token permissions are issued on behalf of the signed-in user. The identifier for the service/API is yet another property contained in the application's Azure AD registration. Once ADAL returns the access token to the application, it is passed as a "bearer token" when accessing the TSI service APIs. 
 
    [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
 
