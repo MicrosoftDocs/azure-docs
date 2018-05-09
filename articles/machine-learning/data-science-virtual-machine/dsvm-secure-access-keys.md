@@ -29,7 +29,7 @@ The MSI and Key Vault documentation is a comprehensive resource for in-depth inf
 
 ## Walkthrough of using MSI to securely access Azure resources
 
-## 1. Create MSI on the DSVM. 
+## 1. Create MSI on the DSVM 
 
 
 ```
@@ -42,7 +42,7 @@ az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 
 
-## 2. Assign key vault access permission to VM principal
+## 2. Assign Keyvault access permission to VM principal
 ```
 # Pre-requisites: You have already create an empty Key Vault resource on Azure using Portal or Azure CLI 
 
@@ -50,7 +50,7 @@ az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 az keyvault set-policy --object-id <PrincipalID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
 ```
 
-## 3. Access a secret in the KeyVault from the DSVM
+## 3. Access a secret in the Keyvault from the DSVM
 
 ```
 # Get the access token for VM
@@ -61,7 +61,7 @@ token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access
 curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
-## 4. Access Storage Keys from the DSVM
+## 4. Access storage keys from the DSVM
 
 ```
 # Pre-requisites: You have granted your VM's MSI access to use storage account access keys based on instruction from this article:https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage that describes this process in more detail.
@@ -100,7 +100,7 @@ key_vault_uri,  # Your KeyVault URL
 print("My secret value is {}".format(secret.value))
 ```
 
-## 6. Azure CLI Access from VM
+## 6. Azure CLI access from VM
 
 ```
 # With a Managed Service Identity setup on the DSVM, users on the DSVM can execute Azure CLI to perform the authorized functions. Here are commands to access Key Vault from a Azure CLI without having to login to an Azure account. 
