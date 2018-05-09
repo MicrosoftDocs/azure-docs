@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: 
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: bryanla
 # Customer intent: As a developer, I want learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
@@ -182,11 +182,11 @@ First let's look at the code behind some standard chart controls demonstrated in
 
 Recall from step #3 in the [Page source and structure section](#page-source-and-structure), chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts being populated are all under the "Multiple Chart Types From the Same Data" title `<div>`, bound to the three `<div>` elements beneath it:
 
-[!code-javascript[code-sample1-line-bar-pie](source/index.html?range=60-74&highlight=1,5,9,13)]
+[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/index.html?range=60-74&highlight=1,5,9,13)]
 
 The following section of JavaScript code uses the pattern outlined earlier, to build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Note the three types used from the `tsiClient.ux` namespace, `LineChart`, `BarChart`, `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data, `transformedResult`:
 
-[!code-javascript[code-sample2-line-bar-pie](source/index.html?range=236-257&highlight=13-14,16-17,19-20)]
+[!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/index.html?range=236-257&highlight=13-14,16-17,19-20)]
 
 The three charts appear as follows when rendered:
 
@@ -214,7 +214,7 @@ Here you look at the code behind the section of HTML under the `// Example 10` c
 
 3. Finally the line chart is rendered, passing the two structures in with the chart options parameters: `events:` and `states:`. Note the other option parameters, for specifying a `tooltip:`, `theme:` or `grid:`. 
 
-[!code-javascript[code-sample-states-events](source/index.html?range=332-384&highlight=5,26,51)]
+[!code-javascript[code-sample-states-events](~/samples-javascript/pages/index.html?range=332-384&highlight=5,26,51)]
 
 Visually, the diamond markers/popups are used to indicate incidents, and the colored bars/popups along the time scale indicate state changes:
 
@@ -240,7 +240,7 @@ Here we look at the code behind the HTML under `// Example 13/14/15`. This code 
 
 3. Finally, only the line chart is initially rendered, from which both the pie and bar chart can be rendered at runtime.
 
-[!code-javascript[code-sample-context-menus](source/index.html?range=456-535&highlight=7,16,29,61-64,78)]
+[!code-javascript[code-sample-context-menus](~/samples-javascript/pages/index.html?range=456-535&highlight=7,16,29,61-64,78)]
 
 The screen shot shows the charts, with their respective pop-up context menus. The pie and bar charts were created dynamically, using the line chart context menu options:
 
@@ -260,7 +260,7 @@ The code used to illustrate brushes is also shown in the previous "Line Chart wi
 
 2. Brush actions are added as another chart option property. Note the `brushContextMenuActions: brushActions` property being passed to the `linechart.Render` call.
 
-[!code-javascript[code-sample-brushes](source/index.html?range=521-535&highlight=1,13)]
+[!code-javascript[code-sample-brushes](~/samples-javascript/pages/index.html?range=521-535&highlight=1,13)]
 
 ![Line Chart with Context Menu to Create Pie/Bar Chart using brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
 
