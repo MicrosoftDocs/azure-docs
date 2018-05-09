@@ -34,7 +34,7 @@ In both Consumption Models, explicitly specifying some parameters requires speci
 * If \***Efficiency** parameters are specified by the user, then **vehicleWeight** must also be specified. When **vehicleEngineType** is _combustion_, **fuelEnergyDensityInMJoulesPerLiter** must be specified as well.
 * **maxChargeInkWh** and **currentChargeInkWh** must always be specified as a pair (i.e. both or none).
 
-Note: If only **constantSpeedConsumption** is specified, no other consumption aspects like slopes and vehicle acceleration are taken into account for consumption computations.
+[!NOTE]: If only **constantSpeedConsumption** is specified, no other consumption aspects like slopes and vehicle acceleration are taken into account for consumption computations.
 
 ## Combustion consumption model
 
