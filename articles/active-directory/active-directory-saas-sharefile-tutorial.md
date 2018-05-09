@@ -128,7 +128,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Sign-On URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/sharefile/support.html) to get this value.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Citrix ShareFile Client support team](https://www.citrix.co.in/products/sharefile/support.html) to get these values.
 
 4. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
