@@ -105,10 +105,6 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName
 
 Add the optional "**-EnableBGP $True**" property to enable BGP for the connection if you are using BGP. It is disabled by default.
 
-## Configure your on-premises VPN device
-
-**Hold off - finish the download VPN device script tutuorial, then add the paragraph.**
-
 ## Update the VPN connection pre-shared key, BGP, and IPsec/IKE policy
 
 ### View and update your pre-shared key
