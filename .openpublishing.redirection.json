@@ -20875,6 +20875,91 @@
             "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
             "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/index.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/overview/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Recommendations/index.md",
+            "redirect_url": "/azure/cognitive-services/Recommendations/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Speaker-recognition/index.md",
+            "redirect_url": "/azure/cognitive-services/Speaker-recognition/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/Web-Language-Model/index.md",
+            "redirect_url": "/azure/cognitive-services/Web-Language-Model/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/data-factory/v1/index.md",
+            "redirect_url": "/azure/data-factory/v1/data-factory-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/domain-joined/index.md",
+            "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hadoop/index.md",
+            "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/hbase/index.md",
+            "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/interactive-query/index.md",
+            "redirect_url": "/azure/hdinsight/interactive-query/apache-interactive-query-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/kafka/index.md",
+            "redirect_url": "/azure/hdinsight/kafka/apache-kafka-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/r-server/index.md",
+            "redirect_url": "/azure/hdinsight/r-server/r-server-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/spark/index.md",
+            "redirect_url": "/azure/hdinsight/spark/apache-spark-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/hdinsight/storm/index.md",
+            "redirect_url": "/azure/hdinsight/storm/apache-storm-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
+            "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
+            "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
+            "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/LinguisticAnalysisAPI/index.md",
+            "redirect_url": "/azure/cognitive-services/LinguisticAnalysisAPI/Home",
+            "redirect_document_id": false
         }
         
     ]
