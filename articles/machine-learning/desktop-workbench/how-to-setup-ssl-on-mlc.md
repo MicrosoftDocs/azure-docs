@@ -45,7 +45,7 @@ az ml env create -c -g <resource group name> -n <cluster name> --cert-cname <CNA
 
 If you are targeting a cluster that was created without SSL, you can add a certificate using Azure PowerShell cmdlets.
 
-You need to provide to key and certificate in raw PEM format. These can be read into PowerShell variables:
+You need to provide the key and certificate in raw PEM format. These can be read into PowerShell variables:
 
 ```
 $keyValueInPemFormat = [IO.File]::ReadAllText('<path to key.pem file>')
