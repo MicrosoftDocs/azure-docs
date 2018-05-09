@@ -31,13 +31,13 @@ The scenarios / operations outlined in this article are:
 - Get pending request - pending request status is "canceled" or "failed"
 - Get pending request - pending request status is "deleted" or "overwritten"
 - Create (or Import) when pending request exists - status is "inProgress"
-- Merge when pending request is created with an issuer (e.g. DigiCert)
+- Merge when pending request is created with an issuer (DigiCert, for example)
 - Request a cancellation while the pending request status is "inProgress"
 - Delete a pending request object
 - Create a KV certificate manually
 - Merge when a pending request is created - manual certificate creation
 
-## Request a KV Certificate with a supported issuer. (e.g. Digicert)  
+## Request a KV Certificate with a supported issuer 
 
 |Method|Request URI|  
 |------------|-----------------|  
@@ -184,10 +184,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```  
 
-Note: The value of the *errorcode* can be "Certificate issuer error" or "Request rejected" based on issuer or user error respectively.  
+> [!NOTE]
+> The value of the *errorcode* can be "Certificate issuer error" or "Request rejected" based on issuer or user error respectively.  
 
 ## Get pending request - pending request status is "deleted" or "overwritten"  
- A pending object can be deleted or overwritten by a create/import operation when it's status is not "inProgress".  
+ A pending object can be deleted or overwritten by a create/import operation when its status is not "inProgress."
 
 |Method|Request URI|  
 |------------|-----------------|  
@@ -215,7 +216,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 ```  
 
 ## Create (or Import) when pending request exists - status is "inProgress"
- A pending object has four possible states; "inprogress", "canceled", "failed", or "completed".  
+ A pending object has four possible states; "inprogress", "canceled", "failed", or "completed."
 
  When a pending request's state is "inprogress", create (and import) operations will fail with an http status code of 409 (conflict).  
 
@@ -225,7 +226,8 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
  - If the certificate is being created with an issuer, you can wait until the certificate completes, fails or is canceled. Alternatively, you can delete the pending object.
 
-Note that deleting a pending object may or may not cancel the x509 certificate request with the provider.  
+> [!NOTE]
+> Deleting a pending object may or may not cancel the x509 certificate request with the provider.  
 
 |Method|Request URI|  
 |------------|-----------------|  
@@ -261,8 +263,8 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```  
 
-## Merge when pending request is created with an issuer (e.g. DigiCert)  
- Merge is not allowed when a pending object is created with an issuer but is allowed when its state is "inProgress".  
+## Merge when pending request is created with an issuer
+ Merge is not allowed when a pending object is created with an issuer but is allowed when its state is "inProgress." 
 
  If the request to create the x509 certificate fails or cancels for some reason, and if an x509 certificate can be retrieved by out-of-band means, a merge operation can be done to complete the KV certificate.  
 
@@ -334,7 +336,9 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```  
 
 ## Delete a pending request object  
- Please note deleting the pending object may or may not cancel the x509 certificate request with the provider.  
+
+> [!NOTE]
+> Deleting the pending object may or may not cancel the x509 certificate request with the provider.  
 
 |Method|Request URI|  
 |------------|-----------------|  
@@ -364,7 +368,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ```  
 
 ## Create a KV certificate manually  
- You can create a certificate issued with an CA of your choice through a manual creation process. Set the name of the issuer to “Unknown” or do not specify the issuer field.  
+ You can create a certificate issued with a CA of your choice through a manual creation process. Set the name of the issuer to “Unknown” or do not specify the issuer field.  
 
 |Method|Request URI|  
 |------------|-----------------|  
