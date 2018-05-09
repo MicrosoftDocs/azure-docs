@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2018
+ms.date: 05/09/2018
 ms.author: raynew
 
 ---
@@ -18,7 +18,7 @@ This article summarizes supported components and settings for disaster recovery 
 
 **Scenario** | **Details**
 --- | ---
-VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using PowerShell.
+VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Physical servers | Replication of on-premises Windows/Linux physical serversto Azure. You can deploy this scenario in the Azure portal.
 
 ## On-premises virtualization servers
@@ -97,7 +97,6 @@ Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64 to 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64 to
 --- | ---
 File systems | ext3, ext4, XFS.
 Volume manager | LVM2.
-Multipath software | Device Mapper.
 Paravirtualized storage devices | Devices exported by paravirtualized drivers aren't supported.
 Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
@@ -158,7 +157,7 @@ Guest/server volume with striped disk >4 TB <br><br/>Logical volume management (
 Guest/server - Storage Spaces | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
-Guest/server multipath (MPIO) | N/A
+Guest/server multipath (MPIO) | No
 
 > [!NOTE]
 > UEFI boot VMware virtual machines running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
