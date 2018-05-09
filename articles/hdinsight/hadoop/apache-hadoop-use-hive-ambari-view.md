@@ -4,7 +4,7 @@ description: Learn how to use the Hive View from your web browser to submit Hive
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 
