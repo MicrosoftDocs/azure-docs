@@ -13,7 +13,7 @@ ms.author: v-jerkin
 ---
 # Speech service REST APIs
 
-The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from those of the previous speech service.
+The REST APIs of the unified Speech service are similar to the APIs provided by the [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech) (formerly known as the Bing Speech Service). The endpoints differ from the endpoints used by the previous speech service.
 
 ## Speech to Text
 
@@ -30,11 +30,11 @@ North Europe| `https://northeurope.stt.speech.microsoft.com/cognitiveservices/v1
 
 The Speech to Text API is otherwise similar to the [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) for the previous Speech API.
 
-The Speech to Text REST API supports only short utterances. Requests may contain up to ten seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
+The Speech to Text REST API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API only returns final results, not partial or interim results.
 
 ## Text to Speech
 
-The Text to Speech API supports 24 KHz audio output in addition to the 16 KHz formats supported by the previous Speech API. The `X-Microsoft-OutputFormat` header may now contain the following values.
+The new Text to Speech API supports 24-KHz audio output. The `X-Microsoft-OutputFormat` header may now contain the following values.
 
 |||
 |-|-|
@@ -45,7 +45,7 @@ The Text to Speech API supports 24 KHz audio output in addition to the 16 KHz fo
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-The Speech service also provides two 24 KHz voices:
+The Speech service also provides two 24-KHz voices:
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
@@ -67,9 +67,9 @@ Keep these differences in mind as you refer to the [REST API documentation](http
 
 ## Authentication
 
-Sending a request to the Speech service's REST API requires an access token. You can obtain a token by making a POST request containing your subscription key to one of the Speech service's `issueToken` endpoints, as shown in the following sections.
+Sending a request to the Speech service's REST API requires an access token. You obtain a token by providing your subscription key to a Speech service `issueToken` endpoint. Example code is shown in the following sections.
 
-An access token is valid for ten minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
+An access token is valid for 10 minutes. You may obtain a new token at any time—including, if you like, just before every Speech REST API request. To minimize network traffic and latency, however, we recommend using the same token for nine minutes.
 
 The following sections show how to get a token and how to use it in a request.
 
@@ -109,7 +109,7 @@ $OAuthToken
 
 ### Getting a token: cURL
 
-cURL is a command line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI appropriately.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The cURL command below illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription is not in the West US region, change the hostname of the given URI appropriately.
 
 > [!NOTE]
 > The command is shown on multiple lines for readability, but should entered on a single line at a shell prompt.
@@ -184,9 +184,9 @@ Connection: Keep-Alive
 
 ### Renewing authorization
 
-The authorization token expires after ten minutes. Renew your authorization by obtaining a new token before it expires—for example, after nine minutes. 
+The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires—for example, after nine minutes. 
 
-The following C# code is a drop-in replacement for the previously-presented class. The `Authentication` class automatically obtains a new access token every nine minutes using a timer. This approach ensures that a valid token is always available while your program is running.
+The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes using a timer. This approach ensures that a valid token is always available while your program is running.
 
 > [!NOTE]
 > Instead of using a timer, you could store a timestamp of when the current token was obtained, then request a new one only if the current token is close to expiring. This approach avoids getting new tokens unnecessarily and may be more suitable for programs that make infrequent Speech requests.
