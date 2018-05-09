@@ -1,23 +1,12 @@
---
-title: Certifcate operations 
-description: The following scenarios management of your x509 Certificates and supports the following important behaviors.
-services: key-vault
-documentationcenter:
-author: lleonard-msft
-manager: mbaldwin
-tags: azure-resource-manager
-
+---
 ms.assetid: fcffb0b0-f875-47c5-b80f-f79f23f6f4ee
+title: Certifcate operations | Microsoft Docs
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-
---
-
+author: BrucePerlerMS
+ms.author: bruceper
+manager: mbaldwin
+ms.date: 04/28/2017
+---
 # Certificate operations
 
 The Key Vault (KV) Certificate Management service provides for management of your x509 Certificates and supports the following important behaviors.

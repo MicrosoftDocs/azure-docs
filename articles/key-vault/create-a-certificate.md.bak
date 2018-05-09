@@ -1,23 +1,12 @@
-﻿--
-title: Certificate creation methods  
-description: Ways to create a certificate in Key Vault.
-services: key-vault
-documentationcenter:
-author: lleonard-msft
-manager: mbaldwin
-tags: azure-resource-manager
-
+﻿---
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
+title: Certificate creation methods | Microsoft Docs
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-
---
-
+author: BrucePerlerMS
+ms.author: bruceper
+manager: mbaldwin
+ms.date: 08/17/2017
+---
 # Certificate creation methods
 
  A Key Vault (KV) certificate can be either created or imported into a key vault. When a KV certificate is created the private key is created inside the key vault and never exposed to certificate owner. The following are ways to create a certificate in Key Vault:  
