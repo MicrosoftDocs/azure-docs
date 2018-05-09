@@ -47,9 +47,9 @@ A pool of interactive DSVMs that are shared by the whole AI / data science team 
 
 The technology used to create an interactive VM pool is the [Azure Virtual Machine Scale Sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) (VMSS), which  lets you create and manage a group of identical, load balanced, and autoscaling VMs. The user logs into the main pool's IP or DNS address. The Scale set automatically routes the session to an available DSVM in the Scale Set. Since user would like similar environment irrespective of the VM they are logging into, all instances of the VM in the Scale Set mounts a shared network drive like an Azure Files or an NFS share. The user's shared workspace is  normally kept on the shared file store that is mounted on each of the instances. 
 
-A sample Azure Resource Manager template that creates a VM Scale Set with Ubuntu DSVMs instances can be found on the [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). A sample of the ARM template [parameter file](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) is also provided in the same location. 
+A sample Azure Resource Manager template that creates a VM Scale Set with Ubuntu DSVMs instances can be found on the [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). A sample of the Azure Resource Manager template [parameter file](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) is also provided in the same location. 
 
-You can create the VM scale set from the Azure resource manager template by specifying suitable values for the parameter file using Azure CLI. 
+You can create the VM scale set from the Azure Resource Manager template by specifying suitable values for the parameter file using Azure CLI. 
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
