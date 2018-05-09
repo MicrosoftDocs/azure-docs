@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Reserved Virtual Machine Instances | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for Azure Reserved VM Instances. 
+title: Manage Azure Reserved VM Instances - Azure Billing | Microsoft Docs
+description: Learn how you can change subscription scope and manage access for Azure Reserved Instances. 
 services: billing
 documentationcenter: ''
 author: vikramdesai01
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 05/09/2018
 ms.author: vikdesai
 ---
-# Manage Reserved Virtual Machine Instances
+# Manage Reserved VM Instances
 
-After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that the number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved Virtual Machine Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
+After you buy an Azure Reserved VM Instance, you may want to apply the reservation to a different subscription than the one specified during purchase. Alternatively, if your matching virtual machines are running in multiple subscriptions, you may want to change the reservation scope to shared. To maximize the reservation discount, make sure that the number of instances you bought matches the attributes and number of virtual machines that you have running. To learn more about Reserved VM Instances, see [Save money by pre-paying for Azure virtual machines](https://go.microsoft.com/fwlink/?linkid=862121).
 
 ## Change the scope for a reservation
  Your reservation discount applies to virtual machines that match your reservation and run within the reservation scope. The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running virtual machines in the selected subscription. If you set the scope to shared, Azure matches the reservation to virtual machines that run in all the subscriptions within the billing context. The billing context is dependent on the subscription used to buy the reservation. To learn more, see [Pre-pay for VMs with Reserved VM Instances](https://go.microsoft.com/fwlink/?linkid=861721).
@@ -73,11 +73,11 @@ To delegate access management for a reservation:
 7. Select the user, and then select **Save**.
 
 ## Next steps
-To learn more about Reserved Virtual Machine Instances, see the following articles.
+To learn more about Azure Reserved VM Instances, see the following articles:
 
+- [Save money on virtual machines with Reserved VM Instances](billing-save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Save money on virtual machines with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
-- [Understand how the Reserved Virtual Machine Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the Reserved VM Instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
