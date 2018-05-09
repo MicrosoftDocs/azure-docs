@@ -215,14 +215,6 @@ By default *IncludeDockerHealthStatusInSystemHealthReport* is set to **true** an
 
 If you want to the disable the **HEALTHCHECK** integration for the entire Service Fabric cluster, you will need to set [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) to **false**.
 
-## Build and package the Service Fabric application
-The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the application from the terminal. To build and package the application, run the following:
-
-```bash
-cd mycontainer
-gradle
-```
-
 ## Deploy the application
 Once the application is built, you can deploy it to the local cluster using the Service Fabric CLI.
 
