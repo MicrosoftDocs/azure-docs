@@ -1,4 +1,4 @@
---
+---
 title: Key Vault versions
 description: The various versions of Azure Key Vault
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Key Vault versions
 

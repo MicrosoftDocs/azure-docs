@@ -1,4 +1,4 @@
---
+---
 title: Authentication, requests and responses
 description: Authenticate to AD for using Key Vault
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Authentication, requests and responses
 

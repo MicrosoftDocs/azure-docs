@@ -1,4 +1,4 @@
-﻿--
+﻿---
 title: Common parameters and headers 
 description: The parameters and headers common to all operations that you might do related to Key Vault resources.
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Common parameters and headers
 

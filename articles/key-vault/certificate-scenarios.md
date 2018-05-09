@@ -1,4 +1,4 @@
-﻿--
+﻿---
 title: Get started with Key Vault certificates
 description: The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Get started with Key Vault certificates
 The following scenarios outline several of the primary usages of Key Vault’s certificate management service including the additional steps required for creating your first certificate in your key vault.

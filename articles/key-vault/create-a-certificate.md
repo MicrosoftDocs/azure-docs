@@ -1,4 +1,4 @@
-﻿--
+﻿---
 title: Certificate creation methods  
 description: Ways to create a certificate in Key Vault.
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Certificate creation methods
 

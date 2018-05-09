@@ -1,4 +1,4 @@
---
+---
 title: Monitor and manage certificate creation
 description: Scenarios demonstrating a range of options for creating, monitoring, and interacting with the certificate creation process with Key Vault.
 services: key-vault
@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
 
---
+---
 
 # Monitor and manage certificate creation
 Applies To: Azure  
