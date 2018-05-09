@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/09/2018
 ms.author: alkohli
 
 ---

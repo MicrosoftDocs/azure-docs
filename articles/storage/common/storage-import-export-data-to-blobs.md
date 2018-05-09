@@ -37,27 +37,31 @@ Perform the following steps to prepare the drives.
 1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 2.  Enable BitLocker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
-5.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
+4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
     `cd C:\WaImportExportV1`
+5.  To get the BitLocker key of the drive, run the following command:
+    
+    ` manage-bde -protectors -get <DriveLetter>: `
 6.	To prepare the disk, run the following command. Depending on the data size, this may take several hours to days.
 
     ```
-    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
     ```
     
-    The options used are described in the following table:
+    The parameters are described in the following table:
 
     |Option  |Description  |
     |---------|---------|
     |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. We recommend that you use the disk serial number as the journal file name.         |
+    |/id:     |The session ID. Use a unique session number for each instance of the command.      |
     |/sk:     |The Azure Storage account key.         |
     |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
     |/bk:     |The BitLocker key for the drive. Its numerical password from output of ` manage-bde -protectors -get D: `      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
-    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.         |
-7. Repeat the previous step for each disk that needs to be shipped. A journal file with name provided with /j: parameter is created for every run of the command line.
+    |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
+7. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
 
 ## Step 2: Create an import job
 
@@ -90,14 +94,11 @@ Perform the following steps to create an import job in the Azure portal.
 5. In the **Summary**, do the following steps:
 
     - Provide the Azure datacenter shipping address to ship disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
-    - Click **OK** to complete Import job creation.
+    - Click **OK** to complete import job creation.
 
 ## Step 3: Ship the drives 
 
-FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. Provide a valid FedEx, UPS, or DHL carrier account number that Microsoft will use to ship the drives back. 
-- A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
-- A DHL account number is required for shipping drives back from Asia and Australia locations. If you do not have one, create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account.
-- When shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
+
 
 ## Step 4: Update the job with tracking information
 
