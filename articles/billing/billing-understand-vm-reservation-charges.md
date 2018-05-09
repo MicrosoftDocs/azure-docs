@@ -49,7 +49,9 @@ To learn more about Reserved Virtual Machine Instances, see the following articl
 - [Save money on virtual machines with Reserved Virtual Machine Instances](billing-save-compute-costs-reservations.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
+- [Understand Reserved Instance usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
+
 
 ## Need help? Contact support
 
