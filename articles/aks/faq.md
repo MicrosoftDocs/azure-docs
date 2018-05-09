@@ -3,7 +3,7 @@ title: Frequently asked questions for Azure Kubernetes Service
 description: Provides answers to some of the common questions about Azure Kubernetes Service.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
