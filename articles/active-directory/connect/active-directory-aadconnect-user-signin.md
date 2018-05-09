@@ -90,9 +90,9 @@ For more information, see [Configuring SSO with AD FS](active-directory-aadconne
 ### Federation with PingFederate
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords.
 
-For more information on integrating Azure AD with PingFederate, see [PingFederate Integration with Azure Active Directory and Office 365](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
+For more information on configuring PingFederate for use with Azure Active Directory, see [PingFederate Integration with Azure Active Directory and Office 365](https://www.pingidentity.com/AzureADConnect)
 
-For information on setting up Azure AD Connect using PingFederate, see [Azure AD Connect custom installation](active-directory-aadconnect-get-started-custom.md)
+For information on setting up Azure AD Connect using PingFederate, see [Azure AD Connect custom installation](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-pingfederate)
 
 #### Sign in by using an earlier version of AD FS or a third-party solution
 If you've already configured cloud sign-in by using an earlier version of AD FS (such as AD FS 2.0) or a third-party federation provider, you can choose to skip user sign-in configuration through Azure AD Connect. This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign-in.
