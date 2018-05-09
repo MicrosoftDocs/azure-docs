@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Scale Application
 description: AKS tutorial - Scale Application
 services: container-service
 author: dlepow
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
