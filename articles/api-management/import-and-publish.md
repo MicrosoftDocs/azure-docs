@@ -3,7 +3,7 @@ title: Import and publish your first API in Azure API Management | Microsoft Doc
 description: Learn how to import and publish your first API with API Management.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
