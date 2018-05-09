@@ -17,10 +17,10 @@ Azure Service Bus employs multiple message brokers to process messages and multi
 
 For information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
-The following considerations apply:
-
-- Partitioning is available at entity creation for all queues and topics in Premium messaging, but it is not enabled by default. You must explicitly enable partitioning in the entity options in the Azure portal. 
-- It is not possible to change the partitioning option on an existing queue or topic; you can only set the option when you create the entity.
+> [!NOTE]
+> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any existing partitioned entities in Premium will work as expected.
+ 
+It is not possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
 
 ## How it works
 

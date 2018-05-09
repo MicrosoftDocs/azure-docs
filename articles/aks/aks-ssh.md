@@ -3,7 +3,7 @@ title: SSH into Azure Kubernetes Service (AKS) cluster nodes
 description: Create an SSH connection with an Azure Kubernetes Service (AKS) cluster nodes
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
