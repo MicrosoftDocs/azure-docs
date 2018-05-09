@@ -1,5 +1,6 @@
 # [Azure Marketplace documentation](index.md)
 ## [Azure Marketplace and AppSource publisher guide](marketplace-publishers-guide.md)
+## [Determine Your Listing Type](determine-your-listing-type.md)
 ## [Grow your business with Azure Marketplace](grow-your-business-azure-marketplace.md)
 ## [AppSource Technical Publishing Guide](marketplace-what-is-appsource.md)
 ## [Grow your business with AppSource](marketplace-grow-your-business-with-appsource.md)
