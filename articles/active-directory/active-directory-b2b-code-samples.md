@@ -1,25 +1,19 @@
 ---
 title: Azure Active Directory B2B collaboration code and PowerShell samples | Microsoft Docs
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/11/2017
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/11/2017
-ms.author: twooley
-ms.reviewer: twooley
 ms.reviewer: sasubram
 
 ---
-
 
 # Azure Active Directory B2B collaboration code and PowerShell samples
 
@@ -235,15 +229,5 @@ namespace SampleInviteApp
 
 ## Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [B2B collaboration user properties](active-directory-b2b-user-properties.md)
-* [Adding a B2B collaboration user to a role](active-directory-b2b-add-guest-to-role.md)
-* [Delegate B2B collaboration invitations](active-directory-b2b-delegate-invitations.md)
-* [Dynamic groups and B2B collaboration](active-directory-b2b-dynamic-groups.md)
-* [Configure SaaS apps for B2B collaboration](active-directory-b2b-configure-saas-apps.md)
-* [B2B collaboration user tokens](active-directory-b2b-user-token.md)
-* [B2B collaboration user claims mapping](active-directory-b2b-claims-mapping.md)
-* [Office 365 external sharing](active-directory-b2b-o365-external-user.md)
-* [B2B collaboration current limitations](active-directory-b2b-current-limitations.md)
