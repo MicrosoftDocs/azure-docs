@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Deploy Application
 description: AKS tutorial - Deploy Application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
