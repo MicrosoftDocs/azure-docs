@@ -42,10 +42,12 @@ client.imagesOperations.search('El Capitan', function (err, result, request, res
 });
 
 ```
+<!-- Need to sanitize result
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'ImageObjectElementType'
 
 ![Imageresults](media/node-sdk-quickstart-image-results.png)
+-->
 
 ## Next steps
 

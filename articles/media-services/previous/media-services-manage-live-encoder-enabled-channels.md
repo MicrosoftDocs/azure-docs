@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 05/08/2018
 ms.author: juliako;anilmur
 
 ---
@@ -190,7 +190,7 @@ You can define the IP addresses that are allowed to connect to the preview endpo
 This section describes how the settings for the live encoder within the Channel can be adjusted, when the **Encoding Type** of a Channel is set to **Standard**.
 
 > [!NOTE]
-> Ingesting multiple audio tracks with RTMP or Smooth streaming is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), there is no such limitation because whatever is sent to AMS passes through a channel without any further processing.
+> Your contribution feed can only contain a single audio track – ingesting of multiple audio tracks is currently not supported. When doing live encoding with [on-premises live encodes](media-services-live-streaming-with-onprem-encoders.md), you can send a contribution feed in the Smooth Streaming protocol containing multiple audio tracks.
 > 
 > 
 
