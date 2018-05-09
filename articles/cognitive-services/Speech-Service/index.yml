@@ -3,7 +3,7 @@ documentType: LandingData
 title: Speech Service Documentation (Preview)
 metadata:
   title: Speech Service Documentation - Tutorials, Quickstarts, API Reference - Cognitive Services | Microsoft Docs
-  meta.description: Speech API provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: wiazur
   manager: noellelacharite 
@@ -47,7 +47,7 @@ sections:
         values:
         - href:
         - href:
-        - href: speech-sdk-reference
+        - href: https://azure.microsoft.com/en-us/services/cognitive-services/speech-to-text
 
 - title: Samples and Reference
   items:
