@@ -41,14 +41,14 @@ This tutorial uses the "Developer Tools" feature (also known as DevTools or F12)
 Throughout this tutorial, the Time Series Insights Sample Application is used to explore the source code behind the application, including usage of the TSI JavaScript client library. The application is a Single-Page web Application (SPA), showcasing the use of the library for querying and visualizing data from a sample TSI environment. 
 
 1. Navigate to the [Time Series Insights sample application](https://insights.timeseries.azure.com/clientsample). You see a page similar to the following, prompting you for sign-in:
-   ![TSI Client Sample sign-in prompt](media/tut-explore-js-client-lib/tcs-sign-in.png)
+   ![TSI Client Sample sign-in prompt](media/tutorial-explore-js-client-lib/tcs-sign-in.png)
 
 2. Click the "Log in" button and enter or select your credentials. You can use either an enterprise/organization account (Azure Active Directory) or a personal account (Microsoft Account, or MSA). 
 
-   ![TSI Client Sample credentials prompt](media/tut-explore-js-client-lib/tcs-sign-in-enter-account.png)
+   ![TSI Client Sample credentials prompt](media/tutorial-explore-js-client-lib/tcs-sign-in-enter-account.png)
 
 3. After successful sign-in, you will see a page similar to the following, containing several styles of example charts, populated with TSI data. Also note your user account and the "log out" link in the upper right:
-   ![TSI Client Sample main page after sign-in](media/tut-explore-js-client-lib/tcs-main-after-signin.png)
+   ![TSI Client Sample main page after sign-in](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)
 
 ### Page source and structure
 
@@ -73,17 +73,17 @@ First let's view the HTML and JavaScript source code behind the page that render
        - a `<div>` for the remainder of the page body elements, including all of the charts (`class="chartsWrapper"`).
        - a `<script>` section, which contains all of the JavaScript used to control the page.
 
-   [![TSI Client Sample with DevTools](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tut-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
+   [![TSI Client Sample with DevTools](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-head-body.png#lightbox)
 
 3. Expand the `<div class="chartsWrapper">` element, and you find more child `<div>` elements, used to position each chart control example. Notice there are several pairs of `<div>` elements, one for each chart example:
    - The first (`class="rowOfCardsTitle"`) contains a descriptive title to summarize what the chart(s) illustrate. For example: "Static Line Charts With Full-Size Legends"
    - The second (`class="rowOfCards"`) is a parent, containing additional child `<div>` elements that position the actual chart control(s) within a row. 
 
-  ![Viewing the body "divs"](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
+  ![Viewing the body "divs"](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
 4. Now expand the `<script type="text/javascript">` element, directly below the `<div class="chartsWrapper">` element. You see the beginning of the page-level JavaScript section, used to handle all of the page logic for things such as authentication, calling TSI service APIs, rendering of the chart controls, and more:
 
-  ![Viewing the body script](media/tut-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
+  ![Viewing the body script](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
 ## TSI Client JavaScript library concepts
 
@@ -190,7 +190,7 @@ The following section of JavaScript code uses the pattern outlined earlier, to b
 
 The three charts appear as follows when rendered:
 
-[![Multiple Chart Types From the Same Data](media/tut-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tut-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
+[![Multiple Chart Types From the Same Data](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
 ## Advanced features
 
@@ -218,7 +218,7 @@ Here you look at the code behind the section of HTML under the `// Example 10` c
 
 Visually, the diamond markers/popups are used to indicate incidents, and the colored bars/popups along the time scale indicate state changes:
 
-[![Line Charts with Multiple Series Types](media/tut-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tut-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
+[![Line Charts with Multiple Series Types](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png)](media/tutorial-explore-js-client-lib/tcs-line-charts-with-multiple-series-types.png#lightbox)
 
 ### Popup context menus
 
@@ -244,7 +244,7 @@ Here we look at the code behind the HTML under `// Example 13/14/15`. This code 
 
 The screen shot shows the charts, with their respective pop-up context menus. The pie and bar charts were created dynamically, using the line chart context menu options:
 
-[![Line Chart with Context Menu to Create Pie/Bar Chart](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
+[![Line Chart with Context Menu to Create Pie/Bar Chart](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart.png#lightbox)
 
 ### Brushes
 
@@ -262,7 +262,7 @@ The code used to illustrate brushes is also shown in the previous "Line Chart wi
 
 [!code-javascript[code-sample-brushes](source/index.html?range=521-535&highlight=1,13)]
 
-![Line Chart with Context Menu to Create Pie/Bar Chart using brushes](media/tut-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
+![Line Chart with Context Menu to Create Pie/Bar Chart using brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)
 
 ## Next steps
 
