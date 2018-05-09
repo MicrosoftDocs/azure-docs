@@ -19,7 +19,7 @@ ms.author: yashar
 After you buy a Reserved VM Instance, the reservation discount is automatically applied to virtual machines matching the attributes and quantity of the reservation. A reservation covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reservation. In all cases, you are charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reservation |    
-|-----------------------|--------------------------------------------| 
+|-----------------------|--------------------------------------------|
 |Linux VMs without additional software | Reservation covers your VM infrastructure costs.|
 |Linux VMs with software charges (For example, Red Hat) | Reservation covers the infrastructure costs. You are charged for additional software.|
 |Windows VMs without additional software |Reservation covers the infrastructure costs. You are charged for Windows software.|
