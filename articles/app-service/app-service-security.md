@@ -19,15 +19,16 @@ ms.author: cephalin
 ---
 # Security in Azure App Service
 
-This article shows you how [Azure App Service](app-service-web-overview.md) secures your web app, mobile app backend, API app, and [Azure Functions](/azure/azure-functions/). It also shows the various features you can use to further secure your App Service app from threats.
+This article shows you how [Azure App Service](app-service-web-overview.md) helps secure your web app, mobile app backend, API app, and [Azure Functions](/azure/azure-functions/). It also shows the various features you can use to further help secure your App Service app from threats.
 
-The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance and checks on a continuous basis to make sure that:
+The platform components of App Service, including Azure VMs, storage, network connections, web frameworks, management and integration features, are actively secured and hardened. App Service goes through vigorous compliance checks on a continuous basis to make sure that:
 
-- Your apps are isolated from both the internet and from the other customers' Azure resources.
+- Your app resources are [isolated](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) from both the internet and from the other customers' Azure resources.
 - Communication of secrets (such as connection strings) between your app and other Azure resources (such as [SQL Database](/services/sql-database/)) in a resource group stays within Azure and doesn't cross any network boundaries. Secrets are always encrypted.
-- All communication between your app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are properly encrypted.
+- All communication between your app and external resources, such as PowerShell management, command-line interface, Azure SDKs, REST APIs, and hybrid connections, are encrypted.
 - 24-hour threat management protects App Service resources from malware, distributed denial-of-service (DDoS), man-in-the-middle (MITM), and other threats.
-- For more information on infrastructure and platform security in Azure, see [Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/).
+
+For more information on infrastructure and platform security in Azure, see [Azure Trust Center](https://azure.microsoft.com/overview/trusted-cloud/).
 
 The following sections show you how you can use the various capabilities in App Service to further protect your App Service app from threats.
 
@@ -49,6 +50,8 @@ App Service supports both FTP and FTPS for deploying your files. However, FTPS s
 ## Static IP restrictions
 
 By default, your App Service app accepts requests from all IP addresses from the internet, but you can limit that access to a small subset of IP addresses. App Service lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).
+
+For App Service on Windows, you can retrict IP addresses dynamically by configuring the _web.config_. For more information, see [Dynamic IP Security <dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## Authentication and authorization
 
