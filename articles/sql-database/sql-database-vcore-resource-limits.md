@@ -114,8 +114,8 @@ For single databases, the following tables show the resources available for a si
 |||
 
 #### Generation 5 compute platform
-|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|
-|:--- | --: |--: |--: |--: |
+|Performance level|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W generation|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|48|80|
 |Memory (GB)|11|22|44|88|132|176|264|440|
@@ -134,29 +134,6 @@ For single databases, the following tables show the resources available for a si
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 |||
-
-#### Generation 5 compute platform (continued)
-|Performance level|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
-|:--- | --: |--: |--: |--: |--: |--: |--: |--: |
-|H/W generation|5|5|5|5|
-|vCores|24|32|48|80|
-|Memory (GB)|132|176|264|440|
-|Columnstore support|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|25.252|37.936|68.104|131.64|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|
-|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data size (GB)|2048|4096|4096|4096|
-|Max log size|614|1229|1229|1229|
-|TempDB size(DB)|384|384|384|384|
-|Target IOPS (64 KB)|60000|80000|120000|200000
-|Max concurrent workers (requests)|2400|3200|4800|8000|
-|Max allowed sessions|30000|30000|30000|30000|
-|Number of replicas|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
-|||
-
 
 ## Single database: Change storage size
 
