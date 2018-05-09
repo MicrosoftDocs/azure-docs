@@ -38,6 +38,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 2. Click on the virtual machine that you want to access. The name is listed in the **All resources** pane.
 
     ![Virtual-machine-locations](./media/connect-logon/azureportaldashboard.png)
+
 [!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Next steps
