@@ -174,10 +174,6 @@
 #### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Agent-based discovery
-##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
@@ -328,7 +324,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Integrate other services with Azure AD]()
 ### [Enable LinkedIn integration](linkedin-integration.md)
