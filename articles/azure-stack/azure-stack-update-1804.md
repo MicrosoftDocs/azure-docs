@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -29,7 +29,7 @@ This article describes the improvements and fixes in the 1804 update package, kn
 > This update package is only for Azure Stack integrated systems. Do not apply this update package to the Azure Stack Development Kit.
 
 ## Build reference    
-The Azure Stack 1804 update build number is **20180504.1**.   
+The Azure Stack 1804 update build number is **20180509.1**.   
 
 ### New features
 This update includes the following improvements for Azure Stack.
@@ -77,7 +77,7 @@ This update includes the following improvements for Azure Stack.
 
 
 ### Known issues (post-installation)
-The following are post-installation known issues for build  **20180504.1**.
+The following are post-installation known issues for build  **20180509.1**.
 
 #### Portal
 - <!-- TBD -  IS ASDK -->The ability [to open a new support request from the dropdown](azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
