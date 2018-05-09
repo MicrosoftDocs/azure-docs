@@ -299,7 +299,7 @@ The list of aliases is always growing. To discover what aliases are currently su
 
 - REST API / ARMClient
 
-  ```http-interactive
+  ```http
   GET https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases
   ```
 
