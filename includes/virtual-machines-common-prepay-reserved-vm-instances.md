@@ -1,15 +1,15 @@
 ﻿---
 ms.topic: include
 ---
-# Prepay for Virtual Machines with Reserved VM Instances
+# Prepay for Virtual Machines with Azure Reserved VM Instances
 
-Prepay for virtual machines and save money with Reserved Virtual Machine Instances. For more information, see [Reserved Virtual Machine Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Prepay for virtual machines and save money with Azure Reserved Virtual Machine (VM) Instances. For more information, see [Azure Reserved VM Instances offering](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
-You can buy Reserved Virtual Machine Instances in the [Azure portal](https://portal.azure.com). To buy a Reserved Virtual Machine Instance:
+You can buy Reserved VM Instances in the [Azure portal](https://portal.azure.com). To buy a Reserved VM Instance:
 -	You must be in an Owner role for at least one Enterprise or Pay-As-You-Go subscription.
 -	For Enterprise subscriptions, reservation purchases must be enabled in the [EA portal](https://ea.azure.com).
 
-## Buy a Reserved Virtual Machine Instance
+## Buy a Reserved VM Instance
 1. Log in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** > **Reservations**.
 3. Select **Add** to purchase a new reservation.
@@ -26,22 +26,25 @@ You can buy Reserved Virtual Machine Instances in the [Azure portal](https://por
     |Quantity    |The number of instances being purchased within the reservation. The quantity is the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
 5. You can view the cost of the reservation when you select **Calculate cost**.
 
-    ![Screenshot before submitting reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
+    ![Screenshot before submitting the Reserved Instance purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
 
 6. Select **Purchase**.
 7. Select **View this Reservation** to see the status of your purchase.
 
-    ![Screenshot before submitting reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+    ![Screenshot after submitting the Reserved Instance purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
 
 ## Next steps 
 The reservation discount is applied automatically to the number of running virtual machines that match the reservation scope and attributes. You can update the scope of the reservation through [Azure portal](https://portal.azure.com), PowerShell, CLI or through the API. 
 
-To learn how to manage a reservation, see [Manage Azure Reserved Virtual Machine Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
+To learn how to manage a reservation, see [Manage Azure Reserved VM Instances](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-To learn more about Reserved Virtual Machine Instances, see the following articles.
+To learn more about Azure Reserved VM Instances, see the following articles:
 
-- [Save money on virtual machines with Reserved Virtual Machine Instances](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Understand how the Reserved Virtual Machine Instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Save money on virtual machines with Reserved VM Instances](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Manage Azure Reserved VM Instances](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Understand how the Reserved VM Instance discount is applied](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reserved Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+
+If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
