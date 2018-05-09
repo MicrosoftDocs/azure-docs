@@ -156,9 +156,9 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "sample-javascript",
+      "path_to_root": "samples-javascript",
       "url": "https://github.com/Microsoft/tsiclient",
-      "branch": "docs",
+      "branch": "master",
       "branch_mapping": {}
     }
   ],
