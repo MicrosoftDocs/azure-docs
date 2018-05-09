@@ -68,7 +68,6 @@ Use the Blockchain Workbench application to manage users and organizations that 
 
     ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-
     Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
 
 2. To manage members for an application, select an application tile in the **Applications** pane.
