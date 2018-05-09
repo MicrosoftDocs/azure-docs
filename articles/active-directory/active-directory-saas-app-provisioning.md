@@ -41,7 +41,7 @@ Some common motivations for using this feature include:
 * Avoiding the costs, inefficiencies, and human error associated with manual provisioning processes.
 * Avoiding the costs associated with hosting and maintaining custom-developed provisioning solutions and scripts
 * To secure your organization by instantly removing users' identities from key SaaS apps when they leave the organization.
-* To easily import a large numbers of users into a particular SaaS application or system.
+* To easily import a large number of users into a particular SaaS application or system.
 * To enjoy having a single set of policies to determine who is provisioned and who can sign in to an app.
 
 
@@ -171,11 +171,11 @@ The provisioning job will be removed from quarantine after all of the offending 
 
 **How long will it take to provision my users?**
 
-Performance will be different depending on whether your provisioning job is performing an initial synchronization, or an incremental synchronization.
+Performance will be different depending on whether your provisioning job is performing an initial sync or an incremental sync, as described in the last section.
 
-For **initial synchronizations**, the time it takes to complete will depend on how many users, groups, and group members are present in the source system, in addition to how many users and groups in scope for provisioning. Small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
+For **initial syncs**, the time it takes to complete will depend on how many users, groups, and group members are present in the source system, in addition to how many users and groups in scope for provisioning. Small source systems with hundreds of objects can complete initial syncs in a matter of minutes. However, source systems with hundreds of thousands or millions of combined objects will take longer.
 
-For **incremental synchronizations**, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can be synced within a single incremental sync cycle. 
+For **incremental syncs**, the time it takes depends on the number changes detected in that sync cycle. If there are less than 5,000 user or group membership changes detected, these can be synced within a single incremental sync cycle. 
 
 The table below summarizes commonly-observed synchronization times for provisioning scenarios where Azure AD is the source system and the target system is a SaaS application, such as ServiceNow, Workplace, Salesforce, or Google Apps:
 
@@ -193,12 +193,12 @@ The table below summarizes commonly-observed synchronization times for provision
 | Sync all users in Azure AD|  < 1,000 users | < 30 minutes | < 30 minutes |
 | Sync all users in Azure AD | 1k - 10k users | 43 - 86 minutes | < 30 minutes |
 
-For the configuration **Sync assigned user and groups only**, you can use the formulas below to determine the approximate minimum and maximum expected **initial synchronization** times:
+For the configuration **Sync assigned user and groups only**, you can use the formulas below to determine the approximate minimum and maximum expected **initial sync** times:
 
 	Minimum minutes =  0.01 x [Number of assigned users and groups]
 	Maximum minutes = 0.08 x [Number of assigned users and groups] 
 
-Variations in the time it takes to complete an **initial synchronization** are influenced by these factors:
+Variations in the time it takes to complete an **initial sync** are influenced by these factors:
 
 * The total number of users and groups in scope for provisioning
 
