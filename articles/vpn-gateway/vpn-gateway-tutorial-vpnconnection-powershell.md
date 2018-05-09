@@ -1,5 +1,5 @@
 ---
-title: Create and Manage S2S VPN connections using PowerShell | Microsoft Docs
+title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-#Customer intent: I want to create a S2S VPN connection so that I can connect my VNet and on-premises network.
+#Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
 ---
 
 # Create and Manage S2S VPN connections with the Azure PowerShell module
@@ -25,7 +25,7 @@ ms.custom: mvc
 Azure S2S VPN connections provide secure, cross-premises connectivity between customer premises and Azure. This tutorial walks through IPsec S2S VPN connection life cycles such as creating and managing a S2S VPN connection. You learn how to:
 
 > [!div class="checklist"]
-> * Create a S2S VPN connection
+> * Create an S2S VPN connection
 > * Update the connection property: pre-shared key, BGP, IPsec/IKE policy
 > * Add more VPN connections
 > * Delete a VPN connection
@@ -70,7 +70,7 @@ $BGPPeerIP1  = "10.101.1.254"
 $Connection1 = "VNet1ToSite1"
 ```
 
-The workflow to create a S2S VPN connection is straightforward:
+The workflow to create an S2S VPN connection is straightforward:
 
 1. Create a local network gateway to represent your on-premises network
 2. Create a connection between your Azure VPN gateway and the local network gateway
@@ -228,7 +228,7 @@ Remove-AzureRmVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG
 In this tutorial, you learned about creating and managing S2S VPN connections such as how to:
 
 > [!div class="checklist"]
-> * Create a S2S VPN connection
+> * Create an S2S VPN connection
 > * Update the connection property: pre-shared key, BGP, IPsec/IKE policy
 > * Add more VPN connections
 > * Delete a VPN connection
