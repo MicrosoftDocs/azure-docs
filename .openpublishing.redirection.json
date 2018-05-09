@@ -3853,7 +3853,7 @@
         },
         {
             "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
-            "redirect_url": "/azure/user/azure-stack-manage-storage-physical-memory-capacity",
+            "redirect_url": "/azure/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -12428,7 +12428,7 @@
         },
         {
             "source_path": "articles/azure-stack/validate-pki-certs.md",
-            "redirect_url": "/azure/azure-stack/user/azure-stack-validate-pki-certs",
+            "redirect_url": "/azure/azure-stack/azure-stack-validate-pki-certs",
             "redirect_document_id": false
         },
         {
@@ -20597,6 +20597,111 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-controls-overview.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-access-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-audit-accountability-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-awareness-training-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-configuration-management-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-contingency-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-identification-authentication-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-incident-response-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-maintenance-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-media-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-personnel-security-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-physical-environmental-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-risk-assessment-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-security-assessment-authorization-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-system-communications-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-system-information-integrity-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-security-and-privacy-considerations.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-cloudappdiscovery-whatis.md",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+			"redirect_document_id": false
+        },
+		{
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-node-web.md",
             "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
             "redirect_document_id": false
@@ -20656,5 +20761,6 @@
             "redirect_url": "/azure/media-services/previous/media-services-overview",
             "redirect_document_id": false
         }
+		
     ]
 }
