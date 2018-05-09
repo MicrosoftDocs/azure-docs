@@ -42,10 +42,10 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" to create the following resources:
 
-1. Resource group (TestRG1), virtual network (VNet1) and GatewaySubnet
+1. Resource group (TestRG1), virtual network (VNet1), and GatewaySubnet
 2. VPN gateway (VNet1GW)
 
-The virtul network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values based on your environment and network setup.
+The virtual network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values based on your environment and network setup.
 
 ```azurepowershell-interactive
 # Virtual network
@@ -131,7 +131,7 @@ Set-AzureRmVirtualNetworkGatewayConnectionSharedKey `
 
 ### Enable BGP on VPN connection
 
-Azure VPN gateway supports BGP dynamic routing protocol. You can enable BGP on each individual connection, depending on whether you are using BGP in your on-premises networks and devices. You need to specify the following BGP properties before you can enable BGP on the connection:
+Azure VPN gateway supports BGP dynamic routing protocol. You can enable BGP on each individual connection, depending on whether you are using BGP in your on-premises networks and devices. Specify the following BGP properties before enabling BGP on the connection:
 
 * Azure VPN ASN (Autonomous System Number)
 * On-premises local network gateway ASN
@@ -165,7 +165,7 @@ You can disable BGP by changing the "-EnableBGP" property value to **$False**. R
 You can apply an optional IPsec/IKE policy to specify the exact combination of IPsec/IKE cryptographic algorithms and key strengths on the connection, instead of using the [default proposals](vpn-gateway-about-vpn-devices.md#ipsec). The following sample script creates a different IPsec/IKE policy with the following algorithms and parameters:
 
 * IKEv2: AES256, SHA256, DHGroup14
-* IPsec: AES128, SHA1, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* IPsec: AES128, SHA1, PFS14, SA Lifetime 14,400 seconds & 102,400,000 KB
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `
@@ -183,7 +183,7 @@ Refer to [IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipse
 
 ## Add another S2S VPN connection
 
-To add an additional S2S VPN connection to the same VPN gateway, simply create another local network gateway, and create a new connection connecting the new local network gateway to the VPN gateway. Following the example in this article.
+To add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Following the example in this article.
 
 ```azurepowershell-interactive
 # On-premises network
@@ -217,7 +217,7 @@ Delete a S2S VPN connection with [Remove-AzureRmVirtualNetworkGatewayConnection]
 Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
 ```
 
-Delete the local network gateway if you no longer need it. Note that you cannot delete a local network gateway if there are other connections associated with it.
+Delete the local network gateway if you no longer need it. You cannot delete a local network gateway if there are other connections associated with it.
 
 ```azurepowershell-interactive
 Remove-AzureRmVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
