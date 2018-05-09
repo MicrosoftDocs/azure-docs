@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/02/2017
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # How to sign up and upload your first video
@@ -20,16 +20,11 @@ To read a detailed overview of the Video Indexer service, see the [overview](vid
 
 ## Sign up and sign in
 
-To start developing with Video Indexer, you must first Sign up and sign in to the [Video Indexer](http://vi.microsoft.com) portal. 
+To start developing with Video Indexer, you must first Sign up and sign in to the [Video Indexer](https://api-portal.videoindexer.ai/) portal. 
+ 	 
+For more information, see [Start using APIs](video-indexer-use-apis.md).
 
-You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, or MSA account. 
-
-If signing in with an AAD account (for example, alice@contoso.onmicrosoft.com) you must go through two preliminary steps: 
-
-1. 	Contact Microsoft to register your AAD organization’s domain (contoso.onmicrosoft.com).
-2. 	Your AAD organization’s admin must first sign in to grant the portal permissions to your org. 
-
-##Upload a video
+## Upload a video
 
 To upload video press the Upload button.
 
@@ -41,7 +36,7 @@ Once your video has been uploaded, Video Indexer starts indexing and analyzing t
 
 Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-##Next steps
+## Next steps
 
 You can now use the [Video Indexer portal](video-indexer-view-edit.md) or the [API](video-indexer-use-apis.md) to see the insights of the video. 
 

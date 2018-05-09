@@ -1,25 +1,29 @@
 ---
-title: Add utterances to a LUIS app using Ruby | Microsoft Docs 
-description: Learn to call a LUIS app using Ruby. 
+title: Add utterances to a LUIS app using Ruby | Microsoft Docs
+description: Learn to call a LUIS app using Ruby in this quickstart.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Ruby.
 ---
 
-# Add utterances to a LUIS app using Ruby 
-Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, 
+# Quickstart: Add utterances to app using Ruby 
+In this quickstart, write a program to add an utterance to an intent using the Authoring APIs in Ruby.
+
+For more information, 
 refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Prerequisites
 
 * [Ruby](http://rubyinstaller.org/) 
-* Your LUIS **programmatic key**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
+* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.rb`. The code in this article does not create the intents and entities. It only adds the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.rb` project in VSCode.
@@ -253,3 +257,5 @@ Requested training status.
 > [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md)
 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
+
+[LUIS]: luis-reference-regions.md#luis-website

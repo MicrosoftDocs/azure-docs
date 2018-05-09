@@ -2,20 +2,13 @@
 title: Deploy a split-merge service | Microsoft Docs
 description: Use the split-merge too to move data between sharded databases.
 services: sql-database
-documentationcenter: ''
-author: ddove
-manager: jhubbard
-editor: ''
-
-ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
+author: stevestein
+manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: "Inactive"
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
-ms.author: ddove
+ms.date: 04/01/2018
+ms.author: sstein
 
 ---
 # Deploy a split-merge service
@@ -36,8 +29,8 @@ The files are placed in a directory named **Microsoft.Azure.SqlDatabase.ElasticS
 2. Ensure that your Azure SQL DB server allows Azure Services to connect to it. In the portal, in the **Firewall Settings**, ensure the **Allow access to Azure Services** setting is set to **On**. Click the "save" icon.
    
    ![Allowed services][1]
-3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure portal. In the left bar, click **New**, click **Data + Storage**, then **Storage**.
-4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure portal. In the left bar, click **New**, then **Compute**, **Cloud Service**, and **Create**. 
+3. Create an Azure Storage account that will be used for diagnostics output. Go to the Azure portal. In the left bar, click **Create a resource**, click **Data + Storage**, then **Storage**.
+4. Create an Azure Cloud Service that will contain your Split-Merge service.  Go to the Azure portal. In the left bar, click **Create a resource**, then **Compute**, **Cloud Service**, and **Create**. 
 
 ## Configure your Split-Merge service
 ### Split-Merge service configuration

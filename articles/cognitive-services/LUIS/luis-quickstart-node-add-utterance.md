@@ -1,27 +1,32 @@
 ---
-title: Add utterances to a LUIS app using Node.js | Microsoft Docs 
-description: Learn to call a LUIS app using Node.js. 
+title: Add utterances to a LUIS app using Node.js | Microsoft Docs
+description: Learn to call a LUIS app using Node.js in this quickstart.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: quickstart
 ms.date: 12/13/2017
-ms.author: v-demak
+ms.author: v-geberr
+#Customer intent: As a developer new to LUIS, I want to add an utterance to the LUIS app model using Node.js. 
 ---
 
-# Add utterances to a LUIS app using Node.js 
-Programmatically add utterances to your Language Understanding (LUIS) app and train it using the command line. For more information, 
+# Quickstart: Add utterances app using Node.js 
+In this quickstart, you write a program to add an utterance to an intent using the Authoring APIs in Node.js.
+
+
+For more information, 
 refer to the technical documentation for the [add utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [train](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45), and [training status](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) APIs.
+
+For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Prerequisites
 
 * Latest [**Node.js**](https://nodejs.org/en/download/) with NPM.
 * NPM dependencies for this quickstart: [**request**](https://www.npmjs.com/package/request), [**request-promise**](https://www.npmjs.com/package/request-promise), [**fs-extra**](https://www.npmjs.com/package/fs-extra).  
 * **[Recommended]** [Visual Studio Code](https://code.visualstudio.com/) for IntelliSense and debugging.
-* Your LUIS **programmatic key**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
+* Your LUIS **[authoring key](luis-concept-keys.md#authoring-key)**. You can find this key under Account Settings in the [LUIS](luis-reference-regions.md) website.
 * Your existing LUIS [**application ID**](./luis-get-started-create-app.md). The application ID is shown in the application dashboard. The LUIS application with the intents and entities used in the `utterances.json` file must exist prior to running the code in `add-utterances.js`. The code in this article will not create the intents and entities. It will only add the utterances for existing intents and entities. 
 * The **version ID** within the application that receives the utterances. The default ID is "0.1"
 * Create a new file named `add-utterances.js` project in VSCode.
@@ -36,7 +41,7 @@ Add the NPM dependencies to the file.
 
    [!code-javascript[NPM Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=16-19 "NPM Dependencies")]
 
-Add the LUIS constants to the file. Copy the following code and change to your programmatic key, application ID, and version ID.
+Add the LUIS constants to the file. Copy the following code and change to your authoring key, application ID, and version ID.
 
    [!code-javascript[LUIS key and IDs](~/samples-luis/documentation-samples/authoring-api-samples/node/add-utterances.js?range=22-29 "LUIS key and IDs")]
 
@@ -173,3 +178,5 @@ Call the sample with the `-status` argument to check the training status and wri
 > [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md)
 
 > [Authoring APIs](https://aka.ms/luis-authoring-api)
+
+[LUIS]: luis-reference-regions.md#luis-website

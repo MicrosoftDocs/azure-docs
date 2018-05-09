@@ -4,7 +4,7 @@ description: This article explains how you can scale out a data management gatew
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

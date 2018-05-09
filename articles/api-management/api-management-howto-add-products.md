@@ -34,8 +34,6 @@ In this tutorial, you learn how to:
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
 ## Create and publish a product
 
 1. Click on **Products** in the menu on the left to display the **Products** page.
@@ -78,12 +76,6 @@ Developers must first subscribe to a product to get access to the API. When they
 2. Select the APIs tab.
 3. Click **+API**.
 4. Choose an API and click **Create**.
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Using-Products/player]
-> 
-> 
 
 ## Next steps
 

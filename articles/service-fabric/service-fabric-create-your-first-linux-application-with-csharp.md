@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/27/2018
+ms.date: 04/11/2018
 ms.author: subramar
 
 ---
@@ -54,7 +54,7 @@ Service Fabric provides scaffolding tools which help you create Service Fabric a
   ```bash
   sudo npm install -g yo
   ```
-3. Install the Service Fabric Yeo Java application generator from NPM
+3. Install the Service Fabric Yeoman C# application generator from NPM
 
   ```bash
   sudo npm install -g generator-azuresfcsharp

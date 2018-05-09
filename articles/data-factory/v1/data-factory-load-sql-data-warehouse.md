@@ -4,8 +4,8 @@ description: Demonstrates how 1 TB of data can be loaded into Azure SQL Data War
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
@@ -113,8 +113,8 @@ With the prerequisite steps completed, we are now ready to configure the copy ac
 
 ## Launch Copy Wizard
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Click **+ NEW** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
-3. In the **New data factory** blade:
+2. Click **Create a resource** from the top-left corner, click **Intelligence + analytics**, and click **Data Factory**.
+3. In the **New data factory** pane:
 
    1. Enter **LoadIntoSQLDWDataFactory** for the **name**.
        The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “LoadIntoSQLDWDataFactory” is not available**, change the name of the data factory (for example, yournameLoadIntoSQLDWDataFactory) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.  

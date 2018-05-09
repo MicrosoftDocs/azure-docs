@@ -4,7 +4,7 @@ description: This article walks through the platform-supported migration of IaaS
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -56,7 +56,7 @@ For installation instructions, see [How to install and configure Azure PowerShel
 To perform this migration, you must be added as a co-administrator for the subscription in the [Azure portal](https://portal.azure.com).
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, select **Subscription**. If you don't see it, select **More services**.
+2. On the Hub menu, select **Subscription**. If you don't see it, select **All services**.
 3. Find the appropriate subscription entry, then look at the **MY ROLE** field. For a co-administrator, the value should be _Account admin_.
 
 If you are not able to add a co-administrator, then contact a service administrator or co-administrator for the subscription to get yourself added.   
@@ -67,7 +67,7 @@ First, start a PowerShell prompt. For migration, you need to set up your environ
 Sign in to your account for the Resource Manager model.
 
 ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 ```
 
 Get the available subscriptions by using the following command:

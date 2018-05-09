@@ -3,8 +3,8 @@ title: Make SQL databases available to your Azure Stack users | Microsoft Docs
 description: Tutorial to install the SQL Server resource provider and create offers that let Azure Stack users create SQL databases.
 services: azure-stack
 documentationcenter: ''
-author: ErikjeMS
-manager: 
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid:
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 7/03/2017
-ms.author: erikje
+ms.date: 05/01/2018
+ms.author: jeffgilb
+ms.reviewer: 
 ms.custom: mvc
 
 ---
 # Make SQL databases available to your Azure Stack users
-
 As an Azure Stack cloud administrator, you can create offers that let your users (tenants) create SQL databases that they can use with their cloud-native apps, websites, and workloads. By providing these custom, on-demand, cloud-based databases to your users, you can save them time and resources. To set this up, you will:
 
 > [!div class="checklist"]
@@ -31,8 +31,8 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 
 The deployment process is described in detail in the [Use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and is comprised of the following primary steps:
 
-1. [Deploy the SQL resource provider]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider).
-2. [Verify the deployment]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
+1. [Deploy the SQL resource provider](azure-stack-sql-resource-provider-deploy.md).
+2. [Verify the deployment](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
 3. Provide capacity by connecting to a hosting SQL server.
 
 ## Create an offer

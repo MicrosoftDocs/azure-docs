@@ -64,7 +64,7 @@ By using Service Fabric's testability tools, you can author a test scenario to t
    
     ```powershell
    
-    PS > Restart-ServiceFabricNode -NodeName Node_1
+    PS > Stop-ServiceFabricNode -NodeName Node_1
    
     ```
 

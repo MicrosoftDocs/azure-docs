@@ -1,14 +1,13 @@
 ---
-title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs 
+title: Enhance LUIS understanding of synonyms with a phrase list - Azure  | Microsoft Docs
 description: Learn how to add a phrase list to a LUIS app and see the improvement of the score.
 services: cognitive-services
 author: v-geberr
 manager: kamran.iqbal
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 05/07/2017
 ms.author: v-geberr
 ---
 
@@ -20,7 +19,7 @@ Improve the accuracy of intent scores and identify entities for words that have 
 
 2. As described in [Create an app](Create-new-app.md#import-new-app), import the file that you downloaded into the [LUIS][LUIS] website as a new app. The app name is "My Phrase List tutorial." It has intents, entities, and utterances. 
 
-3. [Train]() your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
+3. [Train](luis-how-to-train.md) your app. Until it is trained, you cannot [interactively test](Train-Test.md#interactive-testing) it in the [LUIS][LUIS] website. 
 
 4. On the [Publish](PublishApp.md) page, select the **Include all predicted intent scores** check box. When the check box is selected, all intents are returned. When the check box is cleared, only the top intent is returned. 
 
@@ -158,12 +157,12 @@ You must teach LUIS that *want* and *require* mean the same thing in this app do
 
     ![Phrase list values](./media/luis-tutorial-interchangeable-phrase-list/phrase-list-values.png)
 
-5. Train the app, but don't publish it. Now you have two models. You can compare values in the two models.
+5. In the top navigation bar, select **Train** to train the app, but don't publish it. Now you have two models. You can compare values in the two models.
 
 ## Compare the phrase list model to the published model
 In this app, the published model is not trained with the synonyms. Only the currently edited model includes the phrase list of synonyms. To compare the models, use [interactive testing](Train-Test.md#interactive-testing). 
 
-1. Open the test pane, and enter the following utterance:
+1. Open the **Test** pane, and enter the following utterance:
 
     `I require a computer replacement`
 
