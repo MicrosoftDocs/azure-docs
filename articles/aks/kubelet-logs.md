@@ -3,7 +3,7 @@ title: Get kubelet logs from Azure Kubernetes Service (AKS)
 description: Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
