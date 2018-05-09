@@ -19,8 +19,6 @@ ms.author: dacoulte
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
-
 The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the [Azure Automation DSC service](../../automation/automation-dsc-overview.md). Bootstrapping a VM provides [benefits](/powershell/dsc/metaconfig#pull-service) that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
@@ -60,11 +58,11 @@ The Azure DSC extension includes a default configuration script that's intended 
 
 ## DSC extension in Resource Manager templates
 
-In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md).
+In most scenarios, Resource Manager deployment templates are the expected way to work with the DSC extension. For more information and for examples of how to include the DSC extension in Resource Manager deployment templates, see [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md).
 
 ## DSC extension PowerShell cmdlets
 
-The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Note that cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
+The PowerShell cmdlets that are used to manage the DSC extension are best used in interactive troubleshooting and information-gathering scenarios. You can use the cmdlets to package, publish, and monitor DSC extension deployments. Cmdlets for the DSC extension aren't yet updated to work with the [default configuration script](#default-configuration-script).
 
 The **Publish-AzureRmVMDscConfiguration** cmdlet takes in a configuration file, scans it for dependent DSC resources, and then creates a .zip file. The .zip file contains the configuration and DSC resources that are needed to enact the configuration. The cmdlet can also create the package locally by using the *-OutputArchivePath* parameter. Otherwise, the cmdlet publishes the .zip file to blob storage, and then secures it with an SAS token.
 
@@ -83,7 +81,7 @@ Important information about Resource Manager DSC extension cmdlets:
 - Azure Resource Manager cmdlets are synchronous.
 - The *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *Version*, and *Location* parameters are all required.
 - *ArchiveResourceGroupName* is an optional parameter. You can specify this parameter when your storage account belongs to a different resource group than the one where the VM is created.
-- Use the **AutoUpdate** switch to automatically update the extension handler to the latest version when it's available. Note that this parameter has the potential to cause restarts on the VM when a new version of WMF is released.
+- Use the **AutoUpdate** switch to automatically update the extension handler to the latest version when it's available. This parameter has the potential to cause restarts on the VM when a new version of WMF is released.
 
 ### Get started with cmdlets
 
