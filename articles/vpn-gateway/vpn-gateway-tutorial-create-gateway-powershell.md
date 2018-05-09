@@ -55,20 +55,6 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-| Item                    | Value                          |
-| ---                     | ---                            |
-| Resource Group 2        | TestRG2                        |
-| VNet 2 name             | VNet2                          |
-| Address space           | 10.2.0.0/16                    |
-| Subnet Frontend         | 10.2.0.0/24                    |
-| Subnet Backend          | 10.2.1.0/24                    |
-| GatewaySubnet           | 10.2.255.0/27                  |
-|                         |                                |
-| LNG1                    | 10.101.0.0/24<br>10.101.1.0/24 |
-| LNG2                    | 10.102.0.0/24<br>10.102.1.0/24 |
-| VPN Client Address Pool | 192.168.0.0/24                 |
-|                         |                                |
-
 ## Create resource group
 
 Create a resource group with the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created first. In the following example, a resource group named *TestRG1* is created in the *East US* region:

@@ -3,16 +3,17 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
 ---
