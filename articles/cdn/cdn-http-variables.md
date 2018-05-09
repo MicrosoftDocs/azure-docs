@@ -4,7 +4,7 @@ description: HTTP variables allow you to retrieve HTTP request and response meta
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
-ms.author: dksimpson
+ms.date: 05/08/2018
+ms.author: v-deasim
 
 
 ---
@@ -28,9 +28,9 @@ HTTP variables provide the means through which you can retrieve HTTP request and
 - [URL Rewrite](cdn-rules-engine-reference-features.md#url-rewrite)
 
 ## Definitions
-The following table describes all supported HTTP variables.
+The following table describes the supported HTTP variables.
 
-Note A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
+A blank value is returned when GEO metadata (for example, postal code) is unavailable for a particular request.
 
 | Name | Variable | Description | Sample value |
 | ---- | -------- | ----------- | ------------ |
@@ -79,13 +79,13 @@ A delimiter can be specified after an HTTP variable to achieve any of the follow
 
 - Transform the value associated with the variable.
 
-    Example: Convert the entire value to lower-case.
+     Example: Convert the entire value to lower-case.
 
 - Delete the value associated with the variable.
 
 - Manipulate the value associated with the variable.
 
-    Example: Use regular expressions to change the value associated with the HTTP variable.
+     Example: Use regular expressions to change the value associated with the HTTP variable.
 
 The delimiters are described in the following table.
 
@@ -105,7 +105,7 @@ The delimiters are described in the following table.
 | ^^ | Convert all instances of the specified character in the value associated with the HTTP variable to uppercase. |
 
 ## Exceptions
-The following table describes circumstances under which the specified text will not be treated as an HTTP variable.
+The following table describes circumstances under which the specified text isn't treated as an HTTP variable.
 
 | Condition | Description | Example |
 | --------- | ----------- | --------|
@@ -134,7 +134,7 @@ Variables can be manipulated in the following ways:
 - Expanding substrings
 - Removing patterns
 
-## Substring expansion
+### Substring expansion
 By default, a variable will expand to its full value. Use the following syntax to only expand a substring of the variable's value.
 
 `%<Variable>:<Offset>:<Length>}`
@@ -155,9 +155,9 @@ Key information:
 
 Example:
 
-This example relies on the following sample request URL:
+The following example relies on the following sample request URL:
 
-`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html
+`https://cdn.mydomain.com/folder/marketing/myconsultant/proposal.html`
 
 The following string demonstrates various methods for manipulating variables:
 
@@ -168,7 +168,7 @@ Based on the sample request URL, the above variable manipulation will produce th
 `https://www.mydomain.com/mobile/marketing/proposal.htm`
 
 
-## Pattern removal
+### Pattern removal
 Text that matches a specific pattern can be removed from either the beginning or the end of a variable's value.
 
 | Syntax | Action |
@@ -189,7 +189,7 @@ The following table demonstrates how this syntax works.
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Because the variable starts with the pattern, it was replaced. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Because the variable doesn't end with the pattern, there was no change.|
 
-## Find And replace
+### Find And replace
 The find and replace syntax is described in the following table.
 
 | Syntax | Action |
@@ -201,7 +201,7 @@ The find and replace syntax is described in the following table.
 | %{Variable,} | Convert the entire value to lower-case. |
 | %{Variable,Find} | Convert the first occurrence of the specified pattern to lowercase. |
 
-## Find and rewrite
+### Find and rewrite
 For a variation on find and replace, use the text that matches the specified pattern when rewriting it. The find and rewrite syntax is described in the following table.
 
 | Syntax | Action |
@@ -213,34 +213,34 @@ For a variation on find and replace, use the text that matches the specified pat
 
 Key information:
 
-- Expand text that matches the specified pattern by specifying a dollar sign followed by a whole integer (e.g., $1).
+- Expand text that matches the specified pattern by specifying a dollar sign followed by a whole integer (for example, $1).
 
-- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that will be assigned to it. In the following example, the first pattern matches "www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain.
+- Multiple patterns can be specified. The order in which the pattern is specified determines the integer that will be assigned to it. In the following example, the first pattern matches "www.," the second pattern matches the second-level domain, and the third pattern matches the top-level domain:
 
-%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$2.$3:80}
+    `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$2.$3:80}`
 
 - The rewritten value can consist of any combination of text and these placeholders.
 
-    In the previous example, the hostname is rewritten to `cdn.$2.$3:80` (for exasmple, cdn.mydomain.com:80).
+    In the previous example, the hostname is rewritten to `cdn.$2.$3:80` (for example, cdn.mydomain.com:80).
 
-- The case of a pattern placeholder (e.g., $1) can be modified through the following flags:
+- The case of a pattern placeholder (for example, $1) can be modified through the following flags:
      - U: Upper-case the expanded value.
 
-     Sample syntax:
+         Sample syntax:
 
-     `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
+         `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$U2.$3:80}`
 
      - L: Lower-case the expanded value.
 
-     Sample syntax:
+         Sample syntax:
 
-    `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$L2.$3:80}`
+         `%{host/=^www\.([^\.]+)\.([^\.:]+)/cdn.$L2.$3:80}`
 
 - An operator must be specified before the pattern. The specified operator determines the pattern-capturing behavior:
 
-     - =: Indicates that all occurrences of the specified pattern must be captured and rewritten.
-     - ^: Indicates that only text that starts with the specified pattern will be captured.
-     - $: Indicates that only text that ends with the specified pattern will be capture.
+     - `=`: Indicates that all occurrences of the specified pattern must be captured and rewritten.
+     - `^`: Indicates that only text that starts with the specified pattern will be captured.
+     - `$`: Indicates that only text that ends with the specified pattern will be capture.
  
 - If you omit the */Rewrite* value, the text that matches the pattern is deleted.
 
