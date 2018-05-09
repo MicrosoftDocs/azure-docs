@@ -47,7 +47,7 @@ As the following diagram illustrates, the Azure Cosmos DB hierarchical **resourc
 ![Azure Cosmos DB hierarchical resource model][1]  
 **Hierarchical resource model**   
 
-To start working with resources, you must [create a database account](create-sql-api-dotnet.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents, and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas, documents, and attachments contain arbitrary, user-defined JSON content.  
+To start working with resources, you must [create a database account](create-sql-api-dotnet.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents, and related attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents, or attachments. While databases, users, permissions, and collections are system-defined resources with well-known schemas, documents, and attachments contain arbitrary, user-defined JSON content.  
 
 | Resource | Description |
 | --- | --- |
