@@ -104,6 +104,8 @@ As mentioned earlier, this sample is a Single-Page Application and it uses the O
 
    [!code-javascript[head-sample](source/index.html?range=140-199&highlight=4-9,36-39)]
 
+   [!code-javascript[head-sample](https://github.com/Microsoft/tsiclient/blob/master/pages/index.html?range=140-199&highlight=4-9,36-39)]   
+
 ### Control identification
 
 As discussed earlier, the `<div>` elements within the `<body>` provide the layout for all of the chart controls demonstrated on the page. Each of them specify properties for the placement and visual attributes of the chart control, including an `id` property. The `id` property provides a unique identifier, which is used in the JavaScript code to identify and bind to each control for rendering and updating. 
