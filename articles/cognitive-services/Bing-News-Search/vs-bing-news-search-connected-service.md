@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ---
-# Connecting to Cognitive Services News Search API by using Connected Services in Visual Studio
+# Connecting to Bing News Search API by using Connected Services in Visual Studio
 
-By using the Cognitive Services News Search API, you can enable apps and services to harness the power of an ad-free search engine scoped to the web.
+By using Bing News Search, you can enable apps and services to harness the power of an ad-free search engine scoped to the web. Bing News Search is one of the search services available with Azure Intelligent Search, one of many Cognitive Services offered in Azure.
 
-This article and its companion articles provide details for using the Visual Studio Connected Service feature for Cognitive Services News Search API. The capability is available in both Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
+This article provides details for using the Visual Studio Connected Service feature for Bing News Search. The capability is available in Visual Studio 2017 15.7 or later, with the Cognitive Services extension installed.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    ![Add Connected Service menu item](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. In the menu of available services, choose **Cognitive Services Bing News Search API**.
+1. In the menu of available services, choose **Bring Intelligent Search To Your Apps**.
 
    ![Choose the service to connect to](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
@@ -47,7 +47,7 @@ This article and its companion articles provide details for using the Visual Stu
 
    Follow the link for details on the pricing tiers.
 
-1. Choose Add to add supported for the Connected Service.
+1. Choose **Add** to add support for the Connected Service.
    Visual Studio modifies your project to add the NuGet packages, configuration file entries, and other changes to support a connection the Bing News Search API. The Output shows the log of what is happening to your project. You should see something like the following:
 
    ```output
@@ -77,7 +77,9 @@ This article and its companion articles provide details for using the Visual Stu
    }
    ```
  
-## Use the Bing News Search API to add Intelligent Search to a web page
+## Use the Bing News Search API to add search functionality to a web page
+
+Now that you’ve added support for the Bing News Search API to your project, here’s how to use the API to add intelligent search to a web page.
 
 1.  In Startup.cs, in the ConfigureServices method, add a call to IServiceCollection.AddSingleton to make the configuration object that contains the key settings available to the code in your project.
  
@@ -255,4 +257,4 @@ When no longer needed, delete the resource group. This deletes the cognitive ser
 
 ## Next steps
 
-Learn more about the Bing News Search API by reading the [Bing News Search Documentation](index.yml).
+To learn more about the Bing News Search API, see [What is Bing News Search?](index.yml).
