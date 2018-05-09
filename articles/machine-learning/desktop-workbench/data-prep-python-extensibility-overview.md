@@ -23,8 +23,6 @@ Data Preparations has the following custom steps where users can write code:
 * Transform Dataflow
 * Transform Partition
 
-*These steps are not currently supported in a Spark execution.
-
 ## Code block types 
 For each of these steps, we support two code block types. First, we support a bare Python Expression that is executed as is. Second, we support a Python Module where we call a particular function with a known signature in the code you supply.
 
