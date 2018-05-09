@@ -1,22 +1,21 @@
 ﻿---
-title: Desired State Configuration extension with Azure Resource Manager templates | Microsoft Docs
+title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: mgreenegit
-manager: jeconnoc
+author: DCtheGeek
+manager: carmonm
 editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
-
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 03/22/2018
-ms.author: migreene
+ms.date: 05/02/2018
+ms.author: dacoulte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
@@ -45,32 +44,31 @@ For more information, see
     "properties": {
         "publisher": "Microsoft.Powershell",
         "type": "DSC",
-        "typeHandlerVersion": "2.75",
+        "typeHandlerVersion": "2.76",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "protectedSettings": {
-            "Items": {
-                        "registrationKeyPrivate": "registrationKey"
-            }
+                "Items": {
+                    "registrationKeyPrivate": "registrationKey"
+                }
             },
             "publicSettings": {
-                "configurationArguments": [
-                    {
+                "configurationArguments": [{
                         "Name": "RegistrationKey",
                         "Value": {
                             "UserName": "PLACEHOLDER_DONOTUSE",
                             "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                        },
+                        }
                     },
                     {
-                        "RegistrationUrl" : "registrationUrl",
+                        "RegistrationUrl": "registrationUrl",
                     },
                     {
-                        "NodeConfigurationName" : "nodeConfigurationName"
+                        "NodeConfigurationName": "nodeConfigurationName"
                     }
                 ]
             }
-        },
+        }
     }
 }
 ```
@@ -83,51 +81,48 @@ Under **extensions**, add the details for DSC Extension.
 
 The DSC extension inherits default extension properties.
 For more information,
-see [VirtualMachineScaleSetExtension class](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-    "extensions": [
-        {
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
-            "apiVersion": "2017-12-01",
-            "location": "[resourceGroup().location]",
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Powershell",
-                "type": "DSC",
-                "typeHandlerVersion": "2.75",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "protectedSettings": {
+    "extensions": [{
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+        "apiVersion": "2017-12-01",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+        ],
+        "properties": {
+            "publisher": "Microsoft.Powershell",
+            "type": "DSC",
+            "typeHandlerVersion": "2.76",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+                "protectedSettings": {
                     "Items": {
-                                "registrationKeyPrivate": "registrationKey"
-                    }
-                    },
-                    "publicSettings": {
-                        "configurationArguments": [
-                            {
-                                "Name": "RegistrationKey",
-                                "Value": {
-                                    "UserName": "PLACEHOLDER_DONOTUSE",
-                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                },
-                            },
-                            {
-                                "RegistrationUrl" : "registrationUrl",
-                            },
-                            {
-                                "NodeConfigurationName" : "nodeConfigurationName"
-                            }
-                        ]
+                        "registrationKeyPrivate": "registrationKey"
                     }
                 },
-            }
+                "publicSettings": {
+                    "configurationArguments": [{
+                            "Name": "RegistrationKey",
+                            "Value": {
+                                "UserName": "PLACEHOLDER_DONOTUSE",
+                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                            },
+                        },
+                        {
+                            "RegistrationUrl": "registrationUrl",
+                        },
+                        {
+                            "NodeConfigurationName": "nodeConfigurationName"
+                        }
+                    ]
+                }
+            },
         }
-    ]
+    }]
 }
 ```
 
@@ -141,45 +136,43 @@ for the default configuration script, see
 [Default configuration script](#default-configuration-script).
 
 ```json
-
 "settings": {
-  "wmfVersion": "latest",
-  "configuration": {
-    "url": "http://validURLToConfigLocation",
-    "script": "ConfigurationScript.ps1",
-    "function": "ConfigurationFunction"
-  },
-  "configurationArguments": {
-    "argument1": "Value1",
-    "argument2": "Value2"
-  },
-  "configurationData": {
-    "url": "https://foo.psd1"
-  },
-  "privacy": {
-    "dataCollection": "enable"
-  },
-  "advancedOptions": {
-    "downloadMappings": {
-      "customWmfLocation": "http://myWMFlocation"
+    "wmfVersion": "latest",
+    "configuration": {
+        "url": "http://validURLToConfigLocation",
+        "script": "ConfigurationScript.ps1",
+        "function": "ConfigurationFunction"
+    },
+    "configurationArguments": {
+        "argument1": "Value1",
+        "argument2": "Value2"
+    },
+    "configurationData": {
+        "url": "https://foo.psd1"
+    },
+    "privacy": {
+        "dataCollection": "enable"
+    },
+    "advancedOptions": {
+        "downloadMappings": {
+            "customWmfLocation": "http://myWMFlocation"
+        }
     }
-  }
 },
 "protectedSettings": {
-  "configurationArguments": {
-    "parameterOfTypePSCredential1": {
-      "userName": "UsernameValue1",
-      "password": "PasswordValue1"
+    "configurationArguments": {
+        "parameterOfTypePSCredential1": {
+            "userName": "UsernameValue1",
+            "password": "PasswordValue1"
+        },
+        "parameterOfTypePSCredential2": {
+            "userName": "UsernameValue2",
+            "password": "PasswordValue2"
+        }
     },
-    "parameterOfTypePSCredential2": {
-      "userName": "UsernameValue2",
-      "password": "PasswordValue2"
-    }
-  },
-  "configurationUrlSasToken": "?g!bber1sht0k3n",
-  "configurationDataUrlSasToken": "?dataAcC355T0k3N"
+    "configurationUrlSasToken": "?g!bber1sht0k3n",
+    "configurationDataUrlSasToken": "?dataAcC355T0k3N"
 }
-
 ```
 
 ## Details
@@ -201,7 +194,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](https://docs.microsoft.com/powershell/dsc/metaconfig#basic-settings).
+[Local Configuration Manager basic settings](/powershell/dsc/metaconfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 
@@ -232,8 +225,8 @@ you can include the credentials in **protectedSettings**:
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-               "userName": "UsernameValue1",
-               "password": "PasswordValue1"
+            "userName": "UsernameValue1",
+            "password": "PasswordValue1"
         }
     }
 }
@@ -258,14 +251,14 @@ to set LCM metadata.
                 "Password": "PrivateSettingsRef:registrationKeyPrivate"
             },
         },
-        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-  }
+        "RegistrationUrl": "[parameters('registrationUrl1')]",
+        "NodeConfigurationName": "nodeConfigurationNameValue1"
+    }
 },
 "protectedSettings": {
     "Items": {
-                "registrationKeyPrivate": "[parameters('registrationKey1']"
-            }
+        "registrationKeyPrivate": "[parameters('registrationKey1']"
+    }
 }
 ```
 
@@ -314,9 +307,9 @@ The following schema shows what the previous settings schema looked like:
     "ModulesUrl": "https://UrlToZipContainingConfigurationScript.ps1.zip",
     "SasToken": "SAS Token if ModulesUrl points to private Azure Blob Storage",
     "ConfigurationFunction": "ConfigurationScript.ps1\\ConfigurationFunction",
-    "Properties":  {
-        "ParameterToConfigurationFunction1":  "Value1",
-        "ParameterToConfigurationFunction2":  "Value2",
+    "Properties": {
+        "ParameterToConfigurationFunction1": "Value1",
+        "ParameterToConfigurationFunction2": "Value2",
         "ParameterOfTypePSCredential1": {
             "UserName": "UsernameValue1",
             "Password": "PrivateSettingsRef:Key1"
@@ -405,6 +398,7 @@ have properties with the same name.
 **Solution**: Remove one of the duplicate properties.
 
 ### Missing properties
+
 "Configuration.function requires that configuration.url
 or configuration.module is specified"
 
@@ -427,7 +421,7 @@ or configuration.module is specified"
 
 ## Next steps
 
-* Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
-* Find more details about [DSC's secure credential management](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Get an [introduction to the Azure DSC extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* For more information about PowerShell DSC, go to the [PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview).
+- Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
+- Find more details about [DSC's secure credential management](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Get an [introduction to the Azure DSC extension handler](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).

@@ -15,6 +15,9 @@ ms.author: v-gedod
 
 The Bing Entity Search SDK provides the REST API functionality for entity queries and parsing results. 
 
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
+
 ## Application dependencies
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
 Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
