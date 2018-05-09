@@ -93,7 +93,7 @@ To specify the type of records you care about, you can build a filter statement 
 > 
 > 
 
-To narrow down the scope of the returned data, you can build combinations of the supported filters and filter fields. For example, the following statement returns the top 10 records between July 1st 2016 and July 6th 2016:
+To narrow down the scope of the returned data, you can build combinations of the supported filters and filter fields. For example, the following statement returns the top 10 records between July 1 2016 and July 6 2016:
 
     https://graph.windows.net/contoso.com/activities/signinEvents?api-version=beta&$top=10&$filter=signinDateTime+ge+2016-07-01T17:05:21Z+and+signinDateTime+le+2016-07-07T00:00:00Z
 
