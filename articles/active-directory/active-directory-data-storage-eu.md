@@ -65,3 +65,6 @@ Most Azure AD data for European-based customers stays within the European datace
     Any services and apps that integrate with Azure AD have access to identity data. Customers must evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet the company's data storage requirements.
 
     For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/en-us/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+
+## Next steps
+For more info about ...
