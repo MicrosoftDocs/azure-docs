@@ -27,9 +27,9 @@ This quickstart shows how to configure an [Azure AD conditional access policy](a
 
 ## Scenario description
 
-The scenario in this article uses the Azure portal as placeholder for a cloud app that requires multi-factor authentication for a specific user. Britta Simon is a user in your organization. When she signs in to your Azure portal, you want her to further verify her account with multi-factor authentication.
+The scenario in this article uses the Azure portal as placeholder for a cloud app that requires multi-factor authentication for a specific user. Isabella Simonsen is a user in your organization. When she signs in to your Azure portal, you want her to further verify her account with multi-factor authentication.
 
-![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/01.png)
+![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
 
 
@@ -39,7 +39,7 @@ To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. If you don't have access to an Azure AD Premium edition, you can [sign-up for a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 
-- **A test account called Britta Simon** - If you don't know how to create a test account, read [these instructions](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, read [these instructions](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 
 
@@ -50,12 +50,12 @@ In your policy, you set:
 
 |Setting |Value|
 |---     | --- |
-|Users and groups | Britta Simon |
+|Users and groups | Isabella Simonsen |
 |Cloud apps | Microsoft Azure Management |
 |Grant | Require multi-factor authentication |
  
 
-![Create policy](./media/active-directory-conditional-access-app-based-mfa/12.png)
+![Create policy](./media/active-directory-conditional-access-app-based-mfa/21.png)
 
 
 
@@ -76,7 +76,7 @@ In your policy, you set:
 
     ![Add](./media/active-directory-conditional-access-app-based-mfa/04.png)
 
-5. On the **New** page, in the **Name** textbox, type **Require MFA for Britta**.
+5. On the **New** page, in the **Name** textbox, type **Require MFA for Azure portal access**.
 
     ![Name](./media/active-directory-conditional-access-app-based-mfa/05.png)
 
@@ -86,13 +86,13 @@ In your policy, you set:
 
 7. On the **Users and groups** page, perform the following steps:
 
-    ![Users and groups](./media/active-directory-conditional-access-app-based-mfa/07.png)
+    ![Users and groups](./media/active-directory-conditional-access-app-based-mfa/24.png)
 
-    a. Click **Select users and groups**.
+    a. Click **Select users and groups**, and then select **Users and groups**.
 
     b. Click **Select**.
 
-    c. On the **Select** page, select your test user, and then click **Select**.
+    c. On the **Select** page, select **Isabella Simonsen**, and then click **Select**.
 
     d. On the **Users and groups** page, click **Done**.
 
@@ -102,7 +102,7 @@ In your policy, you set:
 
 9. On the **Cloud apps** page, perform the following steps:
 
-    ![Select cloud apps](./media/active-directory-conditional-access-app-based-mfa/09.png)
+    ![Select cloud apps](./media/active-directory-conditional-access-app-based-mfa/26.png)
 
     a. Click **Select apps**.
 
@@ -136,9 +136,9 @@ In your policy, you set:
 
 ## Evaluate your conditional access policy
 
-Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, you can use the [conditional access what if policy tool](active-directory-conditional-access-whatif.md) to simulate a sign-in of a user. When you configure the tool with **Britta Simon** as user and **Microsoft Azure Management** as cloud app, the tool shows **Require MFA for Britta** under **Policies that will apply** and **Require multi-factor authentication** as **Grant Controls**.
+Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, you can use the [conditional access what if policy tool](active-directory-conditional-access-whatif.md) to simulate a sign-in of a user. When you configure the tool with **Isabella Simonsen** as user and **Microsoft Azure Management** as cloud app, the tool shows **Require MFA for Azure portal access** under **Policies that will apply** and **Require multi-factor authentication** as **Grant Controls**.
 
-![What if policy tool](./media/active-directory-conditional-access-app-based-mfa/17.png)
+![What if policy tool](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
 
 
@@ -148,7 +148,7 @@ Now that you have configured your conditional access policy, you probably want t
  
     ![What If](./media/active-directory-conditional-access-app-based-mfa/14.png)
 
-2. Click **Users**, select **Britta Simon**, and then click **Select**.
+2. Click **Users**, select **Isabella Simonsen**, and then click **Select**.
 
     ![User](./media/active-directory-conditional-access-app-based-mfa/15.png)
 
@@ -173,9 +173,9 @@ Now that you have configured your conditional access policy, you probably want t
 
 The previous section In the previous section, you 
 
-To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Britta Simon** test account. You should see a dialog that requires you to set your account up for additional security verification.
+To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to set your account up for additional security verification.
 
-![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/01.png)
+![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
 
 ## Next steps
