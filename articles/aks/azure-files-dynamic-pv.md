@@ -63,7 +63,7 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Create the storage class with the [kubectl create][kubectl-create] command.
+Create the storage class with the [][kubectl-create] command.
 
 ```azurecli-interactive
 kubectl create -f azure-file-sc.yaml
