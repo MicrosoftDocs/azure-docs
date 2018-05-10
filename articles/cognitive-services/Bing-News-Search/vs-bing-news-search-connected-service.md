@@ -26,7 +26,7 @@ This article provides details for using the Visual Studio Connected Service feat
 
 ## Add support to your project for Cognitive Services Bing News Search API
 
-1. Create a new ASP.NET Core web project. Use the MVC project template. 
+1. Create a new ASP.NET Core web project named MyWebApplication. Use the **Web Application (Model-View-Controller)** project template with all the default settings. It’s important to name the project MyWebApplication so the namespace will match when you copy code into the project. 
 
 1. In **Solution Explorer**, choose **Add** > **Connected Service**.
    The Connected Service page appears with services you can add to your project.
@@ -81,10 +81,9 @@ This article provides details for using the Visual Studio Connected Service feat
 
 Now that you’ve added support for the Bing News Search API to your project, here’s how to use the API to add intelligent search to a web page.
 
-1.  In Startup.cs, in the ConfigureServices method, add a call to IServiceCollection.AddSingleton to make the configuration object that contains the key settings available to the code in your project.
+1.  In *Startup.cs*, in the `ConfigureServices` method, add a call to `IServiceCollection.AddSingleton` to make the configuration object that contains the key settings available to the code in your project.
  
    ```csharp
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
@@ -93,7 +92,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
    ```
 
 
-1. Add a new file under Models folder, called BingNewsModel.cs. Use your own project's namespace instead of MyWebApplication.
+1. Add a new class file under Models folder, called *BingNewsModel.cs*. If you named your project differently, use your own project's namespace instead of MyWebApplication. Replace the contents with the following code:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -114,7 +113,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
 
    This model will be used to store the results of a call to the Bing News Search service.
  
-1. In the Controllers folder, add a new controller called IntelligentSearchController.cs, and copy in the following contents.
+1. In the Controllers folder, add a new class file called IntelligentSearchController.cs. Replace the contents with the following code:
 
    ```csharp
     using System;
@@ -134,7 +133,8 @@ Now that you’ve added support for the Bing News Search API to your project, he
         {
             private IConfiguration configuration;
   
-            // Set up the configuration that contains the keys (from the appsettings.json file)
+            // Set up the configuration that contains the keys
+            // (from the appsettings.json file)
             // that you will use to access the service  
             public IntelligentSearchController(IConfiguration configuration)
             {
@@ -162,9 +162,11 @@ Now that you’ve added support for the Bing News Search API to your project, he
             // Get the search client object
             private INewsSearchAPI GetNewsSearchClient(DelegatingHandler handler)
             {
-                string key = configuration.GetSection("CognitiveServices")["IntelligentSearch:ServiceKey"];
+                string key =
+                   configuration.GetSection("CognitiveServices")["IntelligentSearch:ServiceKey"];
     
-                INewsSearchAPI client = new NewsSearchAPI(new ApiKeyServiceClientCredentials(key), handlers: handler);
+                INewsSearchAPI client = new NewsSearchAPI(
+                   new ApiKeyServiceClientCredentials(key), handlers: handler);
     
                 return client;
             }
@@ -172,15 +174,19 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-   In this code, the constructor sets up the configuration object that contains your keys. The method for the "Search" route is just a redirection to the BingSearchResult function, which calls the GetNewsSearchClient method to get the NewsSearchAPI client object.  The NewsSearchAPI client object contains the SearchAsync method which actually calls the service and returns the results in the SearchResult model that you just created. 
+   In this code, the constructor sets up the configuration object that contains your keys. The method for the "Search" route is just a redirection to the `BingSearchResult` function, which calls the `GetNewsSearchClient` method to get the `NewsSearchAPI` client object.  The `NewsSearchAPI` client object contains the `SearchAsync` method which actually calls the service and returns the results in the `SearchResult` model that you just created. 
 
-1. Add a class MyHandler, which was referenced in the preceding code. This just delegates the asynchronous call to the Search service to its base class, DelegatingHandler.
+1. Add a class `MyHandler`, which was referenced in the preceding code. This delegates the asynchronous call to the Search service to its base class, `DelegatingHandler`.
 
    ```csharp
+    using System.Net.Http;
+    using System.Threading.Tasks;
+    using System.Threading;
+
     class MyHandler : DelegatingHandler
     {
         protected async override Task<HttpResponseMessage> SendAsync(
-        HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+        HttpRequestMessage request, CancellationToken cancellationToken)
         {
             // Call the inner handler.
             var response = await base.SendAsync(request, cancellationToken);
@@ -190,7 +196,7 @@ Now that you’ve added support for the Bing News Search API to your project, he
     }
    ```
 
-1. To add support for submitting searches and viewing the results, add a view BingSearchResult.cshtml to a new folder, IntelligentSearch, in the Views folder. Copy in the following code.
+1. To add support for submitting searches and viewing the results, add a view *BingSearchResult.cshtml* to a new folder, IntelligentSearch, in the Views folder. Copy in the following code.
 
     ```cshtml
     @using System
@@ -198,14 +204,14 @@ Now that you’ve added support for the Bing News Search API to your project, he
     
     @{
         ViewData["Title"] = "BingSearchResult";
-        Layout = "~/Views/Shared/_Layout.cshtml";
     }
     
     <h2>Search News</h2>
     
     <div class="row">
         <section>
-            <form asp-controller="IntelligentSearch" asp-action="Search" method="POST" class="form-horizontal" enctype="multipart/form-data">
+            <form asp-controller="IntelligentSearch" asp-action="Search" method="POST"
+                  class="form-horizontal" enctype="multipart/form-data">
                 <table width ="90%">
                     <tr>
                         <td>
@@ -224,7 +230,9 @@ Now that you’ve added support for the Bing News Search API to your project, he
     @if (!string.IsNullOrEmpty(Model.SearchText)) {
         foreach (var item in Model.SearchResult.Value) {
         <tr>
-            <td rowspan="2" width="90"><img src=@item?.Image?.Thumbnail?.ContentUrl width="80" height="80" /></td>
+            <td rowspan="2" width="90">
+               <img src=@item?.Image?.Thumbnail?.ContentUrl width="80" height="80" />
+            </td>
             <td><a href=@item.Url>@item.Name</a></td>
         </tr>   
         <tr>
