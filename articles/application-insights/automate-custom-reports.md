@@ -36,6 +36,7 @@ You can [programmatically query Application Insights](https://dev.applicationins
 * [Automate reports with Microsoft Flow](app-insights-automate-with-flow.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
 * Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
+
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
 ### Sample query for a weekly digest email
