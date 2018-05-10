@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: sethm
 
 ---
@@ -49,7 +49,7 @@ Once PowerShell is installed, install the Event Hubs PowerShell module and log o
 
 3. Select your Azure subscription. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
-   ```azurepowershell
+   ```azurepowershell-interactive
    Select-AzureRmSubscription -SubscriptionName "MyAzureSub"
    ```
 
@@ -61,7 +61,7 @@ A [resource group](https://docs.microsoft.com/en-us/azure/azure-resource-manager
 
 The following example creates a resource group in the East US region. Replace `myResourceGroup` with the name of the resource group you want to use:
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 ```
 
@@ -69,7 +69,7 @@ New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 
 Once your resource group is made, create an Event Hubs namespace within that resource group. An Event Hubs namespace provides a unique fully-qualified domain name in which you can create your event hub. Replace `namespace_name` with a unique name for your namespace:
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
@@ -77,7 +77,7 @@ New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName n
 
 Now that you have an Event Hubs namespace, create an event hub within that namespace:
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
@@ -85,7 +85,7 @@ New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_
 
 Event Processor Host simplifies receiving events from Event Hubs by managing checkpoints and parallel receivers. For checkpointing, Event Processor Host requires a storage account. To create a storage account and get its keys, run the following commands:
 
-```azurepowershell
+```azurepowershell-interactive
 # Create a standard general purpose storage account 
 New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location eastus -SkuName Standard_LRS 
 e
@@ -97,7 +97,7 @@ Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_ac
 
 A connection string is required to connect to your event hub and process events. To get your connection string, run:
 
-```azurepowershell
+```azurepowershell-interactive
 Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
 ```
 
@@ -158,7 +158,7 @@ On the Azure portal, you can view the rate at which events are being processed f
 
 When you've completed the quickstart, you can delete your resource group and the namespace, storage account, and event hub within it. Replace `myResourceGroup` with the name of the resource group you created. 
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 

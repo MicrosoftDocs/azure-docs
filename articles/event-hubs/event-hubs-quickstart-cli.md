@@ -29,7 +29,7 @@ If you choose to install and use Azure CLI locally, this tutorial requires that 
 
 ## Log on to Azure
 
-Once Azure CLI is installed, perform the following steps to install the Event Hubs CLI extension and log on to Azure:
+Once Azure CLI is installed, perform the following steps to install the Event Hubs CLI extension and log on to Azure. Note that the following steps are not required if you're running commands in Cloud Shell:
 
 1. Run the following command to log on to Azure:
 
@@ -39,7 +39,7 @@ Once Azure CLI is installed, perform the following steps to install the Event Hu
 
 3. Set the current subscription context. Replace `MyAzureSub` with the name of the Azure subscription you want to use:
 
-   ```azurecli
+   ```azurecli-interactive
    az account set --subscription MyAzureSub
    ``` 
 
@@ -47,7 +47,7 @@ Once Azure CLI is installed, perform the following steps to install the Event Hu
 
 After logging in to Azure, issue the following commands to provision Event Hubs resources. Be sure to replace the placeholders `myResourceGroup`, `namespaceName`, `eventHubName`, and `storageAccountName` with the appropriate values:
 
-```azurecli
+```azurecli-interactive
 # Create a resource group
 az group create --name myResourceGroup --location eastus
 
