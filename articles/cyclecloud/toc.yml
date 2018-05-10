@@ -10,10 +10,10 @@
     href: prerequisites.md
   - name: Installation
     href: installation.md
-  - name: Configuring CycleCloud
-    href: configuring_cyclecloud.md
-  - name: Installing CycleCloud CLI
-    href: install_cli.md
+  - name: Configure CycleCloud
+    href: configure-cyclecloud.md
+  - name: Install CycleCloud CLI
+    href: install-cli.md
   - name: Jetpack
     href: jetpack.md
   - name: pogo
@@ -21,23 +21,23 @@
     - name: Overview
       href: pogo.md
     - name: pogo Configuration
-      href: pogo_configuration.md
+      href: pogo-configuration.md
     - name: Using pogo
-      href: using_pogo.md
+      href: using-pogo.md
   - name: SubmitOnce
     items:
     - name: Overview
-      href: submit_once.md
+      href: submit-once.md
     - name: Installation and Configuration
-      href: submit_once_installation.md
+      href: submit-once-installation.md
     - name: User Management
-      href: so_user_management.md
+      href: submit-once-user-management.md
     - name: CLI
-      href: so_cli.md
+      href: submit-once-cli.md
     - name: Available Commands
-      href: so_commands.md
+      href: submit-once-commands.md
     - name: Appendicies
-      href: so_appendix.md
+      href: submit-once-appendix.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
@@ -55,25 +55,25 @@
   - name: Clusters and Nodes
     items:
     - name: Cluster Management
-      href: cluster_management.md
+      href: cluster-management.md
     - name: Nodes and Node Arrays
       href: nodes.md
     - name: Images
       href: images.md
-    - name: Auto-Scaling
-      href: autoscale_api.md
+    - name: Auto-Scale
+      href: autoscale-api.md
   - name: Projects
     items:
     - name: Cluster-Init Projects
-      href: cluster_init_projects.md
+      href: cluster-init-projects.md
     - name: Cluster Init
-      href: cluster_init.md
+      href: cluster-init.md
   - name: Disaster Recovery
     items:
     - name: Synchronization
-      href: dr_synchronization.md
+      href: dr-synchronization.md
     - name: Virtualization
-      href: dr_virtualization.md
+      href: dr-virtualization.md
   - name: Monitoring
     items:
     - name: Monitoring
@@ -82,20 +82,20 @@
       href: alerts.md
     - name: Usage
       href: usage.md
-  - name: Reporting
+  - name: Reports
     items:
-    - name: Reporting
-      href: reporting.md
-    - name: Event Logging
-      href: event_logging.md
+    - name: Reports
+      href: reports.md
+    - name: Event Logs
+      href: event-logs.md
   - name: Data Management
     items:
     - name: Overview
-      href: data_overview.md
+      href: data-overview.md
     - name: Endpoint Creation
-      href: endpoint_creation.md
+      href: endpoint-creation.md
     - name: Data Encrytion
-      href: data_encryption.md
+      href: data-encryption.md
   - name: Storage
     items:
     - name: Storage
@@ -107,19 +107,19 @@
 - name: How-To
   items:
   - name: Create Custom Images
-    href: custom_images.md
+    href: custom-images.md
   - name: Create Custom Alerts
-    href: custom_alerts.md
-  - name: Transferring Data
-    href: transferring_data.md
-  - name: Enabling Return Nodes
-    href: return_nodes.md
+    href: custom-alerts.md
+  - name: Transfer Data
+    href: transfer-data.md
+  - name: Enable Return Nodes
+    href: return-nodes.md
 - name: Reference
   items:
   - name: CLI
     href:
   - name: Common Cookbook Reference
-    href: common_cookbook_reference.md
+    href: common-cookbook-reference.md
   - name: HealthCheck
     href: healthcheck.md
   - name: Node Configuration
