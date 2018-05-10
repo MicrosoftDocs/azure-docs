@@ -5,7 +5,6 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
@@ -31,7 +30,7 @@ This will launch the new default overview dashboard:
 
 ![Overview Preview Pane](.\media\app-insights-overview-dashboard\02.png)
 
-## What has changed?
+## Better performance
 
 Time range selection has been simplified to a simple one-click interface.
 
@@ -41,12 +40,28 @@ Overall performance has been greatly increased. Each default dynamically updatin
 
 ![Failures](.\media\app-insights-overview-dashboard\03.png)
 
-The most recent iteration of the classic overview experience locked down the tiles preventing user customization. With this new preview release the _Pin parts_ button allows you to expand and customize to give deeper insight into the health and performance of your application.
+## Application dashboard
 
-So whereas before you were limited to:
+Application dashboard leverages the existing dashboard technology within Azure to provide a fully customizable single pane view of your application health and performance.
 
-![Classic Overview](.\media\app-insights-overview-dashboard\05.png)
+To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-Now you can expand to the same level previously only available in the Azure dashboard view:
+![Dashboard view](.\media\app-insights-overview-dashboard\009.png)
+
+If this is your first time accessing the dashboard it will launch a default view:
 
 ![Dashboard view](.\media\app-insights-overview-dashboard\06.png)
+
+While you can keep the default view if you like it, you can also add, and delete from the dashboard to best fit the needs of your team.
+
+To navigate back to the overview experience just select:
+
+![Overview Button](.\media\app-insights-overview-dashboard\07.png)
+
+There is also a new button called _Pin Parts_.
+
+![Overview Button](.\media\app-insights-overview-dashboard\08.png)
+
+This replicates a little known feature from the classic overview that allows you to take any of the tiles from the old overview experience _(Alerts, Availability, Live Metrics, Usage, Proactive Detections, and Application Map)_ and add them into custom dashboards. 
+
+In the case of the default _Application Dashboard_ we have already added these tiles. But if you create additional custom dashboards, or if someone on your team deletes a classic tile and you want to add it back, _Pin parts_ provides that functionality in any easy to find place.
