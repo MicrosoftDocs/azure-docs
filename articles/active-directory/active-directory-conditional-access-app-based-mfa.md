@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Require MFA for specific apps with Azure Active Directory conditional access | Microsoft Docs
-description: Learn how you can tie your authentication requirements to the type of accessed cloud app using Azure Active Directory (Azure AD) conditional access.
+title: Quickstart - Require multi-factor authentication (MFA) for specific apps with Azure Active Directory conditional access | Microsoft Docs
+description: In this quickstart, you learn how you can tie your authentication requirements to the type of accessed cloud app using Azure Active Directory (Azure AD) conditional access.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 
 ms.service: active-directory
+ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,7 +16,7 @@ ms.workload: identity
 ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-
+#Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
 ---
 
 # Quickstart: Require MFA for specific apps with Azure Active Directory conditional access 
