@@ -3,7 +3,7 @@ title: Use a static IP address with the Azure Kubernetes Service (AKS) load bala
 description: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

@@ -3,7 +3,7 @@ title: Jenkins continuous deployment with Kubernetes in Azure Kubernetes Service
 description: How to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app on Kubernetes in Azure Kubernetes Service
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
