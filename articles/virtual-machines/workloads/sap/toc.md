@@ -14,8 +14,6 @@
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
 ## [SAP HANA on Azure operations guide](hana-vm-operations.md)
-### How To
-#### [Azure Write Accelerator for SAP deployments](how-to-enable-write-accelerator.md)
 ## SAP HANA Availability in Azure Virtual Machines
 ### [SAP HANA on Azure Availability overview](sap-hana-availability-overview.md)
 ### [SAP HANA on Azure Availability within one Azure region](sap-hana-availability-one-region.md)
@@ -39,7 +37,7 @@
 ### Azure Infrastructure Preparation
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-file-share.md)
-#### [SUSE Linux with NFS for (A)SCS Instance](high-availability-guide-suse.md)
+#### [High availability for NFS on Azure VMs on SLES](high-availability-guide-suse-nfs.md)
 #### [Pacemaker on SLES](high-availability-guide-suse-pacemaker.md)
 ### SAP Installation
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-installation-wsfc-shared-disk.md)

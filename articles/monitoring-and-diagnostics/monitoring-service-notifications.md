@@ -1,8 +1,8 @@
 ---
 title: What are Azure service health notifications? | Microsoft Docs
 description: Service health notifications allow you to view service health messages published by Microsoft Azure.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
+ms.date: 4/12/2017
+ms.author: dukek
 
 ---
 # View service health notifications by using the Azure portal
@@ -38,7 +38,7 @@ channels | One of the following values: **Admin** or **Operation**.
 correlationId | Usually a GUID in the string format. Events that belong to the same action usually share the same correlationId.
 eventDataId | The unique identifier of an event.
 eventName | The title of an event.
-level | The level of an event. One of the following values: **Critical**, **Error**, **Warning** or **Informational**.
+level | The level of an event
 resourceProviderName | The name of the resource provider for the impacted resource.
 resourceType| The type of resource of the impacted resource.
 subStatus | Usually the HTTP status code of the corresponding REST call, but can also include other strings describing a substatus. For example: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), and Gateway Timeout (HTTP Status Code: 504).
@@ -51,14 +51,57 @@ category | This property is always **ServiceHealth**.
 resourceId | The Resource ID of the impacted resource.
 Properties.title | The localized title for this communication. English is the default.
 Properties.communication | The localized details of the communication with HTML markup. English is the default.
-Properties.incidentType | One of the following values: **AssistedRecovery**, **ActionRequired**, **Information**, **Incident**, **Maintenance**, or **Security**.
+Properties.incidentType | One of the following values: **ActionRequired**, **Information**, **Incident**, **Maintenance**, or **Security**.
 Properties.trackingId | The incident with which this event is associated. Use this to correlate the events related to an incident.
 Properties.impactedServices | An escaped JSON blob that describes the services and regions impacted by the incident. The property includes a list of services, each of which has a **ServiceName**, and a list of impacted regions, each of which has a **RegionName**.
 Properties.defaultLanguageTitle | The communication in English.
 Properties.defaultLanguageContent | The communication in English as either HTML markup or plain text.
-Properties.stage | The possible values for **AssistedRecovery**, **ActionRequired**, **Information**, **Incident**, and **Security** are **Active** or **Resolved**. For **Maintenance**, they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
+Properties.stage | The possible values for **Incident**, and **Security** are **Active,** **Resolved** or **RCA**. For **ActionRequired** or **Information** the only value is **Active.** For **Maintenance** they are: **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved**, or **Complete**.
 Properties.communicationId | The communication with which this event is associated.
 
+### Details on service health level information
+  <ul>
+    <li><b>Action Required</b> (properties.incidentType == ActionRequired)
+        <dl>
+            <dt>Informational</dt>
+            <dd>Administrator action required to prevent impact to existing services</dd>
+        </dl>
+    </li>
+    <li><b>Maintenance</b> (properties.incidentType == Maintenance)
+        <dl>
+            <dt>Warning</dt>
+            <dd>emergency maintenance<dd>
+            <dt>Informational</dt>
+            <dd>standard planned maintenance</dd>
+        </dl>
+    </li>
+    <li><b>Information</b> (properties.incidentType == Information)
+        <dl>
+            <dt>Informational</dt>
+            <dd>Administrator may be required to prevent impact to existing services</dd>
+        </dl>
+    </li>
+    <li><b>Security</b> (properties.incidentType == Security)
+        <dl>
+            <dt>Error</dt>
+            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
+            <dt>Warning</dt>
+            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
+            <dt>Informational</dt>
+            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
+        </dl>
+    </li>
+    <li><b>Service Issues</b> (properties.incidentType == Incident)
+        <dl>
+            <dt>Error</dt>
+            <dd>Widespread issues accessing multiple services across multiple regions are impacting a broad set of customers.</dd>
+            <dt>Warning</dt>
+            <dd>Issues accessing specific services and/or specific regions are impacting a subset of customers.</dd>
+            <dt>Informational</dt>
+            <dd>Issues impacting management operations and/or latency, not impacting service availability.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## View your service health notifications in the Azure portal
 1.	In the [Azure portal](https://portal.azure.com), select **Monitor**.

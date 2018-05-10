@@ -4,7 +4,7 @@ description: Create and upload an Azure virtual hard disk (VHD) that contains th
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX

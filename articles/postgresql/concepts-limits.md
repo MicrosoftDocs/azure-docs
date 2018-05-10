@@ -38,7 +38,6 @@ There is a maximum number of connections, compute units, and storage in each pri
 |Memory Optimized| Gen 5| 4| 250|
 |Memory Optimized| Gen 5| 8| 480|
 |Memory Optimized| Gen 5| 16| 950|
-|Memory Optimized| Gen 5| 32| 1900|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already

@@ -4,7 +4,7 @@ description: Learn how to install the Azure VM Agent in offline mode.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -127,5 +127,5 @@ Then run the `Get-AzureVM` command. Notice that the **GuestAgentStatus** propert
 
 ## Next steps
 
-- [Azure Virtual Machine Agent overview](agent-user-guide.md)
+- [Azure Virtual Machine Agent overview](../extensions/agent-windows.md)
 - [Virtual machine extensions and features for Windows](extensions-features.md)

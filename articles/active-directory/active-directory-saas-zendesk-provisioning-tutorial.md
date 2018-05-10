@@ -26,7 +26,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ze
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following:
+The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 *   An Azure AD tenant
 *   A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled 
@@ -101,7 +101,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Admin Username**, **Secret Token**, and **Domain** of your Zendesk's account. Examples of these values are:
 
-	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk Tenant. Example: admin@contoso.com.
+	*   In the **Admin Username** field, populate the username of the admin account on your Zendesk tenant. Example: admin@contoso.com.
 
 	*   In the **Secret Token** field, populate the secret token as described in Step 6.
 
@@ -111,14 +111,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**. 
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk4.png)
-
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zendesk. If the connection fails, ensure your Zendesk account has Admin permissions and try again.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk19.png)
 	
-8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
+8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Zendesk Provisioning](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk9.png)
 
@@ -158,6 +157,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Zendesk.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](./active-directory-saas-provisioning-reporting.md).
+
+## Connector Limitations
+* Zendesk supports usage of groups for Users with Agent roles only. For more information, please refer to [Zendesk's documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
 ## Additional resources
 

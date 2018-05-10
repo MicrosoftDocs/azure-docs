@@ -1,9 +1,9 @@
----
+﻿---
 title: Protect VMs deployed on Azure Stack | Microsoft Docs
 description:  Guidelines on how to protect virtual machines deployed on Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -12,16 +12,13 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: 02get-started-article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.topic: get-started-article
+ms.date: 04/25/2018
+ms.author: jeffgilb
 ms.reviewer: hector.linares
 ---
 
 # Protect virtual machines deployed on Azure Stack
-
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 This article covers guidelines on how to protect user VMs deployed on Azure Stack.
 
 To protect against data loss and unplanned downtime, you need to implement a backup-recovery or disaster-recovery plan for your user applications and data. This plan is unique for each application but follows a framework established by your organization's comprehensive business continuity and disaster recovery (BC/DR) strategy. For general patterns and practices for application availability and resiliency refer to [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency) in Azure's Architecture Center.
@@ -65,8 +62,8 @@ The most common protection scheme for VM-based applications is to use backup sof
  
 Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. Which cloud you target is completely within your control and is based on your data privacy and sovereignty requirements. 
  
- - RTO: Downtime measured in seconds 
- - RPO: Minimal data loss
+ - RTO: Downtime measured in hours 
+ - RPO: Variable data loss (depending on backup frequency)
  - Deployment topology: Active/passive 
 
 #### Planning your backup strategy
@@ -92,8 +89,8 @@ With this approach, the application is only deployed in one cloud. The VM is the
 
 ![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
 
- - RTO: Downtime in minutes 
- - RPO: Variable data loss
+ - RTO: Downtime measured in minutes 
+ - RPO: Variable data loss (depending on replication frequency)
  - Deployment topology: Active/passive stand-by
  
 ### High availability/automatic failover
@@ -144,7 +141,8 @@ Important considerations for your Azure Stack deployment:
 ## Next steps 
 
 In this article, we covered the guidelines on how to protect user VMs deployed on Azure Stack. For more information on how to protect your VMs using Azure services, refer to:
- - [Azure Backup Server support for Azure Stack](https://docs.microsoft.com/en-us/azure/backup/ ) 
- - [Azure Site Recovery support for Azure Stack](https://docs.microsoft.com/en-us/azure/site-recovery/)  
+ - [Use Azure Backup to back up files and applications on Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Backup Server support for Azure Stack](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure Site Recovery support for Azure Stack](https://docs.microsoft.com/azure/site-recovery/)  
  
 To learn more about the partner products that offer VM protection on Azure Stack, refer to "[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)."

@@ -21,12 +21,18 @@
     href: azure-stack-quick-create-vm-linux-cli.md
 - name: Tutorials
   items:
-  - name: 'Deploy apps to Azure & Azure Stack'
+  - name: Deploy apps to Azure and Azure Stack
     href: azure-stack-solution-pipeline.md
+  - name: Configure hybrid cloud identity
+    href: azure-stack-solution-hybrid-identity.md
+  - name: Configure hybrid cloud connectivity
+    href: azure-stack-solution-hybrid-connectivity.md
 - name: How-to guides
   items:
   - name: Use the Azure Stack Portal
     href: azure-stack-use-portal.md
+  - name: Use the Azure Stack API
+    href: azure-stack-rest-api-use.md
   - name: Security & compliance
     items:
     - name: Manage RBAC
@@ -85,6 +91,12 @@
         href: azure-stack-kv-push-secret-into-vm.md
       - name: KeyVault sample app
         href: azure-stack-kv-sample-app.md
+    - name: Solution templates
+      items:
+      - name: Deploy a Service Fabric cluster
+        href: azure-stack-solution-template-service-fabric-cluster.md
+      - name: Deploy a Kubernetes cluster
+        href: azure-stack-solution-template-kubernetes-deploy.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -97,12 +109,23 @@
         href: azure-stack-powershell-download.md
       - name: Configure PowerShell - User
         href: azure-stack-powershell-configure-user.md
-      - name: Install and configure the Azure Stack CLI
-        href: azure-stack-connect-cli.md
       - name: Install Visual Studio
         href: azure-stack-install-visual-studio.md
-      - name: Manage API version profiles
+      - name: Using API version profiles
         href: azure-stack-version-profiles.md
+        items:
+        - name: PowerShell
+          href: azure-stack-version-profiles-powershell.md
+        - name: Azure CLI 2.0
+          href: azure-stack-version-profiles-azurecli2.md
+        - name: GO
+          href: azure-stack-version-profiles-go.md
+        - name: Ruby
+          href: azure-stack-version-profiles-ruby.md
+        - name: Python
+          href: azure-stack-version-profiles-python.md
+        - name: Resource provider APIs supported by profiles
+          href: azure-stack-profiles-azure-resource-manager-versions.md
     - name: Use policy module
       href: azure-stack-policy-module.md
     - name: Use templates

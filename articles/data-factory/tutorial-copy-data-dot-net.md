@@ -4,8 +4,8 @@ description: 'This tutorial provides step-by-step instructions for copying  data
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services

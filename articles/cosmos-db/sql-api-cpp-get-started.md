@@ -4,7 +4,7 @@ description: A C++ tutorial that creates a C++ database and console application 
 services: cosmos-db
 documentationcenter: cpp
 author: asthana86
-manager: jhubbard
+manager: kfile
 editor: ''
 
 ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
@@ -27,8 +27,6 @@ ms.author: aasthan
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Welcome to the C++ tutorial for the Azure Cosmos DB SQL API endorsed SDK for C++! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources, including a C++ database.
 

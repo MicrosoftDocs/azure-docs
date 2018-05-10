@@ -104,7 +104,7 @@ The following steps create the necessary resources required to deploy your appli
 8. Copy the account SAS URL and set it aside for use when creating your Service Fabric cluster. It resembles the following URL:
 
     ```
-    https://teststorageaccount.table.core.windows.net/?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
+    ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Create a resource group that contains the Event Hub resources. Event Hubs is used to send messages from Service Fabric to the server running the ELK resources.
@@ -161,11 +161,11 @@ The following steps create the necessary resources required to deploy your appli
     Copy the value of the **sr** field in the JSON returned. The **sr** field value is the SAS token for EventHubs. The following URL is an example of the **sr** field:
 
     ```bash
-    https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=<policy_name>
+    https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
     Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example, 
-    https://testeventhubs.servicebus.windows.net/testeventhubs?sr=https%3A%2F%2Ftesteventhubs.servicebus.windows.net%2Ftesteventhubs&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
 12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps 
 

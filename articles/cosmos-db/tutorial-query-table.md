@@ -4,7 +4,7 @@ description: Learn to query table data in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: kanshiG
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 

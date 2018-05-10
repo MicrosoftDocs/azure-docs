@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Microsoft Docs'
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
@@ -59,7 +59,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
 	```PowerShell 
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```   
   2. Run the following command to view all the subscriptions for this account:
 

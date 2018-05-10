@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # How to analyze historical data about your application
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 This article describes the **ANALYTICS** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account.
 
 The Analytics section of the UI provides aggregated information about your application based on historic data that is updated every 24 hours. The information is displayed on different dashboards composed of line/bar/pie charts, grids, and maps. The data can also be downloaded as .csv files. Most of this same information is available in real time in the Monitor section of the UI, and it can also be accessed from the Analytics API.

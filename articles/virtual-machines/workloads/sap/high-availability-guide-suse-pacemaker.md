@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/20/2018
 ms.author: sedusch
 
 ---
@@ -26,14 +26,13 @@ ms.author: sedusch
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
 
-![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
-
-
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
 The SBD device requires one additional virtual machine that acts as an iSCSI target server and provides an SBD device. This iSCSI target server can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, does not require any changes on how you operate the pacemaker cluster. The SBD fencing can still use the Azure fence agent as a backup fencing mechanism in case the iSCSI target server is not available.
 
 If you do not want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
+
+![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 ## SBD fencing
 
@@ -51,6 +50,14 @@ You first need to create an iSCSI target virtual machine if you do not have one 
    sudo zypper update
    </code></pre>
 
+1. Remove packages
+
+   To avoid a known issue with targetcli and SLES 12 SP3, uninstall the following packages. You can ignore errors about packages that cannot be found
+   
+   <pre><code>
+   sudo zypper remove lio-utils python-rtslib python-configshell targetcli
+   </code></pre>
+   
 1. Install iSCSI target packages
 
    <pre><code>
@@ -59,12 +66,9 @@ You first need to create an iSCSI target virtual machine if you do not have one 
 
 1. Enable the iSCSI target service
 
-   <pre><code>
-   # This will make sure that targetcli was called at least once and the initial configuration was done.
-   sudo targetcli --help
-   
-   sudo systemctl enable target
-   sudo systemctl start target
+   <pre><code>   
+   sudo systemctl enable targetcli
+   sudo systemctl start targetcli
    </code></pre>
 
 ### Create iSCSI device on iSCSI target server
@@ -77,16 +81,28 @@ Run the following command on the **iSCSI target VM** to create an iSCSI disk for
 # List all data disks with the following command
 sudo ls -al /dev/disk/azure/scsi1/
 
+# total 0
+# drwxr-xr-x 2 root root  80 Mar 26 14:42 .
+# drwxr-xr-x 3 root root 160 Mar 26 14:42 ..
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun0 -> ../../../<b>sdc</b>
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun1 -> ../../../sdd
+
+# Then use the disk name to list the disk id
+sudo ls -l /dev/disk/by-id/scsi-* | grep sdc
+
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 /dev/disk/by-id/scsi-14d53465420202020a50923c92babda40974bef49ae8828f0 -> ../../sdc
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0 -> ../../sdc</b>
+
 # Use the data disk that you attached for this cluster to create a new backstore
-sudo targetcli backstores/block create <b>cl1</b> /dev/disk/azure/scsi1/<b>lun0</b>
+sudo targetcli backstores/block create <b>cl1</b> <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0</b>
 
 sudo targetcli iscsi/ create iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/luns/ create /backstores/block/<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-0.local:prod-cl1-0</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-1.local:prod-cl1-1</b>
 
-# restart the iSCSI target service to persist the changes
-sudo systemctl restart target
+# save the targetcli changes
+sudo targetcli saveconfig
 </code></pre>
 
 ### Set up SBD device
@@ -267,7 +283,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[A]** Setup host name resolution   
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands
+   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster become independent of DNS which could be a single point of failures too.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -316,10 +332,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Add the following bold content to the file.
+   Add the following bold content to the file if the values are not there or different.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }
@@ -377,7 +399,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli#create-a-custom-role)
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli#create-a-custom-role)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
@@ -434,7 +456,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 If you want to use an SBD device, we still recommend using an Azure fence agent as a backup in case the iSCSI target server is not available.
 
 <pre><code>
-fencing_topology \
+sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>

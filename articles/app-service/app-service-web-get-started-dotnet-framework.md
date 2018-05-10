@@ -37,6 +37,8 @@ To complete this tutorial:
 
     ![ASP.NET and web development and Azure development (under Web & Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
 
+If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+
 ## Create an ASP.NET web app
 
 In Visual Studio, create a project by selecting **File > New > Project**. 
@@ -45,7 +47,7 @@ In the **New Project** dialog, select **Visual C# > Web > ASP.NET Web Applicatio
 
 Name the application _myFirstAzureWebApp_, and then select **OK**.
    
-![New Project dialog box](./media/app-service-web-get-started-dotnet-framework/new-project.png)
+![New Project dialog box](./media/app-service-web-get-started-dotnet/new-project.png)
 
 You can deploy any type of ASP.NET web app to Azure. For this quickstart, select the **MVC** template, and make sure authentication is set to **No Authentication**.
       

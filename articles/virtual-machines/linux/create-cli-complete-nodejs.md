@@ -5,7 +5,7 @@ description: Create storage, a Linux VM, a virtual network and subnet, a load ba
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

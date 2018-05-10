@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up Azure Key Vault with end-to-end key rotation and auditing | Microsoft Docs
 description: Use this how-to to help you get set up with key rotation and monitoring key vault logs.
 services: key-vault
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
+ms.author: stgriffi
 
 ---
 # Set up Azure Key Vault with end-to-end key rotation and auditing
@@ -35,7 +35,7 @@ This article walks through an example of using Azure Key Vault to store a secret
 To enable an application to retrieve a secret from Key Vault, you must first create the secret and upload it to your vault. This can be accomplished by starting an Azure PowerShell session and signing in to your Azure account with the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 In the pop-up browser window, enter your Azure account user name and password. PowerShell will get all the subscriptions that are associated with this account. PowerShell uses the first one by default.
@@ -199,7 +199,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Add-AzureRmAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `

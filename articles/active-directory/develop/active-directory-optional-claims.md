@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/15/2018
+ms.date: 04/24/2018
 ms.author: hirsin
 ms.custom: aaddev
 
@@ -62,12 +62,8 @@ The set of optional claims available by default for applications to use are list
 | `fwd`                      | IP address.  Adds the original IPv4 address of the requesting client (when inside a VNET)                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | User’s country                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Resource tenant’s country                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Denotes if the device is workplace joined. Related to Conditional Access policy                                                                                                                 | SAML       |           | For JWTs, converged into signin_state                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Denotes if the device has MDM installed. Related to Conditional Access policy.                                                                                                                  | SAML       |           | For JWTs, converged into signin_state                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | Denotes that MDM has determined the device is compliant with the device security policies of the organization.                                                                                  | SAML       |           | For JWTs, converged into signin_state                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Denotes if the user has chosen the Keep Me Signed In option.                                                                                                                                    | SAML       |           | For JWTs, converged into signin_state                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName claim.  Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. | JWT, SAML  |           | Additional properties: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | The groups a user is a member of.                                                                                                                                                               | JWT, SAML  |           | Additional properties: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
+| `acct`    | Users account status in tenant.  If the user is a member of the tenant, the value is `0`.  If they are a guest, the value is `1`.  | JWT, SAML | | |
+| `upn`                      | UserPrincipalName claim.  Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. | JWT, SAML  |           | Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 
 ### V2.0 optional claims
 These claims are always included in v1.0 tokens, but are removed from v2.0 tokens unless requested.  These claims are only applicable for  JWTs (ID tokens and Access Tokens).  
@@ -87,26 +83,19 @@ These claims are always included in v1.0 tokens, but are removed from v2.0 token
 
 ### Additional properties of optional claims
 
-Some optional claims can be configured to change the way the claim is returned.  These additional properties ranges from formatting changes (for example, `include_externally_authenticated_upn_without_hash`) to changing the set of data returned (`Dns_domain_and_sam_account_name`).
+Some optional claims can be configured to change the way the claim is returned.  These additional properties are mostly used to help migration of on-premises applications with different data expectations (for example, `include_externally_authenticated_upn_without_hash` helps with clients that cannot handle hashmarks (`#`) in the UPN)
 
 **Table 4: Values for configuring standard optional claims**
 
 | Property name                                     | Additional Property name                                                                                                             | Description |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Includes the guest UPN as stored in the resource tenant.  For example, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Raises the number of groups returned to the max group size limit (1,000).                                                            |             
-| | `emit_as_roles`                                     | Emits a "roles" claim in place of the "groups" claim, with the same values.  Intended for apps migrating from an on-prem environment where RBAC was traditionally controlled via group membership.   |             
 
 > [!Note]
 >Specifying the upn optional claim without an additional property does not change any behavior – in order to see a new claim issued in the token, at least one of the additional properties must be added. 
->
->The `account_name` additional properties for groups are not interoperable, and ordering of the additional properties matters – only the first account name Additional Property listed will be used. 
+
 
 #### Additional properties example:
 
@@ -115,15 +104,15 @@ Some optional claims can be configured to change the way the claim is returned. 
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
 	     	"essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-This OptionalClaims object will return the same `groups` claim as if `sam_account_name` were not included – because it is after `netbios_domain_and_sam_account_name`, it is ignored. 
+This OptionalClaims object causes the ID token returned to the client to include another upn with the additional home tenant and resource tenant information.  
 
 ## Configuring optional claims
 

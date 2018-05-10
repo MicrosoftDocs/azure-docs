@@ -4,7 +4,7 @@ description: Learn how to monitor a pipeline in a data factory by using differen
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.service: data-factory

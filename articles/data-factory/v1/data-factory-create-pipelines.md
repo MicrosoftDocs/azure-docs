@@ -4,8 +4,8 @@ description: Learn to create a data pipeline in Azure Data Factory to move and t
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory

@@ -20,7 +20,7 @@ Dependency visualization in Azure Migrate allows you to create groups for migrat
 ## How does it work?
 
 Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Log Analytics](../log-analytics/log-analytics-overview.md) for dependency visualization.
-- When you create an Azure Migration project, an OMS Log Analytics workspace is created in your subscription.
+- When you create an Azure Migration project, a Log Analytics workspace is created in your subscription.
 - The workspace name is the name you specify for the migration project, prefixed with **migrate-**, and optionally suffixed with a number. 
 - Navigate to the Log Analytics workspace from the **Essentials** section of the project **Overview** page.
 - The created workspace is tagged with the key **MigrateProject**, and value **project name**. You can use these to search in the Azure portal.  

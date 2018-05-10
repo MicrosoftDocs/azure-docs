@@ -4,18 +4,16 @@ description: Find and manage applications with Cloud App Discovery to provide ac
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
-author: curtand
+author: barbkess
 manager: mtillman
 tags: ignite
 
-ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
-ms.author: curtand
+ms.date: 04/25/2018
+ms.author: barbkess
 ms.reviewer: nigu
 
 ---
@@ -88,6 +86,7 @@ In order to successfully generate a Cloud App Discovery report, your traffic log
 * Cisco Meraki – URLs log
 * Clavister NGFW (Syslog)
 * Dell Sonicwall
+* Digital Arts i-FILTER
 * Fortinet Fortigate
 * Juniper SRX
 * Juniper SSG
@@ -125,7 +124,7 @@ If your log is not supported, select **Other** as the **Data source** and sp
 | Juniper SSG                             | No             | **Yes**       | No       | **Yes**   | **Yes**       | **Yes**        |
 | McAfee SWG                              | **Yes**        | No            | No       | **Yes**   | **Yes**       | **Yes**        |
 | MS TMG                                  | **Yes**        | No            | **Yes**  | **Yes**   | **Yes**       | **Yes**        |
-| Palo Alto Networks                      | **Yes**        | **Yes**       | **Yes**  | **Yes**   | **Yes**       | **Yes**        |
+| Palo Alto Networks                      | No             | **Yes**       | **Yes**  | **Yes**   | **Yes**       | **Yes**        |
 | Sophos                                  | **Yes**        | **Yes**       | **Yes**  | **Yes**   | **Yes**       | No             |
 | Squid (Common)                          | **Yes**        | No            | **Yes**  | **Yes**   | No            | **Yes**        |
 | Squid (Native)                          | **Yes**        | No            | **Yes**  | **Yes**   | No            | **Yes**        |
@@ -139,4 +138,4 @@ Use the following links to continue to set up Cloud App Discovery in Azure AD.
 
 * [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 * [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-* [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+* [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

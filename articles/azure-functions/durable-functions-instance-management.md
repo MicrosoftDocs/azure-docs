@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -46,7 +46,7 @@ public static async Task Run(
 }
 ```
 
-For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object that has the above three parameters as fields can be used. For example, consider the following Node.js function:
+For non-.NET languages, the function output binding can be used to start new instances as well. In this case, any JSON-serializable object that has the above three parameters as fields can be used. For example, consider the following JavaScript function:
 
 ```js
 module.exports = function (context, input) {
@@ -73,6 +73,7 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 * **CreatedTime**: The time at which the orchestrator function started running.
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
 * **Input**: The input of the function as a JSON value.
+* **CustomStatus**: Custom orchestration status in JSON format. 
 * **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property will include the failure details. If the orchestrator function was terminated, this property will include the provided reason for the termination (if any).
 * **RuntimeStatus**: One of the following values:
     * **Running**: The instance has started running.
@@ -95,12 +96,9 @@ public static async Task Run(
 }
 ```
 
-> [!NOTE]
-> Instance query is currently only supported for C# orchestrator functions.
-
 ## Terminating instances
 
-A running instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or it will terminate immediately if it is already on an `await`.
+A running orchestration instance can be terminated using the [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class. The two parameters are an `instanceId` and a `reason` string, which will be written to logs and to the instance status. A terminated instance will stop running as soon as it reaches the next `await` point, or it will terminate immediately if it is already on an `await`. 
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -114,7 +112,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Instance termination is currently only supported for C# orchestrator functions.
+> Instance termination does not currently propagate. Activity functions and sub-orchestrations will run to completion regardless of whether the orchestration instance that called them has been terminated.
 
 ## Sending events to instances
 
@@ -138,9 +136,6 @@ public static Task Run(
     return client.RaiseEventAsync(instanceId, "MyEvent", eventData);
 }
 ```
-
-> [!NOTE]
-> Raising events is currently supported only for C# orchestrator functions.
 
 > [!WARNING]
 > If there is no orchestration instance with the specified *instance ID* or if the instance is not waiting on the specified *event name*, the event message is discarded. For more information about this behavior, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-extension/issues/29).

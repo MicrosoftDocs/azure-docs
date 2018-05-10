@@ -1,11 +1,11 @@
----
+﻿---
 title: Data Management Gateway for Data Factory | Microsoft Docs
 description: Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
@@ -276,30 +276,30 @@ You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript folder.
+2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -off
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -off
 	```
 4. To turn it back on:
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -on  
+	.\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
 	```
 [For multi-node highly available and scalable gateway (preview)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Launch Windows PowerShell on the gateway machine.
-2. Switch to the C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript folder.
+2. Switch to the C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Run the following command to turn the auto-update feature OFF (disable).   
 
 	For gateway with high availability feature (preview), an extra AuthKey param is required.
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
 	```
 4. To turn it back on:
 
 	```PowerShell
-	.\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+	.\IntegrationRuntimeAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
 	```
 
 ## Configuration Manager
@@ -484,7 +484,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 2. Log in to your Azure account by running the following command and entering your Azure credentials.
 
 	```PowerShell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 	```
 3. Use the **New-AzureRmDataFactoryGateway** cmdlet to create a logical gateway as follows:
 

@@ -3,7 +3,7 @@ title: Import a Logic App as an API with the Azure portal  | Microsoft Docs
 description: This tutorial shows you how to use API Management (APIM) to import Logic App as an API.
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

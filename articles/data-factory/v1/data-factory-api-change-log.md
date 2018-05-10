@@ -4,7 +4,7 @@ description: Describes breaking changes, feature additions, bug fixes etc... in 
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
+manager: craigg
 editor: 
 
 ms.assetid: 8208271b-7f4c-4214-b665-d2ff503c4470

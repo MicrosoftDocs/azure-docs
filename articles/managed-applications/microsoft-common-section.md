@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application Section UI element | Microsoft Docs
-description: Describes the Microsoft.Common.Section UI element for Azure Managed Applications
+title: Azure Section UI element | Microsoft Docs
+description: Describes the Microsoft.Common.Section UI element for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Common.Section UI element
-A control that groups one or more elements under a heading. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control that groups one or more elements under a heading.
 
 ## UI sample
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -60,6 +60,5 @@ basics('section1').element1
 Elements of type `Microsoft.Common.Section` have no output values themselves.
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

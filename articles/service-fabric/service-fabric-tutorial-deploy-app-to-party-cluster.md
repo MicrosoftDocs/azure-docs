@@ -32,6 +32,7 @@ In this tutorial series, you learn how to:
 > [!div class="checklist"]
 > * [Build a .NET Service Fabric application](service-fabric-tutorial-create-dotnet-app.md)
 > * Deploy the application to a remote cluster
+> * [Add an HTTPS endpoint to an ASP.NET Core front-end service](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 > * [Configure CI/CD using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)
 
@@ -60,14 +61,9 @@ You have two options for deployment:
 
 This tutorial will follow steps to create a cluster from Visual Studio. For the other options, you can copy and paste your connection endpoint or choose it from your subscription.
 > [!NOTE]
-<<<<<<< HEAD
-> Party clusters are secured with certificates, ake sure to follow the instrcutions on the Party Cluster site to download and install the client certificaaete in order for you to be able to authenticate with the cluster.
-=======
 > Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### Deploy the app to the Service Fabric cluster
->>>>>>> 265482e4bb6d07b6928959f2eeea919753403610
-
 1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
 2. Sign in by using your Azure account so that you can have access to your subscription(s). This step is optional if you're using a party cluster.
@@ -106,4 +102,4 @@ In this tutorial, you learned how to:
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Set up continuous integration using Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Enable HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)

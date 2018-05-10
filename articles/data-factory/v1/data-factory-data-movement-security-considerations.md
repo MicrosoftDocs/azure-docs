@@ -4,8 +4,8 @@ description: 'Learn about securing data movement in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.service: data-factory
 ms.workload: data-services

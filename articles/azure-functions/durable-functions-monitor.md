@@ -12,7 +12,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 03/19/2018
 ms.author: azfuncdf
 ---
 
@@ -22,8 +22,8 @@ The monitor pattern refers to a flexible *recurring* process in a workflow - for
 
 ## Prerequisites
 
-* Follow the instructions in [Install Durable Functions](durable-functions-install.md) to set up the sample.
-* This article assumes you have already gone through the [Hello Sequence](durable-functions-sequence.md) sample walkthrough.
+* [Install Durable Functions](durable-functions-install.md).
+* Complete the [Hello Sequence](durable-functions-sequence.md) walkthrough.
 
 ## Scenario overview
 
@@ -34,7 +34,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 * Monitors can terminate when some condition is met or be terminated by another process.
 * Monitors can take parameters. The sample shows how the same weather-monitoring process can be applied to any requested location and phone number.
 * Monitors are scalable. Because each monitor is an orchestration instance, multiple monitors can be created without having to create new functions or define more code.
-* Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-sub-orchestrations).
+* Monitors integrate easily into larger workflows. A monitor can be one section of a more complex orchestration function, or a [sub-orchestration](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
 
 ## Configuring Twilio integration
 
@@ -60,7 +60,7 @@ This article explains the following functions in the sample app:
 * `E3_GetIsClear`: An activity function that checks the current weather conditions for a location.
 * `E3_SendGoodWeatherAlert`: An activity function that sends an SMS message via Twilio.
 
-The following sections explain the configuration and code that are used for Azure portal development. The code for Visual Studio development is shown at the end of the article.
+The following sections explain the configuration and code that are used for C# scripting. The code for Visual Studio development is shown at the end of the article.
  
 ## The weather monitoring orchestration (Visual Studio Code and Azure portal sample code)
 

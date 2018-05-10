@@ -4,7 +4,7 @@ description: Learn to query with SQL in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 
@@ -22,8 +22,6 @@ ms.author: rafats
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 The Azure Cosmos DB [SQL API](documentdb-introduction.md) supports querying documents using SQL. This article provides a sample document and two sample SQL queries and results.
 
@@ -73,7 +71,7 @@ For more information about SQL queries, see:
 
 ## Prerequisites
 
-This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-mongodb-nodejs.md) or the [developer tutorial](tutorial-develop-mongodb.md) to create an account and collection.
+This tutorial assumes you have an Azure Cosmos DB account and collection. Don't have any of those? Complete the [5-minute quickstart](create-mongodb-nodejs.md).
 
 ## Example query 1
 

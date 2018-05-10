@@ -3,17 +3,15 @@ title: Configure Azure AD Privileged Identity Management | Microsoft Docs
 description: A topic that explains what Azure AD Privileged Identity Management is and how to use PIM to improve your cloud security.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: billmath
+ms.author: curtand
 ms.custom: pim 
 ---
 # What is Azure AD Privileged Identity Management?
@@ -67,7 +65,7 @@ For Azure RBAC roles, only a subscription administrator, a resource owner, or a 
 
 ## Privileged Identity Management Overview (Entry Point)
 
-Azure AD Privileged Identity Management supports administration of Azure AD directory roles, and roles for Azure Resources (Preview). The function of roles for Azure resources differ from administrative roles in Azure AD. Azure resource roles provide granular permissions for the resource at which they are assigned, and all subordinate resources in the resource hierarchy (known as inheritance). [Learn more about RBAC, resource hierarchy and inheritance](role-based-access-control-configure.md). PIM for both Azure AD directory roles, and Azure Resources (Preview) can be administered by accessing the appropriate link under the Manage section of the PIM Overview entry point left navigation menu.
+Azure AD Privileged Identity Management supports administration of Azure AD directory roles, and roles for Azure Resources (Preview). The function of roles for Azure resources differ from administrative roles in Azure AD. Azure resource roles provide granular permissions for the resource at which they are assigned, and all subordinate resources in the resource hierarchy (known as inheritance). [Learn more about RBAC, resource hierarchy and inheritance](../role-based-access-control/role-assignments-portal.md). PIM for both Azure AD directory roles, and Azure Resources (Preview) can be administered by accessing the appropriate link under the Manage section of the PIM Overview entry point left navigation menu.
 
 PIM provides convenient access to activate roles, view pending activations/requests, pending approvals (for Azure AD directory roles), and reviews pending your response from the Tasks section of the left navigation menu.
 

@@ -6,7 +6,7 @@ title: Explore data in a Hadoop cluster and create models in Azure Machine Learn
 description: Using the Team Data Science Process for an end-to-end scenario, employing an HDInsight Hadoop cluster to build and deploy a model.
 services: machine-learning,hdinsight
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # The Team Data Science Process in action: Use Azure HDInsight Hadoop clusters

@@ -1,0 +1,48 @@
+- name: Azure DevOps Project Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure DevOps Project?
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: .NET 
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-aspnetcore
+    maintainContext: true
+  - name: Node.js
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-nodejs
+    maintainContext: true
+  - name: Java
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-java
+    maintainContext: true
+  - name: Python
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-python
+    maintainContext: true
+  - name: PHP
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-php
+    maintainContext: true
+  - name: Ruby
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-ruby
+    maintainContext: true
+  - name: Go
+    href: /vsts/build-release/apps/cd/azure/azure-devops-project-go
+    maintainContext: true
+- name: Tutorials
+  items:
+  - name: 1 - GitHub and DevOps Project
+    href: /vsts/build-release/actions/azure-devops-project-github
+    maintainContext: true
+  - name: 2 - Deploy to VMs
+    href: /vsts/build-release/actions/azure-devops-project-vms
+    maintainContext: true
+  - name: 3 - Deploy to Azure SQL DB
+    href: /vsts/build-release/actions/azure-devops-project-sqldb
+    maintainContext: true
+  - name: 4 - Deploy to AKS
+    href: /vsts/build-release/actions/azure-devops-project-aks
+    maintainContext: true
+  - name: 5 - Deploy to Azure Service Fabric
+    href: /vsts/build-release/actions/azure-devops-project-servicefabric
+    maintainContext: true
+    
