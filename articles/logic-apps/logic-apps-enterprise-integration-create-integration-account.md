@@ -4,7 +4,7 @@ description: Create, link, move, and delete integration accounts for enterprise 
 services: logic-apps
 documentationcenter: 
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
@@ -14,7 +14,7 @@ ms.tgt_pltfrm:
 ms.devlang: 
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: ecfan; LADocs
+ms.author: estfan
 ---
 
 # Create and manage integration accounts for B2B solutions with logic apps

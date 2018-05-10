@@ -3,18 +3,18 @@ title: Limits and configuration - Azure Logic Apps | Microsoft Docs
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 documentationcenter: 
-author: jeffhollan
-manager: anneta
-editor: ''
+author: ecfan
+manager: cfowler
+editor: 
 
 ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: logic-apps
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: LADocs; jehollan
+ms.date: 5/10/2018
+ms.author: estfan
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -162,18 +162,18 @@ For more information, see [Logic Apps pricing](https://azure.microsoft.com/prici
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
 | Agreements | 10 | | 
-| Maps | 25 | | 
-| Other artifact types | Unlimited | These artifact types include partners, schemas, and certificates. | 
+| Other artifact types | 25 | These artifact types include partners, maps, schemas, and certificates. | 
 |||| 
 
 *Basic pricing tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| Partners | 2 | | 
 | Agreements | 1 | | 
+| Certificates | 2 | 
 | Maps | 50 | 
-| Schemas | 50 | 
+| Partners | 2 | | 
+| Schemas | 500 | 
 |||| 
 
 *Standard pricing tier*
