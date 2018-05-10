@@ -4,7 +4,7 @@ description: Learn what Azure Content Delivery Network (CDN) is and how to use i
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/20/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
 
@@ -67,7 +67,7 @@ Azure CDN offers the following key features:
 - [File compression](cdn-improve-performance.md)
 - [Geo-filtering](cdn-restrict-access-by-country.md)
 
-For a complete list of features that each Azure CDN product supports, see [Azure CDN product features](cdn-features.md).
+For a complete list of features that each Azure CDN product supports, see [Compare Azure CDN product features](cdn-features.md).
 
 ## Next steps
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).

@@ -54,4 +54,4 @@ The following documents can help you to resolve some of the most common issues i
   * [I am having issues installing the Application Proxy Agent Connector ](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
 ## Next steps
-[How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md)
+[How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md)

@@ -28,14 +28,14 @@ to look like.
 1. Collect log files from your firewall and proxy server through which users in your organization access the Internet. Gather logs during times of peak traffic that are representative of the user activity in your organization.
 2. On [the Cloud App Security menu bar](https://portal.cloudappsecurity.com), select **Discover**, and then **Create snapshot report**.
   
-  ![Create new snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-command.png)
+  ![Create new snapshot report](./media/cloud-app-discovery-create-snapshot-reports/create-snapshot-command.png)
 3. Enter a **Report name** and a **Description**.
     
-  ![New snapshot report](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
+  ![New snapshot report](./media/cloud-app-discovery-create-snapshot-reports/create-snapshot-form.png)
 4. Select the **Data source** from which you want to upload the log files.
 5. Verify your log format to make sure that it is formatted properly according to the sample you can download. Click **View and verify** and then click **Download sample log**. Then compare your log with the sample provided to make sure it's compatible.
   
-  ![Verify your log format](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
+  ![Verify your log format](./media/cloud-app-discovery-create-snapshot-reports/create-snapshot-verify.png)
   >  [!NOTE]
   > The FTP sample format is supported in snapshots and automated upload while syslog is supported in automated upload only. Downloading a sample log downloads a sample FTP log.
 6. **Choose the traffic logs** that you want to upload. You can upload up to 20 files at once. Compressed and zipped files are also supported.
@@ -44,10 +44,10 @@ to look like.
 
 8. Select **Manage snapshot reports** and the select your snapshot report.
   
-  ![Snapshot report management](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-manage.png)
+  ![Snapshot report management](./media/cloud-app-discovery-create-snapshot-reports/create-snapshot-manage.png)
 
 ## Next steps
 
-* [Get started using Cloud App Discovery in Azure AD](cloudappdiscovery-get-started.md)
+* [Get started using Cloud App Discovery in Azure AD](cloud-app-discovery.md)
 * [Configure automatic log upload for continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

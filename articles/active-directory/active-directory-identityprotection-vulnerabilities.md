@@ -44,7 +44,7 @@ In modern enterprises, IT departments are often unaware of all the cloud applica
 
 We recommend that your organization deploy Cloud App Discovery to discover unmanaged cloud applications, and to manage these applications using Azure Active Directory.
 
-For more details, see [Finding unmanaged cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
+For more details, see [Finding unmanaged cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md).
 
 ## Security Alerts from Privileged Identity Management
 This vulnerability helps you discover and resolve alerts about privileged identities in your organization.  

@@ -68,7 +68,7 @@ Azure Stack
     - You can find detailed instructions about deploying the ASDK at "[Tutorial: deploy the ASDK using the installer](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy)"
     - You can automate many of your ASDK post-deployment steps with the following PowerShell script, [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ).
 
-    > [!note]  
+    > [!Note]  
     > The ASDK installation takes a seven hours to complete, so plan accordingly.
 
  - Deploy [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS services to Azure Stack. 
@@ -84,7 +84,7 @@ Azure Stack
  - [Install Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) and [sign-in to VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
  - Connect to the project and [clone locally](https://www.visualstudio.com/docs/git/gitquickstart).
  
- > [!note]  
+ > [!Note]  
  > You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed.
  
 ## Prepare the private build and release agent for Visual Studio Team Services integration
@@ -204,7 +204,7 @@ Instead of managing each agent individually, you organize agents into agent pool
 
 3. Copy the token.
     
-    > [!note]  
+    > [!Note]  
     > Obtain the token information. It will not be shown again after leaving this screen. 
     
     ![Alt Text](media\azure-stack-solution-hybrid-pipeline\000_19.png)
@@ -265,7 +265,7 @@ Users can create endpoints so VSTO builds can deploy Azure Service apps to the s
 
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
-> [!note]  
+> [!Note]  
 > You will need Azure Stack with proper images syndicated to run (Windows Server and SQL) and have App Service deployed. Review the App Service documentation "Prerequisites" section for Azure Stack Operator Requirements.
 
 ### Add code to VSTS project
@@ -396,7 +396,7 @@ Visual Studio Team Services (VSTS) and Team Foundation Server (TFS) provide a hi
 
 21. Save all changes.
 
-> [!note]  
+> [!Note]  
 > Some settings for the tasks may have been automatically defined as [environment variables](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) when you created a release definition from a template. These settings cannot be modified in the task settings; instead you must select the parent environment item to edit these settings.
 
 ## Create a release
