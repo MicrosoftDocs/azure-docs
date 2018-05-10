@@ -4,6 +4,7 @@ description: This article describes how to create an Azure AD User account crede
 keywords: azure active directory user, azure service management, azure ad user account
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018

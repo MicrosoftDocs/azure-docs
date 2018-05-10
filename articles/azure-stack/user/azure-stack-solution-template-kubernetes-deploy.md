@@ -22,7 +22,7 @@ ms.reviewer: waltero
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-> [!note]  
+> [!Note]  
 > The Azure Container Services (ACS) Kubernetes on Azure Stack is in private preview. Your Azure Stack operator will need to request access to the Kubernetes Marketplace item needed to perform the instructions in this article.
 
 The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud.
@@ -119,7 +119,7 @@ Give the service principal access to your subscription so that the principal can
 
 6. Enter the **master profile DNS prefix** that is unique to the region. This must be a region-unique name, such as `k8s-12345`. Try to chose it same as the resource group name as best practice.
 
-    > [!note]  
+    > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
 
 7. Enter the number of agents in the cluster. This value is referred to as the **Agent Pool Profile Count**. There can be from 1 to 32
