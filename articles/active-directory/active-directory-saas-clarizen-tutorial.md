@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/10/2017
 ms.author: jeedes
 
 ---
@@ -182,6 +182,11 @@ In the Azure portal, create a test user called Britta Simon.
     d. Click **Create**.
 
 ### Create a Clarizen test user
+
+The objective of this section is to create a user called Britta Simon in Clarizen. Clarizen supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-clarizen-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
+
 To enable Azure AD users to sign in to Clarizen, you must provision user accounts. In the case of Clarizen, provisioning is a manual task.
 
 1. Sign in to your Clarizen company site as an administrator.
@@ -204,9 +209,6 @@ To enable Azure AD users to sign in to Clarizen, you must provision user account
 
 	> [!NOTE]
     > The Azure Active Directory account holder will receive an email and follow a link to confirm their account before it becomes active.
-
-	> [!NOTE]
-	> For more details you can visit [here](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 ### Assign the Azure AD test user
 Enable Britta Simon to use Azure single sign-on by granting her access to Clarizen.
