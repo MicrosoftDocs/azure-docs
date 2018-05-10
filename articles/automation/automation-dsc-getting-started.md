@@ -3,6 +3,7 @@ title: Getting started with Azure Automation DSC
 description: Explanation and examples of the most common tasks in Azure Automation Desired State Configuration (DSC)
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
