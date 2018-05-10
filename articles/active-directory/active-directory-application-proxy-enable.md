@@ -22,7 +22,7 @@ ms.custom: it-pro
 # Get started with Application Proxy and install the connector
 This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
 
-If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:

@@ -87,7 +87,7 @@ If you encounter an error or problem with Azure AD Application Proxy that isn't 
 
 ## See also
 * [Enable Application Proxy for Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+* [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md)
 * [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md)
 * [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 
