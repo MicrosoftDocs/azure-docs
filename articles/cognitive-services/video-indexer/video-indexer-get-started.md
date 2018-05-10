@@ -27,7 +27,7 @@ For more information, see [Start using APIs](video-indexer-use-apis.md).
 ## Upload a video using the Video Indexer portal
 
 1. Sign in to [https://www.videoindexer.ai/](https://www.videoindexer.ai/)
-2. To upload video press the Upload button.
+2. To upload video, press the Upload button or link.
 
  ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
 
