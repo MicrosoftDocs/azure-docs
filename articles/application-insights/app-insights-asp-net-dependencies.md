@@ -197,9 +197,12 @@ If you want to switch off the standard dependency tracking module, remove the re
 
 *SQL query not shown in full.*
 
-* Upgrade to the latest version of the SDK. If your .NET version is less than 4.6:
-  * IIS host: Install [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on the host servers.
-  * Azure web app: Open Application Insights tab in the web app control panel, and install Application Insights.
+* Upgrade to the latest stable version of the Application Insights SDK.
+
+ If your .NET version is less than 4.6:
+
+* IIS host: Install [Application Insights Agent](app-insights-monitor-performance-live-website-now.md) on the host servers.
+* Azure web app: Open Application Insights tab in the web app control panel, and install Application Insights.
 
 ## Video
 
