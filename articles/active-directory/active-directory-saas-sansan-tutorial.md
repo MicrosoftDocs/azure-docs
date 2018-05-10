@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following patterns: 
+    In the **Sign-on URL** textbox, type a URL using the following patterns: 
 	
 	| Environment | URL |
     |:--- |:--- |
@@ -116,23 +116,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-	b. In the **Identifier** textbox, type a URL using the following patterns:
-	| Environment             | URL |
-    | :-- | :-- |
-    | PC web                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Native Mobile app       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Mobile browser settings | `https://ap.sansan.com/s/saml2/<company name>` |
-
-	c. In the **Reply URL** textbox, type a URL using the following patterns:
-	| Environment             | URL |
-    | :-- | :-- |
-	| Native Mobile app       | `https://internal.api.sansan.com/<company name>` |
-    | PC web                  | `https://ap.sansan.com/<company name>`|
-
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. Sansan application supports multiple Identifier and Reply URL patterns for different environments (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**. The detailed steps are explained later in the tutorial.
-
-
+	> These values are not real. Update these values with the actual Sign-On URL. Contact [Sansan Client support team](https://www.sansan.com/form/contact) to get these values. 
+	 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
@@ -141,16 +127,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+6. Sansan application supports multiple **Identifier** and **Reply** URL patterns for different environments (PC web, Native Mobile app, Mobile browser settings), the same can be configured directly using **powershell script**. The detailed steps are explained below.
 
-	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
-
-7. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
-
-	>[!NOTE]
-	>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
-
-8. To update **Sansan** application with multiple Identifiers and Reply URL values using **Powershell script** perform the following steps:
+7. To update **Sansan** application with multiple **Identifiers** and **Reply** URL values using **Powershell script** perform the following steps:
 
 	![Configure Single Sign-On obj](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)	
 
@@ -209,6 +188,19 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	echo "Not able to find the matched application with this service principal"
 	}
 	```
+8. After successfull completion of powershell script, if you need to check the auto populated **Identifier** and **Reply** URL values. Check **Show advanced URL settings** under **Sansan Domain and URLs** section in Azure portal.
+
+	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url1.png)
+
+9. On the **Sansan Configuration** section, click **Configure Sansan** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+
+	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
+
+10. To configure single sign-on on **Sansan** side, you need to send the downloaded **Certificate**, **Sign-Out URL**, **SAML Entity ID**, and **SAML Single Sign-On Service URL** to [Sansan support team](https://www.sansan.com/form/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+
+>[!NOTE]
+>PC browser setting also work for Mobile app and Mobile browser along with PC web. 
+
 ### Creating an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
