@@ -116,9 +116,6 @@ Now that you’ve added support for the Bing News Search API to your project, he
 1. In the Controllers folder, add a new class file called IntelligentSearchController.cs. Replace the contents with the following code:
 
    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Net.Http;
     using System.Threading.Tasks;
     using MyWebApplication.Models;
