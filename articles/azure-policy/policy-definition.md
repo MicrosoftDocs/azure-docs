@@ -1,62 +1,61 @@
 ---
-title: Azure Policy definition structure | Microsoft Docs
-description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what action to take.
+title: Azure Policy definition structure
+description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 services: azure-policy
 keywords:
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/30/2018
+ms.date: 05/07/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom:
 ---
-
 # Azure Policy definition structure
 
-Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what action to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
+Resource policy definition used by Azure Policy enables you to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take. By defining conventions, you can control costs and more easily manage your resources. For example, you can specify that only certain types of virtual machines are allowed. Or, you can require that all resources have a particular tag. Policies are inherited by all child resources. So, if a policy is applied to a resource group, it is applicable to all the resources in that resource group.
 
 The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
-* mode
-* parameters
-* display name
-* description
-* policy rule
-  * logical evaluation
-  * effect
+- mode
+- parameters
+- display name
+- description
+- policy rule
+  - logical evaluation
+  - effect
 
 For example, the following JSON shows a policy that limits where resources are deployed:
 
 ```json
 {
-  "properties": {
-    "mode": "all",
-    "parameters": {
-      "allowedLocations": {
-        "type": "array",
-        "metadata": {
-          "description": "The list of locations that can be specified when deploying resources",
-          "strongType": "location",
-          "displayName": "Allowed locations"
+    "properties": {
+        "mode": "all",
+        "parameters": {
+            "allowedLocations": {
+                "type": "array",
+                "metadata": {
+                    "description": "The list of locations that can be specified when deploying resources",
+                    "strongType": "location",
+                    "displayName": "Allowed locations"
+                }
+            }
+        },
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
+        "policyRule": {
+            "if": {
+                "not": {
+                    "field": "location",
+                    "in": "[parameters('allowedLocations')]"
+                }
+            },
+            "then": {
+                "effect": "deny"
+            }
         }
-      }
-    },
-    "displayName": "Allowed locations",
-    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
-    "policyRule": {
-      "if": {
-        "not": {
-          "field": "location",
-          "in": "[parameters('allowedLocations')]"
-        }
-      },
-      "then": {
-        "effect": "deny"
-      }
     }
-  }
 }
 ```
 
@@ -65,8 +64,9 @@ All Azure Policy template samples are at [Templates for Azure Policy](json-sampl
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes are:
-* `all`: evaluate resource groups and all resource types
-* `indexed`: only evaluate resource types that support tags and location
+
+- `all`: evaluate resource groups and all resource types
+- `indexed`: only evaluate resource types that support tags and location
 
 We recommend that you set **mode** to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode** parameter manually. If the policy definition does not contain a **mode** value it defaults to `all` in Azure PowerShell and to `null` in Azure CLI, which is equivalent to `indexed`, for backwards compatibility.
 
@@ -78,30 +78,29 @@ Parameters help simplify your policy management by reducing the number of policy
 
 For example, you could define a policy for a resource property to limit the locations where resources can be deployed. In this case, you would declare the following parameters when you create your policy:
 
-
 ```json
 "parameters": {
-  "allowedLocations": {
-    "type": "array",
-    "metadata": {
-      "description": "The list of allowed locations for resources.",
-      "displayName": "Allowed locations",
-      "strongType": "location"
+    "allowedLocations": {
+        "type": "array",
+        "metadata": {
+            "description": "The list of allowed locations for resources.",
+            "displayName": "Allowed locations",
+            "strongType": "location"
+        }
     }
-  }
 }
 ```
 
 The type of a parameter can be either string or array. The metadata property is used for tools like the Azure portal to display user-friendly information.
 
-Within the metadata property you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
+Within the metadata property, you can use **strongType** to provide a multi-select list of options within the Azure portal.  Allowed values for **strongType** currently include:
 
-* `"location"`
-* `"resourceTypes"`
-* `"storageSkus"`
-* `"vmSKUs"`
-* `"existingResourceGroups"`
-* `"omsWorkspace"`
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 In the policy rule, you reference parameters with the following syntax:
 
@@ -112,9 +111,18 @@ In the policy rule, you reference parameters with the following syntax:
 }
 ```
 
+## Definition location
+
+While creating an initiative or policy definition, it is important that you specify the definition location.
+
+The definition location determines the scope to which the initiative or policy definition can be assigned to. The location can be specified as a management group or a subscription.
+
+> [!NOTE]
+> If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the initiative or policy to.
+
 ## Display name and description
 
-You can use **displayName** and **description** to identify the policy definition, and provide context for when it is used.
+You can use **displayName** and **description** to identify the policy definition and provide context for when it is used.
 
 ## Policy rule
 
@@ -124,12 +132,12 @@ In the **Then** block, you define the effect that happens when the **If** condit
 
 ```json
 {
-  "if": {
-    <condition> | <logical operator>
-  },
-  "then": {
-    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
-  }
+    "if": {
+        <condition> | <logical operator>
+    },
+    "then": {
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+    }
 }
 ```
 
@@ -137,9 +145,9 @@ In the **Then** block, you define the effect that happens when the **If** condit
 
 Supported logical operators are:
 
-* `"not": {condition  or operator}`
-* `"allOf": [{condition or operator},{condition or operator}]`
-* `"anyOf": [{condition or operator},{condition or operator}]`
+- `"not": {condition  or operator}`
+- `"allOf": [{condition or operator},{condition or operator}]`
+- `"anyOf": [{condition or operator},{condition or operator}]`
 
 The **not** syntax inverts the result of the condition. The **allOf** syntax (similar to the logical **And** operation) requires all conditions to be true. The **anyOf** syntax (similar to the logical **Or** operation) requires one or more conditions to be true.
 
@@ -147,18 +155,17 @@ You can nest logical operators. The following example shows a **not** operation 
 
 ```json
 "if": {
-  "allOf": [
-    {
-      "not": {
-        "field": "tags",
-        "containsKey": "application"
-      }
-    },
-    {
-      "field": "type",
-      "equals": "Microsoft.Storage/storageAccounts"
-    }
-  ]
+    "allOf": [{
+            "not": {
+                "field": "tags",
+                "containsKey": "application"
+            }
+        },
+        {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+        }
+    ]
 },
 ```
 
@@ -166,42 +173,44 @@ You can nest logical operators. The following example shows a **not** operation 
 
 A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
 
-* `"equals": "value"`
-* `"notEquals": "value"`
-* `"like": "value"`
-* `"notLike": "value"`
-* `"match": "value"`
-* `"notMatch": "value"`
-* `"contains": "value"`
-* `"notContains": "value"`
-* `"in": ["value1","value2"]`
-* `"notIn": ["value1","value2"]`
-* `"containsKey": "keyName"`
-* `"notContainsKey": "keyName"`
-* `"exists": "bool"`
+- `"equals": "value"`
+- `"notEquals": "value"`
+- `"like": "value"`
+- `"notLike": "value"`
+- `"match": "value"`
+- `"notMatch": "value"`
+- `"contains": "value"`
+- `"notContains": "value"`
+- `"in": ["value1","value2"]`
+- `"notIn": ["value1","value2"]`
+- `"containsKey": "keyName"`
+- `"notContainsKey": "keyName"`
+- `"exists": "bool"`
 
 When using the **like** and **notLike** conditions, you can provide a wildcard (*) in the value.
 
 When using the **match** and **notMatch** conditions, provide `#` to represent a digit, `?` for a letter, and any other character to represent that actual character. For examples, see [Allow multiple name patterns](scripts/allow-multiple-name-patterns.md).
 
 ### Fields
+
 Conditions are formed by using fields. A field represents properties in the resource request payload that is used to describe the state of the resource.  
 
 The following fields are supported:
 
-* `name`
-* `fullName`
-  * Returns the full name of the resource, including any parents (e.g. "myServer/myDatabase")
-* `kind`
-* `type`
-* `location`
-* `tags`
-* `tags.tagName`
-* `tags[tagName]`
-  * This bracket syntax supports tag names that contain periods
-* property aliases - for a list, see [Aliases](#aliases).
+- `name`
+- `fullName`
+  - Returns the full name of the resource, including any parents (for example "myServer/myDatabase")
+- `kind`
+- `type`
+- `location`
+- `tags`
+- `tags.tagName`
+- `tags[tagName]`
+  - This bracket syntax supports tag names that contain periods
+- property aliases - for a list, see [Aliases](#aliases).
 
 ### Alternative Accessors
+
 **Field** is the primary accessor used in policy rules. It directly inspects the resource that is being evaluated. However, policy supports one other accessor, **source**.
 
 ```json
@@ -211,34 +220,32 @@ The following fields are supported:
 
 **Source** only supports one value, **action**. Action returns the authorization action of the request that is being evaluated. Authorization actions are exposed in the authorization section of the [Activity Log](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
 
-When policy is evaluating existing resources in the background it sets **action** to a `/write` authorization action on the resource's type.
+When policy is evaluating existing resources in the background, it sets **action** to a `/write` authorization action on the resource's type.
 
 ### Effect
+
 Policy supports the following types of effect:
 
-* **Deny**: generates an event in the audit log and fails the request
-* **Audit**: generates a warning event in audit log but does not fail the request
-* **Append**: adds the defined set of fields to the request
-* **AuditIfNotExists**: enables auditing if a resource does not exist
-* **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
+- **Deny**: generates an event in the audit log and fails the request
+- **Audit**: generates a warning event in audit log but does not fail the request
+- **Append**: adds the defined set of fields to the request
+- **AuditIfNotExists**: enables auditing if a resource does not exist
+- **DeployIfNotExists**: deploys a resource if it does not already exist. Currently, this effect is only supported through built-in policies.
 
 For **append**, you must provide the following details:
 
 ```json
 "effect": "append",
-"details": [
-  {
+"details": [{
     "field": "field name",
     "value": "value of the field"
-  }
-]
+}]
 ```
 
 The value can be either a string or a JSON format object.
 
 With **AuditIfNotExists** and **DeployIfNotExists** you can evaluate the existence of a related resource and apply a rule and a corresponding effect when that resource does not exist. For example, you can require that a network watcher is deployed for all virtual networks.
 For an example of auditing when a virtual machine extension is not deployed, see [Audit if extension does not exist](scripts/audit-ext-not-exist.md).
-
 
 ## Aliases
 
@@ -365,7 +372,6 @@ Initiatives enable you group several related policy definitions to simplify assi
 
 The following example illustrates how to create an initiative for handling two tags: `costCenter` and `productName`. It uses two built-in policies to apply the default tag value.
 
-
 ```json
 {
     "properties": {
@@ -386,8 +392,7 @@ The following example illustrates how to create an initiative for handling two t
                 }
             }
         },
-        "policyDefinitions": [
-            {
+        "policyDefinitions": [{
                 "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
                 "parameters": {
                     "tagName": {

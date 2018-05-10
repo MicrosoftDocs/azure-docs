@@ -14,12 +14,17 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 5/9/2018
 ms.author: adigan,markgal
 
 ---
 # Back up files and applications on Azure Stack
 You can use Azure Backup to protect (or back up) files and applications on Azure Stack. To back up files and applications, install Microsoft Azure Backup Server as a virtual machine running on Azure Stack. Once you have installed Azure Backup Server, add Azure disks to increase the local storage available for short-term backup data. Azure Backup Server uses Azure storage for long-term retention.
+
+> [!NOTE]
+> Though Azure Backup Server and System Center Data Protection Manager (DPM) are similar, DPM is not supported for use with Azure Stack.
+>
+
 
 ## Azure Backup Server protection matrix
 Azure Backup Server protects the following Azure Stack virtual machine workloads.
@@ -46,7 +51,7 @@ To install Azure Backup Server on an Azure Stack virtual machine, see the articl
 To run Azure Backup Server on an Azure Stack virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [Azure Stack VM size calculator](https://www.microsoft.com/download/details.aspx?id=56832).
 
 ### Virtual Networks on Azure Stack virtual machines
-All virtual machines used in an Azure Stack workload must belong to the same Azure virtual network and Azure Subscription. 
+All virtual machines used in an Azure Stack workload must belong to the same Azure virtual network and Azure Subscription.
 
 ### Storing backup data on local disk and in Azure
 Azure Backup Server stores backup data on Azure disks attached to the virtual machine, for operational recovery. Once the disks and storage space are attached to the virtual machine, Azure Backup Server manages storage for you. The amount of backup data storage depends on the number and size of disks attached to each [Azure Stack virtual machine](../azure-stack/user/azure-stack-storage-overview.md). Each size of Azure Stack VM has a maximum number of disks that can be attached to the virtual machine. For example, A2 is four disks. A3 is eight disks. A4 is 16 disks. Again, the size and number of disks determines the total backup storage pool.
@@ -79,9 +84,9 @@ If you want to scale your deployment, you have the following options:
 
 ## Bare Metal Recovery for Azure Stack VM
 
-A bare metal recovery (BMR) backup protects operating system files and all Critical volume data, except user data. A BMR backup includes a system state backup. The following procedures explain how to restore the BMR data. 
+A bare metal recovery (BMR) backup protects operating system files and all critical volume data, except user data. A BMR backup includes a system state backup. The following procedures explain how to restore the BMR data.
 
-### Run Recovery on the Azure Backup Server 
+### Run Recovery on the Azure Backup Server
 
 Open the Azure Backup Server console.
 
@@ -99,9 +104,9 @@ In the Azure Backup Server console:
 
 ### Restore the machine
 
-1. On the virtual machine where you want to restore BMR, open an elevated cmd prompt and type the following commands. **/bootore** specifies that Windows RE starts automatically the next time the system start.
+1. On the virtual machine where you want to restore BMR, open an elevated cmd prompt and type the following commands. **/boottore** specifies that Windows RE starts automatically the next time the system start.
 ```
-Reagent /boottore
+Reagentc /boottore
 shutdown /r /t 0
 ```
 

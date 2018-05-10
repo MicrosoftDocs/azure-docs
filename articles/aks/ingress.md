@@ -3,7 +3,7 @@ title: Configure ingress with Azure Kubernetes Service (AKS) cluster
 description: Install and configure an NGINX ingress controller in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article

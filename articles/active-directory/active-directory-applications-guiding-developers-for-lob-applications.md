@@ -7,8 +7,8 @@ author: kgremban
 manager: mtillman
 editor: ''
 
-ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
