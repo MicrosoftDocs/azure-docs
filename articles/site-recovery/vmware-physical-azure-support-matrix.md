@@ -134,7 +134,7 @@ Multi-NIC | Yes
 Reserved IP address | Yes
 IPv4 | Yes
 Retain source IP address | Yes
-Azure Virtual Network service endpoints<br/><br/> (without Azure Storage firewalls) | Yes
+Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes
 Accelerated Networking | No
 
 ## Storage
@@ -181,7 +181,7 @@ Block blobs | No
 Encryption at rest (Storage Service Encryption)| Yes
 Premium storage | Yes
 Import/export service | No
-Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No
 General purpose v2 storage accounts (both hot and cool tiers) | No
 
 ## Azure compute

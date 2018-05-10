@@ -75,7 +75,7 @@ Multi-NIC | Yes | Yes
 Reserved IP | Yes | Yes
 IPv4 | Yes | Yes
 Retain source IP address | Yes | Yes
-Azure Virtual Network service endpoints<br/><br/> (without Azure Storage firewalls) | Yes | Yes
+Azure Virtual Network service endpoints<br/> (without Azure Storage firewalls) | Yes | Yes
 Accelerated Networking | No | No
 
 
@@ -123,7 +123,7 @@ Block blobs | No | No
 Encryption at rest (SSE)| Yes | Yes
 Premium storage | Yes | Yes
 Import/export service | No | No
-Azure Storage firewalls for virtual networks on target to cache storage account used for replication data | No | No
+Azure Storage firewalls for virtual networks configured on target storage/cache storage account (used to store replication data) | No | No
 
 
 ## Azure compute features
