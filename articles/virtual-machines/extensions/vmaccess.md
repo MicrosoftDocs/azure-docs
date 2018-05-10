@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: danis
 
 ---
