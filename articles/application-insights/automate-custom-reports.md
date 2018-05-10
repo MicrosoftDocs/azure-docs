@@ -30,6 +30,7 @@ Each enterprise has its unique reporting needs, such as:
 > [!NOTE] 
 > The weekly Application Insights digest email did not allow any customization, and will be discontinued in favor of the custom options listed below. The last weekly digest email will be sent on June 11, 2018. Please configure one of the following options to get similar custom reports (use the query suggested below).
 
+## To automate custom report emails
 
 You can [programmatically query Application Insights](https://dev.applicationinsights.io/) data to generate custom reports on a schedule. The following options can help you get started quickly:
 
@@ -39,7 +40,7 @@ You can [programmatically query Application Insights](https://dev.applicationins
 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
-### Sample query for a weekly digest email
+## Sample query for a weekly digest email
 The following query shows joining across multiple datasets for a weekly digest email like report. Customize it as required and use it with any of the options listed above to automate a weekly report.   
 
 ```AIQL
