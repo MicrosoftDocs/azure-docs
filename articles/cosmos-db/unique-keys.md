@@ -87,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 UniqueKeys =
                 new Collection<UniqueKey>
                 {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
+                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" } },
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } }
                 }
             };
             await client.CreateDocumentCollectionAsync(
