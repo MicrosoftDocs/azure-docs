@@ -251,11 +251,13 @@ For an example of auditing when a virtual machine extension is not deployed, see
 
 You use property aliases to access specific properties for a resource type. Aliases enable you to restrict what values or conditions are permitted for a property on a resource. Each alias maps to paths in different API versions for a given resource type. During policy evaluation, the policy engine gets the property path for that API version.
 
-The list of aliases is always growing. To discover what aliases are currently support by Azure Policy, use one of the following methods:
+The list of aliases is always growing. To discover what aliases are currently supported by Azure Policy, use one of the following methods:
 
 - Azure PowerShell
 
   ```azurepowershell-interactive
+  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+
   $azContext = Get-AzureRmContext
   $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
   $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
@@ -293,6 +295,8 @@ The list of aliases is always growing. To discover what aliases are currently su
 - Azure CLI
 
   ```azurecli-interactive
+  # Login first with az login if not using Cloud Shell
+
   # Get Azure Policy aliases for a specific Namespace
   az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
