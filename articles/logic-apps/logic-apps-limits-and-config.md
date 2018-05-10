@@ -51,12 +51,12 @@ Here are the limits for a single logic app definition:
 
 Here are the limits for a single logic app run:
 
-| Name | Limit | 
-| ---- | ----- | 
-| Run duration | 90 days | 
-| Storage retention | 90 days from the run's start time | 
-| Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | 
-| Maximum recurrence interval | 500 days | 
+| Name | Limit | Notes | 
+|------|-------|-------| 
+| Run duration | 90 days | | 
+| Storage retention | 90 days from the run's start time | | 
+| Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | | 
+| Maximum recurrence interval | 500 days | | 
 ||| 
 
 To exceed the limits for run duration or 
@@ -119,7 +119,8 @@ Some connector operations make asynchronous calls or listen for webhook requests
 
 | Name | Limit | Notes | 
 | ---- | ----- | ----- | 
-| Message size | 100 MB | Some connectors and APIs might not support 100 MB. | 
+| Message size | 100 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| Message size with chunking | 1 GB | This limit applies to actions that either natively support chunking or can have chunking support enabled in their runtime configuration. For more information, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. | 
 |||| 
 
@@ -152,21 +153,34 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account.
+Here are the limits on the number of artifacts for each integration account. 
+Each artifact type can have up to the maximum number of artifacts.
+For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 *Free pricing tier*
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
 | Agreements | 10 | | 
-| Other artifact types | 25 | Artifact types include partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Maps | 25 | | 
+| Other artifact types | Unlimited | These artifact types include partners, schemas, and certificates. | 
+|||| 
+
+*Basic pricing tier*
+
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
+| Partners | 2 | | 
+| Agreements | 1 | | 
+| Maps | 50 | 
+| Schemas | 50 | 
 |||| 
 
 *Standard pricing tier*
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Any type of artifact | 500 | Artifact types include agreements, partners, schemas, certificates, and maps. Each type can have up to the maximum number of artifacts. | 
+| Artifact | Limit | Notes | 
+|----------|-------|-------| 
+| Any artifact type | 500 | These artifact types include partners, agreements, maps, schemas, and certificates. | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>

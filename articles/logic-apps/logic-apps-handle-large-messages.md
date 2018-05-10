@@ -47,7 +47,7 @@ For each connector's message size limit, see the
 Logic Apps can't directly use outputs from chunked
 messages that exceed the Logic Apps message size limit.
 Only actions that support chunking can access the message content in these outputs.
-So, an action that handles large messages must *either*:
+So, an action that handles large messages must meet *either* these criteria:
 
 * Natively support chunking when that action belongs to a connector.
 * Have chunking support enabled in that action's runtime configuration.
