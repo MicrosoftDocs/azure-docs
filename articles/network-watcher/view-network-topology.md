@@ -25,7 +25,7 @@ You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [
 
 ## <a name = "azure-portal"></a>View topology - Azure portal
 
-1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](#permissions).
+1. Log into the [Azure portal](https://portal.azure.com) with an account that has the necessary [permissions](required-rbac-permissions.md).
 2. On the top, left corner of the portal, select **All services**.
 3. In the **All services** filter box, enter *Network Watcher*. When **Network Watcher** appears in the results, select it.
 4. Select **Topology**. Generating a topology requires a network watcher in the same region that the virtual network that you want to generate the topology for exists in. If you don't have a network watcher enabled in the region that the virtual network you want to generate a topology for is in, network watchers are automatically created for you in all regions. The network watchers are created in a resource group named **NetworkWatcherRG**.
@@ -49,7 +49,7 @@ You can run the commands in the steps that follow:
 - In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
 - By running the CLI from your computer. If you run the CLI from your computer, steps in this article require the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 
-The account that you use must have the necessary [permissions](#permissions).
+The account that you use must have the necessary [permissions](required-rbac-permissions.md).
 
 1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [az group create](/cli/azure/group#az_group_create). The following example creates the resource group in the *eastus* region:
 
@@ -82,7 +82,7 @@ You can run the commands in the steps that follow:
 - In the Azure Cloud Shell, by selecting **Try It** at the top right of any command. The Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account.
 - By running PowerShell from your computer. If you run PowerShell from your computer, steps in this article require version 5.7.0 or later of the AzureRm module. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
-The account that you use must have the necessary [permissions](#permissions).
+The account that you use must have the necessary [permissions](required-rbac-permissions.md).
 
 1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). The following example creates the resource group in the *eastus* region:
 
@@ -140,10 +140,6 @@ All resources returned in a topology have the following properties:
     - **AssociationType**: References the relationship between the child object and the parent. Valid values are *Contains* or *Associated*.
     - **Name**: The name of the referenced resource.
     - **ResourceId**:  - The URI of the resource referenced in the association.
-
-## Permissions
-
-The account you log into, or connect to Azure with, must be assigned to the [Owner](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributor](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) built-in roles, or to a  [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the *Microsoft.Network/networkWatchers/topology/action* action.
 
 ## Next steps
 
