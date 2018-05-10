@@ -72,7 +72,7 @@ How you troubleshoot depends on the issue and observed symptoms. Before going an
 
 -   [Kerberos errors and symptoms](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Working with SSO when on-premises and cloud identities are not identical](active-directory-application-proxy-sso-using-kcd.md#working-with- different-on-premises-and-cloud-identities)
+-   [Working with SSO when on-premises and cloud identities are not identical](active-directory-application-proxy-sso-using-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 If you’ve got this far, then the main issue definitely exists. Start by separating the flow into three distinct stages that you can troubleshoot.
 
