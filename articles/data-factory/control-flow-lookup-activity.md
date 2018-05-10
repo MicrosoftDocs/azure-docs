@@ -59,10 +59,11 @@ dataset | Provides the dataset reference for the lookup. Get details from the "D
 source | Contains dataset-specific source properties, the same as the copy activity source. Get details from the "Copy activity properties" section in each corresponding connector article. | Key/value pair | Yes
 firstRowOnly | Indicates whether to return only the first row or all rows. | Boolean | No. Default is `true`.
 
-Note the following points:
+**Note the following points:**
 
 1. Source column with ByteArray type is not supported.
 2. Structure is not supported in dataset definition. For text format files specifically, you can use the header row to provide the column name.
+3. If your lookup source is a JSON file(s), the `jsonPathDefinition` setting for re-shaping the JSON object is not supported, the entire objects will be retrieved.
 
 ## Use the lookup activity result in a subsequent activity
 
