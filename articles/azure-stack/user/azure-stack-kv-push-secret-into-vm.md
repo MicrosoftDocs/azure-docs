@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 
 ---
@@ -22,7 +22,7 @@ ms.author: mabrigg
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Learn how to create a virtual machine (VM) in Azure Stack, with a  key vault certificate installed.
+Learn how to create an Azure Stack virtual machine (VM) with a  key vault certificate installed.
 
 ## Overview
 
@@ -40,7 +40,7 @@ The following steps describe the process required to push a certificate onto the
 2. Update the azuredeploy.parameters.json file.
 3. Deploy the template
 
->[NOTE]
+>[!NOTE]
 >You can use these steps from the Azure Stack Development Kit, or from an external client if you are connected through VPN.
 
 ## Prerequisites
@@ -53,7 +53,7 @@ The following steps describe the process required to push a certificate onto the
 
 The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret.
 
->[IMPORTANT]
+>[!IMPORTANT]
 >You must use the `-EnabledForDeployment` parameter when creating the key fault. This parameter ensures that the key vault can be referenced from Azure Resource Manager templates.
 
 ```powershell
@@ -160,7 +160,7 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 
 ## Deploy the template
 
-Now deploy the template by using the following PowerShell script:
+Deploy the template by using the following PowerShell script:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
