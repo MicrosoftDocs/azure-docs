@@ -1,4 +1,3 @@
-
 ---
 title: Create an unmanaged image of a generalized VM in Azure | Microsoft Docs
 description: Create an unmanged image of a generalized Windows VM to use to create multiple copies of a VM in Azure.
