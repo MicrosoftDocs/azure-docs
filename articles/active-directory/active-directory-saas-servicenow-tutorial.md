@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -269,10 +269,10 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> You can configure Azure AD to emit either the Azure AD user ID (user principal name) or the email address as the unique identifier in the SAML token by going to the **ServiceNow > Attributes > Single Sign-On** section of the Azure portal and mapping the desired field to the **nameidentifier** attribute. The value stored for the selected attribute in Azure AD (for example, user principal name) must match the value stored in ServiceNow for the entered field (for example, user_name)
 
-	 e. Under **x509 Certificate**, lists the certificate you have created in the previous step.
+	e. Under **x509 Certificate**, lists the certificate you have created in the previous step.
 
-	 > [!NOTE]
-	 > ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
+	> [!NOTE]
+	> ServiceNow does not allow activation of the Idp without clicking on the test connection button, to override the same, please follow the below steps.
 
 22. Click on the menu icon from your new identity provider that you created as part of the configuration and from the list select **copy sys_id**
 
@@ -476,10 +476,11 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a ServiceNow test user
 
-In this section, you create a user called Britta Simon in ServiceNow. If you don't know how to add a user in your ServiceNow or ServiceNow Express account, contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html)
+The objective of this section is to create a user called Britta Simon in ThousandEyes. ThousandEyes supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-servicenow-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-> [!NOTE]
-> For more details you can visit [here](active-directory-saas-servicenow-provisioning-tutorial.md)
+**If you need to create user manually, please perform following steps:**
+
+In this section, you create a user called Britta Simon in ServiceNow. If you don't know how to add a user in your ServiceNow or ServiceNow Express account, contact [ServiceNow Client support team](https://www.servicenow.com/support/contact-support.html)
 
 ### Assign the Azure AD test user
 
