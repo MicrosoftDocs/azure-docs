@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -151,42 +151,43 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     b. In the **Issuer** field, paste the value of **SAML Entity ID**, which you have copied from Azure portal
 
-    c. In the **Entity Id** textbox, type `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
- 
-    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.  
+    c. In the **Entity Id** textbox, type `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` if it is the first Salesforce Sandbox instance that you are adding to your directory. If you have already added an instance of Salesforce Sandbox, then for the **Entity ID** type in the **Sign On URL**, which should be in this format: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    d. To upload the **Identity Provider Certificate**, click **Choose File** to browse and select the certificate file, which you have downloaded from Azure portal.
 
     e. As **SAML Identity Type**, choose one of the following options:
-    
+
       * Select **Assertion contains the User's Salesforce username**, if user's Salesforce Username is being passed in SAML assertion
 
       * Select **Assertion contains the Federation ID from the User object**, if Federation ID from the User object is being passed in SAML assertion
 
       * Select **Assertion contains the Use ID from the User object**, if User ID from the User object is being passed in SAML assertion
- 
+
 	f. As **SAML Identity Location**, select **Identity is in the NameIdentifier element of the Subject statement**.
 
-	g. As **Service Provider Initiated Request Binding**, select **HTTP POST**. 
+	g. As **Service Provider Initiated Request Binding**, select **HTTP POST**.
 
-    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal. 
+    h. In **Identity Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
 
     i. SFDC does not support SAML logout.  As a workaround, paste `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` it into the **Identity Provider Logout URL** textbox.
 
     j. Click **Save**.
 
 ### Enable your domain
+
 This section assumes that you already have created a domain.  For more information, see [Defining Your Domain Name](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **To enable your domain, perform the following steps:**
 
 1. On the left navigation pane in Salesforce, click **Company Settings** to expand the related section, and then click **My Domain**.
-   
-     ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
-   
+
+    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
+
    >[!NOTE]
-   >Please make sure that your domain has been configured correctly. 
+   >Please make sure that your domain has been configured correctly.
 
 2. In the **Authentication Configuration** section, click **Edit**, then, as **Authentication Service**, select the name of the SAML Single Sign-On Setting from the previous section, and finally click **Save**.
-   
+
    ![Configure Single Sign-On](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 As soon as you have a domain configured, your users should use the domain URL to login to the Salesforce sandbox.  
@@ -224,10 +225,10 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Salesforce Sandbox test user
 
-In this section, a user called Britta Simon is created in Salesforce Sandbox. Salesforce Sandbox supports just-in-time provisioning, which is enabled by default.
+In this section, a user called Britta Simon is created in Salesforce Sandbox. Salesforce Sandbox supports just-in-time provisioning, which is enabled by default. You can find more details [here](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) on how to configure automatic user provisioning.
 There is no action item for you in this section. If a user doesn't already exist in Salesforce Sandbox, a new one is created when you attempt to access Salesforce Sandbox.
 
 ### Assign the Azure AD test user
