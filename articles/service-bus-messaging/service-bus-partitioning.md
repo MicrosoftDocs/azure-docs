@@ -40,9 +40,7 @@ In the Standard messaging tier, you can create Service Bus queues and topics in 
 
 ### Premium
 
-In a Premium tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
-
-For more information about partitioning in the Premium messaging tier, see [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md). 
+In a Premium tier namespace, partitioning is not supported. However, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the size of your queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 ### Create a partitioned entity
 
@@ -56,7 +54,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal]. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is always enabled. 
+Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal]. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is not supported, and the checkbox has no effect. 
 
 ## Use of partition keys
 When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.
