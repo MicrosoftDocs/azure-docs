@@ -37,27 +37,29 @@ This step helps you check the number of drives required for the export job.
 
 2. To check the number of disks required for the selected blobs, run the following command:
 
-    WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>
+    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     The parameters are described in the following table:
     
     |Command-line parameter|Description|  
     |--------------------------|-----------------|  
-    |**/logdir:**<LogDirectory\>|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|  
-    |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
-    |**/sk:**<StorageAccountKey\>|Required only if a container SAS is not specified. The account key for the storage account for the export job.|  
-    |**/csas:**<ContainerSas\>|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
-    |**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
-    |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|  
+    |**/logdir:**|Optional. The log directory. Verbose log files are written to this directory. If not specified, the current directory is used as the log directory.|  
+    |**/sn:**|Required. The name of the storage account for the export job.|  
+    |**/sk:**|Required only if a container SAS is not specified. The account key for the storage account for the export job.|  
+    |**/csas:**|Required only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
+    |**/ExportBlobListFile:**|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
+    |**/DriveSize:**|Required. The size of drives to use for an export job, *e.g.*, 500 GB, 1.5 TB.|  
+
+    See an [Example of the PreviewExport command](example-of-previewexport-command).
  
-2. Check that you can read/write to the hard drive that will be shipped for the export job.
+2. Check that you can read/write to the drives that will be shipped for the export job.
 
 ## Step 2: Create an export job
 
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-3. In **Basics**, do the following:
+3. In **Basics**:
     
     - Select **Export from Azure**. 
     - Enter a string for job name.
@@ -68,7 +70,7 @@ Perform the following steps to create an import job in the Azure portal.
         - The name must start with a letter, and may not contain spaces. 
     - Provide the contact information for the person responsible for this export job.
 
-3. In **Job details**, do the following:
+3. In **Job details**:
 
     - Select the storage account where the data to be exported resides. 
     - The drop-off location is automatically populated based on the region of the storage account selected. 
@@ -76,17 +78,19 @@ Perform the following steps to create an import job in the Azure portal.
         - **To specify a blob to export**: Use the **Equal To** selector. Specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
         - **To specify all blobs starting with a prefix**: Use the **Starts With** selector. Specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
     
-        You must provide the blob paths in valid formats to avoid errors during processing, as shown in this screenshot. See [Examples of valid blob paths](#examples-of-valid-blob-paths).
+        You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. 
    
    ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
 
-4. In **Return shipping info**, do the following:
+    For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+
+4. In **Return shipping info**:
 
     - Select the carrier from the drop-down list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
-5. In the **Summary**, do the following:
+5. In **Summary**:
 
     - Rrovide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete Export job creation.
@@ -102,12 +106,49 @@ After shipping the disks, return to the **Import/Export** page on the Azure port
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
    > [!NOTE]
-   > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
+   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
  
 6. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Go to the export job in the Azure portal. Click Import/Export tab. 
-7. Select your export job from the list, and click **BitLocker keys**. The BitLocker keys appear as shown below:
+7. Select and cick your export job from the list. Go to **BitLocker keys** and view the keys.
    
    ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
+
+## Example of PreviewExport command
+
+The following example demonstrates the `PreviewExport` command:  
+  
+```  
+WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
+```  
+  
+The export blob list file may contain blob names and blob prefixes, as shown here:  
+  
+```xml 
+<?xml version="1.0" encoding="utf-8"?>  
+<BlobList>  
+<BlobPath>pictures/animals/koala.jpg</BlobPath>  
+<BlobPathPrefix>/vhds/</BlobPathPrefix>  
+<BlobPathPrefix>/movies/</BlobPathPrefix>  
+</BlobList>  
+```
+
+The Azure Import/Export Tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.  
+  
+Here is an example of the output, with informational logs omitted:  
+  
+```  
+Number of unique blob paths/prefixes:   3  
+Number of duplicate blob paths/prefixes:        0  
+Number of nonexistent blob paths/prefixes:      1  
+  
+Drive size:     500.00 GB  
+Number of blobs that can be exported:   6  
+Number of blobs that cannot be exported:        2  
+Number of drives needed:        3  
+        Drive #1:       blobs = 1, occupied space = 454.74 GB  
+        Drive #2:       blobs = 3, occupied space = 441.37 GB  
+        Drive #3:       blobs = 2, occupied space = 131.28 GB    
+```
 
 ## Examples of valid blob paths
 
