@@ -181,6 +181,8 @@ The following steps describe how to use *CMake* to build your client application
         ssl
         crypto
         m
+        parson
+        iothub_client_http_transport
     )
     ```
 
