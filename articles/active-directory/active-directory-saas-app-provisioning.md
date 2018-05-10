@@ -178,7 +178,7 @@ For **incremental syncs**, the time it takes depends on the number changes detec
 The table below summarizes commonly-observed synchronization times for provisioning scenarios where Azure AD is the source system and the target system is a SaaS application, such as ServiceNow, Workplace, Salesforce, or Google Apps. The times shown below are derived from a statistical analysis of sync jobs targeting these four applications.
 
 
-| Scope configuration | Users/groups in scope | Initial sync time | Incremental sync time |
+| Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
 | -------- | -------- | -------- | -------- |
 | Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
 | Sync assigned users and groups only |  1k - 10k | 142 - 708 minutes | < 30 minutes |
