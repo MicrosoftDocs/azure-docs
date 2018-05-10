@@ -17,7 +17,7 @@ ms.author: v-geberr;
 # Integrate Speech service
 The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects.
 
-In this article, you will download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. 
+In this article, you will download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project already has the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package included as a reference. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -33,6 +33,10 @@ Where is Form 123456?
 Do I have any paid time off?
 ```
 
+## Add KeyPhrase entity
+After the app is imported, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity.
+
+## Train and publish the app
 Train and publish the app. Collect the app ID, publish region, and subscription ID. These are all included in the endpoint URL on the Publish page. 
 
 https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
@@ -59,15 +63,52 @@ The file already has the Human Resources intents mapped.
 
 [![](./media/luis-tutorial-speech-to-intent/intents.png "Screenshot of Visual Studio 2017 displaying LUIS_samples.cs intents")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
 
-This LUIS code is called when a user select 8 from the command line and speaks an utterance into the system microphone.
-
-!["Screenshot of command line app with menu"](./media/luis-tutorial-speech-to-intent/cmdline-1.png )
-
-cmdline-1
+Build and debug the app. 
 
 ## Test code with utterance
-## Review prediction results
+Select **8** and speak into the microphone "Who is the manager of John Smith".
+
+```cmd
+1. Speech recognition with microphone input.
+2. Speech recognition in the specified language.
+3. Speech recognition with file input.
+4. Speech recognition using customized model.
+5. Speech continuous recognition using events.
+6. Translation with microphone input.
+7. Translation with file input.
+8. Speech recognition of LUIS intent.
+0. Stop.
+Your choice: 8
+LUIS...
+Say something...
+ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
+  "query": "Who is the manager of John Smith?",
+  "topScoringIntent": {
+    "intent": "GetEmployeeOrgChart",
+    "score": 0.617331
+  },
+  "entities": [
+    {
+      "entity": "manager of john smith",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 31
+    }
+  ]
+}
+
+Recognition done. Your Choice:
+
+```
+
+The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. The keyphrase entity was returned. 
+
+The Speech SDK will return the entire LUIS response. 
+
 ## Clean up resources
+When no longer needed, delete the LUIS HumanResources app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+Remember to delete the LUIS-Samples directory when you are done using the sample code.
 
 ## Next steps
 
