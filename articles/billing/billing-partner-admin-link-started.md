@@ -30,7 +30,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 ## Link partner ID
 
-When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID for each customer tenant.
+When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID in each customer tenant.
 
 ### Use Azure portal to link new partner ID
 
@@ -42,7 +42,7 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.png)
 
-4. Use the directory switcher to link parnter ID for another customer.
+4. Use the directory switcher to link partner ID for another customer.
 
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/directory-switcher.png)
 
@@ -80,25 +80,24 @@ C:\> remove-AzureRmManagementPartner -PartnerId 12345
 ### Use CLI to link new partner ID
 1.  Install the CLI Extension.
 
-    ```azure-cli-interactive
+    ```azurecli-interactive
     C:\ az extension add --name managementpartner
     ``` 
 
 2.  Sign in to the customer's tenant with the user account or service principal. For more information, see [Log in with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-    ```azure-cli-interactive
+    ```azurecli-interactive
     C:\ az login --tenant <tenant>
     ``` 
 
-
 3.  Link the new partner ID. The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 
-     ```azure-cli-interactive
+     ```azurecli-interactive
      C:\ az managementpartner create --partner-id 12345
       ```  
 
 #### Get the linked partner ID
-```azure-cli
+```azurecli-interactive
 C:\ az managementpartner show
 ``` 
 
