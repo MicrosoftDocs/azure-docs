@@ -260,6 +260,20 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
+## Trigger - event metadata
+
+The Event Hubs trigger provides several [metadata properties](functions-triggers-bindings.md#binding-expressions---trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. These are properties of the [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) class.
+
+|Property|Type|Description|
+|--------|----|-----------|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)||
+|`EnqueuedTimeUtc`|`DateTime`||
+|`Offset`|`string`|The offset of the data relative to the Event Hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
+|`PartitionKey`|`string`|The partition to which event data should be sent.|
+|`Properties`|`IDictionary<String,Object>`|The user properties of the event data.|
+|`SequenceNumber`|`Int64`|The logical sequence number of the event.|
+|`SystemProperties`|`IDictionary<String,Object>`|The system properties, including the event data.|
+
 ## Trigger - host.json properties
 
 The [host.json](functions-host-json.md#eventhub) file contains settings that control Event Hubs trigger behavior.
