@@ -32,7 +32,7 @@ This build includes the following improvements and fixes for Azure Stack.
 - <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available:
   - *Default Provider subscription*. Use this subscription for core infrastructure only. Do not deploy resources or resource providers on this subscription.
   - *Metering subscription*. Use this subscription for resource provider deployment. Resources deployed on this subscription are not charged.
-  - *Consumption subscription*. Use this subscription for any other workload that the you want to deploy. Resources deployed here are charged normal usage prices.
+  - *Consumption subscription*. Use this subscription for any other workload that you want to deploy. Resources deployed here are charged normal usage prices.
 
 
 ### Fixed issues
@@ -45,7 +45,15 @@ This build includes the following improvements and fixes for Azure Stack.
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack
 
 <!-- ### Changes  --> 
- 
+### Additional releases timed with this update  
+The following are now available, but don't require Azure Stack update 1804.
+- **Update to the Microsoft Azure Stack System Center Operations Manager Monitoring Pack**. A new version (1.0.3.0) of the Microsoft System Center Operations Manager Monitoring Pack for Azure Stack is available for [download](https://www.microsoft.com/download/details.aspx?id=55184). With this version, you can use Service Principals when you add a connected Azure Stack deployment. This version also features an Update Management experience that allows you to take remediation action directly from within Operations Manager. There are also new dashboards that display resource providers, scale units, and scale unit nodes.
+
+- **New Azure Stack Admin PowerShell Version 1.2.12**.  Azure Stack PowerShell 1.2.12 is now available for installation. This version provides commands for all Admin resource providers to manage Azure Stack.  With this release, some content will be deprecated from the Azure Stack Tools GitHub [repository](https://github.com/Azure/AzureStack-Tools). 
+
+   For installation details, follow the [instructions](.\.\azure-stack-powershell-install.md) or the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) content for Azure Stack Module 1.2.12. 
+
+- **Initial release of Azure Stack API Rest Reference**. The API reference for all Azure Stack Admin Resource Provider is now published
 
 ### Known issues
  
