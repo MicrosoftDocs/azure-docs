@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -36,7 +36,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** We provide 7 days of data for our free customers, or you can access data for up to 30 days by purchasing an Azure AD Premium 1 or Premium 2 license. For more information on report retention, see [Azure Active Directory report retention policies](active-directory-reporting-retention.md).
+**A:** Please see [for how long is the collected data stored?}(Azure Active Directory report retention policies](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) for an answer to this question.
 
 --- 
 
