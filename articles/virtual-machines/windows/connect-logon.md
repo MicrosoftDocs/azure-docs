@@ -28,7 +28,7 @@ If you are trying to connect to a Windows VM from a Mac, you need to install an 
 2. In the left menu, click **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. On the top of the page for the virtual machine, click the ![Image of the connect button.](./media/connect-logon/connect.png) button.
-2. In the **Connect to virtual machine** page, keep select the appropriate options and click **Download RDP file**.
+2. In the **Connect to virtual machine** page, select the appropriate options and click **Download RDP file**.
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 2. You get a warning that the `.rdp` file is from an unknown publisher. This is normal. In the Remote Desktop window, click **Connect** to continue.
    
