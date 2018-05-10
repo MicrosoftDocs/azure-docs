@@ -151,7 +151,7 @@ We hope you like using the improved Azure AD experience. Please keep the feedbac
 
 ## Next steps
 
-For more details, see [Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md).
+For more details, see [Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md).
 
 
 

@@ -167,16 +167,16 @@
 #### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
-### [Overview](active-directory-enable-sso-scenario.md)
-### [Getting started](active-directory-integrating-applications-getting-started.md)
+### [Overview](manage-apps/what-is-application-management.md)
+### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
+### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
 ##### [Enable App Proxy](active-directory-application-proxy-enable.md)
 ##### [Publish apps](application-proxy-publish-azure-portal.md)

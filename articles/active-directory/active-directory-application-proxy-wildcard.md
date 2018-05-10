@@ -1,4 +1,4 @@
-﻿---
+---
 title: Wildcard applications in the Azure Active Directory application proxy | Microsoft Docs
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 # Wildcard applications in the Azure Active Directory application proxy 
 
-In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
+In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](manage-apps/application-proxy.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
 -	Simplify your administrative overhead
 -	Reduce the number of potential configuration errors
