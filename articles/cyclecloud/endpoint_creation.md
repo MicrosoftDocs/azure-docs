@@ -2,19 +2,10 @@
 
 Endpoints are logical connections to storage providers and can be any of the following:
 
-Endpoint Types
----------------
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Type                 | Description                                                                                                                        |
-+======================+====================================================================================================================================+
-| Azure Block Storage  | Microsoft Azure's storage service                                                                                                  |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Amazon S3            | Amazon's Simple Storage Service                                                                                                    |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Google Cloud Storage | Google Cloud's object storage service                                                                                              |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Host                 | Data residing on servers accessible to the CycleCloud Data Manager. These can be local directories or other mounted file systems.  |
-+----------------------+------------------------------------------------------------------------------------------------------------------------------------+
+* Azure Block Storage  
+* Amazon S3
+* Google Cloud Storage
+* Host data residing on servers accessible to the CycleCloud Data Manager. These can be local directories or other mounted file systems.
 
 To view and manage endpoints, select **Data** then **Transfer Manager** from the CycleCloud menu bar.
 
@@ -40,29 +31,18 @@ Click the **+** to generate a new line, then enter the path. Click **Save** to c
 
 ### Host Endpoint Attributes
 
-+----------------+---------------------------------------------------------------------------+
-| Attribute      | Description                                                               |
-+================+===========================================================================+
-| Name           | Name of the endpoint                                                      |
-+----------------+---------------------------------------------------------------------------+
-| Type           | The type of this endpoint (see table above)                               |
-+----------------+---------------------------------------------------------------------------+
-| Allowed Paths  | A list of system paths accessible by this endpoint                        |
-+----------------+---------------------------------------------------------------------------+
-| Encryption Key | The encryption key used to encrypt all files transferred to this endpoint |
-+----------------+---------------------------------------------------------------------------+
-| Local          | When checked, indicates that folders are local to the host                |
-+----------------+---------------------------------------------------------------------------+
-| Hostname       | Hostname for host endpoints                                               |
-+----------------+---------------------------------------------------------------------------+
-| SSH User       | Remote login name                                                         |
-+----------------+---------------------------------------------------------------------------+
-| Credential     | The SSH keypair to use when logging into a remote host                    |
-+----------------+---------------------------------------------------------------------------+
-| SSH Port       | Port for connections via SSH                                              |
-+----------------+---------------------------------------------------------------------------+
-| Pogo Path      | The path to the Pogo executable on the remote host                        |
-+----------------+---------------------------------------------------------------------------+
+| Attribute                                                                     | Description                                                               |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| Name                                                                          | Name of the endpoint                                                      |
+| Type                                                                          | Type of endpoint                                                          |
+| Allowed Paths                                                                 | List of system paths accessible by this endpoint                          |
+| Encryption Key                                                                | The encryption key used to encrypt all files transferred to this endpoint |
+| Local                                                                         | When checked, indicates that folders are local to the host                |
+| Hostname                                                                      | Hostname for host endpoints                                               |
+| SSH User                                                                      | Remote login name                                                         |
+| Credential                                                                    | The SSH keypair to use when logging into a remote host                    |
+| SSH Port                                                                      | Port for connections via SSH                                              |
+| [pogo](https://review.docs.microsoft.com/en-us/cycle/pogo?branch=master) path | Path to the pogo executable on the remote host                            |
 
 ## Adding Cloud Provider Credentials
 
