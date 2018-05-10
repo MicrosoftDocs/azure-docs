@@ -52,11 +52,47 @@
 ### [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Reference
-## [API Overview](billing-usage-rate-card-overview.md)
-## [Enterprise Reporting API Overview](billing-enterprise-api.md)
-## [Invoice REST](/rest/api/billing)
-## [Usage and RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partner solution: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure Billing API Overview](billing-usage-rate-card-overview.md)
+### [Azure Billing REST API](/rest/api/billing?toc=/azure/billing/TOC.json)
+#### [Billing Periods](/rest/api/billing/billingperiods?toc=/azure/billing/TOC.json)
+#### [Invoices](/rest/api/billing/invoices?toc=/azure/billing/TOC.json)
+#### [Operations](/rest/api/billing/operations?toc=/azure/billing/TOC.json)
+### [Partner solution – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+
+## Azure Consumption API
+### [Azure Consumption REST API](/rest/api/consumption?toc=/azure/billing/TOC.json) 
+#### [Budgets - Enterprise Only](/rest/api/consumption/budgets?toc=/azure/billing/TOC.json)
+#### [Cost Tags](/rest/api/consumption/costtags?toc=/azure/billing/TOC.json)
+#### [Get Balances By Billing Account](/rest/api/consumption/getbalancesbybillingaccount?toc=/azure/billing/TOC.json)
+#### [Marketplaces](/rest/api/consumption/marketplaces?toc=/azure/billing/TOC.json)
+#### [Marketplaces By Billing Account](/rest/api/consumption/marketplacesbybillingaccount?toc=/azure/billing/TOC.json)
+#### [Marketplaces By Department](/rest/api/consumption/marketplacesbydepartment?toc=/azure/billing/TOC.json)
+#### [Marketplaces By Enrollment Accounts](/rest/api/consumption/marketplacesbyenrollmentaccounts?toc=/azure/billing/TOC.json)
+#### [Operations](/rest/api/consumption/operations?toc=/azure/billing/TOC.json)
+#### [Price Sheet - Enterprise Only](/rest/api/consumption/pricesheet?toc=/azure/billing/TOC.json)
+#### [Reservation Recommendations](/rest/api/consumption/reservationrecommendations?toc=/azure/billing/TOC.json)
+#### [Reservations Details](/rest/api/consumption/reservationsdetails?toc=/azure/billing/TOC.json)
+#### [Reservations Summaries](/rest/api/consumption/reservationssummaries?toc=/azure/billing/TOC.json)
+#### [Resource RateCard](https://msdn.microsoft.com/en-us/library/azure/mt219005.aspx)
+#### [Resource Usage](https://msdn.microsoft.com/en-us/library/azure/mt219003.aspx)
+#### [Tags](/rest/api/consumption/tags?toc=/azure/billing/TOC.json)
+#### [Usage Details](/rest/api/consumption/usagedetails?toc=/azure/billing/TOC.json)
+#### [Usage Details By Billing Account](/rest/api/consumption/usagedetailsbybillingaccount?toc=/azure/billing/TOC.json)
+#### [Usage Details By Department](?toc=/azure/billing/TOC.json/rest/api/consumption/usagedetailsbydepartment)
+#### [Usage Details By Enrollment Account](/rest/api/consumption/usagedetailsbyenrollmentaccount?toc=/azure/billing/TOC.json)
+
+## [Enterprise Reporting Overview](billing-enterprise-api.md)
+### [Get balance summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary?toc=/azure/billing/TOC.json)
+### [Get usage detail](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail?toc=/azure/billing/TOC.json)
+### [Get marketplace store charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge?toc=/azure/billing/TOC.json)
+### [Get price sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet?toc=/azure/billing/TOC.json)
+### [Get billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods?toc=/azure/billing/TOC.json)
+### [Get reserved instance recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation?toc=/azure/billing/TOC.json)
+
+## Billing code samples
+### [Invoice API code sample](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
