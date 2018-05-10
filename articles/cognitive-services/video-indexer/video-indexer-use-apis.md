@@ -16,6 +16,9 @@ ms.author: juliako
 
 Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft in one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of insight and player widgets in order to embed them into your application, and other tasks.
 
+> [!Note]
+> The free trial has a daily upload limit of 100 files. You can check the error message returned for details. Note that the daily limit might change.
+
 This article shows how the developers can take advantage of the [Video Indexer API](https://api-portal.videoindexer.ai/). To read a more detailed overview of the Video Indexer service, see the [overview](video-indexer-overview.md) article.
 
 ## Subscribe to the API
