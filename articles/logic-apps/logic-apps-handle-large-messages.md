@@ -86,7 +86,7 @@ You can set this property inside the action, either directly in the code view
 editor as described later, or in the Logic Apps Designer as described here:
 
 1. In the HTTP action's upper-right corner, 
-choose the ellipis button (**...**), 
+choose the ellipsis button (**...**), 
 and then choose **Settings**.
 
    ![On the action, open the settings menu](./media/logic-apps-handle-large-messages/http-settings.png)
