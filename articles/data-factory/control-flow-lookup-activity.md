@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: shlo
 
 ---
@@ -28,11 +28,9 @@ Lookup activity can read and return the content of a configuration file, a confi
 
 ## Supported capabilities
 
-The following data sources are currently supported for lookup:
+The following data sources are supported for lookup. The maximum number of rows can be returned by Lookup activity is **5000**, and up to **2MB** in size. And currently the max duration for Lookup activity before timeout is one hour.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
-
-The maximum number of rows returned by Lookup activity is **5000**, and up to **2MB** in size.
 
 ## Syntax
 
