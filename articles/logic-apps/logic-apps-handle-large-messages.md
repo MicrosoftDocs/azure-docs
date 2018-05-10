@@ -89,7 +89,11 @@ editor as described later, or in the Logic Apps Designer as described here:
 right-click the ellipses button (**...**), 
 and choose **Settings**.
 
+   ![On the action, open the settings menu](./media/logic-apps-handle-large-messages/http-settings.png)
+
 2. Under **Content Transfer**, set **Allow chunking** to **On**.
+
+   ![Turn on chunking](./media/logic-apps-handle-large-messages/set-up-chunking.png)
 
 3. To continue setting up chunking for downloads or uploads, 
 continue with the following sections.
