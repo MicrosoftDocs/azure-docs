@@ -38,13 +38,13 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 
 2. Sign in with your user account.
 
-3. Use the directory switcher to switch to correct customer directory.
-
-![Screenshot that shows link partner ID](./media/billing-link-partner-id/directory-switcher.png)
-
-4. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
+3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.png)
+
+4. Use the directory switcher to link parnter ID for another customer.
+
+![Screenshot that shows link partner ID](./media/billing-link-partner-id/directory-switcher.png)
 
 ### Use PowerShell to link new partner ID
 
