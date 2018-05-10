@@ -17,12 +17,12 @@ ms.author: v-geberr;
 # Integrate Speech service
 The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects.
 
-In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project already has the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package included as a reference. 
+In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project uses the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package, already included as a reference. 
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+For this article, you need a free [LUIS][LUIS] website account in order to import the application.
 
 ## Import Human Resources LUIS app
-The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file and [import](create-new-app.md#import-new-app) it into LUIS. 
+The intents, and utterances for this article are from the Human Resources LUIS app available from the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github repository. Download the [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) file, save it with the *.json extension, and [import](create-new-app.md#import-new-app) it into LUIS. 
 
 This app has intents, entities, and utterances related to the Human Resources domain. Example utterances include:
 
@@ -33,15 +33,17 @@ Where is Form 123456?
 Do I have any paid time off?
 ```
 
-## Add KeyPhrase entity
-After the app is imported, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity.
+## Add KeyPhrase prebuilt entity
+After importing the app, select **Entities**, then **Manage prebuilt entities**. Add the **KeyPhrase** entity. The KeyPhrase entity extracts key subject matter from the utterance.
 
 ## Train and publish the app
-Train and publish the app. Collect the app ID, publish region, and subscription ID. These are all included in the endpoint URL on the Publish page. 
+Train and publish the app. On the **Publish** page, collect the app ID, publish region, and subscription ID. You need to modify the code to use these values later in this article. 
+
+These values are all included in the endpoint URL at the bottom of the **Publish** page. 
 
 https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
-## Download LUIS Sample project
+## Download the LUIS Sample project
  Clone or download the [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) repository. Open the [Speech to intent project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) with Visual Studio and restore the NuGet packages. The VS solution file is .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
 The Speech SDK is already included as a reference. 
@@ -63,7 +65,9 @@ The file already has the Human Resources intents mapped.
 
 [![](./media/luis-tutorial-speech-to-intent/intents.png "Screenshot of Visual Studio 2017 displaying LUIS_samples.cs intents")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
 
-Build and debug the app. 
+Build and run the app. 
+
+![Screenshot of command line running program](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
 
 ## Test code with utterance
 Select **8** and speak into the microphone "Who is the manager of John Smith".
@@ -115,4 +119,4 @@ Remember to delete the LUIS-Samples directory when you are done using the sample
 > [!div class="nextstepaction"]
 > [Integrate LUIS with a BOT](luis-csharp-tutorial-build-bot-framework-sample.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: luis-reference-regions.md#luis-website
