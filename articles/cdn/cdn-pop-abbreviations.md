@@ -51,6 +51,7 @@ CHB | Chicago, Illinois, USA | North America: East Coast U.S.
 CNJ | Newark, New Jersey, USA | North America: East Coast U.S.
 CPH | Copenhagen, Denmark | Europe
 CPM | Los Angeles, California, USA | North America: West Coast U.S.
+CVA | Ashburn, Virginia, USA | North America: East Coast U.S.
 DAA | Dallas, Texas, USA | North America: Central Coast U.S.
 DAB | Dallas, Texas, USA | North America: Central Coast U.S.
 DCA | Ashburn, Virginia, USA | North America: East Coast U.S.
