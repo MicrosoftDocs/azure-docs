@@ -269,6 +269,11 @@ If you are using the .NET Client SDK and LINQ queries, then most of the time you
 If you have more than one client cumulatively operating above the request rate, the default retry behavior may not suffice, and the client will throw a `DocumentClientException` with status code 429 to the application. In cases like this, you may want to consider handling the retry behavior and logic in your application's error handling routines or increase the throughput provisioned for the container (or the set of containers).
 
 ## Next steps
+ 
+To learn about how to set and get throughput by using Azure portal and SDK's see:
+
+* [Set and get throughput in Azure Cosmos DB](set-throughput.md)
+
 To learn more about reserved throughput with Azure Cosmos DB databases, explore these resources:
 
 * [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/)

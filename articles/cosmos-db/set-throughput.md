@@ -17,9 +17,9 @@ ms.author: sngun
 
 ---
 
-# Set and get throughput for Azure Cosmos DB containers
+# Set and get throughput for Azure Cosmos DB containers and database
 
-You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. On the other hand, provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which share the throughput as well as containers which have dedicated throughput. 
+You can set throughput for an Azure Cosmos DB container or a set of containers by using Azure portal or by using the client SDKs. When you provision throughput for a set of containers, all those containers share the provisioned throughput. Provisioning throughput for individual containers will guarantee the reservation of throughput for that specific container. On the other hand, provisioning throughput for a database allows you to share the throughput among all the containers that belong to that database. Within an Azure Cosmos DB database, you can have a set of containers which share the throughput as well as containers, which have dedicated throughput. 
 
 Based on the provisioned throughput, Azure Cosmos DB will allocate physical partitions to host your container(s) and splits/rebalances data across partitions as it grows.
 
@@ -62,7 +62,7 @@ This article walks you through the steps required to configure throughput at dif
 2. From the left nav, select **All resources** and find your Azure Cosmos DB account.  
 3. You can configure throughput while creating a database or update throughput for an existing database.  
 4. To assign throughput while creating a database, open the **Data Explorer** blade and select **New Database**  
-5. Fill the **Database id** value, check **Provision throughput** option and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
+5. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
 
    ![Set throughput with new database option](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -75,11 +75,11 @@ This article walks you through the steps required to configure throughput at dif
 1. Sign in to the [Azure portal](https://portal.azure.com).  
 2. From the left nav, select **All resources** and find your Azure Cosmos DB account.  
 3. Create a database and assign throughput to it. Open the **Data Explorer** blade and select **New Database**  
-4. Fill the **Database id** value, check **Provision throughput** option and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
+4. Fill the **Database id** value, check **Provision throughput** option, and configure throughput value. A database can be provisioned with minimum throughput value 50,000 RU/s.  
 
    ![Set throughput with new database option](./media/set-throughput/set-throughput-with-new-database-option.png)
 
-5. Next create a collection within the database you created in above step. To create a collection, right click on the database and select **New Collection**.  
+5. Next create a collection within the database you created in above step. To create a collection, right-click on the database and select **New Collection**.  
 
 6. In the **Add Collection** blade, enter a name for the collection, and partition key. Optionally, you can provision throughput for that specific container if you choose not to assign a throughput value, the throughput assigned to the database is shared to the collection.  
 
@@ -101,7 +101,7 @@ Consider provisioning throughput at database level (that is for set of container
 
 Consider provisioning throughput at an individual container in the following cases:
 
-* If you have few number of Azure Cosmos DB containers.  
+* If you have less number of Azure Cosmos DB containers.  
 
 * If you want to get the guaranteed throughput on a given container backed by SLA.
 
@@ -224,7 +224,7 @@ client.replaceOffer(offer);
 
 The MongoDB API supports a custom command, *getLastRequestStatistics*, for retrieving the request charges for a given operation.
 
-For example, in the Mongo Shell, execute the operation you want to verify the request charge for.
+For example, in the Mongo shell, execute the operation that you want to verify the request charge for.
 ```
 > db.sample.find()
 ```
@@ -241,7 +241,7 @@ Next, execute the command *getLastRequestStatistics*.
 }
 ```
 
-With this in mind, one method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimate the number of operations you anticipate to perform each second.
+One method for estimating the amount of reserved throughput required by your application is to record the request unit charge associated with running typical operations against a representative item used by your application and then estimate the number of operations you anticipate to perform each second.
 
 > [!NOTE]
 > If you have item types which will differ dramatically in terms of size and the number of indexed properties, then record the applicable operation request unit charge associated with each *type* of typical item.
@@ -255,7 +255,7 @@ The simplest way to get a good estimate of request unit charges for your MongoDB
 ![MongoDB API portal metrics][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceeding reserved throughput limits in the MongoDB API
-Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will preemptively end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
+Applications that exceed the provisioned throughput for a container or a set of containers will be rate-limited until the consumption rate drops below the provisioned throughput rate. When a rate-limitation occurs, the backend will end the request with a `16500` error code - `Too Many Requests`. By default, the MongoDB API automatically retries up to 10 times before returning a `Too Many Requests` error code. If you are receiving many `Too Many Requests` error codes, you may want to consider either adding a retry logic in your application's error handling routines or [increase provisioned throughput for the container](set-throughput.md).
 
 ## Throughput FAQ
 
@@ -269,6 +269,8 @@ There's no MongoDB API extension to set throughput. The recommendation is to use
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
+* To learn about estimating throughput and request units, see [Request units & estimating throughput in Azure Cosmos DB](request-units.md)
+
+* To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png
