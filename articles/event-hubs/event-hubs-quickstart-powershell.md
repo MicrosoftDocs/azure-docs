@@ -98,7 +98,7 @@ Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_ac
 A connection string is required to connect to your event hub and process events. To get your connection string, run:
 
 ```azurepowershell
-Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -Name RootManageSharedAccessKey
+Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
 ```
 
 ## Stream into Event Hubs
