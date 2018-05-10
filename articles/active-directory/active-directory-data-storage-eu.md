@@ -69,8 +69,8 @@ Most Azure AD data for European-based customers stays within the European datace
 ## Next steps
 For more information about any of the features and functionality described above, see these articles.
 - [Get started with Azure Active Directory](get-started-azure-ad.md)
-- [What is Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/multi-factor-authentication)
+- [What is Multi-Factor Authentication?](https://docs.microsoft.com/en-us/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self-service password reset](https://docs.microsoft.com/en-us/azure/active-directory/authentication/active-directory-passwords-overview)
-- [What is Azure Active Directory B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
+- [What is Azure Active Directory B2C?](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
 - [What is Azure AD B2B collaboration?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 - [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview)
