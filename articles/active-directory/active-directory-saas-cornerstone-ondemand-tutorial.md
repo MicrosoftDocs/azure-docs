@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/10/2017
 ms.author: jeedes
 
 ---
@@ -62,7 +62,7 @@ To configure the integration of Cornerstone OnDemand into Azure AD, you need to 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -100,8 +100,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_samlbase.png)
 
 3. On the **Cornerstone OnDemand Domain and URLs** section, perform the following step:
@@ -113,8 +113,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In **Identifier** textbox, type a URL using the following pattern: `https://<company>.csod.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Cornerstone OnDemand Client support team](mailTo:moreinfo@csod.com) to get these values. 
- 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Cornerstone OnDemand Client support team](mailTo:moreinfo@csod.com) to get these values.
+
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-cornerstone-ondemand-tutorial/tutorial_cornerstoneondemand_certificate.png) 
@@ -138,18 +138,18 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
+
 	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
- 
+
 	![Creating an Azure AD test user](./media/active-directory-saas-cornerstone-ondemand-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
@@ -159,8 +159,12 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a Cornerstone OnDemand test user
+
+The objective of this section is to create a user called Britta Simon in Cornerstone OnDemand. Cornerstone OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
 
 In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand. In the case of Cornerstone OnDemand, provisioning is a manual task.
 
@@ -168,9 +172,6 @@ To configure user provisioning, send the information (e.g.: Name, Email) about t
 
 >[!NOTE]
 >You can use any other Cornerstone OnDemand user account creation tools or APIs provided by Cornerstone OnDemand to provision AAD user accounts.
-
-> [!NOTE]
-> For more details you can visit [here](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md)
 
 ### Assigning the Azure AD test user
 
