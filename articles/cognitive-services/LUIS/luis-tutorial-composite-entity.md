@@ -6,10 +6,10 @@ author: v-geberr
 manager: kaiqb 
 
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
-ms.author: v-geberr;
+ms.author: v-geberr
 --- 
 
 # Use composite entity to extract complex data
@@ -122,9 +122,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 
 1. In the top right side of the LUIS website, select the **Publish** button. 
 
-    ![Select publish button](./media/luis-tutorial-composite-entity/publish.png)
-
-2. Select the **Publish to product slot**. 
+2. Select the Production slot and the **Publish** button.
 
     ![publish app](./media/luis-tutorial-composite-entity/publish-to-production.png)
 
@@ -236,7 +234,7 @@ In order to get a LUIS prediction in a chat bot or other application, you need t
 This utterance returns a composite entities array including the **flightreservation** object with the data extracted.  
 
 ## What has this LUIS app accomplished?
-This app, with just two intents and a compositie entity, identified a natural language query intention and returned the extracted data. 
+This app, with just two intents and a composite entity, identified a natural language query intention and returned the extracted data. 
 
 Your chat bot now has enough information to determine the primary action, `BookFlight`, and the reservation information found in the utterance. 
 

@@ -4,12 +4,11 @@ description: Learn what can be secured in Language Understanding (LUIS)
 services: cognitive-services
 author: v-geberr
 manager: kaiqb
-
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: v-geberr;
+ms.date: 05/07/2018
+ms.author: v-geberr
 ---
 
 # Security
@@ -50,15 +49,19 @@ A private app's endpoint is only available to the following:
 
 Other authoring or endpoint keys have **no** access.
 
-
 ### Public app endpoint access
-Configure the app as **public** on the **Settings** page of the app. Once an app is configured as public, any valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+Configure the app as **public** on the **Settings** page of the app. Once an app is configured as public, _any_ valid LUIS authoring key or LUIS endpoint key can query your app, as long as the key has not used the entire endpoint quota.
+
+A user who is not an owner or collaborator, can only access a public app if given the app ID. LUIS doesn't have a public _market_ or other way to search for a public app.  
 
 ## Securing the endpoint 
 You can control who can see your LUIS endpoint key by calling it in a server-to-server environment. If you are using LUIS from a bot, the connection between the bot and LUIS is already secure. If you are calling the LUIS endpoint directly, you should create a server-side API (such as an Azure [function](https://azure.microsoft.com/services/functions/)) with controlled access (such as [AAD](https://azure.microsoft.com/services/active-directory/)). When the server-side API is called and authentication and authorization are verified, pass the call on to LUIS. While this strategy doesn’t prevent man-in-the-middle attacks, it obfuscates your endpoint from your users, allows you to track access, and allows you to add endpoint response logging (such as [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+
+## Security Compliance
+LUIS successfully completed the ISO 27001:2013 and ISO 27018:2014 audit with ZERO non-conformities (findings) in the audit report. Additionally, LUIS also obtained the CSA STAR Certification with the highest possible Gold Award for the maturity capability assessment. Azure is the only major public cloud service provider to earn this certification. For more details, you can find the LUIS included in the updated scope statement in Azure’s main [compliance overview](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) document that is referenced on [Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) ISO pages.  
 
 ## Next steps
 
 See [Best Practices](luis-concept-best-practices.md) to learn how to use intents and entities for the best predictions.
 
-[LUIS]:luis-reference-regions.md##luis-website
+[LUIS]:luis-reference-regions.md#luis-website

@@ -28,6 +28,11 @@
 ### [Availability and consistency](event-hubs-availability-and-consistency.md)
 ### [Automatically scale throughput units](event-hubs-auto-inflate.md)
 ### [Integrating Apache Spark with Event Hubs](event-hubs-spark-connector.md)
+## Event Hubs for Kafka
+### [Event Hubs for Kafka Ecosystem](event-hubs-for-kafka-ecosystem-overview.md)
+### [Create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md) 
+### [Stream into Azure Event Hubs for Kafka Ecosystem](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+### [Using Kafka MirrorMaker with Azure Event Hubs for Kafka Ecosystem](event-hubs-kafka-mirror-maker-tutorial.md)
 ## Develop
 ### [Send events using .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Receive events using .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)
@@ -47,7 +52,7 @@
 ### [Create and deploy an event hub using a Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)

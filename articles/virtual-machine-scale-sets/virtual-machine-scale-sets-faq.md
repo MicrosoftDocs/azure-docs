@@ -168,7 +168,7 @@ For more information, see [Create or update a virtual machine scale set](https:/
     ```powershell
     Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
@@ -449,9 +449,9 @@ If the extension definition in the virtual machine scale set model is updated an
 
 If an existing VM is service-healed, it appears as a reboot, and the extensions are not rerun. If it is reimaged, it's like replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run.
  
-### How do I join a virtual machine scale set to an Azure AD domain?
+### How do I join a virtual machine scale set to an Active Directory domain?
 
-To join a virtual machine scale set to an Azure Active Directory (Azure AD) domain, you can define an extension. 
+To join a virtual machine scale set to an Active Directory (AD) domain, you can define an extension. 
 
 To define an extension, use the JsonADDomainExtension property:
 

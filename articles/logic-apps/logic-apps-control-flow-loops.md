@@ -196,10 +196,6 @@ common use cases where you can use an "Until" loop:
 wait until a specific field in that record gets approved, 
 and continue processing. 
 
-> [!NOTE]
-> "Until" loops can't include "Foreach" 
-> loops or other "Until" loops.
-
 For example, at 8:00 AM each day, this logic app increments a variable 
 until the variable's value equals 10. Then, the logic app sends an email 
 that confirms the current value. Although this example uses Office 365 Outlook, 

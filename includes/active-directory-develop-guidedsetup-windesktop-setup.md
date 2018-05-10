@@ -1,3 +1,22 @@
+---
+title: include file
+description: include file
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/19/2018
+ms.author: andret
+ms.custom: include file 
+---
 
 ## Set up your project
 
@@ -6,7 +25,7 @@ In this section you create a new project to demonstrate how to integrate a Windo
 The application that you create with this guide displays a button that's used to call a graph, an area to show the results on the screen, and a sign-out button.
 
 > [!NOTE]
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#create-an-application-express) to configure the code sample before you execute it.
+> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), and skip to the [Configuration step](#register-your-application) to configure the code sample before you execute it.
 >
 
 To create your application, do the following:
@@ -51,6 +70,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```
 
 ## Create the application UI
+
 This section shows how an application can query a protected back-end server such as Microsoft Graph. 
 
 A *MainWindow.xaml* file should automatically be created as a part of your project template. Open this file, and then replace your application's *\<Grid>* node with the following code:

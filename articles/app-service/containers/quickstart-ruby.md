@@ -28,7 +28,7 @@ ms.custom: mvc
 
 ## Prerequisites
 
-* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.4.1 or higher</a>
+* <a href="https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller" target="_blank">Install Ruby 2.3 or higher</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 
 ## Download the sample
@@ -49,34 +49,6 @@ rails server
 ```
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## Modify app to display welcome message
-
-Modify the application so it displays a welcome message. First, you must set up a route by modifying the `~/workspace/ruby-docs-hello-world/config/routes.rb` file to include a route named `hello`.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-Change the application's controller so it returns the message as HTML to the browser. 
-
-Open `~/workspace/hello-world/app/controllers/application_controller.rb` for editing. Modify the `ApplicationController` class to look like the following code sample:
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-Your app is now configured. Using a web browser, navigate to `http://localhost:3000` to confirm the root landing page.
 
 ![Hello World configured](./media/quickstart-ruby/hello-world-configured.png)
 
