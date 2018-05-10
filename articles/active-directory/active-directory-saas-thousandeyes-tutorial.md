@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -100,8 +100,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On][4]
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+2. On the **Single sign-on** dialog, select **Mode** as **SAML-based Sign-on** to enable single sign-on.
+
 	![Configure Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
 3. On the **ThousandEyes Domain and URLs** section, perform the following steps:
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
-	![Configure Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
 5. Click **Save** button.
 
@@ -125,33 +125,33 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. In a different web browser window, sign on to your **ThousandEyes** company site as an administrator.
 
 8. In the menu on the top, click **Settings**.
-   
+
     ![Settings](./media/active-directory-saas-thousandeyes-tutorial/ic790066.png "Settings")
 
 9. Click **Account**
-   
+
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/ic790067.png "Account")
 
 10. Click the **Security & Authentication** tab.
-   
+
     ![Security & Authentication](./media/active-directory-saas-thousandeyes-tutorial/ic790068.png "Security & Authentication")
 
 11. In the **Setup Single Sign-On** section, perform the following steps:
-   
+
     ![Setup Single Sign-On](./media/active-directory-saas-thousandeyes-tutorial/ic790069.png "Setup Single Sign-On")
-  
+
     a. Select **Enable Single Sign-On**.
-  
-    b. In **Login Page URL** textbox, paste **SAML Single Sign-On Service URL** which you have copied from Azure portal.
-  
-    c. In **Logout Page URL** textbox, paste **Sign-Out URL** which you have copied from Azure portal.
-  
-    d. **Identity Provider Issuer** textbox, paste **SAML Entity ID** which you have copied from Azure portal.
-  
+
+    b. In **Login Page URL** textbox, paste **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+
+    c. In **Logout Page URL** textbox, paste **Sign-Out URL**, which you have copied from Azure portal.
+
+    d. **Identity Provider Issuer** textbox, paste **SAML Entity ID**, which you have copied from Azure portal.
+
     e. In **Verification Certificate**, click **Choose file**, and then upload the certificate you have downloaded from Azure portal.
-  
+
     f. Click **Save**.
- 
+
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -168,12 +168,12 @@ The objective of this section is to create a test user in the Azure portal calle
 	![Creating an Azure AD test user](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png)
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -182,11 +182,14 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a ThousandEyes test user
 
-In order to enable Azure AD users to log into ThousandEyes, they must be provisioned into ThousandEyes.  
-In the case of ThousandEyes, provisioning is a manual task.
+The objective of this section is to create a user called Britta Simon in ThousandEyes. ThousandEyes supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-thousandeyes-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
+
+In order to enable Azure AD users to log into ThousandEyes, they must be provisioned into ThousandEyes. In the case of ThousandEyes, provisioning is a manual task.
 
 >[!NOTE]
 >You can use any other ThousandEyes user account creation tools or APIs provided by ThousandEyes to provision Azure Active Directory user accounts.
@@ -196,29 +199,29 @@ In the case of ThousandEyes, provisioning is a manual task.
 1. Log into your ThousandEyes company site as an administrator.
 
 2. Click **Settings**.
-   
+
     ![Settings](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "Settings")
 
 3. Click **Account**.
-   
+
     ![Account](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "Account")
 
 4. Click the **Accounts & Users** tab.
-   
+
     ![Accounts & Users](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "Accounts & Users")
 
 5. In the **Add Users & Accounts** section, perform the following steps:
-   
-    ![Add User Accounts](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")   
-  
+
+    ![Add User Accounts](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "Add User Accounts")
+
     a. In **Name** textbox, type the name of user like **Britta Simon**.
 
     b. In **Email** textbox, type the email of user like **brittasimon@contoso.com**.
-   
+
     b. Click **Add New User to Account**.
-      
-     >[!NOTE]
-     >The Azure Active Directory account holder will get an email including a link to confirm and activate the account. For more details you can visit [here](active-directory-saas-thousandeyes-provisioning-tutorial.md)
+
+    >[!NOTE]
+    >The Azure Active Directory account holder will get an email including a link to confirm and activate the account.
 
 ### Assigning the Azure AD test user
 
