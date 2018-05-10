@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -188,7 +188,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
   
     d. Click **Next: Permissions**.
 
-16. On the **Attach Permissions Policies** dialog, you no need to attach any policy. Click **Next: Review**.  
+16. On the **Attach Permissions Policies** dialog, you don't need to attach any policy. Click **Next: Review**.  
     
     ![Configure Single Sign-On Policy][33]
 
