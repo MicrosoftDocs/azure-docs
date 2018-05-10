@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -38,6 +38,8 @@ Enter the following values in the **Container name**, **Container image**, and *
 
 You can create both Windows and Linux containers in Azure Container Instances. In this quickstart, we'll leave the default setting of **Linux** since we specified a Linux-based container (`microsoft/aci-helloworld`) in the previous step.
 
+Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be reachable from the internet at `<dns-name-lable>.<region>.azurecontainer.io`.
+
 Leave the other settings in **Configuration** at their defaults, then click **OK** to validate the configuration.
 
 ![Configuring a new container instance in the Azure portal][aci-portal-04]
@@ -59,6 +61,7 @@ Once the container moves to the **Running** state, navigate to the IP address yo
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
 ## Delete the container
+
 When you are done with the container, select the **mycontainer-myc1** container group and then click **Delete**.
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
