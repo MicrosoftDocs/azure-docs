@@ -10,6 +10,7 @@
 ## How to
 ### [HA Setup with STONITH](ha-setup-with-stonith.md)
 ### [OS Backup for Type II SKUs](os-backup-type-ii-skus.md)
+### [OS Upgrade for HLIs](os-upgrade-hli.md)
 # SAP HANA on Azure Virtual Machines
 ## [Single instance SAP HANA installation](hana-get-started.md)
 ## [S/4 HANA or BW/4 HANA SAP CAL deployment guide](cal-s4h.md)
