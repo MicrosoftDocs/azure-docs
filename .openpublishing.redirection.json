@@ -8246,6 +8246,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storsimple/storsimple-8000-move-azure-portal-faq.md",
+            "redirect_url": "/azure/storsimple/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/traffic-manager/disable-enable-or-delete-a-profile.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
             "redirect_document_id": false
@@ -8378,6 +8383,11 @@
         {
             "source_path": "articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
             "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-basic-internal-portal",
             "redirect_document_id": false
         },
         {
@@ -18306,11 +18316,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/backup/backup-azure-vms-prepare.md",
-            "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/backup/backup-azure-vms-troubleshoot-classic.md",
             "redirect_url": "/azure/backup/backup-azure-vms-troubleshoot",
             "redirect_document_id": false
@@ -20871,6 +20876,31 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+			"redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-get-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md",
+            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-integrating-applications-getting-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-enable-sso-scenario.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+			"redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/privileged-identity-management/index.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/subscription-requirements",
             "redirect_document_id": false
@@ -21070,6 +21100,5 @@
             "redirect_url": "/azure/storage/queues/storage-queues-introduction",
             "redirect_document_id": false
         }
-        
     ]
 }

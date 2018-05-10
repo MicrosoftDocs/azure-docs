@@ -95,10 +95,10 @@ namespace BingSearchApisQuickstart
 
                     // Set up POST body.
                     var boundary = string.Format(BoundaryTemplate, Guid.NewGuid());
-                    var requestBody = BuildPostBody(boundary);
+                    var requestBody = BuildPostBody(boundary, insightsToken);
                     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
 
-                    SearchResult result = BingImageSearch(insightsToken, requestBody, contentTypeHdrValue);
+                    SearchResult result = BingImageSearch(requestBody, contentTypeHdrValue);
 
                     Console.WriteLine("\nRelevant HTTP Headers:\n");
                     foreach (var header in result.relevantHeaders)
@@ -126,7 +126,7 @@ namespace BingSearchApisQuickstart
         /// <summary>
         /// Build body of POST request.
         /// </summary>
-        static string BuildPostBody(string boundary)
+        static string BuildPostBody(string boundary, string insightsToken)
         {
             var startBoundary = string.Format(StartBoundaryTemplate, boundary);
             var endBoundary = string.Format(EndBoundaryTemplate, boundary);
@@ -143,9 +143,9 @@ namespace BingSearchApisQuickstart
 
 
         /// <summary>
-        /// Performs a Bing visual search and returns the results as a SearchResult.
+        /// Calls the Bing visual search endpoint and returns the results as a SearchResult.
         /// </summary>
-        static SearchResult BingImageSearch(string searchQuery, string requestBody, string contentTypeValue)
+        static SearchResult BingImageSearch(string requestBody, string contentTypeValue)
         {
             WebRequest request = HttpWebRequest.Create(uriBase);
             request.ContentType = contentTypeValue;
