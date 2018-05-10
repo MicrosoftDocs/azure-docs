@@ -3,17 +3,17 @@ title: Azure AD App Proxy - get started install connector| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: c7186f98-dd80-4910-92a4-a7b8ff6272b9
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 
@@ -22,7 +22,7 @@ ms.custom: it-pro
 # Get started with Application Proxy and install the connector
 This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
 
-If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:

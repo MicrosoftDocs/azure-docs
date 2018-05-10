@@ -52,7 +52,7 @@ Conversation Learner reduces the complexity of building bots. It enables a hybri
 
 2. Configure:
 
-   Create a file called `.env` in the directory `blis-bot-01`.  The contents of the file should be:
+   Create a file called `.env` in the directory `cl-bot-01`.  The contents of the file should be:
 
    ```
    LUIS_AUTHORING_KEY=<your LUIS authoring key>
@@ -64,7 +64,7 @@ Conversation Learner reduces the complexity of building bots. It enables a hybri
     npm start
     ```
 
-    This runs the generic empty bot in ``cl-bot-01/src/app.ts``.
+    This runs the generic empty bot in `cl-bot-01/src/app.ts`.
 
 3. Run Conversation Learner UI:
 
@@ -113,7 +113,7 @@ Source files for the demos are in `cl-bot-01/src/demos`
     
 2. If a bot is running (like `npm run demo-pizza`), stop it.  You do not need to stop the UI process, or close the web browser.
 
-3. If desired, edit code in ``blis-bot-01/src/app.ts``.
+3. If desired, edit code in `cl-bot-01/src/app.ts`.
 
 4. Rebuild and re-start bot:
 
@@ -126,11 +126,11 @@ Source files for the demos are in `cl-bot-01/src/demos`
 
 6. Create a new Conversation Learner application in the UI, and start teaching.
 
-7. To make code changes in ``blis-bot-01/src/app.ts``, repeat the steps above, starting from step 2.
+7. To make code changes in `cl-bot-01/src/app.ts`, repeat the steps above, starting from step 2.
 
 ## VSCode
 
-In VSCode, there are run configurations for each demo, and for the "Empty bot" in ``cl-bot-01/src/app.ts``.  Open the `cl-bot-01` folder in VSCode.
+In VSCode, there are run configurations for each demo, and for the "Empty bot" in `cl-bot-01/src/app.ts`.  Open the `cl-bot-01` folder in VSCode.
 
 ## Advanced configuration
 
