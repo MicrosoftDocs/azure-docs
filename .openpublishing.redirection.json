@@ -20874,7 +20874,28 @@
             "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
             "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
 			"redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-get-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md ",
+            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-integrating-applications-getting-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/plan-an-application-integration",
+			"redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/active-directory-enable-sso-scenario.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+			"redirect_document_id": false
         }
+
 		
     ]
 }
