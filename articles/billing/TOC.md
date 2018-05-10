@@ -78,7 +78,7 @@
 #### [Tags](/rest/api/consumption/tags?toc=/azure/billing/TOC.json)
 #### [Usage Details](/rest/api/consumption/usagedetails?toc=/azure/billing/TOC.json)
 #### [Usage Details By Billing Account](/rest/api/consumption/usagedetailsbybillingaccount?toc=/azure/billing/TOC.json)
-#### [Usage Details By Department](?toc=/azure/billing/TOC.json/rest/api/consumption/usagedetailsbydepartment)
+#### [Usage Details By Department](/rest/api/consumption/usagedetailsbydepartment?toc=/azure/billing/TOC.json)
 #### [Usage Details By Enrollment Account](/rest/api/consumption/usagedetailsbyenrollmentaccount?toc=/azure/billing/TOC.json)
 
 ## [Enterprise Reporting Overview](billing-enterprise-api.md)
