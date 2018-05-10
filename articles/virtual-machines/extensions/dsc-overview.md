@@ -54,7 +54,7 @@ Installing WMF requires a restart. After restarting, the extension downloads the
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](extensions-dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](extensions-dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/metaconfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## DSC extension in Resource Manager templates
 
@@ -150,6 +150,6 @@ Logs for the extension are stored in the following location: `C:\WindowsAzure\Lo
 ## Next steps
 
 - For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview).
-- Examine the [Resource Manager template for the DSC extension](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Examine the [Resource Manager template for the DSC extension](dsc-template.md).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](dsc-credentials.md).
