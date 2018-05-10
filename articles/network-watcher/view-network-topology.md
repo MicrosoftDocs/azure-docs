@@ -41,7 +41,7 @@ You can use the [Azure portal](#azure-portal), the [Azure CLI](#azure-cli), or [
 
 6. Select **Download topology** to download the image as an editable file, in svg format.
 
-The resources shown in the diagram are a subset of the networking components in the virtual network. For example, while a network security group is shown, the security rules within it are not shown in the diagram. Though not differentiated in the diagram, the lines represent one of two relationships: *Containment* or *associated*. To see the full list of resources in the virtual network, and the type of relationship between the resources, generate the topology with [PowerShell](#powershell) or the [Azure CLI](#azurecli).
+The resources shown in the diagram are a subset of the networking components in the virtual network. For example, while a network security group is shown, the security rules within it are not shown in the diagram. Though not differentiated in the diagram, the lines represent one of two relationships: *Containment* or *associated*. To see the full list of resources in the virtual network, and the type of relationship between the resources, generate the topology with [PowerShell](#powershell) or the [Azure CLI](#azure-cli).
 
 ## <a name = "azure-cli"></a>View topology - Azure CLI
 
