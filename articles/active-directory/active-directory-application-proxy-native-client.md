@@ -32,7 +32,7 @@ Use the Azure AD Authentication Library, which takes care of authentication and 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
-Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](active-directory-application-proxy-publish.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
 
 ## Step 2: Configure your application
 Configure your native application as follows:
@@ -45,7 +45,7 @@ Configure your native application as follows:
    ![Create a new app registration](./media/active-directory-application-proxy-native-client/create.png)
 5. Select **Create**.
 
-For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](.//develop/active-directory-integrating-applications.md).
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./develop/active-directory-integrating-applications.md).
 
 
 ## Step 3: Grant access to other applications
