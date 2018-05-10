@@ -40,7 +40,7 @@ ms.author: v-jansko
 - [Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## Customization
-Use the Custom Translator to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator neural machine translation systems. [Learn more](customization.md)
+Use Custom Translator to customize your translations and create a translation system tuned to your own terminology and style, starting from generic Microsoft Translator neural machine translation systems. [Learn more](customization.md)
  
 ## Additional resources
 - [Get Started with Azure (5-minute video)](https://azure.microsoft.com/get-started/?b=16.24)
