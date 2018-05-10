@@ -7,6 +7,7 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
+ms.component: process-automation
 ms.custom: mvc
 ---
 
