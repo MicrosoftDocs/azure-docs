@@ -29,7 +29,7 @@ Cloud App Discovery in Azure AD is now based on integration with data available 
 
 ## Setup steps
 
-1. [Set up snapshot reports](cloudappdiscovery-set-up-snapshots.md) to check your log format make sure your logs provide usable information to Cloud App Discovery. They can also provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers.
+1. [Set up snapshot reports](cloud-app-discovery-create-snapshot-reports.md) to check your log format make sure your logs provide usable information to Cloud App Discovery. They can also provide ad-hoc visibility into traffic logs you manually upload from your firewalls and proxy servers.
 
 2. [Set up continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker) to analyze all logs that are forwarded from your network using the Cloud App Security log collector. You can use them to identify new apps and usage trends.
 
@@ -70,7 +70,7 @@ Cloud App Discovery can't show or analyze attributes that are not included in yo
 In order to successfully generate a Cloud App Discovery report, your traffic logs must meet the following conditions:
 
 1.  Data source is [a supported firewall or proxy server](#supported-firewalls-and-proxies).
-2.  Log format matches the expected standard format. This is checked at upload time. To optimize uour log format, see [Create snapshot Cloud App Discovery reports](cloudappdiscovery-set-up-snapshots.md).
+2.  Log format matches the expected standard format. This is checked at upload time. To optimize uour log format, see [Create snapshot Cloud App Discovery reports](cloud-app-discovery-create-snapshot-reports.md).
 3.  Events are not more than 90 days old.
 4.  The log file is valid and includes outbound traffic information.
 
@@ -136,6 +136,6 @@ If your log is not supported, select **Other** as the **Data source** and sp
 ## Next steps
 Use the following links to continue to set up Cloud App Discovery in Azure AD.
 
-* [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+* [Create snapshot reports](cloud-app-discovery-create-snapshot-reports.md)
 * [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
