@@ -30,6 +30,7 @@ To run the troubleshooting task in the wizard, perform the following steps:
 4.	Navigate to the Additional Tasks page, select Troubleshoot, and click Next.
 5.	On the Troubleshooting page, click Launch to start the troubleshooting menu in PowerShell.
 6.	In the main menu, select Troubleshoot Object Synchronization.
+![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch11.png)
 
 ### Troubleshooting Input Parameters
 The following input parameters are needed by the troubleshooting task:
@@ -80,8 +81,8 @@ The object is out of sync scope due to OU filtering configuration. In the exampl
 ![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 
 ## Linked Mailbox issue
-A linked mailbox is supposed to be associated with an external master account located in another trusted account forest. If there is no such external master account, then Azure AD Connect will not synchronize the user account corresponds to the linked mailbox in the Exchange forest to the Azure AD tenant.
-![Linked Mailbox](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch9.png)
+A linked mailbox is supposed to be associated with an external master account located in another trusted account forest. If there is no such external master account, then Azure AD Connect will not synchronize the user account corresponds to the linked mailbox in the Exchange forest to the Azure AD tenant.</br>
+![Linked Mailbox](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch12.png)
 
 ## Dynamic Distribution Group issue
 Due to various differences between on-premises Active Directory and Azure Active Directory, Azure AD Connect does not synchronize dynamic distribution groups to the Azure AD tenant.
