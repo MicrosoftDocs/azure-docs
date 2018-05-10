@@ -52,13 +52,14 @@ Create a new Maps account with the following steps:
 
 <a id="getkey"></a>
 
-## Get the primary key for your account
+## Get the account name and the primary key for your account
 
 Once your Maps account is successfully created, retrieve the key that enables you to query the Maps APIs.
 
 1. Open your Maps account in the portal.
-2. In the settings section, select **Keys**.
-3. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial. 
+2. Make a note of the account name itself. Save it locally.
+3. In the settings section, select **Keys**.
+4. Copy the **Primary Key** to your clipboard. Save it locally to use later in this tutorial. 
 
     ![Get Primary Key in portal](./media/tutorial-search-location/get-key.png)
 
@@ -110,13 +111,13 @@ The Map Control API is a convenient client library that allows you to easily int
     ``` 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the *script* segment added to the *body* of the HTML file. This segment will contain the inline JavaScript code to access the Azure Maps APIs.
  
-3. Add the following JavaScript code to the *script* block of the HTML file. Replace the string **\<your account key\>** with the primary key that you copied from your Maps account.
+3. Add the following JavaScript code to the *script* block of the HTML file. Replace the strings  **\<your account name\>** with the name of the map account and **\<Maps Account Key\>** with the primary key of the account you saved earlier.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var MapsAccountKey = "<your account name>";   // This is the name of the map account
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
+        "subscription-key": "Maps Account Key"      // This is the primary key for the map account
     });
     ```
     This segment initiates the Map Control API for your Azure Maps account key. **Atlas** is the namespace that contains the API and related visual components. **Atlas.Map** provides the control for a visual and interactive web map. 
