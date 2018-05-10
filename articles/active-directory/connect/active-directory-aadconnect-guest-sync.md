@@ -33,7 +33,7 @@ This section contains a  list of pre-requisites and assumptions you need to be a
 - Azure AD Connect version 1.1.524.0 or higher
 - Verified domain to set the cloud UPN of external users (example: bmcontoso.com).
 - Federation Service to authenticate your external users. If you use AD FS, it must be 2012 R2 or higher
-- MSOL PowerShell v1.1 is installed on a machine to verify federation settings. For more information, see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+- MSOL PowerShell v1.1 is installed on a machine to verify federation settings. For more information, see [Azure ActiveDirectory (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 
 ### Assumptions 
@@ -41,7 +41,7 @@ This section contains a  list of pre-requisites and assumptions you need to be a
 This document makes the following assumptions:
 - that you have a federation service set up and that it is successfully authenticating users.
 - external users can authenticate using their external email address.
-- - Using an alternate ID for sign-in has been set up and configured. Users can authenticate using their alternate ID. For additional information on setting up an alternate ID with AD FS, see [Configure Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
+- - Using an alternate ID for sign-in has been set up and configured. Users can authenticate using their alternate ID. For additional information on setting up an alternate ID with AD FS, see [Configure Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id).
 
 ## Task 1:  Prepare the environment
 The following task is more of an informational so that you are ready to begin synchronizing your external accounts so that they can sign-in using an alternate i such as the mail attribute.
@@ -137,7 +137,7 @@ Use the following procedure to configure Azure AD Connect.
 ## Task 3:  Federation
 The following task is an informational on a few things that you need to have in-place in order for the scenario to work.
 
-You can verify your federation settings with Azure using the Azure AD PowerShell. This document uses the v1.1 of MSOL PowerShell. You can install this version [here](https://docs.microsoft.com/en-us/powershell/azure/active-directory/overview?view=azureadps-1.0).
+You can verify your federation settings with Azure using the Azure AD PowerShell. This document uses the v1.1 of MSOL PowerShell. You can install this version [here](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0).
 
 ### Verify the federation settings
 Use the following procedure to verify federation settings.
@@ -179,5 +179,5 @@ In order to verify that this is working properly, you need to sign-in to an endp
 
 ## Next steps
 - [Properties of an Azure Active Directory B2B collaboration user](../../active-directory/active-directory-b2b-user-properties.md#key-properties-of-the-azure-ad-b2b-collaboration-user)
-- [Configuring Alternate Login ID](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
+- [Configuring Alternate Login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)
 - [Azure AD Connect: Version release history](active-directory-aadconnect-version-history.md)

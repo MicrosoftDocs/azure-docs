@@ -15,7 +15,9 @@
   - name: Add a custom domain
     href: cdn-map-content-to-custom-domain.md    
   - name: Configure HTTPS on a custom domain
-    href: cdn-custom-ssl.md    
+    href: cdn-custom-ssl.md
+  - name: Set caching rules
+    href: cdn-caching-rules-tutorial.md
 - name: Samples
   items:
   - name: Code samples
@@ -135,11 +137,13 @@
       href: cdn-rules-engine-reference-match-conditions.md
     - name: Rules engine features
       href: cdn-rules-engine-reference-features.md
+    - name: HTTP variables
+      href: cdn-http-variables.md     
   - name: Verizon-specific HTTP headers
     href: cdn-verizon-http-headers.md
     items:
       - name: X-EC-Debug headers
-        href: cdn-http-debug-headers.md    
+        href: cdn-http-debug-headers.md       
   - name: Azure PowerShell
     href: /powershell/module/azurerm.cdn
   - name: .NET
@@ -156,6 +160,8 @@
       href: cdn-pop-locations.md
     - name: POP locations by abbreviation
       href: cdn-pop-abbreviations.md
+  - name: Understanding Azure CDN billing
+    href: cdn-billing.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum

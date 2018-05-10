@@ -1,5 +1,5 @@
 ---
-title:  Privileged Identity Management for Azure Resources - Assign roles| Microsoft Docs
+title:  Assign roles for Azure resources by using Privileged Identity Management | Microsoft Docs
 description: Describes how to assign roles in PIM.
 services: active-directory
 documentationcenter: ''
@@ -15,58 +15,58 @@ ms.author: billmath
 ms.custom: pim
 ---
 
-# Privileged Identity Management - Resource Roles - Assign
+# Assign roles for Azure resources by using Privileged Identity Management
 
 ## Assign roles
 
-To assign a user or group to a role, select the role (if viewing Roles), 
+To assign a user or group to a role when you're viewing the **Roles** pane, select the role, and then select **Add user**. 
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+!["Roles" pane with the "Add user" button](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
 
-or click Add from the action bar (if on the Members view).
+You can also select **Add user** from the **Members** pane.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+!["Members" pane with the "Add user" button](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
 
 
-If adding a user or group from the Members tab, you’ll need to: 
+If you're adding a user or group from the **Members** pane, you need to: 
 
-1. Choose a role from the Add menu before you can select a user or group.
+1. Choose a role from the **Select a role** pane before you can select a user or group.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+   !["Select a role" pane](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
 
 2. Choose a user or group from the directory.
 
-3. Choose the appropriate assignment type from the dropdown menu. 
+3. Choose the appropriate assignment type from the drop-down menu: 
 
-    - **Just In Time Assignment:** It provides the user or group members with eligible but not persistent access to the role for a specified period of time or indefinitely (if configured in role settings). 
-    - **Direct Assignment:** It does not require the user or group members to activate the role assignment (known as persistent access). Microsoft recommends using direct assignment for short-term use such as on-call shifts, or time sensitive activities, where access won’t be required when the task is complete.
+   - **Just in time**: Provides the user or group members with eligible but not persistent access to the role for a specified period or indefinitely (if configured in role settings). 
+   - **Direct**: Does not require the user or group members to activate the role assignment (known as persistent access). We recommend using direct assignment for short-term use, where access won’t be required when the task is complete. Examples are on-call shifts and time-sensitive activities.
 
-A check box below the assignment type dropdown allows you to specify if the assignment should be permanent (permanently eligible to activate Just in Time Assignment/permanently active for Direct Assignment).
+4. If the assignment should be permanent (permanently eligible for a just-in-time assignment, or permanently active for a direct assignment), select the check box below the **Assignment type** box.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+   !["Membership settings" pane with the "Assignment type" box and the related check box](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
 
->[!NOTE]
->The check box may be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
+   >[!NOTE]
+   >The check box might be unmodifiable if another administrator has specified the maximum assignment duration for each assignment type in the role settings.
 
- To specify a specific assignment duration, unselect the check box and modify the start and/or end date and time fields.
+   To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+   !["Membership settings" pane with boxes for start date, start time, end date, and end time](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
 
 
 ## Manage role assignments
 
-Administrators can manage role assignments by selecting either Roles or Members from the left navigation. Selecting roles allows admins to scope their management tasks to a specific role, while Members displays all user and group role assignments for the resource.
+Administrators can manage role assignments by selecting either **Roles** or **Members** from the left pane. Selecting **Roles** enables admins to scope their management tasks to a specific role. Selecting **Members** displays all user and group role assignments for the resource.
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+!["Roles" pane](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
 
-![](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+!["Members" pane](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
 
 >[!NOTE]
-If you have a role pending activation, a notification banner is displayed at the top of the page when viewing membership.
+If you have a role pending activation, a notification banner is displayed at the top of the pane when you're viewing membership.
 
 
 ## Modify existing assignments
 
-To modify existing assignments from the user/group detail view, select Change Settings from the action bar at the top of the page. Change the assignment type to Just In Time Assignment or Direct Assignment.
+To modify existing assignments from the user/group detail view, select **Change settings** from the action bar. Change the assignment type to **Just in time** or **Direct**.
 
-![](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+!["User details" pane with the "Change settings" button](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)

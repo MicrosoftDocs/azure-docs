@@ -28,14 +28,14 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 - Easy deployment and scaling.
 - Long-term lifecycle maintenance for teams and applications.
 
-There are multiple versions of OpenShift, of which two are available to run in Azure:
+There are multiple versions of OpenShift available:
 
 - OpenShift Origin
 - OpenShift Container Platform
 - OpenShift Online
 - OpenShift Dedicated
 
-Of the four versions covered in this article, two are available for customers to deploy in Azure on their own: OpenShift Origin and OpenShift Container Platform.
+Of the four versions covered in this article, only two are available for customers to deploy in Azure: OpenShift Origin and OpenShift Container Platform.
 
 ## OpenShift Origin
 

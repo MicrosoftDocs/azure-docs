@@ -204,7 +204,7 @@ The transcript must be in the WebVTT format. For more information, see [WebVTT: 
 
 > [!NOTE]
 > The program uses a sample transcript in the VTT format. In a real-world solution, you use 
-> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video.
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video.
 
 Add the following method definition to namespace VideotranscriptReviews, class Program.
 
@@ -313,7 +313,7 @@ Add the **Main** method definition to namespace VideoTranscriptReviews, class Pr
 
 > [!NOTE]
 > The program uses a sample transcript in the VTT format. In a real-world solution, you use 
-> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/en-us/azure/media-services/media-services-index-content) from a video. 
+> the Azure Media Indexer service to [generate a transcript](https://docs.microsoft.com/azure/media-services/media-services-index-content) from a video. 
 
 	static void Main(string[] args)
     {
