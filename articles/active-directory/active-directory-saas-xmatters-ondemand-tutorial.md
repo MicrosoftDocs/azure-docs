@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -101,14 +101,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Configure Single Sign-On](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
 3. On the **xMatters OnDemand Domain and URLs** section, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
 	
-	a. In the **Identifier** textbox, type a URL using the following pattern:	
+	a. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
 	|--|
 	| `https://<companyname>.au1.xmatters.com.au/`|
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file locally as **c:\\XMatters OnDemand.cer**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
-	
+
 	> [!IMPORTANT]
     > You need to forward the certificate to the [xMatters OnDemand support team](https://www.xmatters.com/company/contact-us/). The certificate needs to be uploaded by the xMatters support team before you can finalize the single sign-on configuration. 
 
@@ -146,23 +146,23 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. In a different web browser window, log in to your XMatters OnDemand company site as an administrator.
 
 8. In the toolbar on the top, click **Admin**, and then click **Company Details** in the navigation bar on the left side.
-   
+
     ![Admin](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "Admin")
 
 9. On the **SAML Configuration** page, perform the following steps:
-   
+
     ![SAML configuration](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML configuration")
-   
+
     a. Select **Enable SAML**.
-   
+
     b. Paste **SAML Entity ID**, which you have copied from the Azure portal into the **Identity Provider ID** textbox.
-   
+
     c. Paste **SAML Single Sign-On Service URL**, which you have copied from the Azure portal into the **Single Sign On URL** textbox.
-   
+
     d. Paste **Sign-Out URL**, which you have copied from the Azure portal into the **Single Logout URL** textbox.
-   
+
     e. On the Company Details page, at the top, click **Save Changes**.
-    
+
     ![Company details](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "Company details")
 
 ### Creating an Azure AD test user
@@ -177,15 +177,15 @@ The objective of this section is to create a test user in the Azure portal calle
 	![Creating an Azure AD test user](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
+
 	![Creating an Azure AD test user](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
+
 	![Creating an Azure AD test user](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
 4. On the **User** dialog page, perform the following steps:
- 
+
 	![Creating an Azure AD test user](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
@@ -195,36 +195,38 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a xMatters OnDemand test user
+
+The objective of this section is to create a user called Britta Simon in xMatters OnDemand. xMatters OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
 
 In order to enable Azure AD users to log in to XMatters OnDemand, they must be provisioned into XMatters OnDemand. In the case of XMatters OnDemand, provisioning is a manual task.
 
 ### To provision a user accounts, perform the following steps:
+
 1. Log in to your **XMatters OnDemand** tenant.
 
 2.  Click **Users** tab. and then click **Add User**.
-  
+
     ![Users](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "Users")
 
 3. In the **Add a User** section, perform the following steps:
-   
+
     ![Add a User](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "Add a User")
 
 	a. Select **Active**.
 
 	b. In the **User ID** textbox, type the user id of user like Brittasimon@contoso.com.
-   
+
     c. In the **First Name** textbox, type first name of the user like Britta.
 
 	d. In the **Last Name** textbox, type last name of the user like Simon.
-	
-	e. In the **Site** textbox, Enter the valid site of a valid Azure AD account you want to provision.
-    
-    f. Click **Save**.
 
-	> [!NOTE]
-	> For more details you can visit [here](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)
+	e. In the **Site** textbox, Enter the valid site of a valid Azure AD account you want to provision.
+
+    f. Click **Save**.
 
 ### Assigning the Azure AD test user
 
