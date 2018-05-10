@@ -25,7 +25,7 @@ Azure Active Directory (AD) Application Proxy helps you support remote workers b
 
 This article walks you through the steps to publish an on-premises app with Application Proxy. After you complete this article, your users will be able to access your app remotely. And you'll be ready to configure extra features for the application like single sign-on, personalized information, and security requirements.
 
-If you're new to Application Proxy, learn more about this feature with the article [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+If you're new to Application Proxy, learn more about this feature with the article [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
 
 ## Publish an on-premises app for remote access

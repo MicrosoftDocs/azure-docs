@@ -63,7 +63,13 @@
 
 # Resources
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
-## [About keys, secrets, and certificates](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates)
+## [About Keys, Secrets and Certificates](about-keys-secrets-and-certificates.md)
+### [Get started with certificates](certificate-scenarios.md)
+#### [Certificate creation methods](create-certificate.md)
+#### [Monitor and manage certificate creation](create-certificate-scenarios.md)
+## [Authentication, Requests and Responses](authentication-requests-and-responses.md)
+## [Common parameters and headers](common-parameters-and-headers.md)
+## [Key Vault Versions](key-vault-versions.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)

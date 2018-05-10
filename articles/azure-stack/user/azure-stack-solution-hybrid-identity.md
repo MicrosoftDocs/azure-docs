@@ -61,7 +61,7 @@ will walk you through the steps needed to install Azure PowerShell and connect t
 To connect to Azure Stack using code, use the Azure Resource Manager endpoints API to get the authentication and graph endpoints for your Azure Stack installation, and then authenticate using REST requests. You can find a sample application
 [here](https://github.com/shriramnat/HybridARMApplication).
 
-> [!note]  
+> [!Note]  
 Unless the Azure SDK for your language of choice supports Azure API Profiles, the SDK may not work with Azure Stack. To learn more about Azure API Profiles, go [here](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles).
 
 ## Next steps
