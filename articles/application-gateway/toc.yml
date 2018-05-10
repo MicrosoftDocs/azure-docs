@@ -91,6 +91,8 @@
     href: tutorial-url-route-powershell.md
   - name: Redirect web traffic using Azure PowerShell
     href: tutorial-url-redirect-powershell.md
+  - name: Create a zone redundant application gateway
+    href: create-zone-redundant.md
 
 - name: Reference
   items:

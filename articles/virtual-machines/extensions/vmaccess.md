@@ -32,6 +32,7 @@ This article shows you how to use the Azure VMAccess Extension to check or repai
 
 The VM Access extension can be run against these Linux distributions:
 
+
 | Distribution | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |

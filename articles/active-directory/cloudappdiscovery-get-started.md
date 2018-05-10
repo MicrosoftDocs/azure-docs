@@ -4,15 +4,16 @@ description: Find and manage applications with Cloud App Discovery to provide ac
 services: active-directory
 keywords: cloud app discovery, managing applications
 documentationcenter: ''
-author: curtand
+author: barbkess
 manager: mtillman
 tags: ignite
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2018
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: nigu
 
 ---
@@ -137,4 +138,4 @@ Use the following links to continue to set up Cloud App Discovery in Azure AD.
 
 * [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
 * [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-* [Use a custom log parser](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)
+* [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)

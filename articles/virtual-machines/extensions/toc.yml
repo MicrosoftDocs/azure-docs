@@ -11,9 +11,9 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Custom Script Extension
+    - name: Use the Custom Script Extension
       href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
-      maintainContext: true 
+      maintainContext: true
 - name: Concepts
   items:
   - name: Linux
@@ -24,8 +24,10 @@
   items:
   - name: Custom Script
     items:
-    - name: Linux
+    - name: Linux - version 2
       href: custom-script-linux.md
+    - name: Linux - version 1 (OSTC)
+      href: custom-script-linuxOstc.md
     - name: Windows
       href: custom-script-windows.md
   - name: Operations Management suite

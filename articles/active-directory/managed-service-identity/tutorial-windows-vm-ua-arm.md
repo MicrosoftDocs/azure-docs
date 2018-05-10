@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use a Windows VM user assigned MSI to access Azure Resource Manager
 description: A tutorial that walks you through the process of using a User Assigned Managed Service Identity (MSI) on a Windows VM, to access Azure Resource Manager.
 services: active-directory
@@ -7,6 +7,7 @@ author: daveba
 manager: mtillman
 editor: daveba
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -75,7 +76,7 @@ New-AzureRmVm `
 A user assigned identity is created as a standalone Azure resource. Using the [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity),  Azure creates an identity in your Azure AD tenant that can be assigned to one or more Azure service instances.
 
 > [!IMPORTANT]
-> Creating user assigned identities with special characters (i.e. underscore) in the name is not currently supported. Please use alphanumeric characters. Check back for updates.  For more information see [FAQs and known issues](known-issues.md)
+> Creating user assigned identities only supports alphanumeric and hyphen (0-9 or a-z or A-Z or -) characters. Additionally, name should be limited to 24 character length for the assignment to VM/VMSS to work properly. Check back for updates. For more information see [FAQs and known issues](known-issues.md)
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1

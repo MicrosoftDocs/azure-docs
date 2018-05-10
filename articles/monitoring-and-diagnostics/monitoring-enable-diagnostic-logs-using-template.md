@@ -173,7 +173,7 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "location": "[resourceGroup().location]",
       "properties": {
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {

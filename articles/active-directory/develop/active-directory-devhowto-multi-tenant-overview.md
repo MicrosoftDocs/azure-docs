@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to build an app that can sign in any Azure AD user
 description: Shows how to build a multi-tenant application which can sign in a user from any Azure Active Directory tenant.
 services: active-directory
@@ -54,7 +54,7 @@ When Azure AD receives a request on the /common endpoint, it signs the user in a
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the /common endpoint, the issuer value in the token corresponds to the user’s tenant. 
 
-> [!IMPORTANTNT]
+> [!IMPORTANT]
 > The /common endpoint is not a tenant and is not an issuer, it’s just a multiplexer. When using /common, the logic in your application to validate tokens needs to be updated to take this into account. 
 
 ## Update your code to handle multiple issuer values
@@ -154,9 +154,6 @@ Users and administrators can revoke consent to your application at any time:
 * Administrators revoke access to applications by removing them from Azure AD using the [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) section of the [Azure portal][AZURE-portal].
 
 If an administrator consents to an application for all users in a tenant, users cannot revoke access individually. Only the administrator can revoke access, and only for the whole application.
-
-### Consent and protocol support
-Consent is supported in Azure AD via the OAuth, OpenID Connect, WS-Federation, and SAML protocols. The SAML and WS-Federation protocols do not support the `prompt=admin_consent` parameter, so admin consent is only possible via OAuth and OpenID Connect.
 
 ## Multi-tenant applications and caching access tokens
 Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD. A common error when using the Active Directory Authentication Library (ADAL) with a multi-tenant application is to initially request a token for a user using /common, receive a response, then request a subsequent token for that same user also using /common. Because the response from Azure AD comes from a tenant, not /common, ADAL caches the token as being from the tenant. The subsequent call to /common to get an access token for the user misses the cache entry, and the user is prompted to sign in again. To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
