@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/25/2018
 ms.author: brenduns
 ms.reviewer: 
 
@@ -22,18 +22,26 @@ ms.reviewer:
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+Azure Stack uses role-based access control for each instance of a subscription, resource group, or service. An Azure Stack user can be assigned one or more roles. For example, User-A might have reader permissions to Subscription-1, and have owner permissions to Virtual Machine-7.
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+## Built-in roles
+
+Azure Stack has three basic roles that apply to all resource types:
+
+* **Owner** can manage everything, including access to resources.
+* **Contributor** can manage everything except access to resources.
+* **Reader** can view everything, but can’t make any changes.
 
 ## Set access permissions for a user
+
+The following steps describe how to configure permissions for a user.
+
 1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
+2. In the blade for the resource, click the **Access** icon. <br>![Azure Stack Access Icon](media/azure-stack-manage-permissions/image1.png)
+
 3. In the **Users** blade, click **Roles**.
 4. In the **Roles** blade, click **Add** to add permissions for the user.
 
 ## Next steps
 
-
+[Create service principals](azure-stack-create-service-principals.md)
