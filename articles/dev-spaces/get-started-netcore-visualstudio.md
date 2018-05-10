@@ -58,21 +58,17 @@ With Azure Dev Spaces, you can create Kubernetes-based development environments 
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-In the dialog that is displayed next, make sure you are signed in with the appropriate account, and then either select an existing development environment, or select **<Create New Azure Dev Space for AKS…>** to create a new one.
+In the dialog that is displayed next, make sure you are signed in with the appropriate account, and then either select an existing Kubernetes cluster.
 
-![](media/get-started-netcore-visualstudio/ConnectedEnvDialog.png)
+![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
-You can use the default values provided or adjust them as you like. Click **OK** when the values are set appropriately.
+Leave the **Space** dropdown defaulted to `mainline` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
-![](media/get-started-netcore-visualstudio/NewEnvDialog.png)
-
-Back on the previous dialog, leave the **Space** dropdown defaulted to `mainline` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
-
-![](media/get-started-netcore-visualstudio/ConnectedEnvDialog2.png)
+![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 Click **OK** to select or create the development environment. A background task will be started to accomplish this, it will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.png)
+![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
 > [!Note]
 Until the development environment is successfully created you cannot debug your application.
@@ -198,7 +194,7 @@ Do the following to create a new space:
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. In the **Add Space** dialog, type in a name for the space and click **OK**. You can use name (for example, "scott") for the new space so that it is identifiable to my peers what space I'm working in.
+6. In the **Add Space** dialog, type in a name for the space and click **OK**. You can use your name (for example, "scott") for the new space so that it is identifiable to your peers what space you're working in.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
@@ -228,7 +224,7 @@ Here is a diagram that will help you understand how the different spaces work. T
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
 ### Test Code Running in the `scott` Space
-To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (ex. https://webfrontend-teamenv.vsce.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
+To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (for example, https://webfrontend-teamenv.vsce.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
 Now, add the "scott-" part to the URL so it reads something like https://scott-webfrontend-teamenv.vsce.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `scott` space.
 
