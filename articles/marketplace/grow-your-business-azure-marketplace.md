@@ -129,7 +129,7 @@ To maximize the impact of these activities, we encourage you to have your launch
 >[!NOTE]
 >One Commercial Partner Catalog (OCP Catalog) is a benefit of membership in the Microsoft Partner Network. 
 
-![Marketplace GTM Benefits](.media/marketplace-publishers-guide/gtmmay2018.png)
+![Marketplace GTM Benefits](./media/marketplace-publishers-guide/gtmmay2018.png)
 
 Table guidance:
 Azure Subscriptions Require MPN Silver or Gold Competency
