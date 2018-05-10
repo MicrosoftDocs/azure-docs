@@ -131,17 +131,6 @@ To maximize the impact of these activities, we encourage you to have your launch
 
 ![Marketplace GTM Benefits](./media/marketplace-publishers-guide/gtmmay2018.png)
 
-Table guidance:
-Azure Subscriptions Require MPN Silver or Gold Competency
-
-** Requires MPN Gold Competency and/or Co-Sell Ready OCP Catalog Listing
-
-^ PoC or Implementation only applicable to consulting offers
-
-^^ Transact only applicable to Azure Marketplace
-
-
-
 For support, visit [Microsoft Go To Market](https://www.microsoftgotomarket.com). There, you can find templates, web content, training, and tools to promote your business.
 
 #### Enable lead sharing
