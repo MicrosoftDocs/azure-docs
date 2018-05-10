@@ -2,7 +2,7 @@
 
 To delete a volume container, you must
  - delete volumes in the volume container. If the volume container has associated volumes, take those volumes offline first. Follow the steps in [Take a volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). After the volumes are offline, you can delete them. 
- - delete associated backup policies and cloud snapshots. Check if the volume container has associated backup policies and cloud snapshots. If so, then [delete the backup policies](../articles/storsimple-8000-manage-backup-policies-u2.md#delete-a-backup-policy). This will also delete the cloud snapshots. 
+ - delete associated backup policies and cloud snapshots. Check if the volume container has associated backup policies and cloud snapshots. If so, then [delete the backup policies](../articles/storsimple/storsimple-8000-manage-backup-policies-u2.md#delete-a-backup-policy). This will also delete the cloud snapshots. 
  
 When the volume container has no associated volumes, backup policies, and cloud snapshots, you can delete it. Perform the following procedure to delete a volume container.
 
