@@ -40,14 +40,11 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ### New features and improvements
 
-
-- This release updates the SQL Server Express installation to SQL Server 2012 SP4. This update provides fixes for several security vulnerabilities.  For more information see, [the SQL Server 2012 SP4 release information](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information).
-- Updated the Azure AD Connect Wizard Troubleshooting Utility, This update provides analysis for more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups, and several usability improvements.
-- A new Store Analysis tool (Storechk.exe) is now shipped as part of the Azure AD Connect. 
-- Device Writeback configuration is now managed solely within the Azure AD Connect Wizard.
-- A new PowerShell script has been added that can be used to set permissions on a customer provided AD Connector account.
-- A new PowerShell Module called ADSyncTools.psm1 has been added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities.
 - This release includes the public preview of the integration of PingFederate in Azure AD Connect. Now customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our online [documentation](active-directory-aadconnect-get-started-custom.md).
+- Updated the Azure AD Connect Wizard Troubleshooting Utility, This update provides analysis for more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups.  Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
+- Device Writeback configuration is now managed solely within the Azure AD Connect Wizard.
+- A new PowerShell Module called ADSyncTools.psm1 has been added that can be used to troubleshoot SQL Connectivity issues and various other troubleshooting utilities.  Read more about the ADSyncTools module [here](active-directory-aadconnect-tshoot-sql-connectivity.md) and [here](active-directory-aadconnect-powershell-tools.md)..
+
 - Several accessibility fixes have been applied to the Synchronization Service Manager UI and the Sync Rules Editor
 
 ### Fixed issues 
