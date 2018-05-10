@@ -21,7 +21,7 @@ ms.author: TomSh
 
 # Azure database security overview
 
-Security is a top concern for managing databases, and it has always been a priority for Azure SQL Database. Azure SQL Database supports connection security with firewall rules and connection encryption. It supports authentication with username and password and Azure Active Directory Authentication, which uses identities managed by Azure Active Directory. Authorization uses role-based access control.
+Security is a top concern for managing databases, and it has always been a priority for Azure SQL Database. Azure SQL Database supports connection security with firewall rules and connection encryption. It supports authentication with username and password and Azure Active Directory (Azure AD) authentication, which uses identities managed by Azure Active Directory. Authorization uses role-based access control.
 
 Azure SQL Database supports encryption by performing real-time encryption and decryption of databases, associated backups, and transaction log files at rest without requiring changes to the application.
 
@@ -31,7 +31,7 @@ Microsoft provides additional ways to encrypt enterprise data:
 -	If you need a hardware security module or central management of your encryption key hierarchy, consider using Azure Key Vault with SQL Server in an Azure virtual machine (VM).
 -	Always Encrypted (currently in preview) makes encryption transparent to applications. It also allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
-Azure SQL Database Auditing allows enterprises to record events to an audit log in Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
+Azure SQL Database Auditing enables enterprises to record events to an audit log in Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
 
 Azure SQL databases can be tightly secured to satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Azure Trust Center site](http://azure.microsoft.com/support/trust-center/services/).
 
@@ -54,7 +54,7 @@ For other ways to encrypt your data, consider:
 
 A common problem for all client/server applications is the need for privacy as data moves over public and private networks. If data moving over a network is not encrypted, there’s a chance that it can be captured and stolen by unauthorized users. When you're dealing with database services, make sure that data is encrypted between the database client and server. Also make sure that data is encrypted between database servers that communicate with each other and with middle-tier applications.
 
-One problem when you administer a network is securing data that is being sent between applications across an untrusted network. You can use [TLS/SSL](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) to authenticate servers and clients and then use it to encrypt messages between the authenticated parties.
+One problem when you administer a network is securing data that's being sent between applications across an untrusted network. You can use [TLS/SSL](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol) to authenticate servers and clients, and then use it to encrypt messages between the authenticated parties.
 
 In the authentication process, a TLS/SSL client sends a message to a TLS/SSL server. The server responds with the information that the server needs to authenticate itself. The client and server perform an additional exchange of session keys, and the authentication dialog ends. When authentication is completed, SSL-secured communication can begin between the server and the client through the symmetric encryption keys that are established during the authentication process.
 
@@ -85,7 +85,7 @@ Most data breaches involve the theft of critical data such as credit card number
 
 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database engine (SQL Database or SQL Server).
 
-Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). By ensuring on-premises database administrators, cloud database operators, or other high-privileged but unauthorized users, cannot access the encrypted data.
+Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). It helps ensure that on-premises database administrators, cloud database operators, or other high-privileged but unauthorized users cannot access the encrypted data.
 
 In addition, Always Encrypted makes encryption transparent to applications. An Always Encrypted-enabled driver is installed on the client computer so that it can automatically encrypt and decrypt sensitive data in the client application. The driver encrypts the data in sensitive columns before passing the data to the database engine. The driver automatically rewrites queries so that the semantics to the application are preserved. Similarly, the driver transparently decrypts data, stored in encrypted database columns, contained in query results.
 
@@ -102,24 +102,24 @@ Data protection begins with controlling access to your data. The datacenter that
 
 #### Firewall and firewall rules
 
-Microsoft Azure SQL Database provides a relational database service for Azure and other internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+Azure SQL Database provides a relational database service for Azure and other internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 The [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service is available only through TCP port 1433. To access a SQL database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If inbound connections are not needed for other applications, block them on TCP port 1433.
 
 #### Authentication
 
-SQL database authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
+Authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
 
 -	**SQL Server authentication**: A single login account is created when a logical SQL instance is created, called the SQL Database Subscriber Account. This account connects by using [SQL Server authentication](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview) (username and password). This account is an administrator on the logical server instance and on all user databases attached to that instance. The permissions of the subscriber account cannot be restricted. Only one of these accounts can exist.
--	**Azure Active Directory (Azure AD) authentication**: [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) is a mechanism of connecting to Microsoft Azure SQL Database and Azure SQL Data Warehouse by using identities in Azure AD. You can use it to centrally manage identities of database users.
+-	**Azure Active Directory authentication**: [Azure AD authentication](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) is a mechanism of connecting to Azure SQL Database and Azure SQL Data Warehouse by using identities in Azure AD. You can use it to centrally manage identities of database users.
 
-![Azure AD authentication with SQL DB](./media/azure-databse-security-overview/azure-database-fig2.png)
+![Azure AD authentication with SQL Database](./media/azure-databse-security-overview/azure-database-fig2.png)
 
  Advantages of Azure AD authentication include:
   -	It provides an alternative to SQL Server authentication.
   -	It helps stop the proliferation of user identities across database servers and allows password rotation in a single place.
   -	You can manage database permissions by using external (Azure AD) groups.
-  -	It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure AD.
+  -	It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication that Azure AD supports.
 
 #### Authorization
 [Authorization](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) refers to what a user can do within an Azure SQL database. It's controlled by your user account's database [role memberships](https://msdn.microsoft.com/library/ms189121) and [object-level permissions](https://msdn.microsoft.com/library/ms191291.aspx). Authorization is the process of determining which securable resources a principal can access, and which operations are allowed for those resources.
@@ -127,7 +127,7 @@ SQL database authentication refers to how you prove your identity when connectin
 ### Application access
 
 #### Dynamic data masking
-A service representative at a call center might identify callers by several digits of their social security number or credit card number, but those data items should not be fully exposed to the service representative.
+A service representative at a call center might identify callers by several digits of their social security number or credit card number. But those data items should not be fully exposed to the service representative.
 
 You can define a masking rule that masks all but the last four digits of a social security number or credit card number in the result set of any query.
 
@@ -144,7 +144,7 @@ As another example, an appropriate data mask can be defined to protect personall
 > Dynamic data masking can be configured by the Azure Database admin, server admin, or security officer roles.
 
 #### Row-Level Security
-Another common security requirement for multitenant databases is [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). You can use this feature to control access to rows in a database table based on the characteristics of the user who's executing a query. (Example characteristics are group membership and execution context).
+Another common security requirement for multitenant databases is [Row-Level Security](https://msdn.microsoft.com/library/dn765131.aspx). You can use this feature to control access to rows in a database table based on the characteristics of the user who's executing a query. (Example characteristics are group membership and execution context.)
 
 ![Row-Level Security allowing a user to access rows in a table through a client app](./media/azure-databse-security-overview/azure-database-fig4.png)
 
@@ -156,9 +156,9 @@ Row-Level Security introduces predicate-based access control. It features a flex
 SQL Database helps secure your data by providing *auditing* and *threat detection* capabilities.
 
 ### Auditing
-SQL Database auditing increases your ability to gain insight into events and changes that occur within the database. Examples are updates and queries against the data.
+[Azure SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) increases your ability to gain insight into events and changes that occur within the database. Examples are updates and queries against the data.
 
-[Azure SQL Database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations. Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance.
+SQL Database auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing can help you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that might indicate business concerns or suspected security violations. Auditing enables and facilitates adherence to compliance standards but doesn't guarantee compliance.
 
 You can use SQL Database auditing to:
 
@@ -176,7 +176,7 @@ There are two auditing methods:
 
 ![Threat detection for SQL Database and a web app, with an external attacker and a malicious insider](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-For example, SQL injection is one of the common web application security issues on the internet. It's used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database.
+For example, SQL injection is one of the common security issues for web applications. It's used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, breaching or modifying data in the database.
 
 Security officers or other designated administrators can get an immediate notification about suspicious database activities as they occur. Each notification provides details of the suspicious activity and recommends how to further investigate and mitigate the threat.        
 
