@@ -43,10 +43,13 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 });
 
 ```
+
+<!-- Remove until the response can be replace with a sanitized version.
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'VideoObjectElementType'
 
 ![Video results](media/video-search-sdk-node-results.png)
+-->
 
 ## Next steps
 
