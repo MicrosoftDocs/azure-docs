@@ -3,7 +3,7 @@ title: Protect a multi-tier SAP NetWeaver application deployment using Azure Sit
 description: This article describes how to protect SAP NetWeaver application deployments by using Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: asgang
+author: mayanknayar
 manager: rochakm
 editor:
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: asgang
+ms.author: manayar
 
 ---
 # Protect a multi-tier SAP NetWeaver application deployment by using Site Recovery
@@ -59,7 +59,7 @@ Large SAP customers usually deploy between 6 and 20 individual SAP applications.
 
 It's critical to inventory all the SAP applications that are running in your environment. Then, determine the deployment mode (either two-tier or three-tier), versions, patches, sizes, churn rates, and disk persistence requirements.
 
-![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/reference-sap.png)
+![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/sap-typical-deployment.png)
 
 Protect the SAP database persistence layer by using native DBMS tools such as SQL Server AlwaysOn, Oracle Data Guard, or SAP HANA system replication. Like the SAP database layer, the client layer isn't protected by Site Recovery. It's important to consider factors that affect this layer. Factors include DNS propagation delay, security, and remote access to the disaster recovery datacenter.
 
