@@ -8,7 +8,7 @@ manager: erikre
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 05/10/2018
 ms.author: juliako
 
 ---
@@ -24,11 +24,12 @@ To start developing with Video Indexer, you must first Sign up and sign in to th
  	 
 For more information, see [Start using APIs](video-indexer-use-apis.md).
 
-## Upload a video
+## Upload a video using the Video Indexer portal
 
-To upload video press the Upload button.
+1. Sign in to [https://www.videoindexer.ai/](https://www.videoindexer.ai/)
+2. To upload video, press the Upload button or link.
 
-![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
+ ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
 
 Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
