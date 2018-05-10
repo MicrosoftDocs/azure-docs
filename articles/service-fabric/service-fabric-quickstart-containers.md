@@ -81,9 +81,11 @@ Configure the container port-to-host port mapping so that incoming requests to t
 A full ApplicationManifest.xml example file is provided at the end of this article.
 
 ## Specify the OS build for your container image
-Containers built for a specific version of Windows Server may not be compatible with different versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag them with the build versions of the OS. The build version for WIndows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. OS tagging ensures that Service Fabric deploys the correct container for the OS running 
+Containers built for a specific version of Windows Server may not run on a host running a different version of the OS. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatiblity](service-fabric-get-started-containers.md#service-fabric-get-started-containers.md#windows-server-container-os-and host-os-compatiblity). 
 
-Microsoft publishes different containers for different versions of IIS. To have Service Fabric pull the correct IIS/nanoserver container for the OS running on the nodes where it deploys your application, add the following lines to the ApplicationManifest.xml file:
+With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
+
+Microsoft publishes different images for versions of IIS built on different versions of Windows. To make sure that Service Fabric deploys an IIS/nanoserver container compatible with the version of Windows OS running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -96,7 +98,7 @@ Microsoft publishes different containers for different versions of IIS. To have 
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images).
+The service manifest continues to specify only one image for the nanoserver, `microsoft/iis:nanoserver`. 
 
 ## Create a cluster
 To deploy the application to a cluster in Azure, you can join a party cluster. Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team where anyone can deploy applications and learn about the platform.  The cluster uses a single self-signed certificate for-node-to node as well as client-to-node security. Party clusters support containers. If you decide to set up and use your own cluster, the cluster must be running on a SKU that supports containers (such as Windows Server 2016 Datacenter with Containers).

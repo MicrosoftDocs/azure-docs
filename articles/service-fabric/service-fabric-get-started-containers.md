@@ -26,19 +26,21 @@ ms.author: ryanwi
 Running an existing application in a Windows container on a Service Fabric cluster doesn't require any changes to your application. This article walks you through creating a Docker image containing a Python [Flask](http://flask.pocoo.org/) web application and deploying it to a Service Fabric cluster. You will also share your containerized application through [Azure Container Registry](/azure/container-registry/). This article assumes a basic understanding of Docker. You can learn about Docker by reading the [Docker Overview](https://docs.docker.com/engine/understanding-docker/).
 
 ## Prerequisites
-A development computer running:
-* Visual Studio 2015 or Visual Studio 2017.
-* [Service Fabric SDK and tools](service-fabric-get-started.md).
-*  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
+* A development computer running:
+  * Visual Studio 2015 or Visual Studio 2017.
+  * [Service Fabric SDK and tools](service-fabric-get-started.md).
+  *  Docker for Windows. [Get Docker CE for Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). After installing and starting Docker, right-click on the tray icon and select **Switch to Windows containers**. This step is required to run Docker images based on Windows.
 
-A Windows cluster with three or more nodes running on Windows Server 2016 with Containers- [Create a cluster](service-fabric-cluster-creation-via-portal.md) or [try Service Fabric for free](https://aka.ms/tryservicefabric).
+* A Windows cluster with three or more nodes running on Windows Server with Containers. 
 
-A Windows cluster with three or more nodes running on Windows Server with Containers. For this article, the version (build) of Windows Server with Containers must match that on your development machine. This is because you build a docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatiblity](#windows-server-container-os-and host-os-compatiblity). To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
+  For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatiblity](#windows-server-container-os-and host-os-compatiblity). 
+  
+  To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
 
-- If the version contains *x.x.14323.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServer 2016-Datacenter-with-Containers* for the operating system, or [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
-- If the version contains *x.x.16299.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system. You cannot use a party cluster.
+  * If the version contains *x.x.14323.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServer 2016-Datacenter-with-Containers* for the operating system or [try Service Fabric for free](https://aka.ms/tryservicefabric) with a party cluster.
+  * If the version contains *x.x.16299.x*, then [create a cluster](service-fabric-cluster-creation-via-portal.md) being sure to select *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers* for the operating system. You cannot use a party cluster.
 
-A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
+* A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription.
 
 > [!NOTE]
 > Deploying containers to a Service Fabric cluster in Windows 10 or on a cluster with Docker CE isn't supported. This walkthrough locally tests using the Docker engine on Windows 10, and finally deploys the container services to a Windows Server cluster in Azure running Docker EE. 
@@ -399,10 +401,15 @@ Consider the compatibility of the host OS and your container OS when building an
 - Make sure you deploy containers with an OS compatible with the OS on your cluster nodes.
 - Make sure that the isolation mode specified for your container app is consistent with support for the container OS on the node where it is being deployed.
 - Consider how OS upgrades to your cluster nodes or containers may affect their compatibility. 
+
+We recommend the following practices to make sure that containers are deployed correctly on your Service Fabric cluster:
+
+- Use explicit image tagging with your Docker images to specify the version of Windows OS that a container is built from. 
+- Use [OS tagging](#specify-os-build-specific-container-images) in your application manifest file to make sure that your application is compatible across different OS versions and upgrades.
  
 ## Specify OS build specific container images 
 
-Windows Server containers (process isolation mode) may not be compatible with newer versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709. Hence, if the cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tag them with the build versions of the OS (obtained by running `winver` on a Windows command prompt). Update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
+Windows Server containers may not be compatible across different versions of the OS. For example, Windows Server containers built using Windows Server 2016 do not work on Windows Server version 1709 in process isolation mode. Hence, if cluster nodes are updated to the latest version, container services built using the earlier versions of the OS may fail. To circumvent this with version 6.1 of the runtime and newer, Service Fabric supports specifying multiple OS images per container and tagging them with the build versions of the OS in the application manifest. You can get the build version of the OS by running `winver` at a Windows command prompt. Update the application manifests and specify image overrides per OS version before updating the OS on the nodes. The following snippet shows how to specify multiple container images in the application manifest, **ApplicationManifest.xml**:
 
 
 ```xml
