@@ -8246,6 +8246,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storsimple/storsimple-8000-move-azure-portal-faq.md",
+            "redirect_url": "/azure/storsimple/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/traffic-manager/disable-enable-or-delete-a-profile.md",
             "redirect_url": "/azure/traffic-manager/traffic-manager-manage-profiles",
             "redirect_document_id": false
