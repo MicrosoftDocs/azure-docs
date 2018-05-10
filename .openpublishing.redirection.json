@@ -8381,11 +8381,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
-            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-basic-internal-portal",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/load-balancer/load-balancer-internal-overview.md",
             "redirect_url": "/azure/load-balancer/load-balancer-overview#internalloadbalancer",
             "redirect_document_id": false
