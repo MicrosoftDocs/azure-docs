@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -49,6 +49,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.3.2"/>2.3.2
+* Added support for default retries on connection issues.
+
 ### <a name="2.3.1"/>2.3.1
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
@@ -135,6 +138,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |May 08, 2018 |--- |
 | [2.3.1](#2.3.1) |December 21, 2017 |--- |
 | [2.3.0](#2.3.0) |November 10, 2017 |--- |
 | [2.2.1](#2.2.1) |Sep 29, 2017 |--- |
