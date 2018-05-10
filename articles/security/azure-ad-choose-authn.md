@@ -134,7 +134,7 @@ The following diagrams outline the high-level architecture components required f
 |:-----|:-----|:-----|:-----|
 |Where does authentication happen?|In the cloud|In the cloud after a secure password verification exchange with the on-premises authentication agent|On-premises|
 |What are the on-premise server requirements beyond the provisioning system: Azure AD Connect?|None|One server for each additional authentication agent|- Two or more AD FS servers<br>- Two or more WAP servers in the perimeter/DMZ network|
-|What are the requirements for on-premises Internet and networking beyond the provisioning system?|None|[Outbound Internet access](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) from the servers running authentication agents|- [Inbound Internet access](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) to WAP servers the in the perimeter<br>- Inbound network access to AD FS servers from WAP servers in the perimeter<br>- Network load balancing|
+|What are the requirements for on-premises Internet and networking beyond the provisioning system?|None|[Outbound Internet access](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) from the servers running authentication agents|- [Inbound Internet access](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) to WAP servers in the perimeter<br>- Inbound network access to AD FS servers from WAP servers in the perimeter<br>- Network load balancing|
 |Is there an SSL certificate requirement?|No|No|Yes|
 |Is there a health monitoring solution?|Not required|Agent status provided by [Azure Active Directory admin center](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
 |Do users get single sign-on to cloud resources from domain-joined devices within the company network?|Yes with [Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Yes with [Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Yes|
@@ -149,7 +149,7 @@ The following diagrams outline the high-level architecture components required f
 
 ## Recommendations and considerations from Azure AD
 
-Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
+Your identity system ensures your users' access to cloud apps as well as the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
 
 Use or turn on Password Hash Sync for whichever authentication method you choose, for the following reasons:
 
