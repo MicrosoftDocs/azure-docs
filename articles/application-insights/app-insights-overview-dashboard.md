@@ -19,11 +19,11 @@ ms.author: mbullwin
 
 # Overview dashboard (preview)
 
-Application Insights has always provided a summary overview pane to allow quick, at-a-glance assessement of your application's health and performance. Starting on 5/15/2018 a new faster more flexible experience will be released as a preview. On 5/29/2018 the classic overview experience will be retired.
+Application Insights has always provided a summary overview pane to allow quick, at-a-glance assessment of your application's health and performance. Starting on May 15, 2018 a new faster more flexible experience will be released as a preview. On May 29, 2018 the classic overview experience will be retired.
 
 ## How do I test out the new experience?
 
-On 5/15 the new experience will begin to show up in Application Insights under: _Investigate_ > _Overview (preview)_.
+On May 15, the new experience will begin to show up in Application Insights under: _Investigate_ > _Overview (preview)_.
 
 ![Overview Preview](.\media\app-insights-overview-dashboard\01.png)
 
