@@ -21,7 +21,7 @@ manager: douge
 
    ![Find more services link](../media/includes/vs-install-cognitive-services-vsix/Find-More-Services.PNG)
 
-1. In the **Extensions and Updates** dialog, search for **Cognitive Services**, and choose **Install**.
+1. In the **Extensions and Updates** dialog, search for **Cognitive Services**, and then download and install the Cognitive Services VSIX package.
 
    ![Install the Cognitive Services VSIX package](../media/includes/vs-install-cognitive-services-vsix/install-cognitive-services-vsix.PNG)
 
