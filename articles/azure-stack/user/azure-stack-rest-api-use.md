@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 
@@ -20,6 +20,8 @@ ms.reviewer: sijuman
 <!--  cblackuk and charliejllewellyn -->
 
 # Use the Azure Stack API
+
+*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 You can use the Azure Stack API to automate operations such as syndicating marketplace items.
 
@@ -41,9 +43,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **Tenant ID** is either:
 
-- Your tenant domain, such as fabrikam.onmicrosoft.com
-- Your tenant ID, such as 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
-- Default value for tenant-independent keys: common
+* Your tenant domain, such as fabrikam.onmicrosoft.com
+* Your tenant ID, such as 8eaed023-2b34-4da1-9baa-8bc8c9d6a491
+* Default value for tenant-independent keys: common
 
 ### Post Body
 
@@ -77,9 +79,9 @@ For each value:
   ```
 
  > [!NOTE]
- > If you are an administrator trying to access the tenant API then you must make sure to use tenant endpoint, for example `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011
+ > If you are an administrator trying to access the tenant API then you must make sure to use tenant endpoint, for example: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011
 
-  For example, with the Azure Stack Development Kit:
+  For example, with the Azure Stack Development Kit as an endpoint:
 
   ```
   curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -126,7 +128,7 @@ For each value:
 
   **username**
 
-  The Azure Stack AAD account, for example:
+  For example, the Azure Stack AAD account:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
