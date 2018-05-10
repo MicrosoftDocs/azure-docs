@@ -83,7 +83,7 @@ This section shows the summary of the insights.
 |faces|May contain one or more faces. For more information, see [faces](#faces).|
 |topics|May contain one or more topics. For more information, see [topics](#topics).|
 |sentiments|May contain one or more sentiments. For more information, see [sentiments](#sentiments).|
-|audioEffects| May contain one or more audioEffects. For more information, see [audioEffects](#audioEffects).|
+|audioEffects| May contain one or more audioEffects. For more information, see [audioEffects](#audioeffects).|
 |brands| May contain zero or more brands. For more information, see [brands](#brands).|
 |statistics | For more information, see [statistics](#statistics).|
 
