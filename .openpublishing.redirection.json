@@ -20807,7 +20807,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-whatis.md",
-            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
+            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
 			"redirect_document_id": false
         },
 		{
