@@ -192,8 +192,8 @@ The table below summarizes commonly-observed synchronization times for provision
 
 For the configuration **Sync assigned user and groups only**, you can use the formulas below to determine the approximate minimum and maximum expected **initial sync** times:
 
-	Minimum minutes =  0.01 x [Number of assigned users and groups]
-	Maximum minutes = 0.08 x [Number of assigned users and groups] 
+	Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+	Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
 	
 Factors that influence the time it takes to complete an **initial sync** are summarized below:
 
