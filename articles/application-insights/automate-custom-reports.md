@@ -16,12 +16,12 @@ ms.author: sdash
 
 # Automate custom report emails
 
-Periodical reports help keep a team informed on how their business critical services are doing. Developers, DevOps/SRE teams and their managers can be productive with automated reports reliably delivering insights without requiring everyone to log on to the portal. Such reports can also help identify gradual increases in latencies, load or failure rates that may not trigger any alert rules.
+Periodical reports help keep a team informed on how their business critical services are doing. Developers, DevOps/SRE teams, and their managers can be productive with automated reports reliably delivering insights without requiring everyone to log on to the portal. Such reports can also help identify gradual increases in latencies, load or failure rates that may not trigger any alert rules.
 
 Each enterprise has its unique reporting needs, such as: 
 
 * Specific percentile aggregations of metrics, or custom metrics in a report.
-* Have different reports for daily, weekly and monthly roll-ups of data for different audiences.
+* Have different reports for daily, weekly, and monthly roll-ups of data for different audiences.
 * Segmentation by custom attributes like region, or environment. 
 * Group some AI resources together in a single report, even if they may be in different subscriptions or resource groups etc.
 * Separate reports containing sensitive metrics sent to selective audience.
@@ -31,16 +31,16 @@ Each enterprise has its unique reporting needs, such as:
 > The weekly Application Insights digest email did not allow any customization, and will be discontinued in favor of the custom options listed below. The last weekly digest email will be sent on June 11, 2018. Please configure one of the following options to get similar custom reports (use the query suggested below).
 
 
-You can [programmatically query Application Insights](https://dev.applicationinsights.io/) telemetry to generate custom reports on a schedule. The following options can help you get started quickly:
+You can [programmatically query Application Insights](https://dev.applicationinsights.io/) data to generate custom reports on a schedule. The following options can help you get started quickly:
 
 * [Automate reports with Microsoft Flow](app-insights-automate-with-flow.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
-* Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email.
+* Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email. The template uses the following query, which you can use with the Microsoft Flow or Logic App options above.
 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
 
-The sample query below shows how you can join across different datasets in a single query:
+
 
     ```
     let period=7d;
@@ -69,6 +69,7 @@ The sample query below shows how you can join across different datasets in a sin
     ) on Row
     | project TotalRequests, FailedRequests, RequestsDuration, TotalDependencies, FailedDependencies, DependenciesDuration, TotalViews, TotalExceptions, OverallAvailability, AvailabilityDuration
     ```
+
 
 ## Next steps
 
