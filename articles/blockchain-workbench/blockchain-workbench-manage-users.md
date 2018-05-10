@@ -64,20 +64,18 @@ To add users to the **Administrators** group in the Azure AD directory:
 
 Use the Blockchain Workbench application to manage users and organizations that are part of your consortium. You can add or remove users to applications and roles.
 
-[Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
+1. [Open the Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) in your browser and sign in as an administrator.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### Managing members in applications
+    Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
 
-Members are added to each application. Members can have one or more application roles to initiate contracts or take actions.
+2. To manage members for an application, select an application tile in the **Applications** pane.
 
-To add members to an application, select an application tile in the **Applications** pane.
+    The number of members associated to the selected application is reflected in the members tile.
 
-![Select application](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![Select application](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> The number of members associated to the selected application is reflected in the members tile.
 
 #### Add member to application
 
