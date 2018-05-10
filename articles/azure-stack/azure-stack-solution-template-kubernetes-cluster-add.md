@@ -75,6 +75,9 @@ Add the following Ubuntu Server image to the Marketplace:
     - **SKU**: 16.04-LTS
     - **Version**: 16.04.201802220
 
+    > [!Note]  
+    > More than one version of Ubuntu Server 16.04 LTS may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
+
 6. Select **Download.**
 
 ## Add a custom script for Linux
@@ -93,6 +96,9 @@ Add the Kubernetes Cluster from the Marketplace:
     - **Offer**: Custom Script for Linux 2.0
     - **Version**: 2.0.3
     - **Publisher**: Microsoft Corp
+
+    > [!Note]  
+    > More than one version of Custom Script for Linux may be listed. You will need to add the version that matches. The Kubernetes Cluster requires the exact version of the item.
 
 6. Select **Download.**
 
