@@ -4,7 +4,7 @@ description: Learn about using FreeBSD virtual machines on Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: thomas1206
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 

@@ -126,12 +126,12 @@ The full FTP user name is “app\username” where *app* is the name of your web
 
 ## Other configuration tasks
 ### SSL
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app]. 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app](app-service-web-tutorial-custom-ssl.md). 
 
 To view your uploaded certificates, click **All Settings** > **Custom domains and SSL**.
 
 ### Domain names
-Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service].
+Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 To view your domain names, click **All Settings** > **Custom domains and SSL**.
 

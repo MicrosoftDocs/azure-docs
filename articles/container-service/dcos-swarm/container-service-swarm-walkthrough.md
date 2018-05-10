@@ -3,18 +3,18 @@ title: Quickstart - Azure Docker Swarm cluster for Linux
 description: Quickly learn to create a Docker Swarm cluster for Linux containers in Azure Container Service with the Azure CLI.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 08/14/2017
+ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
 # Deploy Docker Swarm cluster
 
-In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
+In this quick start, a Docker Swarm cluster is deployed using the Azure CLI. A multi-container application consisting of web front-end and a Redis instance is then deployed and run on the cluster. Once completed, the application is accessible over the internet.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

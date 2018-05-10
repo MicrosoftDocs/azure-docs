@@ -1,30 +1,30 @@
 ---
-title: Spell Check SDK C# quickstart (preview)| Microsoft Docs
+title: Spell Check SDK C# quickstart | Microsoft Docs
 description: Setup for Spell Check SDK console application
 titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-spell-check
+ms.component: bing-spell-check
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-#Spell Check SDK C# quickstart (preview)
+# Spell Check SDK C# quickstart
 The Bing Spell Check SDK contains the functionality of the REST API for spell check. 
 
-##Application dependencies
+## Application dependencies
 
 To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio.  Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
 
-Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.1.0-preview) also installs dependencies, including:
+Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) also installs dependencies, including:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure
 * Newtonsoft.Json
 
-##Spell check client
+## Spell check client
 To create an instance of the `SpellCheckAPI` client, add using directive:
 ```
 using Microsoft.Azure.CognitiveServices.SpellCheck;
@@ -76,7 +76,7 @@ if (result?.Body.FlaggedTokens?.Count > 0)
     }
 
 ```
-##Complete console application
+## Complete console application
 
 The following console application executes the previous code:
 ```
@@ -161,6 +161,6 @@ namespace SpellCheckSDK
 
 ```
 
-##Next steps
+## Next steps
 
 [Cognitive services .NET SDK samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

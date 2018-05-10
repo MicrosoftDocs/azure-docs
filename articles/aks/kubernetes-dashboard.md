@@ -3,16 +3,16 @@ title: Manage Azure Kubernetes cluster with web UI
 description: Using the Kubernetes dashboard in AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Kubernetes dashboard with Azure Container Service (AKS)
+# Kubernetes dashboard with Azure Kubernetes Service (AKS)
 
 The Azure CLI can be used to start the Kubernetes Dashboard. This document walks through starting the Kubernetes dashboard with the Azure CLI, and also walks through some basic dashboard operations. For more information on the Kubernetes dashboard see, [Kubernetes Web UI Dashboard][kubernetes-dashboard].
 

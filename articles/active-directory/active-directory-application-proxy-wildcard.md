@@ -21,7 +21,7 @@ ms.custom: it-pro
 
 # Wildcard applications in the Azure Active Directory application proxy 
 
-In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](active-directory-application-proxy-get-started.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
+In Azure Active Directory (Azure AD), configuring a large number of on-premises applications can quickly become unmanageable and introduces unnecessary risks for configuration errors if many of them require the same settings. With [Azure AD Application Proxy](manage-apps/application-proxy.md), you can address this issue by using wildcard application publishing to publish and manage many applications at once. This is a solution that allows you to:
 
 -	Simplify your administrative overhead
 -	Reduce the number of potential configuration errors
@@ -69,7 +69,7 @@ When using custom domains, you need to create a DNS entry with a CNAME record fo
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
-To confirm that you have configured your CNAME correctly, you can use [nslookup](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<Id.tenant>.runtime.msappproxy.net`).
+To confirm that you have configured your CNAME correctly, you can use [nslookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup) on one of the target endpoints, for example, `expenses.adventure-works.com`.  Your response should include the already mentioned alias (`<yourAADTenantId>.tenant.runtime.msappproxy.net`).
 
 
 ## Considerations

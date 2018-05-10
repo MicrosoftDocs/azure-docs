@@ -71,8 +71,6 @@ In this example, you override a configuration value using parameters in your app
 >
 >
 
-When publishing your application from Visual Studio using the Cloud.xml publish profile, your service is configured to use port 80. If you deploy the application without specifying the MyWebAPI_PortNumber parameter, the service uses port 8080.
-
 ## Next steps
 To learn more about some of the core concepts that are discussed in this article, see the [Manage applications for multiple environments articles](service-fabric-manage-multiple-environment-app-configuration.md).
 

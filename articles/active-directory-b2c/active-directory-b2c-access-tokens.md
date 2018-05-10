@@ -3,18 +3,15 @@ title: 'Requesting access tokens - Azure AD B2C | Microsoft Docs'
 description: This article will show you how to setup a client application and acquire an access token.
 services: active-directory-b2c
 documentationcenter: android
-author: parakhj
+author: davidmu1
 manager: mtillman
 editor: ''
 
-ms.assetid: 1c75f17f-5ec5-493a-b906-f543b3b1ea66
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
-ms.author: parakhj
+ms.author: davidmu
 
 ---
 # Azure AD B2C: Requesting access tokens

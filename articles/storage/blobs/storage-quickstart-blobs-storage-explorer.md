@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Transfer objects to/from Azure Blob storage using Azure Storage Explorer | Microsoft Docs
-description: Quickly learn to transfer objects to/from Azure Blob storage using Azure Storage Explorer
+title: Azure Quickstart - Create a blob in object storage using Azure Storage Explorer | Microsoft Docs
+description: In this quickstart, you use Azure Storage Explorer  in object (Blob) storage. Then you use Storage Explorer to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,11 +8,11 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/20/2018
+ms.date: 04/09/2018
 ms.author: tamram
 ---
 
-# Transfer objects to/from Azure Blob storage using Azure Storage Explorer
+# Quickstart: Upload, download, and list blobs using Azure Storage Explorer
 
 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a multi platform user interface used to manager the contents of your storage accounts. This guide details using Azure Storage Explorer to transfer files between a local disk and Azure Blob storage.
 
@@ -44,7 +44,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 Blobs are always uploaded into a container. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
-To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [container naming rules](storage-dotnet-how-to-use-blobs.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create the container and set permissions](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
 ## Upload blobs to the container
 

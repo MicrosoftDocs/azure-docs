@@ -1,22 +1,17 @@
----
+﻿---
 title: Azure Active Directory B2B collaboration FAQs | Microsoft Docs
 description: Get answers to frequently asked questions about Azure Active Directory B2B collaboration.
-services: active-directory
-documentationcenter: ''
-author: sasubram
-manager: mtillman
-editor: ''
-tags: ''
 
-ms.assetid:
+services: active-directory
 ms.service: active-directory
-ms.devlang: NA
+ms.component: B2B
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 01/08/2018
-ms.author: sasubram
-ms.reviewer: sasubram 
+ms.date: 03/06/2018
+
+ms.author: twooley
+author: twooley
+manager: mtillman
+ms.reviewer: sasubram
 
 ---
 
@@ -82,8 +77,8 @@ Yes. Here are the important details for self-service password reset (SSPR) for a
 ### Is password reset available for guest users in a just-in-time (JIT) or "viral" tenant who accepted invitations with a work or school email address, but who didn't have a pre-existing Azure AD account?
 Yes. A password reset mail can be sent that allows a user to reset their password in the JIT tenancy.
 
-### Does Microsoft Dynamics CRM provide online support for Azure AD B2B collaboration?
-Currently, Microsoft Dynamics CRM does not provide online support for Azure AD B2B collaboration. However, we plan to support this in the future.
+### Does Microsoft Dynamics 365 provide online support for Azure AD B2B collaboration?
+Yes, Dynamics 365 (online) provides support for Azure AD B2B collaboration. For more information, see the Dynamics 365 article [Invite users with Azure AD B2B collaboration](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### What is the lifetime of an initial password for a newly created B2B collaboration user?
 Azure AD has a fixed set of character, password strength, and account lockout requirements that apply equally to all Azure AD cloud user accounts. Cloud user accounts are accounts that are not federated with another identity provider, such as 
@@ -127,16 +122,5 @@ For information about what licenses your organization needs to use Azure AD B2B,
 
 ### Next steps
 
-Browse our other articles on Azure AD B2B collaboration:
+- [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-* [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
-* [How do Azure AD admins add B2B collaboration users?](active-directory-b2b-admin-add-users.md)
-* [How do information workers add B2B collaboration users?](active-directory-b2b-iw-add-users.md)
-* [The elements of the B2B collaboration invitation email](active-directory-b2b-invitation-email.md)
-* [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md)
-* [Azure AD B2B collaboration licensing](active-directory-b2b-licensing.md)
-* [Troubleshooting Azure AD B2B collaboration](active-directory-b2b-troubleshooting.md)
-* [Azure AD B2B collaboration API and customization](active-directory-b2b-api.md)
-* [Multi-factor authentication for B2B collaboration users](active-directory-b2b-mfa-instructions.md)
-* [Add B2B collaboration users without an invitation](active-directory-b2b-add-user-without-invite.md)
-* [Article index for application management in Azure AD](active-directory-apps-index.md)

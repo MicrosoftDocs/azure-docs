@@ -3,9 +3,10 @@ title: 'Azure Stack Networking: Differences and considerations'
 description: Learn about differences and considerations when working with networking in Azure Stack.
 services: azure-stack
 keywords: 
-author: ScottNapolitan
-ms.author: victorh
-ms.date: 9/25/2017
+author: mattbriggs
+manager: femila
+ms.author: mabrigg
+ms.date: 02/28/2018
 ms.topic: article
 ms.service: azure-stack
 

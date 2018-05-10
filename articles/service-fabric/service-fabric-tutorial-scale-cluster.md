@@ -1,6 +1,6 @@
----
+﻿---
 title: Scale an Azure Service Fabric cluster | Microsoft Docs
-description: Learn how to quickly scale a Service Fabric cluster.
+description: In this tutorial, you learn how to quickly scale a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -18,7 +18,7 @@ ms.author: adegeo
 ms.custom: mvc
 ---
 
-# Scale a Service Fabric cluster
+# Tutorial: scale a Service Fabric cluster
 
 This tutorial is part two of a series, and shows you how to scale your existing cluster out and in. When you've finished, you will know how to scale your cluster and how to clean up any left-over resources.
 
@@ -48,7 +48,7 @@ Before you begin this tutorial:
 Sign in to your Azure account select your subscription before you execute Azure commands.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```

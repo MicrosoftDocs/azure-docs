@@ -3,16 +3,16 @@ title: Deploy containers with Helm in Kubernetes on Azure
 description: Use the Helm packaging tool to deploy containers on a Kubernetes cluster in AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Use Helm with Azure Container Service (AKS)
+# Use Helm with Azure Kubernetes Service (AKS)
 
 [Helm][helm] is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers such as *APT* and *Yum*, Helm is used to manage Kubernetes charts, which are packages of preconfigured Kubernetes resources.
 
@@ -56,9 +56,12 @@ helm init
 Output:
 
 ```
-$HELM_HOME has been configured at /home/user/.helm.
+$HELM_HOME has been configured at /Users/neilpeterson/.helm.
 
 Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
 Happy Helming!
 ```
 

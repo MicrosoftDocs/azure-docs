@@ -1,6 +1,6 @@
 ---
 title: Create a Linux Service Fabric cluster in Azure | Microsoft Docs
-description: Learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
+description: In this tutorial, you learn how to deploy a Linux Service Fabric cluster into an existing Azure virtual network using Azure CLI.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -19,7 +19,7 @@ ms.custom: mvc
 
 ---
 
-# Deploy a Service Fabric Linux cluster into an Azure virtual network
+# Tutorial: deploy a Service Fabric Linux cluster into an Azure virtual network
 This tutorial is part one of a series. You will learn how to deploy a Linux Service Fabric cluster into an [Azure virtual network (VNET)](../virtual-network/virtual-networks-overview.md) and [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) using Azure CLI and a template. When you're finished, you have a cluster running in the cloud that you can deploy applications to. To create a Windows cluster using PowerShell, see [Create a secure Windows cluster on Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 In this tutorial, you learn how to:
@@ -61,7 +61,7 @@ The cluster certificate must:
 
 Azure Key Vault is used to manage certificates for Service Fabric clusters in Azure.  When a cluster is deployed in Azure, the Azure resource provider responsible for creating Service Fabric clusters pulls certificates from Key Vault and installs them on the cluster VMs.
 
-This tutorial deplays a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
+This tutorial deploys a cluster with five nodes in a single node type. For any production cluster deployment, however, [capacity planning](service-fabric-cluster-capacity.md) is an important step. Here are some things to consider as a part of that process.
 
 - The number of nodes and node types that your cluster needs 
 - The properties of each of node type (for example size, primary, internet facing, and number of VMs)

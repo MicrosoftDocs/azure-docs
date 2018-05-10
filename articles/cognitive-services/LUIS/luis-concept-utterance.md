@@ -2,20 +2,19 @@
 title: Utterances in LUIS apps in Azure | Microsoft Docs
 description: Add utterances in Language Understanding Intelligent Service (LUIS) apps.
 services: cognitive-services
-author: DeniseMak
-manager: hsalama
-
+author: v-geberr
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: cahann;v-geberr;v-demak;
+ms.author: v-geberr
 ---
 # Utterances in LUIS
 
 **Utterances** are input from the user that your app needs to interpret. To train LUIS to extract intents and entities from them, it's important to capture a variety of different inputs for each intent. Active learning, or the process of continuing to train on new utterances, is essential to machine-learned intelligence that LUIS provides.
 
-Collect phrases that you think users will say, and include utterances that mean the same thing but are constructed differently. 
+Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement. 
 
 ## How to choose varied utterances
 When you first get started by [adding example utterances][add-example-utterances] to your LUIS model, here are some principles to keep in mind.
@@ -39,15 +38,16 @@ When can I have a computer?
 The core term here, "computer", is not varied. They could say desktop computer, laptop, workstation, or even just machine. LUIS intelligently infers synonyms from context, but when you create utterances for training, it's still better to vary them.
 
 ## Example utterances in each intent
-Each intent needs to have example utterances. If you have an intent but do not have any example utterances in that intent, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not be able to give accurate predictions. 
+Each intent needs to have example utterances. If you have an intent that does not have any example utterances, you will not be able to train LUIS. If you have an intent with one or very few example utterances, LUIS will not accurately predict the intent. 
+
+## Training utterances
+Training is non-deterministic: the utterance prediction could vary slightly across versions or apps.
 
 ## Review utterances
-After your model is trained, published, and receiving endpoint queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
+After your model is trained, published, and receiving [endpoint](luis-glossary.md#endpoint) queries, [review the utterances](label-suggested-utterances.md) suggested by LUIS. LUIS selects endpoint utterances that have low scores for either the intent or entity. 
 
 ## Best practices
-Begin with 10-15 utterances per intent, but not more. Each utterance should be different enough from the other utterances in the intent that each utterance is equally informative. The **None** intent should have between 10 and 20 percent of the total utterances in the application. 
-
-In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. Train, publish, and test again. 
+See [Utterance best practices](luis-concept-best-practices.md#utterances) to learn more.
 
 ## Next steps
 See [Add example utterances][add-example-utterances] for information on training a LUIS app to understand user utterances.
