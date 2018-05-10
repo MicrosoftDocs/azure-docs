@@ -3,7 +3,7 @@ title: Reset access to an Azure Linux VM | Microsoft Docs
 description: How to manage administrative users and reset access on Linux VMs using the VMAccess Extension and the Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: danielsollondon
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,35 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/04/2017
-ms.author: danlep
+ms.date: 05/10/2018
+ms.author: danis
 
 ---
 # Manage administrative users, SSH, and check or repair disks on Linux VMs using the VMAccess Extension with the Azure CLI 2.0
+
+## Overview
+
 The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
-This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or update the SSH configuration on Linux. You can also perform these steps with the [Azure CLI 1.0](../linux/using-vmaccess-extension-nodejs.md).
+This article shows you how to use the Azure VMAccess Extension to check or repair a disk, reset user access, manage administrative user accounts, or update the SSH configuration on Linux when they are running as Azure Resource Manager virtual machines. If you need to manage Classic virtual machines - you can follow the instructions found in the [classic VM documentation](../linux/classic/reset-access-classic.md). 
 
+## Prerequisites
+
+### Operating system
+
+The VM Access extension can be run against these Linux distributions:
+
+
+| Distribution | Version |
+|---|---|
+| Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
+| Debian | Debian 7.9+, 8.2+ |
+| RedHat | RHEL 6.7+, 7.1+ |
+| Oracle Linux | 6.4+, 7.0+ |
+| Suse | 11 and 12 |
+| OpenSuse | openSUSE Leap 42.2+ |
+| CentOS | CentOS 6.3+, 7.0+ |
+| CoreOS | 494.4.0+ |
 
 ## Ways to use the VMAccess Extension
 There are two ways that you can use the VMAccess Extension on your Linux VMs:
