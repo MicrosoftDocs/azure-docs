@@ -299,7 +299,6 @@ Output from the command should appear similar to the following. The builds that 
 
 ```console
 $ az acr build-task list-builds --registry $ACR_NAME --output table
-$ az acr build-task list-builds --registry $ACR_NAME --output table
 BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
 ----------  ---------------  ----------  ---------  ----------  --------------------  ----------
 aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
