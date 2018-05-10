@@ -38,11 +38,9 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 
 2. Sign in with your user account.
 
-3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
+3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.png)
 
-![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.png)
-
-4. Use the directory switcher to link partner ID for another customer.
+4. Use the directory switcher to change directory and link partner ID for another customer.
 
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/directory-switcher.png)
 
@@ -102,12 +100,12 @@ C:\ az managementpartner show
 ``` 
 
 #### Update the linked partner ID
-```azure-cli-interactive
+```azurecli-interactive
 C:\ az managementpartner update --partner-id 12345
 ``` 
 
 #### Delete the linked partner ID
-```azure-cli-interactive
+```azurecli-interactive
 C:\ az managementpartner delete --partner-id 12345
 ``` 
 
