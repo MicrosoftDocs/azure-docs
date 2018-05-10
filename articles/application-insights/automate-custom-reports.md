@@ -39,44 +39,40 @@ You can [programmatically query Application Insights](https://dev.applicationins
 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
+```AIQL
+let period=7d;
+requests
+| where timestamp > ago(period)
+| summarize Row = 1, TotalRequests = sum(itemCount), FailedRequests = sum(toint(success == 'False')),
+    RequestsDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
+| join (
+dependencies
+| where timestamp > ago(period)
+| summarize Row = 1, TotalDependencies = sum(itemCount), FailedDependencies = sum(success == 'False'),
+    DependenciesDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
+) on Row | join (
+pageViews
+| where timestamp > ago(period)
+| summarize Row = 1, TotalViews = sum(itemCount)
+) on Row | join (
+exceptions
+| where timestamp > ago(period)
+| summarize Row = 1, TotalExceptions = sum(itemCount)
+) on Row | join (
+availabilityResults
+| where timestamp > ago(period)
+| summarize Row = 1, OverallAvailability = iff(isnan(avg(toint(success))), '------', tostring(toint(avg(toint(success)) * 10000) / 100.0)),
+    AvailabilityDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
+) on Row
+| project TotalRequests, FailedRequests, RequestsDuration, TotalDependencies, FailedDependencies, DependenciesDuration, TotalViews, TotalExceptions, OverallAvailability, AvailabilityDuration
+```
 
-
-
-    ```
-    let period=7d;
-    requests
-    | where timestamp > ago(period)
-    | summarize Row = 1, TotalRequests = sum(itemCount), FailedRequests = sum(toint(success == 'False')),
-        RequestsDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
-    | join (
-    dependencies
-    | where timestamp > ago(period)
-    | summarize Row = 1, TotalDependencies = sum(itemCount), FailedDependencies = sum(success == 'False'),
-        DependenciesDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
-    ) on Row | join (
-    pageViews
-    | where timestamp > ago(period)
-    | summarize Row = 1, TotalViews = sum(itemCount)
-    ) on Row | join (
-    exceptions
-    | where timestamp > ago(period)
-    | summarize Row = 1, TotalExceptions = sum(itemCount)
-    ) on Row | join (
-    availabilityResults
-    | where timestamp > ago(period)
-    | summarize Row = 1, OverallAvailability = iff(isnan(avg(toint(success))), '------', tostring(toint(avg(toint(success)) * 10000) / 100.0)),
-        AvailabilityDuration = iff(isnan(avg(duration)), '------', tostring(toint(avg(duration) * 100) / 100.0))
-    ) on Row
-    | project TotalRequests, FailedRequests, RequestsDuration, TotalDependencies, FailedDependencies, DependenciesDuration, TotalViews, TotalExceptions, OverallAvailability, AvailabilityDuration
-    ```
-
-
+  
 ## Next steps
 
 - Learn more about creating [Analytics queries](app-insights-analytics-using.md).
 - Learn more about [programmatically querying Application Insights data](https://dev.applicationinsights.io/)
 - Learn more about [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
-
 
 
