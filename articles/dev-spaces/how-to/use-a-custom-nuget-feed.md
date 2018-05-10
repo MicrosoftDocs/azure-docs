@@ -54,5 +54,5 @@ To set up a NuGet feed:
 
 ## Next steps
 
-Once you have completed the above steps, the next time you run `vsce up` (or hit `F5` in VSCode or Visual Studio), Azure Dev Spaces will synchronize the `NuGet.Config` file to Azure, which is then utilized by `dotnet restore` to install package dependencies in the container.
+Once you have completed the above steps, the next time you run `azds up` (or hit `F5` in VSCode or Visual Studio), Azure Dev Spaces will synchronize the `NuGet.Config` file to Azure, which is then utilized by `dotnet restore` to install package dependencies in the container.
 

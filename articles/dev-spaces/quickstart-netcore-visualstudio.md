@@ -80,7 +80,7 @@ First, you can see a folder named `charts` has been added and within this folder
 
 You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format. A `HeaderPropagation.cs` file is also created, we will discuss this file later in the walkthrough. 
 
-Lastly, you will see a file named `vsce.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
+Lastly, you will see a file named `azds.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 

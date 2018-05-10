@@ -32,7 +32,7 @@ While you're waiting for the environment to be create, you can start writing cod
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
 ### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/vsce and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `vsce/samples/nodejs/getting-started/webfrontend`.
+Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `vsce/samples/nodejs/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
 
@@ -157,7 +157,7 @@ In this section you're going to create a second service, `mywebapi`, and have `w
 ![](media/common/multi-container.png)
 
 ### Open sample code for *mywebapi*
-You should already have the sample code for `mywebapi` for this guide under a folder named `vsce/samples` (if not, go to https://github.com/Azure/vsce and select **Clone or Download** to download the GitHub repository.) The code for this section is in `vsce/samples/nodejs/getting-started/mywebapi`.
+You should already have the sample code for `mywebapi` for this guide under a folder named `vsce/samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `vsce/samples/nodejs/getting-started/mywebapi`.
 
 ### Run *mywebapi*
 1. Open the folder `mywebapi` in a *separate VS Code window*.

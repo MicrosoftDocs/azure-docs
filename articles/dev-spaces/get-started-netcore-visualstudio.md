@@ -28,6 +28,8 @@ Azure Dev Spaces requires minimal local machine setup. Most of your development 
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
+[!INCLUDE[](includes/use-dev-spaces.md)]
+
 ## Get Kubernetes Debugging Tools
 While you can use the Azure Dev Spaces CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
 
@@ -82,7 +84,7 @@ First, you can see a folder named `charts` has been added and within this folder
 
 You will see a file named `Dockerfile` has been added. This file has information needed to package your application in the standard Docker format. A `HeaderPropagation.cs` file is also created, we will discuss this file later in the walkthrough. 
 
-Lastly, you will see a file named `vsce.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
+Lastly, you will see a file named `azds.yaml`, which contains configuration information that is needed by the development environment, such as whether the application should be accessible via a public endpoint.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
@@ -99,7 +101,7 @@ In this section you're going to create a second service, `mywebapi`, and have `w
 ![](media/common/multi-container.png)
 
 ## Download sample code for *mywebapi*
-For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/vsce and select **Clone or Download** to download the GitHub repository. The code for this section is in `vsce/samples/dotnetcore/getting-started/mywebapi`.
+For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `vsce/samples/dotnetcore/getting-started/mywebapi`.
 
 ## Run *mywebapi*
 1. Open the project `mywebapi` in a *separate Visual Studio window*.

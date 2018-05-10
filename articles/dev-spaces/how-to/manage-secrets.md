@@ -4,7 +4,7 @@ author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
 ms.topic: "article"
-ms.technology: "vsce-kubernetes"
+ms.technology: "azds-kubernetes"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Container Service, containers"
 manager: "douge"
@@ -13,7 +13,7 @@ manager: "douge"
 
 Your services might require certain passwords, connection strings, and other secrets, such as for databases or other secure Azure services. By setting the values of these secrets in configuration files, you can make them available in your code as environment variables.  These must be handled with care to avoid compromising the security of the secrets.
 
-Azure Dev Spaces provides two recommended options for storing secrets: in the values.dev.yaml file, and inline directly in vsce.yaml. It's not recommended to store secrets in values.yaml.
+Azure Dev Spaces provides two recommended options for storing secrets: in the values.dev.yaml file, and inline directly in azds.yaml. It's not recommended to store secrets in values.yaml.
  
 ## Method 1: values.dev.yaml
 1. Open VS Code with your project that is enabled for Azure Dev Spaces.
@@ -46,7 +46,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 5. Update the services running in your connected nvironment with these changes. On the command line, run the command:
 
     ```
-    vsce up
+    azds up
     ```
  
 6. (Optional) From the command line, check that these secrets have been created:
@@ -59,7 +59,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
  
  
 ## Method 2: Inline directly in vsce.yaml
-1.	In _vsce.yaml_, set secrets under the yaml section configurations/develop/install. Although you can enter secret values directly there, it's not recommended because _vsce.yaml_ is checked into source control. Instead, add placeholders using the "$PLACEHOLDER" syntax.
+1.	In _azds.yaml_, set secrets under the yaml section configurations/develop/install. Although you can enter secret values directly there, it's not recommended because _azds.yaml_ is checked into source control. Instead, add placeholders using the "$PLACEHOLDER" syntax.
 
     ```yaml
     configurations:
@@ -74,7 +74,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
                 key: "$REDIS_KEY_DEV"
     ```
      
-2.	Create a _.env_ file in the same folder as _vsce.yaml_. Enter secrets using standard key=value notation. Don’t commit the _.env_ file to source control. (To omit from source control in git-based version control systems, add it to the _.gitignore_ file.) The following example shows an _.env_ file:
+2.	Create a _.env_ file in the same folder as _azds.yaml_. Enter secrets using standard key=value notation. Don’t commit the _.env_ file to source control. (To omit from source control in git-based version control systems, add it to the _.gitignore_ file.) The following example shows an _.env_ file:
 
     ```
     REDIS_PORT_DEV=3333
@@ -92,7 +92,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 3.	Update the services running in your connected nvironment with these changes. On the command line, run the command:
 
     ```
-    vsce up
+    azds up
     ```
 
 4.	(optional) View secrets from kubectl:
