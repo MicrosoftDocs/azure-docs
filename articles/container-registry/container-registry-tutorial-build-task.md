@@ -2,7 +2,7 @@
 title: Tutorial - Automate container image builds with Azure Container Registry Build
 description: In this tutorial, you learn how to configure a build task to automatically trigger container image builds in the cloud when you commit source code to a Git repository.
 services: container-registry
-author: gituser
+author: mmacy
 manager: jeconnoc
 
 ms.service: container-registry
