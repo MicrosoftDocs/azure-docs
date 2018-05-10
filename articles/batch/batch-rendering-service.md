@@ -49,7 +49,7 @@ To use the Batch Rendering service, you need:
 
 - [Azure account](https://azure.microsoft.com/free/).
 - **Azure Batch account.** For guidance on creating a Batch account in the Azure portal, see [Create a Batch account with the Azure portal](batch-account-create-portal.md).
-- **An Azure Storage account.** The assets used for your rendering job are typically stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account).
+- **Azure Storage account.** The assets used for your rendering job are typically stored in Azure Storage. You can create a storage account automatically when you set up your Batch account. You can also use an existing storage account. For storage account options in Batch, see the [Batch feature overview](batch-api-basics.md#azure-storage-account).
 - **Environment variables.** If your solution modifies environment variables, make sure that the values of `AZ_BATCH_ACCOUNT_URL` and `AZ_BATCH_SOFTWARE_ENTITLEMENT_TOKEN` are kept intact and present when any of the licensed applications above is called. Otherwise, you are likely to encounter software activation issues.
 - **BatchLabs** (optional). [BatchLabs](https://azure.github.io/BatchLabs) is a free, rich-featured, standalone client tool to help create, debug, and monitor Azure Batch applications. While not required to use the Rendering service, it is a useful option to develop and debug your Batch solutions.
 
