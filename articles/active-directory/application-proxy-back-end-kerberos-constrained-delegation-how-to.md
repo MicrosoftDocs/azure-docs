@@ -66,13 +66,13 @@ all which bear the same symptom of failing to perform SSO, and consequently deny
 
 ## Troubleshooting
 
-How you then troubleshoot depend on the issue and observed symptoms. Before going any further, explore the following links, as they contain useful information you may not yet have come across:
+How you troubleshoot depends on the issue and observed symptoms. Before going any further, explore the following links, as they contain useful information you may not yet have come across:
 
 -   [Troubleshoot Application Proxy problems and error messages](active-directory-application-proxy-troubleshoot.md)
 
 -   [Kerberos errors and symptoms](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Working with SSO when on-premises and cloud identities are not identical](active-directory-application-proxy-sso-using-kcd.md#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Working with SSO when on-premises and cloud identities are not identical](active-directory-application-proxy-sso-using-kcd.md#working-with- different-on-premises-and-cloud-identities)
 
 If you’ve got this far, then the main issue definitely exists. Start by separating the flow into three distinct stages that you can troubleshoot.
 
