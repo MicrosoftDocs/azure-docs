@@ -35,7 +35,6 @@ Azure Stack has three basic roles that you can apply to all resource types:
 * **Owner** can manage everything, including access to resources.
 * **Contributor** can manage everything except access to resources.
 * **Reader** can view everything, but can’t make any changes.
-
 ### Resource hierarchy and inheritance
 
 Azure Stack has the following resource hierarchy:
