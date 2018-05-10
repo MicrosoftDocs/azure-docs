@@ -188,7 +188,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	echo "Not able to find the matched application with this service principal"
 	}
 	```
-8. After successfull completion of powershell script, if you need to check the auto populated **Identifier** and **Reply** URL values. Check **Show advanced URL settings** under **Sansan Domain and URLs** section in Azure portal.
+8. After successfull completion of powershell script, if you need to check the auto populated **Identifier** and **Reply** URL values, check **Show advanced URL settings** under **Sansan Domain and URLs** section in Azure portal.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url1.png)
 
