@@ -85,7 +85,7 @@ This article walks you through the steps required to configure throughput at dif
 
    ![Optionally set throughput for the container](./media/set-throughput/optionally-set-throughput-for-the-container.png)
 
-## Considerations when provisioning throughput at database level and at a container level
+## Considerations when provisioning throughput
 
 Below are some considerations that help you decide on a throughput reservation strategy.
 
