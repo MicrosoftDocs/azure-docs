@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -206,12 +206,12 @@ The objective of this section is to create a test user in the Azure portal calle
 
 	c. Select **Show Password** and write down the value of the **Password**.
 
-    d. Click **Create**. 
+    d. Click **Create**.
 
 ### Creating a LinkedIn Learning test user
 
-Linked Learning Application supports. Just in time user provisioning and after authentication users are created in the application automatically. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
-   
+Linked Learning Application supports. Just in time user provisioning and after authentication users are created in the application automatically. You can find more details [here](active-directory-saas-linkedinlearning-provisioning-tutorial.md) on how to configure automatic user provisioning. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
+
    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### Assigning the Azure AD test user
@@ -224,15 +224,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **LinkedIn Learning**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -243,7 +243,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
