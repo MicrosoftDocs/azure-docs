@@ -74,9 +74,7 @@ Perform the following series of steps to configure your Operations Manager manag
 If this is the first time your Operations Manager management group is registering with a Log Analytics workspace and the management servers need to communicate to the service through a proxy or OMS Gateway server, the option to specify the proxy configuration for the management group is not available in the Operations console.  The management group has to be successfully registered with the service before this option is available.  You need to update the system proxy configuration using Netsh on the system your running the Operations console from to configure integration, and all management servers in the management group.  
 
 1. Open an elevated command-prompt.
-   a. Go to **Start** and type **cmd**.
-   b. Right-click **Command prompt** and select Run as administrator**.
-2. Enter the following command and press **Enter**:
+1. Enter the following command and press **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -196,9 +194,9 @@ Management packs for the solutions you have enabled that integrate with Operatio
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-7. In the OMS portal, click the **Settings** tile.
-8. Select **Connected Sources**.
-9. In the table under the System Center Operations Manager section, you should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
+1. Open the **Advanced settings** menu for the Log Analytics workspace in the Azure portal.
+1. Select **Connected Sources** and then **System Center**.
+1. You should see the name of the management group you want to remove from the workspace.  Under the column **Last Data**, click **Remove**.  
    
     > [!NOTE]
     > The **Remove** link will not be available until after 14 days if there is no activity detected from the connected management group.  

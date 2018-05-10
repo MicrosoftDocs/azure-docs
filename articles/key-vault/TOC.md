@@ -65,7 +65,7 @@
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 ## [About Keys, Secrets and Certificates](about-keys-secrets-and-certificates.md)
 ### [Get started with certificates](certificate-scenarios.md)
-#### [Certificate creation methods](create-a-certificate.md)
+#### [Certificate creation methods](create-certificate.md)
 #### [Monitor and manage certificate creation](create-certificate-scenarios.md)
 ## [Authentication, Requests and Responses](authentication-requests-and-responses.md)
 ## [Common parameters and headers](common-parameters-and-headers.md)

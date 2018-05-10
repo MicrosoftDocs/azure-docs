@@ -1,10 +1,10 @@
 - name: CDN Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Azure CDN?
     href: cdn-overview.md
-  - name: Azure CDN product features
+  - name: Compare product features
     href: cdn-features.md    
 - name: Quickstarts
   items:
