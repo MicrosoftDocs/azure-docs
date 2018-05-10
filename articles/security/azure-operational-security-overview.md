@@ -96,49 +96,54 @@ Performance issues in your cloud app can affect your business. With multiple int
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention. It includes the following components.
 
 ### Azure Activity Log
-It is a log that provides insight into the operations that were performed on resources in your subscription. The [Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) was previously known as “Audit Logs” or “Operational Logs,” since it reports control-plane events for your subscriptions.
+The [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provides insight into the operations that were performed on resources in your subscription. It was previously known as “Audit Log” or “Operational Log,” because it reports control-plane events for your subscriptions.
 
-### Azure Diagnostic Logs
-[Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
+### Azure diagnostic logs
+[Azure diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) are emitted by a resource and provide rich, frequent data about the operation of that resource. The content of these logs varies by resource type.
 
-For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
+For example, Windows event system logs are one category of diagnostic log for VMs. Blob, table, and queue logs are categories of diagnostic logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostic logs differ from the [Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostic logs provide insight into operations that your resource performed itself.
 
 ### Metrics
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) for monitoring and troubleshooting.
+Azure Monitor provides telemetry that you can consume to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the [metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
 ### Azure Diagnostics
-It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
+Azure Diagnostics enables the collection of diagnostic data on a deployed application. You can use the Diagnostics extension from various sources. Currently supported are [Azure cloud service web and worker roles](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure virtual machines](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) running Microsoft Windows, and [Azure Service Fabric](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics).
 
 
-## Network Watcher
-Customers build an end-to-end network in Azure by orchestrating and composing various individual network resources such as VNet, ExpressRoute, Application Gateway, Load balancers, and more. Monitoring is available on each of the network resources.
+## Azure Network Watcher
+Customers build an end-to-end network in Azure by orchestrating and composing various individual network resources such as virtual networks, Azure ExpressRoute, Azure Application Gateway, and load balancers. Monitoring is available on each of the network resources.
 
-The end to end network can have complex configurations and interactions between resources, creating complex scenarios that need scenario-based monitoring through Network Watcher.
+The end-to-end network can have complex configurations and interactions between resources, creating complex scenarios that need scenario-based monitoring through [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview).
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) will simplifies monitoring and diagnosing of your Azure network. Diagnostic and visualization tools available with Network Watcher enable you to take remote packet captures on an Azure Virtual Machine, gain insights into your network traffic using flow logs, and diagnose VPN Gateway and Connections.
+Network Watcher simplifies monitoring and diagnosing of your Azure network. You can use the diagnostic and visualization tools in Network Watcher to:
+- Take remote packet captures on an Azure virtual machine.
+- Gain insights into your network traffic by using flow logs.
+- Diagnose Azure VPN Gateway and connections.
 
 Network Watcher currently has the following capabilities:
 
-- [Topology](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) - Provides a network level view showing the various interconnections and associations between network resources in a resource group.
--	[Variable Packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) - Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls such as being able to set time and size limitations provide versatility. The packet data can be stored in a blob store or on the local disk in .cap format.
--	[IP flows verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) - Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
--	[Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) - Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
--	[Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) - Gets the effective and applied security rules that are applied on a VM.
--	[NSG Flow logging](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) - Flow logs for Network Security Groups enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information – Source IP, Destination IP, Source Port, Destination Port, and Protocol.
--	[Virtual Network Gateway and Connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) - Provides the ability to troubleshoot Virtual Network Gateways and Connections.
--	[Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) - Enables you to view network resource usage against limits.
--	[Configuring Diagnostics Log](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) – Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
+- [Topology](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview): Provides a network level view showing the various interconnections and associations between network resources in a resource group.
+-	[Variable Packet capture](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview): Captures packet data in and out of a virtual machine. Advanced filtering options and fine-tuned controls such as being able to set time and size limitations provide versatility. The packet data can be stored in a blob store or on the local disk in .cap format.
+-	[IP flows verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview): Checks if a packet is allowed or denied based on flow information 5-tuple packet parameters (Destination IP, Source IP, Destination Port, Source Port, and Protocol). If the packet is denied by a security group, the rule and group that denied the packet is returned.
+-	[Next hop](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview): Determines the next hop for packets being routed in the Azure Network Fabric, enabling you to diagnose any misconfigured user-defined routes.
+-	[Security group view](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview): Gets the effective and applied security rules that are applied on a VM.
+-	[NSG flow logs for network security groups](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview): Enable you to capture logs related to traffic that are allowed or denied by the security rules in the group. The flow is defined by a 5-tuple information: Source IP, Destination IP, Source Port, Destination Port, and Protocol.
+-	[Virtual Network Gateway and Connection troubleshooting](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Provides the ability to troubleshoot Virtual Network Gateways and Connections.
+-	[Network subscription limits](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Enables you to view network resource usage against limits.
+-	[Configuring Diagnostics Log](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Provides a single pane to enable or disable Diagnostics logs for network resources in a resource group.
 
-To learn more how to configure network watcher see, [configure network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+To learn more how to configure network watcher, see [Configure network watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
-## Developer Operations (DevOps)
-Prior to DevOps application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tests the program in an isolated development environment, if requirements were met, and releases the code for operations to deploy. The deployment teams are further fragmented into siloed groups like networking and database. Each time a software program is “thrown over the wall” to an independent team it adds bottlenecks.
+## DevOps
+Prior to [Developer Operations (DevOps)](https://www.visualstudio.com/learn/what-is-devops/) application development, teams were in charge of gathering business requirements for a software program and writing code. Then a separate QA team tests the program in an isolated development environment, if requirements were met, and releases the code for operations to deploy. The deployment teams are further fragmented into siloed groups like networking and database. Each time a software program is “thrown over the wall” to an independent team it adds bottlenecks.
 
-[DevOps](https://www.visualstudio.com/learn/what-is-devops/) enables teams to deliver more secure, higher-quality solutions faster, and cheaper. Customers expect a dynamic and reliable experience when consuming software and services.  Teams must rapidly iterate on software updates, measure the impact of the updates, and respond quickly with new development iterations to address issues or provide more value.  Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
+DevOps enables teams to deliver more secure, higher-quality solutions faster, and cheaper. Customers expect a dynamic and reliable experience when consuming software and services.  Teams must rapidly iterate on software updates, measure the impact of the updates, and respond quickly with new development iterations to address issues or provide more value.  
 
-Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios.  Tooling can help automate the various practices:
+Cloud platforms such as Microsoft Azure have removed traditional bottlenecks and helped commoditize infrastructure. Software reigns in every business as the key differentiator and factor in business outcomes. No organization, developer, or IT worker can or should avoid the DevOps movement.
+
+Mature DevOps practitioners adopt several of the following practices. These practices [involve people](https://www.visualstudio.com/learn/what-is-devops-culture/) to form strategies based on the business scenarios. Tooling can help automate the various practices.
 
 -	[Agile planning and project management](https://www.visualstudio.com/learn/what-is-agile/) techniques are used to plan and isolate work into sprints, manage team capacity, and help teams quickly adapt to changing business needs.
 -	[Version control, usually with Git](https://www.visualstudio.com/learn/what-is-git/), enables teams located anywhere in the world to share source and integrate with software development tools to automate the release pipeline.
@@ -149,7 +154,7 @@ Mature DevOps practitioners adopt several of the following practices. These prac
 -	[Microservices](https://www.visualstudio.com/learn/what-are-microservices/) architecture is leveraged to isolate business use cases into small reusable services.  This architecture enables scalability and efficiency.
 
 ## Next steps
-To learn more about Operations Management Suite Security and Audit solution, see the following articles:
+To learn more about the Operations Management Suite security and audit solution, see the following articles:
 
 - [Operations Management Suite | Security & Compliance](https://www.microsoft.com/cloud-platform/security-and-compliance).
 - [Monitoring and Responding to Security Alerts in Operations Management Suite Security and Audit Solution](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts).
