@@ -7,13 +7,12 @@ author: brenduns
 manager: femila
 editor: ''
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: thoroet
 ---
@@ -21,7 +20,6 @@ ms.reviewer: thoroet
 # Download marketplace items from Azure to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
 
 As you decide what content to include in your Azure Stack marketplace, you should consider the content available from the Azure marketplace. You can download from a curated list of Azure marketplace items that have been pre-tested to run on Azure Stack. New items are frequently added to this list, so make sure to check back for new content.
 

@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
 
@@ -34,8 +34,9 @@ On Azure Stack, virtual machine scale sets don't support auto-scale. You can add
    Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md).
 
    After you install the Azure Stack tools, make sure you import the following PowerShell module (path relative to the .\ComputeAdmin folder in the AzureStack-Tools-master folder):
-
+  ````PowerShell
         Import-Module .\AzureStack.ComputeAdmin.psm1
+  ````
 
 * **Operating system image**
 
@@ -50,7 +51,7 @@ Edit the following PowerShell script for your environment and then run it to add
 
 ``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
 
-```
+````PowerShell  
 $Arm = "https://adminmanagement.local.azurestack.external"
 $Location = "local"
 
@@ -68,7 +69,7 @@ $AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
 Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
-```
+````
 
 ## Update images in a virtual machine scale set 
 After you create a virtual machine scale set, users can update images in the scale set without the scale set having to be recreated. The process to update an image depends on the following scenarios:
@@ -79,12 +80,14 @@ After you create a virtual machine scale set, users can update images in the sca
 
    The following is an example of specifying *latest*:  
 
-          "imageReference": {
-             "publisher": "[parameters('osImagePublisher')]",
-             "offer": "[parameters('osImageOffer')]",
-             "sku": "[parameters('osImageSku')]",
-             "version": "latest"
-             }
+    ```Json  
+    "imageReference": {
+        "publisher": "[parameters('osImagePublisher')]",
+        "offer": "[parameters('osImageOffer')]",
+        "sku": "[parameters('osImageSku')]",
+        "version": "latest"
+        }
+    ```
 
    Before scale up can use a new image, you must download that new image:  
 
@@ -106,12 +109,12 @@ For more information, see [operating system disks and images](.\user\azure-stack
 
 To remove a virtual machine scale set gallery item, run the following PowerShell command:
 
+```PowerShell  
     Remove-AzsVMSSGalleryItem
+````
 
 > [!NOTE]
 > The gallery item may not be removed immediately. You night need to refresh the portal several times before the item shows as removed from the Marketplace.
 
-
 ## Next steps
 [Frequently asked questions for Azure Stack](azure-stack-faq.md)
-

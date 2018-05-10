@@ -7,13 +7,12 @@ author: jeffgilb
 manager: femila
 editor: ''
 
-ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 05/10/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
 
@@ -22,7 +21,7 @@ ms.reviewer: thoroet
 
 For external monitoring of the Azure Stack infrastructure, you need to monitor the Azure Stack software, the physical computers, and the physical network switches. Each of these areas offers a method to retrieve health and alert information:
 
-- Azure Stack software offers a REST-based API to retrieve health and alerts. (With the use of software-defined technologies like Storage Spaces Direct, storage health and alerts are part of software monitoring.).
+- Azure Stack software offers a REST-based API to retrieve health and alerts. The use of software-defined technologies such as Storage Spaces Direct, storage health and alerts are part of software monitoring.
 - Physical computers can make health and alert information available via the baseboard management controllers (BMCs).
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
@@ -93,7 +92,7 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
-   ```PowerShell
+   ```PowerShell  
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"

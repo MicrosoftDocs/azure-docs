@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 04/20/2018 
+ms.date: 05/10/2018 
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 
@@ -29,14 +29,14 @@ by:
    https://adminportal.local.azurestack.external.
 2. Sign in to the Azure Stack administration portal as a cloud operator (using the
    credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore, for example **(local**).
+3. On the default dashboard – find the **Region management** list and select the region you want to explore, for example **(local**).
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
 4. Select **Storage** from the **Resource Providers** list.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
 5. Now, on the storage Resource Provider administrator pane – scroll down to
-   the **Storage accounts** tab and click it.
+   the **Storage accounts** tab and select it.
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
@@ -55,14 +55,14 @@ and fetch the relevant accounts** only.
 
 **To filter for accounts:**
 
-1. Click **Filter** at the top of the pane.
+1. Select **Filter** at the top of the pane.
 2. On the Filter pane, it allows you to specify **account name**,
     **subscription ID, or **status** to fine-tune the list of storage
     accounts to be displayed. Use them as appropriate.
-3. Click **Update**. The list should refresh accordingly.
+3. Select **Update**. The list should refresh accordingly.
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. To reset the filter: click **Filter**, clear out the
+4. To reset the filter: select **Filter**, clear out the
     selections and update.
 
 The search text box (on the top of the storage accounts list pane) lets
@@ -76,7 +76,7 @@ in.
 
 ## Look at account details
 Once you have located the accounts you are interested in viewing, you
-can click the particular account to view certain details. A new pane
+can select the particular account to view certain details. A new pane
 opens with the account details such as: the type of the account,
 creation time, location, etc.
 
@@ -91,14 +91,14 @@ In Azure Stack there is a simple way to do that:
 1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
 2. Locate that particular account in the list. You may need to filter.
 3. Check the *state* of the account. It should say **Deleted**.
-4. Click the account, which opens the account details pane.
-5. On top of this pane, locate the **Recover** button and click it.
-6. Click **Yes** to confirm.
+4. Select the account, which opens the account details pane.
+5. On top of this pane, locate the **Recover** button and select it.
+6. Select **Yes** to confirm.
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. The recovery is now in *process…wait* for an indication that it was
    successful.
-   You can also click the “bell” icon at the top of the portal to
+   You can also select the “bell” icon at the top of the portal to
    view progress indications.
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -129,10 +129,10 @@ collection.
    https://adminportal.local.azurestack.external.
 2. Sign in to the Azure Stack administration portal as a cloud operator (using the
    credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
+3. On the default dashboard – find the **Region management** list and select the region you want to explore – for example **(local**).
 4. Select **Storage** from the **Resource Providers** list.
-5. Click **Settings** at the top to open the setting pane.
-6. Click **Configuration** then edit the retention period value.
+5. Select **Settings** at the top to open the setting pane.
+6. Select **Configuration** then edit the retention period value.
 
    Set the number of days and then save it.
    
@@ -148,8 +148,8 @@ You can reclaim capacity using either the portal or PowerShell.
 
 **To reclaim capacity using the portal:**
 1. Navigate to the storage accounts pane. See [Find a storage account](#find).
-2. Click **Reclaim space** at the top of the pane.
-3. Read the message and then click **OK**.
+2. Select **Reclaim space** at the top of the pane.
+3. Read the message and then select **OK**.
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. Wait for success notification See the bell icon on the portal.

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/09/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 
@@ -69,8 +69,6 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 3. Click **Delete**.
 
-
-
 ## Add a VM image to the Marketplace by using PowerShell
 
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).  
@@ -87,6 +85,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
       -OSType "<ostype>" `
       -OSUri "<osuri>"
   ````
+
   The **Add-AzsPlatformimage** cmdlet specifies values used by the Azure Resource Manager templates to reference the VM image. The values include:
   - **publisher**  
     For example: `Canonical`  
@@ -132,45 +131,41 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
       -TenantId $TenantID
   ```
 
-   * **Active Directory Federation Services**. Use the following cmdlet:
-
-        ```PowerShell
-        # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
-        $ArmEndpoint = "<Resource Manager endpoint for your environment>"
-
-        # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-        $GraphAudience = "<GraphAuidence endpoint for your environment>"
-
-        # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-        Add-AzureRMEnvironment `
-          -Name "AzureStackAdmin" `
-          -ArmEndpoint $ArmEndpoint
-
-2. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).
-
-3. Create a storage account in global Azure or Azure Stack to store your custom VM image. For instructions see [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
-
-4. Prepare a Windows or Linux operating system image in VHD format (not VHDX), upload the image to your storage account, and get the URI where the VM image can be retrieved by PowerShell.
+2. If using **Active Directory Federation Services**, use the following cmdlet:
 
   ```PowerShell
+  # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+  $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+  # For Azure Stack Development Kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+  $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+  # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
+  Add-AzureRMEnvironment `
+    -Name "AzureStackAdmin" `
+    -ArmEndpoint $ArmEndpoint
+    ```
+
+3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).
+
+4. Create a storage account in global Azure or Azure Stack to store your custom VM image. For instructions see [Quickstart: Upload, download, and list blobs using the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+5. Prepare a Windows or Linux operating system image in VHD format (not VHDX), upload the image to your storage account, and get the URI where the VM image can be retrieved by PowerShell.  
+
+  ````PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ```
+  ````
 
-5. (Optionally) You can upload an array of data disks as part of the VM image. Create your data disks using the New-DataDiskObject cmdlet. Open PowerShell from an elevated prompt, and run:
+6. (Optionally) You can upload an array of data disks as part of the VM image. Create your data disks using the New-DataDiskObject cmdlet. Open PowerShell from an elevated prompt, and run:
 
   ````PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
   ````
 
-<!-- How is this associated with the VM image?
-
-  note from the call: $datadisk = New-DataDiskObject -Lun 2 -Uri ““https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd” 
-Add-AzsPlatformimage -Publisher "Canonical" -Offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0” -OSType "Linux" -OSUri “https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd”  -datadisks $datadisk -->
-
-6. Open PowerShell with an elevated prompt, and run:
+7. Open PowerShell with an elevated prompt, and run:
 
   ````PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"

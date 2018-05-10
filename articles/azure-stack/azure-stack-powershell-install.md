@@ -7,13 +7,12 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 0CDD8B9B-EC32-4453-918A-D0A606C7BC10
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 5/08/2018
+ms.date: 5/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -32,7 +31,7 @@ This article has detailed instructions to install PowerShell for Azure Stack.
 PowerShell commands for Azure Stack are installed through the PowerShell Gallery. You can use the following procedure to validate if PSGallery is registered as a repository, open an elevated PowerShell session and run the following command:
 
 ```PowerShell  
-Get-PSRepository -Name "PSGallery" 
+Get-PSRepository -Name "PSGallery"
 ```
 
 If the repository is not registered, open an elevated PowerShell session and run the following command:
@@ -50,10 +49,9 @@ Before installing the required version, make sure that you uninstall any previou
  - To uninstall the existing PowerShell modules, close all the active PowerShell sessions and run the following command:
 
   ```PowerShell
-    Get-Module AzureRm.AzureStackAdmin | Remove-Module -Force
-    Get-Module AzureRm.AzureStackAdmin | Uninstall-Module -Force
-    Get-Module AzureRm.AzureStackStorage | Remove-Module -Force
-    Get-Module AzureRm.AzureStackStorage | Uninstall-Module -Force
+    Uninstall-Module AzureRM.AzureStackAdmin -Force
+    Uninstall-Module AzureRM.AzureStackStorage -Force
+    Uninstall-Module -Name AzureStack -Force
   ```
 
  - Delete all the folders that start with "Azure" from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\AzureStackAdmin\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
