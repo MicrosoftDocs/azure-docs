@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: 
 
@@ -46,8 +46,8 @@ Azure Stack has the following resource hierarchy:
 
 Access that you grant at a parent scope is inherited at child scopes. For example:
 
-* You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
-* You assign the Contributor role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
+* You assign the **Reade** role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
+* You assign the **Contributor** role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
 ### Assigning roles
 
@@ -64,7 +64,7 @@ The following steps describe how to configure permissions for a user.
 
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the left navigation pane, choose **Resource groups**.
-3. Choose the name of the resource group that you want to set permissions for.
+3. Choose the name of the resource group that you want to set permissions on.
 4. In the resource group navigation pane, choose **Access control (IAM)**. The **Access control** view lists the Items that have access to the resource group. You can filter these results, and use a menu bar to Add or Remove permissions.
 5. On the **Access control** menu bar, choose **+ Add**.
 6. On **Add permissions**:
