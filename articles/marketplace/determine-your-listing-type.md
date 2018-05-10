@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
-title: Determine Your Listing Type 
-=======
 title: Determine Your Listing Type in Azure Marketplace
->>>>>>> 7405a68e3cdb2928b6a168146f07b6aad9a3a9ac
 description: This article describes the eligibility criteria and publishing requirements partners trying to understand how to publish apps to the Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
@@ -22,9 +18,6 @@ ms.author: ellacroi
 
 ---
 
-<<<<<<< HEAD
-# Determine your Listing Type
-=======
 # Determine the Listing Type Right for Your Offer
 
 Each storefront supports multiple publishing options and offer types. Select an offer type that best represents your application and service details. All publishing options will give partners access to lead sharing. 
@@ -120,4 +113,3 @@ For AppSource apps that extend Office, Dynamics, and Power BI, you can learn mor
 |Power BI   |     Review the [publishing process and guidelines]( https://docs.microsoft.com/power-bi/developer/office-store).    |
 |Cortana Intelligence     |    Learn about [Cortana in AppSource](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
 |AppSource Consulting Offers     |  Review the [guidelines and learn how to submit your offer](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
->>>>>>> 7405a68e3cdb2928b6a168146f07b6aad9a3a9ac
