@@ -15,7 +15,7 @@ ms.reviewer: sahenry, richagi
 
 #Customer intent: As an Azure AD Administrator, I want to protect user authentication to make the sign-in process safe.
 ---
-# What features of Azure Active Directory can I use to protect user authentication
+# How can Azure Active Directory help my organization protect user authentication?
 
 Microsoft Azure Active Directory (Azure AD) includes features like Azure Multi-Factor Authentication (Azure MFA) and Azure AD self-service password reset (SSPR) to help administrators protect user authentication.
 
