@@ -24,7 +24,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Guest user:** Your customer can add you as a guest user and assign any RBAC roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
 
-- **Directory account:**  Your customer can create a new user from your organization in their directory and assign any RBAC role. 
+- **Directory account:**  Your customer can create a new user from your organization in their directory and assign any RBAC role.
 
 - **Service principal:**  Your customer can add an app or script from your organization in their directory and assign any RBAC role. The identity of the app or script is known as service principal.
 
@@ -32,7 +32,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID for each customer tenant.
 
-### Use Azure Portal to link new partner ID
+### Use Azure portal to link new partner ID
 
 1. Go to [link to a partner ID](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
 
