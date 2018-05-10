@@ -171,16 +171,17 @@ The following steps describe how to use *CMake* to build your client application
     add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
 
     target_link_libraries(sample_app
-        serializer
-        iothub_client
-        iothub_client_mqtt_transport
-        aziotsharedutil
-        umqtt
-        pthread
-        curl
-        ssl
-        crypto
-        m
+      serializer
+      iothub_client_mqtt_transport
+      umqtt
+      iothub_client
+      aziotsharedutil
+      parson
+      pthread
+      curl
+      ssl
+      crypto
+      m
     )
     ```
 
