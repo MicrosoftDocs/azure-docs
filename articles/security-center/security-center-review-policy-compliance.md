@@ -76,7 +76,7 @@ Each item in **value** represents a recommendation:
 | **creationTimeUtc** | Date and time, in UTC, showing when the recommendation was created. |
 | **lastStateChange** | Date and time, in UTV, of the last state change, if any. |
 | **securityTaskParameters** | Details the recommendation; properties vary according to the underlying recommendation. | 
-
+  
 For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
 
 
