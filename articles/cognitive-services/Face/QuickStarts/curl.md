@@ -15,7 +15,7 @@ ms.author: nolachar
 
 In this quickstart, you detect faces in an image using Face API.
 
-You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/en-us/try/cognitive-services/?api=face-api).
+You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
 
 ## Face detect request
 
