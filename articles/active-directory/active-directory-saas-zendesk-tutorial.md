@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -111,8 +111,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier** textbox, type the value using the following pattern: `<subdomain>.zendesk.com`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. 
- 
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values.
+
 4. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
 
     ![The Certificate download link](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png)
@@ -132,9 +132,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	c. From the **Value** list, type the attribute value shown for that row.
 	
 	d. Click **Ok**.
- 
-    > [!NOTE] 
-    > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.  
+
+    > [!NOTE]
+    > You use extension attributes to add attributes that are not in Azure AD by default. Click [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) to get the complete list of SAML attributes that **Zendesk** accepts.
 
 6. Click **Save** button.
 
@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 10. In the left navigation pane, click **Settings**, and then click **Security**.
 
 11. On the **Security** page, perform the following steps: 
-   
+
      ![Security](./media/active-directory-saas-zendesk-tutorial/ic773089.png "Security")
 
     ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/ic773090.png "Single sign-on")
@@ -163,9 +163,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
      c. In **SAML SSO URL** textbox, paste the value of **SAML Single Sign-On Service URL** which you have copied from Azure portal. 
 
      d. In **Remote Logout URL** textbox, paste the value of **Sign-Out URL** which you have copied from Azure portal.
-        
+
      e. In **Certificate Fingerprint** textbox, paste the **Thumbprint** value of certificate which you have copied from Azure portal.
-     
+
      f. Click **Save**.
 
 ### Create an Azure AD test user
@@ -202,12 +202,17 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Zendesk test user
 
-To enable Azure AD users to log into **Zendesk**, they must be provisioned into **Zendesk**.  
+The objective of this section is to create a user called Britta Simon in Zendesk. Zendesk supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-zendesk-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
+
+To enable Azure AD users to log into **Zendesk**, they must be provisioned into **Zendesk**.
 Depending on the role assigned in the apps, it's the expected behavior:
 
  1. **End-user** accounts are automatically provisioned when signing in.
+
  2. **Agent** and **Admin** accounts need to be manually provisioned in **Zendesk** before signing in.
- 
+
 **To provision a user account, perform the following steps:**
 
 1. Log in to your **Zendesk** tenant.
@@ -215,30 +220,30 @@ Depending on the role assigned in the apps, it's the expected behavior:
 2. Select the **Customer List** tab.
 
 3. Select the **User** tab, and click **Add**.
-   
+
     ![Add user](./media/active-directory-saas-zendesk-tutorial/ic773632.png "Add user")
 4. Type the **Name** and **Email** of an existing Azure AD account you want to provision, and then click **Save**.
-   
+
     ![New user](./media/active-directory-saas-zendesk-tutorial/ic773633.png "New user")
 
 > [!NOTE]
-> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts. For more details you can visit [here](active-directory-saas-zendesk-provisioning-tutorial.md)
+> You can use any other Zendesk user account creation tools or APIs provided by Zendesk to provision AAD user accounts.
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Zendesk.
 
-![Assign the user role][200] 
+![Assign the user role][200]
 
 **To assign Britta Simon to Zendesk, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **Zendesk**.
 
-	![The Zendesk link in the Applications list](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)  
+	![The Zendesk link in the Applications list](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -253,13 +258,13 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Zendesk tile in the Access Panel, you should get automatically signed-on to your Zendesk application.
-For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
+For more information about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 
 ## Additional resources
 
