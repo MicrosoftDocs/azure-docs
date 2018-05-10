@@ -33,7 +33,7 @@ Running an existing application in a Windows container on a Service Fabric clust
 
 * A Windows cluster with three or more nodes running on Windows Server with Containers. 
 
-  For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatiblity](#windows-server-container-os-and host-os-compatiblity). 
+  For this article, the version (build) of Windows Server with Containers running on your cluster nodes must match that on your development machine. This is because you build the docker image on your development machine and there are compatibility constraints between versions of the container OS and the host OS on which it is deployed. For more information, see [Windows Server container OS and host OS compatibility](#windows-server-container-os-and-host-os-compatibility). 
   
   To determine the version of Windows Server with Containers you need for your cluster, run the `ver` command from a Windows command prompt on your development machine:
 
@@ -391,7 +391,7 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## Windows Server container OS and host OS compatiblity
+## Windows Server container OS and host OS compatibility
 
 Windows Server containers are not compatible across all versions of a host OS. For example:
  
@@ -409,8 +409,8 @@ Consider the compatibility of the host OS and your container OS when building an
 
 We recommend the following practices to make sure that containers are deployed correctly on your Service Fabric cluster:
 
-- Use explicit image tagging with your Docker images to specify the version of Windows OS that a container is built from. 
-- Use [OS tagging](#specify-os-build-specific-container-images) in your application manifest file to make sure that your application is compatible across different OS versions and upgrades.
+- Use explicit image tagging with your Docker images to specify the version of Windows Server OS that a container is built from. 
+- Use [OS tagging](#specify-os-build-specific-container-images) in your application manifest file to make sure that your application is compatible across different Windows Server versions and upgrades.
  
 ## Specify OS build specific container images 
 
