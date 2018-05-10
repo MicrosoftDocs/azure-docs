@@ -3,8 +3,8 @@ title: Face API Java quickstart | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you detect faces from an image using the Face API with Java in Cognitive Services.
 services: cognitive-services
-author: nolachar
-manager: andyh
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
@@ -227,4 +227,4 @@ A successful response is returned in JSON.
 ```
 
 > [!div class="nextstepaction"]
-> [Tutorial: Getting Started with Face API in Android](../Tutorials/FaceAPIinForAndroidTutorial.md)
+> [Tutorial: Getting Started with Face API in Android](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

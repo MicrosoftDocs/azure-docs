@@ -3,8 +3,8 @@ title: Face API C# quickstart | Microsoft Docs
 titleSuffix: "Microsoft Cognitive Services"
 description: In this quickstart, you detect faces from an image using the Face API with C# in Cognitive Services.
 services: cognitive-services
-author: nolachar
-manager: andyh
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
