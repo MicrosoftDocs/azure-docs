@@ -1,5 +1,5 @@
 ---
-title: Automate Custom Reports with Azure Application Insights Data.
+title: Automate custom reports with Azure Application Insights data
 description: Automate custom daily/weekly/monthly reports with Azure Application Insights data 
 services: application-insights
 documentationcenter: ''
@@ -35,9 +35,11 @@ You can [programmatically query Application Insights](https://dev.applicationins
 
 * [Automate reports with Microsoft Flow](app-insights-automate-with-flow.md)
 * [Automate reports with Logic Apps](automate-with-logic-apps.md)
-* Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email. The template uses the following query, which you can use with the Microsoft Flow or Logic App options above.
-
+* Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
+
+# Sample query for a weekly digest email
+The following query shows joining across multiple datasets for a weekly digest email like report. Customize it as required and use it with any of the options listed above to automate a weekly report.   
 
 ```AIQL
 let period=7d;
