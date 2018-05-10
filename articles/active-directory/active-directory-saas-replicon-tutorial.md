@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -99,7 +99,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure single sign-on link][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Single sign-on dialog box](./media/active-directory-saas-replicon-tutorial/tutorial_replicon_samlbase.png)
 
 3. On the **Replicon Domain and URLs** section, perform the following steps:
@@ -112,7 +112,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://global.replicon.com/!/saml2/<companyname>/sso/post`
 
-	> [!NOTE] 
+	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [Replicon Client support team](https://www.replicon.com/customerzone/contact-support) to get these values. 
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
@@ -126,14 +126,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 6. In a different web browser window, log into your Replicon company site as an administrator.
 
 7. To configure SAML 2.0, perform the following steps:
-   
+
     ![Enable SAML authentication](./media/active-directory-saas-replicon-tutorial/ic777805.png "Enable SAML authentication")
-	
+
 	a. To display the **EnableSAML Authentication2** dialog, append the following to your URL, after your company key: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-	
+
 	* The following shows the schema of the complete URL:  
    `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
-   
+
    b. Click the **+** to expand the **v20Configuration** section.
 
    c. Click the **+** to expand the **metaDataConfiguration** section.
@@ -171,8 +171,12 @@ The objective of this section is to create a test user in the Azure portal calle
     c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
 
     d. Click **Create**.
- 
+
 ### Create a Replicon test user
+
+The objective of this section is to create a user called Britta Simon in Replicon. Replicon supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-replicon-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
 
 In order to enable Azure AD users to log into Replicon, they must be provisioned into Replicon. In the case of Replicon, provisioning is a manual task.
 
@@ -181,21 +185,21 @@ In order to enable Azure AD users to log into Replicon, they must be provisioned
 1. In a web browser window, log into your Replicon company site as an administrator.
 
 2. Go to **Administration \> Users**.
-   
+
     ![Users](./media/active-directory-saas-replicon-tutorial/ic777806.png "Users")
 
 3. Click **+Add User**.
-   
+
     ![Add User](./media/active-directory-saas-replicon-tutorial/ic777807.png "Add User")
 
 4. In the **User Profile** section, perform the following steps:
-   
+
     ![User profile](./media/active-directory-saas-replicon-tutorial/ic777808.png "User profile")
-	
+
 	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon@contoso.com**.
-	
+
 	b. As **Authentication Type**, select **SSO**.
-	
+
 	c. In the **Department** textbox, type the user’s department.
 
 	d. As **Employee Type**, select **Administrator**.
@@ -204,9 +208,6 @@ In order to enable Azure AD users to log into Replicon, they must be provisioned
 
 >[!NOTE]
 >You can use any other Replicon user account creation tools or APIs provided by Replicon to provision Azure AD user accounts.
-
-> [!NOTE]
-> For more details you can visit [here](active-directory-saas-replicon-provisioning-tutorial.md)
 
 ### Assign the Azure AD test user
 
