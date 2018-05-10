@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: jeedes
 
 ---
@@ -55,14 +55,14 @@ To configure the integration of BlueJeans into Azure AD, you need to add BlueJea
 
 **To add BlueJeans from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![Active Directory][1]
 
 2. Navigate to **Enterprise applications**. Then go to **All applications**.
 
 	![Applications][2]
-	
+
 3. To add new application, click **New application** button on the top of dialog.
 
 	![Applications][3]
@@ -101,7 +101,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On][4]
 
 2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
+
 	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_samlbase.png)
 
 3. On the **BlueJeans Domain and URLs** section, perform the following steps:
@@ -112,9 +112,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<companyname>.BlueJeans.com`
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get these values. 
- 
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [BlueJeans Client support team](https://support.bluejeans.com/contact) to get these values.
+
 4. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
@@ -130,37 +130,37 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 7. In a different web browser window, log in to your **BlueJeans** company site as an administrator.
 
 8. Go to **ADMIN \> Group Settings \> Security**.
-   
+
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785868.png "Admin")
 
 9. In the **Security** section, perform the following steps:
-   
-   ![SAML Single Sign On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign On")   
-   
+
+   ![SAML Single Sign On](./media/active-directory-saas-bluejeans-tutorial/IC785869.png "SAML Single Sign On")
+
    a. Select **SAML Single Sign On**.
-  
+
    b. Select **Enable automatic provisioning**.
 
 10. Move on with the following steps:
 
 	![Certificate Path](./media/active-directory-saas-bluejeans-tutorial/IC785870.png "Certificate Path")
-	
+
 	a. Click **Choose File**, and then upload the downloaded certificate.
-   
+
     b. Paste **SAML Single Sign-On Service URL** into the **Login URL** textbox.
-   
+
     c. Paste **Change Password URL** into the **Password Change URL** textbox.
-   
+
     d. Paste **Sign-Out URL** into the **Logout URL** textbox.
 
 11. Move on with the following steps:
-	
+
 	![Save Changes](./media/active-directory-saas-bluejeans-tutorial/IC785874.png "Save Changes")
-	
+
 	a. In the **User id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-   
+
     b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
-   
+
     c. Click **Save Changes**.
 
 ### Creating an Azure AD test user
@@ -172,18 +172,18 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_01.png)
 
 2. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_02.png)
 
 3. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png) 
+
+	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_03.png)
 
 4. On the **User** dialog page, perform the following steps:
- 
+
 	![Creating an Azure AD test user](./media/active-directory-saas-bluejeans-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
@@ -193,10 +193,14 @@ The objective of this section is to create a test user in the Azure portal calle
 	c. Select **Show Password** and write down the value of the **Password**.
 
     d. Click **Create**.
- 
+
 ### Creating a BlueJeans test user
 
-To enable Azure AD users to log in to BlueJeans, they must be provisioned into BlueJeans.  
+The objective of this section is to create a user called Britta Simon in BlueJeans. BlueJeans supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-bluejeans-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
+**If you need to create user manually, please perform following steps:**
+
+To enable Azure AD users to log in to BlueJeans, they must be provisioned into BlueJeans.
 
 In case of BlueJeans, provisioning is a manual task.
 
@@ -205,46 +209,42 @@ In case of BlueJeans, provisioning is a manual task.
 1. Log in to your **BlueJeans** company site as an administrator.
 
 2. Go to **ADMIN \> Manage Users \> Add User**.
-   
+
    ![Admin](./media/active-directory-saas-bluejeans-tutorial/IC785877.png "Admin")
-   
+
    >[!IMPORTANT]
    >The **Add User** tab is only available if, in the **Security tab**, **Enable automatic provisioning** is unchecked. 
-   
+
 3. In the **Add User** section, perform the following steps:
 
 	![Add User](./media/active-directory-saas-bluejeans-tutorial/IC785886.png "Add User")
-	
+
 	a. Type a **BlueJeans Username**, an **Email address**, a **BlueJeans Meeting ID**, a **Moderator Passcode**, a **Full Name**, the **Company** of a valid AAD account you want to provision into the related textboxes.
-	
+
 	b. Click **Add User**.
 
 >[!NOTE]
->You can use any other BlueJeans user account creation tools or APIs provided by BlueJeans to provision AAD user accounts. 
->
-
-> [!NOTE]
-> For more details you can visit [here](active-directory-saas-bluejeans-provisioning-tutorial.md)
+>You can use any other BlueJeans user account creation tools or APIs provided by BlueJeans to provision AAD user accounts.
 
 ### Assigning the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to BlueJeans.
 
-![Assign User][200] 
+![Assign User][200]
 
 **To assign Britta Simon to BlueJeans, perform the following steps:**
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Assign User][201] 
+	![Assign User][201]
 
 2. In the applications list, select **BlueJeans**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_app.png)
 
 3. In the menu on the left, click **Users and groups**.
 
-	![Assign User][202] 
+	![Assign User][202]
 
 4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
@@ -255,7 +255,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 6. Click **Select** button on **Users and groups** dialog.
 
 7. Click **Assign** button on **Add Assignment** dialog.
-	
+
 ### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
