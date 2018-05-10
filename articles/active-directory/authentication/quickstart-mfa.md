@@ -21,7 +21,7 @@ In this quickstart, you configure Azure Multi-Factor Authentication (Azure MFA) 
 
 ## Prerequisites
 
-* You need a working Azure AD tenant with at least a trial license enabled. 
+* A working Azure AD tenant with at least a trial license enabled.
 * An account with Global Administrator privileges.
 * A standard non-administrator user with a password you know for testing, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
 * A pilot group to test with that the non-administrator user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
@@ -32,6 +32,8 @@ Log in to the [Azure portal](https://portal.azure.com) using a Global Administra
 
 ## Choose verification options
 
+![Accessing the Multi-Factor Authentication portal from Azure AD Users blade in Azure portal](media/quickstart-mfa/quickstart-aad-users-mfa.png)
+
 Before enabling Azure Multi-Factor Authentication, organizations must determine what verification options they allow. For the purpose of this quickstart, we enable call to phone and text message to phone.
 
 1. Browse to **Azure Active Directory**, **Users**, **Multi-Factor Authentication**
@@ -41,6 +43,8 @@ Before enabling Azure Multi-Factor Authentication, organizations must determine 
    * Text message to phone
 4. Click on **Save**
 5. Close the **service settings** tab
+
+![Configuring verification methods in the Multi-Factor Authentication service settings tab](media/quickstart-mfa/quickstart-mfa-servicesettings-verificationoptions.png)
 
 ## Create conditional access policy
 
@@ -62,12 +66,14 @@ Before enabling Azure Multi-Factor Authentication, organizations must determine 
 1. Set the **Enable policy** toggle to **On**
 1. Click **Create**
 
+![Create a conditional access policy to enable MFA for Azure portal users in pilot group](media/quickstart-mfa/quickstart-aad-conditionalaccess-newpolicy.png)
+
 ## Test Azure Multi-Factor Authentication
 
-* Open a new browser window in InPrivate mode and browse to https://account.activedirectory.windowsazure.com.
+* Open a new browser window in InPrivate mode and browse to [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that it should not ask you to complete MFA.
    * Close the browser window
-* Open a new browser window in InPrivate mode and browse to https://portal.azure.com.
+* Open a new browser window in InPrivate mode and browse to [https://portal.azure.com](https://portal.azure.com).
    * Log in with the test user created as part of the prerequisites section of this article and note that you should now be required to register for and use Azure Multi-Factor Authentication.
    * Close the browser window
 
