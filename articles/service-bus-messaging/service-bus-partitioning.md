@@ -18,7 +18,7 @@ Azure Service Bus employs multiple message brokers to process messages and multi
 For information about Service Bus internals, see the [Service Bus architecture][Service Bus architecture] article.
 
 > [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any existing partitioned entities in Premium will work as expected.
+> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It is not available for the Premium messaging SKU, but any previously existing partitioned entities in Premium namespaces will work as expected.
  
 It is not possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
 
@@ -40,7 +40,7 @@ In the Standard messaging tier, you can create Service Bus queues and topics in 
 
 ### Premium
 
-In a Premium tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). With partitioning enabled by default, Service Bus creates two partitions per entity. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
+In a Premium tier namespace, you can create Service Bus queues and topics in 1, 2, 3, 4, 5, 10, 20, 40, or 80-GB sizes (the default is 1 GB). You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][Azure portal], in the **Overview** blade for that entity.
 
 For more information about partitioning in the Premium messaging tier, see [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md). 
 
