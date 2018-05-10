@@ -14,7 +14,7 @@ ms.date: 05/09/2018
 ms.author: sdash
 ---
 
-# Automate custom report emails
+# Automate custom reports with Azure Application Insights data
 
 Periodical reports help keep a team informed on how their business critical services are doing. Developers, DevOps/SRE teams, and their managers can be productive with automated reports reliably delivering insights without requiring everyone to log on to the portal. Such reports can also help identify gradual increases in latencies, load or failure rates that may not trigger any alert rules.
 
@@ -38,7 +38,7 @@ You can [programmatically query Application Insights](https://dev.applicationins
 * Use the "Application Insights scheduled digest" [Azure function](https://azure.microsoft.com/services/functions/) template in the Monitoring scenario. This function uses SendGrid to deliver the email. 
     ![Azure function template](./media/automate-custom-reports/azure-function-template.png)
 
-# Sample query for a weekly digest email
+### Sample query for a weekly digest email
 The following query shows joining across multiple datasets for a weekly digest email like report. Customize it as required and use it with any of the options listed above to automate a weekly report.   
 
 ```AIQL
