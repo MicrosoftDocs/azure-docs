@@ -37,7 +37,7 @@ Azure SQL databases can be tightly secured to satisfy most regulatory or securit
 
 This article walks through the basics of securing Microsoft Azure SQL databases for structured, tabular, and relational data. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring.
 
-## Protect data
+## Protection of data
 
 SQL Database helps secure your data by providing encryption:
 
@@ -85,7 +85,7 @@ Most data breaches involve the theft of critical data such as credit card number
 
 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) is a feature designed to protect sensitive data stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database engine (SQL Database or SQL Server).
 
-Always Encrypted provides a separation between those who own the data (and can view it) and those who manage the data (but should have no access). It helps ensure that on-premises database administrators, cloud database operators, or other high-privileged but unauthorized users cannot access the encrypted data.
+Always Encrypted provides a separation between people who own the data (and can view it) and people who manage the data (but should have no access). It helps ensure that on-premises database administrators, cloud database operators, or other high-privileged but unauthorized users cannot access the encrypted data.
 
 In addition, Always Encrypted makes encryption transparent to applications. An Always Encrypted-enabled driver is installed on the client computer so that it can automatically encrypt and decrypt sensitive data in the client application. The driver encrypts the data in sensitive columns before passing the data to the database engine. The driver automatically rewrites queries so that the semantics to the application are preserved. Similarly, the driver transparently decrypts data, stored in encrypted database columns, contained in query results.
 
@@ -102,9 +102,9 @@ Data protection begins with controlling access to your data. The datacenter that
 
 #### Firewall and firewall rules
 
-Azure SQL Database provides a relational database service for Azure and other internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) provides a relational database service for Azure and other internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request. For more information, see [Overview of Azure SQL Database firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
-The [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) service is available only through TCP port 1433. To access a SQL database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If inbound connections are not needed for other applications, block them on TCP port 1433.
+The Azure SQL Database service is available only through TCP port 1433. To access a SQL database from your computer, ensure that your client computer firewall allows outgoing TCP communication on TCP port 1433. If inbound connections are not needed for other applications, block them on TCP port 1433.
 
 #### Authentication
 
