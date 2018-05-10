@@ -27,7 +27,7 @@ There is a better way!
 
 A modern workforce in the mobile-first, cloud-first world needs a modern remote access solution. Azure AD Application Proxy is a feature of Azure Active Directory that offers remote access as a service. That means it's easy to deploy, use, and manage.
 
-[!INCLUDE [identity](../../includes/azure-ad-licenses.md)]
+[!INCLUDE [identity](../../../includes/azure-ad-licenses.md)]
 
 ## What is Azure Active Directory Application Proxy?
 Azure AD Application Proxy provides single sign-on (SSO) and secure remote access for web applications hosted on-premises. Some apps you would want to publish include SharePoint sites, Outlook Web Access, or any other LOB web applications you have. These on-premises web applications are integrated with Azure AD, the same identity and control platform that is used by O365. End users can access your on-premises applications the same way they access O365 and other SaaS apps integrated with Azure AD. You don't need to change the network infrastructure or require VPN to provide this solution for your users.
@@ -49,20 +49,20 @@ Azure AD Application Proxy is:
 ## What kind of applications work with Application Proxy?
 With Azure AD Application Proxy you can access different types of internal applications:
 
-* Web applications that use [Integrated Windows Authentication](active-directory-application-proxy-sso-using-kcd.md) for authentication  
-* Web applications that use form-based or [header-based](application-proxy-ping-access.md) access  
+* Web applications that use [Integrated Windows Authentication](../active-directory-application-proxy-sso-using-kcd.md) for authentication  
+* Web applications that use form-based or [header-based](../application-proxy-ping-access.md) access  
 * Web APIs that you want to expose to rich applications on different devices  
-* Applications hosted behind a [Remote Desktop Gateway](application-proxy-publish-remote-desktop.md)  
+* Applications hosted behind a [Remote Desktop Gateway](../application-proxy-publish-remote-desktop.md)  
 * Rich client apps that are integrated with the Active Directory Authentication Library (ADAL)
 
 ## How does Application Proxy work?
 There are two components that you need to configure to make Application Proxy work: a connector and an external endpoint. 
 
-The connector is a lightweight agent that sits on a Windows Server inside your network. The connector facilitates the traffic flow from the Application Proxy service in the cloud to your application on-premises. It only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md). 
+The connector is a lightweight agent that sits on a Windows Server inside your network. The connector facilitates the traffic flow from the Application Proxy service in the cloud to your application on-premises. It only uses outbound connections, so you don't have to open any inbound ports or put anything in the DMZ. The connectors are stateless and pull information from the cloud as necessary. For more information about connectors, like how they load-balance and authenticate, see [Understand Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md). 
 
 The external endpoint is how your users reach your applications while outside of your network. They can either go directly to an external URL that you determine, or they can access the application through the MyApps portal. When users go to one of these endpoints, they authenticate in Azure AD and then are routed through the connector to the on-premises application.
 
- ![AzureAD Application Proxy diagram](./media/active-directory-application-proxy-get-started/azureappproxxy.png)
+ ![AzureAD Application Proxy diagram](./media/application-proxy/azureappproxxy.png)
 
 1. The user accesses the application through the Application Proxy service and is directed to the Azure AD sign-in page to authenticate.
 2. After a successful sign-in, a token is generated and sent to the client device.
@@ -85,17 +85,17 @@ Before you configure Application Proxy, make sure you have a supported [Azure Ac
 
 Get started with Application Proxy in two steps:
 
-1. [Enable Application Proxy and configure the connector](active-directory-application-proxy-enable.md).    
-2. [Publish applications](active-directory-application-proxy-publish.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
+1. [Enable Application Proxy and configure the connector](../active-directory-application-proxy-enable.md).    
+2. [Publish applications](../application-proxy-publish-azure-portal.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 Once you publish your first app, there's a lot more you can do with Application Proxy:
 
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
-* [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Learn about Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
-* [Working with existing on-premises Proxy servers](application-proxy-working-with-proxy-servers.md) 
-* [Set a custom home page](application-proxy-office365-app-launcher.md)
+* [Enable single-sign on](../active-directory-application-proxy-sso-using-kcd.md)
+* [Publish applications using your own domain name](../active-directory-application-proxy-custom-domains.md)
+* [Learn about Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md)
+* [Working with existing on-premises Proxy servers](../application-proxy-working-with-proxy-servers.md) 
+* [Set a custom home page](../application-proxy-office365-app-launcher.md)
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
 
