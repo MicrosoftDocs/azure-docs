@@ -55,13 +55,10 @@ The resources shown in the diagram are a subset of the networking components in 
       --enabled true
     ```
 
-3. ---- This command doesn't work. When it does work, is subnet required? ----- View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example views the topology for a virtual network named *myVnet*:
+3. View the topology with [az network watcher show-topology](/cli/azure/network/watcher#az-network-watcher-show-topology). The following example views the topology for a resource group named *MyResourceGroup*:
 
     ```azurecli-interactive
-    az network watcher show-topology \
-      --resource-group MyResourceGroup \
-      --vnet myVnet \
-      --subnet MySubnet-FrontEnd
+    az network watcher show-topology --resource-group MyResourceGroup
     ```
 
     Topology information is only returned for resources that are:
@@ -128,9 +125,9 @@ All resources returned in a topology have the following properties:
 
 ## Permissions
 
-The account you log into, or connect to Azure with, must be assigned to the [Owner](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributor](role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) built-in roles, or to a  [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the *Microsoft.Network/networkWatchers/topology/action* action.
+The account you log into, or connect to Azure with, must be assigned to the [Owner](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [Contributor](/role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor) built-in roles, or to a  [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) that is assigned the *Microsoft.Network/networkWatchers/topology/action* action.
 
 ## Next steps
 
-- Learn how to diagnose a network traffic filter problem to or from a VM using Network Watcher's [IP flow verify](diagnose-vm-network-traffic-filtering-problem.md) capability
-- Learn how to diagnose a network traffic routing problem from a VM using Network Watcher's [next hop](diagnose-vm-network-routing-problem.md) capability
+- Learn how to [diagnose a network traffic filter problem to or from a VM](diagnose-vm-network-traffic-filtering-problem.md) using Network Watcher's IP flow verify capability
+- Learn how to [diagnose a network traffic routing problem from a VM](diagnose-vm-network-routing-problem.md) using Network Watcher's next hop capability
