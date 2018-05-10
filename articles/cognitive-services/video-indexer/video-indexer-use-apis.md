@@ -55,6 +55,17 @@ Access tokens expire after 1 hour. Make sure your access token is valid before u
  
 You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](http://api-portal.videoindexer.ai/).
 
+## Location
+
+All operation APIs require a Location parameter which indicates the region to which the call should be routed and in which the account was created.
+
+The following values apply:
+
+* Trial – for trial accounts
+* Westus2 – Azure West US 2 region
+* Northeurrope – Azure North Europe region
+* Eastasia – Azure East Asia region
+
 ## Recommendations
 
 This section lists some recommendations when using Video Indexer API.
