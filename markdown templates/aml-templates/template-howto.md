@@ -1,6 +1,7 @@
 ---
 title: Verb action for Azure Machine Learning service in 59 chars or less. Include the name Azure Machine Learning. Test title here https://moz.com/learn/seo/title-tag  (EXAMPLE - Deploying web services in Python with Azure Machine Learning service)
 description: Learn how to do this and that using customer words in Azure Machine Learning. This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
@@ -11,7 +12,7 @@ ms.date: 04/10/2018
 ---
 # This H1 is the title of the article. It appears in search, appears at the top of article, second greatest impact on search, 100 chars or less
 
-Guidance here: https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-seo-basics?branch=master
+Guidance here: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
 
 
 1st paragraph	provides the primary intent of the article in 1 or 2 short sentences. 

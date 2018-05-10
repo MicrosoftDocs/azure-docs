@@ -61,12 +61,14 @@
       href: logic-apps-content-type.md
     - name: Handle errors and exceptions
       href: logic-apps-exception-handling.md
+    - name: Handle large messages
+      href: logic-apps-handle-large-messages.md
     - name: Secure your logic apps
       href: logic-apps-securing-a-logic-app.md
     - name: Develop custom connectors
       href: custom-connector-overview.md
     - name: Develop custom APIs
-      items: 
+      items:
       - name: Create custom APIs for logic apps
         href: logic-apps-create-api-app.md
       - name: Secure calls to custom APIs
@@ -296,13 +298,15 @@
     href: /powershell/module/azurerm.logicapp
   - name: REST API
     href: /rest/api/logic/
-  - name: Workflow Definition Language Schema
+  - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 
+      - name: Workflow actions and triggers
+        href: logic-apps-workflow-actions-triggers.md
+      - name: Workflow Definition Language functions
+        href: workflow-definition-language-functions-reference.md
       - name: GA - Schema history
         href: logic-apps-schema-2016-04-01.md
-  - name: Workflow actions and triggers
-    href: logic-apps-workflow-actions-triggers.md
   - name: Tracking schemas
     items: 
       - name: AS2 tracking schema

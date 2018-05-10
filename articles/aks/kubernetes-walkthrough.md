@@ -3,7 +3,7 @@ title: Quickstart - Azure Kubernetes cluster for Linux
 description: Quickly learn to create a Kubernetes cluster for Linux containers in AKS with the Azure CLI.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: quickstart
@@ -12,7 +12,7 @@ ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ---
 
-# Quickstart: Deploy an Azure Container Service (AKS) cluster
+# Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster
 
 In this quickstart, an AKS cluster is deployed using the Azure CLI. A multi-container application consisting of web front end and a Redis instance is then run on the cluster. Once completed, the application is accessible over the internet.
 

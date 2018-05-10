@@ -48,7 +48,7 @@ To install the agent on a Linux machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Learn more](../operations-management-suite/operations-management-suite-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
+[Learn more](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) about operating systems supported by the Dependency agent. 
 
 ## Create a group
 

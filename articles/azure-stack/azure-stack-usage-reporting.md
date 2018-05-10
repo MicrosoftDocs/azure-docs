@@ -1,4 +1,4 @@
----
+﻿---
 title: Report Azure Stack usage data to Azure | Microsoft Docs
 description: Learn how to set up usage data reporting in Azure Stack.
 services: azure-stack
@@ -25,7 +25,7 @@ Usage data, also called consumption data, represents the amount of resources use
 Azure Stack multinode systems that use consumption-based billing model should report usage data to Azure for billing purpose.  Azure Stack operators should configure their Azure Stack instance to report usage data to Azure.
 
 > [!NOTE]
-> Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
+> Usage data reporting is required for the Azure Stack multi-node users who license under the Pay-as-you-use model. It is optional for customers who license under the Capacity model (see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). For Azure Stack Development Kit users, Azure Stack operators can report usage data and test the feature. However, users will not be charged for any usage they incur. 
 
 
 ![billing flow](media/azure-stack-usage-reporting/billing-flow.png)

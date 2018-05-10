@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 04/16/2018
 ms.author: jeedes
 
 ---
@@ -115,33 +115,17 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.predictivesolutions.com`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SafetyNet Client support team](mailto:dev@predictivesolutions.com) to get these values. 
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [SafetyNet Client support team](mailto:dev@predictivesolutions.com) to get these values.
 
-5. Click **Save** button.
+5. On the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+
+	![The Certificate download link](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_certificate.png)
+
+6. Click **Save** button.
 
 	![Configure Single Sign-On Save button](./media/active-directory-saas-safetynet-tutorial/tutorial_general_400.png)
 
-6. To generate the **Metadata URL**, perform the following steps:
-
-    a. Click **App registrations**.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appregistrations.png)
-   
-    b. Click **Endpoints** to open **Endpoints** dialog box.  
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpointicon.png)
-
-    c. Click the copy button to copy **FEDERATION METADATA DOCUMENT** url and paste it into notepad.
-    
-    ![Configure Single Sign-On](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_endpoint.png)
-     
-    d. Now go to the property page of **SafetyNet** and copy the **Application Id** using **Copy** button and paste it into notepad.
- 
-    ![Configure Single Sign-On](./media/active-directory-saas-safetynet-tutorial/tutorial_safetynet_appid.png)
-
-    e. Generate the **Metadata URL** using the following pattern:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-	
-7. To configure single sign-on on **SafetyNet** side, you need to send the generated **Metadata URL** to [SafetyNet support team](mailto:dev@predictivesolutions.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. To configure single sign-on on **SafetyNet** side, you need to send the **App Federation Metadata Url** to [SafetyNet support team](mailto:dev@predictivesolutions.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 

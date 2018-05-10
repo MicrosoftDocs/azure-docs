@@ -273,7 +273,7 @@ Approximate time to Complete: 60 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Azure AD Connect installed and configured | Building block: [Directory Synchronization - Password Hash Sync](#directory-synchronization--password-hash-sync-phs--new-installation) |
-| ADLDS instance meeting requirements | [Generic LDAP Connector technical reference: Overview of the Generic LDAP Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#overview-of-the-generic-ldap-connector) |
+| ADLDS instance meeting requirements | [Generic LDAP Connector technical reference: Overview of the Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
 | List of workloads, that users are using and attributes associated with these workloads | [Azure AD Connect sync: Attributes synchronized to Azure Active Directory](./connect/active-directory-aadconnectsync-attributes-synchronized.md) |
 
 
@@ -281,7 +281,7 @@ Approximate time to Complete: 60 minutes
 
 | Step | Resources |
 | --- | --- |
-| Add Generic LDAP Connector | [Generic LDAP Connector technical reference: Create a new Connector](./connect/active-directory-aadconnectsync-connector-genericldap.md#create-a-new-connector) |
+| Add Generic LDAP Connector | [Generic LDAP Connector technical reference: Create a new Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Create run profiles for created connector (full import, delta import, full synchronization, delta synchronization, export) | [Create a Management Agent Run Profile](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Using connectors with the Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
 | Run full import profile and verify, that there are objects in connector space | [Search for a Connector Space Object](https://technet.microsoft.com/library/jj590287(v=ws.10).aspx)<br/>[Using connectors with the Azure AD Connect Sync Service Manager: Search Connector Space](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md#search-connector-space) |
 | Create synchronization rules, so that objects in Metaverse have necessary attributes for workloads | [Azure AD Connect sync: Best practices for changing the default configuration: Changes to Synchronization Rules](./connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md#changes-to-synchronization-rules)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md)<br/>[Azure AD Connect sync: Understanding Declarative Provisioning Expressions](./connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) |
@@ -378,8 +378,8 @@ Approximate time to Complete: 15 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Enable self-service password management in your tenant. | [Azure Active Directory password reset for IT administrators](active-directory-passwords-update-your-own-password.md) |
-| Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](active-directory-passwords-writeback.md) |
-| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](active-directory-passwords-writeback.md) |
+| Enable password write-back to manage passwords from on-premises. Note this requires specific Azure AD Connect versions | [Password Writeback prerequisites](authentication/howto-sspr-writeback.md) |
+| Identify the PoC users that will use this functionality, and make sure they are members of a security group. The users must be non-admins to fully showcase the capability | [Customize: Azure AD Password Management: Restrict Access to password reset](authentication/howto-sspr-writeback.md) |
 
 
 ### Steps
@@ -410,7 +410,7 @@ Approximate time to Complete: 10 minutes
 | Pre-requisite | Resources |
 | --- | --- |
 | Identify POC users that will use MFA  |  |
-| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md) |
+| Phone with good reception for MFA challenge  | [What is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### Steps
 
@@ -419,7 +419,7 @@ Approximate time to Complete: 10 minutes
 | Navigate to "Users and groups" blade in Azure AD Management Portal | [Azure AD Management Portal: Users and groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Choose "All users" blade |  |
 | In the top bar choose "Multi-Factor Authentication" button | Direct URL for Azure MFA portal: https://aka.ms/mfaportal |
-| In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
+| In the "User" settings select the PoC users and enable them for MFA | [User States in Azure Multi-Factor Authentication](authentication/howto-mfa-userstates.md) |
 | Login as the PoC user, and walk through the proof-up process  |  |
 
 ### Considerations

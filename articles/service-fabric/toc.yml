@@ -45,7 +45,7 @@
       href: service-fabric-tutorial-java-jenkins.md
   - name: Containerize an existing .NET app
     items:
-    - name: 1- Deploy a .NET app using Docker Compose
+    - name: 1- Deploy a .NET application
       href: service-fabric-host-app-in-a-container.md
     - name: 2- Monitor your container
       href: service-fabric-tutorial-monitoring-wincontainers.md
@@ -244,11 +244,13 @@
     items:
     - name: Monitoring overview
       href: service-fabric-diagnostics-overview.md
-    - name: Cluster events
+    - name: Cluster monitoring
       href: service-fabric-diagnostics-event-generation-infra.md
       items:
-      - name: Operational channel
-        href: service-fabric-diagnostics-event-generation-operational.md
+      - name: Service Fabric events
+        href: service-fabric-diagnostics-events.md
+      - name: EventStore overview
+        href: service-fabric-diagnostics-eventstore.md
       - name: Reliable Services events
         href: service-fabric-reliable-services-diagnostics.md
       - name: Reliable Actors events
@@ -505,6 +507,8 @@
           href: service-fabric-cluster-creation-via-portal.md
         - name: Azure Resource Manager
           href: service-fabric-cluster-creation-via-arm.md
+        - name: Cluster using certificate common name
+          href: service-fabric-create-cluster-using-cert-cn.md
       - name: Scale
         items:
         - name: Manually
@@ -517,6 +521,10 @@
         href: service-fabric-cluster-security-roles.md      
       - name: Open a port in the load balancer
         href: create-load-balancer-rule.md
+      - name: Change cluster certificate to common name
+        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+      - name: Manually rollover cluster certs
+        href: service-fabric-cluster-rollover-cert-cn.md
       - name: Manage cluster certificates
         href: service-fabric-cluster-security-update-certs-azure.md
       - name: Delete
@@ -624,6 +632,8 @@
     href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
   - name: REST
     href: /rest/api/servicefabric
+  - name: Service Fabric events
+    href: service-fabric-diagnostics-event-generation-operational.md
   - name: Configure cluster settings and fabric upgrade policy
     href: service-fabric-cluster-fabric-settings.md
   - name: Service model XML schema
