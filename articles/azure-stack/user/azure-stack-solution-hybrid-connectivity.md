@@ -90,7 +90,7 @@ Connection specifications:
 
 ## Create a virtual network in global Azure and Azure Stack
 
-> [!note]  
+> [!Note]  
 > You must ensure that there is no overlap of IPs in Azure or Azure Stack vNet address spaces. 
 
 To create a vNet in the Resource Manager deployment model by using the Azure portal. Use the [example values](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#values) if you are using these steps as a tutorial. If you are not doing these steps as a tutorial, be sure to replace the values with your own. 
@@ -126,7 +126,7 @@ In the [portal](http://portal.azure.com/), navigate to the Resource Manager vir
         - Click **+Create new** to open the **Create public IP address** page.
         - Enter a **Name** for your public IP address. Leave the SKU as **Basic**, then select **OK** at the bottom of this page to save your changes.
 
-    > [!note]  
+    > [!Note]  
     > VPN Gateway currently only supports Dynamic Public IP address allocation. However, this does not mean that the IP address changes after it has been assigned to your VPN gateway. The only time the Public IP address changes is when the gateway is deleted and re-created. It doesn't change across resizing, resetting, or other internal maintenance/upgrades of your VPN gateway.
 
 4. Verify the settings. 
