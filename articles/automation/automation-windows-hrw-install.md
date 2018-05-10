@@ -141,9 +141,7 @@ Confirm the computer designated to run the Hybrid Runbook Worker feature meets t
 
 ### The Microsoft Monitoring Agent is not running
 
-If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command in PowerShell: `get-service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `start-service healthservice`.
-
-`sudo /opt/microsoft/omsagent/bin/service_control restart`
+If the Microsoft Monitoring Agent Windows service is not running, this prevents the Hybrid Runbook Worker from communicating with Azure Automation. Verify the agent is running by entering the following command in PowerShell: `Get-Service healthservice`. If the service is stopped, enter the following command in PowerShell to start the service: `Start-Service healthservice`.
 
 ### Event 4502 in Operations Manager log
 
