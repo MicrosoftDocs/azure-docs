@@ -18306,11 +18306,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/backup/backup-azure-vms-prepare.md",
-            "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/backup/backup-azure-vms-troubleshoot-classic.md",
             "redirect_url": "/azure/backup/backup-azure-vms-troubleshoot",
             "redirect_document_id": false
@@ -20881,7 +20876,7 @@
 			"redirect_document_id": false
         },
 		{
-            "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md ",
+            "source_path": "articles/active-directory/cloudappdiscovery-set-up-snapshots.md",
             "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery-create-snapshot-reports",
 			"redirect_document_id": false
         },
