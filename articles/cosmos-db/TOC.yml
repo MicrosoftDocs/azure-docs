@@ -175,6 +175,8 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md          
         - name: Query
           items:
           - name: Perform SQL queries
@@ -267,6 +269,8 @@ items:
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: SQL playground
           href: https://aka.ms/cosmos-db-playground
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md          
     - name: MongoDB API Docs
       items: 
       - name: Overview
@@ -325,10 +329,14 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md
       - name: Resources
         items:
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md
     - name: Graph API Docs
       items: 
       - name: Overview
@@ -349,6 +357,8 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md
         - name: Integrate
           items:
           - name: Connect to Spark GraphX
@@ -361,6 +371,8 @@ items:
         items:
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md
     - name: Table API Docs
       items:
       - name: Overview
@@ -421,6 +433,8 @@ items:
           href: table-storage-design-guide.md
         - name: Table storage REST APIs
           href: /rest/api/storageservices/Table-Service-Concepts
+        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+          href: storage-explorer.md
     - name: Cassandra API Docs
       items: 
       - name: Overview
@@ -457,6 +471,8 @@ items:
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
+    - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+      href: storage-explorer.md
   - name: Resources
     items:
     - name: Query cheat sheet
@@ -476,4 +492,6 @@ items:
     - name: Data consistency explained through baseball
       href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
     - name: Whitepapers
-      href: whitepapers.md 
+      href: whitepapers.md
+    - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+      href: storage-explorer.md 
