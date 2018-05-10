@@ -110,7 +110,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	a. In the **Sign-on URL** textbox, type the URL: `https://sso.online.tableau.com`
 
-	b. In the **Identifier** textbox, type the URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entitdyid> `
+	b. In the **Identifier** textbox, type the URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
 
 4. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
