@@ -21,9 +21,9 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items:
-  - name: Build a Bing Spell Check web app
+  - name: Build a spell check web app
     href: tutorials/spellcheck.md
-  - name: 'Source code: Bing Spell Check web app'
+  - name: 'Source code: spell check web app'
     href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
