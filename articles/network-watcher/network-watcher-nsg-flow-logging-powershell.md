@@ -50,7 +50,7 @@ Get-AzureRmNetworkWatcherFlowLogStatus -NetworkWatcher $NW -TargetResourceId $ns
 Set-AzureRmNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id -StorageAccountId $storageAccount.Id -EnableFlowLog $true
 ```
 
-The storage account you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks.
+The storage account you specify cannot have network rules configured for it that restrict network access to only Microsoft services or specific virtual networks. The storage account can be in the same or different subscription than the NSG. Your account must have the  appropriate [permissions](required-rbac-permissions.md) in both subscriptions. Both subscriptions must be in the same Azure Active Directory tenant.
 
 ## Disable Network Security Group Flow logs
 
