@@ -160,7 +160,7 @@ Approximate time to Complete: 60 minutes
 
 ### Considerations
 
-1. Above [Tutorial](active-directory-saas-servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quick start](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away) experience.
+1. Above [Tutorial](active-directory-saas-servicenow-tutorial.md) refers to old Azure AD management experience. But PoC is based on [Quickstart](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) experience.
 2. If the target application is not present in the gallery, then you can use "Bring your own app". Learn more: [What's new in Enterprise Application management in Azure Active Directory: Add custom applications from one place](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## SaaS Password SSO Configuration
