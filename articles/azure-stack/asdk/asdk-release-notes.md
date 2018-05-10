@@ -51,7 +51,7 @@ The following are now available, but don't require Azure Stack update 1804.
 
 - **New Azure Stack Admin PowerShell Version 1.2.12**.  Azure Stack PowerShell 1.2.12 is now available for installation. This version provides commands for all Admin resource providers to manage Azure Stack.  With this release, some content will be deprecated from the Azure Stack Tools GitHub [repository](https://github.com/Azure/AzureStack-Tools). 
 
-   For installation details, follow the [instructions](azure-stack-powershell-install.md) or the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) content for Azure Stack Module 1.2.12. 
+   For installation details, follow the [instructions](.\.\azure-stack-powershell-install.md) or the [help](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.2.12) content for Azure Stack Module 1.2.12. 
 
 - **Initial release of Azure Stack API Rest Reference**. The API reference for all Azure Stack Admin Resource Provider is now published
 
