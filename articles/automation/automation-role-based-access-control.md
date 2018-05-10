@@ -4,6 +4,7 @@ description: Role-based access control (RBAC) enables access management for Azur
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/16/2018

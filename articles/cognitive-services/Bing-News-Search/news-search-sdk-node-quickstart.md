@@ -49,7 +49,9 @@ The code prints `result.value` items to the console without parsing any text. Th
 - _type: 'VideoObject'
 - _type: 'ImageObject'
 
+<!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)
+-->
 
 ## Next steps
 
