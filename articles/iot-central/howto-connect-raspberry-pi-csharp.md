@@ -22,7 +22,7 @@ manager: timlt
 
 # Connect a Raspberry Pi to your Azure IoT Central application (C#)
 
-[!INCLUDE [howto-raspberrypi-selector](../includes/howto-raspberrypi-selector.md)]
+[!INCLUDE [howto-raspberrypi-selector](../includes/iot-central-howto-raspberrypi-selector.md)]
 
 This article describes how, as a device developer, to connect a Raspberry Pi to your Microsoft Azure IoT Central application using the C# programming language.
 
