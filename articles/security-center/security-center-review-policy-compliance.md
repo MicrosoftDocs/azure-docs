@@ -1,11 +1,13 @@
 ---
 title: Reviewing Security Center policy compliance with Azure REST API | Microsoft Docs
 description: Learn how to use Azure REST APIs to review current compliance with Security Center policies.
+# As an administrator or developer, I want to review policy compliance with my current Security Center policies.
 services: security-center
 documentationcenter: na
-author: alleonar
+author: lleonard-msft
 manager: MBaldwin
 editor: ''
+
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: security-center
@@ -14,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
-ms.author: terrylan
+ms.author: alleonar
 
 ---
 
@@ -45,24 +47,42 @@ The `api-version` parameter is required. At this time, these endpoints are suppo
 |*Authorization: Bearer*|Required. Set this to a valid [access token](https://docs.microsoft.com/en-us/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### Response  
-Status code 200 (OK) is returned for a successful response, which contain a list of recommendation tasks.
+Status code 200 (OK) is returned for a successful response, which contains a list of recommendation tasks.
 
 The response object contains list of 
-```  
+``` javascript
 {  
   "value": [  
     {  
-      "key": "unique_key_of_document",  
-      "status": true,  
-      "errorMessage": null  
-    }  
+       "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Security/locations/{region}/tasks/{task-id}",
+       "name": "{task_id}",
+       "type": "Microsoft.Security/locations/{region}/tasks",
+       "properties": {
+       "state": "Active",
+       "subState": "NA",
+       "creationTimeUtc": "{create-time}",
+       "lastStateChangeTimeUtc": "{last-state-change}",
+       "securityTaskParameters": "{security-task-properties}"
+    } // , ... 
   ]  
 }  
 ```  
 
+Each item in **value** represents a recommendation:
+
+| Response property | Description |
+|---------------- |----------|
+| **state** | Indicates whether recommendation is `active` or `resolved `. |
+| **creationTimeUtc** | Date and time, in UTC, showing when the recommendation was created. |
+| **lastStateChange** | Date and time, in UTV, of the last state change, if any. |
+| **securityTaskParameters** | Details the recommendation; properties vary according to the underlying recommendation. | 
+
+For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
+
+
 Other status codes indicate error conditions.  In these cases, the response object includes a description explaining why the request failed.
 
-```  json
+``` javascript
 {  
   "value": [  
     {  
@@ -75,7 +95,7 @@ Other status codes indicate error conditions.  In these cases, the response obje
 
 ## Example  
 
-```  
+``` javascript
 {  
   "value": [  
         {
@@ -120,17 +140,9 @@ Other status codes indicate error conditions.  In these cases, the response obje
 }  
 ```  
 
-This example shows two recommendations; each item in the list corresponds to a specific recommendation and includes the following properties:
+This example shows two recommendations; each item in the list corresponds to a specific recommendation.  The first recommends encrypting storage on a virtual machine and the second suggests that you enable auditing for a SQL server.
 
-| Property | Description |
-+----------+-------------+
-| **state** | Indicates whether recommendation is `active` or `resolved `. |
-| **creationTimeUtc** | Date and time, in UTC, showing when the recommendation was created. |
-| **lastStateChange** | Date and time, in UTV, of the last state change, if any. |
-| **securityTaskParameters** | contains the details of the recommendation, which vary according to the name.  For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
-
- are described and the details of each varies according to the specific recommendation.  Recommendations correspond to the ones described in [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
-
+The recommendations vary according to the policies you've enabled.  To learn more, including the currently available recommendations, see [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
 
 
 ## See also  
