@@ -17,7 +17,7 @@ ms.author: v-geberr;
 # Integrate Speech service
 The [Speech service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) allows you to use a single request to receive audio and return LUIS prediction JSON objects.
 
-In this article, you will download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project already has the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package included as a reference. 
+In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. The project already has the Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) package included as a reference. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -103,7 +103,7 @@ Recognition done. Your Choice:
 
 The correct intent, **GetEmployeeOrgChart**, was found with a 61% confidence. The keyphrase entity was returned. 
 
-The Speech SDK will return the entire LUIS response. 
+The Speech SDK returns the entire LUIS response. 
 
 ## Clean up resources
 When no longer needed, delete the LUIS HumanResources app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
