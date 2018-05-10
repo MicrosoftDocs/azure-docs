@@ -48,7 +48,7 @@ For more information on installing the prerequisites, see [Set up your developer
 
 After you've installed the Service Fabric Mesh SDK, new templates for Service Fabric Mesh are available in Visual Studio. Open Run Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog, type **SeaBreeze** into the **Search** box at the top. Select the **SeaBreeze Application** template. Next, Make sure that **Create directory for solution** is checked.
+In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template. Next, Make sure that **Create directory for solution** is checked.
 
 In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 
