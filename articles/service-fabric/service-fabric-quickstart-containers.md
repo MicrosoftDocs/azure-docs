@@ -57,11 +57,11 @@ Name your service "MyContainerService", and click **OK**.
 ![New service dialog][new-service]
 
 ## Specify the OS build for your container image
-Containers built for a specific version of Windows Server may not run on a host running a different version of the OS. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatiblity](service-fabric-get-started-containers.md#service-fabric-get-started-containers.md#windows-server-container-os-and host-os-compatiblity). 
+Containers built with a specific version of Windows Server may not run on a host running a different version of Windows Server. For example, containers built using Windows Server version 1709 do not run on hosts running Windows Server 2016. To learn more, see [Windows Server container OS and host OS compatiblity](service-fabric-get-started-containers.md#service-fabric-get-started-containers.md#windows-server-container-os-and host-os-compatiblity). 
 
 With version 6.1 of the Service Fabric runtime and newer, you can specify multiple OS images per container and tag each with the build version of the OS that it should be deployed to. This helps to make sure that your application will run across hosts running different versions of Windows OS. To learn more, see [Specify OS build specific container images](service-fabric-get-started-containers.md#specify-os-build-specific-container-images). 
 
-Microsoft publishes different images for versions of IIS built on different versions of Windows. To make sure that Service Fabric deploys an IIS/nanoserver container compatible with the version of Windows OS running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
+Microsoft publishes different images for versions of IIS built on different versions of Windows Server. To make sure that Service Fabric deploys a container compatible with the version of Windows Server running on the cluster nodes where it deploys your application, add the following lines to the *ApplicationManifest.xml* file. The build version for Windows Server 2016 is 14393 and the build version for Windows Server version 1709 is 16299. 
 
 ```xml
     <ContainerHostPolicies CodePackageRef="Code"> 
@@ -69,7 +69,7 @@ Microsoft publishes different images for versions of IIS built on different vers
         ...
 	      <Image Name="microsoft/iis:nanoserverDefault" /> 
           <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:nanoserver:windowsservercore-1709" Os="16299" /> 
+          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
