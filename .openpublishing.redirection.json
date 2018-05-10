@@ -20807,7 +20807,7 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-cloudappdiscovery-whatis.md",
-            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+            "redirect_url": "/azure/active-directory/cloudappdiscovery-get-started",
 			"redirect_document_id": false
         },
 		{
@@ -20869,6 +20869,11 @@
             "source_path": "articles/media-services/previous/media-services-configure-elemental-live-encoder.md",
             "redirect_url": "/azure/media-services/previous/media-services-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/cloudappdiscovery-get-started.md",
+            "redirect_url": "/azure/active-directory/manage-apps/cloud-app-discovery",
+			"redirect_document_id": false
         }
 		
     ]
