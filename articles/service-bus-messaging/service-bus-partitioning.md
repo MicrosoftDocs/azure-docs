@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 05/08/2016
+ms.date: 05/10/2016
 ms.author: sethm
 
 ---
@@ -56,7 +56,7 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal] or in Visual Studio. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is always enabled. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
+Alternatively, you can create a partitioned queue or topic in the [Azure portal][Azure portal]. When you create a queue or topic in the portal, the **Enable partitioning** option in the queue or topic **Create** dialog box is checked by default. You can only disable this option in a Standard tier entity; in the Premium tier partitioning is always enabled. 
 
 ## Use of partition keys
 When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.
