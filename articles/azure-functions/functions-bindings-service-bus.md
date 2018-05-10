@@ -253,17 +253,17 @@ The Service Bus trigger provides several [metadata properties](functions-trigger
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`||
-|`DeadLetterSource`|`string`||
-|`ExpiresAtUtc`|`DateTime`||
-|`EnqueuedTimeUtc`|`DateTime`||
-|`MessageId`|`string`|This is a user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
-|`ContentType`|`string`|This is a content type identifier utilized by the sender and receiver for application specific logic.|
+|`DeliveryCount`|`Int32`|The number of deliveries.|
+|`DeadLetterSource`|`string`|The dead letter source.|
+|`ExpiresAtUtc`|`DateTime`|The expiration time in UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
+|`MessageId`|`string`|A user-defined value that Service Bus can use to identify duplicate messages, if enabled.|
+|`ContentType`|`string`|A content type identifier utilized by the sender and receiver for application specific logic.|
 |`ReplyTo`|`string`|The reply to queue address.|
 |`SequenceNumber`|`Int64`|The unique number assigned to a message by the Service Bus.|
 |`To`|`string`|The send to address.|
 |`Label`|`string`|The application specific label.|
-|`CorrelationId`|`string`||
+|`CorrelationId`|`string`|The correlation ID.|
 |`Properties`|`IDictionary<String,Object>`|The application specific message properties.|
 
 ## Trigger - host.json properties

@@ -266,8 +266,8 @@ The Event Hubs trigger provides several [metadata properties](functions-triggers
 
 |Property|Type|Description|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)||
-|`EnqueuedTimeUtc`|`DateTime`||
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|The `PartitionContext` instance.|
+|`EnqueuedTimeUtc`|`DateTime`|The enqueued time in UTC.|
 |`Offset`|`string`|The offset of the data relative to the Event Hub partition stream. The offset is a marker or identifier for an event within the Event Hubs stream. The identifier is unique within a partition of the Event Hubs stream.|
 |`PartitionKey`|`string`|The partition to which event data should be sent.|
 |`Properties`|`IDictionary<String,Object>`|The user properties of the event data.|
