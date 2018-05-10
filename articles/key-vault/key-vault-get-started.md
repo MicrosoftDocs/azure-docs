@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/20/2017
+ms.date: 05/10/2018
 ms.author: barclayn
 
 ---
