@@ -46,7 +46,7 @@ For example, if you pushed the Nginx image as instructed in [Push and pull an im
 
 ## Next steps
 
-Now that you know the basics of viewing and working with repositories in the portal, try using Azure Container Registry with an [Azure Container Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
+Now that you know the basics of viewing and working with repositories in the portal, try using Azure Container Registry with an [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md) cluster.
 
 <!-- LINKS - External -->
 [docker-install]: https://docs.docker.com/engine/installation/
