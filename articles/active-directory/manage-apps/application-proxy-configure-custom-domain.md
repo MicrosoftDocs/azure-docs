@@ -50,13 +50,13 @@ When you have those three requirements ready, follow these steps to set up your 
 5. Select **Save**
 5. The **Certificate** field that was disabled becomes enabled. Select this field. 
 
-   ![Click to upload a certificate](./media/active-directory-application-proxy-custom-domains/certificate.png)
+   ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
 
    If you already uploaded a certificate for this domain, the Certificate field displays the certificate information. 
 
 6. Upload the PFX certificate and enter the password for the certificate. 
 7. Select **Save** to save your changes. 
-8. Add a [DNS record](../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain. 
+8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain. 
 
 >[!TIP] 
 >You only need to upload one certificate per custom domain. Once you upload a certificate, you can choose the custom domain when you publish a new app and not have to do additional configuration except for the DNS record. 
@@ -79,8 +79,8 @@ You get a warning when a certificate expires, telling you to upload another cert
 Currently all certificate management is through individual application pages so you need to manage certificates in the context of the relevant applications. 
 
 ## Next steps
-* [Enable single sign-on](active-directory-application-proxy-sso-using-kcd.md) to your published apps with Azure AD authentication.
-* [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md) to your published apps.
+* [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
+* [Enable conditional access](../application-proxy-enable-remote-access-sharepoint.md) to your published apps.
 * [Add your custom domain name to Azure AD](active-directory-domains-add-azure-portal.md)
 
 

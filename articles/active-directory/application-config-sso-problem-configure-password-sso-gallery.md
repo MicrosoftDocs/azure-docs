@@ -104,5 +104,5 @@ You may also download the extension for Chrome and Firefox from the direct links
 -   [Firefox Access Panel Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 

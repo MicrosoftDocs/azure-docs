@@ -22,16 +22,16 @@ ms.custom: it-pro
 # Get started with Application Proxy and install the connector
 This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
 
-If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
+If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](application-proxy.md).
 
 ## Application Proxy prerequisites
 Before you can enable and use Application Proxy services, you need to have:
 
 * A [Microsoft Azure AD basic or premium subscription](active-directory-editions.md) and an Azure AD directory for which you are a global administrator.
 * A server running Windows Server 2012 R2 or 2016, on which you can install the Application Proxy Connector. The server needs to be able to connect to the Application Proxy services in the cloud, and the on-premises applications that you are publishing.
-  * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md).
+  * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
+If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](../application-proxy-working-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
 
 ## Open your ports
 
@@ -49,7 +49,7 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
    > [!IMPORTANT]
    > The table reflects the port requirements for connector versions 1.5.132.0 and newer. If you still have an older connector version, you also need to enable the following ports in addition to 80 and 443: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
    >
-   >For information about updating your connectors to the newest version, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md#automatic-updates).
+   >For information about updating your connectors to the newest version, see [Understand Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md#automatic-updates).
 
 2. If your firewall or proxy allows DNS whitelisting, you can whitelist connections to msappproxy.net and servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated each week.
 
@@ -68,11 +68,11 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
 2. Your current directory appears under your username in the top right corner. If you need to change directories, select that icon.
 3. Go to **Azure Active Directory** > **Application Proxy**.
 
-   ![Navigate to Application Proxy](./media/active-directory-application-proxy-enable/app_proxy_navigate.png)
+   ![Navigate to Application Proxy](./media/application-proxy-enable/app_proxy_navigate.png)
 
 4. Select **Download Connector**.
 
-   ![Download Connector](./media/active-directory-application-proxy-enable/download_connector.png)
+   ![Download Connector](./media/application-proxy-enable/download_connector.png)
 
 5. Run **AADApplicationProxyConnectorInstaller.exe** on the server you prepared according to the prerequisites.
 6. Follow the instructions in the wizard to install. During installation, you are prompted to register the connector with the Application Proxy of your Azure AD tenant.
@@ -95,12 +95,12 @@ On your server, check the list of active services for the connector and the conn
 
    * **Microsoft AAD Application Proxy Connector Updater** is an automated update service. The updater checks for new versions of the connector and updates the connector as needed.
 
-   ![App Proxy Connector services - screenshot](./media/active-directory-application-proxy-enable/app_proxy_services.png)
+   ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
 
-For information about connectors and how they stay up to date, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
+For information about connectors and how they stay up to date, see [Understand Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md).
 
 
 ## Next steps
 You are now ready to [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
 
-If you have applications that are on separate networks or different locations, use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md).
+If you have applications that are on separate networks or different locations, use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](../active-directory-application-proxy-connectors-azure-portal.md).
