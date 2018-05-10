@@ -12,7 +12,7 @@ ms.workload: identity
 ---
 # Choose the right authentication method for your Azure Active Directory hybrid identity solution 
 
-This article is the first in a series that helps organizations implement a complete Azure AD hybrid identity solution. This solution was outlined as the Hybrid Identity Digital Transformation Framework. It covers the business outcomes and goals organizations can focus on to implement a robust and secure hybrid identity solution. The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in process to and how users authenticate make everything in the cloud possible.
+This article is the first in a series. It helps organizations implement a complete Azure AD hybrid identity solution. This solution was outlined as the Hybrid Identity Digital Transformation Framework. It covers the business outcomes and goals organizations can focus on to implement a robust and secure hybrid identity solution. The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in process to and how users authenticate make everything in the cloud possible.
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:
 
@@ -41,7 +41,7 @@ Azure AD supports the following authentication methods for hybrid identity solut
 ### Cloud authentication
 When you choose this authentication method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options: 
 
-**Password Hash Sync (PHS)**. The simplest way to turn on authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection, require Password Hash Sync regardless of which authentication method is selected.
+**Password Hash Sync (PHS)**. The simplest way to turn on authentication for on-premises directory objects in Azure AD. Users can use the same username and password that they use on-premises without having to deploy any additional infrastructure. Some premium features of Azure AD, like Identity Protection, require Password Hash Sync for whichever authentication method you choose.
 
 > [!NOTE] 
 > Passwords are never stored in clear text or encrypted with a reversible algorithm in Azure AD. For more information on the actual process of Password Hash Sync, see [Implement password hash synchronization with Azure AD Connect sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization). 
@@ -134,7 +134,7 @@ The following diagrams outline the high-level architecture components required f
 |:-----|:-----|:-----|:-----|
 |Where does authentication happen?|In the cloud|In the cloud after a secure password verification exchange with the on-premises authentication agent|On-premises|
 |What are the on-premise server requirements beyond the provisioning system: Azure AD Connect?|None|One server for each additional authentication agent|Two or more AD FS servers<br>Two or more WAP servers in perimeter/DMZ network|
-|What are the on-premises Internet and networking requirements beyond the provisioning system?|None|[Outbound Internet access](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) from the servers running authentication agents|[Inbound Internet access](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) to WAP servers in perimeter<br>Inbound network access to AD FS servers from WAP servers in perimeter<br>Network load balancing|
+|What are the requirements for on-premises Internet and networking beyond the provisioning system?|None|[Outbound Internet access](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) from the servers running authentication agents|[Inbound Internet access](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-requirements) to WAP servers in perimeter<br>Inbound network access to AD FS servers from WAP servers in perimeter<br>Network load balancing|
 |Is there an SSL certificate requirement?|No|No|Yes|
 |Is there a health monitoring solution?|Not required|Agent status provided by [Azure Active Directory admin center](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
 |Do users get single sign-on to cloud resources from domain-joined devices within the company network?|Yes with [Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Yes with [Seamless SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Yes|
@@ -157,7 +157,7 @@ Use or turn on Password Hash Sync no matter which authentication method you choo
 
 2. **On-premises outage survival**.  The consequences of an on-premises outage due to a cyber-attack or disaster can be substantial, ranging from reputational brand damage to a paralyzed organization unable to deal with the attack. Recently, many organizations were victims of malware attacks, including targeted ransomware, that caused their on-premises servers to go down. When Microsoft helps customers deal with these kinds of attacks, it sees two categories of organizations:
 
-   a. Organizations that previously turned on Password Hash Sync were back online in a matter of hours by changing their authentication method to use PHS. By using access to email via Office 365, they worked to resolve issues and access other cloud-based workloads.
+   a. Organizations that previously turned on Password Hash Sync changed their authentication method to use PHS. They were back online in a matter of hours. By using access to email via Office 365, they worked to resolve issues and access other cloud-based workloads.
 
    b. Organizations that didn’t previously turn on Password Hash Sync had to resort to untrusted external consumer email systems for communications and resolving issues. In those cases, it took them weeks or more to be up and running again.
 
@@ -167,12 +167,12 @@ Lastly, according to [Gartner](https://info.microsoft.com/landingIAMGartnerrepor
 
 ## Conclusion
 
-This article outlines various authentication options that organizations can configure and deploy to support access to cloud apps. To meet various business, security, and technical requirements, organizations can choose between Password Hash Sync, pass-through authentication, and federation. Consider each authentication method. Do the effort to deploy the solution and the user's experience of the sign-in process address your business requirements? You also need to evaluate whether your organization needs the advanced scenarios and business continuity features of each authentication method. Finally, you need to evaluate the considerations of each authentication method to see if any prevent you from implementing your choice.
+This article outlines various authentication options that organizations can configure and deploy to support access to cloud apps. To meet various business, security, and technical requirements, organizations can choose between PHS, PTA, and federation. Consider each authentication method. Does the effort to deploy the solution, and the user's experience of the sign-in process, address your business requirements? Evaluate whether your organization needs the advanced scenarios and business continuity features of each authentication method. Finally, evaluate the considerations of each authentication method. Do any of them prevent you from implementing your choice?
 
 ## Next steps
 
-In today’s world, threats are present 24 hours a day and come from everywhere. Implement the correct authentication method, and it will help mitigate your security risks and protect your identities.
+In today’s world, threats are present 24 hours a day and come from everywhere. Implement the correct authentication method, and it will mitigate your security risks and protect your identities.
 
 [Get started](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) with Azure AD and deploy the right authentication solution for your organization.
 
-If you are considering migrating from federated to cloud authentication, learn more [about the changing the method of sign in](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, you can use [these project plans](http://aka.ms/deploymentplans).
+If you're thinking about migrating from federated to cloud authentication, learn more [about the changing the method of sign in](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). To help you plan and implement the migration, use [these project plans](http://aka.ms/deploymentplans).
