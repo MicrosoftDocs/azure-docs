@@ -39,7 +39,6 @@ When you have access to the customer's resources, use PowerShell or CLI to link 
 2. Sign in with your user account.
 
 3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
-
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.png)
 
 4. Use the directory switcher to change directory and link partner ID for another customer.
