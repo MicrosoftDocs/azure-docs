@@ -49,28 +49,12 @@ You have three configuration options:
 - Two HBase clusters in two different virtual networks in the same region.
 - Two HBase clusters in two different virtual networks in two different regions (geo-replication).
 
+This article covers the geo-replication scenario.
+
 To help you set up the environments, we have created some [Azure Resource Manager templates](../../azure-resource-manager/resource-group-overview.md). If you prefer to set up the environments by using other methods, see:
 
 - [Create Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 - [Create HBase clusters in Azure Virtual Network](apache-hbase-provision-vnet.md)
-
-### Set up one virtual network
-
-To create two HBase clusters in the same virtual network, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-one-vnet/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-### Set up two virtual networks in the same region
-
-To create two virtual networks with virtual network peering and two HBase clusters in the same region, select the following image. The template is stored at [Azure QuickStart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-two-vnets-same-region/).
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-two-vnets-same-region%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
-
-
-This scenario requires [virtual network peering](../../virtual-network/virtual-network-peering-overview.md). The template enables virtual network peering.   
-
-For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
 
 ### Set up two virtual networks in two different regions
 
@@ -96,11 +80,6 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | &lt;ClusterNamePrefix>1 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
-
 
 **VNet 2**
 
@@ -118,24 +97,18 @@ Some of the hard-coded values in the template:
 | Gateway VPN type | RouteBased |
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
-| Cluster Name | &lt;ClusterNamePrefix>2 |
-| Cluster version | 3.6 |
-| Cluster kind | hbase |
-| Cluster worker node count | 2 |
-
-HBase replication uses the IP addresses of the ZooKeeper VMs. You must set up static IP addresses for the destination HBase ZooKeeper nodes. To set up static IP, see [Set up two virtual networks in the same region](#set-up-two-virtual-networks-in-the-same-region) in this article.
 
 For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
 
 ## Setup DNS
 
-In this section, you install Bind on the two DNS virtual machines, and then configure the DNS forwarding on the two virutal mahcines.
+In the last section, the template creates an Ubuntu virtual machine in each of the two virtual networks.  In this section, you install Bind on the two DNS virtual machines, and then configure the DNS forwarding on the two virtual machines.
 
-To install Bind, yon need to find the public IP address of the two DNS virutal machines.
+To install Bind, yon need to find the public IP address of the two DNS virtual machines.
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Open the DNS virtual machine by selecting **Resources groups > [resource group name] > [vnet1DNS]**.  The resource group name is the one you create in the last procedure. The default DNS virtual machine names are *vnet1DNS* and *vnet2NDS*.
-3. Select **Properties** to open the properites page of the virtual network.
+3. Select **Properties** to open the properties page of the virtual network.
 4. Write down the **Public IP address**, and also verify the **Private IP address**.  The private IP address shall be **10.1.0.4** for vnet1DNS and **10.2.0.4** for vnet2DNS.  
 
 To install Bind, use the following procedure:
@@ -165,28 +138,30 @@ To install Bind, use the following procedure:
 
 3. To configure Bind to forward name resolution requests to your on-prem DNS server, use the following text as the contents of the `/etc/bind/named.conf.options` file:
 
-		acl goodclients {
-			10.1.0.0/16; # Replace with the IP address range of the virtual network 1
-			10.2.0.0/16; # Replace with the IP address range of the virtual network 2
-			localhost;
-			localhost;
-		};
+    ```
+    acl goodclients {
+        10.1.0.0/16; # Replace with the IP address range of the virtual network 1
+        10.2.0.0/16; # Replace with the IP address range of the virtual network 2
+        localhost;
+        localhost;
+    };
+    
+    options {
+        directory "/var/cache/bind";
+        recursion yes;
+        allow-query { goodclients; };
 
-		options {
-                        directory "/var/cache/bind";
-                        recursion yes;
-                        allow-query { goodclients; };
+        forwarders {
+            168.63.129.16 #This is the Azure DNS server
+        };
 
-                        forwarders {
-                                168.63.129.16 #This is the Azure DNS server
-                        };
+        dnssec-validation auto;
 
-                        dnssec-validation auto;
-
-                        auth-nxdomain no;    # conform to RFC1035
-                        listen-on-v6 { any; };
-		};
-
+        auth-nxdomain no;    # conform to RFC1035
+        listen-on-v6 { any; };
+    };
+    ```
+    
     > [!IMPORTANT]
     > Replace the values in the `goodclients` section with the IP address range of the two virtual networks. This section defines the addresses that this DNS server accepts requests from.
 
@@ -206,20 +181,24 @@ To install Bind, use the following procedure:
 
     This command returns a value similar to the following text:
 
-        dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
+        vnet1DNS.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
 
     The `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` text is the __DNS suffix__ for this virtual network. Save this value, as it is used later.
 
+    You must also find out the DNS suffix from the other DNS server. You need it in the next step.
+
 5. To configure Bind to resolve DNS names for resources within the virtual network, use the following text as the contents of the `/etc/bind/named.conf.local` file:
 
-        // Replace the following with the DNS suffix for your virtual network
-		zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
-			type forward;
-			forwarders {10.2.0.4;}; # The Azure recursive resolver
-		};
+    ```
+    // Replace the following with the DNS suffix for your virtual network
+    zone "v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net" {
+            type forward;
+            forwarders {10.2.0.4;}; # The Azure recursive resolver
+    };
+    ```
 
     > [!IMPORTANT]
-    > You must replace the `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` with the DNS suffix of the other virtual network. And the forwarder IP is the private IP address of the DNS server in the other virtual network.
+    > You must replace the `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the DNS suffix of the other virtual network. And the forwarder IP is the private IP address of the DNS server in the other virtual network.
 
     To edit this file, use the following command:
 
@@ -239,22 +218,26 @@ To install Bind, use the following procedure:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
     ```
 
     > [!IMPORTANT]
-    > Replace `dns.mynetwork.net` with the fully qualified domain name (FQDN) of the DNS virtual machine in the rother network..
+    > Replace `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` with the fully qualified domain name (FQDN) of the DNS virtual machine in the other network.
     >
-    > Replace `10.2.0.4` with the __internal IP address__ of your custom DNS server in the virtual network.
+    > Replace `10.2.0.4` with the __internal IP address__ of your custom DNS server in the other virtual network.
 
     The response appears similar to the following text:
 
-        Server:         10.2.0.4
-		Address:        10.2.0.4#53
+    ```
+    Server:         10.2.0.4
+    Address:        10.2.0.4#53
+    
+    Non-authoritative answer:
+    Name:   vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
+    Address: 10.2.0.4
+    ```
 
-		Non-authoritative answer:
-		Name:   vnet2dns.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
-		Address: 10.2.0.4
+    Until now, you cannot lookup the IP address from the other network without specified DNS server IP address.
 
 ### Configure the virtual network to use the custom DNS server
 
@@ -264,18 +247,8 @@ To configure the virtual network to use the custom DNS server instead of the Azu
 
 2. Select __Custom__, and enter the __internal IP address__ of the custom DNS server. Finally, select __Save__.
 
-    ![Set the custom DNS server for the network](./media/connect-on-premises-network/configure-custom-dns.png)
-
-
-### Configure custom DNS
-
-1. Open the [Azure portal](https://portal.azure.com).
-2. Open the vnet1 you created in the last section. 
-3. Select **DNS servers**.
-4. Select **Custom**, and then enter the DNS virtual machine IP address of the vnet1. It shall be **10.1.0.4**.
-5. Select **Save**.
 6. Open the DNS server virtual machine in vnet1, and click **Restart**.  You must restart all the virtual machines in the virtual network to make the DNS configuration to take effect.
-7. Repeat step 2 to 6 to configure the custom DNS server for vnet2.
+7. Repeat steps configure the custom DNS server for vnet2.
 
 To test the DNS configuration, you can connect to the two DNS virtual machines using SSH, and ping the DNS server of the other virtual network by using its host name. If it doesn't work, use the following command to check DNS status:
 
@@ -295,7 +268,7 @@ Create an HBase cluster in each of the two virtual networks with the following c
 - **Virtual network** (from Advanced settings on the portal): Select vnet1 you created in the last procedure.
 - **Subnet**: The default name used in the template is **subnet1**.
 
-
+To ensure the environment is configured correctly, you must be able to ping the headnode's FQDN between the two clusters.
 
 ## Load test data
 
