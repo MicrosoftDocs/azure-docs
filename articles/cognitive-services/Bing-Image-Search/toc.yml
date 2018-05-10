@@ -4,7 +4,13 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-- name: Quickstarts
+    - name: Image Search endpoints      
+      href: image-search-endpoint.md
+    - name: Supported countries and markets
+      href: supported-countries-markets.md
+    - name: Analytics for Images Search API
+      href: bing-image-stats.md
+- name: API Quickstarts
   expanded: true
   items:
   - name: C#
@@ -35,6 +41,8 @@
     href: UseAndDisplayRequirements.md
   - name: Get image insights
     href: image-insights.md
+  - name: Get .gif images
+    href: gif-images.md
   - name: Get trending images
     href: trending-images.md
   - name: Page through images
@@ -65,12 +73,8 @@
   items:
   - name: FAQ
     href: bing-image-search-resource-faq.md
-  - name: Get API key
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
-  - name: Try it!
-    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
   - name: Stack Overflow
@@ -79,6 +83,12 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Get API key
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+  - name: Try it!
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
   - name: Image Search endpoints      
     href: image-search-endpoint.md
   - name: Supported countries and markets
