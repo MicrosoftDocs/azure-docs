@@ -3,7 +3,7 @@ title: Azure Active Directory auth - Azure SQL (Overview) | Microsoft Docs
 description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and SQL Data Warehouse
 services: sql-database
 author: GithubMirek
-manager: johammer
+manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
@@ -16,7 +16,7 @@ Azure Active Directory authentication is a mechanism of connecting to Microsoft 
 
 * It provides an alternative to SQL Server authentication.
 * Helps stop the proliferation of user identities across database servers.
-* Allows password rotation in a single place
+* Allows password rotation in a single place.
 * Customers can manage database permissions using external (Azure AD) groups.
 * It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
 * Azure AD authentication uses contained database users to authenticate identities at the database level.
@@ -67,11 +67,11 @@ The following members of Azure AD can be provisioned in Azure SQL server or SQL 
 - Imported members from other Azure AD's who are native or federated domain members.
 - Active Directory groups created as security groups.
 
-Azure AD limitations related to SQL Managed Instance:
+Azure AD limitations related to Managed Instance:
 - Only Azure AD admin can create databases, Azure AD users are scoped to a single DB and do not have this permission
 - Database ownership:
   - Azure AD principal cannot change ownership of the database (ALTER AUTHORIZATION ON DATABASE) and cannot be set as owner.
-  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1)
+  - For databases created by Azure AD admin no ownership is set (owner_sid field in sys.sysdatabases is 0x1).
 - SQL Agent cannot be managed when logged in using Azure AD principals. 
 - Azure AD admin cannot be impersonated using EXECUTE AS
 - DAC connection is not supported with Azure AD principals. 
@@ -93,11 +93,11 @@ Azure Active Directory authentication supports the following methods of connecti
 
 ### Additional considerations
 
-* To enhance manageability, we recommended you provision a dedicated Azure AD group as an administrator.   
+* To enhance manageability, we recommend you provision a dedicated Azure AD group as an administrator.   
 * Only one Azure AD administrator (a user or group) can be configured for an Azure SQL Database server, Managed Instance, or Azure SQL Data Warehouse at any time.   
 * Only an Azure AD administrator for SQL Server can initially connect to the Azure SQL Database server, Managed Instance, or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure AD database users.   
 * We recommend setting the connection timeout to 30 seconds.   
-* SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure AD authentication.   
+* SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure AD authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .BACPAC) can use Azure AD authentication.   
 * [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `bcp.exe` cannot connect using Azure Active Directory authentication because it uses an older ODBC provider.   
 * `sqlcmd` supports Azure Active Directory authentication beginning with version 13.1 available from the [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).   
 * SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure AD users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   

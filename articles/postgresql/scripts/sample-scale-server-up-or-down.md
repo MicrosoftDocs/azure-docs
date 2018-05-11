@@ -10,7 +10,7 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 02/28/2018
+ms.date: 04/05/2018
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
@@ -38,6 +38,6 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - Read more information on scaling: [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md)

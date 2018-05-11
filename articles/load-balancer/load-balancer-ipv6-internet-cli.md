@@ -25,7 +25,6 @@ ms.author: kumud
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Template](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. Load balancers provide high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Load balancers can also present these services on multiple ports or multiple IP addresses or both.
 

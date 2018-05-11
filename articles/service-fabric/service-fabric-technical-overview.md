@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
 
 ---
@@ -86,12 +86,22 @@ Read the [Deploy an application](service-fabric-deploy-remove-applications.md) a
    - Orchestrates application and cluster upgrades.
    - Interacts with other system components.
 
+**Repair Manager service**: This is an optional system service that allows repair actions to be performed on a cluster in a way that is safe, automatable, and transparent. Repair manager is used in:
+   - Performing Azure maintenance repairs on [Silver and Gold durability](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric clusters.
+   - Carrying out repair actions for [Patch Orchestration Application](service-fabric-patch-orchestration-application.md)
+
 ## Built-in programming models
-There are .NET Framework programming models available for you to build Service Fabric services:
+There are .NET Framework and Java programming models available for you to build Service Fabric services:
 
 **Reliable Services**: An API to build stateless and stateful services. Stateful services store their state in Reliable Collections, such as a dictionary or a queue. You can also plug in various communication stacks, such as Web API and Windows Communication Foundation (WCF).
 
 **Reliable Actors**: An API to build stateless and stateful objects through the virtual Actor programming model. This model is useful when you have lots of independent units of computation or state. This model uses a turn-based threading model, so it's best to avoid code that calls out to other actors or services because an individual actor can't process other incoming requests until all its outbound requests are finished.
+
+You can also run your existing applications on Service Fabric:
+
+**Containers**:  Service Fabric supports the deployment of Docker containers on Linux and Windows Server containers on Windows Server 2016, along with support for Hyper-V isolation mode. In the Service Fabric [application model](service-fabric-application-model.md), a container represents an application host in which multiple service replicas are placed. Service Fabric can run any containers, and the scenario is similar to the guest executable scenario, where you package an existing application inside a container. In addition, you can [run Service Fabric services inside containers](service-fabric-services-inside-containers.md) as well.
+
+**Guest executables**: You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fabric as a service. Service Fabric refers to these types of services as guest executables, which are treated as stateless services. The advantages to running a guest executable in a Service Fabric cluster include high availability, health monitoring, application lifecycle management, high density, and discoverability.
 
 Read the [Choose a programming model for your service](service-fabric-choose-framework.md) article for more information.
 

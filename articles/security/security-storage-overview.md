@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security features that can be used with Azure Storage | Microsoft Docs
 description: " This article provides an overview of the core Azure security features that can be used with Azure Storage. "
 services: security
@@ -41,11 +41,11 @@ Here are the core features to be covered in this article:
 * Azure Key Vault
 
 ## Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../active-directory/role-based-access-built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
 
 Learn more:
 
-* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## Delegated access to storage objects
 A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to provide the SAS to the appropriate constructor or method.

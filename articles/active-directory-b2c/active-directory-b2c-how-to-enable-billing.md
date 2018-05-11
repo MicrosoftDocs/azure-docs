@@ -3,17 +3,15 @@ title: How to Link an Azure Subscription to Azure AD B2C | Microsoft Docs
 description: Step-by-step guide to enable billing for Azure AD B2C tenant into an Azure subscription.
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: parakhj
+author: davidmu1
 manager: mtillman
-
+editor: ''
 
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2017
-ms.author: parja
+ms.author: davidmu
 
 ---
 # Linking an Azure Subscription to an Azure AD B2C tenant

@@ -4,7 +4,7 @@ description: Learn how to set up Apache Tomcat7 by using Azure Virtual Machines 
 services: virtual-machines-linux
 documentationcenter: ''
 author: NingKuang
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 

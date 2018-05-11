@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
@@ -59,7 +59,13 @@ To improve the readability of the descriptions, this topic uses the following te
 
 ## Prerequisites
 
-Before you start enabling hybrid Azure AD joined devices in your organization, you need to make sure that you are running an up-to-date version of Azure AD connect.
+Before you start enabling hybrid Azure AD joined devices in your organization, you need to make sure that:
+
+- You are running an up-to-date version of Azure AD connect.
+
+- Azure AD connect has synchronized the computer objects of the devices you want to be hybrid Azure AD joined to Azure AD. If the computer objects belong to specific organizational units (OU), then these OUs need to be configured for synchronization in Azure AD connect as well.
+
+  
 
 Azure AD Connect:
 
@@ -74,8 +80,20 @@ Make sure that the following URLs are accessible from computers inside your orga
 
 - https://device.login.microsoftonline.com
 
-If your organizations requires access to the Internet via an outbound proxy, must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
+- Your organization's STS (federated domains)
 
+If not already done, your organization's STS (for federated domains) should be included in the user's local intranet settings.
+
+If your organization is planning to use Seamless SSO, then the following URLs need to be reachable from the computers inside your organization and they must also be added to the user's local intranet zone:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Also, the following setting should be enabled in the user's intranet zone: "Allow updates to status bar via script."
+
+
+If your organization requires access to the Internet via an outbound proxy, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to register to Azure AD.
 
 ## Configuration steps
 
@@ -142,7 +160,7 @@ The following script shows an example for using the cmdlet. In this script, `$aa
 The `Initialize-ADSyncDomainJoinedComputerSync` cmdlet:
 
 - Uses the Active Directory PowerShell module and AD DS Tools, which rely on Active Directory Web Services running on a domain controller. Active Directory Web Services is supported on domain controllers running Windows Server 2008 R2 and later.
-- Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Is only supported by the **MSOnline PowerShell module version 1.1.166.0**. To download this module, use this [link](https://msconfiggallery.cloudapp.net/packages/MSOnline/1.1.166.0/).   
 - If the AD DS tools are not installed, the `Initialize-ADSyncDomainJoinedComputerSync` will fail.  The AD DS tools can be installed through Server Manager under Features - Remote Server Administration Tools - Role Administration Tools.
 
 For domain controllers running Windows Server 2008 or earlier versions, use the script below to create the service connection point.
@@ -492,7 +510,7 @@ The following policy must be set to **All**: **Users may register their devices 
 
 ### Configure on-premises federation service 
 
-Your on-premises federation service must support issuing the **authenticationmehod** and **wiaormultiauthn** claims when receiving an authentication request to the Azure AD relying party holding a resouce_params parameter with an encoded value as shown below:
+Your on-premises federation service must support issuing the **authenticationmethod** and **wiaormultiauthn** claims when receiving an authentication request to the Azure AD relying party holding a resouce_params parameter with an encoded value as shown below:
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 

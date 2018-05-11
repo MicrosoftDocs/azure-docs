@@ -51,7 +51,7 @@ Failover and failback has four stages:
 
 ## Verify VM properties
 
-Verify the VM properties, and make sure that the VM complies with [Azure requirements](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
+Verify the VM properties, and make sure that the VM complies with [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 1. In **Protected Items**, click **Replicated Items** > VM.
 

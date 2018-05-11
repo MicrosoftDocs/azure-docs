@@ -53,7 +53,7 @@ Note that if the folder `C:\myfolder` does not exist, AzCopy creates it and down
 ### Download a single blob from the secondary region
 
 ```azcopy
-AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
+AzCopy /Source:https://myaccount-secondary.blob.core.windows.net/mynewcontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
 Note that you must have read-access geo-redundant storage enabled to access the secondary region.
@@ -103,7 +103,7 @@ After the download operation, the folder `C:\myfolder` includes the following fi
     C:\myfolder\abc1.txt
     C:\myfolder\abc2.txt
 
-The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `\S` is not specified, AzCopy does not download any blobs.
+The prefix applies to the virtual directory, which forms the first part of the blob name. In the example shown above, the virtual directory does not match the specified prefix, so it is not downloaded. In addition, if the option `/S` is not specified, AzCopy does not download any blobs.
 
 ### Set the last-modified time of exported files to be same as the source blobs
 
@@ -613,7 +613,7 @@ Parameters for AzCopy are described below. You can also type one of the followin
 
 * For detailed command-line help for AzCopy: `AzCopy /?`
 * For detailed help with any AzCopy parameter: `AzCopy /?:SourceKey`
-* For command-line examples: `AzCopy /?:Samples`
+* For command-line examples: `AzCopy /?:Sample`
 
 ### /Source:"source"
 

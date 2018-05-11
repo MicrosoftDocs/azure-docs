@@ -1,6 +1,6 @@
 ---
-title: Azure Managed Application FileUpload UI element | Microsoft Docs
-description: Describes the Microsoft.Common.FileUpload UI element for Azure Managed Applications
+title: Azure FileUpload UI element | Microsoft Docs
+description: Describes the Microsoft.Common.FileUpload UI element for Azure portal.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
 
 ---
 # Microsoft.Common.FileUpload UI element
-A control that allows a user to specify one or more files to upload. You use this element when [creating an Azure Managed Application](publish-service-catalog-app.md).
+A control that allows a user to specify one or more files to upload.
 
 ## UI sample
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -94,6 +94,5 @@ console. You may need to right-click individual links to copy the full URLs.
 
 
 ## Next steps
-* For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 * For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
 * For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

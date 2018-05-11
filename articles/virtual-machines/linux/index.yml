@@ -48,7 +48,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and scale Linux VMs on Azure
+    text: Learn how to deploy, manage, and scale Linux VMs on Azure.
   - type: list
     style: ordered
     items:
@@ -61,12 +61,14 @@ sections:
     - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-govern-resources">Govern VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor and update VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD with Team Services</a>
     - html: Create a web server stack with <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a>, or <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>
     - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Secure a web server with SSL</a>
+    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Deploy apps to an Azure virtual machine scale set with a custom Packer image</a>
 - title: Free Pluralsight Video Training
   items:
   - type: list

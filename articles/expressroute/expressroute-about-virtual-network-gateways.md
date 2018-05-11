@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/22/2018
 ms.author: cherylmc
 
 ---
@@ -32,13 +32,13 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 If you want to upgrade your gateway to a more powerful gateway SKU, in most cases you can use the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. This will work for upgrades to Standard and HighPerformance SKUs. However, to upgrade to the UltraPerformance SKU, you will need to recreate the gateway.
 
-### <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
-The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
+### <a name="aggthroughput"></a>Estimated performances by gateway SKU
+The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
 
 [!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
 
 > [!IMPORTANT]
-> Application throughput depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. 
+> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. 
 > 
 >
 

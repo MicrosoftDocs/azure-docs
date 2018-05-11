@@ -3,23 +3,23 @@ title: Provision the Windows Data Science Virtual Machine on Azure | Microsoft D
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
+ms.author: gokuma
 
 ---
 # Provision the Windows Data Science Virtual Machine on Azure
 The Microsoft Data Science Virtual Machine is a Windows Azure virtual machine (VM) image pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The tools included are:
 
-* [Azure Machine Learning](../preview/index.yml) Workbench
+* [Azure Machine Learning](../service/index.yml) Workbench
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer Edition
 * Anaconda Python distribution
 * Jupyter notebook (with R, Python, PySpark kernels)
@@ -189,7 +189,7 @@ The [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloa
 Here are some next steps to continue your learning and exploration. 
 
 * Explore the various data science tools on the data science VM by clicking the start menu and checking out the tools listed on the menu.
-* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../preview/index.yml). 
+* Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../service/index.yml). 
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples using the RevoScaleR library in R that supports data analytics at enterprise scale.  
 * Read the article: [10 things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings)
 * Learn how to build end to end analytical solutions systematically using the [Team Data Science Process](../team-data-science-process/index.yml).

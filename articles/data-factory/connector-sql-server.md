@@ -4,8 +4,8 @@ description: Learn about how to move data to/from SQL Server database that is on
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
@@ -401,7 +401,7 @@ Notice that the target table has an identity column.
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
-## Invoke stored procedure from SQL sink
+## <a name="invoking-stored-procedure-for-sql-sink"></a> Invoke stored procedure from SQL sink
 
 When copying data into SQL Server database, a user specified stored procedure could be configured and invoked with additional parameters.
 

@@ -24,7 +24,7 @@ This document walks through the process of programmatically creating and publish
 
 ## Overview
 
-Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure/overview), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
+Shared dashboards in Azure are [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) just like virtual machines and storage accounts.  Therefore, they can be managed programmatically via the [Azure Resource Manager REST APIs](/rest/api/), the [Azure CLI](https://docs.microsoft.com/cli/azure), [Azure PowerShell commands](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0), and many [Azure portal](https://portal.azure.com) features build on top of these APIs to make resource management easier.  
 
 Each of these APIs and tools offers ways to create, list, retrieve, modify, and delete resources.  Since dashboards are resources, you can pick your favorite API / tool to use.
 
@@ -52,7 +52,7 @@ After you have configured the dashboard to your liking the next steps are to pub
 
 ![share command](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) to the subscription and resource group that you choose.
+Clicking the Share command shows a dialog that asks you to choose which subscription and resource group to publish to. Keep in mind that [you must have write access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to the subscription and resource group that you choose.
 
 ![sharing and access](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

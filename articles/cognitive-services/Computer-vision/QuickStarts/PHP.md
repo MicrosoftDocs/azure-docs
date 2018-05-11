@@ -2,17 +2,16 @@
 title: Computer Vision API PHP quick starts | Microsoft Docs
 description: Get information and code samples to help you quickly get started using PHP and the Computer Vision API in Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: easyj2j
 
 ms.service: cognitive-services
-ms.technology: computer-vision
+ms.component: computer-vision
 ms.topic: article
-ms.date: 05/22/2017
-ms.author: juliakuz
+ms.date: 5/07/2018
+ms.author: v-johnma
 ---
 
-# Computer Vision PHP Quick Starts
+# Use the Computer Vision API with PHP
 
 This article provides information and code samples to help you quickly get started using the Computer Vision API with PHP to accomplish the following tasks:
 * [Analyze an image](#AnalyzeImage) 
@@ -20,11 +19,13 @@ This article provides information and code samples to help you quickly get start
 * [Intelligently generate a thumbnail](#GetThumbnail)
 * [Detect and extract text from an Image](#OCR)
 
-Learn more about obtaining free Subscription Keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md)
+## Prerequisites
+
+To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Analyze an Image With Computer Vision API Using PHP <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
+With the [Analyze Image method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
 * The category defined in this [taxonomy](../Category-Taxonomy.md). 
 * A detailed list of tags related to the image content. 
 * A description of image content in a complete sentence. 
@@ -279,7 +280,7 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ## Get a Thumbnail with Computer Vision API Using PHP <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
+Use the [Get Thumbnail method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) to  crop an image based on its region of interest (ROI) to the height and width you desire, even if the aspect ratio differs from the input image. 
 
 ### Get a Thumbnail PHP Example Request
 
@@ -339,7 +340,7 @@ A successful response contains the thumbnail image binary. If the request failed
 
 ## Optical Character Recognition (OCR) with Computer Vision API Using PHP <a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
+Use the [Optical Character Recognition (OCR) method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to detect text in an image and extract recognized characters into a machine-usable character stream.
 
 ### OCR PHP Example Request
 

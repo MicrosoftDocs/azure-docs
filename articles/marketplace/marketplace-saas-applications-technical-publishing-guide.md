@@ -1,7 +1,7 @@
 ---
 title: Azure Marketplace SaaS Applications Technical Publishing Guide
-description: Step-by-step guide and publishing checklists for publishing virtual machines (VM) to Azure Marketplace
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security, VM, Virtual Machine
+description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
+services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter:
 author: BrentL-Collabera
 manager: 

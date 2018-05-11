@@ -53,6 +53,6 @@ This script uses the following commands to calculate the size of the Blob storag
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional storage CLI script samples can be found in the [Azure CLI samples for Azure Blob storage](../blobs/storage-samples-blobs-cli.md).

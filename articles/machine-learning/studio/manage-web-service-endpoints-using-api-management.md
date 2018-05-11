@@ -4,9 +4,10 @@ description: A guide showing how to manage AzureML web services using API Manage
 keywords: machine learning,api management
 services: machine-learning
 documentationcenter: ''
-author: roalexan
-manager: jhubbard
-editor: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
+editor: cgronlun
 
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -15,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.author: roalexan
 
 ---
 # Learn how to manage AzureML web services using API Management

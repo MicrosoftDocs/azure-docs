@@ -48,7 +48,7 @@ sections:
     columns: 2
     items:
     - href: ../aks/kubernetes-walkthrough.md
-      title: Create a Kubernetes cluster with Azure Container Service (AKS)
+      title: Create a Kubernetes cluster with Azure Kubernetes Service (AKS)
       image:
         src: /azure/media/index/ContainerService.svg
     - href: https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers
@@ -80,12 +80,12 @@ sections:
     style: unordered
     items:
     - html: <a href="https://azure.microsoft.com/resources/samples/app-service-java-deploy-image-from-acr-to-linux/">Getting Started with Appservice - Manage Linux Web App With Container Registry - in Java</a>
-    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-containers/">Service Fabric Container Samples</a>
+    - html: <a href="https://azure.microsoft.com/resources/samples/service-fabric-containers/">Service Fabric Container Samples</a>
     - html: <a href="https://azure.microsoft.com/resources/samples/container-service-python-manage/">Deploy and connect to a Docker container in an Azure cluster</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use Azure Container Service (AKS)
+    text: Learn how to use Azure Kubernetes Service (AKS)
   - type: list
     style: unordered
     items:

@@ -3,15 +3,14 @@ title: Setting access control in Azure Cosmos DB | Microsoft Docs
 description: Learn how to set access control in Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: fae3af3f-4d6e-46d8-9d9b-b80a4218add9
 ms.service: cosmos-db
 ms.topic: article
 ms.date: 02/06/2018
-ms.author: mimig
+ms.author: sngun
 
 ---
 # Access control in Azure Cosmos DB

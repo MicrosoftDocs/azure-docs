@@ -4,8 +4,7 @@ description: 'Learn how to use Studio 3T with an Azure Cosmos DB MongoDB API acc
 keywords: mongochef, studio 3T
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: ''
+manager: kfile
 documentationcenter: ''
 
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac

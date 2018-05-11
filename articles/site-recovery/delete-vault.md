@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete a Site Recovery vault
 description: Learn how to delete an Azure Site Recovery vault, based on the Site Recovery scenario.
 service: site-recovery
@@ -61,7 +61,7 @@ To delete the vault, follow the recommended steps for your scenario.
 
 To delete the Site Recovery vault even if there are protected items, use these commands:
 
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
 
     Select-AzureRmSubscription -SubscriptionName "XXXXX"
 

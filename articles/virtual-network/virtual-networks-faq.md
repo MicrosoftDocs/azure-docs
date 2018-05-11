@@ -57,7 +57,7 @@ You can use the following tools to create or configure a VNet:
 Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16.
 
 ### Can I have public IP addresses in my VNets?
-Yes. For more information about public IP address ranges, see [Create a virtual network](virtual-network-manage-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
+Yes. For more information about public IP address ranges, see [Create a virtual network](manage-virtual-network.md#create-a-virtual-network). Public IP addresses are not directly accessible from the internet.
 
 ### Is there a limit to the number of subnets in my VNet?
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
@@ -151,7 +151,7 @@ Yes. All network interfaces (NIC) attached to a VM deployed through the Resource
 No. You cannot reserve a private IP address. If a private IP address is available, it is assigned to a VM or role instance by the DHCP server. The VM may or may not be the one that you want the private IP address assigned to. You can, however, change the private IP address of an already created VM, to any available private IP address.
 
 ### Do private IP addresses change for VMs in a VNet?
-It depends. If the VM was deployed through Resource manager, no, regardless of whether the IP address was assigned with the static or dynamic allocation method. If the VM was deployed through the classic deployment model, dynamic IP addresses can change when a VM is started after having been in the stopped (deallocated) state. The address is released from a VM deployed through either deployment model when the VM is deleted.
+It depends. If the VM was deployed through Resource Manager, no, regardless of whether the IP address was assigned with the static or dynamic allocation method. If the VM was deployed through the classic deployment model, dynamic IP addresses can change when a VM is started after having been in the stopped (deallocated) state. The address is released from a VM deployed through either deployment model when the VM is deleted.
 
 ### Can I manually assign IP addresses to NICs within the VM operating system?
 Yes, but it's not recommended unless necessary, such as when assigning multiple IP addresses to a virtual machine. For details, see [Adding multiple IP addresses to a virtual machine](virtual-network-multiple-ip-addresses-portal.md#os-config). If the IP address assigned to an Azure NIC attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
@@ -218,6 +218,6 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
-- The Azure portal to deploy VNets through the [Azure Resource Manager](virtual-networks-create-vnet-arm-pportal.md) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
+- The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
 - PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/azure/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  

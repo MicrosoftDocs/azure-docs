@@ -18,6 +18,10 @@ ms.author: piyushjo
 
 ---
 # Comparing Azure Mobile Engagement with other similar Azure services
+> [!IMPORTANT]
+> Azure Mobile Engagement retires on 3/31/2018. This page will be deleted shortly after.
+> 
+
 The list of services offered by Microsoft Azure is ever expanding and at times you may wonder how is Azure Mobile Engagement different than this other service that you just read or hear about. This article attempts to clear the confusion and directs you to choose Azure Mobile Engagement when it is most appropriate for your usage. 
 
 Azure Mobile Engagement is a service targeted specifically **for digital marketers/CMOs** but could be used by any **mobile app owner or publisher** who wants to increase the usage, retention and monetization of their mobile apps. 

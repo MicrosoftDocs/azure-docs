@@ -1,3 +1,16 @@
+---
+ title: include file
+ description: include file
+ services: virtual-machines
+ author: cynthn
+ ms.service: virtual-machines
+ ms.topic: include
+ ms.date: 03/27/2018
+ ms.author: cynthn
+ ms.custom: include file
+---
+
+
 ## Understand VM Reboots - maintenance vs. downtime
 There are three scenarios that can lead to virtual machine in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
@@ -66,11 +79,9 @@ If the load balancer is not configured to balance traffic across multiple virtua
 
 ## Use availability zones to protect from datacenter level failures
 
-[Availability zones](../articles/availability-zones/az-overview.md) (preview), an alternative to availability sets, expand the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone within an Azure region. There are three Availability Zones per supported Azure region. Each Availability Zone has a distinct power source, network, and cooling, and is logically separate from the other Availability Zones within the Azure region. By architecting your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a datacenter. If one zone is compromised, then replicated apps and data are instantly available in another zone. 
+[Availability zones](../articles/availability-zones/az-overview.md), an alternative to availability sets, expand the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone within an Azure region. There are three Availability Zones per supported Azure region. Each Availability Zone has a distinct power source, network, and cooling, and is logically separate from the other Availability Zones within the Azure region. By architecting your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a datacenter. If one zone is compromised, then replicated apps and data are instantly available in another zone. 
 
 ![Availability zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
 Learn more about deploying a [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) or [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM in an Availability Zone.
 

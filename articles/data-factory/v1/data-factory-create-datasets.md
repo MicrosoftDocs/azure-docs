@@ -4,8 +4,8 @@ description: Learn how to create datasets in Azure Data Factory, with examples t
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
