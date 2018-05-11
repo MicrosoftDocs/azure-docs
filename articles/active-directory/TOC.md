@@ -16,6 +16,7 @@
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
+## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
@@ -167,26 +168,22 @@
 #### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
-### [Overview](active-directory-enable-sso-scenario.md)
-### [Getting started](active-directory-integrating-applications-getting-started.md)
+### [Overview](manage-apps/what-is-application-management.md)
+### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### Agent-based discovery
-##### [What is Cloud App Discovery?](active-directory-cloudappdiscovery-whatis.md)
-##### [Update registry settings](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-##### [Understand security and privacy](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
-### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
+### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
-##### [Enable App Proxy](active-directory-application-proxy-enable.md)
-##### [Publish apps](application-proxy-publish-azure-portal.md)
-##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Single sign-on](application-proxy-sso-overview.md)
-##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Enable App Proxy](manage-apps/application-proxy-enable.md)
+##### [Publish apps](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Custom domains](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single sign-on](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO with KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
 #### Concepts
@@ -328,7 +325,7 @@
 #### [FAQs](active-directory-identity-protection-faqs.md)
 #### [Glossary](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
 ## [Integrate other services with Azure AD]()
 ### [Enable LinkedIn integration](linkedin-integration.md)

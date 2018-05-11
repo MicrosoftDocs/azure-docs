@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enable Backup for Azure Stack with PowerShell | Microsoft Docs
 description: Enable the Infrastructure Backup Service with Windows PowerShell so that Azure Stack can be restored if there is a failure. 
 services: azure-stack
@@ -80,7 +80,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 In the same PowerShell session, run the following commands:
 
    ```powershell
-   Get-AzsBackupLocation | Select-Object -Property Path, UserName, Password | ConvertTo-Json 
+   Get-AzsBackupLocation | Select-Object -ExpandProperty externalStoreDefault | Select-Object -Property Path, UserName, Password | ConvertTo-Json
    ```
 
 The result should look like the following JSON output:

@@ -3,11 +3,11 @@ title: Silent install Azure AD App Proxy connector | Microsoft Docs
 description: Covers how to perform an unattended installation of Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 
-ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -125,8 +125,8 @@ There are two methods you can use to register the connector:
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## Next steps 
-* [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+* [Publish applications using your own domain name](manage-apps/application-proxy-configure-custom-domain.md)
+* [Enable single-sign on](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 

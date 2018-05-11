@@ -254,7 +254,11 @@ The easiest way to create a new device type in the device simulation service is 
 
 1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
 
-1. In Solution Explorer, right-click the **device-simulation** solution and choose **Set StartUp Projects**. Choose **Single startup project** and select **SimulationAgent**. Then click **OK**.
+1. In Solution Explorer, right-click the **WebService** project, choose **Properties**, and then choose **Debug**.
+
+1. In the **Environment variables** section, edit the value of the **PCS\_IOTHUB\_CONNSTRING** variable to be the IoT Hub connection string you noted previously. Then save your changes.
+
+1. In Solution Explorer, right-click the **device-simulation** solution and choose **Set StartUp Projects**. Choose **Single startup project** and select **WebService**. Then click **OK**.
 
 1. Each device type has a JSON model file and associated scripts in the **Services/data/devicemodels** folder. In Solution Explorer, copy the **Chiller** files to create the **Lightbulb** files as shown in the following table:
 
@@ -290,10 +294,12 @@ The **lightbulb-01.json** file defines the characteristics of the type, such as 
         "status": "on"
       },
       "Interval": "00:00:20",
-      "Scripts": {
-        "Type": "javascript",
-        "Path": "lightbulb-01-state.js"
-      }
+      "Scripts": [
+        {
+          "Type": "javascript",
+          "Path": "lightbulb-01-state.js"
+        }
+      ]
     },
     ```
 
@@ -464,7 +470,7 @@ To limit the number of simulated devices that connect to the solution during tes
 
 You are now ready to test your new simulated lightbulb type by running the device simulation project locally.
 
-1. In Solution Explorer, right-click **SimulationAgent**, choose **Debug** and then choose **Start new instance**.
+1. In Solution Explorer, right-click **WebService**, choose **Debug** and then choose **Start new instance**.
 
 1. To check that the two simulated devices are connected to your IoT Hub, open the Azure portal in your browser.
 

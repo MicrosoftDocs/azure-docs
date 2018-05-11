@@ -60,7 +60,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 1. In the `Program.cs` for your Visual Studio project, replace the body of the `Program` class with the following. Make sure you replace the subscription key and region with one that you obtained for the service.
 
-    [!code-csharp[Quickstart Code](code/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#code)]
 
 2. After pasting the code, the `Main()` method must resemble as shown in the following screenshot:
 
@@ -68,9 +68,7 @@ In this section, you add a new platform to the configuration that matches your p
 
 3. Visual Studio's IntelliSense highlights the references to the Speech SDK's classes that could not be resolved. To fix this error, add the following `using` statement to the beginning of the code (either manually, or using Visual Studio's [quick actions](https://docs.microsoft.com/visualstudio/ide/quick-actions)).
 
-    ```csharp
-    using Microsoft.CognitiveServices.Speech;
-    ```
+    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-csharp/Program.cs#usingstatement)]
 
     ![Use the quick action to add the missing using statement](media/sdk/speechsdk-18-vs-cs-add-using.png "Resolve IntelliSense issues")
 

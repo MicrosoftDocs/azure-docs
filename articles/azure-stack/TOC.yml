@@ -61,8 +61,22 @@
         href: azure-stack-prepare-pki-certs.md
       - name: Validate PKI certificates
         href: azure-stack-validate-pki-certs.md
-    - name: Identity integration
-      href: azure-stack-integrate-identity.md
+      - name: Remediate PKI certificates
+        href: azure-stack-remediate-certs.md
+      - name: Deployment resources
+        items:
+        - name: Start-AzsReadiness cmdlet reference
+          href: azure-stack-azsreadiness-cmdlet.md
+        - name: View the readiness report  
+          href: azure-stack-validation-report.md
+      - name: Identity integration
+        items:    
+        - name: Choose an identity provider
+          href: azure-stack-integrate-identity.md
+        - name: Validate Azure identity
+          href: azure-stack-validate-identity.md
+    - name: Validate Azure registration
+      href: azure-stack-validate-registration.md
     - name: External monitoring
       href: azure-stack-integrate-monitor.md
     - name : Security integration
@@ -252,6 +266,8 @@
         href: azure-stack-compute-add-scalesets.md
       - name: Offer Linux virtual machines
         href: azure-stack-linux.md
+      - name: Add a Red Hat virtual machine
+        href: azure-stack-redhat-create-upload-vhd.md
       - name: Offer a Kubernetes Cluster
         href: azure-stack-solution-template-kubernetes-cluster-add.md
     - name: Usage and billing
