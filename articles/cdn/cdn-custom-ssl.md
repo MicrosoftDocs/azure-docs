@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
