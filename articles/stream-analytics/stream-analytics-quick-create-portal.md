@@ -14,7 +14,7 @@ manager: kfile
 
 # Quickstart: Create a Stream Analytics job by using the Azure portal
 
-This quickstart shows you how to get started with creating a Stream Analytics job. In this quickstart, you define a Stream Analytics job that reads sample sensor data and filters rows that have average temperature greater than 100 for every 30 seconds. In this article, you read data from blob storage, transform the data, and write the data back to a different container in the same blob storage. The input data file used in this quickstart contains static data for illustrative purposes only. In a real world scenario, you use streaming input data for a Stream Analytics
+This quickstart shows you how to get started with creating a Stream Analytics job. In this quickstart, you define a Stream Analytics job that reads sample sensor data and filters rows that have average temperature greater than 100 for every 30 seconds. In this article, you read data from blob storage, transform the data, and write the data back to a different container in the same blob storage. The input data file used in this quickstart contains static data for illustrative purposes only. In a real world scenario, you use streaming input data for a Stream Analytics job.
 
 ## Before you begin
 
@@ -54,7 +54,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
 
 ## Create a Stream Analytics job
 
-1. Sign in to the Azure portal  
+1. Sign in to the Azure portal.
 
 2. Select **Create a resource** in the upper left-hand corner of the Azure portal.  
 
@@ -144,13 +144,13 @@ In this section, you will configure blob storage as an input to the Stream Analy
 
 ## Start the Stream Analytics job and check the output
 
-1. Return to the job overview page and select **Start**  
+1. Return to the job overview page and select **Start**.
 
 2. Under **Start job**, select **Custom**, for **Start time** field. Select `2018-01-24` as the start date, but do not change the time. This start date is chosen because it precedes the event timestamp from the sample data. When you're done, select **Start**.
 
    ![Start the job](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. After few minutes, In the portal, find the storage account & the container that you have configured as output for the job. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.  
+3. After few minutes, in the portal, find the storage account & the container that you have configured as output for the job. You can now see the output file in the container. The job takes a few minutes to start for the first time, after it is started, it will continue to run as the data arrives.  
 
    ![Transformed output](./media/stream-analytics-quick-create-portal/transformed-output.png)
 
