@@ -30,10 +30,10 @@ The first half of this guide describes typical business problems, the benefits o
 
 | Start with ... | If you are ... |
 |:---------------|:---------------|
-| [Business case for PdM](#Business-Case-for-PdM) |a business decision maker (BDM) looking to reduce downtime and operational costs, and improve utilization of  equipment |
-| [Data Science for PdM](#Data-Science-for-PdM) |a technical decision maker (TDM) evaluating PdM technologies to understand the unique data processing and AI requirements for predictive maintenance |
-| [Solution Templates for PdM](#Solution-Templates-for-PdM)|a software architect or AI Developer looking to quickly stand up a demo or a proof-of-concept |
-| [Training Resources for PdM](#Training-Resources-for-PdM) | any or all of the above, and want to learn the foundational concepts behind the data science, tools, and techniques.
+| [Business case for Predictive Maintenance](#Business-Case-for-Predictive-Maintenance) |a business decision maker (BDM) looking to reduce downtime and operational costs, and improve utilization of  equipment |
+| [Data Science for Predictive Maintenance](#Data-Science-for-Predictive-Maintenance) |a technical decision maker (TDM) evaluating PdM technologies to understand the unique data processing and AI requirements for predictive maintenance |
+| [Solution Templates for Predictive Maintenance](#Solution-Templates-for-Predictive-Maintenance)|a software architect or AI Developer looking to quickly stand up a demo or a proof-of-concept |
+| [Training Resources for Predictive Maintenance](#Training-Resources-for-Predictive-Maintenance) | any or all of the above, and want to learn the foundational concepts behind the data science, tools, and techniques.
 
 ### Prerequisite knowledge
 The BDM content does not expect the reader to have any prior data science knowledge. For the TDM content, basic knowledge of statistics and data science is helpful. Knowledge of Azure Data and AI services, Python, R, XML, and JSON is recommended. AI techniques are implemented in Python and R packages. Solution templates are implemented using Azure services, development tools, and SDKs.
@@ -344,7 +344,7 @@ When time-series are stationary and easy to predict, both random and time-depend
 ### Time-dependent split
 This section describes best practices to implement time-dependent split. A time-dependent two-way split between training and test sets is described below.
 
-Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature Engineering](#Feature-Engineering) and [modeling techniques](#Modeling-Techniques-applied-to-PdM-Use-Cases)). Thus, the labeling time frame of an example comes later than the time frame of its features.
+Assume a stream of timestamped events such as measurements from various sensors. Define features and labels of training and test examples over time frames that contain multiple events. For example, for binary classification, create features based on past events, and create labels  based on future events within "X" units of time in the future (see the sections on [feature engineering](#Feature-Engineering) and [modeling techniques](#Modeling-Techniques-applied-to-PdM-Use-Cases)). Thus, the labeling time frame of an example comes later than the time frame of its features.
 
 For time-dependent split, pick a _training cutoff time T<sub>c</sub>_ at which to train a model, with hyperparameters tuned using historical data up to T<sub>c</sub>. To prevent leakage of future labels that are beyond T<sub>c</sub> into the training data, choose the latest time to label training examples to be X units before T<sub>c</sub>. In the example shown in Figure 7, each square represents a record in the data set where features and labels are computed as described above. The figure shows the records that should go into training and testing sets for X=2 and W=3:
 
@@ -423,21 +423,23 @@ In contrast, PdM involves _batch scoring_. To conform to the model signature, th
 - Streaming data engines support aggregation over windows in memory. So it could be argued that they support online scoring. But these systems are suitable for dense data in narrow windows of time, or sparse elements over wider windows. They may not scale well for the dense data over wider time windows, as seen in PdM scenarios.
 - If batch scoring is not available, the solution is to adapt online scoring to handle new data in small batches at a time.
 
-## **Solution Templates for PdM**
+## **Solution Templates for Predictive Maintenance**
 
-The final section of this guide provides a list of PdM solution templates, tutorials, and experiments implemented in Azure. These PdM applications can be deployed into an Azure subscription within minutes in some cases. They can be used as proof-of-concept demos, sandboxes to experiment with alternatives, or accelerators for actual production implementations. These templates are located in the [Azure AI Gallery](http://gallery.azure.ai), or at GitHub (https://github.com/Azure).
+The final section of this guide provides a list of PdM solution templates, tutorials, and experiments implemented in Azure. These PdM applications can be deployed into an Azure subscription within minutes in some cases. They can be used as proof-of-concept demos, sandboxes to experiment with alternatives, or accelerators for actual production implementations. These templates are located in the [Azure AI Gallery](http://gallery.azure.ai), or at GitHub (https://github.com/Azure). These different samples will be rolled into this solution template over time.
 
 | # | Title | Description |
 |--:|:------------------------|-------------------------------|
-| 1 | [Azure Predictive Maintenance Machine Learning Sample](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |PdM sample to predict failure over the next N time units. This sample is written as an Azure ML Workbench project, and is ideal for beginners to PdM.|
-| 2 | [Azure Predictive Maintenance Solution Template](https://github.com/Azure/AI-PredictiveMaintenance) | An end to end framework to demonstrate multiple PdM scenarios. This template presents two scenarios: the first is a new use case of real-time failure condition classification. The second scenario is simply an integration of solution [1] into this solution template. It demonstrates how to reuse the same deployed infrastructure to add other new or existing scenarios. |
-| 3 | [Deep Learning for Predictive Maintenance](https://azure.microsoft.com/en-us/blog/deep-learning-for-predictive-maintenance/) | Azure Notebook with a demo solution of using LSTM (Long Short-Term Memory) networks (a class of Recurrent Neural Networks) for Predictive Maintenance |
-| 4 | [Predictive Maintenance Modeling Guide in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM modeling guide with scripts in R |
-| 5 | [Azure Predictive Maintenance for Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | One of the first PdM solution templates based on Azure ML v1.0 for aircraft maintenance. This guide originated from this project |
+| 1 | [Azure Predictive Maintenance Machine Learning Sample](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |PdM sample to predict failure over the next N time units. This sample is written as an Azure ML Workbench project, and is ideal for beginners to PdM. [Additional documentation](https://docs.microsoft.com/en-us/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) related to this sample.|
+| 2 | [Azure Predictive Maintenance Solution Template](https://github.com/Azure/AI-PredictiveMaintenance) | An end to end framework to demonstrate multiple PdM scenarios. This template presents two scenarios: the first is a new use case of real-time failure condition classification. The second scenario is simply an integration of solution [1] into this solution template. It demonstrates how to reuse the same deployed infrastructure to add other new or existing scenarios.|
+| 3 | [Deep Learning for Predictive Maintenance](https://azure.microsoft.com/en-us/blog/deep-learning-for-predictive-maintenance/) | Azure Notebook with a demo solution of using LSTM (Long Short-Term Memory) networks (a class of Recurrent Neural Networks) for Predictive Maintenance.|
+| 4 | [Predictive Maintenance Modeling Guide in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM modeling guide with scripts in R.|
+| 5 | [Azure Predictive Maintenance for Aerospace](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | One of the first PdM solution templates based on Azure ML v1.0 for aircraft maintenance. This guide originated from this project. |
 | 6 | [Azure AI Toolkit for IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | AI in the IoT edge using TensorFlow; toolkit packages deep learning models in Azure IoT Edge-compatible Docker containers and expose those models as REST APIs.
-| 7 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Preconfigured Solution. Aircraft maintenance PdM template with IoT Suite |
+| 7 | [Azure IoT Predictive Maintenance](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS - Preconfigured Solution. Aircraft maintenance PdM template with IoT Suite. [Another document](https://docs.microsoft.com/en-us/azure/iot-suite/iot-suite-predictive-overview) related to the same project. |
+| 8 | [Deep Learning for Predictive Maintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | LSTM modeling applied to the aircraft maintenance dataset. Related to (5) above. |
+| 9 | [Predictive Maintenance Modeling Guide](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Aircraft maintenance dataset feature engineered using R with [experiments](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) and [datasets](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) and [Azure notebook](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1).|
 
-## **Training Resources for PdM**
+## **Training Resources for Predictive Maintenance**
 
 The [Azure AI Learning Path for Predictive Maintenance Learning Path](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) provides the training material for a deeper understanding of the concepts and math behind the algorithms and techniques used in PdM problems. 
 
