@@ -141,6 +141,8 @@
     items: 
     - name: Correct spelling with Bing Spell Check API v7
       href: luis-tutorial-bing-spellcheck.md
+    - name: With Speech service
+      href: luis-tutorial-speech-to-intent.md
     - name: With a bot
       items:
         - name: Web app bot

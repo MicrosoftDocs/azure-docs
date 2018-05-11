@@ -95,10 +95,10 @@ spec:
         path: /
 ```
 
-Use the [kubectl create][kubectl-create] command to create the resources.
+Use the [kubectl apply][kubectl-apply] command to create the resources.
 
 ```
-$ kubectl create -f samples-http-application-routing.yaml
+$ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
 service "party-clippy" created
@@ -204,7 +204,7 @@ For information on installing an HTTPS secured Ingress controller in AKS, see [H
 <!-- LINKS - external -->
 [dns-pricing]: https://azure.microsoft.com/pricing/details/dns/
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
