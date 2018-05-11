@@ -45,7 +45,7 @@ The legacy Microsoft Translator Hub can be used to translate statistical machine
 | SMT customization	| Yes	| No | 
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes | 
-| [No Trace](www.aka.ms/notrace) | Yes	| Yes | 
+| [No Trace](http://www.aka.ms/notrace) | Yes	| Yes | 
 
 ## Collaborative Translations Framework
 
