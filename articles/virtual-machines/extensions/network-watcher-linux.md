@@ -34,7 +34,7 @@ The Network Watcher Agent extension can be configured for the following Linux di
 
 | Distribution | Version |
 |---|---|
-| Ubuntu | 16.04 LTS, 14.04 LTS and 12.04 LTS |
+| Ubuntu | 16.04 LTS, 14.04 LTS, and 12.04 LTS |
 | Debian | 7 and 8 |
 | RedHat | 6 and 7 |
 | Oracle Linux | 6.8+ and 7 |
@@ -47,7 +47,7 @@ CoreOS is not supported.
 
 ### Internet connectivity
 
-Some of the Network Watcher Agent functionality requires that a VM is connected to the Internet. Without the ability to establish outgoing connections, some of the Network Watcher Agent features may malfunction, or become unavailable. For more details about Network Watcher functionality that requires the agent, see the[Network Watcher documentation](/azure/network-watcher/).
+Some of the Network Watcher Agent functionality requires that a VM is connected to the Internet. Without the ability to establish outgoing connections, some of the Network Watcher Agent features may malfunction, or become unavailable. For more information about Network Watcher functionality that requires the agent, see the[Network Watcher documentation](/azure/network-watcher/).
 
 ## Extension schema
 
@@ -105,7 +105,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ### Troubleshooting
 
-You can retreive data about the state of extension deployments from the Azure portal, and by using the Azure CLI.
+You can retrieve data about the state of extension deployments using either the Azure portal or Azure CLI.
 
 The following example shows the deployment state of extensions for a VM deployed through the classic deployment model, using the Azure CLI 1.0:
 
