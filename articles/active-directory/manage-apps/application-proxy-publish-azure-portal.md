@@ -51,7 +51,7 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
    - **Internal URL**: The URL that you use to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server as different apps, and give each one its own name and access rules.
 
      > [!TIP]
-     > If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](../application-proxy-office365-app-launcher.md).
+     > If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path. This internal URL doesn't have to be the landing page your users see. For more information, see [Set a custom home page for published apps](application-proxy-configure-custom-home-page.md).
 
    - **External URL**: The address your users will go to in order to access the app from outside your network. If you don't want to use the default Application Proxy domain, read about [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
    - **Pre Authentication**: How Application Proxy verifies users before giving them access to your application. 
@@ -67,7 +67,7 @@ Follow these steps to publish your apps with Application Proxy. If you haven't a
 5. If necessary, configure additional settings. For most applications, you should keep these settings in their default states. 
    - **Backend Application Timeout**: Set this value to **Long** only if your application is slow to authenticate and connect. 
    - **Translate URLs in Headers**: Keep this value as **Yes** unless your application required the original host header in the authentication request.
-   - **Translate URLs in Application Body**: Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications, and don't use custom domains. For more information, see [Link translation with Application Proxy](../application-proxy-link-translation.md).
+   - **Translate URLs in Application Body**: Keep this value as **No** unless you have hardcoded HTML links to other on-premises applications, and don't use custom domains. For more information, see [Link translation with Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
    
    ![Configure your application](./media/application-proxy-publish-azure-portal/additional-settings.png)
 
@@ -97,6 +97,6 @@ In your browser, navigate to the external URL that you configured during the pub
 
 
 ## Next steps
-- [Download connectors](application-proxy-enable.md) and [create connector groups](../active-directory-application-proxy-connectors-azure-portal.md) to publish applications on separate networks and locations.
+- [Download connectors](application-proxy-enable.md) and [create connector groups](application-proxy-connector-groups.md) to publish applications on separate networks and locations.
 
-- [Set up single sign-on](../application-proxy-sso-azure-portal.md) for your newly published app
+- [Set up single sign-on](application-proxy-configure-single-sign-on-password-vaulting.md) for your newly published app
