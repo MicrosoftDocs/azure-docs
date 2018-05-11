@@ -1,6 +1,6 @@
 ---
-title: Create activity log alerts and manage them using the new Alerts (Preview) experience in Azure Monitor| Microsoft Docs
-description: This article provides information about how to create activity log alerts from Alerts (Preview) tab under Azure Monitor. This article details the new user experience for this feature.
+title: Create activity log alerts and manage them using the new alerts experience in Azure Monitor | Microsoft Docs
+description: This article provides information about how to create activity log alerts in alerts tab under Azure Monitor
 author: JYOTHIRMAISURI
 manager: vvithal
 editor: ''
@@ -18,7 +18,7 @@ ms.author: v-jysur
 ms.custom:
 
 ---
-# Create activity log alerts using the new Alerts (Preview) experience
+# Create activity log alerts using the new alerts experience
 
 Activity log alerts are the alerts that get activated when a new activity log event occurs that matches the conditions specified in the alert.
 
