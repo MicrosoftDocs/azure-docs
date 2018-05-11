@@ -56,7 +56,7 @@ In your policy, you set:
 |Grant | Require multi-factor authentication |
  
 
-![Create policy](./media/active-directory-conditional-access-app-based-mfa/21.png)
+![Create policy](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
 
 
