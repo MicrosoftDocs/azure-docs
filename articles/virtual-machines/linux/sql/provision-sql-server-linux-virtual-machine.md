@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: rothja 
 ms.author: jroth 
 manager: jhubbard
-ms.date: 05/04/2018
+ms.date: 05/11/2018
 ms.topic: article
 tags: azure-service-management
 ms.devlang: na
@@ -76,7 +76,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Click **Select**.
 
-1. In the **Settings** window, select the **SSH (22)** port in the **Select public inbound ports** list. This is necessary in this quickstart to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)**.
+1. In the **Settings** window, select the **SSH (22)** port in the **Select public inbound ports** list. This is necessary in this quickstart to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, also select **MS SQL (1433)** to open port 1433 for connections over the Internet.
 
    ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 

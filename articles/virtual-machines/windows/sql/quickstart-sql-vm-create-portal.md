@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 05/11/2018
 ms.author: jroth
 ---
 
@@ -84,7 +84,7 @@ On the **Basics** window, provide the following information:
    ![Inbound ports](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
    > [!NOTE]
-   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary, because the **SQL Server settings** step provides this option as well. This is what is used in the following section.
+   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary, because the **SQL Server settings** step provides this option as well. If you do select port 1433 at this step, it will be opened irregardless of your selections in the **SQL Server settings** step.
 
 1. Click **OK** to save your changes and continue.
 

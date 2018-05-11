@@ -130,7 +130,7 @@ On the **Settings** window, configure Azure storage, networking, and monitoring 
    ![Inbound ports](./media/quickstart-sql-vm-create-portal/inbound-ports.png)
 
    > [!NOTE]
-   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary here, because the **SQL Server settings** step provides this option as well.
+   > You can select the **MS SQL (1433)** port to access SQL Server remotely. However, this is not necessary here, because the **SQL Server settings** step provides this option as well. If you do select port 1433 at this step, it will be opened irregardless of your selections in the **SQL Server settings** step.
 
    You can make other changes to network settings, or keep the default values.
 
