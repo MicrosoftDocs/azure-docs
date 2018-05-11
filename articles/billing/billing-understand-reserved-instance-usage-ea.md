@@ -1,6 +1,6 @@
 ---
 title: Understand Azure Reserved Instance usage for Enterprise - Azure Billing | Microsoft Docs
-description: Learn how to read your usage to understand how the Reserved VM Instance for your Enterprise enrollment is applied.
+description: Learn how to read your usage to understand how the Azure Reserved VM Instance for your Enterprise enrollment is applied.
 services: 'billing'
 documentationcenter: ''
 author: manish-shukla01
@@ -17,7 +17,7 @@ ms.date: 05/09/2018
 ms.author: manshuk
 
 ---
-# Understand Azure Reserved VM Instance usage for your Enterprise enrollment
+# Understand Azure Reserved Instance usage for your Enterprise enrollment
 Understand utilization of Reserved Instance by using the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) and the usage file from [EA portal.](https://ea.azure.com) You can also see the reservation usage in the usage summary section of [EA portal.](https://ea.azure.com)
 
 >[!NOTE]
@@ -56,12 +56,12 @@ Reserved Instance usage also shows up in usage summary section of EA portal:
 2. You are charged for Windows software as Azure Hybrid Benefit is not used. 
 
 ## Next steps
-To learn more about Azure Reserved VM Instances, see the following articles:
+To learn more about Azure Reserved Instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved VM Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure Reserved VM Instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved VM Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage Reserved Instances](billing-manage-reserved-vm-instance.md)
+- [Understand how the Reserved Instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
 
