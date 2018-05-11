@@ -18,9 +18,9 @@ ms.reviewer: sasubram
 
 # Azure Active Directory B2B collaboration invitation redemption
 
-To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first-time consent process, where they agree to privacy terms. This process happens in either of the following ways:
+To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first-time consent process where they agree to [privacy terms](#privacy-policy-agreement). This process happens in either of the following ways:
 
-- The guest inviter sends out a direct link to a shared app. The invitee clicks the link to sign in, accepts the privacy terms, and seamlessly access the shared resource. (The guest user still receives an invitation email with a redemption URL, but other than some special cases, it is no longer mandatory to click on the invitation email.)  
+- The guest inviter sends out a direct link to a shared app. The invitee clicks the link to sign in, accepts the privacy terms, and seamlessly accesses the shared resource. (The guest user still receives an invitation email with a redemption URL, but other than some special cases, it's no longer required to use the invitation email.)  
 - The guest user receives an invitation email and clicks the redemption URL. As part of first-time sign-in, they're prompted to accept the privacy terms.
 
 ## Redemption through a direct link
@@ -37,9 +37,9 @@ There are a few exceptions where even if a direct link is sent, a user must clic
 
 Users can also redeem an invitation with the invitation email. They receive this email even if they were sent a direct link to a shared app. An invited user can click the redemption URL in the email, and then review and accept the privacy terms. The process is described in more detail here:
 
-1.	After being invited, the invitee receives an invitation via email that's sent from **Microsoft Invitations**.
+1.	After being invited, the invitee receives an invitation through email that's sent from **Microsoft Invitations**.
 2.	The invitee selects **Get Started** in the email.
-3.	If the invitee does not have an Azure AD account or an MSA, they are prompted to create an MSA.
+3.	If the invitee doesn't have an Azure AD account or an MSA, they're prompted to create an MSA.
 4.	The invitee is redirected to the **Review permissions** screen, where they can review the inviting organization's privacy statement and accept the terms.
 
 ## Privacy policy agreement
