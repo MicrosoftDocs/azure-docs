@@ -13,8 +13,8 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/30/2018
-ms.author: sethm;shvija
+ms.date: 04/30/2018
+ms.author: sethm
 
 ---
 
@@ -136,13 +136,13 @@ Creates a namespace of type **EventHubs**, with an event hub and a consumer grou
 
 ## PowerShell
 
-```powershell
+```azurepowershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
 ```
 
 ## Azure CLI
 
-```azurecli-interactive
+```azurecli
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]

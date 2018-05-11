@@ -3,7 +3,7 @@ title: Live Metrics Stream with custom metrics and diagnostics in Azure Applicat
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 services: application-insights
 documentationcenter: ''
-author: SoubhagyaDash
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
-ms.author: mbullwin
+ms.author: mbullwin; Soubhagya.Dash
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency 
