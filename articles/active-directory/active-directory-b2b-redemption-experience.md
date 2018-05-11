@@ -18,7 +18,7 @@ ms.reviewer: sasubram
 
 # Azure Active Directory B2B collaboration invitation redemption
 
-To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first-time consent process where they agree to [privacy terms](#privacy-policy-agreement). This process happens in either of the following ways:
+To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first time consent process where they agree to [privacy terms](#privacy-policy-agreement). This process happens in either of the following ways:
 
 - The guest inviter sends out a direct link to a shared app. The invitee clicks the link to sign in, accepts the privacy terms, and seamlessly accesses the shared resource. (The guest user still receives an invitation email with a redemption URL, but other than some special cases, it's no longer required to use the invitation email.)  
 - The guest user receives an invitation email and clicks the redemption URL. As part of first-time sign-in, they're prompted to accept the privacy terms.
@@ -26,16 +26,18 @@ To collaborate with users from partner organizations through Azure Active Direct
 ## Redemption through a direct link
 
 A guest inviter can invite a guest user by sending out a direct link to a shared app. For the guest user, the redemption experience is as easy as signing in to the app that was shared with them. They can click a link to the app, review and accept the privacy terms, and then seamlessly access the app. In most cases, guest users no longer need to click a redemption URL in an invitation email.
- 
-There are a few exceptions where even if a direct link is sent, a user must click the redemption URL in the invitation email. This is true in the following cases:
+
+If you invited guest users through the user interface, or chose to send the invitation email as part of the PowerShell invitation experience, the invited user still receives an invitation email. This email is useful for the following special cases:
 
 - The user doesn’t have an Azure AD account or a Microsoft account (MSA). In this case, the user must create an MSA before they click the link, or they can use the redemption URL in the invitation email. The redemption process automatically prompts the user to create an MSA.
 - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
 - The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
 
+To cover these special cases, we recommend that you invite users by using methods that still send the invitation email.
+
 ## Redemption through the invitation email
 
-Users can also redeem an invitation with the invitation email. They receive this email even if they were sent a direct link to a shared app. An invited user can click the redemption URL in the email, and then review and accept the privacy terms. The process is described in more detail here:
+If invited through a method that sends an invitation email, users can also redeem an invitation through the invitation email. An invited user can click the redemption URL in the email, and then review and accept the privacy terms. The process is described in more detail here:
 
 1.	After being invited, the invitee receives an invitation through email that's sent from **Microsoft Invitations**.
 2.	The invitee selects **Get Started** in the email.
