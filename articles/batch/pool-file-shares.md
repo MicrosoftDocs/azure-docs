@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/02/2018
+ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: 
 ---
@@ -50,7 +50,7 @@ For example, include a `net use` command to mount the file share as part of each
 * **User name**: AZURE\\\<storageaccountname\>, for example, AZURE\\*mystorageaccountname*
 * **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
-For example, the following command mounts a file share *myfileshare* in storage account *mystorageaccountname* as the *S:* drive:
+The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* as the *S:* drive:
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
@@ -64,10 +64,10 @@ To simplify the mount operation, persist the credentials on the nodes. Then, you
   cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
   ```
-2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. Cached credentials are used in the call to `net use`. 
+2. Mount the share on each node as part of each task using `net use`. For example, the following task command line mounts the file share as the *S:* drive. This would be followed by a command or script that references the share. Cached credentials are used in the call to `net use`. 
 
   ```
-  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare 
+  cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
   ```
 
 ### C# example
@@ -124,22 +124,13 @@ Then, run the `mount` command to mount the file share, providing these credentia
 * **User name**: \<storageaccountname\>, for example, *mystorageaccountname*
 * **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
-For example, the following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
+The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
 
 ```
 sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-On a Linux pool, you can combine all of these steps in a single start task, or run them in a script. Run a start task as an administrator user on the pool using a command line similar to:
-
-```
-/bin/bash -c "sudo apt-get update && \ 
-sudo apt-get install cifs-utils && \
-sudo mkdir -p /mnt/MyAzureFileShare && \
-sudo mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino"
-```
-
-Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
+On a Linux pool, you can combine all of these steps in a single start task, or run them in a script. Run a start task as an administrator user on the pool. Set your start task to wait to complete successfully before running further tasks on the pool that reference the share.
 
 ### Python example
 
