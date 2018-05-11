@@ -20,15 +20,14 @@ ms.author: mlearned
 # Deploy an ASP.NET container to a container registry using Visual Studio
 ## Overview
 Docker is a lightweight container engine, similar in some ways to a virtual machine, which you can use to host applications and services.
-This tutorial walks you through using Visual Studio to publish your containerzied application to an [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry).
+This tutorial walks you through using Visual Studio to publish your containerized application to an [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) before you begin.
 
 ## Prerequisites
-The following is required to complete this tutorial:
+To complete this tutorial:
 
-* Install the latest version of [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/)
-* Install the "ASP.NET and web development" workload
+* Install the latest version of [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) with the "ASP.NET and web development" workload
 * Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
 ## 1. Create an ASP.NET Core web app
@@ -37,7 +36,7 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## 2. Publish your container to an Azure Container Registry
-1. Right click your project in the **Solution Explorer** and choose **Publish**
+1. Right-click your project in **Solution Explorer** and choose **Publish**
 2. On the publish target dialog, select the **Container Registry** tab
 3. Choose **New Azure Container Registry** and click **Publish**
 4. Fill in your desired values in the **Create a new Azure Container Registry**
@@ -48,7 +47,7 @@ The following steps guide you through creating a basic ASP.NET Core app that wil
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your container registry. Choose **New** to create a new resource group.|
     | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | Service tier of the container registry  |
     | **Registry Location** | A location close to you | Choose a Location in a [region](https://azure.microsoft.com/regions/) near you or near other services that will use your container registry. |
-    ![Visual Studio create Azure Container Registry dialog][0]
+    ![Visual Studio's create Azure Container Registry dialog][0]
 5. Click **Create**
 
 You have now successfully published your container to a container registry. You can now use the container in any host capable of running Docker images, for example [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md).
