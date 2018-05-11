@@ -13,6 +13,8 @@ ms.reviewer: owend
 # 2 - Configure server administrator and roles
 
 Connecting to your server in Azure is just like connecting to a server instance in your own organization. From SSMS, you can perform many of the same tasks such as process data or create a processing script, manage roles, and use PowerShell.
+
+This tutorial also introduces you to Tabular Model Scripting Language (TMSL). TMSL can be used to automate many tabular modeling tasks. TMSL can be used with PowerShell, but in this tutorial, you will use the XMLA query editor in SSMS.  
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -77,7 +79,7 @@ In this task, you add a user or group account to the server administrator role.
 
 ## Add a user to the model database administrator role
 
-In this task, you add a user or group account to an Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database.
+In this task, you add a user or group account to an Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) TMSL command included in a script created for you.
 
 1. In **Object Explorer**, expand **Databases** > **adventureworks** > **Roles**. 
 2. Right-click **Internet Sales Administrator**, then click **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window**. You may be prompted to sign-in.
