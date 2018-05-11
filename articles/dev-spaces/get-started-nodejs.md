@@ -32,7 +32,7 @@ While you're waiting for the environment to be create, you can start writing cod
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
 ### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `vsce/samples/nodejs/getting-started/webfrontend`.
+Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
 
@@ -96,9 +96,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 [!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
-## Select the VSCE debug configuration
+## Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **Launch Program (VSCE)** as the active debug configuration.
+1. Select **Launch Program (AZDS)** as the active debug configuration.
 
 ![](media/get-started-node/debug-configuration-nodejs.png)
 
@@ -141,7 +141,7 @@ With Azure Dev Spaces, you can use many of the same development workflows you us
 Try the following steps:
 1. Stop the VS Code debugger.
 1. Click on the Debug icon in the **Activity Bar** on the side of VS Code. 
-1. Select **Attach (VSCE)** as the active debug configuration.
+1. Select **Attach (AZDS)** as the active debug configuration.
 1. Hit F5.
 
 In this configuration, the container is configured to start *nodemon*. When server code edits are made, *nodemon* automatically restarts the Node process, just like it does when you develop locally. 
@@ -157,7 +157,7 @@ In this section you're going to create a second service, `mywebapi`, and have `w
 ![](media/common/multi-container.png)
 
 ### Open sample code for *mywebapi*
-You should already have the sample code for `mywebapi` for this guide under a folder named `vsce/samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `vsce/samples/nodejs/getting-started/mywebapi`.
+You should already have the sample code for `mywebapi` for this guide under a folder named `samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `samples/nodejs/getting-started/mywebapi`.
 
 ### Run *mywebapi*
 1. Open the folder `mywebapi` in a *separate VS Code window*.

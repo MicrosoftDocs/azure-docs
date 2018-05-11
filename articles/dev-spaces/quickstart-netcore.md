@@ -35,7 +35,7 @@ If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickl
 dotnet new mvc --name webfrontend
 ```
 
-Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `vsce/samples/dotnetcore/getting-started/webfrontend`.
+Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
 
@@ -72,9 +72,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 [!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
 
-### Select the VSCE debug configuration
+### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **.NET Core Launch (VSCE)** as the active debug configuration.
+1. Select **.NET Core Launch (AZDS)** as the active debug configuration.
 
 ![](media/get-started-netcore/debug-configuration.png)
 

@@ -27,7 +27,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
         key: "secretkeyhere"
     ```
      
-3. Update _vsce.yaml_ to tell Azure Dev Spaces to use your new _values.dev.yaml_ file. To do this, add this configuration under the configurations.develop.container section:
+3. Update _azds.yaml_ to tell Azure Dev Spaces to use your new _values.dev.yaml_ file. To do this, add this configuration under the configurations.develop.container section:
 
     ```yaml
            container:
@@ -58,7 +58,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 7. Make sure that you add _values.dev.yaml_ to the _.gitignore_ file to avoid committing secrets in source control.
  
  
-## Method 2: Inline directly in vsce.yaml
+## Method 2: Inline directly in azds.yaml
 1.	In _azds.yaml_, set secrets under the yaml section configurations/develop/install. Although you can enter secret values directly there, it's not recommended because _azds.yaml_ is checked into source control. Instead, add placeholders using the "$PLACEHOLDER" syntax.
 
     ```yaml

@@ -8,13 +8,13 @@ ms.topic: "include"
 manager: "douge"
 ---
 1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. Doing this will automatically run it in your newly selected space `scott`. 
-1. You can confirm this by running `vsce list` again. First, you'll notice an instance of `mywebapi` is now running in the `scott` space (the version running in the `mainline` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott-". This URL is unique to the `scott` space, and signifies that requests sent to the "scott URL" will attempt to first route to services in the `scott` space, and will fall back to services in the `mainline` space.
+1. You can confirm this by running `azds list` again. First, you'll notice an instance of `mywebapi` is now running in the `scott` space (the version running in the `mainline` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text "scott-". This URL is unique to the `scott` space, and signifies that requests sent to the "scott URL" will attempt to first route to services in the `scott` space, and will fall back to services in the `mainline` space.
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------
 mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  mainline  webfrontend-0.1.0  80/TCP  5h ago      https://scott-webfrontend-contosodev.vsce.io
+webfrontend  mainline  webfrontend-0.1.0  80/TCP  5h ago      https://scott-webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)
