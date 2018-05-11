@@ -49,7 +49,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Microsoft Translator Hub](https://hub.microsofttranslator.com/). Default value is: `general`.</td>
+    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](/customization.md). Default value is: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
