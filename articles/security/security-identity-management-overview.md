@@ -61,9 +61,9 @@ Azure AD Application Proxy lets you publish on-premises applications, such as [S
 
 Learn more:
 
-* [Enabling Azure AD Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Enabling Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
 * [Publish applications using Azure AD Application Proxy](../active-directory/active-directory-application-proxy-publish.md)
-* [Single-sign-on with Application Proxy](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
+* [Single-sign-on with Application Proxy](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Working with conditional access](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## Multi-factor authentication
