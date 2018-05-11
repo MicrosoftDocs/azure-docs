@@ -52,7 +52,7 @@ In addition Azure App Service on Azure Stack for high availability, deploy the r
 
 ### Azure Resource Manager root certificate for Azure Stack
 
-In a PowerShell session running as azurestack\CloudAdmin on a machine, which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script create a root certificate in the same folder as the script that App Service needs for creating certificates.
+In a PowerShell session running as azurestack\CloudAdmin on a machine, which can reach the privileged endpoint on the Azure Stack Integrated System or Azure Stack Development Kit Host, run the Get-AzureStackRootCert.ps1 script from the folder where you extracted the helper scripts. The script creates a root certificate in the same folder as the script that App Service needs for creating certificates.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -288,7 +288,7 @@ For any of the SQL Server roles, you can use a default instance or a named insta
 
 ## Create an Azure Active Directory application
 
-Configure an Azure AD service principal to support the following:
+Configure an Azure AD service principal to support the following operations:
 
 - Virtual machine scale set integration on worker tiers.
 - SSO for the Azure Functions portal and advanced developer tools.
@@ -332,7 +332,7 @@ Follow these steps:
 
 ## Create an Active Directory Federation Services application
 
-For Azure Stack environments secured by AD FS, you must configure an AD FS service principal to support the following:
+For Azure Stack environments secured by AD FS, you must configure an AD FS service principal to support the following operations:
 
 - Virtual machine scale set integration on worker tiers.
 - SSO for the Azure Functions portal and advanced developer tools.
