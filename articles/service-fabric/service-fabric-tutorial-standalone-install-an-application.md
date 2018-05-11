@@ -89,4 +89,4 @@ In part three of the series, how to deploy an application to your cluster, such 
 Advance to part four of the series to clean up your cluster.
 
 > [!div class="nextstepaction"]
-> [Clean up your resources](standalone-tutorial-clean-up.md)
+> [Clean up your resources](service-fabric-tutorial-standalone-clean-up.md)

@@ -135,7 +135,7 @@ In part two of the series, you learned about uploading large amounts of random d
 Advance to part three of the series to install an application into the cluster you just created.
 
 > [!div class="nextstepaction"]
-> [Install the application into the service fabric cluster](standalone-tutorial-install-an-application.md)
+> [Install the application into the service fabric cluster](service-fabric-tutorial-standalone-install-an-application.md)
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png

@@ -43,4 +43,4 @@ In part four of the series, you learned how to clean up your resources that were
 > * Clean up your resources
 
 > [!div class="nextstepaction"]
-> [Back to the beginning](standalone-tutorial-create-infrastructure.md)
+> [Back to the beginning](service-fabric-tutorial-standalone-create-infrastructure.md)

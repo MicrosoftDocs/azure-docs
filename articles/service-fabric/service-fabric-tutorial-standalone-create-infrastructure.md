@@ -148,7 +148,7 @@ In part one of the series, you learned how to launch three EC2 instances and get
 Advance to part two of the series to configure Service Fabric on your cluster.
 
 > [!div class="nextstepaction"]
-> [Install Service Fabric](standalone-tutorial-create-service-fabric-cluster.md)
+> [Install Service Fabric](service-fabric-tutorial-standalone-create-service-fabric-cluster.md)
 
 <!-- IMAGES -->
 [aws-console]: ./media/service-fabric-tutorial-standalone-cluster/aws-console.png
