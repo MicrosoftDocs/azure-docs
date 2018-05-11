@@ -39,8 +39,8 @@
     href: network-watcher-nsg-flow-logging-overview.md
   - name: Network security group view
     href: network-watcher-security-group-view-overview.md
-  - name: View network topology
-    href: network-watcher-topology-overview.md
+  - name: Role-based access control permissions
+    href: required-rbac-permissions.md
 - name: How-to guides
   items:
   - name: Configure Network Watcher
@@ -150,16 +150,8 @@
       href: network-watcher-monitor-with-azure-automation.md
     - name: Diagnose on-premises connectivity via VPN gateway
       href: network-watcher-diagnose-on-premises-connectivity.md
-  - name: View your network topology
-    items:
-    - name: Azure PowerShell
-      href: network-watcher-topology-powershell.md
-    - name: Azure CLI
-      href: network-watcher-topology-cli.md
-    - name: Azure CLI 1.0
-      href: network-watcher-topology-cli-nodejs.md
-    - name: REST
-      href: network-watcher-topology-rest.md
+  - name: View network topology
+    href: view-network-topology.md
   - name: Determine relative latency between a location and Azure region
     href: view-relative-latencies.md
 - name: Reference
