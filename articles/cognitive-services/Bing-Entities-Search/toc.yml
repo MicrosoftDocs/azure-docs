@@ -65,7 +65,7 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/
-  - name: Entity Search endpoint
+  - name: Bing Entity Search endpoint
     href: entity-search-endpoint.md
-  - name: Analytics for Entities Search API
+  - name: Analytics for Bing Entity Search API
     href: bing-entity-stats.md
