@@ -69,7 +69,7 @@ A: Yes, if you [use your own encryption keys](storage-service-encryption-custome
 
 **Q: Is Storage Service Encryption enabled by default when I create a storage account?**
 
-A: Yes, Storage Service Encryption (using Microsoft-managed keys) is enabled by default for all storage accounts--Azure Resource Manager and classic. It's enabled for all services as well--Blob storage, Table storage, Queue storage, and Azure Files.
+A: Yes, Storage Service Encryption is enabled by default for all storage accounts and for all Azure Storage services.
 
 **Q: How is this different from Azure Disk Encryption?**
 

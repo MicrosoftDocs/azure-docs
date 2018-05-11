@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
@@ -14,7 +14,10 @@ ms.author: v-gedod
 
 # Web Search SDK Node quickstart
 
-The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results. 
+The Bing Web Search SDK contains the functionality of the REST API for web queries and parsing results.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending.  
 
 ## Application dependencies
 
@@ -53,7 +56,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'WebPage'
 - _type: 'VideoObjectElementType'
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Video results](media/web-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: GPUs on Azure Container Service (AKS)
-description: Use GPUs on Azure Container Service (AKS)
+title: GPUs on Azure Kubernetes Service (AKS)
+description: Use GPUs on Azure Kubernetes Service (AKS)
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -19,7 +19,7 @@ AKS supports the creation of GPU enabled node pools. Azure currently provides si
 ## Create an AKS cluster
 
 GPUs are typically needed for compute-intensive workloads such as graphics-intensive, and visualization workloads. Refer to the following [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) to determine the right VM size for your workload.
-We recommend a minimum size of `Standard_NC6` for your Azure Container Service (AKS) nodes.
+We recommend a minimum size of `Standard_NC6` for your Azure Kubernetes Service (AKS) nodes.
 
 > [!NOTE]
 > GPU enabled VMs contain specialized hardware that is subject to higher pricing and region availability. For more information, see the [pricing](https://azure.microsoft.com/pricing/) tool and [region availability](https://azure.microsoft.com/global-infrastructure/services/) site for more information.
@@ -47,7 +47,7 @@ az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 
 ## Confirm GPUs are schedulable
 
-Run the following commands to confirm the GPUs are schedulable via Kubernetes. 
+Run the following commands to confirm the GPUs are schedulable via Kubernetes.
 
 Get the current list of nodes.
 
@@ -162,12 +162,12 @@ spec:
       volumes:
         - name: nvidia
           hostPath:
-            path: /usr/local/nvidia         
+            path: /usr/local/nvidia
 ```
 
-Use the [kubectl create][kubectl-create] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl apply][kubectl-apply] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -270,12 +270,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## Next steps
 
-Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow documentation for more detail.
+Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow labs for more detail.
 
 > [!div class="nextstepaction"]
-> [Kubeflow User Guide][kubeflow-docs]
+> [Kubeflow Labs][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

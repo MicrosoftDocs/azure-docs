@@ -14,6 +14,9 @@ ms.date: 09/20/2017
 ms.author: davidmu
 ---
 # Azure Active Directory B2C: Configure the UI with dynamic content by using custom policies
+
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
 By using Azure Active Directory B2C (Azure AD B2C) custom policies, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. 
 
 ## Prerequisites

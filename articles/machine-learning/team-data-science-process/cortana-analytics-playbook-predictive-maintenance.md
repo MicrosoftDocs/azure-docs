@@ -1,19 +1,20 @@
 ---
 title: Azure AI Guide for Predictive Maintenance Solutions | Microsoft Docs
 description: A comprehensive description of the data science that powers predictive maintenance solutions in multiple vertical industries.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2018
+ms.date: 05/11/2018
 ms.author: fboylu
 ---
 # Azure AI Guide for Predictive Maintenance Solutions

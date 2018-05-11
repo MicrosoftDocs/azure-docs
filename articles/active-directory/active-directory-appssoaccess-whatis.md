@@ -3,21 +3,21 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 
-ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
 ---
+
 # What is application access and single sign-on with Azure Active Directory?
 Single sign-on means being able to access all of the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
@@ -71,7 +71,7 @@ In both cases, credentials are stored in an encrypted state in the directory, an
 Password-based SSO relies on a browser extension to securely retrieve the application and user-specific information from Azure AD and apply it to the service. Most third-party SaaS applications that are supported by Azure AD support this feature.
 
 For password-based SSO, the end user’s browsers can be:
-* Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
+* Internet Explorer 11 -- on Windows 7 or later
 * Edge on Windows 10 Anniversary Edition or later 
 * Chrome -- on Windows 7 or later, and on MacOS X or later
 * Firefox 26.0 or later -- on Windows XP SP2 or later, and on Mac OS X 10.6 or later
@@ -189,7 +189,7 @@ These links use the same access control mechanisms as the access panel and Offic
 ## Related articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+* [Finding unsanctioned cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 * [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)
 * [Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md)
 

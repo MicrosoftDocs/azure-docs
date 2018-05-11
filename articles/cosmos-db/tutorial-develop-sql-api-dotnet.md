@@ -19,7 +19,7 @@ ms.author: rafats
 ms.custom: mvc
 ---
 
-# Azure CosmosDB: Develop with the SQL API in .NET
+# Azure Cosmos DB: Develop with the SQL API in .NET
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
@@ -40,11 +40,11 @@ This tutorial covers the following tasks by using the [SQL .NET API](sql-api-sdk
 ## Prerequisites
 Before starting, make sure you have the following:
 
-* Access to a CosmosDB account
+* Access to an Azure Cosmos DB account
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create a CosmosDB account](create-sql-api-dotnet.md#create-a-database-account).
+  You can also use your own Azure subscription by signing up for a [free Azure account](https://azure.microsoft.com/free/). From then on, you can [Create an Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account).
 
 * If you don’t already have Visual Studio 2017 installed, you can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
@@ -152,7 +152,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-This method makes a REST API call to Azure Cosmos DB, and the service provisions a number of partitions based on the requested throughput. You can change the throughput of a collection as your performance needs evolve using the SDK or the [Azure portal](set-throughput.md).
+This method makes a REST API call to Azure Cosmos DB, and the service provisions a number of partitions based on the requested throughput. You can change the throughput of a collection or a set of collections as your performance needs evolve using the SDK or the [Azure portal](set-throughput.md).
 
 ## <a id="CreateDoc"></a>Create JSON documents
 Let's insert some JSON documents into Azure Cosmos DB. A [document](sql-api-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. This sample class contains a device reading, and a call to CreateDocumentAsync to insert a new device reading into a collection.

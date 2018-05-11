@@ -1,4 +1,4 @@
-﻿---
+---
 title: Select Windows VM images in Azure | Microsoft Docs
 description: Learn how to use Azure PowerShell to determine the publisher, offer, SKU, and version for Marketplace VM images.
 services: virtual-machines-windows
@@ -37,7 +37,6 @@ Make sure that you installed and configured the latest [Azure PowerShell module]
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2016-WS2016 |Enterprise |
 | MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Enterprise |
 | MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
 | MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
@@ -77,7 +76,7 @@ Fill in your chosen SKU name and run the following commands:
 
 ```powershell
 $skuName="<SKU>"
-Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku skuName | Select Version
+Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 From the output of the `Get-AzureRMVMImage` command, you can select a version image to deploy a new virtual machine.
