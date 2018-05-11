@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ---
@@ -61,19 +61,21 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Once the container moves to the **Succeeded** state, you can reach it in your browser by navigating to its FQDN:
+Once the container moves to the **Succeeded** state, navigate to its FQDN in your browser:
 
 ![Browser screenshot showing application running in an Azure container instance][aci-app-browser]
 
 ## Pull the container logs
 
-You can pull the logs for the container you created using the [az container logs][az-container-logs] command:
+Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
+
+Pull the container's logs with the [az container logs][az-container-logs] command:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-You should see output similar to the following :
+The output displays the logs for the container, and should show the HTTP GET requests generated when you viewed the application in your browser.
 
 ```console
 $ az container logs --resource-group myResourceGroup -n mycontainer

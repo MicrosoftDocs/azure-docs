@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
 ---

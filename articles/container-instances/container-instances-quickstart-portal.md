@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account][azure-free-acco
 
 ## Create a container instance
 
-Select the **Create a resource** > **Containers** > **Azure Container Instances**.
+Select the **Create a resource** > **Containers** > **Container Instances**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
@@ -64,9 +64,17 @@ Once its **Status** is *Running*, navigate to the container's FQDN in your brows
 
 Congratulations! By configuring just a few settings, you've deployed a publicly accessible application in Azure Container Instances.
 
+## View container logs
+
+Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
+
+To view the container's logs, under **SETTINGS**, select **Containers**, then **Logs**. You should see the HTTP GET requests generated when you viewed the application in your browser.
+
+![Container logs in the Azure portal][aci-portal-11]
+
 ## Clean up resources
 
-When you're done with the container, select the **mycontainer** container instance, then select **Delete**.
+When you're done with the container, select **Overview** for the *mycontainer* container instance, then select **Delete**.
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
 
@@ -91,6 +99,7 @@ In this quickstart, you created an Azure container instance from an image in the
 [aci-portal-08]: ./media/container-instances-quickstart-portal/qs-portal-08.png
 [aci-portal-09]: ./media/container-instances-quickstart-portal/qs-portal-09.png
 [aci-portal-10]: ./media/container-instances-quickstart-portal/qs-portal-10.png
+[aci-portal-11]: ./media/container-instances-quickstart-portal/qs-portal-11.png
 
 <!-- LINKS - External -->
 [azure-free-account]: https://azure.microsoft.com/free/
