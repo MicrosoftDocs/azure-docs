@@ -51,5 +51,5 @@ To execute a backup, you need to download the Azure Stack Tools, and then run th
 
 ## Next steps
 
- - Learn to run a backup. See [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Learn to verify that your backup ran. See [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md ).
+- Learn to run a backup. See [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Learn to verify that your backup ran. See [Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md).
