@@ -26,7 +26,7 @@ Security Center periodically validates your Azure resources against your defined
 Here, you learn to retrieve the current set of recommendations from all Azure resources associated with a subscription.
 
 To retrieve the current set of recommendations:
-```  
+``` http
 GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Security/tasks?api-version={api-version}
 Content-Type: application/json   
 Authorization: Bearer
