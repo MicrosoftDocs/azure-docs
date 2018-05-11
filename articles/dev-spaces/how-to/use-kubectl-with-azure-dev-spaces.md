@@ -14,7 +14,7 @@ You can access the Kubernetes cluster within an Azure Dev Space, and use existin
 
 Running `azds resource create` or `azds resource select` will automatically add a `kubectl` configuration context for you, so kubectl should already be connected to your Azure Dev Spaces Kubernetes cluster. Examples:
 - Confirm the current context: `kubectl config current-context`
-- List all available contexts: `kubectl config get-contexts`. A kubernetes cluster created by Azure Dev Spaces will be named something like "vsce-<guid>".
+- List all available contexts: `kubectl config get-contexts`. 
 - Change context: `kubectl config use-context <context-name>`
 - View the Kubernetes dashboard: run `kubectl proxy`, then open your browser to the address that this command emits (append `/ui` to the URL to navigate to the Kubernetes dashboard).
 - List the running services in the default Azure Dev Spaces space named *mainline*: `kubectl get services --namespace=mainline`

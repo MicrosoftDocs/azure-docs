@@ -27,6 +27,6 @@ Keep an eye on the command's output, you'll notice several things as it progress
 ## Test the web app
 Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
 
-`Running at public URL: https://<servicename>-<environmentname>.vsce.io` 
+`Running at public URL: https://<servicename>-<environmentname>.<guid>.<region>.aksapp.io` 
 
 Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
