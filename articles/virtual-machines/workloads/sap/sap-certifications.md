@@ -22,7 +22,7 @@ ms.custom:
 ---
 # SAP certifications and configurations running on Microsoft Azure
 
-SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline our supported configurations and list of growing certifications. 
+SAP and Microsoft have a long history of working together in a strong partnership that has mutual benefits for their customers. Microsoft is constantly updating its platform and submitting new certification details to SAP in order to ensure Microsoft Azure is the best platform on which to run your SAP workloads. The following tables outline Azure supported configurations and list of growing SAP certifications. 
 
 ## SAP HANA certifications
 References:
@@ -44,7 +44,7 @@ All Azure VMs are certified for SAP HANA scale-up so far.
 Microsoft Azure is certified for the following SAP products, with full support from Microsoft and SAP.
 References:
 
-- [1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) for all SAP NetWeaver based applications, including SAP TREX, SAP LiveCache and SAP Content Server. And all databases, excluding SAP HANA.
+- [1928533 - SAP Applications on Azure: Supported Products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533) for all SAP NetWeaver based applications, including SAP TREX, SAP LiveCache, and SAP Content Server. And all databases, excluding SAP HANA.
 
 
 | SAP Product | Guest OS | RDBMS | Virtual Machine Types |
