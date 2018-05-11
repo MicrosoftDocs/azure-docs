@@ -24,7 +24,7 @@ This article explains the components that work to keep your users and applicatio
 
 The following diagram shows how Azure AD enables secure remote access to your on-premises applications.
 
- ![Diagram of secure remote access through Azure AD Application Proxy](./media/application-proxy-security-considerations/secure-remote-access.png)
+ ![Diagram of secure remote access through Azure AD Application Proxy](./media/application-proxy-security/secure-remote-access.png)
 
 ## Security benefits
 
@@ -42,7 +42,7 @@ If you choose Passthrough as your preauthentication method, you don't get this b
 
 Apply richer policy controls before connections to your network are established.
 
-With [conditional access](active-directory-conditional-access-azure-portal-get-started.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
+With [conditional access](../active-directory-conditional-access-azure-portal-get-started.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
 You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. 
 
@@ -58,13 +58,13 @@ You don't need to open inbound connections to the corporate network.
 
 Application Proxy connectors only use outbound connections to the Azure AD Application Proxy service, which means that there is no need to open firewall ports for incoming connections. Traditional proxies required a perimeter network (also known as *DMZ*, *demilitarized zone*, or *screened subnet*) and allowed access to unauthenticated connections at the network edge. This scenario required investments in web application firewall products to analyze traffic and protect the environment. With Application Proxy, you don't need a perimeter network because all connections are outbound and take place over a secure channel.
 
-For more information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
+For more information about connectors, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 ### Cloud-scale analytics and machine learning 
 
 Get cutting-edge security protection.
 
-Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](active-directory-identityprotection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attemps are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
+Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../active-directory-identityprotection.md), with data from the Microsoft Security Response Center and Digital Crimes Unit. Together we proactively identify compromised accounts and offer protection from high-risk sign-ins. We take into account numerous factors to determine which sign-in attemps are high risk. These factors include flagging infected devices, anonymizing networks, and atypical or unlikely locations.
 
 Many of these reports and events are already available through an API for integration with your security information and event management (SIEM) systems.
 
@@ -89,7 +89,7 @@ Microsoft watches traffic patterns for individual applications and for your subs
 Azure AD Application Proxy consists of two parts:
 
 * The cloud-based service: This service runs in Azure, and is where the external client/user connections are made.
-* [The on-premises connector](application-proxy-understand-connectors.md): An on-premises component, the connector listens for requests from the Azure AD Application Proxy service and handles connections to the internal applications. 
+* [The on-premises connector](application-proxy-connectors.md): An on-premises component, the connector listens for requests from the Azure AD Application Proxy service and handles connections to the internal applications. 
 
 A flow between the connector and the Application Proxy service is established when:
 
@@ -179,6 +179,6 @@ Some processing of the application may occur here. If you configured Application
 
 ## Next steps
 
-[Network topology considerations when using Azure AD Application Proxy](application-proxy-network-topology-considerations.md)
+[Network topology considerations when using Azure AD Application Proxy](application-proxy-network-topology.md)
 
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)

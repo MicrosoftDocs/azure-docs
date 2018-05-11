@@ -33,4 +33,4 @@ To configure an application with PingAccess, there are four steps:
 
 4.  Configure Applications in PingAccess
 
-For details on each of these steps, see our [Single Sign-On with Headers documentation](application-proxy-ping-access.md).
+For details on each of these steps, see our [Single Sign-On with Headers documentation](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).

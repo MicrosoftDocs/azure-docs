@@ -63,6 +63,6 @@ If the only Connectors in the group are inactive, they are likely on a machine t
 see the ports Troubleshoot document for details on investigating this problem.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)
 
 

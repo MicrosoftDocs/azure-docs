@@ -21129,6 +21129,81 @@
             "source_path": "articles/nodejs-specify-node-version-azure-apps.md",
             "redirect_url": "/azure/app-service/containers/app-service-linux-intro",
             "redirect_document_id": false
+        },
+		{
+            "source_path": "articles/active-directory/application-proxy-ping-access.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-ping-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-sso-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-password-vaulting",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-understand-connectors.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connectors",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-security-considerations.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-network-topology-considerations.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-transition-from-uag-tmg.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-connectors-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-connector-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-working-with-proxy-servers.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-claims-aware-apps.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-for-claims-aware-applications",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-native-client.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-native-client-application",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/active-directory-application-proxy-silent-installation.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-register-connector-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-office365-app-launcher.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-link-translation.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-hard-coded-link-translation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-publish-remote-desktop.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-remote-desktop-services",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+            "redirect_document_id": false
         }
 
     ]
