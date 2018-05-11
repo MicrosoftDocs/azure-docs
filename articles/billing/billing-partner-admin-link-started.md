@@ -30,19 +30,18 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 ## Link partner ID
 
-When you have access to the customer's resources, use PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID in each customer tenant.
+When you have access to the customer's resources, use Azure portal, PowerShell or CLI to link your Microsoft Partner Network ID (MPN ID) to your user ID or service principal. You have to link the partner ID in each customer tenant.
 
 ### Use Azure portal to link new partner ID
 
-1. Go to [link to a partner ID](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
+1. Go to [link to a partner ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/managementpartnerblade) in the Azure portal.
 
-2. Sign in with your user account.
+2. Sign in to the Azure portal.
 
 3. Enter the Microsoft partner ID.The partner ID is the [Microsoft Partner Network(MPN)](https://partner.microsoft.com/) ID of your organization.
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/link-partner-ID.PNG)
 
-4. Use the directory switcher to change directory and link partner ID for another customer.
-
+4. To link partner ID for another cusotmer, use the directory switcher.Under Switch directory, choose your directory.
 ![Screenshot that shows link partner ID](./media/billing-link-partner-id/directory-switcher.png)
 
 ### Use PowerShell to link new partner ID
