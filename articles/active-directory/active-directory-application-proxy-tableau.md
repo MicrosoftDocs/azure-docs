@@ -91,5 +91,5 @@ Your application is now ready to test. Access the external URL you used to publi
 
 ## Next steps
 
-For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
+For more information about Azure AD Application Proxy, see [How to provide secure remote access to on-premises applications](manage-apps/application-proxy.md).
 
