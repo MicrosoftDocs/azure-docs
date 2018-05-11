@@ -28,7 +28,7 @@ You can enable single sign-on to your applications using Integrated Windows Auth
 ## How single sign-on with KCD works
 This diagram explains the flow when a user attempts to access an on-prem application that uses IWA.
 
-![Microsoft AAD authentication flow diagram](./media/active-directory-application-proxy-sso-using-kcd/AuthDiagram.png)
+![Microsoft AAD authentication flow diagram](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
 1. The user enters the URL to access the on-prem application through Application Proxy.
 2. Application Proxy redirects the request to Azure AD authentication services to preauthenticate. At this point, Azure AD applies any applicable authentication and authorization policies, such as multifactor authentication. If the user is validated, Azure AD creates a token and sends it to the user.
@@ -57,7 +57,7 @@ The Active Directory configuration varies, depending on whether your Application
 4. Select **Trust this computer for delegation to specified services only**. 
 5. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
-   ![Connector-SVR Properties window screenshot](./media/active-directory-application-proxy-sso-using-kcd/Properties.jpg)
+   ![Connector-SVR Properties window screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
 #### Connector and application server in different domains
 1. For a list of prerequisites for working with KCD across domains, see [Kerberos Constrained Delegation across domains](https://technet.microsoft.com/library/hh831477.aspx).
@@ -78,7 +78,7 @@ Sharepointserviceaccount can be the SPS machine account or a service account und
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/www.contoso.com. This SPN needs to be in the list of services to which the connector can present delegated credentials. 
 5. Choose the **Delegated Login Identity** for the connector to use on behalf of your users. For more information, see [Working with different on-premises and cloud identities](#Working-with-different-on-premises-and-cloud-identities)
 
-   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
+   ![Advanced Application Configuration](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
 
 ## SSO for non-Windows apps
@@ -100,13 +100,13 @@ This capability allows many organizations that have different on-premises and cl
 
 With Application Proxy, you can select which identity to use to obtain the Kerberos ticket. This setting is per application. Some of these options are suitable for systems that do not accept email address format, others are designed for alternative login.
 
-![Delegated login identity parameter screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)
+![Delegated login identity parameter screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 If delegated login identity is used, the value might not be unique across all the domains or forests in your organization. You can avoid this issue by publishing these applications twice using two different Connector groups. Since each application has a different user audience, you can join its Connectors to a different domain.
 
 ### Configure SSO for different identities
 1. Configure Azure AD Connect settings so the main identity is the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. These settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
-   ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
+   ![Identifying users screenshot - User Principal Name dropdown](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
 
    * User Principal Name (for example, joe@contoso.com)
@@ -116,13 +116,13 @@ If delegated login identity is used, the value might not be unique across all th
    * On-premises SAM account name (depends on the domain controller configuration)
 
 ### Troubleshooting SSO for different identities
-If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+If there is an error in the SSO process, it appears in the connector machine event log as explained in [Troubleshooting](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 But, in some cases, the request is successfully sent to the backend application while this application replies in various other HTTP responses. Troubleshooting these cases should start by examining event number 24029 on the connector machine in the Application Proxy session event log. The user identity that was used for delegation appears in the “user” field within the event details. To turn on session log, select **Show analytic and debug logs** in the event viewer view menu.
 
 ## Next steps
 
-* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+* [How to configure an Application Proxy application to use Kerberos Constrained Delegation](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
 
 
 For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

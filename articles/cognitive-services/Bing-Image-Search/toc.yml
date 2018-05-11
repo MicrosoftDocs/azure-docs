@@ -4,13 +4,7 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
-    - name: Image Search endpoints      
-      href: image-search-endpoint.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
-    - name: Analytics for Images Search API
-      href: bing-image-stats.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: C#
@@ -89,7 +83,9 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
   - name: Try it!
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
-  - name: Image Search endpoints      
+  - name: Bing Image Search endpoints      
     href: image-search-endpoint.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
+  - name: Analytics for Bing Image Search API
+    href: bing-image-stats.md
