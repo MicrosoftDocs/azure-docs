@@ -53,8 +53,8 @@
 
 # Reference
 ## [Azure Billing API Overview](billing-usage-rate-card-overview.md)
-### [Azure Billing REST API](~/rest/api/billing?toc=/azure/billing/TOC.json)
-#### [Billing Periods](~/rest/api/billing/billingperiods/?toc=/azure/billing/TOC.json)
+### [Azure Billing REST API](https://docs.microsoft.com/rest/api/billing?toc=/azure/billing/TOC.json)
+#### [Billing Periods](https://docs.microsoft.com/rest/api/billing/billingperiods/?toc=/azure/billing/TOC.json)
 #### [Invoices](https://docs.microsoft.com/rest/api/billing/invoices.md?toc=/azure/billing/TOC.json)
 #### [Operations](https://docs.microsoft.com/rest/api/billing/operations?toc=/azure/billing/TOC.json)
 ### [Partner solution – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
