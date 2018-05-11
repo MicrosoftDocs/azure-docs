@@ -36,14 +36,16 @@ We strongly recommend you add both your global privacy contact and your organiza
 
 3.	Add your privacy info for your employees:
 
-    - **Technical contact.** Type the email address for the person internal employees and external guests should contact for technical support within your organization.
+    - **Technical contact.** Type the email address for the person to contact for technical support within your organization.
 	
-    - **Global privacy contact.** Type the email address for the person who internal employees and external guests should contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach. If there's no person listed here, Microsoft contacts your global administrators.
+    - **Global privacy contact.** Type the email address for the person to contact for inquiries about personal data privacy. This person is also who Microsoft contacts if there's a data breach. If there's no person listed here, Microsoft contacts your global administrators.
 
     - **Privacy statement URL.** Type the link to your organization’s document that describes how your organization handles both internal and external guest's data privacy.
 
         >[!Important]
-        >If you don’t include your own privacy statement, your internal employees and external guests will see text in **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
+        >If you don’t include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
+
+        ![B2B Collaboration Review Permissions box with message](./media/active-directory-properties-area/activeactive-directory-no-privacy-statement-or-contact.png)
 
 4.	Select **Save**.
 
