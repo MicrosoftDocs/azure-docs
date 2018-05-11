@@ -84,12 +84,21 @@ The following JSON shows the schema for the Network Watcher Agent extension. The
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Network Watcher Agent extension during an Azure Resource Manager template deployment.
 
-## Azure CLI deployment
+## Azure CLI 1.0 deployment
 
-The Azure CLI can be used to deploy the Network Watcher Agent VM extension to an existing virtual machine.
+The following example deploys the Network Watcher Agent VM extension to an existing virtual machine deployed through the classic deployment model:
 
 ```azurecli
-azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+azure config mode asm
+azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
+```
+
+## Azure CLI 2.0 deployment
+
+The following example deploys the Network Watcher Agent VM extension to an existing virtual machine deployed through Resource Manager:
+
+```azurecli
+az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name NetworkWatcherAgentLinux --publisher Microsoft.Azure.NetworkWatcher --version 1.4
 ```
 
 ## Troubleshooting and support
