@@ -8531,6 +8531,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/backup/backup-azure-vms-prepare.md",
+            "redirect_url": "/azure/backup/backup-azure-arm-vms-prepare",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service/api/index.md",
             "redirect_url": "/azure/app-service-api/",
             "redirect_document_id": false
