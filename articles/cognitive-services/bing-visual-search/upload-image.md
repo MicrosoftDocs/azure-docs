@@ -363,4 +363,4 @@ Replace the BingImageSearch method with this code:
 
 To get information about using a URL or insights token to get insights, see [Overview](overview.md).
 
-For example code that uses insight tokens, see [C# quickstart](csharp.md) and [Visual Search Tutorial](tutorial-bing-visual-search-single-page-app.md).
+For example code that uses insight tokens, see [C# quickstart](quickstarts/csharp.md) and [Visual Search Tutorial](tutorial-bing-visual-search-single-page-app.md).
