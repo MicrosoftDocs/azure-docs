@@ -57,4 +57,5 @@ For information about how you as a tenant administrator can link to your organiz
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [Add Azure Active Directory B2B collaboration users in the Azure portal](active-directory-b2b-admin-add-users.md)
 - [How do information workers add B2B collaboration users to Azure Active Directory?](active-directory-b2b-iw-add-users.md)
+- [Add Azure Active Directory B2B collaboration users by using PowerShell](active-directory-b2b-api.md#powershell)
 - [Leave an organization as a guest user](active-directory-b2b-leave-the-organization.md)
