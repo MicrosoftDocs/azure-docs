@@ -7,39 +7,36 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/11/2018
 ms.author: alkohli
 
 ---
 # Use Azure Import/Export service to import data to Azure Files
 
-In this article, we provide step-by-step instructions on how to use Azure Import/Export service to securely transfer large amounts of data into Azure Files. This service requires you to ship supported disk drives containing your data to an Azure data center.  
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure data center.  
 
 The Import/Export service supports only the import of Azure Files into Azure Storage. Exporting Azure Files is currently not supported.
 
 ## Prerequisites
 
-Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites for this service. 
+Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites for this service. You must:
 
-- You must have an active Azure subscription that can be used for the Import/Expert service.
-- You need one or more Azure Storage accounts. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
-- You must have adquate number of HDDs/SSDs required for your data.
-    - The disks must belong to the list of [Supported disk types](). 
-    - These disks must be prepared using the procedure described in [Prepare the disks with WAImportExport tool V2](). 
-- You need access to a Windows system where you will install WAImportExport tool V2. 
-    - The server where you install WAImportExport tool V2 must have a [Supported OS](storage-import-export-requirements.md#supported-operating-systems). 
-    - [Download the WAImportExport tool V2]() on this server.
+- Have an active Azure subscription that can be used for the Import/Export service.
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
+- Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+- [Download the WAImportExport version 2]() on the Windows system. Unzip to the default folder `waimportexportv2`. For example, `C:\WaImportExportV2`.
 - Identify the data to be imported into Azure Storage. Import the directories and standalone files on a local server or a network share. 
 
 
 ## Step 1: Prepare the drives
 
-Prepare the disk drives using the WAImportExport tool and generate a journal file. The journal files store basic information about your job and drive such as drive serial number and storage account name. This file is used during import job creation. 
+This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
 
 Perform the following steps to prepare the drives.
 
-1.	Attach the hard drives directly using SATA or with external USB adaptors to a Windows machine.
-2.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
+1.	Connect our disk drives to the Windows system via SATA connectors.
+2.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Create the CSV files for dataset and driveset. The following sample is an example for importing data as Azure Files.    
 
     ```
@@ -98,7 +95,7 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-3. In **Basics**, do the following:
+3. In **Basics**:
 
     - Select **Import into Azure**.
     - Enter a string for job name.
@@ -108,42 +105,31 @@ Perform the following steps to create an import job in the Azure portal.
         -  This name may contain only lowercase letters, numbers, hyphens, and underscores.
         -  The name must start with a letter, and may not contain spaces. 
 
-3. In **Job details**, do the following:
+3. In **Job details**:
     
     - Upload the journal files that you created during the preceding drive preparation step. If waimportexport.exe version1 was used, you need to upload one file for each drive that you have prepared. 
     - Select the storage account that the data will be imported into. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In **Return shipping info**, do the following.
+4. In **Return shipping info**:
 
     - Select the carrier from the drop-down list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
-5. In the **Summary**, do the following:
+5. In the **Summary**:
 
-    - Rrovide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
-    - Click **OK** to complete Import job creation.
+    - Provide the Azure datacenter shipping address for shipping disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
+    - Click **OK** to complete import job creation.
 
 ## Step 3: Ship the drives to the Azure datacenter 
 
-FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. You must provide a valid FedEx, UPS, or DHL carrier account number to be used by Microsoft for shipping the drives back. 
-- A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. 
-- A DHL account number is required for shipping drives back from Asia and Australia locations. If you do not have one, you can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account. 
-
-In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
+[!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
 ## Step 4: Update the job with tracking information
 
-After shipping the disks, return to the **Import/Export** page on the Azure portal to update the tracking number. Do the following steps. 
-
-1. Click the import job.
-2. Click **Update job status and tracking info once drives are shipped**. 
-3. Select the check box **Mark as shipped**.
-4. Provide the **Carrier** and **Tracking number**.
-
-If the tracking number is not updated within 2 weeks of creating the job, the job expires. You can monitor the job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
+A[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 ## Samples for journal files
 
@@ -170,49 +156,6 @@ WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
-
-<!---See more details about using the WAImportExport tool in [Preparing hard drives for import](storage-import-export-tool-preparing-hard-### Job
-To begin the process of importing to or exporting from storage, you first create a job. A job can be an import job or an export job:
-
-* Create an import job when you want to transfer data you have on-premises to your Azure storage account.
-* Create an export job when you want to transfer data currently stored in your storage account to hard drives that are shipped to Microsoft. When you create a job, you notify the Import/Export service that you will be shipping one or more hard drives to an Azure data center.
-
-* For an import job, you will be shipping hard drives containing your data.
-* For an export job, you will be shipping empty hard drives.
-* You can ship up to 10 hard disk drives per job.
-
-You can create an import or export job using the Azure portal or the [Azure Storage Import/Export REST API](/rest/api/storageimportexport).
-
-> [!Note]
-> The RDFE APIs will not be supported February 28, 2018 onwards. To continue using the service, migrate to the [ARM Import/Export REST APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/storageimportexport/resource-manager/Microsoft.ImportExport/stable/2016-11-01/storageimportexport.json). -->
-
-
-<!---### WAImportExport tool
-The first step in creating an **import** job is to prepare your drives that will be shipped for import. To prepare your drives, you must connect it to a local server and run the WAImportExport Tool on the local server. This WAImportExport tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files.
-
-The journal files store basic information about your job and drive such as drive serial number and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step-by-step details about job creation are provided later in this article.
-
-The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
-
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExportV2.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](storage-import-export-tool-how-to.md).
-
->[!NOTE]
->**Previous Version:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1.md). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. If the only key available is SAS-Key, you need to use WAImportExpot V1 tool .
-
->
-
-
-### Encryption
-The data on the drive must be encrypted using BitLocker Drive Encryption. This encryption protects your data while it is in transit.
-
-For import jobs, there are two ways to perform the encryption. The first way is to specify the option when using dataset CSV file while running the WAImportExport tool during drive preparation. The second way is to enable BitLocker encryption manually on the drive and specify the encryption key in the driveset CSV when running WAImportExport tool command line during drive preparation.
-
-For export jobs, after your data is copied to the drives, the service will encrypt the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal.  drives-import.md).
-
-Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  --->
-
-
-
 
 ## Next steps
 

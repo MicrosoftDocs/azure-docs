@@ -69,7 +69,7 @@ Perform the following steps to prepare the drives.
 Perform the following steps to create an import job in the Azure portal.
 1. Log on to https://portal.azure.com/.
 2. Go to **More services > Storage > Import/export jobs**. Click **Create Import/export Job**.
-2. In **Basics**, do the following steps:
+2. In **Basics**:
 
     - Select **Import into Azure**.
     - Enter a string for job name.
@@ -79,20 +79,20 @@ Perform the following steps to create an import job in the Azure portal.
         - The name may contain only lowercase letters, numbers, hyphens, and underscores.
         - The name must start with a letter, and may not contain spaces. 
 
-3. In **Job details**, do the following steps:
+3. In **Job details**:
 
     - Upload the drive journal files that you obtained during the drive preparation step. If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. 
     - Select the destination storage account where data will reside. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
    ![Create import job - Step 3](./media/storage-import-export-service/import-job-03.png)
-4. In **Return shipping info**, do the following steps:
+4. In **Return shipping info**:
 
     - Select the carrier from the dropdown list.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. 
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
    
-5. In the **Summary**, do the following steps:
+5. In the **Summary**:
 
     - Provide the Azure datacenter shipping address to ship disks back to Azure. Ensure that the job name and the full address are mentioned on the shipping label.
     - Click **OK** to complete import job creation.
