@@ -181,13 +181,13 @@ The table below summarizes commonly-observed synchronization times for provision
 | Scope configuration | Users, groups, and members in scope | Initial sync time | Incremental sync time |
 | -------- | -------- | -------- | -------- |
 | Sync assigned users and groups only |  < 1,000 |  < 30 minutes | < 30 minutes |
-| Sync assigned users and groups only |  1k - 10k | 142 - 708 minutes | < 30 minutes |
-| Sync assigned users and groups only |   10k - 100k | 1,170 - 2,340 minutes | < 30 minutes |
+| Sync assigned users and groups only |  1,000 - 10,000 | 142 - 708 minutes | < 30 minutes |
+| Sync assigned users and groups only |   10,000 - 100,000 | 1,170 - 2,340 minutes | < 30 minutes |
 | Sync all users and groups in Azure AD |  < 1,000 | < 30 minutes  | < 30 minutes |
-| Sync all users and groups in Azure AD |  1k - 10k | < 30 - 120 minutes | < 30 minutes |
-| Sync all users and groups in Azure AD |  10k - 100k  | 713 - 1,425 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |  1,000 - 10,000 | < 30 - 120 minutes | < 30 minutes |
+| Sync all users and groups in Azure AD |  10,000 - 100,000  | 713 - 1,425 minutes | < 30 minutes |
 | Sync all users in Azure AD|  < 1,000  | < 30 minutes | < 30 minutes |
-| Sync all users in Azure AD | 1k - 10k  | 43 - 86 minutes | < 30 minutes |
+| Sync all users in Azure AD | 1,000 - 10,000  | 43 - 86 minutes | < 30 minutes |
 
 
 For the configuration **Sync assigned user and groups only**, you can use the formulas below to determine the approximate minimum and maximum expected **initial sync** times:
