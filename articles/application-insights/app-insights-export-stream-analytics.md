@@ -3,7 +3,7 @@ title: Export using Stream Analytics from Azure Application Insights | Microsoft
 description: Stream Analytics can continuously transform, filter and route the data you export from Application Insights.
 services: application-insights
 documentationcenter: ''
-author: noamben
+author: mrbullwinkle
 manager: carmonm
 
 ms.assetid: 31594221-17bd-4e5e-9534-950f3b022209

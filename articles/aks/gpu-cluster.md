@@ -165,9 +165,9 @@ spec:
             path: /usr/local/nvidia
 ```
 
-Use the [kubectl create][kubectl-create] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl apply][kubectl-apply] command to run the job. This command parses the manifest file and creates the defined Kubernetes objects.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -270,12 +270,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## Next steps
 
-Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow documentation for more detail.
+Interested in running Machine Learning workloads on Kubernetes? Refer to the Kubeflow labs for more detail.
 
 > [!div class="nextstepaction"]
-> [Kubeflow User Guide][kubeflow-docs]
+> [Kubeflow Labs][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

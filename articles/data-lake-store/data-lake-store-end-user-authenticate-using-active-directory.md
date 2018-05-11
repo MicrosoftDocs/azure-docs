@@ -80,7 +80,7 @@ While following the instructions in the link, make sure you select **Native** fo
 
 ## Step 2: Get application ID and redirect URI
 
-See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID (also called the client ID in the Azure classic portal) of the Azure AD native application.
+See [Get the application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) to retrieve the application ID.
 
 To retrieve the redirect URI, do the following steps.
 

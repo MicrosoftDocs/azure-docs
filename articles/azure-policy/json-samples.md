@@ -1,5 +1,5 @@
 ---
-title: Policy template samples | Microsoft Docs
+title: Policy template samples
 description: JSON samples for Azure Policy
 services: azure-policy
 documentationcenter:
@@ -16,7 +16,6 @@ ms.workload:
 ms.date: 01/17/2018
 ms.author: dacoulte
 ms.custom: mvc
-
 ---
 # Templates for Azure Policy
 

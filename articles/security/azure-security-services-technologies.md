@@ -75,4 +75,4 @@ The following is our initial effort at providing a list. Over time, this list wi
 * [Azure Load Balancer](../load-balancer/load-balancer-overview.md)
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Azure Application Proxy](../active-directory/active-directory-application-proxy-enable.md)
+* [Azure Application Proxy](../active-directory/manage-apps/application-proxy-enable.md)
