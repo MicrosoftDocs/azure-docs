@@ -53,16 +53,29 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 |------|-------|-------| 
-| Run duration | 90 days | | 
-| Storage retention | 90 days from the run's start time | You can lower this limit to seven days. <p>1. In the Azure portal, on the logic app's menu, choose **Workflow settings**. </br>2. Under **Runtime options**, from the **Run history retention in days** list, choose **Custom**. </br>3. Enter or drag the slider for the number of days you want. | 
+| Run duration | 90 days | You can reduce this limit. See [change run duration](#change-duration). | 
+| Storage retention | 90 days from the run's start time | You can reduce this limit. See [change storage retention](#change-retention). | 
 | Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | | 
 | Maximum recurrence interval | 500 days | | 
 ||| 
 
-To exceed the limits for run duration or 
-storage retention in your normal processing flow, 
-[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+<a name="change-duration"></a>
+<a name="change-retention"></a>
+
+### Change run duration and storage retention
+
+You can reduce the limit for your logic app's run duration and storage retention. 
+The minimum is seven days. However, to exceed the limits for run duration or 
+storage retention, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
+
+1. In the Azure portal, on your logic app's menu, 
+choose **Workflow settings**. 
+
+2. Under **Runtime options**, from the **Run history retention in days** list, 
+choose **Custom**. 
+
+3. Enter or drag the slider for the number of days you want.
 
 <a name="looping-debatching-limits"></a>
 
