@@ -33,7 +33,7 @@ Feature availability is not a billing consideration. All tiers, including the **
 
 ### Service Units
 
-The most important billing concept to understand is *service units*, which is the billing unit for Azure Search. Although maximum capacity is based on the thresholds for each tier, it is the actual number of partitions and resources, calculated through an SU formula, that determines what you actually pay.
+The most important billing concept to understand is a *service unit* (SU), which is the billing unit for Azure Search. Although maximum capacity is based on the thresholds for each tier, it is the actual number of partitions and resources, calculated through an SU formula, that determines what you actually pay.
 
 SU formulation is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed at 9 SUs. 
 
@@ -75,7 +75,7 @@ Number and size are equally relevant to your analysis because maximum limits are
 
 For large query volumes, you need more replicas and partitions. Additional replicas load balance query requests across multiple instances of the search engine. Additional partitions result in faster read/write operations overall, but with faster hardware on the higher tiers.
 
-Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for a projected production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
+Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
 
 The **Free** tier and preview features do not come with [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
 
