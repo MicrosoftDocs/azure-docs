@@ -54,7 +54,7 @@ A role assignment consists of three elements: security principal, role definitio
 
 To assign a role, you need a user, group, or service principal.
 
-1. Create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command with a name of your choice.
+- Create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command with a name of your choice.
 
    ```azurepowershell
    New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
@@ -101,7 +101,7 @@ You use a resource group to show how to assign a role at a resource group scope.
 
 You use a storage account to show how to assign a role at a resource scope.
 
-1. Create a general-purpose storage account using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) command.
+- Create a general-purpose storage account using the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) command.
 
    ```azurepowershell
    New-AzureRmStorageAccount -ResourceGroupName "rbac-tutorial-resource-group" `
@@ -140,7 +140,7 @@ You use a storage account to show how to assign a role at a resource scope.
 
 ## Assign roles to the group
 
-To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command and specify the security principal, role definition, and scope.
+To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) command and specify the security principal, role definition, and scope.
 
 1. Get the object ID of the group using the [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
 
@@ -304,7 +304,7 @@ To assign a role, you use the [New-AzureRmRoleAssignment](/powershell/module/azu
     
 ## Remove role assignments
 
-To remove role assignments for users, groups, and applications, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
+To remove a role assignment (revoke access) for users, groups, and applications, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
 1. Use the following command to remove the Contributor role assignment for the group at the storage account scope.
 
@@ -351,8 +351,6 @@ To clean up the resources created by this tutorial, you can delete the resource 
     If you receive an error when you try to delete the group, you can also delete the group in the portal.
 
 ## Next steps
-
-In this tutorial, you learn about assigning roles using PowerShell. To learn more, continue to the tutorial for how to create custom roles using PowerShell.
 
 > [!div class="nextstepaction"]
 > [Create and manage a custom role using Azure PowerShell](tutorial-custom-roles-powershell.md)
