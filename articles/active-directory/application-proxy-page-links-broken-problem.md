@@ -44,5 +44,5 @@ There are three ways to resolve this issue. The choices below are in listed in i
 As a result, we strongly recommend using the [custom domains](manage-apps/application-proxy-configure-custom-domain.md) solution if possible. If you do want to join the preview, email <aadapfeedback@microsoft.com> with the applicationId(s).
 
 ## Next steps
-[Work with existing on-premises proxy servers](application-proxy-working-with-proxy-servers.md)
+[Work with existing on-premises proxy servers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 
