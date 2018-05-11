@@ -43,7 +43,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
     var theKey = process.env.REDIS_KEY
     ```
     
-5. Update the services running in your connected nvironment with these changes. On the command line, run the command:
+5. Update the services running in your cluster with these changes. On the command line, run the command:
 
     ```
     azds up
@@ -89,7 +89,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
     var theKey = process.env.REDIS_KEY
     ```
  
-3.	Update the services running in your connected nvironment with these changes. On the command line, run the command:
+3.	Update the services running in your cluster with these changes. On the command line, run the command:
 
     ```
     azds up
