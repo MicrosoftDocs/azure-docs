@@ -4,11 +4,7 @@
   items:
     - name: What is Bing Video Search?
       href: search-the-web.md
-    - name: Video Search endpoints
-      href: video-search-endpoints.md
-    - name: Analytics for Videos Search API
-      href: bing-video-stats.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -81,5 +77,7 @@
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api
   - name: Try it!
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8
-  - name: Video Search endpoints
+  - name: Bing Video Search endpoints
     href: video-search-endpoints.md
+  - name: Analytics for Bing Video Search API
+    href: bing-video-stats.md
