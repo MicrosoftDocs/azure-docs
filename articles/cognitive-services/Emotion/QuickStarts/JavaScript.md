@@ -20,7 +20,7 @@ videos and to enhance content discovery experiences, such as search results, by 
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with JavaScript to recognize the emotions expressed by one or more people in an image.
 
 ## Prerequisite
-* Get your free Subscription Key [here](https://azure.microsoft.com/en-us/try/cognitive-services/), or if you have an Azure Subscription create an Emotion API resource and get your Subscription Key and Endpoint there.
+* Get your free Subscription Key [here](https://azure.microsoft.com/try/cognitive-services/), or if you have an Azure Subscription create an Emotion API resource and get your Subscription Key and Endpoint there.
 
 ![Create Emotion API Resource](../Images/create-resource.png)
 

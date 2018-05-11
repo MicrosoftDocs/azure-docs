@@ -9,7 +9,7 @@ manager: erikre
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: juliako;
+ms.author: juliako
 
 ---
 # Embed Video Indexer widgets into your applications
@@ -30,7 +30,7 @@ Video Indexer supports embedding two types of widgets into your application: **C
 
 ## Embedding public content
 
-1. Sign in to your [Video Indexer](https://vi.microsoft.com) account. 
+1. Sign in to your [Video Indexer](https://api-portal.videoindexer.ai/) account. 
 2. Click the "embed" button that appears below the video.
 
 	![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)

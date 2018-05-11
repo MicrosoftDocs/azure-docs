@@ -14,7 +14,7 @@ ms.custom: MVC
 
 As they consider migration to Azure, Contoso company wants to run a technical and financial assessment to figure out whether their on-premises workloads are suitable for migration to the cloud. In particular, they want to assess machine and database compatibility for migration, and estimate capacity and costs for running their resources in Azure.
 
-To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises travel app. It's a two-tier app, with a web app running on one VM, and a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter Server. They'll perform the assessment using the Data Migration Assistant (DMA), and the Azure Migrate service.
+To get their feet wet and better understand the technologies involved, they're assessing and migrating a small on-premises travel app. It's a two-tier app, with a web app running on one VM, and a SQL Server database on the second VM. The application is deployed in VMware, and the environment is managed by a vCenter Server. They'll perform the assessment using the Data Migration Assistant (DMA), and the Azure Migrate service. If you'd like to try out this scenario using this illustrative travel app, you can download it from [github](https://github.com/Microsoft/SmartHotel360).
 
 **Technology** | **Description** | **Cost**
 --- | --- | ---
@@ -29,11 +29,11 @@ In this scenario, we'll download and run the DMA to assess the on-premises SQL S
 
 ## Architecture
 
-In this scenario, we're going to set up 
 
- ![Migration assessment architecture](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Migration assessment architecture](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 In this scenario:
+- Contoso is a fictious name representing a typical enterprise organization. Contoso wants to assess and migrate their two-tier on-premises travel app.
 - Contoso has an on-premises datacenter (**contoso-datacenter**), with an on-premises domain controller ( **contosodc1**).
 - The internal travel app is tiered across two VMs, **WEBVM** and **SQLVM**, and located on VMware ESXi host **contosohost1.contoso.com**.
 - The VMware environment is managed by vCenter Server (**vcenter.contoso.com**) running on a VM.
@@ -485,7 +485,7 @@ In this scenario we've:
 
 ## Next steps
 
-Let's continue with the next scenario, to do a lift-and-shift migration of the on-premises VMs to Azure.
+Let's continue with the next scenario, to do a [lift-and-shift migration](migrate-scenarios-lift-and-shift.md) of the on-premises VMs and database to Azure.
 
 
 
