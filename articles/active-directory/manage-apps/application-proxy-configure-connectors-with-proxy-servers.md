@@ -26,7 +26,7 @@ We start by looking at these main deployment scenarios:
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
 
-For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md).
+For more information about how connectors work, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 ## Bypass outbound proxies
 
@@ -62,7 +62,7 @@ Some environments require all outbound traffic to go through an outbound proxy, 
 
 You can configure the connector traffic to go through the outbound proxy, as shown in the following diagram:
 
- ![Configuring connector traffic to go through an outbound proxy to Azure AD Application Proxy](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
+ ![Configuring connector traffic to go through an outbound proxy to Azure AD Application Proxy](./media/application-proxy-configure-connectors-with-proxy-servers/configure-proxy-settings.png)
 
 As a result of having only outbound traffic, there's no need to configure inbound access through your firewalls.
 
@@ -147,17 +147,17 @@ For initial troubleshooting, perform the following steps:
 
 1. From services.msc, stop the Azure AD Application Proxy Connector service.
 
-   ![Azure AD Application Proxy Connector service in services.msc](./media/application-proxy-working-with-proxy-servers/services-local.png)
+   ![Azure AD Application Proxy Connector service in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 2. Run Message Analyzer as an administrator.
 3. Select **Start local trace**.
 
-   ![Start network capture](./media/application-proxy-working-with-proxy-servers/start-local-trace.png)
+   ![Start network capture](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
 
 3. Start the Azure AD Application Proxy Connector service.
 4. Stop the network capture.
 
-   ![Stop network capture](./media/application-proxy-working-with-proxy-servers/stop-trace.png)
+   ![Stop network capture](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### Check if the connector traffic bypasses outbound proxies
 
@@ -181,6 +181,6 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 
 ## Next steps
 
-- [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+- [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
 
 - If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.

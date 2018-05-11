@@ -25,14 +25,14 @@ In addition to web applications, Azure Active Directory Application Proxy can al
 
 Application Proxy supports native client apps by accepting Azure AD issued tokens sent in the header. The Application Proxy service performs authentication on behalf of the users. This solution does not use application tokens for authentication. 
 
-![Relationship between end users, Azure Active Directory, and published applications](./media/active-directory-application-proxy-native-client/richclientflow.png)
+![Relationship between end users, Azure Active Directory, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
-Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
 
 ## Step 2: Configure your application
 Configure your native application as follows:
@@ -42,10 +42,10 @@ Configure your native application as follows:
 3. Select **New application registration**.
 4. Specify a name for your application, select **Native** as the application type, and provide the Redirect URI for your application. 
 
-   ![Create a new app registration](./media/active-directory-application-proxy-native-client/create.png)
+   ![Create a new app registration](./media/application-proxy-configure-native-client-application/create.png)
 5. Select **Create**.
 
-For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./develop/active-directory-integrating-applications.md).
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./../develop/active-directory-integrating-applications.md).
 
 
 ## Step 3: Grant access to other applications
@@ -57,11 +57,11 @@ Enable the native application to be exposed to other applications in your direct
 4. Open the first step, **Select an API**.
 5. Use the search bar to find the Application Proxy app that you published in the first section. Choose that app, then click **Select**. 
 
-   ![Search for the proxy app](./media/active-directory-application-proxy-native-client/select_api.png)
+   ![Search for the proxy app](./media/application-proxy-configure-native-client-application/select_api.png)
 6. Open the second step, **Select permissions**.
 7. Use the checkbox to grant your native application access to your proxy application, then click **Select**.
 
-   ![Grant access to proxy app](./media/active-directory-application-proxy-native-client/select_perms.png)
+   ![Grant access to proxy app](./media/application-proxy-configure-native-client-application/select_perms.png)
 8. Select **Done**.
 
 
@@ -93,6 +93,6 @@ Once the ADAL is edited with these parameters, your users should be able to auth
 
 ## Next steps
 
-For more information about the native application flow, see [Native application to web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+For more information about the native application flow, see [Native application to web API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
 
-Learn about setting up [Single sign-on for Application Proxy](manage-apps/application-proxy-single-sign-on.md)
+Learn about setting up [Single sign-on for Application Proxy](application-proxy-single-sign-on.md)
