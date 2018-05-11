@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/04/2018
+ms.date: 05/10/2018
 ms.author: tomfitz
 ---
 
@@ -70,7 +70,6 @@ In the script, substitute the following two lines to generate the certificate.
 
 ```powershell
 New-SelfSignedCertificateEx -StoreLocation CurrentUser `
-  -StoreName My `
   -Subject "CN=exampleapp" `
   -KeySpec "Exchange" `
   -FriendlyName "exampleapp"

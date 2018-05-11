@@ -58,10 +58,9 @@ Your subscription has default quota limits in place that can impact the deployme
 ### Operating system disks and images
 
 Virtual machines use virtual hard disks (VHDs) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS.
-Azure Stack provides a marketplace to use with various versions and types of operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest).
+Azure Stack provides a marketplace to use with various versions and types of operating systems. Marketplace images are identified by image publisher, offer, sku, and version (typically version is specified as latest.)
 
 The following table shows some ways that you can find the information for an image:
-
 
 |Method|Description|
 |---------|---------|
