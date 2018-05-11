@@ -54,7 +54,7 @@ Check to ensure that you are meeting the following browser requirements:
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 - **Internet Explorer 11**: on Windows 7 or later (limited support).
 
-You can also download the extension for Chrome and Edge directly from following sites:
+You can also download the extension directly from following sites:
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
 - [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
