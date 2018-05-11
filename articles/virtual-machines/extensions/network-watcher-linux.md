@@ -110,6 +110,7 @@ Data about the state of extension deployments can be retrieved from the Azure po
 The following example shows the deployment state of extensions for a VM deployed through the classic deployment model, using the Azure CLI 1.0:
 
 ```azurecli
+azure config mode asm
 azure vm extension get myVM1
 ```
 Extension execution output is logged to files found in the following directory:
