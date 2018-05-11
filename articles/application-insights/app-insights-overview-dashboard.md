@@ -46,7 +46,7 @@ Application dashboard leverages the existing dashboard technology within Azure t
 
 To access the default dashboard select _Application Dashboard_ in the upper left corner.
 
-![Dashboard view](.\media\app-insights-overview-dashboard\009.png)
+![Dashboard view](.\media\app-insights-overview-dashboard\0009.png)
 
 If this is your first time accessing the dashboard it will launch a default view:
 
@@ -60,7 +60,7 @@ To navigate back to the overview experience just select:
 
 There is also a new button called _Pin Parts_.
 
-![Overview Button](.\media\app-insights-overview-dashboard\08.png)
+![Overview Button](.\media\app-insights-overview-dashboard\008.png)
 
 This replicates a little known feature from the classic overview that allows you to take any of the tiles from the old overview experience _(Alerts, Availability, Live Metrics, Usage, Proactive Detections, and Application Map)_ and add them into custom dashboards. 
 
