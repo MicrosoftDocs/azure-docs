@@ -27,7 +27,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Example script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/media-services-create-account.sh "Create Account")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/media-services/media-services-create-account/Create-Account.sh "Create Account")]
 
 ## Clean up deployment
 
