@@ -4,11 +4,7 @@
   items:
     - name: What is Bing News Search?
       href: search-the-web.md
-    - name: News Search endpoints
-      href: endpoint-news.md
-    - name: Analytics for News Search API
-      href: bing-news-stats.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: Get started
@@ -87,4 +83,5 @@
     href: endpoint-news.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
-
+  - name: Analytics for News Search API
+    href: bing-news-stats.md

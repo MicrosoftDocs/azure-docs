@@ -4,13 +4,7 @@
   items:
     - name: What is Bing Web Search?
       href: overview.md
-    - name: Web Search endpoint
-      href: web-search-endpoints.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
-    - name: Analytics for Web Search API
-      href: bing-web-stats.md
-- name: API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
   - name: C#
@@ -96,3 +90,5 @@
     href: web-search-endpoints.md
   - name: Supported countries and markets
     href: supported-countries-markets.md
+  - name: Analytics for Web Search API
+    href: bing-web-stats.md
