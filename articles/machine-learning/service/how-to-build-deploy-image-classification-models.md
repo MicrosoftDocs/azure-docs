@@ -13,7 +13,7 @@ ms.date: 04/23/2018
 
 # Build and deploy image classification models with Azure Machine Learning
 
-In this article, learn how to use **Azure Machine Learning Package for Computer Vision** (AMLPCV) to train, test, and deploy an image classification model. 
+In this article, learn how to use Azure Machine Learning Package for Computer Vision (AMLPCV) to train, test, and deploy an image classification model. For an overview of this package and its detailed reference documentation, [see here](https://aka.ms/aml-packages/vision).
 
 A large number of problems in the computer vision domain can be solved using image classification. These problems include building models that answer questions such as:
 + _Is an OBJECT present in the image? For example, "dog", "car", "ship", and so on_
@@ -30,8 +30,6 @@ When building and deploying this model with AMLPCV, you go through the following
 8. Web service Load Testing
 
 [CNTK](https://www.microsoft.com/cognitive-toolkit/) is used as the deep learning framework, training is performed locally on a GPU powered machine such as the ([Deep learning Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), and deployment uses the Azure ML Operationalization CLI.
-
-Consult the [package reference documentation](https://aka.ms/aml-packages/vision) for the detailed reference for each module and class.
 
 ## Prerequisites
 
