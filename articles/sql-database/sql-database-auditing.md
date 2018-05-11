@@ -177,11 +177,11 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 * The default auditing policy includes all actions and the following set of action groups, which will audit all the queries and stored procedures executed against the database, as well as successful and failed logins:
 
-      BATCH_COMPLETED_GROUP<br>
-      SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
-      FAILED_DATABASE_AUTHENTICATION_GROUP
+    BATCH_COMPLETED_GROUP<br>
+    SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP<br>
+    FAILED_DATABASE_AUTHENTICATION_GROUP
 
-      You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#subheading-7) section.
+    You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#subheading-7) section.
 
 ## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
 
