@@ -6,7 +6,8 @@ keywords:
 author: CelesteDG
 manager: mtillman
 editor: PatAltimore
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.date: 07/19/2017
 ms.service: active-directory
 ms.component: develop

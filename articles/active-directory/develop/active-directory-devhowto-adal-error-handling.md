@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.author: celested; bryanla
+ms.author: celested
 ms.custom: 
 ---
 

@@ -15,7 +15,8 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: dadobali
+ms.author: celested
+ms.reviewer: dadobali
 ms.custom: aaddev
 ---
 

@@ -15,9 +15,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 04/20/2017
-ms.author: justhu
+ms.author: celested
+ms.reviewer: justhu
 ms.custom: aaddev
-
 ---
 
 # Permissions in Azure AD

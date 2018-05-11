@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
-ms.author: dastrock; celested
+ms.author: celested
+ms.reviewer: dastrock
 ---
 
 

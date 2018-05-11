@@ -3,7 +3,7 @@ title: Customizing claims issued in the SAML token for enterprise applications i
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: CelesteDG
 manager: mtillman
 editor: ''
 
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: jeedes
+ms.author: celested
+ms.reviewer: jeedes
 ms.custom: aaddev
 
 ---

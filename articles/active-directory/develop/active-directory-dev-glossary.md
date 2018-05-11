@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla; celested
+ms.author: celested
 ms.custom: aaddev
 
 ---

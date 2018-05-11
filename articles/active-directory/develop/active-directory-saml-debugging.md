@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/20/2017
-ms.author: asmalser
+ms.author: celested
 ms.custom: aaddev
-ms.reviewer: dastrock
-
+ms.reviewer: dastrock; smalser
 ---
+
 # How to debug SAML-based single sign-on to applications in Azure Active Directory
 
 When debugging a SAML-based application integration, it is often helpful to use a tool like [Fiddler](http://www.telerik.com/fiddler) to see the SAML request and the SAML response that contain the SAML token that was issued to an application. 
