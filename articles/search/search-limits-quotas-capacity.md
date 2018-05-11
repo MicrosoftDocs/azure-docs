@@ -45,6 +45,8 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 
 <sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
 
+<a name="document-limits"></a>
+
 ## Document limits 
 
 In most regions, Azure Search pricing tiers (Basic, S1, S2, S3, S3 HD) have unlimited document counts for all services created after November/December 2017. This section identifies the regions where limits apply, and how to determine whether your service is affected. 
