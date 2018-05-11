@@ -41,7 +41,7 @@ The following steps describe tasks involved in creating common live streaming ap
 > 
 > 
 
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP, Smooth Streaming, or RTP (MPEG-TS). For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that can output a single bitrate stream in one of the following protocols: RTMP or Smooth Streaming. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
 
 	This step could also be performed after you create your Channel.
 
@@ -225,18 +225,18 @@ namespace EncodeLiveStreamWithAmsClear
         {
             return new ChannelInput
             {
-                StreamingProtocol = StreamingProtocol.RTPMPEG2TS,
+                StreamingProtocol = StreamingProtocol.FragmentedMP4,
                 AccessControl = new ChannelAccessControl
                 {
                     IPAllowList = new List<IPRange>
-                {
-                    new IPRange
                     {
-                    Name = "TestChannelInput001",
-                    Address = IPAddress.Parse("0.0.0.0"),
-                    SubnetPrefixLength = 0
+                        new IPRange
+                        {
+                        Name = "TestChannelInput001",
+                        Address = IPAddress.Parse("0.0.0.0"),
+                        SubnetPrefixLength = 0
+                        }
                     }
-                }
                 }
             };
         }
@@ -274,9 +274,7 @@ namespace EncodeLiveStreamWithAmsClear
             {
                 SystemPreset = "Default720p",
                 IgnoreCea708ClosedCaptions = false,
-                AdMarkerSource = AdMarkerSource.Api,
-                // You can only set audio if streaming protocol is set to StreamingProtocol.RTPMPEG2TS.
-                AudioStreams = new List<AudioStream> { new AudioStream { Index = 103, Language = "eng" } }.AsReadOnly()
+                AdMarkerSource = AdMarkerSource.Api
             };
         }
 

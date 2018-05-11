@@ -3,17 +3,17 @@ title: Set a custom home page for published apps by using Azure AD Application P
 description: Covers the basics about Azure AD Application Proxy connectors
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 
-ms.assetid:
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
-ms.author: daveba
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
 ---
@@ -138,4 +138,4 @@ Create the home page URL, and update your application with that value. Continue 
 ## Next steps
 
 - [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)
-- [Enable Application Proxy in the Azure portal](active-directory-application-proxy-enable.md)
+- [Enable Application Proxy in the Azure portal](manage-apps/application-proxy-enable.md)
