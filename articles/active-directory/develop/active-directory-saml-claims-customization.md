@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -37,7 +38,7 @@ You can edit any of the default claim values. Select the claim row in the SAML t
 
 ![Edit User Attribute][2]
 
-You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon.  You can also add new claims using the **Add attribute** button.
+You can also remove claims (other than NameIdentifier) using the context menu, which opens by clicking on the **...** icon. You can also add new claims using the **Add attribute** button.
 
 ![Edit User Attribute][3]
 

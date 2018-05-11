@@ -3,12 +3,13 @@ title: Certificate credentials in Azure AD | Microsoft Docs
 description: This article discusses the registration and use of certificate credentials for application authentication
 services: active-directory
 documentationcenter: .net
-author: navyasric
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

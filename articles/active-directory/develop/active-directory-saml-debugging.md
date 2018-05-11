@@ -2,12 +2,13 @@
 title: How to debug SAML-based single sign-on to applications in Azure Active Directory | Microsoft Docs
 description: 'Learn how to debug SAML-based single sign-on to applications in Azure Active Directory '
 services: active-directory
-author: asmalser-msft
+author: CelesteDG
 documentationcenter: na
 manager: mtillman
 
 ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
