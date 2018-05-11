@@ -178,11 +178,11 @@
 
 ### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
-##### [Enable App Proxy](active-directory-application-proxy-enable.md)
-##### [Publish apps](application-proxy-publish-azure-portal.md)
-##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Single sign-on](application-proxy-sso-overview.md)
-##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Enable App Proxy](manage-apps/application-proxy-enable.md)
+##### [Publish apps](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Custom domains](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single sign-on](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO with KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
 #### Concepts
