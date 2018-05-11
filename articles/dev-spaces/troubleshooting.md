@@ -52,7 +52,7 @@ Running the VS Code debugger reports the error: `Configured debug type 'coreclr'
 You do not have the VS Code extension for Azure Dev Spaces installed on your development machine.
 
 ### Try:
-Install the [VS Code extension for Azure Dev Spaces](get-started-netcore-01.md#get-kubernetes-debugging-for-vs-code).
+Install the [VS Code extension for Azure Dev Spaces](get-started-netcore.md).
 
 
 ## The Azure portal doesn't show Azure Dev Spaces instances
