@@ -132,7 +132,7 @@ In part two of the series, you learned about uploading large amounts of random d
 > * Run the application
 > * Validate the number of connections
 
-Advance to part three of the series to download large amounts of data from a storage account.
+Advance to part three of the series to install an application into the cluster you just created.
 
 > [!div class="nextstepaction"]
 > [Install the application into the service fabric cluster](standalone-tutorial-install-an-application.md)

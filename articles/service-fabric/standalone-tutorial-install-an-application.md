@@ -31,6 +31,13 @@ In part three of the series, you learn how to:
 > * Security Groups?
 > * Log in to one of the instances
 
+## Prerequisites
+
+Before you begin this tutorial:
+
+* [Install Visual Studio 2017](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
+* [Install the Service Fabric SDK](service-fabric-get-started.md)
+
 ## Download the voting sample application
 
 If you did not build the Voting sample application in [part one of this tutorial series](service-fabric-tutorial-create-dotnet-app.md), you can download it. In a command window, run the following command to clone the sample app repository to your local machine.
@@ -39,11 +46,11 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## Deploy the app to the AWS
+## Deploy the app to your cluster
 
 Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
 
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**. 
+1. Right-click **Voting** in the Solution Explorer and choose **Publish**.
 
     ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
 
