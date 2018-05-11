@@ -22,16 +22,16 @@ Privileged Identity Management (PIM) for Azure resource roles enables resource a
 
 ## Require MFA to activate
 
-Resource administrators can require eligible members of a role succeed Azure MFA before they can activate. This process ensures that the user who's requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised. 
+Resource administrators can require eligible members of a role succeed Azure MFA before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical resources in situations when the user account might have been compromised. 
 
-To enforce this requirement, select a resource from the list of managed resources. From the [overview dashboard](pim-resource-roles-overview-dashboards.md), select a role from the list of roles one the lower-right part of the screen.
+To enforce this requirement, select a resource from the list of managed resources. From the [overview dashboard](pim-resource-roles-overview-dashboards.md), select a role from the list of roles on the lower-right part of the screen.
 
 Additionally, you can get to role settings from either the **Roles** or **Role settings** tabs in the left navigation menu.
 
 >[!Note]
 >If the options in the left pane are grayed out and you see a banner at the top of the page that states "You have eligible roles that can be activated", you are not an active administrator. This means you must [activate](pim-resource-roles-activate-your-roles.md) before continuing.
 
-!["Roles" and "Role settings" tabs](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
+!["Roles" and "Role settings" tabs ](media/azure-pim-resource-rbac/aadpim_rbac_manage_a_role_v2.png)
 
 If viewing a role's membership, select **Role settings** from the bar at the top of the screen to open the **Role setting detail**.
 
