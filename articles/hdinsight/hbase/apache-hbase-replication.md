@@ -11,7 +11,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: jgao
 
 ---
@@ -98,8 +98,6 @@ Some of the hard-coded values in the template:
 | Gateway SKU | Basic |
 | Gateway IP | vnet1gwip |
 
-For the cross-virtual network scenario, you must use the **-ip** switch when you call the `hdi_enable_replication.sh` script action.
-
 ## Setup DNS
 
 In the last section, the template creates an Ubuntu virtual machine in each of the two virtual networks.  In this section, you install Bind on the two DNS virtual machines, and then configure the DNS forwarding on the two virtual machines.
@@ -124,7 +122,7 @@ To install Bind, use the following procedure:
     > [!NOTE]
 	> There are a variety of ways to obtain the `ssh` utility. On Linux, Unix, and macOS, it is provided as part of the operating system. If you are using Windows, consider one of the following options:
     >
-    > * [Azure Cloud Shell](../cloud-shell/quickstart.md)
+    > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
     > * [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about)
     > * [Git (https://git-scm.com/)](https://git-scm.com/)
     > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
@@ -237,7 +235,7 @@ To install Bind, use the following procedure:
     Address: 10.2.0.4
     ```
 
-    Until now, you cannot lookup the IP address from the other network without specified DNS server IP address.
+    Until now, you cannot look up the IP address from the other network without specified DNS server IP address.
 
 ### Configure the virtual network to use the custom DNS server
 
@@ -252,9 +250,9 @@ To configure the virtual network to use the custom DNS server instead of the Azu
 
 To test the DNS configuration, you can connect to the two DNS virtual machines using SSH, and ping the DNS server of the other virtual network by using its host name. If it doesn't work, use the following command to check DNS status:
 
-    ```bash
-    sudo service bind9 status
-    ```
+```bash
+sudo service bind9 status
+```
 
 ## Create HBase clusters
 
@@ -318,7 +316,6 @@ Optional arguments:
 |-du, --dst-ambari-user | Specifies the admin user name for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specifies the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
 |-m, --machine | Specifies the head node where the script action runs. The value is either **hn1** or **hn0**. Because the **hn0** head node typically is busier, we recommend using **hn1**. Use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
-|-ip | Required when you're enabling replication between two virtual networks. This argument acts as a switch to use the static IP addresses of ZooKeeper nodes from replica clusters instead of FQDN names. You must preconfigure the static IP addresses before you enable replication. |
 |-cp, -copydata | Enables the migration of existing data on the tables where replication is enabled. |
 |-rpm, -replicate-phoenix-meta | Enables replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
 |-h, --help | Displays usage information. |
