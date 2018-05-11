@@ -172,7 +172,7 @@ The following example shows how to retrieve languages supported for text transla
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://dev.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
 ```
 
 ---
