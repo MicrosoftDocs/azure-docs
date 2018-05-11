@@ -8,7 +8,6 @@ author: lleonard-msft
 manager: MBaldwin
 editor: ''
 
-
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: security-center
 ms.devlang: na
