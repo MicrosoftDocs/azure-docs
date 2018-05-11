@@ -3852,12 +3852,12 @@
         },
         {
             "source_path": "articles/azure-stack/user/azure-stack-connect-cli.md",
-            "redirect_url": "/azure/user/azure-stack-version-profiles-azurecli2",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-version-profiles-azurecli2",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/azure-stack/azure-stack-manage-storage-physical-capacity.md",
-            "redirect_url": "/azure/azure-stack-manage-storage-physical-memory-capacity",
+            "redirect_url": "/azure/azure-stack/azure-stack-manage-storage-physical-memory-capacity",
             "redirect_document_id": false
         },
         {
@@ -19671,9 +19671,29 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/network-watcher/network-watcher-troubleshoot-manage-portal.md",
-            "redirect_url": "/azure/network-watcher/diagnose-communication-problem-between-networks",
+            "source_path": "articles/network-watcher/network-watcher-topology-overview.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-powershell.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-cli-nodejs.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/network-watcher/network-watcher-topology-rest.md",
+            "redirect_url": "/azure/network-watcher/view-network-topology",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-get-started-user-states.md",
