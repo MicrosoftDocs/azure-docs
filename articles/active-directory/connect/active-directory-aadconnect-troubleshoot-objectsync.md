@@ -77,7 +77,8 @@ Object is out of scope as the domain is missing run profiles/run steps. In the e
 ![](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch6.png)
 
 ## Object is filtered due to OU filtering
-The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.
+The object is out of sync scope due to OU filtering configuration. In the example below, the object belongs to OU=NoSync,DC=bvtadwbackdc,DC=com.  This OU is not included in sync scope.</br>
+
 ![OU](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch7.png)
 
 ## Linked Mailbox issue
@@ -86,8 +87,6 @@ A linked mailbox is supposed to be associated with an external master account lo
 
 ## Dynamic Distribution Group issue
 Due to various differences between on-premises Active Directory and Azure Active Directory, Azure AD Connect does not synchronize dynamic distribution groups to the Azure AD tenant.
-
-![Distribution Group](media\active-directory-aadconnect-troubleshoot-objectsynch\objsynch10.png)
 
 ## HTML Report
 In addition to analyzing the object, the troubleshooting task also generates an HTML report that has everything known about the object. This HTML report can be shared with support team to do further troubleshooting, if needed.
