@@ -12,7 +12,7 @@
 ###[Node.js (VS Code & CLI)](get-started-nodejs.md)
 
 ## How to
-###[Share a development environment](how-to/share-dev-spaces.md)
+###[Share Azure Dev Spaces](how-to/share-dev-spaces.md)
 ###[Manage secrets](how-to/manage-secrets.md)
 ###[Use a custom NuGet feed](how-to/use-a-custom-nuget-feed.md)
 ###[Use kubectl with Azure Dev Spaces](how-to/use-kubectl-with-azure-dev-spaces.md)
