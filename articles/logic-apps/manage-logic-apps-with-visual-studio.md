@@ -112,7 +112,7 @@ or as Azure Resource Manager projects with Visual Studio.
 1. Open Cloud Explorer, and find your logic app. 
 
 2. On the logic app's shortcut menu, 
-select **Open With Logic Apps editor**.
+select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
@@ -145,9 +145,9 @@ then find and select the logic app
 that you want to download from Azure.
 
 2. On that app's shortcut menu, 
-select **Open With Logic Apps editor**.
+select **Open with Logic App Editor**.
 
-   The Logic Apsp Designer opens and shows the logic app. 
+   The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 
    at the bottom of the designer, choose **Code View**. 
 
@@ -175,7 +175,7 @@ Learn about [Resource Manager projects for logic apps in Visual Studio](../logic
 If you edit your logic app in the Azure portal and want to keep those changes, 
 make sure that you refresh that app's version in Visual Studio with those changes. 
 
-* In Visual Studio, on the Logic Apps Designer toolbar, choose **Refresh**.
+* In Visual Studio, on the Logic App Designer toolbar, choose **Refresh**.
 
   -or-
 
@@ -187,14 +187,14 @@ and select **Refresh**.
 ## Publish logic app updates
 
 When you're ready to deploy your logic app updates from Visual Studio to Azure, 
-on the Logic Apps Designer toolbar, choose **Publish**.
+on the Logic App Designer toolbar, choose **Publish**.
 
 ![Publish updated logic app](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
 
 ## Manually run your logic app
 
 You can manually trigger a logic app deployed in Azure from Visual Studio. 
-On the Logic Apps Designer toolbar, choose **Run Trigger**.
+On the Logic App Designer toolbar, choose **Run Trigger**.
 
 ![Manually run logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
