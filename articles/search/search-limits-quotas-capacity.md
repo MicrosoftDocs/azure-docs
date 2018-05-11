@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 05/10/2018
 ms.author: heidist
 
 ---
@@ -83,12 +83,13 @@ To keep document size down, remember to exclude non-queryable data from the requ
 
 ## Indexer limits
 
-Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers.
+Basic services created after late 2017 have an increased limit of 15 indexes, data sources, skillsets, and indexers.
 
 | Resource | Free&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum skillsets |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
 | Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |

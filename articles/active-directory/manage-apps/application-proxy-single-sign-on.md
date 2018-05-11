@@ -31,7 +31,7 @@ To see your single sign-on options, follow these steps:
 3. Select the app whose single sign-on options you want to manage.
 4. Select **Single sign-on**.
 
-   ![SSO dropdown menu](./media/application-proxy-sso-overview/single-sign-on-mode.png)
+   ![SSO dropdown menu](./media/application-proxy-single-sign-on/single-sign-on-mode.png)
 
 The dropdown menu shows five options for single sign-on to your application:
 
@@ -51,28 +51,28 @@ This option is a good choice if your on-premises application doesn't require use
 
 If you want to use Azure Active Directory as a password vault for your on-premises applications, choose **Password-based sign-on**. This option is a good choice if your application authenticates with a username/password combo instead of access tokens or headers. With password-based sign-on, your users need to sign in to the application the first time they access it. After that, Azure Active Directory supplies the username and password on behalf of the user. 
 
-For information about setting up password-based sign-on, see [Password vaulting for single sign-on with Application Proxy](application-proxy-sso-azure-portal.md).
+For information about setting up password-based sign-on, see [Password vaulting for single sign-on with Application Proxy](../application-proxy-sso-azure-portal.md).
 
 ## Linked sign-on
 
 If you already have a single sign-on solution set up for your on-premises identities, choose **Linked sign-on**. This option enables Azure Active Directory to leverage existing SSO solutions, but still gives your users remote access to the application. 
 
-For information about linked sign-on (formally known as existing single sign-on), see [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
+For information about linked sign-on (formally known as existing single sign-on), see [What is application access and single sign-on with Azure Active Directory?](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ## Integrated Windows Authentication
 
 If your on-premises applications use Integrated Windows Authentication(IWA) or if you want to use Kerberos Constrained Delegation (KCD) for single sign-on, choose **Integrated Windows Authentication**. With this option, your users only need to authenticate to Azure Active Directory, and then the Application Proxy connector impersonates the user to get a Kerberos token and sign in to the application. 
 
-For information about setting up Integrated Windows Authentication, see [Kerberos Constrained Delegation for single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md).
+For information about setting up Integrated Windows Authentication, see [Kerberos Constrained Delegation for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## Header-based sign-on 
 
 If your applications use headers for authentication, choose **Header-based sign-on**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
 
-For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-ping-access.md).
+For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](../application-proxy-ping-access.md).
 
 ## Next steps
 
-- [Password vaulting for single sign-on with Application Proxy](application-proxy-sso-azure-portal.md)
-- [Kerberos Constrained Delegation for single sign-on with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
-- [Header-based authentication for single sign-on with Application Proxy](application-proxy-ping-access.md) 
+- [Password vaulting for single sign-on with Application Proxy](../application-proxy-sso-azure-portal.md)
+- [Kerberos Constrained Delegation for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
+- [Header-based authentication for single sign-on with Application Proxy](../application-proxy-ping-access.md) 
