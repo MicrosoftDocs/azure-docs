@@ -45,6 +45,8 @@
     href: ssl-overview.md
   - name: URL redirection
     href: redirect-overview.md
+  - name: Health monitoring
+    href: application-gateway-probe-overview.md
 - name: How-to guides
   items:
   - name: Create application gateway
@@ -93,7 +95,20 @@
     href: tutorial-url-redirect-powershell.md
   - name: Create a zone redundant application gateway
     href: create-zone-redundant.md
-
+  - name: Custom probes
+    items:
+      - name: Portal
+        href: application-gateway-create-probe-portal.md
+      - name: Classic PowerShell
+        href: application-gateway-create-probe-classic-ps.md
+      - name: Resource Manager PowerShell
+        href: application-gateway-create-probe-ps.md
+  - name: Troubleshoot
+    items:
+      - name: Troubleshoot Bad Gateway (502) errors
+        href: application-gateway-troubleshooting-502.md
+      - name: Diagnostics
+        href: application-gateway-diagnostics.md
 - name: Reference
   items:
   - name: Azure CLI
