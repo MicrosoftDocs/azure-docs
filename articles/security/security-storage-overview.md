@@ -1,6 +1,6 @@
 ---
-title: Security features that can be used with Azure Storage | Microsoft Docs
-description: " This article provides an overview of the core Azure security features that can be used with Azure Storage. "
+title: Azure Storage security overview | Microsoft Docs
+description: This article provides an overview of the core Azure security features that can be used with Azure Storage.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -17,38 +17,31 @@ ms.date: 11/21/2017
 ms.author: terrylan
 
 ---
-# Azure storage security overview
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities:
+# Azure Storage security overview
+Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. Azure Storage provides a comprehensive set of security capabilities. You can:
 
-* The storage account can be secured using Role-Based Access Control and Azure Active Directory.
-* Data can be secured in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0.
-* Data can be set to be automatically encrypted when written to Azure Storage using Storage Service Encryption.
-* OS and Data disks used by virtual machines can be set to be encrypted using Azure Disk Encryption.
-* Delegated access to the data objects in Azure Storage can be granted using Shared Access Signatures.
-* The authentication method used by someone when they access storage can be tracked using Storage analytics.
+* Secure the storage account by using Role-Based Access Control (RBAC) and Azure Active Directory.
+* Secure data in transit between an application and Azure by using Client-Side Encryption, HTTPS, or SMB 3.0.
+* Set data to be automatically encrypted when written to Azure Storage using Storage Service Encryption.
+* Set OS and Data disks used by virtual machines to be encrypted using Azure Disk Encryption.
+* Grant delegated access to the data objects in Azure Storage by using Shared Access Signatures.
+* Use analytics to track the authentication method that someone is using when they access Storage.
 
 For a more detailed look at security in Azure Storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md). This guide provides a deep dive into the security features of Azure Storage such as storage account keys, data encryption in transit and at rest, and storage analytics.
 
 This article provides an overview of Azure security features that can be used with Azure Storage. Links are provided to articles that give details of each feature so you can learn more.
 
-Here are the core features to be covered in this article:
-
-* Role-Based Access Control
-* Delegated access to storage objects
-* Encryption in transit
-* Encryption at rest/Storage Service Encryption
-* Azure Disk Encryption
-* Azure Key Vault
-
-## Role-Based Access Control (RBAC)
-You can secure your storage account with Role-Based Access Control (RBAC). Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
+## Role-Based Access Control
+You can secure your storage account with Role-Based Access Control. Restricting access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege) security principles is imperative for organizations that want to enforce security policies for data access. These access rights are granted by assigning the appropriate RBAC role to groups and applications at a certain scope. You can use [built-in RBAC roles](../role-based-access-control/built-in-roles.md), such as Storage Account Contributor, to assign privileges to users.
 
 Learn more:
 
 * [Azure Active Directory Role-based Access Control](../role-based-access-control/role-assignments-portal.md)
 
 ## Delegated access to storage objects
-A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to provide the SAS to the appropriate constructor or method.
+A shared access signature (SAS) provides delegated access to resources in your storage account. The SAS means that you can grant a client limited permissions to objects in your storage account for a specified period of time and with a specified set of permissions. You can grant these limited permissions without having to share your account access keys. 
+
+The SAS is a URI that encompasses in its query parameters all the information necessary for authenticated access to a storage resource. To access storage resources with the SAS, the client only needs to provide the SAS to the appropriate constructor or method.
 
 Learn more:
 
