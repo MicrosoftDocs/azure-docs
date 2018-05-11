@@ -3,7 +3,7 @@ title: Enable backup for Azure Stack from the administration portal | Microsoft 
 description: Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can be restored if there is a failure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,15 +13,13 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: mabrigg
-
+ms.date: 05/11/2018
+ms.author: jeffgilb
 ---
 # Enable backup for Azure Stack from the administration portal
+Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment using cloud recovery in the event of a failure. The purpose of cloud recovery is to ensure that your operators and users can log back into the portal after deployment is complete. Users will have their subscriptions restored including the original plans and offers policies defined by the administrator.
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
-
-Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment in the event of a failure.
+However, because the Infrastructure Backup Service does not backup user Infrastructure as a Service (IaaS) or Platform as a Service (PaaS) resources, IaaS VMs, storage accounts, blobs, tables, network configuration, and so on, are lost. Users logging in after cloud recovery completes will not see any of their previously existing resources unless you backup and restore them separately from the infrastructure backup processes. 
 
 > [!Note]  
 > Before you enable the backup through the console, you need to configure the backup service. You can configure the backup service using PowerShell. For more information, see [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
