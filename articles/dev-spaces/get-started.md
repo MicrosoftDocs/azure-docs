@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud" | Microsoft Docs"
+title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
@@ -20,5 +20,6 @@ Welcome! Please select a **language-specific guide** to get started:
 
 > [!div class="nextstepaction"]
 > [Node.js (VS Code & CLI)](quickstart-nodejs.md)
+
 
 

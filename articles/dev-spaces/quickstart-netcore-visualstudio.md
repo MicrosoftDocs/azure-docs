@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud" | Microsoft Docs"
+title: "Create a Kubernetes development environment in the cloud| Microsoft Docs"
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
@@ -92,4 +92,4 @@ Click on the **About** link at the top of the page to trigger the breakpoint. Yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore-visualstudio.md#call-another-container)
+> [Working with multiple containers and team development](get-started-netcore-visualstudio.md)

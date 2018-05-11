@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud" | Microsoft Docs"
+title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
@@ -153,4 +153,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md#call-another-container)
+> [Working with multiple containers and team development](get-started-nodejs.md

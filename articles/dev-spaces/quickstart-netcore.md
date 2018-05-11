@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes development environment in the cloud" | Microsoft Docs"
+title: "Create a Kubernetes development environment in the cloud| Microsoft Docs"
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
@@ -79,7 +79,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 ![](media/get-started-netcore/debug-configuration.png)
 
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-netcore-01.md#get-kubernetes-debugging-for-vs-code).
+> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
 
 
 ### Debug the container in Kubernetes
@@ -117,4 +117,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-netcore.md#call-another-container)
+> [Working with multiple containers and team development](get-started-netcore.md)
