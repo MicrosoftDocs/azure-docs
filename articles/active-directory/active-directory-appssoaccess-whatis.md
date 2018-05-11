@@ -3,16 +3,17 @@ title: What is application access and single sign-on with Azure Active Directory
 description: Use Azure Active Directory to enable single sign-on to all of the SaaS and web applications that you need for business.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: barbkess
 manager: mtillman
 editor: ''
 
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: curtand
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
 ---
@@ -188,7 +189,7 @@ These links use the same access control mechanisms as the access panel and Offic
 ## Related articles
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Finding unsanctioned cloud applications with Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
+* [Finding unsanctioned cloud applications with Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 * [Introduction to Managing Access to Apps](active-directory-managing-access-to-apps.md)
 * [Comparing Capabilities for Managing External Identities in Azure AD](active-directory-b2b-compare-external-identities.md)
 

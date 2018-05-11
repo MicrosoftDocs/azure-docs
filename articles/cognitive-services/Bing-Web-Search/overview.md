@@ -11,6 +11,7 @@ ms.topic: overview
 ms.date: 10/11/2017
 ms.author: scottwhi
 ---
+
 # What is Bing Web Search?
 
 The Bing Web Search API provides an experience similar to Bing.com/search by returning search results that Bing determines are relevant to the user's query. The results may include Web pages, images, videos, news, and entities, along with related search queries, spelling corrections, time zones, unit conversion, translations, and calculations. The kinds of results you get are based on their relevance and also the tier of the Bing Search APIs to which you subscribe.
@@ -70,17 +71,21 @@ The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-ap
 ```json
 {
     "id": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
-    "name": "Dinghy sailing - Wikipedia",
+    "name": "Dinghy sailing",
     "url": "https:\/\/www.bing.com\/cr?IG=3A43CA5...",
-    "displayUrl": "https:\/\/en.wikipedia.org\/wiki\/Dinghy_sailing",
+    "displayUrl": "https:\/\/en.contoso.com\/wiki\/Dinghy_sailing",
     "snippet": "Dinghy sailing is the activity of sailing small boats...",
     "dateLastCrawled": "2017-04-05T16:25:00"
 }, ...
 ```
 
-Use `name` and `url` to create a hyperlink that takes the user to the webpage. The following shows an example of how you might display the webpage in a search results page. 
+Use `name` and `url` to create a hyperlink that takes the user to the webpage. 
+
+<!-- Remove until this can be replaced with a sanitized version.
+The following shows an example of how you might display the webpage in a search results page. 
 
 ![Rendered webpage example](./media/cognitive-services-bing-web-api/bing-rendered-webpage-example.PNG)
+-->
 
 ### Images answer
 
@@ -88,15 +93,15 @@ The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-a
 
 ```json
 {
-    "name": "File:Rich Passage Minto Sailing Dinghy.jpg - Wikipedia",
+    "name": "Rich Passage Sailing Dinghy",
     "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=3A43CA5CA64...",
     "thumbnailUrl": "https:\/\/tse1.mm.bing.net\/th?id=OIP....",
     "datePublished": "2011-10-29T11:26:00",
-    "contentUrl": "http:\/\/upload.wikimedia.org\/wikipedia\/...",
+    "contentUrl": "http:\/\/upload.contoso.com\/sailing\/...",
     "hostPageUrl": "http:\/\/www.bing.com\/cr?IG=3A43CA5CA6464....",
     "contentSize": "79239 B",
     "encodingFormat": "jpeg",
-    "hostPageDisplayUrl": "http:\/\/en.wikipedia.org\/wiki\/File...",
+    "hostPageDisplayUrl": "http:\/\/en.contoso.com\/wiki\/File...",
     "width": 526,
     "height": 688,
     "thumbnail": {
@@ -112,11 +117,15 @@ The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-a
 
 Depending on the user's device, you'd typically display a subset of the thumbnails with an option for the user to view the remaining images. 
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
+-->
 
 You can also expand the thumbnail as the user hovers the cursor over it. Be sure to attribute the image if you expand it. For example, by extracting the host from `hostPageDisplayUrl` and displaying it below the image. For information about resizing the thumbnail, see [Resizing and Cropping Thumbnails](./resize-and-crop-thumbnails.md).
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Expanded view of thumbnail image](./media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
+-->
 
 If the user clicks the thumbnail, use `webSearchUrl` to take the user to Bing's search results page for images, which contains a collage of the images.
 
@@ -128,8 +137,8 @@ The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing
 
 ```json
 {
-    "text": "porsche racing teams",
-    "displayText": "porsche racing teams",
+    "text": "dinghy racing teams",
+    "displayText": "dinghy racing teams",
     "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=96C4CF214A0..."
 }, ...
 ```
@@ -148,18 +157,18 @@ The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-ap
 
 ```json
 {
-    "name": "Mallard Sailing dinghy",
-    "description": "Davilia is a 12 foot \"Mallard\" gunter rigged...",
+    "name": "Sailing dinghy",
+    "description": "Northwind Traders is a 12 foot gunter rigged...",
     "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=1CAE739681D84...",
     "thumbnailUrl": "https:\/\/tse2.mm.bing.net\/th?id=OVP.wsKiL...",
     "datePublished": "2013-11-06T01:56:28",
     "publisher": [{
-        "name": "YouTube"
+        "name": "Fabrikam"
     }],
-    "contentUrl": "https:\/\/www.youtube.com\/watch?v=MrVBWZpJjX",
+    "contentUrl": "https:\/\/www.fabrikam.com\/watch?v=MrVBWZpJjX",
     "hostPageUrl": "https:\/\/www.bing.com\/cr?IG=1CAE739681D8400DB...",
     "encodingFormat": "mp4",
-    "hostPageDisplayUrl": "https:\/\/www.youtube.com\/watch?v=MrBWZpJjXo",
+    "hostPageDisplayUrl": "https:\/\/www.fabrikam.com\/watch?v=MrBWZpJjXo",
     "width": 1280,
     "height": 720,
     "duration": "PT3M47S",
@@ -178,11 +187,15 @@ The [videos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-ap
 
 Depending on the user's device, you'd typically display a subset of the videos with an option for the user to view the remaining videos. You'd display a thumbnail of the video with the video's length, description (name), and attribution (publisher). 
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
+-->
 
 As the user hovers over the thumbnail you can use `motionThumbnailUrl` to play a thumbnail version of the video. Be sure to attribute the motion thumbnail when you display it.
 
+<!-- Remove until this can be replaced with a sanitized version.
 ![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
+-->
 
 If the user clicks the thumbnail, the following are the video viewing options:
 
@@ -201,17 +214,17 @@ The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v
     "name": "WC Sailing Qualifies for America Trophy with...",
     "url": "http:\/\/www.bing.com\/cr?IG=3445EEF15DAF4FFFBF7...",
     "image": {
-        "contentUrl": "http:\/\/www.washingtoncollegesports.com\/sports\/sail...",
+        "contentUrl": "http:\/\/www.contoso.com\/sports\/sail...",
         "thumbnail": {
             "contentUrl": "https:\/\/www.bing.com\/th?id=ON.1...",
             "width": 400,
             "height": 272
         }
     },
-    "description": "The Washington College sailing team qualified for a...",
+    "description": "The WC sailing team qualified for a...",
     "provider": [{
         "_type": "Organization",
-        "name": "washingtoncollegesports.com"
+        "name": "contoso.com"
     }],
     "datePublished": "2017-04-16T21:56:00"
 }, ...
@@ -219,9 +232,11 @@ The [news](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v
 
 Depending on the user's device, you'd display a subset of the news articles with an option for the user to view the remaining articles. Use `name` and `url` to create a hyperlink that takes the user to the news article on the host's site. If the article includes an image, make the image clickable using `url`. Be sure to use `provider` to attribute the article. 
 
+<!-- Remove until this can be replaced with a sanitized version.
 The following shows an example of how you might display articles in a search results page.
 
 ![List of news articles](./media/cognitive-services-bing-web-api/bing-web-news-list.PNG)
+-->
 
 For details about the news answer and news articles, see [News Search API](../bing-news-search/search-the-web.md).
 
