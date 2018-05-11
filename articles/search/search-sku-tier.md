@@ -67,14 +67,15 @@ Document limits used to be a consideration but is no longer applicable for most 
 
 Capacity and costs of running the service go hand-in-hand. You should develop rough estimates on the following:
 
-* Number and size of indexes you plan to create.
-* Some idea of query volume, in terms of Queries Per Second (QPS). For more information on how to calculate QPS, see [Azure Search performance and optimization](search-performance-optimization.md).
++ Number and size of indexes you plan to create.
+
++ Some idea of query volume, in terms of Queries Per Second (QPS). For more information on how to calculate QPS, see [Azure Search performance and optimization](search-performance-optimization.md).
 
 Number and size are equally relevant to your analysis because maximum limits are reached through full utilization of hardware (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. 
 
 For large query volumes, you need more replicas and partitions. Additional replicas load balance query requests across multiple instances of the search engine. Additional partitions result in faster read/write operations overall, but with faster hardware on the higher tiers.
 
-Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. A service is provisioned based on a best-guess estimate, and as the development project matures, teams usually know whether the existing service is over or under capacity for production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
+Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for a projected production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
 
 The **Free** tier and preview features do not come with [service level agreements (SLAs)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For all billable tiers, SLAs take effect when you provision sufficient redundancy for your service. Two or more replicas are required for query (read) SLA. Three or more replicas are required for query and indexing (read-write) SLA. The number of partitions is not an SLA consideration. 
 
