@@ -32,7 +32,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 ## Regions that support Availability Zones
 
-- US Central
+- Central US
 - France Central
 - East US 2 (Preview)
 - West Europe (Preview)
