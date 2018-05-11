@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Create your first container in Azure Container Instances
 
-Azure Container Instances makes it easy to create and manage containers in Azure. In this quickstart, you create a container in Azure and expose it to the internet with a public IP address. This operation is completed by using the Azure portal. With just a few clicks, you will see this in your browser:
+Azure Container Instances makes it easy to create and manage Docker containers in Azure, without having to provision virtual machines or adopt a higher-level service. In this quickstart, you use the Azure portal to create a container in Azure and expose it to the internet with a fully qualified domain name (FQDN). After configuring a few settings, you'll see this in your browser:
 
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
@@ -30,7 +30,7 @@ Select the **Create a resource** > **Containers** > **Azure Container Instances*
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
-Enter the following values in the **Container name**, **Container image**, and **Resource group** text boxes. Leave the other values at their defaults, then click **OK**.
+Enter the following values in the **Container name**, **Container image**, and **Resource group** text boxes. Leave the other values at their defaults, then select **OK**.
 
 * Container name: `mycontainer`
 * Container image: `microsoft/aci-helloworld`
@@ -38,19 +38,19 @@ Enter the following values in the **Container name**, **Container image**, and *
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-You can create both Windows and Linux containers in Azure Container Instances. In this quickstart, we'll leave the default setting of **Linux** since we specified a Linux-based container (`microsoft/aci-helloworld`) in the previous step.
+You can create both Windows and Linux containers in Azure Container Instances. For this quickstart, leave the default setting of **Linux** to deploy the Linux-based `microsoft/aci-helloworld` image.
 
-Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be reachable from the internet at `<dns-name-label>.<region>.azurecontainer.io`.
+Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`.
 
-Leave the other settings in **Configuration** at their defaults, then click **OK** to validate the configuration.
+Leave the other settings in **Configuration** at their defaults, then select **OK** to validate the configuration.
 
 ![Configuring a new container instance in the Azure portal][aci-portal-04]
 
-When the validation completes, you are shown a summary of your container settings. Select **OK** to submit your container deployment request.
+When the validation completes, you're shown a summary of the container's settings. Select **OK** to submit your container deployment request.
 
 ![Settings summary for a new container instance in the Azure portal][aci-portal-05]
 
-When deployment starts, a tile is placed on your portal dashboard indicating deployment progress. Once deployed, the tile displays your new container instance.
+When deployment starts, a tile appears on your portal dashboard indicating the deployment is in progress. Once deployed, the tile displays your new container instance.
 
 ![Creation progress of a new container instance in the Azure portal][aci-portal-08]
 
@@ -58,15 +58,15 @@ Select the **mycontainer** container instance to display its properties. Take no
 
 ![Container group overview in the Azure portal][aci-portal-06]
 
-Once its **Status** is *Running*, navigate to your container's FQDN in your browser.
+Once its **Status** is *Running*, navigate to the container's FQDN in your browser.
 
 ![App deployed using Azure Container Instances viewed in browser][aci-portal-07]
 
-Congratulations! You just ran your first container in Azure Container Instances.
+Congratulations! By configuring just a few settings, you've deployed a publicly accessible application in Azure Container Instances.
 
 ## Clean up resources
 
-When you're done with the container, select the **mycontainer** container instance, then click **Delete**.
+When you're done with the container, select the **mycontainer** container instance, then select **Delete**.
 
 ![Deleting the container instance in the Azure portal][aci-portal-09]
 
