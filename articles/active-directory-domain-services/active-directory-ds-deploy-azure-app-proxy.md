@@ -22,7 +22,7 @@ ms.author: maheshu
 Azure Active Directory (AD) Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. With Azure AD Domain Services, you can now lift-and-shift legacy applications running on-premises to Azure Infrastructure Services. You can then publish these applications using the Azure AD Application Proxy, to provide secure remote access to users in your organization.
 
 If you're new to the Azure AD Application Proxy, learn more about this feature with the following article:
-[How to provide secure remote access to on-premises applications](../active-directory/active-directory-application-proxy-get-started.md).
+[How to provide secure remote access to on-premises applications](../active-directory/manage-apps/application-proxy.md).
 
 
 ## Before you begin

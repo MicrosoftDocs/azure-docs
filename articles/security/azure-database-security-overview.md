@@ -5,7 +5,7 @@ description: This article provides an overview of the Azure database security fe
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: swadhwa
+manager: mbaldwin
 editor: TomSh
 
 ms.assetid: 
