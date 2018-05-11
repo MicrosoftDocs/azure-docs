@@ -51,10 +51,10 @@ On each side of the tier spectrum, **Basic** and **S3 HD** exist for important b
 
 **S1-S3** are a progression of tiers with increasing levels of capacity, with inflection points on partition size and resource limits:
 
-|  | S1 | S2 | S3 |
-|--|----|----|----|
-| partition size|  25 GB | 100 GB | 250 GB | 
-| index and indexer limits| 50 | 200 | 200 | 
+|  | S1 | S2 | S3 |  |  |  |
+|--|----|----|----|--|--|--|
+| partition size|  25 GB | 100 GB | 250 GB |  |  |  |
+| index and indexer limits| 50 | 200 | 200 |  |  |  |
 
 **S1** is where most customers start. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced combinations.)
 
@@ -72,7 +72,7 @@ Capacity and costs of running the service go hand-in-hand. You should develop ro
 * Number and size of indexes you plan to create.
 * Some idea of query volume, in terms of Queries Per Second (QPS). For more information on how to calculate QPS, see [Azure Search performance and optimization](search-performance-optimization.md).
 
-Number and size are equally relevant to your analysis because maximum limits are reached through full utilization of hardware (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first.
+Number and size are equally relevant to your analysis because maximum limits are reached through full utilization of hardware (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. For large query volumes, you need more replicas and partitions. Additional replicas load balance query requests across multiple instances of the search engine. Additional partitions result in faster read/write operations overall, but with faster hardware on the higher tiers.
 
 Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. A service is provisioned based on a best-guess estimate, and as the development project matures, teams usually know whether the existing service is over or under capacity for production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
 
