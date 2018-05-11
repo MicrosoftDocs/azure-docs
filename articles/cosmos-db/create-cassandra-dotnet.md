@@ -44,13 +44,19 @@ In addition:
 
 Now let's switch to working with code. Let's clone a Cassandra API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
-1. Open a git terminal window, such as git bash, and use the `cd` command to change to a folder to install the sample app. 
+1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
+3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-cassandra-dotnet-getting-started.git
@@ -60,7 +66,7 @@ Now let's switch to working with code. Let's clone a Cassandra API app from GitH
 
 ## Review the code
 
-This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the `Program.cs` file installed in the C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the Program.cs file installed in the C:\git-samples\azure-cosmos-db-cassandra-dotnet-getting-started\CassandraQuickStartSample folder. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string).
 
 * Initialize the session by connecting to a Cassandra cluster endpoint. The Cassandra API on Azure Cosmos DB supports only TLSv1.2. 
 
@@ -98,7 +104,7 @@ This step is optional. If you're interested in learning how the database resourc
    }
     ```
     
- * Query to get a single user's information.
+* Query to get a single user's information.
 
     ```csharp
     mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
@@ -132,7 +138,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 15 of Program.cs should now look similar to 
 
-    `private const string CassandraContactPoint = "cosmos-db-quickstarts.documents.azure.com"; //  DnsName`
+    `private const string CassandraContactPoint = "cosmos-db-quickstarts.cassandra.cosmosdb.azure.com"; //  DnsName`
 
 5. Save the Program.cs file.
     

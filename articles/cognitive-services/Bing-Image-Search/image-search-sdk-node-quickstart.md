@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
@@ -15,6 +15,9 @@ ms.author: v-gedod
 # Image Search SDK Node quickstart
 
 The Bing Image Search SDK contains the functionality of the REST API for image queries and parsing results. 
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
 
 ## Application dependencies
 
@@ -39,10 +42,12 @@ client.imagesOperations.search('El Capitan', function (err, result, request, res
 });
 
 ```
+<!-- Need to sanitize result
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'ImageObjectElementType'
 
 ![Imageresults](media/node-sdk-quickstart-image-results.png)
+-->
 
 ## Next steps
 

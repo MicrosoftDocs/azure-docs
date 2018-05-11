@@ -1,4 +1,4 @@
-﻿---
+---
 title: Encrypt disks on a Windows VM in Azure | Microsoft Docs
 description: How to encrypt virtual disks on a Windows VM for enhanced security using Azure PowerShell
 services: virtual-machines-windows
@@ -99,7 +99,7 @@ Add-AzureKeyVaultKey -VaultName $keyVaultName `
 ## Create the Azure Active Directory service principal
 When virtual disks are encrypted or decrypted, you specify an account to handle the authentication and exchanging of cryptographic keys from Key Vault. This account, an Azure Active Directory service principal, allows the Azure platform to request the appropriate cryptographic keys on behalf of the VM. A default Azure Active Directory instance is available in your subscription, though many organizations have dedicated Azure Active Directory directories.
 
-Create a service principal in Azure Active Directory with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). To specify a secure password, follow the [Password policies and restrictions in Azure Active Directory](../../active-directory/active-directory-passwords-policy.md):
+Create a service principal in Azure Active Directory with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal). To specify a secure password, follow the [Password policies and restrictions in Azure Active Directory](../../active-directory/authentication/concept-sspr-policy.md):
 
 ```powershell
 $appName = "My App"

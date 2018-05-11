@@ -36,6 +36,8 @@ If you used a template to create your virtual machines, ensure that each virtual
 
     ![Ports for failover and failback](./media/vmware-azure-reprotect/failover-failback.png)
 
+- You can read all the pre-requisites on ports and URL whitelisting [here](vmware-azure-deploy-configuration-server.md#prerequisites)
+
 ## Deploy a process server in Azure
 
 You might need a process server in Azure before you fail back to your on-premises site:
@@ -75,7 +77,7 @@ After you've created a master target server, do the following:
 - You need to add a new drive if you're using an existing process server/configuration server machine or a scale or a process server/master target server machine. The new drive should meet the preceding requirements. If the retention drive is not present, it doesn't appear in the selection drop-down list on the portal. After you add a drive to the on-premises master target, it takes up to 15 minutes for the drive to appear in the selection on the portal. You can also refresh the configuration server if the drive does not appear after 15 minutes.
 - Install VMware tools on the master target server. Without the VMware tools, the datastores on the master target's ESXi host cannot be detected.
 - Set the `disk.EnableUUID=true` setting in the configuration parameters of the master target virtual machine in VMware. If this row does not exist, add it. This setting is required to provide a consistent UUID to the virtual machine disk (VMDK) so that it mounts correctly.
-- The master target should have at least one VMFS datastore attached. If there is none, the **Datastore** input on the reprotect page will be empty, and you can't proceed.
+- The ESX host on which the master target is created should have at least one VMFS datastore attached to it. If there is none, the **Datastore** input on the reprotect page will be empty, and you can't proceed.
 - The master target server cannot have snapshots on the disks. If there are snapshots, reprotection and failback fail.
 - The master target cannot have a Paravirtual SCSI controller. The controller can only be an LSI Logic controller. Without an LSI Logic controller, reprotection fails.
 - At any given instance, the master target can have atmst 60 disks attached to it. If the number of virtual machines being reprotected to the on-premises master target have a sum total number of disks more than 60, then reprotects to the master target will start failing. Ensure that you have enough master target disk slots or deploy additional master target servers.
@@ -88,7 +90,7 @@ After a virtual machine boots in Azure, it takes some time for the agent to regi
 
 1. In **Vault** > **Replicated items**, right-click the virtual machine that's been failed over, and then select **Re-Protect**. You can also click the machine and select **Re-Protect** from the command buttons.
 2. Verify the direction of protection, **Azure to On-premises**, is already selected.
-3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the process server.
+3. In **Master Target Server** and **Process Server**, select the on-premises master target server and the process server.  
 4. For **Datastore**, select the datastore to which you want to recover the disks on-premises. This option is used when the on-premises virtual machine is deleted, and you need to create new disks. This option is ignored if the disks already exist, but you still need to specify a value.
 5. Choose the retention drive.
 6. The failback policy is automatically selected.

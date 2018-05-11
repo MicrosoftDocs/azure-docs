@@ -6,7 +6,7 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.date: 11/15/2016
+ms.date: 04/01/2018
 ms.author: jovanpop
 ms.topic: article
 

@@ -106,7 +106,7 @@ Examples include:
 
 ### Store and Archive
 Some monitoring data is already stored and available in Azure Monitor for a set amount of time. 
-- Metrics are stored for 30 days. 
+- Metrics are stored for 90 days. 
 - Activity log entries are stored for 90 days. 
 - Diagnostics logs are not stored at all. 
 
@@ -166,4 +166,4 @@ Learn more about
 - Set up the [Azure Diagnostics Extensions](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, Virtual machine scale sets, or Service Fabric application.
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
 - [Troubleshooting Azure Storage](../storage/common/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues
-- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/oms/)
+- [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

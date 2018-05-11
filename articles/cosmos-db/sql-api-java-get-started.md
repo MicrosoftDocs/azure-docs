@@ -4,9 +4,8 @@ description: A NoSQL tutorial that creates an online database and Java console a
 keywords: nosql tutorial, online database, java console application
 services: cosmos-db
 documentationcenter: Java
-author: arramac
-manager: jhubbard
-editor: monicar
+author: SnehaGunda
+manager: kfile
 
 ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: arramac
+ms.author: sngun
 
 ---
 # NoSQL tutorial: Build a SQL API Java console application

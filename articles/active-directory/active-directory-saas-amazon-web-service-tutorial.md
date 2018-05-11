@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 04/06/2018
 ms.author: jeedes
 
 ---
@@ -200,9 +200,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. In the **Role description** textbox, enter the description.
 
-    a. Click **Create Role**.
+    c. Click **Create Role**.
 
-    b. Create as many roles as needed and map them to the Identity Provider.
+    d. Create as many roles as needed and map them to the Identity Provider.
 
 18. Use AWS service account credentials for fetching the roles from AWS account in Azure AD User Provisioning. For this, open the AWS console home.
 
@@ -268,16 +268,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Click on **“Create Policy”** button.
 
-24. On the **Review** dialog, perform the following steps:   
-    
-    ![Configure Single Sign-On Review][34] 
-
-    a. Click **Create Role**.
-
-    b. Create as many roles as needed and map them to the Identity Provider.
-
-
-25.	Create a new user account in the AWS IAM Service by performing the following steps:
+24.	Create a new user account in the AWS IAM Service by performing the following steps:
 
 	a. Click on **Users** navigation in the AWS IAM console.
 
@@ -297,7 +288,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	* Click on the **Next Permissions** button in the bottom right corner.
 
-26. Now create a new policy for this user by performing the following steps:
+25. Now create a new policy for this user by performing the following steps:
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
 	
@@ -307,7 +298,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Select the **policy** and then click on the **Next: Review** button.
 
-27.	Review the policy to the attached user by performing following steps:
+26.	Review the policy to the attached user by performing following steps:
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
 	
@@ -315,7 +306,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	b. Click on the **Create user** button at the bottom right corner to create the user.
 
-28. Download the user credentials of a user by performing following steps:
+27. Download the user credentials of a user by performing following steps:
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
 	
@@ -325,11 +316,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	c. Click on **Close** button at the bottom.
 
-29. Navigate to **User Provisioning** section of Amazon Web Services app in Azure AD Management Portal.
+28. Navigate to **User Provisioning** section of Amazon Web Services app in Azure AD Management Portal.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-30. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** field respectively.
+29. Enter the **Access Key** and **Secret** in the **Client Secret** and **Secret Token** field respectively.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
 	
@@ -341,7 +332,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Save the setting by clicking on the **Save** button at the top.
  
-31. Now make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
+30. Now make sure that you enable the Provisioning Status **On** in the Settings section by making the switch on and then clicking on the **Save** button at the top.
 
 	![Add user](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 

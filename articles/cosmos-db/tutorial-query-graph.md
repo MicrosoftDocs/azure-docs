@@ -4,7 +4,7 @@ description: Learn to query graph data in Azure Cosmos DB
 services: cosmos-db
 documentationcenter: ''
 author: luisbosquez
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: ''
 

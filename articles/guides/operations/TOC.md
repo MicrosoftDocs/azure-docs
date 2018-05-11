@@ -24,7 +24,7 @@
 ###[Deploy templates using the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Security (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Use role assignments to manage resources](../../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+###[Use role assignments to manage resources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtual machines](azure-operations-guide.md#azure-virtual-machines)
 ### [VM sizes for Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 

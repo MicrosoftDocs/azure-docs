@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 04/10/2018
 ms.author: tomfitz
 
 ---
@@ -26,15 +26,15 @@ When you reach the limit, you receive the HTTP status code **429 Too many reques
 
 The number of requests is scoped to either your subscription or your tenant. If you have multiple, concurrent applications making requests in your subscription, the requests from those applications are added together to determine the number of remaining requests.
 
-Subscription scoped requests are ones the involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant scoped requests do not include your subscription ID, such as retrieving valid Azure locations.
+Subscription scoped requests are ones the involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant scoped requests don't include your subscription ID, such as retrieving valid Azure locations.
 
 ## Remaining requests
 You can determine the number of remaining requests by examining response headers. Each request includes values for the number of remaining read and write requests. The following table describes the response headers you can examine for those values:
 
 | Response header | Description |
 | --- | --- |
-| x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining |
-| x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining |
+| x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on read operations. |
+| x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on write operations. |
 | x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining |
 | x-ms-ratelimit-remaining-tenant-writes |Tenant scoped writes remaining |
 | x-ms-ratelimit-remaining-subscription-resource-requests |Subscription scoped resource type requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. Resource Manager adds this value instead of the subscription reads or writes. |
@@ -67,7 +67,6 @@ Get-AzureRmResourceGroup -Debug
 Which returns many values, including the following response value:
 
 ```powershell
-...
 DEBUG: ============================ HTTP RESPONSE ============================
 
 Status Code:
@@ -76,7 +75,25 @@ OK
 Headers:
 Pragma                        : no-cache
 x-ms-ratelimit-remaining-subscription-reads: 14999
-...
+```
+
+To get write limits, use a write operation: 
+
+```powershell
+New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+```
+
+Which returns many values, including the following values:
+
+```powershell
+DEBUG: ============================ HTTP RESPONSE ============================
+
+Status Code:
+Created
+
+Headers:
+Pragma                        : no-cache
+x-ms-ratelimit-remaining-subscription-writes: 1199
 ```
 
 In **Azure CLI**, you retrieve the header value by using the more verbose option.
@@ -85,24 +102,41 @@ In **Azure CLI**, you retrieve the header value by using the more verbose option
 az group list --verbose --debug
 ```
 
-Which returns many values, including the following object:
+Which returns many values, including the following values:
 
 ```azurecli
-...
-silly: returnObject
-{
-  "statusCode": 200,
-  "header": {
-    "cache-control": "no-cache",
-    "pragma": "no-cache",
-    "content-type": "application/json; charset=utf-8",
-    "expires": "-1",
-    "x-ms-ratelimit-remaining-subscription-reads": "14998",
-    ...
+msrest.http_logger : Response status: 200
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Content-Encoding': 'gzip'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'Vary': 'Accept-Encoding'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '14998'
+```
+
+To get write limits, use a write operation: 
+
+```azurecli
+az group create -n myresourcegroup --location westus --verbose --debug
+```
+
+Which returns many values, including the following values:
+
+```azurecli
+msrest.http_logger : Response status: 201
+msrest.http_logger : Response headers:
+msrest.http_logger :     'Cache-Control': 'no-cache'
+msrest.http_logger :     'Pragma': 'no-cache'
+msrest.http_logger :     'Content-Length': '163'
+msrest.http_logger :     'Content-Type': 'application/json; charset=utf-8'
+msrest.http_logger :     'Expires': '-1'
+msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 ```
 
 ## Waiting before sending next request
-When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request is not processed and a new retry value is returned.
+When you reach the request limit, Resource Manager returns the **429** HTTP status code and a **Retry-After** value in the header. The **Retry-After** value specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
 
 ## Next steps
 

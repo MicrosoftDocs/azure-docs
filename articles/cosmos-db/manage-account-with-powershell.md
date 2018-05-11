@@ -3,7 +3,7 @@ title: Azure Cosmos DB Automation - Management with Powershell | Microsoft Docs
 description: Use Azure Powershell manage your Azure Cosmos DB accounts. 
 services: cosmos-db
 author: dmakwana
-manager: jhubbard
+manager: kfile
 editor: ''
 tags: azure-resource-manager
 documentationcenter: ''

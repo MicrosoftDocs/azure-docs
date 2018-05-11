@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 04/10/2018
 ms.author: mabrigg
 
 ---
@@ -53,8 +53,7 @@ The following sections describe the steps required to install PowerShell for Azu
 
 Azure Stack compatible AzureRM modules are installed through API version profiles. Azure Stack requires the **2017-03-09-profile** API version profile, which is available by installing the AzureRM.Bootstrapper module. To learn about API version profiles and the cmdlets provided by them, refer to the [manage API version profiles](azure-stack-version-profiles-powershell.md). In addition to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. Run the following PowerShell script to install these modules on your development workstation:
 
-> [!IMPORTANT]  
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -81,9 +80,6 @@ To confirm the installation, run the following command:
 ## Install PowerShell in a disconnected or a partially connected scenario (with limited internet connectivity)
 
 In a disconnected or partially connected scenario, you must first download the PowerShell modules to a machine that has internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
-
-> [!IMPORTANT]
-> The release of the AzureRM 1.2.11 PowerShell module comes with a list of breaking changes. To upgrade from the 1.2.10 version, see the migration guide at [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
 
 1. Sign in to a computer where you have internet connectivity and use the following script to download the AzureRM, and AzureStack packages onto your local computer:
 

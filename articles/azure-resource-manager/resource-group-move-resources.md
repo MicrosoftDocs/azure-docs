@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/30/2018
 ms.author: tomfitz
 
 ---
@@ -50,7 +50,7 @@ There are some important steps to perform before moving a resource. By verifying
   az account show --subscription <your-destination-subscription> --query tenantId
   ```
 
-  If the tenant IDs for the source and destination subscriptions are not the same, use the following methods to reconcile the tenant IDs: 
+  If the tenant IDs for the source and destination subscriptions are not the same, use the following methods to reconcile the tenant IDs:
 
   * [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)
   * [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
@@ -118,7 +118,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Cognitive Services
 * Content Moderator
 * Data Catalog
-* Data Factory
+* Data Factory - V1 can be moved, but moving V2 (preview) is not supported
 * Data Lake Analytics
 * Data Lake Store
 * DNS
@@ -145,7 +145,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics - Stream Analytics jobs cannot be moved when in running state.
-* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
+* SQL Database server - database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved. This includes Azure SQL Database and Azure SQL Data Warehouse databases. 
 * Traffic Manager
 * Virtual Machines - VMs with managed disks cannot be moved. See [Virtual Machines limitations](#virtual-machines-limitations)
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -160,11 +160,13 @@ The services that currently do not enable moving a resource are:
 * AD Domain Services
 * AD Hybrid Health Service
 * Application Gateway
+* Azure Database for MySQL
 * BizTalk Services
-* Container Service
-* Express Route
+* Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Kubernetes Service
 * DevTest Labs - move to new resource group in same subscription is enabled, but cross subscription move is not enabled.
 * Dynamics LCS
+* Express Route
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
 * Managed Applications
 * Managed Disks - see [Virtual Machines limitations](#virtual-machines-limitations)
@@ -190,19 +192,21 @@ Virtual Machines with certificate stored in Key Vault can be moved to a new reso
 
 ## Virtual Networks limitations
 
+When moving a virtual network, you must also move its dependent resources. For example, you must move gateways with the virtual network.
+
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
 You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
 
 ## App Service limitations
 
-The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription. 
+The limitations for moving App Service resources differ based on whether you are moving the resources within a subscription or to a new subscription.
 
 The limitations described in these sections apply to uploaded certificates, not App Service Certificates. You can move App Service Certificates to a new resource group or subscription without limitations. If you have multiple web apps that use the same App Service Certificate, first move all the web apps, then move the certificate.
 
 ### Moving within the same subscription
 
-When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works. 
+When moving a Web App _within the same subscription_, you cannot move the uploaded SSL certificates. However, you can move a Web App to the new resource group without moving its uploaded SSL certificate, and your app's SSL functionality still works.
 
 If you want to move the SSL certificate with the Web App, follow these steps:
 
@@ -220,7 +224,7 @@ When moving a Web App _across subscriptions_, the following limitations apply:
     - Uploaded or imported SSL certificates
     - App Service Environments
 - All App Service resources in the resource group must be moved together.
-- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions. 
+- App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, it must be moved back to that original resource group first, and then it can be moved across subscriptions.
 
 ## Classic deployment limitations
 

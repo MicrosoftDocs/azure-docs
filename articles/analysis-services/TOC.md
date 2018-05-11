@@ -1,7 +1,7 @@
 # [Analysis Services Documentation](index.md)
 
 # Overview
-## [About Analysis Services](analysis-services-overview.md)
+## [What is Analysis Services?](analysis-services-overview.md)
 
 # Quickstarts
 
@@ -10,6 +10,8 @@
 
 # Tutorials
 ## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 
+## [2 - Connect and query with SSMS](analysis-services-tutorial-connect-ssms.md)
+## [3 - Connect with Power BI Desktop](analysis-services-tutorial-connect-pbid.md)
 
 # Concepts
 

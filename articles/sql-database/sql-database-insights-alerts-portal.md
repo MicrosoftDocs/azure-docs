@@ -7,7 +7,7 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: article
-ms.date: 06/06/2017
+ms.date: 04/01/2018
 ms.author: aamalvea
 
 ---
