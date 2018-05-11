@@ -110,9 +110,9 @@ listening on port 80
 ::ffff:10.240.255.107 - - [15/Mar/2018:21:18:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
 ```
 
-## Delete the container
+## Clean up resources
 
-When you are done with the container, you can remove it using the [az container delete][az-container-delete] command:
+When you're done with the container, remove it using the [az container delete][az-container-delete] command:
 
 ```azurecli-interactive
 az container delete --resource-group myResourceGroup --name mycontainer
@@ -128,10 +128,10 @@ The **mycontainer** container should not appear in the command's output. If you 
 
 ## Next steps
 
-All of the code for the container used in this quickstart is available [on GitHub][app-github-repo], along with its Dockerfile. If you'd like to try building it yourself and deploying it to Azure Container Instances using the Azure Container Registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure container instance from an image in the public Docker Hub registry. If you'd like to build a container image yourself and deploy it to Azure Container Instances from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
-> [Azure Container Instances tutorials](./container-instances-tutorial-prepare-app.md)
+> [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)
 
 To try out options for running containers in an orchestration system on Azure, see the [Service Fabric][service-fabric] or [Azure Kubernetes Service (AKS)][container-service] quickstarts.
 
@@ -140,7 +140,7 @@ To try out options for running containers in an orchestration system on Azure, s
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/free/
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
