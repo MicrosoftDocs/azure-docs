@@ -48,7 +48,7 @@ For details on each of these options, see the corresponding section below. The i
 
 To download a new Connector, use the “Download Connector” button at the top of the page.
 
-Install the connector on a machine with direct line of sight to the backend application. Typicall, the connector is installed on the same server as the application. After downloading, the Connector should appear in this menu. click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group. Save the change.
+Install the connector on a machine with direct line of sight to the backend application. Typically, the connector is installed on the same server as the application. After downloading, the Connector should appear in this menu. click the Connector, and use the “Connector Group” drop-down to make sure it belongs to the right group. Save the change.
 
    ![Download the connector from the Azure portal](./media/application-proxy-connectivity-no-working-connector/download-connector.png)
    
