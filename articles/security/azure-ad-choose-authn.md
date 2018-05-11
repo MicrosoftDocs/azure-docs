@@ -166,7 +166,6 @@ The following diagrams outline the high-level architecture components required f
 |What advanced scenarios are supported?|<br>[Smart password lockout](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Leaked credentials reports](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Smart password lockout](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|<br>Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integration with third-party identity systems](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 ## Recommendations and considerations from Azure AD
-
 Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
 
 Use or enable password hash synchronization for whichever authentication method you choose, for the following reasons:
