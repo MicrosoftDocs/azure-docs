@@ -228,6 +228,8 @@
       href: app-insights-automate-with-flow.md
     - name: Automate with an Azure Logic App
       href: automate-with-logic-apps.md
+    - name: Custom email reports
+      href: automate-custom-reports.md
   - name: Develop
     items:
     - name: API for custom events and metrics

@@ -52,7 +52,7 @@ Check to ensure that you are meeting the following browser requirements:
 - **Edge**: on Windows 10 Anniversary Edition or later.
 - **Chrome**: on Windows 7 or later, and on Mac OS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
-- **Internet Explorer 8, 9, 10, 11**: on Windows 7 or later (limited support).
+- **Internet Explorer 11**: on Windows 7 or later (limited support).
 
 You can also download the extension for Chrome and Edge directly from following sites:
 

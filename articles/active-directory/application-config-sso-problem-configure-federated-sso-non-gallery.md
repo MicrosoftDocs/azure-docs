@@ -66,4 +66,4 @@ Azure AD doesn’t provide a URL to get the metadata. The metadata can only be r
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) for more information.
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)

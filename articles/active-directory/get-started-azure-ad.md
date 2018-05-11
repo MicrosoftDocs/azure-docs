@@ -9,11 +9,9 @@ ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
 ms.topic: article
-ms.prod:
 ms.service: active-directory
 ms.workload: identity
-ms.technology:
-ms.assetid:
+ms.component: users-groups-roles
 services: active-directory
 ms.custom: it-pro
 
