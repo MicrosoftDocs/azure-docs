@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Get insights about an image you upload
 
-Bing Visual Search API lets you specify the image to get insights about by specify the URL of the image, providing an insights token, or uploading an image. This article demonstrates uploading an image. Uploading an image could be useful in mobile scenarios where you take a picture of a well-known landmark and get back information about it. For example, the insights could include trivia about the landmark.
+Bing Visual Search API lets you specify the image to get insights about by providing the URL of the image, an insights token, or by uploading an image. This article demonstrates uploading an image. Uploading an image could be useful in mobile scenarios where you take a picture of a well-known landmark and get back information about it. For example, the insights could include trivia about the landmark.
 
 If you upload a local image, the following shows the form data you must include in the body of the POST. The form data must include the Content-Disposition header. Its `name` parameter must be set to "image" and the `filename` parameter may be set to any string. The contents of the form is the binary of the image. The maximum image size you may upload is 1 MB. 
 
