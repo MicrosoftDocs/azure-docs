@@ -16,6 +16,7 @@
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
+## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
@@ -58,6 +59,7 @@
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
+#### [Leave an organization](active-directory-b2b-leave-the-organization.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 ##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
