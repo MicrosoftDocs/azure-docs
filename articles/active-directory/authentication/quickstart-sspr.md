@@ -21,8 +21,8 @@ Self-service password reset (SSPR) offers a simple means for IT administrators t
 
 ## Prerequisites
 
-You need a working Azure AD tenant with at least a trial license enabled. 
-An account with Global Administrator privileges. 
+A working Azure AD tenant with at least a trial license enabled.
+An account with Global Administrator privileges.
 A standard non-administrator user with a password you know for testing, if you need to create a user see the article [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md)
 A pilot group to test with that the non-administrator user is a member of, if you need to create a group see the article [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md)
 
@@ -30,18 +30,18 @@ A pilot group to test with that the non-administrator user is a member of, if yo
 
 > [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
 
-1. From your existing Azure AD tenant, on the **Azure Portal** under **Azure Active Directory** select **Password reset**.
+1. From your existing Azure AD tenant, on the **Azure portal** under **Azure Active Directory** select **Password reset**.
 
-2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected**
-    * From **Select group**, choose your pilot group created as part of the prerequisites section of this article
-    * Click **Save**
+2. From the **Properties** page, under the option **Self Service Password Reset Enabled**, choose **Selected**.
+    * From **Select group**, choose your pilot group created as part of the prerequisites section of this article.
+    * Click **Save**.
 
 3. From the **Authentication methods** page, choose the following:
    * **Number of methods required to reset**: 1
    * **Methods available to users**:
       * **Mobile phone**
       * **Office phone**
-   * Click **Save**
+   * Click **Save**.
 
     ![Authentication][Authentication]
 
@@ -51,15 +51,15 @@ A pilot group to test with that the non-administrator user is a member of, if yo
 
 ## Test self-service password reset
 
-Open a new browser window in InPrivate mode and browse to https://aka.ms/ssprsetup.
-Log in with a standard user and register your authentication phone.
-Once complete click the button marked **looks good** and close the browser window.
+Open a new browser window in InPrivate mode, and browse to [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
+Log in with a standard user, and register your authentication phone.
+Once complete, click the button marked **looks good** and close the browser window.
 
 > [!TIP]
 > Test SSPR with a user rather than an administrator, because Microsoft enforces strong authentication requirements for Azure administrator accounts. For more information regarding the administrator password policy, see our [password policy](concept-sspr-policy.md#administrator-password-policy-differences) article.
 
-Open a new browser window in InPrivate mode and browse to https://aka.ms/sspr
-Enter your User ID, the characters from the CAPTCHA, and then click **Next**
+Open a new browser window in InPrivate mode, and browse to [https://aka.ms/sspr](https://aka.ms/sspr).
+Enter your User ID, the characters from the CAPTCHA, and then click **Next**.
 Follow the verification steps to reset your password
 
 ## Clean up resources
