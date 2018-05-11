@@ -22,7 +22,7 @@ ms.author: alleonar
 
 # Review Security Center policy compliance using REST APIs
 
-In [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations), you learn how to use  Security Center to monitor compliance with your security policies.  Here, you learn to do so using Azure REST APIs.  
+Security Center periodically validates your Azure resources against your defined security policies.  Security Center also provides a REST API that lets you review compliance from your own applications, either by querying the service directly or by importing JSON results into other applications.  Here, you learn to retrieve the current set of recommendations from all Azure resources associated with a subscription.
 
 To retrieve the current set of recommendations:
 ```  
@@ -31,26 +31,25 @@ Content-Type: application/json
 Authorization: Bearer
 ```
 
-## Request  
-HTTPS is required for all service requests. 
+## Build the request  
 
-The `{subscription-id}` parameter is required and should contain the subscription ID for the Azure subscription defining the policies.  You can get the subscription ID from the Azure portal.  Choose **All services** and then use the Filter to find Subscriptions. 
+The `{subscription-id}` parameter is required and should contain the subscription ID for the Azure subscription defining the policies.  If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).   
 
-The `api-version` parameter is required. At this time, these endpoints are supported only for `api-version=2015-06-01-preview`.  The current version is `api-version=2016-09-01`. To learn more about versions, see See [API versions in Azure Search](https://go.microsoft.com/fwlink/?linkid=834796) for a list of available versions.  
+The `api-version` parameter is required. At this time, these endpoints are supported only for `api-version=2015-06-01-preview`. 
 
-### Request Headers  
+### Request headers  
  The following table describes the required and optional request headers.  
 
 |Request Header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Required. Set this to `application/json`|  
-|*Authorization: Bearer*|Required. Set this to a valid [access token](https://docs.microsoft.com/en-us/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Content-Type:*|Required. Set this to `application/json`.|  
+|*Authorization:*|Required. Set this to a valid [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### Response  
-Status code 200 (OK) is returned for a successful response, which contains a list of recommendation tasks.
+Status code 200 (OK) is returned for a successful response, which contains a list of recommended tasks to secure your Azure resources.
 
 The response object contains list of 
-``` javascript
+``` json
 {  
   "value": [  
     {  
@@ -63,7 +62,7 @@ The response object contains list of
        "creationTimeUtc": "{create-time}",
        "lastStateChangeTimeUtc": "{last-state-change}",
        "securityTaskParameters": "{security-task-properties}"
-    } // , ... 
+    } 
   ]  
 }  
 ```  
@@ -74,16 +73,15 @@ Each item in **value** represents a recommendation:
 |----------------|----------|
 |**state** | Indicates whether recommendation is `active` or `resolved`. |
 |**creationTimeUtc** | Date and time, in UTC, showing when the recommendation was created. |
-|**lastStateChange** | Date and time, in UTV, of the last state change, if any. |
+|**lastStateChangeUtc** | Date and time, in UTV, of the last state change, if any. |
 |**securityTaskParameters** | Details the recommendation; properties vary according to the underlying recommendation. |
 ||
   
-For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
-
+For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 Other status codes indicate error conditions.  In these cases, the response object includes a description explaining why the request failed.
 
-``` javascript
+``` json
 {  
   "value": [  
     {  
@@ -93,10 +91,9 @@ Other status codes indicate error conditions.  In these cases, the response obje
 }  
 ```  
 
+### Example response  
 
-## Example  
-
-``` javascript
+``` json
 {  
   "value": [  
         {
@@ -114,7 +111,7 @@ Other status codes indicate error conditions.  In these cases, the response obje
                     "severity": "{severity}",
                     "isOsDiskEncrypted": {is_os_disk_encrypted},
                     "isDataDiskEncrypted": {is_data_disk_encrypted},
-                    "name": "{recommendation_name}",
+                    "name": "EncryptionOnVm",
                     "uniqueKey": "EncryptionOnVmTaskParameters_/subscriptions/{subscription-id}/resourceGroups/{resoource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}",
                     "resourceId": "/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Compute/virtualMachines/{vm_name}"
                 }
@@ -141,13 +138,13 @@ Other status codes indicate error conditions.  In these cases, the response obje
 }  
 ```  
 
-This example shows two recommendations; each item in the list corresponds to a specific recommendation.  The first recommends encrypting storage on a virtual machine and the second suggests that you enable auditing for a SQL server.
+This response shows two recommendations; each item in the list corresponds to a specific recommendation.  The first recommends encrypting storage on a Linux virtual machine and the second suggests that you enable auditing for a SQL server.
 
-The recommendations vary according to the policies you've enabled.  To learn more, including the currently available recommendations, see [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-recommendations).
+The recommendations vary according to the policies you've enabled.  To learn more, including the currently available recommendations, see [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 
 ## See also  
-- [Set security policies](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies-overview)
-- [Azure Security Resource provider REST API](https://msdn.microsoft.com/en-us/library/azure/mt704034.aspx)   
-- [Get started with Azure REST API](https://docs.microsoft.com/en-us/rest/api/azure/)   
+- [Set security policies](https://docs.microsoft.com/azure/security-center/security-center-policies-overview)
+- [Azure Security Resource provider REST API](https://msdn.microsoft.com/library/azure/mt704034.aspx)   
+- [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)   
 - [Azure Security Center PowerShell module](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.22)
