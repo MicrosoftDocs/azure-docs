@@ -225,10 +225,11 @@ The following tables provide a listing of the Update classifications in Update M
 
 The following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
 
-* *.ods.opinsights.azure.com
-* *.oms.opinsights.azure.com
-* ods.systemcenteradvisor.com
-* *.blob.core.windows.net
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 For additional information on ports that the Hybrid Runbook Worker requires, [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role)
 
