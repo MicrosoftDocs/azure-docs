@@ -30,8 +30,7 @@ Identity is the new control plane of IT security. So authentication is an organi
 
 **Out of scope**. Organizations that don't have an existing on-premises directory footprint aren't the focus of this article. Typically, those businesses create identities only in the cloud, which doesn’t require a hybrid identity solution. Cloud-only identities exist solely in the cloud and aren't associated with corresponding on-premises identities.
 
-## Choose the right authentication method: Considerations
-
+## Authentication method choices
 When the Azure AD hybrid identity solution is your new control plane, authentication is the foundation of cloud access. Choosing the correct authentication method is a crucial first decision in setting up an Azure AD hybrid identity solution. Implement the authentication method that is configured by using Azure AD Connect, which also provisions users in the cloud.
 
 To choose an authentication method, you need to consider the time, existing infrastructure, complexity, and cost of implementing your choice. These factors are different for every organization and might change over time. 
@@ -96,7 +95,7 @@ Organizations that require multifactor authentication with pass-through authenti
 
 * **Business Continuity**. We recommend that you deploy two extra pass-through authentication agents. These extras are in addition to the first agent on the Azure AD Connect server. This additional deployment ensures high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. 
 
-There's another benefit to deploying password hash synchronization in addition to pass-through authentication. It acts as backup authentication method when the primary authentication method is no longer available. An example is when the on-premises servers aren't available.
+There's another benefit to deploying password hash synchronization in addition to pass-through authentication. It acts as a backup authentication method when the primary authentication method is no longer available. An example is when the on-premises servers aren't available.
 
 * **Considerations**. You might use password hash synchronization as a backup authentication method for pass-through authentication, and the agents can't validate a user's credentials. Then the failover to password hash synchronization doesn't happen automatically. Switch the sign-on method manually by using Azure AD Connect. 
 
@@ -167,7 +166,7 @@ The following diagrams outline the high-level architecture components required f
 
 ## Recommendations and considerations from Azure AD
 
-Your identity system ensures your users' access to cloud apps as well as the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
+Your identity system ensures your users' access to cloud apps and the line-of-business apps that you migrate and make available in the cloud. To keep authorized users productive and bad actors out of your organization’s sensitive data, authentication controls access to apps.
 
 Use or enable password hash synchronization for whichever authentication method you choose, for the following reasons:
 
