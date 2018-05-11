@@ -20,11 +20,11 @@ ms.custom: pim
 
 # Extend and review roles in Azure resources by using Privileged Identity Management
 
-Privileged Identity Management (PIM) for Azure resources introduces new controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign membership using start and end date-time properties. When the assignment end approaches, PIM sends email notifications to the affected members (this could be a user or group), and to administrators of the resource to ensure that appropriate access is maintained. If access is not extended due to inaction, assignments might be renewed and remain visible in an expired state for up to 30 days.
+Privileged Identity Management (PIM) for Azure resources introduces new controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign membership using start and end date-time properties. When the assignment end approaches, PIM sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended due to inaction.
 
 ## Who can extend and renew?
 
-Only administrators of the resource can extend or renew role assignments. The affected member can request to extend roles that are about to expire and request renewal of roles that are already expired.
+Only administrators of the resource can extend or renew role assignments. The affected member can request to extend roles that are about to expire and request to renew roles that are already expired.
 
 ## When are notifications sent?
 
@@ -34,11 +34,11 @@ Administrators receive notifications when a member of an expiring or expired rol
 
 ## Extend role assignments
 
-The steps below outline the steps and user interface involved in requesting, resolving, or administering an extension or renewal of a role assignment. 
+The following steps outline the process for requesting, resolving, or administering an extension or renewal of a role assignment. 
 
 ### Member extend
 
-Members of a role assignment can request to extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page of a resource and from the top-level **My roles** page of the PIM portal. Members can request to extend eligible and active (assigned) roles that expire in the next 14 days.
+Members of a role assignment can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page of a resource and from the top level **My roles** page of the PIM portal. Members can request to extend eligible and active (assigned) roles that expire in the next 14 days.
 
 ![Extend roles](media/azure-pim-resource-rbac/aadpim_rbac_extend_ui.png)
 
@@ -67,9 +67,9 @@ Go to the **Pending requests** tab in the left pane to view the status of your r
 
 ### Admin approve
 
-When a member submits a request to extend a role assignment, resource administrators receive an email notification that contains the details of the original assignment and the reason that was provided by the requestor. The notification includes a direct link to the request for the administrator to approve or deny. 
+When a member submits a request to extend a role assignment, resource administrators receive an email notification that contains the details of the original assignment and the reason for the request. The notification includes a direct link to the request for the administrator to approve or deny. 
 
-In addition to using following the link from email, administrators can approve or deny requests by going to the PIM administration portal and selecting **Approve requests** from the left navigation menu.
+In addition to using following the link from email, administrators can approve or deny requests by going to the PIM administration portal and selecting **Approve requests** in the left pane.
 
 ![Screenshot of error](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_approve_grid.png)
 
@@ -81,9 +81,9 @@ When approving a request to extend role assignment, resource administrators can 
 
 ### Admin extend
 
-If a role member forgets or is unable to request role membership extension, an administrator can extend an assignment on behalf of the member. Administrative extensions of role membership do not require approval but notifications are sent to all other administrators upon completion of extending the role.
+If a role member forgets or is unable to request role membership extension, an administrator can extend an assignment on behalf of the member. Administrative extensions of role membership do not require approval but notifications are sent to all other administrators after the role has been extended.
 
-To extend a role membership, navigate to the resource role or member view in PIM. Find the member that requires an extension. Then select **Extend** in the action column.
+To extend a role membership, browse to the resource role or member view in PIM. Find the member that requires an extension. Then select **Extend** in the action column.
 
 ![Extend a role membership](media/azure-pim-resource-rbac/aadpim_rbac_extend_admin_extend.png)
 
@@ -93,13 +93,13 @@ While conceptually similar to the process for requesting an extension, the proce
 
 ### Member renew
 
-Members who can no longer access resources can access up to 30 days of expired assignment history by navigating to **My Roles** in the left pane, and then selecting the **Expired roles** tab in the Azure resource roles section.
+Members who can no longer access resources can access up to 30 days of expired assignment history. To do this, they browse to **My Roles** in the left pane, and then select the **Expired roles** tab in the Azure resource roles section.
 
 ![The "Expired roles" tab](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_myroles.png)
 
 The list of roles shown defaults to Eligible assignments. Use the drop-down to toggle between Eligible and Active assigned roles.
 
-To request renewal for any of the role assignments in the list select the **Renew** action. Then provide a reason for the request. It's helpful to provide a duration in addition to any additional context that helps the resource administrator decide to approve or deny.
+To request renewal for any of the role assignments in the list, select the **Renew** action. Then provide a reason for the request. It's helpful to provide a duration in addition to any additional context that helps the resource administrator decide to approve or deny.
 
 ![Renew role assignment](media/azure-pim-resource-rbac/aadpim_rbac_renew_request_form.png)
 
@@ -119,9 +119,9 @@ When approving a request to renew role assignment, resource administrators must 
 
 ### Admin renew
 
-Resource administrators can renew expired role assignments from the **Members** tab in the left navigation menu of a resource, or from within the **Expired** roles tab of a resource role.
+Resource administrators can renew expired role assignments from the **Members** tab in the left navigation menu of a resource. They can also renew expired role assignments from within the **Expired** roles tab of a resource role.
 
-To view a list of all expired role assignments, on the **Members** screen, select **Expired roles** .
+To view a list of all expired role assignments, on the **Members** screen, select **Expired roles**.
 
 ![Expired roles](media/azure-pim-resource-rbac/aadpim_rbac_renew_from_member_blade.png)
 
