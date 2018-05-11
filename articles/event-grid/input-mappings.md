@@ -46,6 +46,10 @@ When creating a custom topic, specify how to map fields from your original event
 The following example creates a custom topic with some mapped and default fields:
 
 ```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
 az eventgrid topic create \
   -n demotopic \
   -l eastus2 \

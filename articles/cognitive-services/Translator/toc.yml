@@ -2,14 +2,8 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: What is Translator Text API?
+  - name: What is the Translator Text API?
     href: translator-info-overview.md
-  - name: Supported languages
-    href: languages.md
-- name: Samples
-  items: 
-  - name: Samples on GitHub
-    href: https://aka.ms/TranslatorGitHub
 - name: Concepts
   items:
   - name: Customize and improve text translation
@@ -75,13 +69,15 @@
 - name: Resources
   items:
   - name: FAQ
-    href: https://www.microsoft.com/en-us/translator/faq.aspx 
+    href: https://www.microsoft.com/translator/faq.aspx 
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/ 
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/558796-translator
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-translator
+  - name: Supported languages
+    href: languages.md
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
   - name: Code samples on GitHub

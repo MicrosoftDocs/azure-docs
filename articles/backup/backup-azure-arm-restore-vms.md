@@ -87,12 +87,12 @@ Restoring a VM or all disks from VM backup involves two steps:
 
     The **Restore** blade shows that the restore point is set.
 
-9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+9. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
 ## Choose a VM restore configuration
 After you select the restore point, choose a VM restore configuration. To configure the restored VM, you can use the Azure portal or PowerShell.
 
-1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
+1. If you're not already there, go to the **Restore** blade. Ensure that a [restore point is selected](#select-a-restore-point-for-restore), and select **Restore configuration**. The **Restore configuration** blade opens.
 
     ![Restore configuration wizard](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. On the **Restore configuration** blade, you have two choices:
