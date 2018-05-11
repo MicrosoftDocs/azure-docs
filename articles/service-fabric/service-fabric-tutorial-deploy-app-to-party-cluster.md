@@ -68,7 +68,7 @@ First, find the endpoint of the front-end web service.  The front-end web servic
 <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="8080" />
 ```
 
-In the next step, specify this port in the **Advanced** tab of the **Create cluster** dialog.  If you are deploying the application to an existing cluster, you can open this port in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or by in the [Azure portal](https://portal.azure.com).
+In the next step, specify this port in the **Advanced** tab of the **Create cluster** dialog.  If you are deploying the application to an existing cluster, you can open this port in the Azure load balancer using a [PowerShell script](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) or in the [Azure portal](https://portal.azure.com).
 
 ### Create a cluster in Azure through Visual Studio
 Right-click on the application project in the Solution Explorer and choose **Publish**.
