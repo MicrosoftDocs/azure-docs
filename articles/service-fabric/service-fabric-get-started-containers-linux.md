@@ -168,11 +168,7 @@ Since this image has a workload entry-point defined, you don't need to explicitl
 
 Specify an instance count of "1".
 
-Specify the port you want to expose for the containerized service. For this article, we need to expose port 80 of the container as the web service is listening on port 80.
-
-Specify the port you want to map on to the host machine. For this article, we are exposing port 4000 of the host machine.
-
-Specify the endpoint reference name. For example let us name our endpoint as `myServiceEndpoint`.
+Specify the port mapping in the appropriate format. For this article, you need to provide ```80:4000``` as the port mapping.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
