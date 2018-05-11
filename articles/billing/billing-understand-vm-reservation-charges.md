@@ -1,6 +1,6 @@
 ﻿---
-title: Understand Azure Reserved VM Instances discount - Azure Billing | Microsoft Docs
-description: Learn how Azure Reserved Instance discount is applied to running virtual machines. 
+title: Understand Azure Reserved Instances discount - Azure Billing | Microsoft Docs
+description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines. 
 services: 'billing'
 documentationcenter: ''
 author: vikramdesai01
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 05/09/2018
 ms.author: vikdesai
 ---
-# Understand how the Reserved VM Instance discount is applied
-After you buy a Reserved VM Instance, the reservation discount is automatically applied to virtual machines matching the attributes and quantity of the reservation. A reservation covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reservation. In all cases, you are charged for storage and networking at the normal rates.
+# Understand how the Reserved Instance discount is applied
+After you buy a Azure Reserved VM Instance, the reservation discount is automatically applied to virtual machines matching the attributes and quantity of the reservation. A reservation covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a reservation. In all cases, you are charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with reservation |    
 |-----------------------|--------------------------------------------| 
@@ -29,25 +29,25 @@ After you buy a Reserved VM Instance, the reservation discount is automatically 
 ## Application of reservation discount to non-Windows VMs
  The reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour the reservation application for VMs in the hour is locked. In the event a VM does not run for an hour or concurrent VMs within the hour do not fill the hour of reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-![Screenshot of one applied Reserved VM Instance and two matching VM instances](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
+![Screenshot of one applied Reserved Instance and two matching VM instances](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-1.	Any usage that’s above the Reserved VM Instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the Reserved VM Instances line, since it has been already paid as part of reservation purchase.
+1.	Any usage that’s above the Reserved Instance line gets charged at the regular pay-as-you-go rates. You're not charge for any usage below the Reserved Instances line, since it has been already paid as part of reservation purchase.
 2.	In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You are charged the pay-as-you-go rates for the remaining 0.25 hours.
 3.	For hour 2 and hour 3, both instances ran for 1 hour each. One instance is covered by the reservation and the other is charged at pay-as-you-go rates.
 4.	For hour 4, instance 1 runs for 0.5 hours and instance 2 runs for 1 hour. Instance 1 is fully covered by the reservation and 0.5 hours of instance 2 is covered. You’re charged the pay-as-you-go rate for the remaining 0.5 hours.
 
-To understand and view the application of your reservations in billing usage reports, see [Understand Reserved VM Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
+To understand and view the application of your reservations in billing usage reports, see [Understand Reserved Instance usage](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## Application of reservation discount to Windows VMs
 When you are running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You are charged separately for Windows software on a per vCPU basis. See [Windows software costs with reservations](https://go.microsoft.com/fwlink/?linkid=862756). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Next steps
-To learn more about Reserved VM Instances, see the following articles:
+To learn more about Reserved Instances, see the following articles:
 
-- [Save money on virtual machines with Azure Reserved VM Instances](billing-save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure Reserved VM Instances](billing-manage-reserved-vm-instance.md)
-- [Understand how the Reserved VM Instance discount is applied](billing-understand-vm-reservation-charges.md)
+- [Save money on virtual machines with Azure Reserved Instances](billing-save-compute-costs-reservations.md)
+- [Prepay for Virtual Machines with Reserved Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Manage Reserved Instances](billing-manage-reserved-vm-instance.md)
+- [Understand how the Reserved Instance discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand Reserved Instance usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand Reserved Instance usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reserved Instances](billing-reserved-instance-windows-software-costs.md)
