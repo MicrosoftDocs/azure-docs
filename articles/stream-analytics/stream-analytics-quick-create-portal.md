@@ -36,9 +36,9 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
      "hmdt": 44
    }
    ```
-2. Sign in to the Azure portal  
+2. Sign in to the Azure portal.  
 
-3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). Remaining settings can be left to their default values.  
+3. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "myasastorageaccount", **Location** set to "West US 2", **Resource group** set to "MyRG" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
    ![Create storage account](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -131,9 +131,9 @@ In this section, you will configure blob storage as an input to the Stream Analy
    dspl AS SensorName,
    Avg(temp) AS AvgTemperature
    INTO
-     MyBlobOutput
+     BlobOutput
    FROM
-     MyBlobInput TIMESTAMP BY time
+     BlobInput TIMESTAMP BY time
    GROUP BY TumblingWindow(second,30),dspl
    HAVING Avg(temp)>100
    ```
