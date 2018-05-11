@@ -136,7 +136,7 @@ List of the support options for the Azure Marketplace:
 |---------|---------|
 |Email: azurecertified@microsoft.com |   Support for partners' Azure Marketplace publishing applications. Business hours are in the Pacific Standard Time.      |
 |Email: AzureMarketOnboard@microsoft.com |   Support for the Azure Marketplace solution nomination form and process. Business hours are in the Pacific Standard Time.      |
-|Email: Amp-testdrive@microsoft.com |   Onboarding access to test drives. Business hours are in the Pacific Standard Time. | 
+|Email: Amp-testdrive@microsoft.com |   Onboarding access to Test Drives. Business hours are in the Pacific Standard Time. | 
 
 **Cloud Partner Portal Support**
 
