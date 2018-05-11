@@ -39,7 +39,7 @@ Neural Machine Translation (NMT) is the new standard for high-quality AI-powered
 
 NMT provides better translations than SMT not only from a raw translation quality scoring standpoint but also because they will sound more fluent and human. The key reason for this fluidity is that NMT uses the full context of a sentence to translate words. SMT only took the immediate context of a few words before and after each word.
 
-NMT models are at the core of the API and are not visible to end users. The only noticeable differences is improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. 
+NMT models are at the core of the API and are not visible to end users. The only noticeable difference is improved translation quality, especially for languages such as Chinese, Japanese, and Arabic. 
 
 Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 
