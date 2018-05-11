@@ -136,7 +136,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Notification Hubs
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
 * Redis Cache
 * Scheduler
