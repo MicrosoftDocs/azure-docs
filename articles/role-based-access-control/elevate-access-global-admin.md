@@ -1,6 +1,6 @@
 ---
-title: Tenant admin elevate access - Azure AD | Microsoft Docs
-description: This topic describes the built in roles for role-based access control (RBAC).
+title: Elevate access for a Global administrator in Azure Active Directory | Microsoft Docs
+description: Describes how to elevate access for a Global administrator in Azure Active Directory using the Azure portal or REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,12 +8,12 @@ manager: mtillman
 editor: rqureshi
 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
+ms.date: 05/11/2018
 ms.author: rolyon
 
 ---
@@ -26,7 +26,9 @@ If you are a [Global administrator](../active-directory/active-directory-assign-
 - See all Azure subscriptions in an organization
 - Allow an automation app (such as an invoicing or auditing app) to access all Azure subscriptions
 
-By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`). This elevation should be temporary and only be done when needed.
+By default, Azure AD administrator roles and Azure role-based access control (RBAC) roles do not span Azure AD and Azure. However, if you are a Global administrator in Azure AD, you can elevate your access to manage Azure subscriptions and management groups. When you elevate your access, you will be granted the [User Access Administrator](built-in-roles.md#user-access-administrator) role (an RBAC role) on all subscriptions for a particular tenant. The User Access Administrator role enables you to grant other users access to Azure resources at the root scope (`/`).
+
+This elevation should be temporary and only done when needed.
 
 ## Elevate access for a Global administrator using the Azure portal
 
@@ -55,7 +57,8 @@ By default, Azure AD administrator roles and Azure role-based access control (RB
 To list the User Access Administrator role assignment for a user at the root scope (`/`), use the [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment) command.
 
 ```azurepowershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
+Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+  -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
 ```Example
@@ -74,20 +77,21 @@ ObjectType         : User
 To delete a User Access Administrator role assignment for a user at the root scope (`/`), use the [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) command.
 
 ```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> -RoleDefinitionName "User Access Administrator" -Scope "/"
+Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+  -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
 ## Elevate access for a Global administrator using the REST API
 
 Use the following basic steps to elevate access for a Global administrator using the REST API.
 
-1. Using REST, call `elevateAccess`, which grants you the User Access Administrator role at the root scope (`\`).
+1. Using REST, call `elevateAccess`, which grants you the User Access Administrator role at the root scope (`/`).
 
    ```http
    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
    ```
 
-1. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the {roleDefinitionID} role at the root scope (`\`):
+1. Create a [role assignment](/rest/api/authorization/roleassignments) to assign any role at any scope. The following example shows the properties for assigning the {roleDefinitionID} role at the root scope (`/`):
 
    ```json
    { 
@@ -102,7 +106,7 @@ Use the following basic steps to elevate access for a Global administrator using
    }
    ```
 
-1. While a User Access Administrator, you can also delete role assignments at the root scope (`\`).
+1. While a User Access Administrator, you can also delete role assignments at the root scope (`/`).
 
 1. Revoke your User Access Administrator privileges until they're needed again.
 
