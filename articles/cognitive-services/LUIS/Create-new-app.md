@@ -1,14 +1,13 @@
 ---
 title: Create a new app with LUIS | Microsoft Docs
-description: Create and manage your applications on the Language Understanding (LUIS) webpage. 
+description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: v-geberr
-manager: kaiqb 
-
+manager: kaiqb
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 04/17/2018
 ms.author: v-geberr
 ---
 
@@ -26,7 +25,7 @@ The default version of a new app is "0.1."
 
 You can create and manage your applications on **My Apps** page. You can always access this page by selecting **My apps** on the top navigation bar of the [LUIS](luis-reference-regions.md) website. 
 
-![List of apps](./media/luis-create-new-app/apps-list.png)
+[![](media/luis-create-new-app/apps-list.png "Screenshot of List of apps")](media/luis-create-new-app/apps-list.png#lightbox)
 
 ## Create new app
 
@@ -51,7 +50,7 @@ You can set the name (50 char max), version (10 char max), and description of an
 ## Export app
 1. On **My Apps** page, select the three dots (...) at the end of the app row.
 
-    ![Import a new app dialog](./media/luis-create-new-app/three-dots.png)
+    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
 2. Select **Export app** from the menu. 
 

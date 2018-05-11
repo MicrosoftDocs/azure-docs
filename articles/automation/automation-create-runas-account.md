@@ -1,8 +1,9 @@
----
+﻿---
 title: Create Azure Automation Run As accounts
 description: This article describes how to update your Automation account and create Run As accounts with PowerShell, or from the portal.  
 services: automation
 ms.service: automation
+ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/15/2018
@@ -173,7 +174,7 @@ This PowerShell script includes support for the following configurations:
         return
     }
         
-    Login-AzureRmAccount -Environment $EnvironmentName 
+    Connect-AzureRmAccount -Environment $EnvironmentName 
     $Subscription = Select-AzureRmSubscription -SubscriptionId $SubscriptionId
         
     # Create a Run As account by using a service principal
