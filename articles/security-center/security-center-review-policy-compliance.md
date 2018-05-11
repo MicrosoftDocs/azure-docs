@@ -41,10 +41,11 @@ The `api-version` parameter is required. At this time, these endpoints are suppo
 
 |Request Header|Description|  
 |--------------------|-----------------|  
-|*Content-Type:*|Required. Set this to `application/json`.|  
-|*Authorization:*|Required. Set this to a valid [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
+|*Content-Type:*|Required. Set to `application/json`.|  
+|*Authorization:*|Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
 ### Response  
+
 Status code 200 (OK) is returned for a successful response, which contains a list of recommended tasks to secure your Azure resources.
 
 The response object contains list of 
