@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/10/2018
+ms.date: 05/11/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As an IT admin, I want to configure MFA on a per app basis, so that my users have a convenient sign-on experience and our mission critical apps are protected with strong authentication.
@@ -21,14 +21,14 @@ ms.reviewer: calebb
 
 # Quickstart: Require MFA for specific apps with Azure Active Directory conditional access 
 
-To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication. This might be, for example true, for access to your organization's email system or your HR apps. In Azure Active Directory, you can accomplish this goal with a conditional access policy.    
+To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication (MFA). This might be, for example true, for access to your organization's email system or your HR apps. In Azure Active Directory (Azure AD), you can accomplish this goal with a conditional access policy.    
 
-This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) to require multi-factor authentication for a set of selected cloud apps in your environment.
+This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) that requires multi-factor authentication for a set of selected cloud apps in your environment.
 
 
 ## Scenario description
 
-The scenario in this article uses the Azure portal as placeholder for a cloud app that requires multi-factor authentication for a specific user. Isabella Simonsen is a user in your organization. When she signs in to your Azure portal, you want her to further verify her account with multi-factor authentication.
+The scenario in this article uses the Azure portal as placeholder for a cloud app that requires MFA for a specific user. Isabella Simonsen is a user in your organization. When she signs in to your Azure portal, you want her to further verify her account with MFA.
 
 ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
 
