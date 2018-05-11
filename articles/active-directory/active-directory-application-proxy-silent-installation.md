@@ -125,8 +125,8 @@ There are two methods you can use to register the connector:
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## Next steps 
-* [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-* [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+* [Publish applications using your own domain name](manage-apps/application-proxy-configure-custom-domain.md)
+* [Enable single-sign on](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
 
