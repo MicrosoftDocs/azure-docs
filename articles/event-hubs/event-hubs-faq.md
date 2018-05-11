@@ -110,7 +110,7 @@ For a list of possible Event Hubs exceptions, see [Exceptions overview](event-hu
 Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.md) - Capture error logs and operational logs - both of which are represented in json and can be turned on through the Azure portal.
 
 ### Support and SLA
-Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home). Billing and subscription management support is provided at no cost.
+Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Billing and subscription management support is provided at no cost.
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
