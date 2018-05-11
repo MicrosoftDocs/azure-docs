@@ -45,7 +45,7 @@
 ### [Update payment information](billing-how-to-change-credit-card.md)
 ### [Pay for subscriptions by invoice](billing-how-to-pay-by-invoice.md)
 ### [Link partner ID](billing-partner-admin-link-started.md)
-
+### [View billing accounts](billing-view-all-accounts.md)
 ## Troubleshoot
 ### [Sign-up issues](https://support.microsoft.com/en-us/help/4042959)
 ### [Declined card](https://support.microsoft.com/en-us/help/4042960)

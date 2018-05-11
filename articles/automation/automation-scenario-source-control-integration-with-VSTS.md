@@ -7,6 +7,7 @@ author: eamonoreilly
 ms.author: eamono
 keywords: azure powershell, VSTS, source control, automation
 ms.service: automation
+ms.component: process-automation
 ms.topic: article
 ms.date: 03/19/2017 
 ---

@@ -16,6 +16,7 @@
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
+## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
@@ -58,6 +59,7 @@
 #### [B2B sharing policies](active-directory-b2b-delegate-invitations.md)
 #### [Add a B2B user to a role](active-directory-b2b-add-guest-to-role.md)
 #### [Dynamic groups and B2B users](active-directory-b2b-dynamic-groups.md)
+#### [Leave an organization](active-directory-b2b-leave-the-organization.md)
 #### [Auditing and reports](active-directory-b2b-auditing-and-reporting.md)
 #### [B2B for hybrid organizations](active-directory-b2b-hybrid-organizations.md)
 ##### [Grant B2B users access to local apps](active-directory-b2b-hybrid-cloud-to-on-premises.md)
@@ -167,22 +169,22 @@
 #### [Hybrid Azure AD joined legacy Windows devices](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Manage apps
-### [Overview](active-directory-enable-sso-scenario.md)
-### [Getting started](active-directory-integrating-applications-getting-started.md)
+### [Overview](manage-apps/what-is-application-management.md)
+### [Getting started](manage-apps/plan-an-application-integration.md)
 ### [SaaS app integration tutorials](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-get-started.md)
-#### [Create snapshot reports](cloudappdiscovery-set-up-snapshots.md)
+### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
+#### [Create snapshot reports](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Configure continuous reporting](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Use a custom log parser](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 
-### [Access apps remotely with App Proxy](active-directory-application-proxy-get-started.md)
+### [Access apps remotely with App Proxy](manage-apps/application-proxy.md)
 #### Get started
-##### [Enable App Proxy](active-directory-application-proxy-enable.md)
-##### [Publish apps](application-proxy-publish-azure-portal.md)
-##### [Custom domains](active-directory-application-proxy-custom-domains.md)
-#### [Single sign-on](application-proxy-sso-overview.md)
-##### [SSO with KCD](active-directory-application-proxy-sso-using-kcd.md)
+##### [Enable App Proxy](manage-apps/application-proxy-enable.md)
+##### [Publish apps](manage-apps/application-proxy-publish-azure-portal.md)
+##### [Custom domains](manage-apps/application-proxy-configure-custom-domain.md)
+#### [Single sign-on](manage-apps/application-proxy-single-sign-on.md)
+##### [SSO with KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 ##### [SSO with headers](application-proxy-ping-access.md)
 ##### [SSO with password vaulting](application-proxy-sso-azure-portal.md)
 #### Concepts
