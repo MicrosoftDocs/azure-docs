@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/09/2018
+ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
@@ -41,8 +41,6 @@ In part four of the series, you learned how to clean up your resources that were
 
 > [!div class="checklist"]
 > * Clean up your resources
-
-## Figure out what the next steps should be.
 
 > [!div class="nextstepaction"]
 > [Back to the beginning](standalone-tutorial-create-infrastructure.md)

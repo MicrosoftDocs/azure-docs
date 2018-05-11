@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/09/2018
+ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
@@ -26,10 +26,8 @@ This tutorial is part three of a series.  Service Fabric standalone clusters off
 In part three of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Create a set of EC2 instances
-> * VPC?
-> * Security Groups?
-> * Log in to one of the instances
+> * Download the sample app
+> * Deploy to the cluster
 
 ## Prerequisites
 
@@ -46,61 +44,49 @@ If you did not build the Voting sample application in [part one of this tutorial
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 ```
 
-## Deploy the app to your cluster
+### Deploy the app to the Service Fabric cluster
 
-Now that the application is ready, you can deploy it to the Party Cluster direct from Visual Studio.
+Now that the application is ready, you can deploy it to a cluster directly from Visual Studio.
 
-1. Right-click **Voting** in the Solution Explorer and choose **Publish**.
+> [!NOTE]
+> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
 
-    ![Publish Dialog](./media/service-fabric-quickstart-containers/publish-app.png)
+1. Right-click on the application project in the Solution Explorer and choose **Publish**.
 
-2. Copy the **Connection Endpoint** from the Party cluster page into the **Connection Endpoint** field. For example, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Click **Advanced Connection Parameters** and fill in the following information.  *FindValue* and *ServerCertThumbprint* values must match the thumbprint of the certificate installed in the previous step. Click **Publish**. 
+2. Select the dropdown for the **Connection Endpoint** and select the `<Create New Cluster...>` option.
 
-    Once the publish has finished, you should be able to send a request to the application via a browser.
+    ![Publish Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
-3. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
+3. In the "Create cluster" dialog, modify the following settings:
+
+    1. Specify the name of your cluster in the "Cluster Name" field, as well as the subscription and location you want to use.
+    2. Optional: You can modify the number of nodes. By default you have three nodes, the minimum required for testing Service Fabric scenarios.
+    3. Select the "Certificate" tab. In this tab, type a password to use to secure the certificate of your cluster. This certificate helps make your cluster secure. You can also modify the path to where you want to save the certificate. Visual Studio can also import the certificate for you, since this is a required step to publish the application to the cluster.
+    4. Select the "VM Detail" tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
+    5. Optional: On the "Advanced" tab you can modify the list of ports you want opened on the load balancer that will be created along with the cluster. You can also add an existing Application Insights key to be used to route application log files to.
+    6. When you are done modifying settings, select the "Create" button. Creation takes a few minutes to complete; the output window will indicate when the cluster is fully created.
+
+    ![Create Cluster Dialog](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+
+4. Once the cluster you want to use is ready, right-click on the application project and choose **Publish**.
+
+    When the publish has finished, you should be able to send a request to the application via a browser.
+
+5. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, win1kw5649s.westus.cloudapp.azure.com).
 
     You should now see the same result as you saw when running the application locally.
 
     ![API Response from Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
 
-## Remove the application from a cluster using Service Fabric Explorer
-
-Service Fabric Explorer is a graphical user interface to explore and manage applications in a Service Fabric cluster.
-
-To remove the application from the Party Cluster:
-
-1. Browse to the Service Fabric Explorer, using the link provided by the Party Cluster sign-up page. For example, https://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html.
-
-2. In Service Fabric Explorer, navigate to the **fabric:/Voting** node in the treeview on the left-hand side.
-
-3. Click the **Action** button in the right-hand **Essentials** pane, and choose **Delete Application**. Confirm deleting the application instance, which removes the instance of our application running in the cluster.
-
-![Delete Application in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
-
-## Remove the application type from a cluster using Service Fabric Explorer
-
-Applications are deployed as application types in a Service Fabric cluster, which enables you to have multiple instances and versions of the application running within the cluster. After having removed the running instance of our application, we can also remove the type, to complete the cleanup of the deployment.
-
-For more information about the application model in Service Fabric, see [Model an application in Service Fabric](service-fabric-application-model.md).
-
-1. Navigate to the **VotingType** node in the treeview.
-
-2. Click the **Action** button in the right-hand **Essentials** pane, and choose **Unprovision Type**. Confirm unprovisioning the application type.
-
-![Unprovision Application Type in Service Fabric Explorer](./media/service-fabric-tutorial-deploy-app-to-party-cluster/unprovision-type.png)
-
 ## Next steps
 
-In part three of the series, you learned about uploading large amounts of random data to a storage account in parallel, such as how to:
+In part three of the series, how to deploy an application to your cluster, such as how to:
 
 > [!div class="checklist"]
-> * Configure the connection string
-> * Build the application
-> * Run the application
-> * Validate the number of connections
+> * Download the sample app
+> * Deploy to the cluster
 
-Advance to part four of the series to download large amounts of data from a storage account.
+Advance to part four of the series to clean up your cluster.
 
 > [!div class="nextstepaction"]
-> [Upload large amounts of large files in parallel to a storage account](storage-blob-scalable-app-download-files.md)
+> [Clean up your resources](standalone-tutorial-clean-up.md)
