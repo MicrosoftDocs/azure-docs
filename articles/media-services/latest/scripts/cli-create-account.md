@@ -35,7 +35,7 @@ Run the following command to remove the
 resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name resourceGroup
+az group delete --name amsResourceGroup
 ```
 
 ## Script explanation
