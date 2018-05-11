@@ -247,7 +247,7 @@ For more information, see [Control Azure CDN caching behavior with query strings
 
 You'll map your custom domain to your CDN Endpoint by creating a CNAME record. A CNAME record is a DNS feature that maps a source domain to a destination domain. For example, you might map `cdn.contoso.com` or `static.contoso.com` to `contoso.azureedge.net`.
 
-If you don't have a custom domain, consider following the [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
+If you don't have a custom domain, consider following the [App Service domain tutorial](../app-service/custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 
 ### Find the hostname to use with the CNAME
 
