@@ -51,5 +51,5 @@ Once one member of a team adds the tab, it shows up for everyone in the channel.
 
 ## Next steps
 
-- Learn how to [publish on-premises SharePoint sites](application-proxy-enable-remote-access-sharepoint.md) with Application Proxy.
+- Learn how to [publish on-premises SharePoint sites](manage-apps/application-proxy-integrate-with-sharepoint-server.md) with Application Proxy.
 - Configure your apps to use [custom domains](manage-apps/application-proxy-configure-custom-domain.md) for their external URL. 

@@ -51,7 +51,7 @@ This option is a good choice if your on-premises application doesn't require use
 
 If you want to use Azure Active Directory as a password vault for your on-premises applications, choose **Password-based sign-on**. This option is a good choice if your application authenticates with a username/password combo instead of access tokens or headers. With password-based sign-on, your users need to sign in to the application the first time they access it. After that, Azure Active Directory supplies the username and password on behalf of the user. 
 
-For information about setting up password-based sign-on, see [Password vaulting for single sign-on with Application Proxy](../application-proxy-sso-azure-portal.md).
+For information about setting up password-based sign-on, see [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md).
 
 ## Linked sign-on
 
@@ -69,10 +69,10 @@ For information about setting up Integrated Windows Authentication, see [Kerbero
 
 If your applications use headers for authentication, choose **Header-based sign-on**. With this option, your users only need to authentication the Azure Active Directory. Microsoft partners with a third-party authentication service called PingAccess, which translated the Azure Active Directory access token into a header format for the application. 
 
-For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](../application-proxy-ping-access.md).
+For information about setting up header-based authentication, see [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md).
 
 ## Next steps
 
-- [Password vaulting for single sign-on with Application Proxy](../application-proxy-sso-azure-portal.md)
+- [Password vaulting for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-password-vaulting.md)
 - [Kerberos Constrained Delegation for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
-- [Header-based authentication for single sign-on with Application Proxy](../application-proxy-ping-access.md) 
+- [Header-based authentication for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-ping-access.md) 
