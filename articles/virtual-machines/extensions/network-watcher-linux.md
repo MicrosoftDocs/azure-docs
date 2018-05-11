@@ -105,17 +105,24 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ### Troubleshooting
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
+Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI.
+
+The following example shows the deployment state of extensions for a VM deployed through the classic deployment model, using the Azure CLI 1.0:
 
 ```azurecli
-azure vm extension get myResourceGroup1 myVM1
+azure vm extension get myVM1
 ```
-
 Extension execution output is logged to files found in the following directory:
 
 `
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
+
+The following example shows the deployment state of extensions for a VM deployed through Resource Manager, using the Azure CLI 2.0:
+
+```azurecli
+az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1
+```
 
 ### Support
 
