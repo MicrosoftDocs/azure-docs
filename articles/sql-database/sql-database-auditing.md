@@ -187,10 +187,10 @@ In production, you are likely to refresh your storage keys periodically. When re
 
 **PowerShell cmdlets**:
 
-    * [Create or Update Database Blob Auditing Policy (Set-AzureRMSqlDatabaseAuditing)][105]
-    * [Create or Update Server Blob Auditing Policy (Set-AzureRMSqlServerAuditing)][106]
-    * [Get Database Auditing Policy (Get-AzureRMSqlDatabaseAuditing)][101]
-    * [Get Server Blob Auditing Policy (Get-AzureRMSqlServerAuditing)][102]
+* [Create or Update Database Blob Auditing Policy (Set-AzureRMSqlDatabaseAuditing)][105]
+* [Create or Update Server Blob Auditing Policy (Set-AzureRMSqlServerAuditing)][106]
+* [Get Database Auditing Policy (Get-AzureRMSqlDatabaseAuditing)][101]
+* [Get Server Blob Auditing Policy (Get-AzureRMSqlServerAuditing)][102]
 
 For a script example, see [Configure auditing and threat detection using PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -198,11 +198,11 @@ For a script example, see [Configure auditing and threat detection using PowerSh
 
 **REST API - Blob auditing**:
 
-    * [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-    * [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-    * [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-    * [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
-    * [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
+* [Create or Update Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695939.aspx)
+* [Create or Update Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771861.aspx)
+* [Get Database Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt695938.aspx)
+* [Get Server Blob Auditing Policy](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Get Server Blob Auditing Operation Result](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 
 <!--Anchors-->
