@@ -89,8 +89,7 @@ To install the Access Panel Browser extension, follow the steps below:
 
 3.  In the prompt asking to install the software, select **Install Now**.
 
-4.  Based on your browser, you are directed to 
-5.  the download link. **Add** the extension to your browser.
+4.  Based on your browser, you are directed to the download link. **Add** the extension to your browser.
 
 5.  If your browser asks, select to either **Enable** or **Allow** the extension.
 

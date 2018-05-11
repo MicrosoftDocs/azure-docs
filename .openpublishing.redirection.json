@@ -21102,27 +21102,27 @@
         },
         {
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/application-proxy-publish-azure-portal.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-publish-azure-portal.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-publish-azure-portal",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-application-proxy-custom-domains.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-domain.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-custom-domain",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/application-proxy-sso-overview.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-single-sign-on.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-single-sign-on",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/active-directory-application-proxy-sso-using-kcd.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd",
             "redirect_document_id": false
         },
         {
