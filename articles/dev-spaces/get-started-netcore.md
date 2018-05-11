@@ -79,7 +79,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 ![](media/get-started-netcore/debug-configuration.png)
 
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-netcore-01.md#get-kubernetes-debugging-for-vs-code).
+> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains azds.yaml.
 
 
 ### Debug the container in Kubernetes
