@@ -1,6 +1,6 @@
 ---
 
-title: Azure Active Directory B2B collaboration invitation redemption | Microsoft Docs
+title: Invitation redemption in B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Describes the Azure AD B2B collaboration invitation redemption experience for end users, including the agreement to privacy terms.
 
 services: active-directory
@@ -18,7 +18,7 @@ ms.reviewer: sasubram
 
 # Azure Active Directory B2B collaboration invitation redemption
 
-To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first time consent process where they agree to [privacy terms](#privacy-policy-agreement). This process happens in either of the following ways:
+To collaborate with users from partner organizations through Azure Active Directory (Azure AD) B2B collaboration, you can invite guest users to access shared apps. After a guest user is added to the directory through the user interface, or the user is invited through PowerShell, guest users must go through a first-time consent process where they agree to [privacy terms](#privacy-policy-agreement). This process happens in either of the following ways:
 
 - The guest inviter sends out a direct link to a shared app. The invitee clicks the link to sign in, accepts the privacy terms, and seamlessly accesses the shared resource. (The guest user still receives an invitation email with a redemption URL, but other than some special cases, it's no longer required to use the invitation email.)  
 - The guest user receives an invitation email and clicks the redemption URL. As part of first-time sign-in, they're prompted to accept the privacy terms.
@@ -33,7 +33,7 @@ If you invited guest users through the user interface, or chose to send the invi
 - Sometimes the invited user object may not have an email address because of a conflict with a contact object (for example, an Outlook contact object). In this case, the user must click the redemption URL in the invitation email.
 - The user may sign in with an alias of the email address that was invited. (An alias is an additional email address associated with an email account.) In this case, the user must click the redemption URL in the invitation email.
 
-To cover these special cases, we recommend that you invite users by using methods that still send the invitation email.
+If these special cases are important to your organization, we recommend that you invite users by using methods that still send the invitation email. Also, if a user doesn't fall under one of these special cases, they can still click the URL in an invitation email to get access.
 
 ## Redemption through the invitation email
 
