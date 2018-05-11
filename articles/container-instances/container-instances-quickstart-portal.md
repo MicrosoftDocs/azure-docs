@@ -68,7 +68,7 @@ Congratulations! By configuring just a few settings, you've deployed a publicly 
 
 Viewing the logs for a container instance is helpful when troubleshooting issues with your container or the application it runs.
 
-To view the container's logs, under **SETTINGS**, select **Containers**, then **Logs**. You should see the HTTP GET requests generated when you viewed the application in your browser.
+To view the container's logs, under **SETTINGS**, select **Containers**, then **Logs**. You should see the HTTP GET request generated when you viewed the application in your browser.
 
 ![Container logs in the Azure portal][aci-portal-11]
 
