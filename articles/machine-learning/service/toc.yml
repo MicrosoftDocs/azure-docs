@@ -146,31 +146,37 @@
       href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
 - name: Reference
   items:  
-  - name: Python packages
+  - name: Python packages overview
     href: reference-python-package-overview.md
     items:    
-    - name: Computer vision
+  - name: Computer vision package
+    items:
+    - name: Package install
+      href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
+    - name: Model and deploy
       items:
-      - name: Package overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision
-      - name: Build and deploy image classification models
+      - name: Image classification
         href: how-to-build-deploy-image-classification-models.md
-      - name: Model accuracy
-        href: how-to-improve-accuracy-for-computer-vision-models.md
-    - name: Forecasting
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
-      - name: Build and deploy forecast models
-        href: how-to-build-deploy-forecast-models.md
-    - name: FPGA acceleration
-      href: reference-fpga-package-overview.md
-    - name: Text analytics
-      items:
-      - name: Overview and install
-        href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
-      - name: Build and deploy text classification models
-        href: how-to-build-deploy-text-classification-models.md    
+      - name: Object detection
+        href: how-to-build-deploy-object-detection-models.md
+      - name: Image similarity
+        href: how-to-build-deploy-image-similarity-models.md
+    - name: Improve model accuracy
+      href: how-to-improve-accuracy-for-computer-vision-models.md
+  - name: Forecasting package
+    items:
+    - name: Overview and install
+      href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/forecasting-overview
+    - name: Build and deploy forecast models
+      href: how-to-build-deploy-forecast-models.md
+  - name: FPGA acceleration package
+    href: reference-fpga-package-overview.md
+  - name: Text analytics package
+    items:
+    - name: Overview and install
+      href: https://docs.microsoft.com/python/api/overview/azure-machine-learning/textanalytics
+    - name: Build and deploy text classification models
+      href: how-to-build-deploy-text-classification-models.md    
   - name: Data preparation
     items:
     - name: Python extensions for data preparation
