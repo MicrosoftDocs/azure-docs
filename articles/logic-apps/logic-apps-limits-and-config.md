@@ -54,7 +54,7 @@ Here are the limits for a single logic app run:
 | Name | Limit | Notes | 
 |------|-------|-------| 
 | Run duration | 90 days | | 
-| Storage retention | 90 days from the run's start time | | 
+| Storage retention | 90 days from the run's start time | You can lower this limit to seven days. On the logic app's menu, under **Runtime options**, from the **Run history retention in days** list, choose **Custom**. Enter or drag the slider for the number of days you want. | 
 | Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | | 
 | Maximum recurrence interval | 500 days | | 
 ||| 
@@ -154,33 +154,45 @@ Here are the limits for custom connectors that you can create from web APIs.
 ### Artifact limits per integration account
 
 Here are the limits on the number of artifacts for each integration account. 
-Each artifact type can have up to the maximum number of artifacts.
 For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Free pricing tier*
+*Free tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| Agreements | 10 | | 
-| Other artifact types | 25 | These artifact types include partners, maps, schemas, and certificates. | 
+| EDI trading partners | 25 | | 
+| EDI trading agreements | 10 | | 
+| Maps | 25 | | 
+| Schemas | 25 | 
+| Assemblies | 10 | | 
+| Batch configurations | 5 | 
+| Certificates | 25 | | 
 |||| 
 
-*Basic pricing tier*
+*Basic tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| Agreements | 1 | | 
-| Certificates | 2 | 
-| Maps | 50 | 
-| Partners | 2 | | 
+| EDI trading partners | 2 | | 
+| EDI trading agreements | 1 | | 
+| Maps | 500 | | 
 | Schemas | 500 | 
+| Assemblies | 25 | | 
+| Batch configurations | 1 | | 
+| Certificates | 2 | | 
 |||| 
 
-*Standard pricing tier*
+*Standard tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| Any artifact type | 500 | These artifact types include partners, agreements, maps, schemas, and certificates. | 
+| EDI trading partners | 500 | | 
+| EDI trading agreements | 500 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
+| Assemblies | 50 | | 
+| Batch configurations | 5 |  
+| Certificates | 50 | | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
