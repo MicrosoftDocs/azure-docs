@@ -20,7 +20,7 @@ Tiers determine capacity, not features. If a tier's capacity turns out to be too
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) with information about billing concepts, and it supplements the [Service Limits](search-limits-quotas-capacity.md) page with descriptions of consumption patterns equated to various tiers.
 
 > [!NOTE]
-> After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For more information, see [Allocate partitions and replicas for query and indexing workloads](search-capacity-planning.md).
+> Most customers start with the **Free** tier and then graduate to **S1**. After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For more information, see [Allocate partitions and replicas for query and indexing workloads](search-capacity-planning.md).
 >
 
 ## Billing concepts
@@ -29,13 +29,15 @@ Capacity is a reflection of the type of infrastructure provisioned for your excl
 
 Limits vary by tiers and are imposed at two levels: storage and resources. Storage refers to partition size. Resources refer to objects instantiated and processed in the service, such as indexes, indexers, data sources, and so forth. You should think about both because whichever one you reach first is the effective limit. You can monitor resource consumption in the portal. 
 
-Feature availability is not a billing consideration. All tiers, even the Free tier, offer feature parity but indexing and resource constraints effectively limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing with long-running skills will time out at the Free tier unless the data set is very small.
+Feature availability is not a billing consideration. All tiers, including the **Free** tier, offer feature parity, but indexing and resource constraints effectively limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set is very small.
 
 ### Service Units
 
-The most important billing concept to understand is *service units*. Capacity is billed by service unit (SU), which is formulated as as the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service has 1 SU (1 replica multiplied by 1 partition), but a more realistic model might be a 3-replica, 3-partition service billed at 9 SUs.
+Billing units are referred to as *service units* and this is the most important billing-related concept to understand. Capacity is billed by service unit (SU), which is formulated as as the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (1 replica multiplied by 1 partition), but a more realistic model might be a 3-replica, 3-partition service billed at 9 SUs. 
 
-Cost per SU is determined by the tier, with a lower per-unit billing rate for Basic than for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+Billing rate is hourly, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+
+The amount you pay is function of SU consumption at the rate set by the tier you choose to provision at.
 
 ## Consumption patterns
 
