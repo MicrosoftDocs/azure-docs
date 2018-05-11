@@ -169,7 +169,7 @@ You can also consider using one other variant in this situation. If most users i
 
 ## Next steps
 
-- [Enable Application Proxy](active-directory-application-proxy-enable.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Enable Application Proxy](manage-apps/application-proxy-enable.md)
+- [Enable single-sign on](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 - [Enable conditional access](application-proxy-enable-remote-access-sharepoint.md)
 - [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
