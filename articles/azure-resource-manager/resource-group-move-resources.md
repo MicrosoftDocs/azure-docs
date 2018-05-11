@@ -111,6 +111,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Bing Maps
 * CDN
@@ -127,6 +128,7 @@ The services that enable moving to both a new resource group and subscription ar
 * IoT Hubs
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Media Services
@@ -161,6 +163,8 @@ The services that currently do not enable moving a resource are:
 * AD Hybrid Health Service
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Kubernetes Service
