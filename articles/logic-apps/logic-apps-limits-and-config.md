@@ -54,7 +54,7 @@ Here are the limits for a single logic app run:
 | Name | Limit | Notes | 
 |------|-------|-------| 
 | Run duration | 90 days | | 
-| Storage retention | 90 days from the run's start time | You can lower this limit to seven days. On the logic app's menu, under **Runtime options**, from the **Run history retention in days** list, choose **Custom**. Enter or drag the slider for the number of days you want. | 
+| Storage retention | 90 days from the run's start time | You can lower this limit to seven days. <p>1. In the Azure portal, on the logic app's menu, choose **Workflow settings**. </br>2. Under **Runtime options**, from the **Run history retention in days** list, choose **Custom**. </br>3. Enter or drag the slider for the number of days you want. | 
 | Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | | 
 | Maximum recurrence interval | 500 days | | 
 ||| 
