@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/16/2018
+ms.date: 05/08/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
@@ -55,8 +55,6 @@ Once that you have created a couple of Key Vaults you will want to monitor how a
 - Archive to a storage account.
 - Stream to an event hub.
 - Send the logs to Log Analytics.
-
-![Page showing a Key Vault's properties](./media/key-vault-overview/key-vault-overview.png)
 
 You have control over your logs and you may secure them by restricting access and you may also delete logs that you no longer need.
 

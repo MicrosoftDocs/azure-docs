@@ -164,7 +164,7 @@ featureFlags:
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/go/azure/">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="">
                                                             Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -1194,6 +1194,12 @@ featureFlags:
                                                 <p>CLI</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/blockchain-workbench">
+                                                <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                <p>Blockchain Workbench</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Internet of Things</h3>
                                     <ul>
@@ -1481,15 +1487,6 @@ featureFlags:
                                                 <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/azure/security/">
-                                                <img src="media/index/SecurityCenter.svg" alt="" />
-                                                <p>Security Information</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <h3>Management Tools</h3>
-                                    <ul>
                                         <li>
                                             <a href="/azure/security/">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
@@ -4544,6 +4541,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/blockchain-workbench/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/blockchain-workbench.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blockchain Workbench</h3>
+                                                    <p>Connect your blockchain to the cloud without the heavy lifting</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5387,7 +5403,7 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/en-us/media/logos/logo_Go-lightblue.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
@@ -5526,7 +5542,7 @@ featureFlags:
                                                     Docker
                                                 </h3>
                                                 <p>
-                                                    <a href="/dotnet/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio  Tools for Docker</a>
+                                                    <a href="/aspnet/core/host-and-deploy/docker/visual-studio-tools-for-docker">Visual Studio Tools for Docker</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>

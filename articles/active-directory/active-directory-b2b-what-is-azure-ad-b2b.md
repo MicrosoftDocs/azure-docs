@@ -1,23 +1,20 @@
 ---
 title: What is Azure Active Directory B2B collaboration? | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports your cross-company relationships by enabling business partners to selectively access your corporate applications.
+
 services: active-directory
-documentationcenter: ''
+ms.service: active-directory
+ms.component: B2B
+ms.topic: article
+ms.date: 04/26/2018
+
+ms.author: twooley
 author: twooley
 manager: mtillman
-editor: ''
-tags: ''
-
-ms.service: active-directory
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: identity
-ms.date: 04/26/2018
-ms.author: twooley
 ms.reviewer: sasubram
 
 ---
+
 # What is Azure AD B2B collaboration?
 
 Azure Active Directory (Azure AD) business-to-business (B2B) collaboration capabilities enable any organization using Azure AD to work safely and securely with users from any other organization, small or large. Those organizations can be with or without Azure AD, and don't even need to have an IT department.
