@@ -202,7 +202,7 @@ Device identities are represented as JSON documents with the following propertie
 
 ## Module identity properties
 
-Device identities are represented as JSON documents with the following properties:
+Module identities are represented as JSON documents with the following properties:
 
 | Property | Options | Description |
 | --- | --- | --- |

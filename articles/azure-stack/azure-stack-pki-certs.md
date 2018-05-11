@@ -33,7 +33,7 @@ Azure Stack has a public infrastructure network using externally accessible publ
 ## Certificate requirements
 The following list describes the certificate requirements that are needed to deploy Azure Stack: 
 - Certificates must be issued from either an internal Certificate Authority or a Public Certificate Authority. If a public certificate authority is used, it must be included in the base operating system image as part of the Microsoft Trusted Root Authority Program. You can find the full list here: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
-- Your Azure Stack infrastructure must have network access to the certificate authority used to sign your certificates
+- Your Azure Stack infrastructure must have network access to the certificate authority's Certificate Revocation List (CRL) location published in the certificate. This CRL must be an http endpoint
 - When rotating certificates, certificates must be either issued from the same internal certificate authority used to sign certificates provided at deployment or any public certificate authority from above
 - The use of self-signed certificates are not supported
 - The certificate can be a single wild card certificate covering all name spaces in the Subject Alternative Name (SAN) field. Alternatively, you can use individual certificates using wild cards for endpoints such as **acs** and Key Vault where they are required. 
@@ -43,6 +43,7 @@ The following list describes the certificate requirements that are needed to dep
 - The certificate pfx files must have the values “Server Authentication (1.3.6.1.5.5.7.3.1)” and “Client Authentication (1.3.6.1.5.5.7.3.2)” in the "Enhanced Key Usage" field.
 - The certificate's "Issued to:" field must not be the same as its "Issued by:" field.
 - The passwords to all certificate pfx files must be the same at the time of deployment
+- Password to the certificate pfx has to be a complex password.
 - Ensure that the Subject Names and Subject Alternative Names of all certificates match the specifications described in this article to avoid failed deployments.
 
 > [!NOTE]

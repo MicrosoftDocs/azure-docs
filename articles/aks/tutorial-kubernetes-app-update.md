@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial - Update application
 description: AKS tutorial - Update Application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -161,10 +161,10 @@ In this tutorial, you updated an application and rolled out this update to a Kub
 > * Pushed the container image to Azure Container Registry
 > * Deployed the updated application
 
-Advance to the next tutorial to learn about how to monitor Kubernetes with Log Analytics.
+Advance to the next tutorial to learn about upgrading Kubernetes to a new version.
 
 > [!div class="nextstepaction"]
-> [Monitor Kubernetes with Log Analytics][aks-tutorial-monitor]
+> [Upgrade Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -175,5 +175,5 @@ Advance to the next tutorial to learn about how to monitor Kubernetes with Log A
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
