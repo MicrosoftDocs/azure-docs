@@ -166,7 +166,7 @@
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
-    - name: Review complicance with REST
+    - name: Review compliance (REST)
       href: security-center-review-policy-compliance.md
 
  
