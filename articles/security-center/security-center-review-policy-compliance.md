@@ -21,7 +21,9 @@ ms.author: alleonar
 
 # Review Security Center policy compliance using REST APIs
 
-Security Center periodically validates your Azure resources against your defined security policies.  Security Center also provides a REST API that lets you review compliance from your own applications, either by querying the service directly or by importing JSON results into other applications.  Here, you learn to retrieve the current set of recommendations from all Azure resources associated with a subscription.
+Security Center periodically validates your Azure resources against your defined security policies. Security Center also provides a REST API that lets you review compliance from your own applications; you can query the service directly or import JSON results into other applications. 
+
+Here, you learn to retrieve the current set of recommendations from all Azure resources associated with a subscription.
 
 To retrieve the current set of recommendations:
 ```  
@@ -32,12 +34,13 @@ Authorization: Bearer
 
 ## Build the request  
 
-The `{subscription-id}` parameter is required and should contain the subscription ID for the Azure subscription defining the policies.  If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).   
+The `{subscription-id}` parameter is required and should contain the subscription ID for the Azure subscription defining the policies. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
 
 The `api-version` parameter is required. At this time, these endpoints are supported only for `api-version=2015-06-01-preview`. 
 
 ### Request headers  
- The following table describes the required and optional request headers.  
+
+The following table describes the required and optional request headers. 
 
 |Request Header|Description|  
 |--------------------|-----------------|  
@@ -79,7 +82,7 @@ Each item in **value** represents a recommendation:
   
 For currently supported recommendations, see [Implement security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
-Other status codes indicate error conditions.  In these cases, the response object includes a description explaining why the request failed.
+Other status codes indicate error conditions. In these cases, the response object includes a description explaining why the request failed.
 
 ``` json
 {  
@@ -138,9 +141,9 @@ Other status codes indicate error conditions.  In these cases, the response obje
 }  
 ```  
 
-This response shows two recommendations; each item in the list corresponds to a specific recommendation.  The first recommends encrypting storage on a Linux virtual machine and the second suggests that you enable auditing for a SQL server.
+This response shows two recommendations; each item in the list corresponds to a specific recommendation. The first recommends encrypting storage on a Linux virtual machine and the second suggests that you enable auditing for a SQL server.
 
-The recommendations vary according to the policies you've enabled.  To learn more, including the currently available recommendations, see [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+The recommendations vary according to the policies you've enabled. To learn more, including the currently available recommendations, see [Managing security recommendations in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 
 ## See also  
