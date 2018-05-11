@@ -15,15 +15,15 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/install-cli-and-vscode.md)]
-
 You're now ready to create a Kubernetes-based development environment in Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/create-env-cli.md)]
+[!INCLUDE[](includes/use-dev-spaces.md)]
+
+[!INCLUDE[](includes/install-cli-and-vscode.md)]
 
 While you're waiting for the environment to be create, you can start writing code.
 
