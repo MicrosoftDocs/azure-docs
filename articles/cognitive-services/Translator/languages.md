@@ -42,6 +42,7 @@ The Microsoft Translator Text API supports the following languages for text to t
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
+| Icelandic    | `is`           |
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
@@ -95,6 +96,7 @@ The following languages are supported for Neural Machine Translation. The neural
 | French      | `fr`          |
 | German      | `de`          |
 | Hindi      | `hi`          |
+| Icelandic    | `is`           |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 | Korean      | `ko`          |
@@ -161,7 +163,7 @@ The dictionary supports the following languages to or from English using the Loo
 | Hindi      | `hi`          |
 | Hmong Daw      | `mww`          |
 | Hungarian      | `hu`          |
-| Icelandic    | is  |
+| Icelandic    | `is`  |
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
