@@ -1,10 +1,10 @@
 ---
-title: Azure Content Delivery Network (CDN) product features | Microsoft Docs
+title: Compare Azure Content Delivery Network (CDN) product features | Microsoft Docs
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 
 ms.assetid: 
@@ -13,17 +13,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/25/2018
+ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
 
 ---
 
-# Azure CDN product features
+# Compare Azure CDN product features
 
-Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. 
-
-**Azure CDN Standard from Microsoft** is currently in public preview and CDN rates will be 50% of the stated price during this period. 
+Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standard from Microsoft** (in preview), **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. 
 
 The following table compares the features available with each product.
 
