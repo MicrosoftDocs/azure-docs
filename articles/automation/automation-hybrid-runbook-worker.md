@@ -130,10 +130,11 @@ For a list of region IP addresses instead of region names, download the [Azure D
 
 In addition to the standard addresses and ports that the Hybrid Runbook Worker requires, the following addresses are required specifically for Update Management. Communication to these addresses is done over port 443.
 
-* *.ods.opinsights.azure.com
-* *.oms.opinsights.azure.com
-* ods.systemcenteradvisor.com
-* *.blob.core.windows.net/
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 ## Troubleshooting
 

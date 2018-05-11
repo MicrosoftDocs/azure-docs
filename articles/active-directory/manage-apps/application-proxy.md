@@ -49,7 +49,7 @@ Azure AD Application Proxy is:
 ## What kind of applications work with Application Proxy?
 With Azure AD Application Proxy you can access different types of internal applications:
 
-* Web applications that use [Integrated Windows Authentication](../active-directory-application-proxy-sso-using-kcd.md) for authentication  
+* Web applications that use [Integrated Windows Authentication](application-proxy-configure-single-sign-on-with-kcd.md) for authentication  
 * Web applications that use form-based or [header-based](../application-proxy-ping-access.md) access  
 * Web APIs that you want to expose to rich applications on different devices  
 * Applications hosted behind a [Remote Desktop Gateway](../application-proxy-publish-remote-desktop.md)  
@@ -85,14 +85,14 @@ Before you configure Application Proxy, make sure you have a supported [Azure Ac
 
 Get started with Application Proxy in two steps:
 
-1. [Enable Application Proxy and configure the connector](../active-directory-application-proxy-enable.md).    
-2. [Publish applications](../application-proxy-publish-azure-portal.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
+1. [Enable Application Proxy and configure the connector](application-proxy-enable.md).    
+2. [Publish applications](application-proxy-publish-azure-portal.md) - use the quick and easy wizard to get your on-premises apps published and accessible remotely.
 
 ## What's next?
 Once you publish your first app, there's a lot more you can do with Application Proxy:
 
-* [Enable single-sign on](../active-directory-application-proxy-sso-using-kcd.md)
-* [Publish applications using your own domain name](../active-directory-application-proxy-custom-domains.md)
+* [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
 * [Learn about Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md)
 * [Working with existing on-premises Proxy servers](../application-proxy-working-with-proxy-servers.md) 
 * [Set a custom home page](../application-proxy-office365-app-launcher.md)
