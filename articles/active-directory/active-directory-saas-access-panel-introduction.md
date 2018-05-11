@@ -98,10 +98,10 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 5. Select **Sign in to get started**.
 
 To use internal company URLs while remote using the extension, do the following:
-1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant
-2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy
-3. Install the extension, and sign in to it by selecting Sign in to get started
-4. You can now browse to the internal company URL even while remote
+1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
+2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
+3. Install the extension, and sign in to it by selecting Sign in to get started.
+4. You can now browse to the internal company URL even while remote.
 
 ## Mobile app support
 
