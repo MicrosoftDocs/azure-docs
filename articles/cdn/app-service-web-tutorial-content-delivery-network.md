@@ -13,7 +13,7 @@ ms.custom: mvc
 ---
 # Tutorial: Add a Content Delivery Network (CDN) to an Azure App Service
 
-[Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN also decreases server load on your web app. This tutorial shows how to add Azure CDN to a [web app in Azure App Service](app-service-web-overview.md). 
+[Azure Content Delivery Network (CDN)](cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. The CDN also decreases server load on your web app. This tutorial shows how to add Azure CDN to a [web app in Azure App Service](../app-service/app-service-web-overview.md). 
 
 Here's the home page of the sample static HTML site that you'll work with:
 
@@ -38,13 +38,13 @@ To complete this tutorial:
 
 ## Create the web app
 
-To create the web app that you'll work with, follow the [static HTML quickstart](app-service-web-get-started-html.md) through the **Browse to the app** step.
+To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/app-service-web-get-started-html.md) through the **Browse to the app** step.
 
 ### Have a custom domain ready
 
 To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must have access to configure the DNS settings for the `contoso.com` root domain.
 
-If you don't already have a domain name, consider following the [App Service domain tutorial](custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
+If you don't already have a domain name, consider following the [App Service domain tutorial](../app-service/custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 
 ## Log in to the Azure portal
 
@@ -52,7 +52,7 @@ Open a browser and navigate to the [Azure portal](https://portal.azure.com).
 
 ## Create a CDN profile and endpoint
 
-In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](app-service-web-get-started-html.md).
+In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/app-service-web-get-started-html.md).
 
 ![Select App Service app in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
 
@@ -67,7 +67,7 @@ In the **Azure Content Delivery Network** page, provide the **New endpoint** set
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
 | **CDN profile** | myCDNProfile | Select **Create new** to create a CDN profile. A CDN profile is a collection of CDN endpoints with the same pricing tier. |
-| **Pricing tier** | Standard Akamai | The [pricing tier](../cdn/cdn-overview.md#azure-cdn-features) specifies the provider and available features. In this tutorial, we are using Standard Akamai. |
+| **Pricing tier** | Standard Akamai | The [pricing tier](cdn-features.md) specifies the provider and available features. In this tutorial, we are using Standard Akamai. |
 | **CDN endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *\<endpointname>.azureedge.net*.
 
 Select **Create**.
@@ -102,7 +102,7 @@ http://<endpointname>.azureedge.net/index.html
 
 To ensure that this page is cached in the CDN, refresh the page. Two requests for the same asset are sometimes required for the CDN to cache the requested content.
 
-For more information about creating Azure CDN profiles and endpoints, see [Getting started with Azure CDN](../cdn/cdn-create-new-endpoint.md).
+For more information about creating Azure CDN profiles and endpoints, see [Getting started with Azure CDN](cdn-create-new-endpoint.md).
 
 ## Purge the CDN
 
