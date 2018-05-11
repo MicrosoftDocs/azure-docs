@@ -46,16 +46,23 @@ See the language-specific example:
 
 ### Trigger - C# example
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that logs a Service Bus queue message.
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads [message metadata](#trigger---message-metadata) and
+logs a Service Bus queue message:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -63,7 +70,7 @@ This example is for Azure Functions version 1.x; for 2.x, [omit the access right
  
 ### Trigger - C# script example
 
-The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function logs a Service Bus queue message.
+The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message.
 
 Here's the binding data in the *function.json* file:
 
@@ -85,9 +92,19 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -121,7 +138,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### Trigger - JavaScript example
 
-The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function logs a Service Bus queue message. 
+The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message. 
 
 Here's the binding data in the *function.json* file:
 
@@ -145,6 +162,9 @@ Here's the JavaScript script code:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -265,6 +285,8 @@ The Service Bus trigger provides several [metadata properties](functions-trigger
 |`Label`|`string`|The application specific label.|
 |`CorrelationId`|`string`|The correlation ID.|
 |`Properties`|`IDictionary<String,Object>`|The application specific message properties.|
+
+See [code examples](#trigger---example) that use these properties earlier in this article.
 
 ## Trigger - host.json properties
 
