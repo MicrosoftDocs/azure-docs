@@ -55,4 +55,4 @@ Your application is now ready to test. Access the external URL you used to publi
 ## Next Steps
 
 - [Publish applications with Application Proxy](manage-apps/application-proxy-publish-azure-portal.md)
-- [Working with Application Proxy connectors](active-directory-application-proxy-connectors-azure-portal.md).
+- [Working with Application Proxy connectors](manage-apps/application-proxy-connector-groups.md).

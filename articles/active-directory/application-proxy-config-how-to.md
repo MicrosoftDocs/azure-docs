@@ -49,7 +49,7 @@ The error message should display in the top right corner when you create the app
 
 ## Configure connectors/connector groups
 
-If you are having difficulty configuring your application because of warning about the connectors and connector groups, see instructions on enabling Application Proxy for details on how to download connectors. If you want to learn more about connectors, see the [connectors documentation](application-proxy-understand-connectors.md).
+If you are having difficulty configuring your application because of warning about the connectors and connector groups, see instructions on enabling Application Proxy for details on how to download connectors. If you want to learn more about connectors, see the [connectors documentation](manage-apps/application-proxy-connectors.md).
 
 If your connectors are inactive, this means that they are unable to reach the service. This is often because all the required ports are not open. To see a list of required ports, see the pre-requisites section of the enabling Application Proxy documentation.
 
