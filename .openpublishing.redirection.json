@@ -1961,6 +1961,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
+            "redirect_url": "/azure/cdn/app-service-web-tutorial-content-delivery-network",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/app-service-logic/app-service-logic-arm-provision.md",
             "redirect_url": "/azure/logic-apps/logic-apps-create-logic-apps-azure-resource-manager-templates",
             "redirect_document_id": false
