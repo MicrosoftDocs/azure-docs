@@ -19,9 +19,9 @@ ms.custom: mvc
 ---
 # Tutorial: Create AWS infrastructure to host a Service Fabric cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you create a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
 
-This tutorial is part one of a series. In this article you generate all of the AWS resources required to host your standalone cluster of Service Fabric. In future articles you need install the Service Fabric standalone suite, install a sample application into your cluster, and finally, clean up your cluster.
+This tutorial is part one of a series. In this article, you generate the AWS resources required to host your standalone cluster of Service Fabric. In future articles you need install the Service Fabric standalone suite, install a sample application into your cluster, and finally, clean up your cluster.
 
 In part one of the series, you learn how to:
 
@@ -33,11 +33,11 @@ In part one of the series, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial you need an AWS account.  If you don't already have an account, go to the [AWS console](https://aws.amazon.com/) to create one.
+To complete this tutorial, you need an AWS account.  If you don't already have an account, go to the [AWS console](https://aws.amazon.com/) to create one.
 
 ## Create EC2 instances
 
-Login to the AWS Console > Enter **EC2** in the search box > **EC2 Virtual Servers in the Cloud**
+Log in to the AWS Console > Enter **EC2** in the search box > **EC2 Virtual Servers in the Cloud**
 
 ![AWS console search][aws-console]
 
@@ -65,7 +65,7 @@ Once you've entered the powershell script select **Review and Launch**
 
 ![EC2 review and launch][aws-ec2configure2]
 
-On the review screen select **Launch**.  Then change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
+On the review screen, select **Launch**.  Then change the drop-down to **Proceed without a key pair** and select the checkbox indicating that you know the password.
 
 ![AWS key pair selection][aws-keypair]
 
@@ -77,7 +77,7 @@ Service Fabric requires a number of ports open between the hosts in your cluster
 
 To avoid opening these ports to the world, you instead open them only for hosts in the same security group. Take note of the security group ID, in the example it's **sg-c4fb1eba**.  Then select **Edit**.
 
-You need to add four rules to the security group for service dependencies, and then three more for Service Fabric itself. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
+Next, add four rules to the security group for service dependencies, and then three more for Service Fabric itself. The first rule is to allow ICMP traffic, for basic connectivity checks. The others rules open the required ports to enable SMB and Remote Registry.
 
 For the first rule select **Add Rule**, then from the dropdown menu selects **All ICMP - IPv4**. Select the entry box next to custom and enter your security group ID from above.
 
@@ -87,13 +87,13 @@ For the last three rules for dependencies, you need to follow a similar process.
 
 Now that the ports for the dependencies are open, you need to do the same thing for the ports that Service Fabric itself uses to communicate. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `19000-19003`, and `20001-20031` for each rule and again enter the security group in the source box.
 
-For the final rule we are going to open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `19080-19081`, change the Source drop down to Anywhere.
+For the final rule, open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `19080-19081`, change the Source drop down to Anywhere.
 
 All of the rules are now entered. Select **Save**.
 
 ## Connect to an instance and validate inter-connectivity
 
-From the security group tab, select **Instances** from the left-hand menu.  Select each of the instances that you've created and note their private IP addresses for the examples below will use `172.31.21.141` and `172.31.20.163`. 
+From the security group tab, select **Instances** from the left-hand menu.  Select each of the instances that you've created and note their private IP addresses for the examples below will use `172.31.21.141` and `172.31.20.163`.
 
 Once you have all of the IP addresses select one of the instances to connect to, right-click on the instance and select **Connect**.  From here, you can download the RDP file for this particular instance.  Select **Download Remote Desktop File**, and then open the file that is downloaded to establish your remote desktop connection (RDP) to this instance.  When prompted enter your password `serv1ceF@bricP@ssword`.
 
@@ -103,7 +103,7 @@ Once you have successfully connected to your instance validate that you can conn
 
 In these examples the RDP connection was established to the following IP address: 172.31.21.141. All connectivity test then occur to the other IP address: 172.31.20.163.
 
-To validate that basic connectivity works you can use the ping command.
+To validate that basic connectivity works, use the ping command.
 
 ```
 ping 172.31.20.163
@@ -119,11 +119,11 @@ It should return `Drive Z: is now connected to \\172.31.20.163\c$.` as the outpu
 
 ## Prep instances for Service Fabric
 
-If you were creating this from scratch you'd need to take a couple extra steps.  Namely, you'd need to validate that remote registry was running, enable SMB, and open the requisite ports for SMB and remote registry.
+If you were creating this from scratch, you'd need to take a couple extra steps.  Namely, you'd need to validate that remote registry was running, enable SMB, and open the requisite ports for SMB and remote registry.
 
 To make it easier you embedded all of this work when you bootstrapped the instances with your user data script.
 
-To enable SMB this is the powershell command you used:
+To enable SMB, this is the powershell command you used:
 
 ```powershell
 netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes

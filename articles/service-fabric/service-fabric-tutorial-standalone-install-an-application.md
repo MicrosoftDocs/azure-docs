@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Install an application on your Service Fabric standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you create a standalone cluster hosted on AWS and install an application into it.
 
 This tutorial is part three of a series.  Service Fabric standalone clusters offers you the option to choose your own environment and create a cluster as part of our "any OS, any cloud" approach with Service Fabric. This tutorial shows you how to create the AWS infrastructure necessary to host this standalone cluster.
 

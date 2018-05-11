@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Install and create Service Fabric cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
 
 This tutorial is part two of a series. This tutorial walks you through the steps for creating a Service Fabric standalone cluster.
 
@@ -34,17 +34,17 @@ In part two of the series, you learn how to:
 
 Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
 
-Select the zip file and open the context menu and select **Extract All** > **Extract**.  This will generate a folder on the desktop that is the same as the zip file name.
+Select the zip file and open the context menu and select **Extract All** > **Extract**.  As you extract the files, you will generate a folder on the desktop that is the same as the zip file name.
 
 If you want to get more detail on the [contents of the setup package](service-fabric-cluster-standalone-package-contents.md).
 
-## Setup your configuration file
+## Set up your configuration file
 
-You are building a three-node windows cluster, so you need to modify the `ClusterConfig.Unsecure.MultiMachine.json` file.
+You're building a three-node windows cluster, so you need to modify the `ClusterConfig.Unsecure.MultiMachine.json` file.
 
-You need to update the three ipAddress lines which occur in the file on lines 8, 15, and 22 to the IP Addresses for each of the instances that you retrieved in the first tutorial.
+Next, update the three ipAddress lines which occur in the file on lines 8, 15, and 22 to the IP Addresses for each of the instances.
 
-After updating the nodes they should look like this:
+After updating the nodes, they appear as follows:
 
 ```json
         {
@@ -56,7 +56,7 @@ After updating the nodes they should look like this:
         }
 ```
 
-Then you need to update a couple of the properties.  On line 34, you need to modify the connectionstring for the diagnostic store it should look like this after modification, with your IP address substituted in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+Then you need to update a couple of the properties.  On line 34, you need to modify the connectionstring for the diagnostic store it should look like this after modification, with your IP address replaced in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
 
 After you update the connection string be sure to create the folder.  The following command will create it, be sure to replace the ip address below with the IP address you inserted into the connection string:
 
@@ -103,7 +103,7 @@ Once you have a successfully validated your cluster config run the *CreateServic
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Windows.MultiMachine.json -AcceptEULA
 ```
 
-If it all works you'll get output that looks like this:
+If it all works, you'll get output that looks like this:
 
 ```powershell
 Your cluster is successfully created! You can connect and manage your cluster using Microsoft Azure Service Fabric Explorer or Powershell. To connect through Powershell, run 'Connect-ServiceFabricCluster [ClusterConnectionEndpoint]'.
@@ -132,7 +132,7 @@ In part two of the series, you learned about uploading large amounts of random d
 > * Run the application
 > * Validate the number of connections
 
-Advance to part three of the series to install an application into the cluster you just created.
+Advance to part three of the series to install an application into the cluster you created.
 
 > [!div class="nextstepaction"]
 > [Install the application into the service fabric cluster](service-fabric-tutorial-standalone-install-an-application.md)

@@ -19,7 +19,7 @@ ms.custom: mvc
 ---
 # Tutorial: Cleanup your standalone cluster
 
-Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series you will be creating a standalone cluster hosted on AWS.
+Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
 
 This tutorial is part four of a series. This part of the tutorial shows you how to clean up the AWS resources that you created to host your Service Fabric cluster.
 
@@ -30,7 +30,7 @@ In part four of the series, you learn how to:
 
 ## Clean up
 
-* Login to your AWS Account
+* Log in to your AWS Account
 * Go to the EC2 Console.
 * Select the three nodes that you created in part one of the tutorial.
 * Click on **Actions** > **Instance State** > **Terminate**
