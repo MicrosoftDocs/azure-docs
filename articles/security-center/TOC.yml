@@ -166,6 +166,8 @@
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
+    - name: Review compliance (REST)
+      href: security-center-review-policy-compliance.md
 
  
   - name: Scenarios
