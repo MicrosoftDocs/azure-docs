@@ -1,4 +1,4 @@
-<!-alkohli, last modified: 05/11/2018-->
+<!--alkohli, last modified: 05/11/2018-->
 
 After shipping the disks, return to the **Import/Export** page on the Azure portal.  To update the tracking number, perform the following steps.
  

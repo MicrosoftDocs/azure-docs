@@ -1,4 +1,4 @@
-<!-alkohli, last modified: 05/09/2018-->
+<!--alkohli, last modified: 05/09/2018-->
 
 FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. 
 
