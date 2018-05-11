@@ -173,7 +173,7 @@ After you have verified that the zone has been imported correctly, you need to u
 The format of the Azure CLI command to import a DNS zone is:
 
 ```azurecli
-az network dns zone export -g <resource group> -z <zone name> -f <zone file name>
+az network dns zone export -g <resource group> -n <zone name> -f <zone file name>
 ```
 
 Values:
