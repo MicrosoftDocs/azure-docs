@@ -49,7 +49,7 @@ Event Hubs is a managed service with no configuration or management overhead, so
 
 ## Scalable 
 
-You can start low with megabytes, and grow to gigabytes or terabytes of data streams. Event Hubs covers all streaming platform needs.
+You can start with megabytes, and grow to gigabytes or terabytes of data streams. Event Hubs covers all streaming platform needs.
 
 ## Batching
 

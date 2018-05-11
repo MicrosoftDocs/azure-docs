@@ -4,20 +4,19 @@ description: Quickly learn to process event streams using Azure CLI
 services: event-hubs
 author: sethmanheim
 manager: timlt
-editor: ''
 
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/26/2018
+ms.date: 05/11/2018
 ms.author: sethm
 
 ---
 
 # Process event streams using Azure CLI and Java
 
-Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create an event hub using Azure CLI, and then send to and receive from an event hub using Java.
+Azure Event Hubs is a highly scalable data streaming platform and ingestion service capable of receiving and processing millions of events per second. This quickstart shows how to create Event Hubs resources using Azure CLI, then send and receive event streams from an event hub using Java code.
 
 ## Prerequisites
 
@@ -29,7 +28,7 @@ If you choose to install and use Azure CLI locally, this tutorial requires that 
 
 ## Log on to Azure
 
-Once Azure CLI is installed, perform the following steps to install the Event Hubs CLI extension and log on to Azure. Note that the following steps are not required if you're running commands in Cloud Shell:
+The following steps are not required if you're running commands in Cloud Shell. If you're running the CLI locally, perform the following steps to log on to Azure and set your current subscription:
 
 1. Run the following command to log on to Azure:
 
