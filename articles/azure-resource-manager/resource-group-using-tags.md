@@ -55,13 +55,19 @@ Or, to see the existing tags for a *resource that has a specified name and resou
 To get *resource groups that have a specific tag*, use:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
+(Get-AzureRmResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
 To get *resources that have a specific tag*, use:
 
 ```powershell
-(Find-AzureRmResource -TagName Dept -TagValue Finance).Name
+(Get-AzureRmResource -Tag @{ Dept="Finance" }).Name
+```
+
+To get *resources that have a specific tag name*, use:
+
+```powershell
+(Get-AzureRmResource -TagName Dept).Name
 ```
 
 Every time you apply tags to a resource or a resource group, you overwrite the existing tags on that resource or resource group. Therefore, you must use a different approach based on whether the resource or resource group has existing tags.
@@ -76,7 +82,7 @@ To add tags to a *resource group that has existing tags*, retrieve the existing 
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
-$tags += @{Status="Approved"}
+$tags.Add("Status", "Approved")
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
@@ -91,7 +97,7 @@ To add tags to a *resource that has existing tags*, use:
 
 ```powershell
 $r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
-$r.tags += @{Status="Approved"}
+$r.Tags.Add("Status", "Approved")
 Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
@@ -101,7 +107,7 @@ To apply all tags from a resource group to its resources, and *not retain existi
 $groups = Get-AzureRmResourceGroup
 foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+    Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
@@ -110,16 +116,22 @@ To apply all tags from a resource group to its resources, and *retain existing t
 ```powershell
 $group = Get-AzureRmResourceGroup "examplegroup"
 if ($group.Tags -ne $null) {
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
     foreach ($r in $resources)
     {
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-        foreach ($key in $group.Tags.Keys)
+        if ($resourcetags)
         {
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+            
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force   
         }
-        $resourcetags += $group.Tags
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
