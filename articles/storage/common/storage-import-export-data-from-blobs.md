@@ -1,5 +1,5 @@
 ﻿---
-title: Using Azure Import/Export to transfer data from Azure Blobs | Microsoft Docs
+title: Using Azure Import/Export to export data from Azure Blobs | Microsoft Docs
 description: Learn how to create export jobs in Azure portal to transfer data from Azure Blobs.
 author: alkohli
 manager: jeconnoc
@@ -11,7 +11,7 @@ ms.date: 05/11/2018
 ms.author: alkohli
 
 ---
-# Use the Microsoft Azure Import/Export service to export data to Azure Blob storage
+# Use the Azure Import/Export service to export data from Azure Blob storage
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. 
 
 The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
