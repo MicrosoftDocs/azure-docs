@@ -49,7 +49,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>category</td>
-    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](/customization.md). Default value is: `general`.</td>
+    <td>*Optional parameter*.<br/>A string specifying the category (domain) of the translation. This parameter is used to get translations from a customized system built with [Custom Translator](../customization.md). Default value is: `general`.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -540,7 +540,7 @@ The result is:
 ]
 ```
 
-This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](/customization.md).
+This feature works the same way with `textType=text` or with `textType=html`. The feature should be used sparingly. The appropriate and far better way of customizing translation is by using Custom Translator. Custom Translator makes full use of context and statistical probabilities. If you have or can afford to create training data that shows your work or phrase in context, you get much better results. [Learn more about Custom Translator](../customization.md).
  
 
 
