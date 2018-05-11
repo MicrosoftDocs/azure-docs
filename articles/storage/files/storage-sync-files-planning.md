@@ -43,7 +43,14 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### Server endpoint
-A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. Currently, it is not possible to create a server endpoint for the root of a volume (for example `F:\` or `C:\myvolume`, if a volume is mounted as a mount point).
+A server endpoint represents a specific location on a registered server, such as a folder on a server volume. Multiple server endpoints can exist on the same volume if their namespaces do not overlap (for example, `F:\sync1` and `F:\sync2`). You can configure cloud tiering policies individually for each server endpoint. 
+
+You can create a server endpoint via a mountpoint. Note, mountpoints within the server endpoint are skipped.  
+
+You can create a server endpoint on the system volume but, there are two limitations if you do so:
+* Cloud tiering cannot be enabled.
+* Rapid namespace restore (where the system quickly brings down the entire namespace and then starts to recall content) is not performed.
+
 
 > [!Note]  
 > Only non-removable volumes are supported.  Drives mapped from a remote share are not supported for a server endpoint path.  In addition, a server endpoint may be located on the Windows system volume though cloud tiering is not supported on the system volume.
@@ -102,7 +109,7 @@ Future versions of Windows Server will be added as they are released. Earlier ve
 | ~$\*.\* | Office temporary file |
 | \*.tmp | Temporary file |
 | \*.laccdb | Access DB locking file|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | Internal Sync file|
 | \\System Volume Information | Folder specific to volume |
 | $RECYCLE.BIN| Folder |
 | \\SyncShareState | Folder for Sync |

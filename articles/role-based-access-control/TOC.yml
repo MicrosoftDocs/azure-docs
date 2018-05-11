@@ -25,7 +25,7 @@
     href: role-assignments-external-users.md
   - name: Activity logs
     href: change-history-report.md
-  - name: Elevate tenant admin access
+  - name: Elevate access for Global admin
     href: elevate-access-global-admin.md
   - name: Troubleshoot
     href: troubleshooting.md
