@@ -18,14 +18,12 @@ In Azure Search, a [service is provisioned](search-create-service-portal.md) at 
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then reload your indexes. There is no in-place upgrade of the same service from one SKU to another.
 
 > [!NOTE]
-> Most customers start with the **Free** tier and then graduate to **S1**. After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For more information, see [Allocate partitions and replicas for query and indexing workloads](search-capacity-planning.md).
+> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For more information, see [Allocate partitions and replicas for query and indexing workloads](search-capacity-planning.md).
 >
 
 ## Billing concepts
 
-Capacity is a reflection of the type of infrastructure provisioned for your exclusive use in Microsoft data centers. Some tiers run on more expensive hardware, which is reflected in tier pricing. 
-
-Capacity is structured as *replicas* and *partitions*. Replicas are instances of the search service. Each replica always hosts one copy of an index. If you have 12 replicas, you have 12 copies of every index loaded on the service. Partitions provide index storage and I/O for read/write operations (for example, when rebuilding or refreshing an index).
+Capacity is structured as *replicas* and *partitions*. Replicas are instances of the search service. Each replica always hosts one copy of an index and handles I/O for read/write operations (for example, when rebuilding or refreshing an index). If you have 12 replicas, you have 12 copies of every index loaded on the service. Partitions provide index storage.
 
 Tiers have limits, which are imposed at two levels: storage and resources. Storage is measured by partition size. Resources are measured by the quantity of objects instantiated and processed in the service, such as indexes, indexers, data sources, and so forth. You should think about both because whichever one you reach first is the effective limit. You can monitor resource consumption in the portal to track your status. 
 
@@ -49,12 +47,12 @@ On each side of the tier spectrum, **Basic** and **S3 HD** exist for important b
 
 Shifting focus to the more commonly used Standard tiers, **S1-S3** are a progression of tiers with increasing levels of capacity, with inflection points on partition size and resource limits:
 
-|  | S1 | S2 | S3 |  |  |  |
-|--|----|----|----|--|--|--|
-| partition size|  25 GB | 100 GB | 250 GB |  |  |  |
-| index and indexer limits| 50 | 200 | 200 |  |  |  |
+|  | S1 | S2 | S3 |  |  |  |  |
+|--|----|----|----|--|--|--|--|
+| partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
-**S1** is where most customers start. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced combinations.)
+**S1** is where many customers start. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more balanced combinations.)
 
 Outside of storage, other aspects of service capacity are uniform across tiers. Replicas, which are instances of the search engine (handling both indexing and query operations), do not vary by tier: an **S1** replica is the same as an **S3** replica. Similarly, request and response payloads, queries-per-second throughput, and maximum execution time also do not vary by tier.
 
