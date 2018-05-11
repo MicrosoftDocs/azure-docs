@@ -168,7 +168,7 @@ Since this image has a workload entry-point defined, you don't need to explicitl
 
 Specify an instance count of "1".
 
-Specify the port mapping in the appropriate format. For this article, you need to provide ```80:4000``` as the port mapping.
+Specify the port mapping in the appropriate format. For this article, you need to provide ```80:4000``` as the port mapping. By doing this you have configured that any incoming requests coming to port 4000 on the host machine are redirected to port 80 on the container.
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
