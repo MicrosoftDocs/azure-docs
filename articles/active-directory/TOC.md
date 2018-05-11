@@ -16,6 +16,7 @@
 ## [Add users to Azure AD](add-users-azure-active-directory.md)
 ## [Assign licenses to users](license-users-groups.md)
 ## [Configure Self-service password reset](authentication/quickstart-sspr.md)
+## [Add your organization's privacy info in Azure AD](active-directory-properties-area.md)
 
 
 # How to
