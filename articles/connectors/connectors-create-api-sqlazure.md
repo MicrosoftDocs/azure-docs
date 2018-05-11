@@ -14,7 +14,7 @@ ms.workload: logic-apps
 ms.devlang: 
 ms.tgt_pltfrm: 
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/14/2018
 ms.author: estfan; LADocs
 ---
 
@@ -24,7 +24,8 @@ This article shows how you can access data in your SQL
 database from inside a logic app with the SQL Server connector. 
 That way, you can create logic apps that automate tasks and 
 workflows for managing your data. The connector works for both 
-SQL Server on premises and for Azure SQL Database in the cloud. 
+[SQL Server on premises](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) 
+and for [Azure SQL Database in the cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
 You can build logic apps that run when triggered by events in 
 your SQL database or in other systems, such as Dynamics CRM Online. 
@@ -33,7 +34,8 @@ SQL queries or stored procedures. For example, you can build a logic
 app that automatically checks for new records in Dynamics CRM Online, 
 adds items to your SQL database for any new records, and then sends email alerts.
 
-If you're new to logic apps, review 
+If you don't have an Azure subscription, 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For connector-specific technical information, see the 
@@ -41,16 +43,11 @@ For connector-specific technical information, see the
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
-
 * The logic app where you need access to your SQL database. 
-To start your logic app with a SQL trigger, you need a blank logic app. 
-See [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+To start your logic app with a SQL trigger, you need a [blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-* An Azure SQL or SQL Server database. If you don't have either, learn how to 
-[create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) 
-or [create a SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database). 
+* An [Azure SQL database](../sql-database/sql-database-get-started-portal.md) 
+or a [SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
 
   Your tables must have data so that your logic app can return 
   results when calling operations. If you create an Azure SQL Database, 
@@ -69,20 +66,14 @@ You need these credentials so that you can authorize your logic to access your S
     "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
 * Before you can connect logic apps to on-premises systems, 
-such as SQL Server, you must [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). That way, 
+such as SQL Server, you must [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). That way, 
 you can select the gateway when you create the SQL connection for your logic app.
 
 <a name="create-connection"></a>
 
-## Connect to SQL database
+## Connect to your database
 
-Before your logic app can access any service, you must create 
-a *connection* between your logic app and that service. 
-If you didn't previously create this connection, 
-you're prompted for connection information when you 
-add a trigger or action for that service to your logic app. 
-The Logic Apps Designer provides an easy way for you to 
-create this connection directly from your logic app. 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
