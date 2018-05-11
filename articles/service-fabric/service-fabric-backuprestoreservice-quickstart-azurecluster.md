@@ -219,13 +219,13 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## Preview Limitation/ Caveats
+## Preview limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
 - No support for Service Fabric CLI.
 - No support for automated backup purging. Requires manual clean-up of backups.
 - No support for Service Fabric clusters on Linux.
 
-## Next Steps
+## Next steps
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
