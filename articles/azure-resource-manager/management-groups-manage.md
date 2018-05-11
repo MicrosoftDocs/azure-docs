@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 5/10/2018
 ms.author: rithorn
 ---
 
@@ -101,9 +101,9 @@ You can view any management group you have a direct or inherited RBAC role on.
 ### View in the portal
 1. Log into the [Azure portal](https://portal.azure.com)
 2. Select **All services** > **Management groups** 
-3. The Management Group hierarchy page loads where all groups are displayed that you have access to. 
+3. The Management Group hierarchy page loads where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does. 
     ![Main](media/management-groups/main.png)
-4. Select an individual management group for the details  
+4. To see the details of the management group, select the **(details)** link next to the title of the management group. If this link isn't available, you don't have permissions to view that management group.  
 
 ### View in PowerShell
 You use the Get-AzureRmManagementGroup command to retrieve all groups.  
