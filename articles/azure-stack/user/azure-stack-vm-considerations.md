@@ -18,11 +18,11 @@ ms.author: brenduns
 
 ---
 
-# Considerations for Virtual Machines in Azure Stack
+# Considerations for using virtual machines in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Virtual Machines are an on-demand, scalable computing resources offered by Azure Stack. When you use Virtual Machines, you must understand that there are differences between the features available in Microsoft Azure and Azure Stack. This article provides an overview of the unique considerations for Virtual Machines and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
+Azure Stack virtual machines provide on-demand, scalable computing resources. Before you deploy virtual machines (VMs), you must understand the differences between the virtual machine features available in Azure Stack and Microsoft Azure. This article describes these differences and identifies key considerations for planning virtual machine deployments. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) article.
 
 ## Cheat sheet: Virtual machine differences
 
@@ -40,7 +40,7 @@ Virtual Machines are an on-demand, scalable computing resources offered by Azure
 
 ## Virtual machine sizes
 
-Azure imposes resource limits in several ways to avoid over consumption of resources (server local and service-level.) Without placing some limits on a tenant's resource consumption, the tenant experience can suffer when a noisy neighbor overconsumes resources.
+Azure Stack imposes resource limits to avoid over consumption of resources (server local and service-level.) These limits improve the tenant experience by reducing the impact of resource consumption by other tenants.
 
 - For networking egress from the VM, there are bandwidth caps in place. Caps in Azure Stack are the same as the caps in Azure.
 - For storage resources, Azure Stack implements storage IOPS limits to avoid basic overconsumption of resources by tenants for storage access.
@@ -61,7 +61,7 @@ The following table lists the VMs that are supported on Azure Stack along with t
 |Memory optimized|Dv2-series     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
 |Memory optimized|DSv2-series -  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
-Virtual machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. This includes the amount of memory, the number of cores, and the  number/size of data disks that can be created. However, performance of VMs with the same size depends on the underlying characteristics of a particular Azure Stack environment.
+Virtual machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. This includes the amount of memory, the number of cores, and the number/size of data disks that can be created. However, performance of VMs with the same size depends on the underlying characteristics of a particular Azure Stack environment.
 
 ## Virtual machine extensions
 
@@ -99,7 +99,7 @@ The list of supported resource types and API versions may vary if the cloud oper
 
 Windows products must be used in accordance with Product Use Rights and Microsoft license terms. Azure Stack uses [Automatic VM Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) to activate Windows Server virtual machines (VMs).
 
-- Because the Azure Stack host activates with AVMA keys for Windows Server 2016, all VMs that run Windows Server 2012 or later are automatically activated.
+- Azure Stack host activates Windows with AVMA keys for Windows Server 2016. All VMs that run Windows Server 2012 or later are automatically activated.
 - VMs that run Windows Server 2008 R2 are not automatically activated and must be activated by using [MAK activation](https://technet.microsoft.com/library/ff793438.aspx).
 
 Microsoft Azure uses KMS activation to activate Windows VMs. If you move a VM from Azure Stack to Azure and encounter activate problems, see [Troubleshoot Azure Windows virtual machine activation problems](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Additional information can be found at the [Troubleshooting Windows activation failures on Azure VMs](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure Support Team Blog post.
