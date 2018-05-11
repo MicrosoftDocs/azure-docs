@@ -21,4 +21,4 @@ This approach carries several benefits:
 > [!div class="nextstepaction"]
 > [Get Started](get-started.md)
 
-![](media/visual-studio-connected-environment/vscode-overview.png)
+![](media/azure-dev-spaces/vscode-overview.png)

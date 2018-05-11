@@ -96,9 +96,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 [!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
-## Select the AZDS debug configuration
+## Select the VSCE debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **Launch Program (AZDS)** as the active debug configuration.
+1. Select **Launch Program (VSCE)** as the active debug configuration.
 
 ![](media/get-started-node/debug-configuration-nodejs.png)
 
@@ -141,7 +141,7 @@ With Azure Dev Spaces, you can use many of the same development workflows you us
 Try the following steps:
 1. Stop the VS Code debugger.
 1. Click on the Debug icon in the **Activity Bar** on the side of VS Code. 
-1. Select **Attach (AZDS)** as the active debug configuration.
+1. Select **Attach (VSCE)** as the active debug configuration.
 1. Hit F5.
 
 In this configuration, the container is configured to start *nodemon*. When server code edits are made, *nodemon* automatically restarts the Node process, just like it does when you develop locally. 
