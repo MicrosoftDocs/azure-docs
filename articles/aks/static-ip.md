@@ -1,9 +1,9 @@
 ---
-title: Use a static IP address with the Azure Container Service (AKS) load balancer
-description: Use a static IP address with the Azure Container Service (AKS) load balancer.
+title: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
+description: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -12,9 +12,9 @@ ms.author: nepeters
 ms.custom: mvc
 ---
 
-# Use a static IP address with the Azure Container Service (AKS) load balancer
+# Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
 
-In some cases, such as when the Azure Container Service (AKS) load balancer is recreated, or Kubernetes services with a type of LoadBalancer are recreated, the public IP address of the Kubernetes service may change. This document details configuring a static IP address for your Kubernetes services.
+In some cases, such as when the Azure Kubernetes Service (AKS) load balancer is recreated, or Kubernetes services with a type of LoadBalancer are recreated, the public IP address of the Kubernetes service may change. This document details configuring a static IP address for your Kubernetes services.
 
 ## Create static IP address
 
@@ -56,9 +56,11 @@ Take note of the IP address.
 
  If needed, the address can be retrieved using the [az network public-ip list][az-network-public-ip-list] command.
 
-```console
-$ az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```azurecli-interactive
+az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+```
 
+```console
 40.121.183.52
 ```
 
@@ -84,9 +86,11 @@ spec:
 
 If the static IP address has not been created, or has been created in the wrong resource group, service creation fails. To troubleshoot, return service creation events with the [kubectl describe][kubectl-describe] command.
 
-```console
-$ kubectl describe service azure-vote-front
+```azurecli-interactive
+kubectl describe service azure-vote-front
+```
 
+```console
 Name:                     azure-vote-front
 Namespace:                default
 Labels:                   <none>
@@ -109,7 +113,7 @@ Events:
 ```
 
 <!-- LINKS - External -->
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/ 
+[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
