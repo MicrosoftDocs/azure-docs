@@ -12,7 +12,7 @@ ms.author: v-jansko
 ---
 
 # Supported languages in the Microsoft Translator Text API 
-The Microsoft Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API. Neural machine translation is available in V2 by using the "generalnn" category. 
+The Microsoft Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. Neural machine translation is available in V2 by using the "generalnn" category. 
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
