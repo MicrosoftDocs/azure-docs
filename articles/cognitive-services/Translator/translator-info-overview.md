@@ -13,7 +13,7 @@ ms.author: nolachar
 
 # What is Microsoft Translator?
 
-The Microsoft Translator Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences in more than 60 languages. It can be used on any hardware platform and with any operating system to perform text to text language translation.
+The Microsoft Translator Text API can be seamlessly integrated into your applications, websites, tools, or other solutions to provide multi-language user experiences in [more than 60 languages](languages.md). It can be used on any hardware platform and with any operating system to perform text to text language translation.
 
 Microsoft Translator Text API is part of the Microsoft [Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
