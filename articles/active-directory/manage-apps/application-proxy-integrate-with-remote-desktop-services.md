@@ -29,7 +29,7 @@ The intended audience for this article is:
 
 A standard RDS deployment includes various Remote Desktop role services running on Windows Server. Looking at the [Remote Desktop Services architecture](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture), there are multiple deployment options. Unlike other RDS deployment options, the [RDS deployment with Azure AD Application Proxy](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/desktop-hosting-logical-architecture) (shown in the following diagram) has a permanent outbound connection from the server running the connector service. Other deployments leave open inbound connections through a load balancer.
 
-![Application Proxy sits between the RDS VM and the public internet](./media/application-proxy-publish-remote-desktop/rds-with-app-proxy.png)
+![Application Proxy sits between the RDS VM and the public internet](./media/application-proxy-integrate-with-remote-desktop-services/rds-with-app-proxy.png)
 
 In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-facing machines. These endpoints are exposed for the following reasons:
 - RD Web provides the user a public endpoint to sign in and view the various on-premises applications and desktops they can access. Upon selecting a resource, an RDP connection is created using the native app on the OS.
@@ -42,7 +42,7 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 
 - Both the RD Web and RD Gateway endpoints must be located on the same machine, and with a common root. RD Web and RD Gateway are published as a single application with Application Proxy so that you can have a single sign-on experience between the two applications.
 
-- You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](manage-apps/application-proxy-enable.md).
+- You should already have [deployed RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), and [enabled Application Proxy](application-proxy-enable.md).
 
 - This scenario assumes that your end users go through Internet Explorer on Windows 7 or Windows 10 desktops that connect through the RD Web page. If you need to support other operating systems, see [Support for other client configurations](#support-for-other-client-configurations).
 
@@ -54,7 +54,7 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
 
 ### Publish the RD host endpoint
 
-1. [Publish a new Application Proxy application](manage-apps/application-proxy-publish-azure-portal.md) with the following values:
+1. [Publish a new Application Proxy application](application-proxy-publish-azure-portal.md) with the following values:
    - Internal URL: https://\<rdhost\>.com/, where \<rdhost\> is the common root that RD Web and RD Gateway share.
    - External URL: This field is automatically populated based on the name of the application, but you can modify it. Your users will go to this URL when they access RDS.
    - Preauthentication method: Azure Active Directory
@@ -76,7 +76,7 @@ Connect to the RDS deployment as an administrator and change the RD Gateway serv
 6. In the RD Gateway tab, change the **Server name** field to the External URL that you set for the RD host endpoint in Application Proxy.
 7. Change the **Logon method** field to **Password Authentication**.
 
-  ![Deployment Properties screen on RDS](./media/application-proxy-publish-remote-desktop/rds-deployment-properties.png)
+  ![Deployment Properties screen on RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
 8. Run this command for each collection. Replace *\<yourcollectionname\>* and *\<proxyfrontendurl\>* with your own information. This command enables single sign-on between RD Web and RD Gateway, and optimizes performance:
 
@@ -122,5 +122,5 @@ To use passthrough authentication, there are just two modifications to the steps
 
 ## Next steps
 
-[Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)  
-[Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security-considerations.md)
+[Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)  
+[Security considerations for accessing apps remotely by using Azure AD Application Proxy](application-proxy-security.md)

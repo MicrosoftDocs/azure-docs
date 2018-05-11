@@ -53,7 +53,7 @@ To ensure that your sites are running under a defined service account, perform t
 2. Go to **Security** and select **Configure service accounts**.
 3. Select **Web Application Pool - SharePoint - 80**. The options may be slightly different based on the name of your web pool, or if the web pool uses SSL by default.
 
-  ![Choices for configuring a service account](./media/application-proxy-remote-sharepoint/service-web-application.png)
+  ![Choices for configuring a service account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
 4. If **Select an account for this component** field is set to **Local Service** or **Network Service**, you need to create an account. If not, you're finished and can move to the next section.
 5. Select **Register new managed account**. After your account is created, you must set **Web Application Pool** before you can use the account.
@@ -67,14 +67,14 @@ To configure your SharePoint site for Kerberos authentication:
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Go to **Application Management**, select **Manage web applications**, and select your SharePoint site. In this example, it is **SharePoint - 80**.
 
-  ![Selecting the SharePoint site](./media/application-proxy-remote-sharepoint/manage-web-applications.png)
+  ![Selecting the SharePoint site](./media/application-proxy-integrate-with-sharepoint-server/manage-web-applications.png)
 
 3. Click **Authentication Providers** on the toolbar.
 4. In the **Authentication Providers** box, click **Default Zone** to view the settings.
 5. In the **Edit Authentication** dialog box, scroll down until you see **Claims Authentication Types**. Ensure that both **Enable Windows Authentication** and **Integrated Windows Authentication** are selected.
 6. In the drop-down box for the Integrated Windows Authentication field, make sure that **Negotiate (Kerberos)** is selected.
 
-  ![Edit Authentication dialog box](./media/application-proxy-remote-sharepoint/service-edit-authentication.png)
+  ![Edit Authentication dialog box](./media/application-proxy-integrate-with-sharepoint-server/service-edit-authentication.png)
 
 7. At the bottom of the **Edit Authentication** dialog box, click **Save**.
 
@@ -121,7 +121,7 @@ Klist
 ```
 Klist then returns the set of target SPNs. In this example, the highlighted value is the SPN that's needed:
 
-  ![Example Klist results](./media/application-proxy-remote-sharepoint/remote-sharepoint-target-service.png)
+  ![Example Klist results](./media/application-proxy-integrate-with-sharepoint-server/remote-sharepoint-target-service.png)
 
 4. Now that you have the SPN, make sure that it's configured correctly on the service account that you set up for the web application earlier. Run the following command from the command prompt as an administrator of the domain:
 
@@ -146,11 +146,11 @@ To configure the KCD, repeat the following steps for each connector machine:
 3. Double-click the computer, and then click the **Delegation** tab.
 4. Ensure that the delegation settings are set to **Trust this computer for delegation to the specified services only**. Then, select **Use any authentication protocol**.
 
-  ![Delegation settings](./media/application-proxy-remote-sharepoint/delegation-box.png)
+  ![Delegation settings](./media/application-proxy-integrate-with-sharepoint-server/delegation-box.png)
 
 5. Click the **Add** button, click **Users or Computers**, and locate the service account.
 
-  ![Adding the SPN for the service account](./media/application-proxy-remote-sharepoint/users-computers.png)
+  ![Adding the SPN for the service account](./media/application-proxy-integrate-with-sharepoint-server/users-computers.png)
 
 6. In the list of SPNs, select the one that you created earlier for the service account.
 7. Click **OK**. Click **OK** again to save the changes.
@@ -159,7 +159,7 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're ready to publish the SharePoint farm for remote access through Azure AD Application Proxy.
 
-1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
+1. Publish your SharePoint site with the following settings. For step-by-step instructions, see [Publishing applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
    - **Internal URL**: the URL of the SharePoint site internally, such as **https://SharePoint/**. In this example, make sure to use **https**
    - **Preauthentication Method**: Azure Active Directory
    - **Translate URL in Headers**: NO
@@ -167,7 +167,7 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
    >[!TIP]
    >SharePoint uses the _Host Header_ value to look up the site. It also generates links based on this value. The net effect is that any link that SharePoint generates is a published URL that is correctly set to use the external URL. Setting the value to **YES** also enables the connector to forward the request to the back-end application. However, setting the value to **NO** means that the connector will not send the internal host name. Instead, the connector sends the host header as the published URL to the back-end application.
 
-   ![Publish SharePoint as application](./media/application-proxy-remote-sharepoint/publish-app.png)
+   ![Publish SharePoint as application](./media/application-proxy-integrate-with-sharepoint-server/publish-app.png)
 
 2. Once your app is published, configure the single sign-on settings with the following steps:
 
@@ -175,7 +175,7 @@ Now that you’ve enabled SharePoint for Kerberos and configured KCD, you're rea
    2. For Single Sign-on Mode, select **Integrated Windows Authentication**.
    3. Set Internal Application SPN to the value that you set earlier. For this example, that would be **http/sharepoint.demo.o365identity.us**.
 
-   ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-remote-sharepoint/configure-iwa.png)
+   ![Configure Integrated Windows Authentication for SSO](./media/application-proxy-integrate-with-sharepoint-server/configure-iwa.png)
 
 3. To finish setting up your application, go to the **Users and groups** section and assign users to access this application. 
 
@@ -186,14 +186,14 @@ Your last step is to ensure that SharePoint can find the site based on the exter
 1. Open the **SharePoint 2013 Central Administration** site.
 2. Under **System Settings**, select **Configure Alternate Access Mappings**. The Alternate Access Mappings box opens.
 
-  ![Alternate Access Mappings box](./media/application-proxy-remote-sharepoint/alternate-access1.png)
+  ![Alternate Access Mappings box](./media/application-proxy-integrate-with-sharepoint-server/alternate-access1.png)
 
 3. In the drop-down list beside **Alternate Access Mapping Collection**, select **Change Alternate Access Mapping Collection**.
 4. Select your site--for example, **SharePoint - 80**.
 5. You can choose to add the published URL as either an internal URL or a public URL. This example uses a public URL as the extranet.
 6. Click **Edit Public URLs** in the **Extranet** path, and then enter the External URL that was created when you published the application. For example, enter **https://sharepoint-iddemo.msappproxy.net**.
 
-  ![Entering the path](./media/application-proxy-remote-sharepoint/alternate-access3.png)
+  ![Entering the path](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)
 
 7. Click **Save**.
 
@@ -201,6 +201,6 @@ You can now access the SharePoint site externally via Azure AD Application Proxy
 
 ## Next steps
 
-- [Working with custom domains in Azure AD Application Proxy](manage-apps/application-proxy-configure-custom-domain.md)
-- [Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+- [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md)
+- [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
 
