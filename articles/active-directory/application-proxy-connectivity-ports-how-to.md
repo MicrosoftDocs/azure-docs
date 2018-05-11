@@ -34,4 +34,4 @@ To make sure the tool gives you the right results, be sure to:
 -   Ensure that any proxies or firewalls applicable to your Connector are also applied to this page. This can be done in Internet Explorer by going to **Settings** -&gt; **Internet Options** -&gt; **Connections** -&gt; **Lan Settings**. On this page, you see the field “Use a Proxy Server for your LAN”. Select this box, and put the proxy address into the “Address” field.
 
 ## Next steps
-[Understand Azure AD Application Proxy connectors](application-proxy-understand-connectors.md)
+[Understand Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)
