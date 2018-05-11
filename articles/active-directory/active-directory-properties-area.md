@@ -45,7 +45,7 @@ We strongly recommend you add both your global privacy contact and your organiza
         >[!Important]
         >If you don’t include either your own privacy statement or your privacy contact, your external guests will see text in the **Review Permissions** box that says, **<_your org name_> has not provided links to their terms for you to review**. For example, a guest user will see this message when they receive an invitation to access an organization through B2B collaboration.
 
-        ![B2B Collaboration Review Permissions box with message](./media/active-directory-properties-area/activeactive-directory-no-privacy-statement-or-contact.png)
+        ![B2B Collaboration Review Permissions box with message](./media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
 4.	Select **Save**.
 
