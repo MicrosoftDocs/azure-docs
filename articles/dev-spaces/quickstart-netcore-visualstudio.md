@@ -26,6 +26,8 @@ Azure Dev Spaces requires minimal local machine setup. Most of your development 
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
+[!INCLUDE[](includes/use-dev-spaces.md)]
+
 ## Get Kubernetes Debugging Tools
 While you can use the Azure Dev Spaces CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
 
@@ -50,21 +52,17 @@ Select the **Web Application (Model-View-Controller)** template and be sure you'
 
 ## Create a dev environment in Azure
 
-With Azure Dev Spaces, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project you just created open, select **Azure Dev Spaces for AKS** from the launch settings dropdown, as shown below.
+With Azure Dev Spaces, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-In the dialog that is displayed next, make sure you are signed in with the appropriate account, and then either select an existing development environment, or select **<Create New Azure Dev Spaces for AKS…>** to create a new one.
+In the dialog that is displayed next, make sure you are signed in with the appropriate account, and then select an existing cluster.
 
-![](media/get-started-netcore-visualstudio/ConnectedEnvDialog.png)
+![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-You can use the default values provided or adjust them as you like. Click **OK** when the values are set appropriately.
+Leave the **Space** dropdown defaulted to `mainline` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
-![](media/get-started-netcore-visualstudio/NewEnvDialog.png)
-
-Back on the previous dialog, leave the **Space** dropdown defaulted to `mainline` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
-
-![](media/get-started-netcore-visualstudio/ConnectedEnvDialog2.png)
+![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
 Click **OK** to select or create the development environment. A background task will be started to accomplish this, it will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 

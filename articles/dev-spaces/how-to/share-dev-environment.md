@@ -1,5 +1,5 @@
 ---
-title: "How to share Azure Dev Spaces| Microsoft Docs"
+title: "How to share a development environment | Microsoft Docs"
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"

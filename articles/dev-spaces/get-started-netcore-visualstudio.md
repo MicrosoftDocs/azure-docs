@@ -54,7 +54,7 @@ Select the **Web Application (Model-View-Controller)** template and be sure you'
 
 ## Create a dev environment in Azure
 
-With Azure Dev Spaces, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project you just created open, select **Azure Dev Spaces for AKS** from the launch settings dropdown, as shown below.
+With Azure Dev Spaces, you can create Kubernetes-based development environments that are fully managed by Azure and optimized for development. With the project you just created open, select **Azure Dev Spaces** from the launch settings dropdown, as shown below.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -101,7 +101,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 
 ## Run *mywebapi*
 1. Open the project `mywebapi` in a *separate Visual Studio window*.
-1. Select **Azure Dev Spaces for AKS** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than create a new development environment this time, select the same one you already created. As before, leave the Space defaulted to `mainline` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your development environment in order to speed things up when you start debugging.
+1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than create a new development environment this time, select the same one you already created. As before, leave the Space defaulted to `mainline` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your development environment in order to speed things up when you start debugging.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the Visual Studio status bar turns orange
 1. Take note of the endpoint URL displayed in the **Azre Dev Spaces for AKS** pane in the **Output** window. It will look something like http://localhost:\<portnumber\>. It might seem like the container is running locally, but actually it's running in the development environment in Azure.
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
@@ -189,7 +189,7 @@ Do the following to create a new space:
 1. Switch to the Visual Studio window with the `mywebapi` project.
 2. Right-click on the project in **Solution Explorer** and select **Properties**.
 3. Select the **Debug** tab on the left to show the Azure Dev Spaces settings.
-4. From here, you can change or create the Azure Dev Space and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Azure Dev Space you created earlier is selected*.
+4. From here, you can change or create the cluster and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Azure Dev Space you created earlier is selected*.
 5. In the Space dropdown, select **<Create New Space…>**.
 
     ![](media/get-started-netcore-visualstudio/Settings.png)

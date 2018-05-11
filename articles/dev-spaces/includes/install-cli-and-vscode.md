@@ -1,4 +1,3 @@
-## Install the Azure Dev Spaces CLI
 ---
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
@@ -8,6 +7,8 @@ ms.date: "05/11/2018"
 ms.topic: "include"
 manager: "douge"
 ---
+## Install the Azure Dev Spaces CLI
+
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users.
 
 ### Install on Mac

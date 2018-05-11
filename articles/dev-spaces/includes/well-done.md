@@ -1,4 +1,3 @@
-
 ---
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"

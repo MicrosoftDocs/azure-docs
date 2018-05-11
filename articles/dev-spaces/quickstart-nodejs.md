@@ -32,7 +32,7 @@ While you're waiting for the environment to be create, you can start writing cod
 In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
 
 ### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `vsce/samples/nodejs/getting-started/webfrontend`.
+Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
 
 [!INCLUDE[](includes/azds-prep.md)]
 
