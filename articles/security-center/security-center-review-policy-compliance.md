@@ -38,16 +38,14 @@ The `{subscription-id}` parameter is required and should contain the subscriptio
 
 The `api-version` parameter is required. At this time, these endpoints are supported only for `api-version=2015-06-01-preview`. 
 
-### Request headers  
-
-The following table describes the required and optional request headers. 
+The following headers are required: 
 
 |Request Header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
 |*Authorization:*|Required. Set to a valid `Bearer` [access token](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
-### Response  
+## Response  
 
 Status code 200 (OK) is returned for a successful response, which contains a list of recommended tasks to secure your Azure resources.
 
@@ -94,7 +92,7 @@ Other status codes indicate error conditions. In these cases, the response objec
 }  
 ```  
 
-### Example response  
+## Example response  
 
 ``` json
 {  
