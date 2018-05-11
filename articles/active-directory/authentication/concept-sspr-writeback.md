@@ -20,9 +20,9 @@ Password writeback is a premium feature of Azure Active Directory (Azure AD) ena
 
 Password writeback is supported in environments that use:
 
-* [Active Directory Federation Services](./..connect/active-directory-aadconnect-federation-management.md)
-* [Password hash synchronization](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Pass-through authentication](./../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
+* [Password hash synchronization](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
+* [Pass-through authentication](/../connect/active-directory-aadconnect-pass-through-authentication.md)
 
 Password writeback provides following:
 
