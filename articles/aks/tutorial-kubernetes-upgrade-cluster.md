@@ -32,10 +32,10 @@ If you have not done these steps, and would like to follow along, return to the 
 
 ## Get cluster versions
 
-Before upgrading a cluster, use the `az aks get-upgrades` command to check which Kubernetes releases are available for upgrade.
+Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
 
 ```azurecli
-az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 In this example, the current node version is `1.7.9` and the available upgrade versions under the upgrades column.
