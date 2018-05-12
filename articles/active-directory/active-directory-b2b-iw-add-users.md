@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 05/11/2018
 
 ms.author: twooley
 author: twooley
@@ -19,6 +19,8 @@ ms.reviewer: sasubram
 # How do information workers add B2B collaboration users to Azure Active Directory?
 
 Information workers can use the [Application Access Panel](http://myapps.microsoft.com) to add B2B collaboration users to groups and applications that they administer.
+
+After a guest user is added to the directory, the information worker can either send the guest user a direct link to a shared app, or the guest user can click the redemption URL in the invitation email. For more information about the redemption process, see [B2B collaboration invitation redemption](active-directory-b2b-redemption-experience.md).
 
 ## Information workers adding B2B collaboration users to an application
 Assign B2B collaboration users to an app as an information worker in a partner organization, as shown in the following video:

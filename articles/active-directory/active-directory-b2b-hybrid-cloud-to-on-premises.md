@@ -26,7 +26,7 @@ If your on-premises app uses SAML-based authentication, you can easily make thes
 You must do both of the following:
 
 - Integrate the SAML app by using the non-gallery application template, as described in [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md). Make sure to note what you use for the **Sign-on URL** value.
--  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+-  Use Azure AD Application Proxy to publish the on-premises app, with **Azure Active Directory** configured as the authentication source. For instructions, see [Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
    When you configure the **Internal Url** setting, use the sign-on URL that you specified in the non-gallery application template. In this way, users can access the app from outside the organization boundary. Application Proxy performs the SAML single sign-on for the on-premises app.
  
@@ -36,8 +36,8 @@ You must do both of the following:
 
 To provide B2B users access to on-premises applications that are secured with Integrated Windows Authentication and Kerberos constrained delegation, you need the following components:
 
-- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](active-directory-application-proxy-enable.md) and [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
-- **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
+- **Authentication through Azure AD Application Proxy**. B2B users must be able to authenticate to the on-premises application. To do this, you must publish the on-premises app through the Azure AD Application Proxy. For more information, see [Get started with Application Proxy and install the connector](manage-apps/application-proxy-enable.md) and [Publish applications using Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
+- **Authorization via a B2B user object in the on-premises directory**. The application must be able to perform user access checks, and grant access to the correct resources. IWA and KCD require a user object in the on-premises Windows Server Active Directory to complete this authorization. As described in [How single sign-on with KCD works](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy needs this user object to impersonate the user and get a Kerberos token to the app. 
 
    For the B2B user scenario, there are two methods available that you can use to create the guest user objects that are required for authorization in the on-premises directory:
 
