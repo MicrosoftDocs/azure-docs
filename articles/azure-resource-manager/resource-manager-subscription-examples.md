@@ -54,7 +54,7 @@ Dave assigns the following roles for the subscription:
 | Role | Assigned to | Description |
 | --- | --- | --- |
 | [Owner](../role-based-access-control/built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
-| [Security Manager](../role-based-access-control/built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
+| [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
 | [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](../role-based-access-control/custom-roles.md) |
 
@@ -112,7 +112,7 @@ Dave has nothing to automate for this application. Although he created an Azure 
 ### Azure Security Center
 Contoso IT service management needs to quickly identify and handle threats. They also want to understand what problems may exist.  
 
-To fulfill these requirements, Dave enables the [Azure Security Center](../security-center/security-center-intro.md), and provides access to the Security Manager role.
+To fulfill these requirements, Dave enables the [Azure Security Center](../security-center/security-center-intro.md), and provides access to the Security Reader role.
 
 ## Scenario 2: customer-facing app
 The business leadership in the supply chain business unit has identified various opportunities to increase engagement with Contoso's customers by using a loyalty card. Alice's team must create this application and decides that Azure increases their ability to meet the business need. Alice works with Dave from ETS to configure two subscriptions for developing and operating this application.
