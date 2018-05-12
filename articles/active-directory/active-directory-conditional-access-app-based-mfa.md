@@ -23,14 +23,12 @@ ms.reviewer: calebb
 
 To simplify the sign-in experience of your users, you might want to allow them to sign in to your cloud apps using a user name and a password. However, many environments have at least a few apps for which it is advisable to require a stronger form of account verification, such as multi-factor authentication (MFA). This might be, for example true, for access to your organization's email system or your HR apps. In Azure Active Directory (Azure AD), you can accomplish this goal with a conditional access policy.    
 
-This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) that requires multi-factor authentication for a set of selected cloud apps in your environment.
+This quickstart shows how to configure an [Azure AD conditional access policy](active-directory-conditional-access-azure-portal.md) that requires multi-factor authentication for a selected cloud app in your environment.
+
+![Create policy](./media/active-directory-conditional-access-app-based-mfa/32.png)
 
 
-## Scenario description
-
-The scenario in this article uses the Azure portal as placeholder for a cloud app that requires MFA for a specific user. Isabella Simonsen is a user in your organization. When she signs in to your Azure portal, you want her to further verify her account with MFA.
-
-![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 
 
@@ -38,15 +36,16 @@ The scenario in this article uses the Azure portal as placeholder for a cloud ap
 
 To complete the scenario in this quickstart, you need:
 
-- **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. If you don't have access to an Azure AD Premium edition, you can [sign-up for a trial](https://azure.microsoft.com/trial/get-started-active-directory/).
+- **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, read [these instructions](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](add-users-azure-active-directory.md#add-cloud-based-users).
 
 
 
 ## Create your conditional access policy 
 
-This section shows how to create the required conditional access policy.  
+This section shows how to create the required conditional access policy. The scenario in this quickstart uses the Azure portal as placeholder for a cloud app that requires MFA for a specific user.  
+
 In your policy, you set:
 
 |Setting |Value|
@@ -58,7 +57,7 @@ In your policy, you set:
 
 ![Create policy](./media/active-directory-conditional-access-app-based-mfa/31.png)
 
-
+ 
 
 
 **To configure your conditional access policy:**
@@ -177,6 +176,17 @@ The previous section In the previous section, you
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to set your account up for additional security verification.
 
 ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/22.png)
+
+
+## Clean up resources
+
+When no longer needed, delete the test user and the conditional access policy:
+
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+
+- To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
+
+    ![Multi-factor authentication](./media/active-directory-conditional-access-app-based-mfa/33.png)
 
 
 ## Next steps
