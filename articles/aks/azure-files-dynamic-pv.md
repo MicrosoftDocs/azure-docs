@@ -3,7 +3,7 @@ title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -63,10 +63,10 @@ parameters:
   storageAccount: mystorageaccount
 ```
 
-Create the storage class with the [kubectl create][kubectl-create] command.
+Create the storage class with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-sc.yaml
+kubectl apply -f azure-file-sc.yaml
 ```
 
 ## Create persistent volume claim
@@ -91,10 +91,10 @@ spec:
       storage: 5Gi
 ```
 
-Create the persistent volume claim with the [kubectl create][kubectl-create] command.
+Create the persistent volume claim with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-file-pvc.yaml
+kubectl apply -f azure-file-pvc.yaml
 ```
 
 Once completed, the file share will be created. A Kubernetes secret is also created that contains connection information and credentials.
@@ -123,10 +123,10 @@ spec:
         claimName: azurefile
 ```
 
-Create the pod with the [kubectl create][kubectl-create] command.
+Create the pod with the [kubectl apply][kubectl-apply] command.
 
 ```azurecli-interactive
-kubectl create -f azure-pvc-files.yaml
+kubectl apply -f azure-pvc-files.yaml
 ```
 
 You now have a running pod with your Azure disk mounted in the `/mnt/azure` directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`.
@@ -171,7 +171,7 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
