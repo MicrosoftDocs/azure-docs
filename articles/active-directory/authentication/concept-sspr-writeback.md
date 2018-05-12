@@ -16,7 +16,7 @@ ms.reviewer: sahenry
 ---
 # What is password writeback?
 
-Password writeback is a premium feature of Azure Active Directory (Azure AD) enabled through [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md). Password writeback allows features like self-service password reset the ability to write passwords changed in the cloud back to existing on-premises directory environments in real-time.
+Password writeback is a premium feature of Azure Active Directory (Azure AD) enabled through [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md). Password writeback allows features like self-service password reset the ability to write passwords changed in the cloud back to existing on-premises directory environments in real time.
 
 Password writeback is supported in environments that use:
 
@@ -24,24 +24,24 @@ Password writeback is supported in environments that use:
 * [Password hash synchronization](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 * [Pass-through authentication](/../connect/active-directory-aadconnect-pass-through-authentication.md)
 
-Password writeback provides following:
+Password writeback provides:
 
-* **Enforces your on-premises Active Directory password policies**: When a user resets their password, we make sure that it meets your on-premises Active Directory policy before we commit it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
+* **Enforces your on-premises Active Directory password policies**: When a user resets their password, it is checked to ensure it meets your on-premises Active Directory policy before committing it to that directory. This review includes checking the history, complexity, age, password filters, and any other password restrictions that you have defined in local Active Directory.
 * **Zero-delay feedback**: Password writeback is a synchronous operation. Your users are notified immediately if their password did not meet the policy or could not be reset or changed for any reason.
-* **Supports password changes from the access panel and Office 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, we write those passwords back to your local Active Directory environment.
-* **Supports passwords writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, we’ll set the password the admin selects in local Active Directory as well. This functionality is currently not supported in the Office admin portal.
-* **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. You don't have to open any inbound ports on your firewall for this feature to work.
+* **Supports password changes from the access panel and Office 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to your local Active Directory environment.
+* **Supports passwords writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
+* **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port.
 
 > [!Note]
 > User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 
 ## How password writeback works
 
-When a federated or password hash synchronized user attempts to reset or change their password in the cloud, the following occurs:
+When a federated or password hash synchronized user attempts to reset or change their password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
-   * If the writeback service is down, we tell the user that their password can't be reset right now.
+   * If the writeback service is down, the user is informed that their password can't be reset right now.
 2. Next, the user passes the appropriate authentication gates and reaches the **Reset password** page.
 3. The user selects a new password and confirms it.
 4. When the user selects **Submit**, the plaintext password is encrypted with a symmetric key created during the writeback setup process.
@@ -61,34 +61,34 @@ When a federated or password hash synchronized user attempts to reset or change 
 8. After the user account is found, an attempt to reset the password directly in the appropriate Active Directory forest is made.
 9. If the password set operation is successful, the user is told their password has been changed.
    > [!NOTE]
-   > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, we still enforce whatever the on-premises policy is, and instead use password hash synchronization to synchronize the hash of that password. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
+   > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
 
 10. If the password set operation fails, an error prompts the user to try again. The operation might fail because:
    * The service was down.
    * The password they selected did not meet the organization's policies.
-   * We might not find the user in local Active Directory.
+   * Unable to find the user in local Active Directory.
 
     The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
 
 ## Licensing requirements for password writeback
 
-Password writeback is a premium feature of Azure AD. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+Self-Service Password Reset/Change/Unlock with on-premises writeback is a premium feature of Azure AD. For more information about licensing, see the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Password writeback security model
 
-Password writeback is a highly secure service. To ensure your information is protected, we enable a four-tiered security model that's described as follows:
+Password writeback is a highly secure service. To ensure your information is protected, a four-tiered security model is enabled as the following describes:
 
 * **Tenant-specific service-bus relay**
-   * When you set up the service, we set up a tenant-specific service bus relay that's protected by a randomly generated strong password that Microsoft never has access to.
+   * When you set up the service, a tenant-specific service bus relay is set up that's protected by a randomly generated strong password that Microsoft never has access to.
 * **Locked down, cryptographically strong, password encryption key**
-   * After the service bus relay is created, we create a strong symmetric key that we use to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
+   * After the service bus relay is created, a strong symmetric key is created that is used to encrypt the password as it comes over the wire. This key only lives in your company's secret store in the cloud, which is heavily locked down and audited, just like any other password in the directory.
 * **Industry standard Transport Layer Security (TLS)**
-   1. When a password reset or change operation occurs in the cloud, we take the plaintext password and encrypt it with your public key.
-   2. We place that into an HTTPS message that is sent over an encrypted channel by using Microsoft SSL certs to your service bus relay.
+   1. When a password reset or change operation occurs in the cloud, the plaintext password is encrypted with your public key.
+   2. The encrypted password is placed into an HTTPS message that is sent over an encrypted channel by using Microsoft SSL certs to your service bus relay.
    3. After the message arrives in the service bus, your on-premises agent wakes up and authenticates to the service bus by using the strong password that was previously generated.
-   4. The on-premises agent picks up the encrypted message and decrypts it by using the private key we generated.
-   5. The on-premises agent attempts to set the password through the AD DS SetPassword API. This step is what allows us to enforce your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.
-* **Message expiration policies** 
+   4. The on-premises agent picks up the encrypted message and decrypts it by using the private key.
+   5. The on-premises agent attempts to set the password through the AD DS SetPassword API. This step is what allows enforcement of your Active Directory on-premises password policy (such as the complexity, age, history, and filters) in the cloud.
+* **Message expiration policies**
    * If the message sits in service bus because your on-premises service is down, it times out and is removed after several minutes. The time-out and removal of the message increases security even further.
 
 ### Password writeback encryption details
@@ -98,7 +98,7 @@ After a user submits a password reset, the reset request goes through several en
 * **Step 1: Password encryption with 2048-bit RSA Key**: After a user submits a password to be written back to on-premises, the submitted password itself is encrypted with a 2048-bit RSA key.
 * **Step 2: Package-level encryption with AES-GCM**: The entire package, the password plus the required metadata, is encrypted by using AES-GCM. This encryption prevents anyone with direct access to the underlying ServiceBus channel from viewing or tampering with the contents.
 * **Step 3: All communication occurs over TLS/SSL**: All the communication with ServiceBus happens in an SSL/TLS channel. This encryption secures the contents from unauthorized third parties.
-* **Automatic key rollover every six months**: Every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect. We automatically roll over all keys to ensure maximum service security and safety.
+* **Automatic key roll over every six months**: All keys roll over every six months, or every time password writeback is disabled and then re-enabled on Azure AD Connect, to ensure maximum service security and safety.
 
 ### Password writeback bandwidth usage
 
