@@ -17,7 +17,7 @@ ms.custom: pim
 
 
 # Perform access reviews in Azure resources by using Privileged Identity Management
-Role assignments become "stale" when users have privileged access that they don't need anymore. To reduce the risk that's associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting an access review in Privileged Identity Management (PIM) for Azure resources.
+Role assignments become "stale" when users have privileged access that they don't need anymore. To reduce the risk that's associated with these stale role assignments, privileged role administrators should regularly review roles. This document covers the steps for starting an access review in Privileged Identity Management (PIM) for Azure resources.
 
 From the PIM application main page, go to:
 
@@ -25,7 +25,7 @@ From the PIM application main page, go to:
 
 ![Add access reviews](media/azure-pim-resource-rbac/rbac-access-review-home.png)
 
-When you select the **Add** button, the **Create an access review** blade appears. On this blade, you're going to configure the review with a name and time limit, choose a role to review, and decide who performs the review.
+When you select the **Add** button, the **Create an access review** blade appears. On this blade, configure the review with a name and time limit, choose a role to review, and decide who does the review.
 
 ![Create an access review](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
@@ -45,7 +45,7 @@ Each review focuses on only one role. Unless you started the access review from 
 2. Choose one role from the list.
 
 ### Decide who will perform the review
-There are three options for performing a review. You can assign the review to someone else to complete, you can do it yourself, or you can have each user review their own access.
+There are three options for performing a review. You can assign the review to someone else to complete, you can do it yourself, or each user can review their own access.
 
 1. Choose one of the options:
    
@@ -57,7 +57,7 @@ There are three options for performing a review. You can assign the review to so
     ![Select reviewers - screenshot](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
 ### Start the review
-Finally, you have the option to require that users provide a reason if they approve their access. Add a description of the review if you like. Then select **Start**.
+Finally, you can require that users provide a reason if they approve their access. Add a description of the review if you like. Then select **Start**.
 
 Make sure you let your users know that there's an access review waiting for them, and show them [show to perform an access review](pim-resource-roles-perform-access-review.md).
 

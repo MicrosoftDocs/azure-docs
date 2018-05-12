@@ -1,5 +1,5 @@
 ---
-title: Privileged Identity Management for Azure Resources - Resource audit| Microsoft Docs
+title: Audit resource roles for Azure resources by using Privileged Identity Management| Microsoft Docs
 description: Explains how to get a view of all role activity for the a given resource.
 services: active-directory
 documentationcenter: ''
@@ -32,11 +32,11 @@ My audit gives you a view of a user's personal role activity. You can filter the
 
 ## View activation and Azure Resource activity
 
-If you need to see what actions a specific user took in various resources, you can review the Azure Resource activity that's associated with a given activation period (for eligible users). Start by selecting a user from the **Members** view or from the list of members in a specific role. The result displays a graphical view of the user’s actions on Azure Resources by date, and the recent role activations over that same time period.
+To see what actions a specific user took in various resources, you can review the Azure Resource activity that's associated with a given activation period. Start by selecting a user from the **Members** view or from the list of members in a specific role. The result displays a graphical view of the user’s actions on Azure Resources by date. It also shows the recent role activations over that same time period.
 
 ![User details](media/azure-pim-resource-rbac/rbac-user-details.png)
 
-Selecting a specific role activation will show the role activation details, and corresponding Azure Resource activity that occurred while that user was active.
+Selecting a specific role activation will show the role activation details and corresponding Azure Resource activity that occurred while that user was active.
 
 ![Select role activation](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
