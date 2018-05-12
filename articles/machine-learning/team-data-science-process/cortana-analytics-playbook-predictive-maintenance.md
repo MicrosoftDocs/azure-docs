@@ -72,12 +72,12 @@ These goal statements are the starting points for:
 - _data scientists_ to analyze and solve specific predictive problems.
 - _cloud architects and developers_ to put together an end to end solution.
 
-## Qualifying problems for PdM
+## Qualifying problems for predictive maintenance
 It is important to emphasize that not all use cases or business problems can be effectively solved by PdM. There are three important qualifying criteria that need to be considered during problem selection:
 
 - The problem has to be predictive in nature; that is, there should be a target or an outcome to predict. The problem should also have a clear path of action to prevent failures when they are detected.
 - The problem should have a record of the operational history of the equipment that contains _both good and bad outcomes_. The set of actions taken to mitigate bad outcomes should also be available as part of these records. Error reports, maintenance logs of performance degradation, repair, and replace logs are also important. In addition, repairs undertaken to improve them, and replacement records are also useful.
-- The recorded history should be reflected in _relevant_ data that is of _sufficient_ enough quality to support the use case. For more information about data relevance and sufficiency, see [Data requirements for PdM](#Data-requirements-for-PdM).
+- The recorded history should be reflected in _relevant_ data that is of _sufficient_ enough quality to support the use case. For more information about data relevance and sufficiency, see [Data requirements for predictive maintenance](#Data-requirements-for-predictive-maintenance).
 - Finally, the business should have domain experts who have a clear understanding of the problem. They should be aware of the internal processes and practices to be able to help the analyst understand and interpret the data. They should also be able to make the necessary changes to existing business processes to help collect the right data for the problems, if needed.
 
 ## Sample PdM use cases
@@ -102,22 +102,22 @@ The next section gets into the details of how to realize the PdM benefits discus
 
 ## Data Science for predictive maintenance
 
-This section provides general guidelines of data science principles and practice for PdM. It is intended to help a TDM, solution architect, or a developer understand the prerequisites and process for building end-to-end AI applications for PdM. You can read this section along with a review of the demos and proof-of-concept templates listed in [Solution Templates for PdM](#Solution-templates-for-PdM). You can then use these principles and best practices to implement your PdM solution in Azure.
+This section provides general guidelines of data science principles and practice for PdM. It is intended to help a TDM, solution architect, or a developer understand the prerequisites and process for building end-to-end AI applications for PdM. You can read this section along with a review of the demos and proof-of-concept templates listed in [Solution Templates for predictive maintenance](#Solution-templates-for-predictive-maintenance). You can then use these principles and best practices to implement your PdM solution in Azure.
 
 > [!NOTE]
 > This guide is NOT intended to teach the reader Data Science. Several
 > helpful sources are provided for further reading in the section for
-> [training resources for PdM](#Training-resources-for-PdM). The 
-> [solution templates](#Solution-templates-for-PdM) listed in the guide 
+> [training resources for predictive maintenance](#Training-resources-for-predictive-maintenance). The 
+> [solution templates](#Solution-templates-for-predictive-maintenance) listed in the guide 
 > demonstrate some of these AI techniques for specific PdM problems.
 
-## Data requirements for PdM
+## Data requirements for predictive maintenance
 
 The success of any learning depends on (a) the quality of what is being taught, and (b) the ability of the learner. Predictive models learn patterns from historical data, and predict future outcomes with certain probability based on these observed patterns. A model's predictive accuracy depends on the relevancy, sufficiency, and quality of the training and test data. The new data that is 'scored' using this model should have the same features and schema as the training/test data. The feature characteristics (type, density, distribution, and so on) of new data should match that of the training and test data sets. The focus of this section is on such data requirements.
 
 ### Relevant data
 
-First, the data has to be _relevant to the problem_. Consider the _wheel failure_ use case discussed above - the training data should contain features related to the wheel operations. If the problem was to predict the failure of the  _traction system_, the training data has to encompass all the different components for the traction system. The first case targets a specific component whereas the second case targets the failure of a larger subsystem. The general recommendation is to design prediction systems about specific components rather than larger subsystems, since the latter will have more dispersed data. The domain expert (see [Qualifying problems for PdM](#Qualifying-problems-for-PdM)) should help in selecting the most relevant subsets of data for the analysis. The relevant data sources are discussed in greater detail in [Data preparation for PdM](#Data-preparation-for-PdM).
+First, the data has to be _relevant to the problem_. Consider the _wheel failure_ use case discussed above - the training data should contain features related to the wheel operations. If the problem was to predict the failure of the  _traction system_, the training data has to encompass all the different components for the traction system. The first case targets a specific component whereas the second case targets the failure of a larger subsystem. The general recommendation is to design prediction systems about specific components rather than larger subsystems, since the latter will have more dispersed data. The domain expert (see [Qualifying problems for predictive maintenance](#Qualifying-problems-for-predictive-maintenance)) should help in selecting the most relevant subsets of data for the analysis. The relevant data sources are discussed in greater detail in [Data preparation for predictive maintenance](#Data-preparation-for-predictive-maintenance).
 
 ### Sufficient data
 Two questions are commonly asked with regard to failure history data: (1) "How many failure events are required to train a model?" (2) "How many records is considered as "enough"?" There are no definitive answers, but only rules of thumb. For (1), more the number of failure events, better the model. For (2),  and the exact number of failure events depends on the data and the context of the problem being solved. But on the flip side, if a machine fails too often then the business will replace it, which will reduce failure instances. Here again, the guidance from the domain expert is important. However, there are methods to cope with the issue of _rare events_. They are discussed in the section [Handling imbalanced data](#Handling-imbalanced-data).
@@ -134,11 +134,11 @@ The quality of the data is critical - each predictor attribute value must be _ac
 > - [Hellerstein, J, Quantitative Data Cleaning for Large Databases](http://db.cs.berkeley.edu/jmh/papers/cleaning-unece.pdf)
 > - [de Jonge, E, van der loo, M, Introduction to Data Cleaning with R](https://cran.r-project.org/doc/contrib/de_Jonge+van_der_Loo-Introduction_to_data_cleaning_with_R.pdf)
 
-## Data preparation for PdM
+## Data preparation for predictive maintenance
 
 ### Data sources
 
-The relevant data sources for PdM include, but are not limited to:
+The relevant data sources for predictive maintenance include, but are not limited to:
 - Failure history
 - Maintenance/repair history
 - Machine operating conditions
@@ -191,7 +191,7 @@ For static data,
 
 Other data preprocessing steps include _handling missing values_ and _normalization_ of attribute values. A detailed discussion is beyond the scope of this guide - see the next section for some useful references.
 
-With the above preprocessed data sources in place, the final transformation before feature engineering is to join the above tables based on the asset identifier and timestamp. The resulting table would have null values for the failure column when machine is in normal operation. These null values can be imputed by an indicator for normal operation. Use this failure column to create _labels for the predictive model_. For more information, see the section on [modeling techniques for PdM](#Modeling-techniques-for-PdM).
+With the above preprocessed data sources in place, the final transformation before feature engineering is to join the above tables based on the asset identifier and timestamp. The resulting table would have null values for the failure column when machine is in normal operation. These null values can be imputed by an indicator for normal operation. Use this failure column to create _labels for the predictive model_. For more information, see the section on [modeling techniques for predictive maintenance](#Modeling-techniques-for-predictive-maintenance).
 
 ## Feature engineering
 Feature engineering is the first step prior to modeling the data. Its role in the data science process [is described here](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). A _feature_ is a predictive attribute for the model - such as temperature, pressure, vibration, and so on. For PdM, feature engineering involves abstracting a machine’s health over historical data collected over a sizable duration. In that sense, it is different from its peers such as remote monitoring, anomaly detection, and failure detection. 
@@ -259,7 +259,7 @@ The data preparation efforts discussed so far should lead to the data being orga
 
 The last step in feature engineering is the **labeling** of the target variable. This process is dependent on the modeling technique. In turn, the modeling technique depends on the business problem and nature of the available data. Labeling is discussed in the next section.
 
-## Modeling techniques for PdM
+## Modeling techniques for predictive maintenance
 
 This section discusses the main modeling techniques for PdM problems, along with their specific label construction methods. Notice that a single modeling technique can be used across different industries. The modeling technique is paired to the data science problem, rather than the context of the data at hand.
 
@@ -287,7 +287,7 @@ Examples of labeling strategy for some of the use cases are listed below.
 - _Train door failures_: X may be chosen as two days.
 - _Wind turbine failures_: X may be chosen as two months.
 
-### Regression for PdM
+### Regression for predictive maintenance
 Regression models are used to _compute the remaining useful life (RUL) of an asset_. RUL is defined as the amount of time that an asset is operational before the next failure occurs. Each training example is a record that belongs to a time unit _nY_ for an asset, where _n_ is the multiple. The model should calculate the RUL of each new example as a _continuous number_. This number denotes the period of time remaining before the failure.
 
 #### Label construction for regression
@@ -298,7 +298,7 @@ Figure 4. Labeling for regression
 
 For regression, labeling is done with reference to a failure point. Its calculation is not possible without knowing how long the asset has survived before a failure. So in contrast to binary classification, assets without any failures in the data cannot be used for modeling. This issue is best addressed by another statistical technique called [Survival Analysis](https://en.wikipedia.org/wiki/Survival_analysis). But potential complications may arise when applying this technique to PdM use cases that involve time-varying data with frequent intervals. For more information on Survival Analysis, see [this one-pager](https://www.cscu.cornell.edu/news/statnews/stnews78.pdf).
 
-### Multi-class classification for PdM
+### Multi-class classification for predictive maintenance
 Multi-class classification techniques can be used in PdM solutions for two scenarios:
 - Predict _two future outcomes_: The first outcome is _a range of time to failure_ for an asset. The asset is assigned to one of multiple possible periods of time. The second outcome is the likelihood of failure in a future period due to _one of the multiple root causes_. This prediction enables the maintenance crew to watch for symptoms and plan maintenance schedules.
 - Predict _the most likely root cause_ of a given failure. This outcome recommends the right set of maintenance actions to fix a failure. A ranked list of root causes and recommended repairs can help technicians prioritize their repair actions after a failure.
@@ -318,7 +318,7 @@ The model assigns a failure probability due to each _P<sub>i</sub>_ as well as t
 
 The question here is: "What maintenance actions do you recommend after a failure?" To answer this question, labeling _does not require a future horizon to be picked_, because the model is not predicting failure in the future. It is just predicting the most likely root cause _once the failure has already happened_.
 
-## Training, validation, and testing methods for PdM
+## Training, validation, and testing methods for predictive maintenance
 The [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) provides a full coverage of the model train-test-validate cycle. This section discusses aspects unique to PdM.
 
 ### Cross validation
@@ -406,7 +406,7 @@ For binary classification,
   - _Decile tables_ are created using test examples in a descending order of  failure probabilities. The ordered samples are then grouped into deciles (10% of the samples with highest probability, then 20%, 30%, and so on). The ratio (true positive rate)/(random baseline) for each decile helps estimate the algorithm performance at each decile. The random baseline takes on values 0.1, 0.2, and so on.
   - [Lift charts](http://www2.cs.uregina.ca/~dbd/cs831/notes/lift_chart/lift_chart.html) plot the decile true positive rate versus random true positive rate for all deciles. The first deciles are usually the focus of results, since they show the largest gains. First deciles can also be seen as representative for "at risk", when used for PdM.
 
-## Model operationalization for PdM
+## Model operationalization for predictive maintenance
 
 The benefit the data science exercise is realized only when the trained model is made operational. That is, the model must be deployed into the business systems to make predictions based on new, previously unseen, data.  The new data must exactly conform to the _model signature_ of the trained model in two ways:
 - all the features must be present in every logical instance (say a row in a table) of the new data.
