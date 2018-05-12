@@ -44,15 +44,18 @@ To complete the scenario in this quickstart, you need:
 
 ## Create your conditional access policy 
 
-This section shows how to create the required conditional access policy. The scenario in this quickstart uses the Azure portal as placeholder for a cloud app that requires MFA for a specific user.  
+This section shows how to create the required conditional access policy. The scenario in this quickstart uses:
 
-In your policy, you set:
+- The Azure portal as placeholder for a cloud app that requires MFA. 
+- Your sample user to test the conditional access policy.  
+
+In your policy, set:
 
 |Setting |Value|
 |---     | --- |
 |Users and groups | Isabella Simonsen |
 |Cloud apps | Microsoft Azure Management |
-|Grant | Require multi-factor authentication |
+|Grant access | Require multi-factor authentication |
  
 
 ![Create policy](./media/active-directory-conditional-access-app-based-mfa/31.png)
@@ -134,9 +137,19 @@ In your policy, you set:
 13. Click **Create**.
 
 
-## Evaluate your conditional access policy
+## Evaluate a simulated sign-in
 
-Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, you can use the [conditional access what if policy tool](active-directory-conditional-access-whatif.md) to simulate a sign-in of a user. When you configure the tool with **Isabella Simonsen** as user and **Microsoft Azure Management** as cloud app, the tool shows **Require MFA for Azure portal access** under **Policies that will apply** and **Require multi-factor authentication** as **Grant Controls**.
+Now that you have configured your conditional access policy, you probably want to know whether it works as expected. As a first step, use the conditional access what if policy tool to simulate a sign-in of your test user. The simulation estimates the impact this sign-in has on your policies and generates a simulation report.  
+
+To initialize the what if policy evaluation tool, set:
+
+- **Isabella Simonsen** as user 
+- **Microsoft Azure Management** as cloud app
+
+ Clicking **What If** creates a simulation report that shows:
+
+- **Require MFA for Azure portal access** under **Policies that will apply** 
+- **Require multi-factor authentication** as **Grant Controls**.
 
 ![What if policy tool](./media/active-directory-conditional-access-app-based-mfa/23.png)
 
@@ -171,7 +184,7 @@ Now that you have configured your conditional access policy, you probably want t
 
 ## Test your conditional access policy
 
-The previous section In the previous section, you 
+In the previous section, you have learned how to evaluate a simulated sign-in. In addition to a simulation, you should also test your conditional access policy to ensure that it works as expected. 
 
 To test your policy, try to sign-in to your [Azure portal](https://portal.azure.com) using your **Isabella Simonsen** test account. You should see a dialog that requires you to set your account up for additional security verification.
 
