@@ -31,7 +31,7 @@ Here's one example of why a company would set a custom home page:
 - Set *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* as the home page URL. 
 
 >[!NOTE]
->When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
+>When you give users access to published apps, the apps are displayed in the [Azure AD Access Panel](../active-directory-saas-access-panel-introduction.md) and the [Office 365 app launcher](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher).
 
 ## Before you start
 
@@ -50,7 +50,7 @@ Before you set the home page URL, keep in mind the following requirements:
 3. Select **Properties** from the settings.
 4. Update the **Home page URL** field with your new path. 
 
-   ![Provide new home page URL](./media/application-proxy-office365-app-launcher/homepage.png)
+   ![Provide new home page URL](./media/application-proxy-configure-custom-home-page/homepage.png)
 
 5. Select **Save**
 
@@ -137,5 +137,5 @@ Create the home page URL, and update your application with that value. Continue 
 
 ## Next steps
 
-- [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-enable-remote-access-sharepoint.md)
-- [Enable Application Proxy in the Azure portal](manage-apps/application-proxy-enable.md)
+- [Enable remote access to SharePoint with Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
+- [Enable Application Proxy in the Azure portal](application-proxy-enable.md)

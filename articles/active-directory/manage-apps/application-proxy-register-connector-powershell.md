@@ -30,7 +30,7 @@ This capability is useful when you want to:
 * Integrate the connector installation and registration as part of another procedure.
 * Create a standard server image that contains the connector bits but is not registered.
 
-For the [Application Proxy connector](application-proxy-understand-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
+For the [Application Proxy connector](application-proxy-connectors.md) to work, it has to be registered with your Azure AD directory using a global administrator and password. Ordinarily this information is entered during Connector installation in a pop-up dialog box, but you can use PowerShell to automate this process instead.
 
 There are two steps for an unattended installation. First, install the connector. Second, register the connector with Azure AD. 
 
@@ -125,8 +125,8 @@ There are two methods you can use to register the connector:
    `.\RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft AAD App Proxy Connector\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Token -Token $SecureToken -TenantId <tenant GUID> -Feature ApplicationProxy`
 
 ## Next steps 
-* [Publish applications using your own domain name](manage-apps/application-proxy-configure-custom-domain.md)
-* [Enable single-sign on](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
-* [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+* [Publish applications using your own domain name](application-proxy-configure-custom-domain.md)
+* [Enable single-sign on](application-proxy-configure-single-sign-on-with-kcd.md)
+* [Troubleshoot issues you're having with Application Proxy](../active-directory-application-proxy-troubleshoot.md)
 
 
