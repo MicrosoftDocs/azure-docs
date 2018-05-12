@@ -7,12 +7,12 @@ author: rolyon
 manager: mtillman
 
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/11/2017
+ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
@@ -35,7 +35,7 @@ In PowerShell, use the [Get-AzureRmRoleDefinition](/powershell/module/azurerm.re
 Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
-The following shows the JSON output for the [Reader](built-in-roles.md#reader) role. A typical role is composed of three main sections, `Actions`, `NotActions`, and `AssignableScopes`. A role can also optionally include `DataActions` and `NotDataActions` (currently in preview). The `Actions` section lists all the permitted operations for the role. To exclude operations from `Actions`, you add them to `NotActions`. The effective permissions is computed by subtracting the `NotActions` operations from the `Actions` operations.
+The following shows the JSON output for the [Reader](built-in-roles.md#reader) role. A typical role is composed of three main sections, `Actions`, `NotActions`, and `AssignableScopes`. The `Actions` section lists all the permitted operations for the role. To exclude operations from `Actions`, you add them to `NotActions`. The effective permissions is computed by subtracting the `NotActions` operations from the `Actions` operations.
 
 ```json
 {
@@ -49,12 +49,6 @@ The following shows the JSON output for the [Reader](built-in-roles.md#reader) r
     "NotActions":  [
 
                    ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
     "AssignableScopes":  [
                              "/"
                          ]
@@ -79,12 +73,6 @@ Finally, you must set the `IsCustom` property to `true` to specify that this is 
     "NotActions":  [
 
                    ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
     "AssignableScopes":  [
                              "/subscriptions/11111111-1111-1111-1111-111111111111"
                          ]
@@ -141,9 +129,7 @@ az role definition list --name "Reader" --output json
           "*/read"
         ],
         "additionalProperties": {},
-        "dataActions": [],
         "notActions": [],
-        "notDataActions": []
       }
     ],
     "roleName": "Reader",
@@ -167,12 +153,6 @@ Create a JSON file with the following format. The `Microsoft.Support/*` operatio
     "NotActions":  [
 
                    ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
     "AssignableScopes": [
                             "/subscriptions/11111111-1111-1111-1111-111111111111"
                         ]
@@ -191,6 +171,7 @@ The new custom role is now available in the Azure portal and the process to use 
 
 
 ## See also
-* [Manage role-based access control with AzurePowerShell](role-assignments-powershell.md)
-* [Manage role-based access control with Azure CLI](role-assignments-cli.md)
-* [Manage role-based access control with the REST API](role-assignments-rest.md)
+- [Understand role definitions](role-definitions.md)
+- [Manage role-based access control with AzurePowerShell](role-assignments-powershell.md)
+- [Manage role-based access control with Azure CLI](role-assignments-cli.md)
+- [Manage role-based access control with the REST API](role-assignments-rest.md)
