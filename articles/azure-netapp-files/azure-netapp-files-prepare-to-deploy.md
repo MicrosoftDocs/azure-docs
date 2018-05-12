@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Prepare to deploy Azure NetApp Files
 
-Follow the procedures in this article to prepare the deployment of Azure NetApp Files:
+Follow the procedures in this article to prepare the deployment of Azure NetApp Files: 
 
 1. [Whitelist your Azure subscription](#whitelist-your-azure-subscription)
 2. [Set up Azure network connectivity](#set-up-azure-network-connectivity)  
