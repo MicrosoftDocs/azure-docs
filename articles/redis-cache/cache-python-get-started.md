@@ -38,7 +38,8 @@ This quickstart shows how to connect to an Azure Redis Cache with Python to read
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-Install [redis-py](https://github.com/andymccurdy/redis-py).
+
+* [Python 2 or Python 3 environment](https://www.python.org/downloads/) installed with [pip](https://pypi.org/project/pip/). 
 
 ## Create a Redis cache on Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -47,9 +48,9 @@ Install [redis-py](https://github.com/andymccurdy/redis-py).
 
 ## Install redis-py
 
-Use the Python packages tool, *pip* to install redis-py. 
+[Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Redis Cache. Use the Python packages tool, *pip*, to install the redis-py package. 
 
-The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt with elevated Administrator privileges.
+The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt running with elevated Administrator privileges.
 
     pip3 install redis
 
