@@ -1,7 +1,7 @@
 Since the Azure File Sync agent runs on a Windows Server machine that connects to the Azure file shares, the effective sync performance you experience depends upon a number of factors in your infrastructure: Windows Server and the underlying disk configuration, network bandwidth between the server and the Azure storage, file size, total dataset size, and the activity on the dataset. Since Azure File Sync works on the file level, the performance characteristics of an Azure File Sync-based solution is better measured in the number of objects (files and directories) processed per second. 
  
 For Azure File Sync, performance is critical in two stages -
-1	**Initial one-time provisioning**: When you first setup Azure File Sync groups and you ingest the server data into Azure File shares. Please refer to Onboarding with Azure File Sync for details.
+1	**Initial one-time provisioning**: When you first setup Azure File Sync groups and you ingest the server data into Azure File shares. Please refer to [Onboarding with Azure File Sync](..\articles\storage\storage\files\torage-sync-files-planning.md) for details.
 2	**Ongoing sync**: After the data is initially seeded in the Azure File shares, Azure File Sync keeps multiple endpoints in sync.
  
 To help you plan your deployment for each of the stages, below are the results observed during the internal testing on a system with a config
