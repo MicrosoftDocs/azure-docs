@@ -24,7 +24,7 @@ ms.custom: it-pro
 The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## Built-in role descriptions
-The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions` and `notActions` for each role. For more information about actions, see [Understand role definitions](role-definitions.md).
+The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `actions` and `notActions` for each role..
 
 
 | Built-in role | Description |
@@ -1530,7 +1530,6 @@ The following table provides brief descriptions of the built-in roles. Click the
 
 ## Next steps
 
-- [Understand role definitions](role-definitions.md)
 - [Custom roles](custom-roles.md)
 - [Manage roles assignments using the Azure portal](role-assignments-portal.md)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md)
