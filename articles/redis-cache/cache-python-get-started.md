@@ -71,9 +71,6 @@ True
 b'bar'
 ```
 
-Replace `<name>` with your cache name and `key` with your access key.
-
-
 ## Create a Python script
 
 Create a new script text file named *PythonApplication1.py*.
