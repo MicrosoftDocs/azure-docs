@@ -18,7 +18,7 @@ ms.author: markvi
 
 ---
 # Settings and data roaming FAQ
-This topic answers some questions IT administrators might have about settings and app data sync.
+This article answers some questions IT administrators might have about settings and app data sync.
 
 ## What data roams?
 **Windows settings**:
