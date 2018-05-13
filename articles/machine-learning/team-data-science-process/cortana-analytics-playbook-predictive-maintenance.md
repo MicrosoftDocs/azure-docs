@@ -125,9 +125,9 @@ Two questions are commonly asked with regard to failure history data: (1) "How m
 ### Quality data
 The quality of the data is critical - each predictor attribute value must be _accurate_ in conjunction with the value of the target variable. Data quality is a well-studied area in statistics and data management, and hence out of scope for this guide.
 
-> [!FURTHER READING]
+> [!NOTE]
 > There are several resources and enterprise products to deliver quality 
-> data. A sample of references:
+> data. A sample of references is provided below:
 > - Dasu, T, Johnson, T., Exploratory Data Mining and Data Cleaning, 
 > Wiley, 2003.
 > - [Exploratory Data Analysis, Wikipedia](https://en.wikipedia.org/wiki/Exploratory_data_analysis)
@@ -235,17 +235,6 @@ For example, lag features for the wind turbines use case may be created with W=1
 
 Technical specifications of the equipment such as date of manufacture, model number, location, are some examples of static features. They are treated as _categorical_ variables for modeling. Some examples for the circuit breaker use case are voltage, current, power capacity, transformer type, and power source. For wheel failures, the type of tire wheels (alloy vs steel) is an example.
 
-> [!FURTHER READING]
-> A small sample from many books on feature engineering are 
-> listed below:
-> - Pyle, D. Data Preparation for Data Mining (The Morgan Kaufmann Series 
-> in Data Management Systems), 1999
-> - Zheng, A., Casari, A. Feature Engineering for Machine Learning: 
-> Principles and Techniques for Data Scientists, O'Reilly, 2018.
-> - Dong, G. Liu, H. (Editors), Feature Engineering for Machine
-> Learning and Data Analytics (Chapman & Hall/CRC Data Mining and 
-> Knowledge Discovery Series), CRC Press, 2018.
-
 The data preparation efforts discussed so far should lead to the data being organized as shown below. Training, test, and validation data should have this logical schema (this example shows time in units of days).
 
 | Asset ID | Time | <Feature Columns> | Label |
@@ -258,6 +247,21 @@ The data preparation efforts discussed so far should lead to the data being orga
 | ...  |...   | . . . | . |
 
 The last step in feature engineering is the **labeling** of the target variable. This process is dependent on the modeling technique. In turn, the modeling technique depends on the business problem and nature of the available data. Labeling is discussed in the next section.
+
+> [!IMPORTANT]
+> Data preparation and feature engineering are as
+> important as modeling techniques to arrive at successful
+> PdM solutions. The domain expert and the practitioner should
+> invest significant time in arriving at the right features
+> and data for the model. A small sample from many books on 
+> feature engineering are listed below:
+> - Pyle, D. Data Preparation for Data Mining (The Morgan Kaufmann Series 
+> in Data Management Systems), 1999
+> - Zheng, A., Casari, A. Feature Engineering for Machine Learning: 
+> Principles and Techniques for Data Scientists, O'Reilly, 2018.
+> - Dong, G. Liu, H. (Editors), Feature Engineering for Machine
+> Learning and Data Analytics (Chapman & Hall/CRC Data Mining and 
+> Knowledge Discovery Series), CRC Press, 2018.
 
 ## Modeling techniques for predictive maintenance
 
