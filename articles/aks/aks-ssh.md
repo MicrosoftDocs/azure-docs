@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # SSH into Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to access an AKS node for maintenance, log collection, or other troubleshooting operations. AKS nodes are not exposed to the Internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
+Occasionally, you may need to access an Azure Kubernetes Service (AKS) node for maintenance, log collection, or other troubleshooting operations. AKS nodes are not exposed to the internet. Use the steps detailed in this document to create an SSH connection with an AKS node.
 
 ## Reset SSH keys
 
