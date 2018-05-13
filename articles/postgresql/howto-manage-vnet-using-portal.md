@@ -1,21 +1,21 @@
 ---
-title: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
-description: Create and manage Azure Database for MySQL VNet service endpoints and rules using the Azure portal
-services: mysql
+title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
+description: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal
+services: postgresql
 author: mbolz
 ms.author: mbolz
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/12/2018
 ---
-# Create and manage Azure Database for MySQL VNet service endpoints and VNet rules by using the Azure portal
-Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MySQL server. For an overview of Azure Database for MySQL VNet service endpoints, see [Azure Database for MySQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for MySQL.
+# Create and manage Azure Database for PostgreSQL VNet service endpoints and VNet rules by using the Azure portal
+Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. For an overview of Azure Database for PostgreSQL VNet service endpoints, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in public preview in all supported regions for Azure Database for PostgreSQL.
 
 ## Create a VNet rule and enable service endpoints in the Azure portal
 
-1. On the MySQL server page, under the Settings heading, click **Connection Security** to open the Connection Security pane for Azure Database for MySQL. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+1. On the PostgreSQL server page, under the Settings heading, click **Connection Security** to open the Connection Security pane for Azure Database for PostgreSQL. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
    ![Azure portal - click Connection security](./media/howto-manage-vnet-using-portal/1-connection-security.png)
 
@@ -32,5 +32,5 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
    ![VNet service endpoints enabled and VNet rule created](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## Next steps
-- Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for MySQL using Azure CLI](howto-manage-vnet-using-cli.md).
-- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
+- Similarly, you can script to [Enable VNet service endpoints and create a VNET rule for Azure Database for PostgreSQL using Azure CLI](howto-manage-vnet-using-cli.md).
+- For help in connecting to an Azure Database for PostgreSQL server, see [Connection libraries for Azure Database for PostgreSQL](./concepts-connection-libraries.md)
