@@ -19,13 +19,13 @@ The latest release of Video Indexer introduces Video Indexer API v2. To avoid se
 > [!Note]
 > The Video Indexer v1 API is going to be deprecated on July 31, 2018.
 
-This article describes changes that were inroduced in v2.  
+This article describes changes that were introduced in v2.  
 
 ## API changes
 
 ### Authorization and Operations
 
-In the v2 virsion, Video Indexer changed the authentication and authorization model of the API. There are two sets of APIs: 
+In the v2 version, Video Indexer changed the authentication and authorization model of the API. There are two sets of APIs: 
 
 * Authorization 
 * Operations
@@ -36,7 +36,7 @@ Once you subscribe to the **Authorization** API, you will be able to obtain acce
 
 When calling the **Operations** APIs, the subscription key won't be used anymore. Instead, you will pass the access tokens obtained by the **Authorization** API. 
 
-Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as re-index video, require a video access token.
+Each request should have a valid token, matching the access level of the API you are calling. For example, operations on your user, such as getting your accounts, require a user access token. Operations on the account level, such as list all videos, require an account access token. Operations on videos, such as reindex video, require a video access token.
 
 For more information about the different access tokens, see [Use Azure Video Indexer API](video-indexer-use-apis.md).
 
