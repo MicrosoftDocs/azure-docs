@@ -1,6 +1,6 @@
 ---
 title: Azure AD authentication method selection tutorial 
-description: In this tutorail, you will choose authentication methods to use for Azure MFA and Azure AD self-service password reset
+description: In this tutorial, you will choose authentication methods to use for Azure MFA and Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
