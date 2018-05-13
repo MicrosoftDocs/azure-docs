@@ -1,6 +1,6 @@
 ---
 title: Azure AD enable password writeback 
-description: In this tutorail, you will enable password writeback as part of Azure AD Connect.
+description: In this tutorial, you will enable password writeback as part of Azure AD Connect.
 
 services: active-directory
 ms.service: active-directory
@@ -44,7 +44,7 @@ An existing server running a current version of [Azure AD Connect](../connect/ac
 
 Log in to the [Azure portal](https://portal.azure.com) using a Global Administrator account.
 
-## Enable SSPR on-premsies integration
+## Enable SSPR on-premises integration
 
 In the Azure portal browse to **Azure Active Directory**, click on **Password Reset**, then choose **On-premises integration**.
 

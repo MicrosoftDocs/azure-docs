@@ -12,6 +12,7 @@
 # Tutorials
 
 ## [Define authentication methods](../active-directory/authentication/tutorial-authentication-methods.md)
+## [Enable password writeback](../active-directory/authentication/tutorial-enable-writeback.md)
 
 # Concepts
 
