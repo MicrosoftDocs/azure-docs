@@ -23,15 +23,8 @@ To build and run Azure Service Fabric applications on your Windows development m
 ## Supported operating system versions
 The following operating system versions are supported for development:
 
-* Windows 7
-* Windows 8/Windows 8.1
-* Windows Server 2012 R2
+* Windows 10 (Enterprise, Professional, or Education)
 * Windows Server 2016
-* Windows 10
-
-> [!NOTE]
-> Windows 7 support:
-> - Windows 7 only includes Windows PowerShell 2.0 by default. Service Fabric PowerShell cmdlets requires PowerShell 3.0 or higher. You can [download Windows PowerShell 5.0][powershell5-download] from the Microsoft Download Center.
 
 ## Enable PowerShell script execution
 
@@ -48,9 +41,21 @@ Deploying Service Fabric Applications to Service Fabric Mesh requires Visual Stu
 - ASP.NET and Web Development
 - Azure Development
 
-## Docker for Windows
+## Docker
 
-Install the latest version of [Docker Community Edition for Windows][download-docker]. During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll be required to log off and log back in. After logging back in, you may be prompted to enable Hyper-V, enable it. When you enable Hyper-V, you'll have to restart your computer.
+You'll need to install Docker to support the containerized Service Fabric applications used by Service Fabric Mesh.
+
+If you're installing Docker on **Windows Server 2016**, use the following PowerShell commands to install Docker. For more information, see [Docker Enterprise Edition for Windows Server][download-docker-server].
+
+```powershell
+Install-Module DockerMsftProvider -Force
+Install-Package Docker -ProviderName DockerMsftProvider -Force
+
+# This next command will restart the server if needed
+Install-WindowsFeature Containers -Restart
+```
+
+If you're installing Docker for **Windows 10**, install the latest version of [Docker Community Edition for Windows][download-docker]. During the installation, select **Use Windows containers instead of Linux containers** when asked. You'll be required to log off and log back in. After logging back in, you may be prompted to enable Hyper-V, enable it. When you enable Hyper-V, you'll have to restart your computer.
 
 ## SDK and tools
 
@@ -71,6 +76,7 @@ Install the SDK and Visual Studio tools to create new Service Fabric Application
 Read through the [Deploy a .NET Core app to Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-dotnetcore.md) tutorial.
 
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
+[download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/meshdlruntime
 [download-sdk]: http://aka.ms/meshdlsdk
 [download-tools]: http://aka.ms/meshdltools
