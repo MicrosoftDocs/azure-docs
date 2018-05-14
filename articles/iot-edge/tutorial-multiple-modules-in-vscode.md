@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Manage multiple IoT Edge modules in VS Code | Microsoft Docs 
+title: Manage multiple Azure IoT Edge modules in VS Code | Microsoft Docs 
 description: Use Visual Studio Code to develop IoT Edge solutions that use multiple modules.
 services: iot-edge
 keywords: 
@@ -36,8 +36,8 @@ To complete all the steps in this article, have the following prerequisites in p
 ## Prepare your first IoT Edge solution
 1. In VS Code command palette, type and run the command **Edge: New IoT Edge solution**. Then select your workspace folder, provide the solution name (The default name is **EdgeSolution**), and create a C# Module (**SampleModule**) as the first user module in this solution. You also need to specify the Docker image repository for your first module. The default image repository is based on a local Docker registry (`localhost:5000/<first module name>`). You can also change it to Azure container registry or Docker Hub.
 
-> [!NOTE]
-> If you are using a local Docker registry, make sure the registry is running by typing the command `docker run -d -p 5000:5000 --restart=always --name registry registry:2` in your console window.
+   > [!NOTE]
+   > If you are using a local Docker registry, make sure the registry is running by typing the command `docker run -d -p 5000:5000 --restart=always --name registry registry:2` in your console window.
 
 2. The VS Code window loads your IoT Edge solution workspace. The root folder contains a `modules` folder, a `.vscode` folder, and a deployment manifest template file. You can see debug configurations in `.vscode` folder. All user module codes will be subfolders under the folder `modules`. The `deployment.template.json` is the deployment manifest template. Some of the parameters in this file will be parsed from the `module.json`, which exists in every module folder.
 
