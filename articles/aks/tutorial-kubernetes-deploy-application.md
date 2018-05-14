@@ -3,7 +3,7 @@ title: Kubernetes on Azure tutorial  - Deploy Application
 description: AKS tutorial - Deploy Application
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: tutorial
@@ -69,10 +69,10 @@ Save and close the file.
 
 ## Deploy application
 
-Use the [kubectl create][kubectl-create] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
+Use the [kubectl apply][kubectl-apply] command to run the application. This command parses the manifest file and creates the defined Kubernetes objects.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Output:
@@ -129,6 +129,7 @@ Advance to the next tutorial to learn about scaling both a Kubernetes applicatio
 > [Scale Kubernetes application and infrastructure][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

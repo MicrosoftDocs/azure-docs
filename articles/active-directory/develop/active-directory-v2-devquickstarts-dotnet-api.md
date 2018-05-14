@@ -3,33 +3,35 @@ title: Add sign-in to a .NET MVC web API using the Azure AD v2.0 endpoint | Micr
 description: How to build a .NET MVC Web Api that accepts tokens from both personal Microsoft Account and work or school accounts.
 services: active-directory
 documentationcenter: .net
-author: dstrockis
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: e77bc4e0-d0c9-4075-a3f6-769e2c810206
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: dastrock
+ms.author: celested
+ms.reviewer: dastrock
 ms.custom: aaddev
-
 ---
+
 # Secure an MVC web API
 With Azure Active Directory the v2.0 endpoint, you can protect a Web API using [OAuth 2.0](active-directory-v2-protocols.md) access tokens, enabling users with both personal Microsoft account and work or school accounts to securely access your Web API.
 
 > [!NOTE]
-> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint.  To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 >
 >
 
-In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5.  Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list.  The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route.  This sample was built using Visual Studio 2015.
+In ASP.NET web APIs, you can accomplish this using Microsoft’s OWIN middleware included in .NET Framework 4.5. Here we’ll use OWIN to build a "To Do List" MVC Web API that allows clients to create and read tasks from a user's To-Do list. The web API will validate that incoming requests contain a valid access token and reject any requests that do not pass validation on a protected route. This sample was built using Visual Studio 2015.
 
 ## Download
-The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
+The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet). To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) or clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
@@ -42,11 +44,11 @@ git clone https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git
 ```
 
 ## Register an app
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), or follow these [detailed steps](active-directory-v2-app-registration.md). Make sure to:
 
 * Copy down the **Application Id** assigned to your app, you'll need it soon.
 
-This visual studio solution also contains a "TodoListClient", which is a simple WPF app.  The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API.  In this case, both the TodoListClient and the TodoListService are represented by the same app.  To configure the TodoListClient, you should also:
+This visual studio solution also contains a "TodoListClient", which is a simple WPF app. The TodoListClient is used to demonstrate how a user signs-in and how a client can issue requests to your Web API. In this case, both the TodoListClient and the TodoListService are represented by the same app. To configure the TodoListClient, you should also:
 
 * Add the **Mobile** platform for your app.
 
@@ -63,8 +65,8 @@ PM> Install-Package Microsoft.IdentityModel.Protocol.Extensions -ProjectName Tod
 ```
 
 ## Configure OAuth authentication
-* Add an OWIN Startup class to the TodoListService project called `Startup.cs`.  Right click on the project --> **Add** --> **New Item** --> Search for “OWIN”.  The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
-* Change the class declaration to `public partial class Startup` - we’ve already implemented part of this class for you in another file.  In the `Configuration(…)` method, make a call to ConfgureAuth(…) to set up authentication for your web app.
+* Add an OWIN Startup class to the TodoListService project called `Startup.cs`. Right click on the project --> **Add** --> **New Item** --> Search for “OWIN”. The OWIN middleware will invoke the `Configuration(…)` method when your app starts.
+* Change the class declaration to `public partial class Startup` - we’ve already implemented part of this class for you in another file. In the `Configuration(…)` method, make a call to ConfgureAuth(…) to set up authentication for your web app.
 
 ```csharp
 public partial class Startup
@@ -92,7 +94,7 @@ public void ConfigureAuth(IAppBuilder app)
 
                 // In a real applicaiton, you might use issuer validation to
                 // verify that the user's organization (if applicable) has
-                // signed up for the app.  Here, we'll just turn it off.
+                // signed up for the app. Here, we'll just turn it off.
 
                 ValidateIssuer = false,
         };
@@ -102,7 +104,7 @@ public void ConfigureAuth(IAppBuilder app)
         // that will be recieved, which are JWTs for the v2.0 endpoint.
 
         // NOTE: The usual WindowsAzureActiveDirectoryBearerAuthenticaitonMiddleware uses a
-        // metadata endpoint which is not supported by the v2.0 endpoint.  Instead, this
+        // metadata endpoint which is not supported by the v2.0 endpoint. Instead, this
         // OpenIdConenctCachingSecurityTokenProvider can be used to fetch & use the OpenIdConnect
         // metadata document.
 
@@ -113,7 +115,7 @@ public void ConfigureAuth(IAppBuilder app)
 }
 ```
 
-* Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0 bearer authentication.  Decorate the `Controllers\TodoListController.cs` class with an authorize tag.  This will force the user to sign in before accessing that page.
+* Now you can use `[Authorize]` attributes to protect your controllers and actions with OAuth 2.0 bearer authentication. Decorate the `Controllers\TodoListController.cs` class with an authorize tag. This will force the user to sign in before accessing that page.
 
 ```csharp
 [Authorize]
@@ -121,13 +123,13 @@ public class TodoListController : ApiController
 {
 ```
 
-* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller.  OWIN provides access to the claims inside the bearer token via the `ClaimsPrincipal` object.  
+* When an authorized caller successfully invokes one of the `TodoListController` APIs, the action might need access to information about the caller. OWIN provides access to the claims inside the bearer token via the `ClaimsPrincipal` object. 
 
 ```csharp
 public IEnumerable<TodoItem> Get()
 {
     // You can use the ClaimsPrincipal to access information about the
-    // user making the call.  In this case, we use the 'sub' or
+    // user making the call. In this case, we use the 'sub' or
     // NameIdentifier claim to serve as a key for the tasks in the data store.
 
     Claim subject = ClaimsPrincipal.Current.FindFirst(ClaimTypes.NameIdentifier);
@@ -147,14 +149,14 @@ Before you can see the Todo List Service in action, you need to configure the To
 * In the TodoListClient project, open `App.config` and enter your configuration values in the `<appSettings>` section.
   * Your `ida:ClientId` Application Id you copied from the portal.
 
-Finally, clean, build and run each project!  You now have a .NET MVC Web API that accepts tokens from both personal Microsoft accounts and work or school accounts.  Sign into the TodoListClient, and call your web api to add tasks to the user's To-Do list.
+Finally, clean, build and run each project!  You now have a .NET MVC Web API that accepts tokens from both personal Microsoft accounts and work or school accounts. Sign into the TodoListClient, and call your web api to add tasks to the user's To-Do list.
 
 For reference, the completed sample (without your configuration values) [is provided as a .zip here](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/complete.zip), or you can clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet.git```
 
 ## Next steps
-You can now move onto additional topics.  You may want to try:
+You can now move onto additional topics. You may want to try:
 
 [Calling a Web API from a Web App >>](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)
 

@@ -31,6 +31,8 @@ The Azure Stack Readiness Checker tool (AzsReadinessChecker) performs the follow
  - **Platform-as-a-Service**  
     Optionally request platform-as-a-service (PaaS) names to certificates as specified in [Azure Stack Public Key Infrastructure certificate requirements - Optional PaaS Certificates](azure-stack-pki-certs.md#optional-paas-certificates).
 
+
+
 ## Prerequisites
 
 Your system should meet the following prerequisites before generating the CSR(s) for PKI certificates for an Azure Stack deployment:

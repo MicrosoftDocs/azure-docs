@@ -81,8 +81,7 @@ The storage consumer takes messages from Service Bus and pushes data to an attac
 
 If a message on the inbound message broker needs to be written to the blockchain, it will be processed by the DLT consumer. The DLT consumer is a service, which retrieves the message containing metadata for a desired transaction to execute and then sends the information to the *transaction builder and signer*. The *transaction builder and signer* assembles a blockchain transaction based on the data and the desired blockchain destination. Once assembled, the transaction is signed. Private keys are stored in Azure Key Vault.
 
-Currently, Azure Key Vault does not support software signing of
-blockchain transactions within Key Vault. Instead, Blockchain Workbench retrieves the appropriate private key from Key Vault and signs the transaction outside of Key Vault. Once signed, the transaction is sent to transaction routers and ledgers.
+ Blockchain Workbench retrieves the appropriate private key from Key Vault and signs the transaction outside of Key Vault. Once signed, the transaction is sent to transaction routers and ledgers.
 
 ## Transaction routers and ledgers
 
@@ -122,4 +121,5 @@ Azure Monitor provides information on the health of the blockchain network.
 
 ## Next steps
 
-[Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)

@@ -3,7 +3,7 @@ title: Integrate with Azure-managed services using Open Service Broker for Azure
 description: Integrate with Azure-managed services using Open Service Broker for Azure (OSBA)
 services: container-service
 author: sozercan
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: overview

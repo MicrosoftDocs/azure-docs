@@ -24,7 +24,7 @@ This article describes how to [validate an HTTP endpoint](security-authenticatio
 
 ## Add dependencies
 
-If you are developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#publish-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
+If you are developing in .NET, [add a dependency](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) to your function for the `Microsoft.Azure.EventGrid` [Nuget package](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). SDKs for other languages are available via the [Publish SDKs](./sdk-overview.md#data-plane-sdks) reference. These packages contain the models for native event types such as `EventGridEvent`, `StorageBlobCreatedEventData`, and `EventHubCaptureFileCreatedEventData`.
 
 Click on the "View Files" link in your Azure Function (right most pane in the Azure functions portal), and create a file called project.json. Add the following contents to the `project.json` file and save it:
 
@@ -45,6 +45,8 @@ Click on the "View Files" link in your Azure Function (right most pane in the Az
 ## Endpoint validation
 
 The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you are using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
+
+Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [AZ CLI 2.0](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you are using the REST API, ensure you are using `api-version=2018-05-01-preview`.
 
 To programmatically echo the validation code, use the following code:
 
