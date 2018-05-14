@@ -21,8 +21,6 @@ manager: "douge"
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
-## Create a Kubernetes-based development environment in Azure
-
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI

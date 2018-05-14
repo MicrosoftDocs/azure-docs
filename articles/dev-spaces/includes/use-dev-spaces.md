@@ -20,4 +20,4 @@ Open a command window and enter the following Azure CLI commands, using the reso
    az extension add --source dev-spaces-preview 
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
-These steps install an extension to the Azure CLI to add support for Azure Dev Spaces.
+The first command installs an extension to the Azure CLI to add support for Azure Dev Spaces, and the second configures your cluster with support for Azure Dev Spaces.
