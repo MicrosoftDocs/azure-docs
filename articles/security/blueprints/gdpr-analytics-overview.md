@@ -1,3 +1,16 @@
+---
+title: Azure Security and Compliance Blueprint - Analytics for GDPR
+description: Azure Security and Compliance Blueprint - Analytics for GDPR
+services: security
+author: jomolesk
+
+ms.assetid: fe97b5e5-72d8-4930-bbe9-ead2b6ef3542
+ms.service: security
+ms.topic: article
+ms.date: 05/14/2018
+ms.author: jomolesk
+---
+
 # Azure Security and Compliance Blueprint: Analytics for GDPR
 
 ## Overview

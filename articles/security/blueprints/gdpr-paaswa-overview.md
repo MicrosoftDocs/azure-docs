@@ -1,3 +1,16 @@
+---
+title: Azure Security and Compliance Blueprint - PaaS Web Application for GDPR
+description: Azure Security and Compliance Blueprint - PaaS Web Application for GDPR
+services: security
+author: jomolesk
+
+ms.assetid: 834d1ff6-8369-455f-b052-1ef301e3d7e6
+ms.service: security
+ms.topic: article
+ms.date: 05/14/2018
+ms.author: jomolesk
+---
+
 # Azure Security and Compliance Blueprint - PaaS Web Application for GDPR
 
 ## Overview

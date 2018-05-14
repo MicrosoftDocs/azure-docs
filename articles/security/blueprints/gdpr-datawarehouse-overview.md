@@ -1,3 +1,16 @@
+---
+title: Azure Security and Compliance Blueprint - Data Warehouse for GDPR
+description: Azure Security and Compliance Blueprint - Data Warehouse for GDPR
+services: security
+author: jomolesk
+
+ms.assetid: 7a33fb3b-cfb6-49dd-ab4d-c53cf0d5da41
+ms.service: security
+ms.topic: article
+ms.date: 05/14/2018
+ms.author: jomolesk
+---
+
 # Azure Security and Compliance Blueprint: Data Warehouse for GDPR
 
 ## Overview
