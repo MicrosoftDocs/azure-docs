@@ -16,7 +16,7 @@
 * If you're using SQL Server, follow the steps under 
 [Connect to SQL Server](#connect-sql-server).
 
-<a name="connect-azure-sql-db"</a>
+<a name="connect-azure-sql-db"></a>
 
 ### Connect to Azure SQL Database
 
