@@ -66,9 +66,9 @@ Install the SDK and Visual Studio tools to create new Service Fabric Application
 5. Install the [Service Fabric Mesh SDK][download-sdk].
 3. Install the [Visual Studio Service Fabric Mesh tools][download-tools].
 4. Open a **new** elevated PowerShell window and run  
-`C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -CreateOneNodeCluster -UseMachineName`
+`"C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1" -CreateOneNodeCluster -UseMachineName`
 5. (Optional) Start the local Cluster Manager tool:  
-`C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe`
+`"C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"`
 6. Reboot your computer.
 
 ## Next steps
@@ -79,5 +79,5 @@ Read through the [Deploy a .NET Core app to Service Fabric Mesh](service-fabric-
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: http://aka.ms/meshdlruntime
 [download-sdk]: http://aka.ms/meshdlsdk
-[download-tools]: http://aka.ms/meshdltools
+[download-tools]: https://aka.ms/sfapptools
 [powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
