@@ -1,17 +1,17 @@
 ﻿---
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
-author: muralikk
-manager: syadav
+author: alkohli
+manager: jeconnoc
 services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/02/2018
-ms.author: muralikk
+ms.date: 05/11/2018
+ms.author: alkohli
 
 ---
-# Use the Microsoft Azure Import/Export service to transfer data to Azure Storage
+# Use the Azure Import/Export service to transfer data to Azure Storage
 In this article, we provide step-by-step instructions on using Azure Import/Export service to securely transfer large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure data center. This service can also be used to transfer data from Azure storage to hard disk drives and ship to your on-premises sites. Data from a single internal SATA disk drive can be imported either to Azure Blob storage or Azure Files. 
 
 ## When should I use the Azure Import/Export service?
@@ -19,13 +19,13 @@ Consider using Azure Import/Export service when uploading or downloading data ov
 
 You can use this service in scenarios such as:
 
-* Migrating data to the cloud: Move large amounts of data to Azure quickly and cost effectively.
-* Content distribution: Quickly send data to your customer sites.
-* Backup: Take backups of your on-premises data to store in Azure Storage.
-* Data recovery: Recover large amount of data stored in storage and have it delivered to your on-premises location.
+* **Migrating data to the cloud**: Move large amounts of data to Azure quickly and cost effectively.
+* **Content distribution**: Quickly send data to your customer sites.
+* **Backup**: Take backups of your on-premises data to store in Azure Storage.
+* **Data recovery**: Recover large amount of data stored in storage and have it delivered to your on-premises location.
 
 ## How does the Azure Import/Export service work?
-You can transfer data between your on-premises site and Azure storage using the Azure Import/Export service by creating jobs and shipping hard disk drives (HDDs) to an Azure datacenter. !<--Each HDD you ship is associated with a single job.-->
+Transfer data between your on-premises site and Azure storage using the Azure Import/Export service by creating jobs and shipping disk drives to an Azure datacenter. !<--Each HDD you ship is associated with a single job.-->
 
 Each job is associated with a single storage account. Review the [pre-requisites](#pre-requisites) carefully to learn about the specifics of this service such as supported data types, disk types, locations, and shipping.
 
@@ -114,7 +114,7 @@ For import jobs, there are two ways to perform the encryption. The first way is 
 
 For export jobs, after your data is copied to the drives, the service encrypts the drive using BitLocker before shipping it back to you. The encryption key is provided to you via the Azure portal. 
 
-### View your job and drive status
+<!--### View your job and drive status
 You can track the status of your import or export jobs from the Azure portal. Click the **Import/Export** tab. A list of your jobs appears on the page.
 
 ![View Job State](./media/storage-import-export-service/jobstate.png)
@@ -156,26 +156,8 @@ The following table describes the drive failure states and the actions taken for
 | N/A | A drive that is not part of any job arrives at the data center as part of another job. | The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed. |
 
 ### Time to process job
-The amount of time it takes to process an import/export job varies based on a number of factors such as shipping time, the load at the DataCenter, the job type and size of the data being copied, and number of disks in a job. Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the List Jobs operation API call provides the percentage copy progress.
+The amount of time it takes to process an import/export job varies based on a number of factors such as shipping time, the load at the DataCenter, the job type and size of the data being copied, and number of disks in a job. Import/Export service does not have an SLA but the service strives to complete the copy in 7 to 10 days after the disks are received. In addition to the status posted on Azure Portal, REST APIs can be used to track the job progress. The percent complete parameter in the List Jobs operation API call provides the percentage copy progress.-->
 
-
-### Shipping
-**Shipping drives to the data center:**
-
-When creating an import or export job, you will be provided a shipping address of one of the supported locations to ship your drives. The shipping address provided depends on the location of your storage account, but may not be the same as your storage account location.
-
-FedEx, UPS, or DHL can be used to ship your drives to the shipping address.
-
-**Shipping drives from the data center:**
-
-When creating an import or export job, you must provide a return address for Microsoft to use when shipping the drives back after your job is complete. Make sure you provide a valid return address to avoid delays in processing.
-
-The carrier should have appropriate tracking in order to maintain chain of custody. You must provide a valid FedEx, UPS, or DHL carrier account number to be used by Microsoft for shipping the drives back. A FedEx, UPS, or DHL account number is required for shipping drives back from the US and Europe locations. A DHL account number is required for shipping drives back from Asia and Australia locations. If you do not have one, you can create a [FedEx](http://www.fedex.com/us/oadr/) (for US and Europe) or [DHL](http://www.dhl.com/) (Asia and Australia) carrier account. If you already have a carrier account number, please verify that it is valid.
-
-In shipping your packages, you must follow the terms at [Microsoft Azure Service Terms](https://azure.microsoft.com/support/legal/services-terms/).
-
-> [!IMPORTANT]
-> Note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisers to verify that your media and data can legally be shipped to the identified data center. This helps to ensure that it reaches Microsoft in a timely manner. For instance, any package that crosses international borders needs a commercial invoice to be accompanied with the package (except if crossing borders within European Union). You could print out a filled copy of the commercial invoice from carrier website. Example of commercial invoices are [DHL Commercial Invoice](http://invoice-template.com/wp-content/uploads/dhl-commercial-invoice-template.pdf) and [FedEx Commercial Invoice](http://images.fedex.com/downloads/shared/shipdocuments/blankforms/commercialinvoice.pdf). Make sure that Microsoft has not been indicated as the exporter.
 
 ### Pricing
 **Drive handling fee**
@@ -192,157 +174,11 @@ There are no transaction costs in addition to standard storage transaction costs
 
 
 
-## How to import data into Azure File Storage using internal SATA HDDs and SSDs?
-Follow the below steps if the data on the disk is to be imported into Azure File Storage.
-The first step when importing data using the Azure Import/Export service is to prepare your drives using the WAImportExport tool. Follow the steps below to prepare your drives.
-
-1. Identify the data to be imported into Azure File Storage. This could be directories and standalone files on the local server or a network share.  
-2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
-4. Determine the directories and/or standalone files that will be copied to each hard disk drive.
-5. Create the CSV files for dataset and driveset.
-    
-  Below is a sample dataset CSV file example for importing data as Azure Files:
-  
-    ```
-    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
-    "F:\50M_original\","fileshare/",file,rename,"None",None 
-    ```
-   In the above example, 100M_1.csv.txt  will be copied to the root of the "fileshare". If the "Fileshare" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to fileshare. Folder structure will be maintained.
-
-    Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
-    
-
-
-    **Driveset CSV File**
-
-    The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
-
-    Below is the example of driveset CSV file:
-    
-    ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
-    H,Format,SilentMode,Encrypt,
-    ```
-
-    In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
-
-    Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
-
-6.	Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
-7.	You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
-
-8. Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
-
-> [!IMPORTANT]
-> Each hard disk drive you prepare will result in a journal file. When you are creating the import job using the Azure portal, you must upload all the journal files of the drives which are part of that import job. Drives without journal files will not be processed.
-> 
->
-
-Below are the commands and examples for preparing the hard disk drive using WAImportExport tool.
-
-WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
-
-```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
-```
-
-**Import example 1**
-
-```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
-```
-
-In order to **add more drives**, one can create a new driveset file and run the command as below. For subsequent copy sessions to the different disk drives than specified in InitialDriveset .csv file, specify a new driveset CSV file and provide it as a value to the parameter "AdditionalDriveSet". Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
-
-```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
-```
-
-**Import example 2**
-```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
-```
-
-In order to add additional data to the same driveset, WAImportExport tool PrepImport command can be called for subsequent copy sessions to copy additional files/directory:
-For subsequent copy sessions to the same hard disk drives specified in InitialDriveset .csv file, specify the **same journal file** name and provide a **new session ID**; there is no need to provide the storage account key.
-
-```
-WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
-```
-
-**Import example 3**
-
-```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
-```
-
-See more details about using the WAImportExport tool in [Preparing hard drives for import](storage-import-export-tool-preparing-hard-drives-import.md).
-
-Also, refer to the [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
 
 
-## Create an export job
-Create an export job to notify the Import/Export service that you'll be shipping one or more empty drives to the data center so that data can be exported from your storage account to the drives and the drives then shipped to you.
 
-### Prepare your drives
-Following pre-checks are recommended for preparing your drives for an export job:
 
-1. Check the number of disks required using the WAImportExport tool's PreviewExport command. For more information, see [Previewing Drive Usage for an Export Job](https://msdn.microsoft.com/library/azure/dn722414.aspx). It helps you preview drive usage for the blobs you selected, based on the size of the drives you are going to use.
-2. Check that you can read/write to the hard drive that will be shipped for the export job.
-
-### Create the export job
-1. To create an export job, navigate to More services -> STORAGE -> "Import/export jobs" on the Azure portal. Click **Create Import/export Job**.
-2. In Step 1 Basics, select "Export from Azure", enter a string for job name, select a subscription, enter or select a resource group. Enter a descriptive name for the import job. Note that the name you enter may contain only lowercase letters, numbers, hyphens, and underscores, must start with a letter, and may not contain spaces. You will use the name you choose to track your jobs while they are in progress and once they are completed. provide contact information for the person responsible for this export job. 
-
-3. In Step 2 Job details, select the storage account that the data will be exported from in the Storage account section. The Drop-Off location  will be automatically populated based on the region of the storage account selected. Specify which blob data you wish to export from your storage account to your blank drive or drives. You can choose to export all blob data in the storage account, or you can specify which blobs or sets of blobs to export.
-   
-   To specify a blob to export, use the **Equal To** selector, and specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.
-   
-   To specify all blobs starting with a prefix, use the **Starts With** selector, and specify the prefix, beginning with a forward slash '/'. The prefix may be the prefix of the container name, the complete container name, or the complete container name followed by the prefix of the blob name.
-   
-   The following table shows examples of valid blob paths:
-   
-   | Selector | Blob Path | Description |
-   | --- | --- | --- |
-   | Starts With |/ |Exports all blobs in the storage account |
-   | Starts With |/$root/ |Exports all blobs in the root container |
-   | Starts With |/book |Exports all blobs in any container that begins with prefix **book** |
-   | Starts With |/music/ |Exports all blobs in container **music** |
-   | Starts With |/music/love |Exports all blobs in container **music** that begin with prefix **love** |
-   | Equal To |$root/logo.bmp |Exports blob **logo.bmp** in the root container |
-   | Equal To |videos/story.mp4 |Exports blob **story.mp4** in container **videos** |
-   
-   You must provide the blob paths in valid formats to avoid errors during processing, as shown in this screenshot.
-   
-   ![Create export job - Step 3](./media/storage-import-export-service/export-job-03.png)
-
-4. In Step 3 Return shipping info, select the carrier from the drop-down list and enter a valid carrier account number that you have created with that carrier. Microsoft will use this account to ship the drives back to you once your import job is complete. Provide a complete and valid contact name, phone, email, street address, city, zip, state/proviince and country/region.
-   
- 5. In the Summary Page, Azure DataCenter shipping address is provided to be used for shipping disks to Azure DC. Ensure that the job name and the full address are mentioned on the shipping label. 
-
-6. Click OK on the Summary Page to complete Import job creation
-
-7. After shipping the disks, return to the **Import/Export** page on the Azure portal, 
-     a) Navigate and click on the import job
-     b) Click on **Update job status and tracking info once drives are shipped**. 
-     c) Select the check box "Mark as shipped"
-     d) Provide the Carrier and Tracking number.
-    
-   If the tracking number is not updated within 2 weeks of creating the job, the job will expire.
-   
-8. You can track your job progress on the portal dashboard. See what each job state in the previous section means by [Viewing your job status](#viewing-your-job-status).
-
-   > [!NOTE]
-   > If the blob to be exported is in use at the time of copying to hard drive, Azure Import/Export service will take a snapshot of the blob and copy the snapshot.
-   > 
-   > 
- 
-9. After you receive the drives with your exported data, you can view and copy the BitLocker keys generated by the service for your drive. Navigate to export job in the Azure portal and click the Import/Export tab. Select your export job from the list, and click the BitLocker Keys option. The BitLocker keys appear as shown below:
-   
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
 
 ## Prerequisites

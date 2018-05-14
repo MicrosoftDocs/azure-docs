@@ -13,20 +13,19 @@ ms.author: alkohli
 ---
 # Use Azure Import/Export service to import data to Azure Files
 
-This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure data center.  
+This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure datacenter.  
 
-The Import/Export service supports only the import of Azure Files into Azure Storage. Exporting Azure Files is currently not supported.
+The Import/Export service supports only import of Azure Files into Azure Storage. Exporting Azure Files is not supported.
 
 ## Prerequisites
 
-Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites for this service. You must:
+Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription that can be used for the Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- [Download the WAImportExport version 2]() on the Windows system. Unzip to the default folder `waimportexportv2`. For example, `C:\WaImportExportV2`.
-- Identify the data to be imported into Azure Storage. Import the directories and standalone files on a local server or a network share. 
+- [Download the WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
 
 
 ## Step 1: Prepare the drives
@@ -35,58 +34,70 @@ This step generates a journal file. The journal file stores basic information su
 
 Perform the following steps to prepare the drives.
 
-1.	Connect our disk drives to the Windows system via SATA connectors.
-2.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-3. Create the CSV files for dataset and driveset. The following sample is an example for importing data as Azure Files.    
+1. Connect our disk drives to the Windows system via SATA connectors.
+2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
+3. Create a *dataset.csv* file. Use the content in the following examples in this dataset file.  
 
-    ```
-        BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-        "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
-        "F:\50M_original\","fileshare/",file,rename,"None",None 
-        
-    ```
+    - **To import a file**: In the following example, your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, one is created. Folder structure is maintained.
+
+        ```
+            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
-    In the above example, 100M_1.csv.txt  will be copied to the root of the "fileshare". If the "Fileshare" does not exist, one will be created. All files and folders under 50M_original will be recursively copied to fileshare. Folder structure will be maintained.<br></br>
+        ```
+    - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained.
 
+        ```
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
+        ```
+    Multiple entries can be made in the same file corresponding to folders or files that are imported. 
+
+        ```
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
+            
+        ```
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-    **Driveset CSV File**
+4. Create a *driveset.csv* for driveset. Use the content in the following examples in this dataset file. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
-    The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. <br></br>
+    This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
-    Below is the example of driveset CSV file:
-    
+   - **For a disk that is not encrypted**: Specify *Encrypt* to enable BitLocker encryption on the disk..
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
     H,Format,SilentMode,Encrypt,
     ```
-
-    In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
+    - **For a disk that is already encrypted**: Specify *AlreadyEncrypted* and supply the key.
+    ```
+    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+    ```
 
     Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6.	Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
+    Multiple entries can be made in the same file corresponding to multiple drives. 
 
-    - You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. 
-    - Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
-    - Do not modify the data on the hard disk drives or the journal file after completing disk preparation. 
-    - Use the following commands to prepare the hard disk drive using WAImportExport tool.
+5.	Use the PrepImport option to copy and prepare data to the disk drive.
 
-        WAImportExport tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
+         for the first copy session to copy directories and/or files with a new copy session:
 
         ```
         WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
         ```
 
-        **Import example 1**
+        **Import example**
 
         ```
         WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
         ```
+ 
+6. A journal file with name provided with /j: parameter is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
 
-4. A journal file with name provided with /j: parameter is created for every run of the command line. Each HDD you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
+>[!WARNING] Do not modify the data on the disk drives or the journal file after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
@@ -139,7 +150,7 @@ In order to **add more drives**, one can create a new driveset file and run the 
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
 ```
 
-**Import example 2**
+**Import example 1**
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
 ```
@@ -151,7 +162,7 @@ For subsequent copy sessions to the same hard disk drives specified in InitialDr
 WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
 ```
 
-**Import example 3**
+**Import example 2**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
