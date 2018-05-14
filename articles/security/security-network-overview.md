@@ -31,7 +31,7 @@ The goal of this article is to explain what Azure offers in the area of network 
 * Monitoring and threat detection
 
 ## Azure networking
-Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to an Azure Virtual Network. A Virtual Network is a logical construct built on top of the physical Azure network fabric. Each logical Virtual Network is isolated from all other Virtual Networks. This helps ensure that network traffic in your deployments is not accessible to other Azure customers.
+Virtual machines need network connectivity. To support that requirement, Azure requires virtual machines to be connected to Azure Virtual Network. A virtual network is a logical construct built on top of the physical Azure network fabric. Each logical virtual network is isolated from all other virtual networks. This helps ensure that network traffic in your deployments is not accessible to other Azure customers.
 
 Learn more:
 
@@ -39,7 +39,7 @@ Learn more:
 
 
 ## Network access control
-Network access control is the act of limiting connectivity to and from specific devices or subnets within a Virtual Network. The goal of network access control is to limit access to your virtual machines and services to approved users and devices. Access controls are based on decisions to allow or deny connections to and from your virtual machine or service.
+Network access control is the act of limiting connectivity to and from specific devices or subnets within a virtual network. The goal of network access control is to limit access to your virtual machines and services to approved users and devices. Access controls are based on decisions to allow or deny connections to and from your virtual machine or service.
 
 Azure supports several types of network access control, such as:
 
@@ -50,31 +50,31 @@ Azure supports several types of network access control, such as:
 ### Network layer control
 Any secure deployment requires some measure of network access control. The goal of network access control is to restrict virtual machine communication to the necessary systems. Other communication attempts are blocked.
 
-If you need basic network level access control (based on IP address and the TCP or UDP protocols), you can use Network Security Groups. A Network Security Group (NSG) is a basic, stateful, packet filtering firewall, and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs do not provide application layer inspection or authenticated access controls.
+If you need basic network level access control (based on IP address and the TCP or UDP protocols), you can use Network Security Groups (NSGs). An NSG is a basic, stateful, packet filtering firewall, and it enables you to control access based on a [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). NSGs do not provide application layer inspection or authenticated access controls.
 
 Learn more:
 
 * [Network Security Groups](../virtual-network/virtual-networks-nsg.md)
 
 ### Route control and forced tunneling
-The ability to control routing behavior on your Virtual Networks is critical. If routing is configured incorrectly, applications and services hosted on your virtual machine might connect to unauthorized devices, including systems owned and operated by potential attackers.
+The ability to control routing behavior on your virtual networks is critical. If routing is configured incorrectly, applications and services hosted on your virtual machine might connect to unauthorized devices, including systems owned and operated by potential attackers.
 
-Azure networking supports the ability to customize the routing behavior for network traffic on your Virtual Networks. This enables you to alter the default routing table entries in your Virtual Network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your Virtual Network through a specific location.
+Azure networking supports the ability to customize the routing behavior for network traffic on your virtual networks. This enables you to alter the default routing table entries in your virtual network. Control of routing behavior helps you make sure that all traffic from a certain device or group of devices enters or leaves your virtual network through a specific location.
 
-For example, you might have a virtual network security appliance on your Virtual Network. You want to make sure that all traffic to and from your Virtual Network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md) in Azure.
+For example, you might have a virtual network security appliance on your virtual network. You want to make sure that all traffic to and from your virtual network goes through that virtual security appliance. You can do this by configuring [User Defined Routes](../virtual-network/virtual-networks-udr-overview.md) (UDRs) in Azure.
 
 [Forced tunneling](https://www.petri.com/azure-forced-tunneling) is a mechanism you can use to ensure that your services are not allowed to initiate a connection to devices on the internet. Note that this is different from accepting incoming connections and then responding to them. Front-end web servers need to respond to requests from internet hosts, and so internet-sourced traffic is allowed inbound to these web servers and the web servers are allowed to respond.
 
-What you don’t want to allow is a front-end web server to initiate an outbound request. Such requests might represent a security risk because these connections could be used to download malware. Even if you do want these front-end servers to initiate outbound requests to the internet, you might want to force them to go through your on-premises web proxies. This enables you to take advantage of URL filtering and logging.
+What you don’t want to allow is a front-end web server to initiate an outbound request. Such requests might represent a security risk because these connections can be used to download malware. Even if you do want these front-end servers to initiate outbound requests to the internet, you might want to force them to go through your on-premises web proxies. This enables you to take advantage of URL filtering and logging.
 
-Instead, you would want to use forced tunneling to prevent this. When you enable forced tunneling, all connections to the internet are forced through your on-premises gateway. You can configure forced tunneling by taking advantage of User Defined Routes.
+Instead, you would want to use forced tunneling to prevent this. When you enable forced tunneling, all connections to the internet are forced through your on-premises gateway. You can configure forced tunneling by taking advantage of UDRs.
 
 Learn more:
 
 * [What are User Defined Routes and IP Forwarding](../virtual-network/virtual-networks-udr-overview.md)
 
-### Virtual Network security appliances
-While NSGs, User Defined Routes, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), you might also want to enable security at levels higher than the network.
+### Virtual network security appliances
+While NSGs, UDRs, and forced tunneling provide you a level of security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model), you might also want to enable security at levels higher than the network.
 
 For example, your security requirements might include:
 
@@ -94,48 +94,48 @@ Setup, configuration, and management of your Azure resources needs to be done re
 
 Azure networking supports the following secure remote access scenarios:
 
-* Connect individual workstations to a Virtual Network
-* Connect your on-premises network to a Virtual Network with a VPN
-* Connect your on-premises network to a Virtual Network with a dedicated WAN link
-* Connect Virtual Networks to each other
+* Connect individual workstations to a virtual network
+* Connect your on-premises network to a virtual network with a VPN
+* Connect your on-premises network to a virtual network with a dedicated WAN link
+* Connect virtual networks to each other
 
-### Connect individual workstations to a Virtual Network
-You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, let's say you need access to a virtual machine on a Virtual Network. But your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
+### Connect individual workstations to a virtual network
+You might want to enable individual developers or operations personnel to manage virtual machines and services in Azure. For example, let's say you need access to a virtual machine on a virtual network. But your security policy does not allow RDP or SSH remote access to individual virtual machines. In this case, you can use a point-to-site VPN connection.
 
-The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the Virtual Network. Once the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the Virtual Network. (This assumes that the user can authenticate and is authorized.)
+The point-to-site VPN connection uses the [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) protocol to enable you to set up a private and secure connection between the user and the virtual network. When the VPN connection is established, the user can RDP or SSH over the VPN link into any virtual machine on the virtual network. (This assumes that the user can authenticate and is authorized.)
 
 Learn more:
 
-* [Configure a Point-to-Site Connection to a Virtual Network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a point-to-site connection to a virtual network using PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-### Connect your on-premises network to a Virtual Network with a VPN
-You might want to connect your entire corporate network, or portions of it, to a Virtual Network. This is common in hybrid IT scenarios, where companies [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases, companies host parts of a service in Azure, and parts on-premises. For example,they might do so when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of “cross-premises” connections also make management of Azure located resources more secure, and enable scenarios such as extending Active Directory domain controllers into Azure.
+### Connect your on-premises network to a virtual network with a VPN
+You might want to connect your entire corporate network, or portions of it, to a virtual network. This is common in hybrid IT scenarios, where organizations [extend their on-premises datacenter into Azure](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). In many cases, organizations host parts of a service in Azure, and parts on-premises. For example,they might do so when a solution includes front-end web servers in Azure and back-end databases on-premises. These types of “cross-premises” connections also make management of Azure located resources more secure, and enable scenarios such as extending Active Directory domain controllers into Azure.
 
-One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that the latter connects a single device to a Virtual Network. A site-to-site VPN connects an entire network (such as your on-premises network) to a Virtual Network. Site-to-site VPNs to a Virtual Network use the highly secure IPsec tunnel mode VPN protocol.
+One way to accomplish this is to use a [site-to-site VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). The difference between a site-to-site VPN and a point-to-site VPN is that the latter connects a single device to a virtual network. A site-to-site VPN connects an entire network (such as your on-premises network) to a virtual network. Site-to-site VPNs to a virtual network use the highly secure IPsec tunnel mode VPN protocol.
 
 Learn more:
 
 * [Create a Resource Manager VNet with a site-to-site VPN connection using the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [Planning and design for VPN gateway](../vpn-gateway/vpn-gateway-plan-design.md)
 
-### Connect your on-premises network to a Virtual Network with a dedicated WAN link
+### Connect your on-premises network to a virtual network with a dedicated WAN link
 Point-to-site and site-to-site VPN connections are effective for enabling cross-premises connectivity. However, some organizations consider them to have the following drawbacks:
 
 * VPN connections move data over the internet. This exposes these connections to potential security issues involved with moving data over a public network. In addition, reliability and availability for internet connections cannot be guaranteed.
-* VPN connections to Virtual Networks might not have the bandwidth for some applications and purposes, as they max out at around 200 Mbps.
+* VPN connections to virtual networks might not have the bandwidth for some applications and purposes, as they max out at around 200 Mbps.
 
-Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to a Virtual Network. Azure ExpressRoute enables this.
+Organizations that need the highest level of security and availability for their cross-premises connections typically use dedicated WAN links to connect to remote sites. Azure provides you the ability to use a dedicated WAN link that you can use to connect your on-premises network to a virtual network. Azure ExpressRoute enables this.
 
 Learn more:
 
 * [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
 
-### Connect Virtual Networks to each other
-It is possible to use many Virtual Networks for your deployments. There are various reasons why you might do this. You might want to simplify management, or you might want increased security. Regardless of the motivation for putting resources on different Virtual Networks, there might be times when you want resources on each of the networks to connect with one another.
+### Connect virtual networks to each other
+It is possible to use many virtual networks for your deployments. There are various reasons why you might do this. You might want to simplify management, or you might want increased security. Regardless of the motivation for putting resources on different virtual networks, there might be times when you want resources on each of the networks to connect with one another.
 
-One option is for services on one Virtual Network to connect to services on another Azure Virtual Network, by “looping back” through the internet. The connection starts on one Virtual Network, goes through the internet, and then comes back to the destination Virtual Network. This option exposes the connection to the security issues inherent in any internet-based communication.
+One option is for services on one virtual network to connect to services on another virtual network, by “looping back” through the internet. The connection starts on one virtual network, goes through the internet, and then comes back to the destination virtual network. This option exposes the connection to the security issues inherent in any internet-based communication.
 
-A better option might be to create a site-to-site VPN that connects between two Virtual Networks. This method uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
+A better option might be to create a site-to-site VPN that connects between two virtual networks. This method uses the same [IPsec tunnel mode](https://technet.microsoft.com/library/cc786385.aspx) protocol as the cross-premises site-to-site VPN connection mentioned above.
 
 The advantage of this approach is that the VPN connection is established over the Azure network fabric, instead of connecting over the internet. This provides you an extra layer of security, compared to site-to-site VPNs that connect over the internet.
 
@@ -201,18 +201,18 @@ Name resolution is a critical function for all services you host in Azure. From 
 
 There are two types of name resolution you need to address:
 
-* Internal name resolution. This is used by services on your Virtual Networks, your on-premises networks, or both. Names used for internal name resolution are not accessible over the internet. For optimal security, it’s important that your internal name resolution scheme is not accessible to external users.
-* External name resolution. This is used by people and devices outside of your on-premises networks and Virtual Networks. These are the names that are visible to the internet, and are used to direct connection to your cloud-based services.
+* Internal name resolution. This is used by services on your virtual networks, your on-premises networks, or both. Names used for internal name resolution are not accessible over the internet. For optimal security, it’s important that your internal name resolution scheme is not accessible to external users.
+* External name resolution. This is used by people and devices outside of your on-premises networks and virtual networks. These are the names that are visible to the internet, and are used to direct connection to your cloud-based services.
 
 For internal name resolution, you have two options:
 
-* A Virtual Network DNS server. When you create a new Virtual Network, a DNS server is created for you. This DNS server can resolve the names of the machines located on that Virtual Network. This DNS server is not configurable, is managed by the Azure fabric manager, and can therefore help you secure your name resolution solution.
-* Bring your own DNS server. You have the option of putting a DNS server of your own choosing on your Virtual Network. This DNS server could be an Active Directory integrated DNS server, or a dedicated DNS server solution provided by an Azure partner, which you can obtain from the Azure Marketplace.
+* A virtual network DNS server. When you create a new virtual network, a DNS server is created for you. This DNS server can resolve the names of the machines located on that virtual network. This DNS server is not configurable, is managed by the Azure fabric manager, and can therefore help you secure your name resolution solution.
+* Bring your own DNS server. You have the option of putting a DNS server of your own choosing on your virtual network. This DNS server can be an Active Directory integrated DNS server, or a dedicated DNS server solution provided by an Azure partner, which you can obtain from the Azure Marketplace.
 
 Learn more:
 
-* [Virtual Network Overview](../virtual-network/virtual-networks-overview.md)
-* [Manage DNS Servers used by a Virtual Network (VNet)](../virtual-network/manage-virtual-network.md#change-dns-servers)
+* [Virtual network overview](../virtual-network/virtual-networks-overview.md)
+* [Manage DNS Servers used by a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers)
 
 For external name resolution, you have two options:
 
