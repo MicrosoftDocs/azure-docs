@@ -23,7 +23,7 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Download and run the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
