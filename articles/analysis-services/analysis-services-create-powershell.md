@@ -4,8 +4,8 @@ description: Learn how to create an Azure Analysis Services server by using Powe
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/12/2018
+ms.topic: quickstart
+ms.date: 05/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,7 +14,6 @@ ms.reviewer: minewiskan
 # Quickstart: Create a server - PowerShell
 
 This quickstart describes using PowerShell from the command line to create an Azure Analysis Services server in your Azure subscription.
-
 
 ## Prerequisites
 

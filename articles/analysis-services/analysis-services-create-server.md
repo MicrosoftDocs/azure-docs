@@ -14,7 +14,7 @@ ms.reviewer: minewiskan
 
 This article walks you through creating an Analysis Services server resource in your Azure subscription.
 
-Before you begin, you need: 
+## Prerequisites 
 
 * **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
 * **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant. And, you need to be signed in to Azure with an account in that Azure Active Directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
@@ -57,4 +57,5 @@ When no longer needed, delete your server. In your server's **Overview**, click 
 In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can add a basic sample data model to it from the portal. Having a sample model is helpful to learn about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
 
 > [!div class="nextstepaction"]
+> [Quickstart: Configure firewall - Portal]
 > [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)
