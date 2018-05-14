@@ -45,13 +45,13 @@
       href: delete-cluster.md
   - name: Configure data volumes
     items:
-    - name: AzureDisk - Dynamic Provisioning
+    - name: AzureDisk: Dynamic Provisioning
       href: azure-disks-dynamic-pv.md
-    - name: AzureDisk - Static Provisioning
+    - name: AzureDisk: Static Provisioning
       href: azure-disk-volume.md
-    - name: AzureFile - Dynamic Provisioning
+    - name: AzureFile: Dynamic Provisioning
       href: azure-files-dynamic-pv.md
-    - name: AzureFile - Static Provisioning
+    - name: AzureFile: Static Provisioning
       href: azure-files-volume.md
   - name: Configure networking
     items:
