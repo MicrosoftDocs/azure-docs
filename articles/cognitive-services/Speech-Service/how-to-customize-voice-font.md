@@ -25,7 +25,7 @@ The Text to Speech voice customization feature is currently in private preview. 
 
 You also need:
 
-* An Azure account ([sign up for free](https://azure.microsoft.com/en-us/free/ai/) if you don't yet have one).
+* An Azure account ([sign up for free](https://azure.microsoft.com/free/ai/) if you don't yet have one).
 
 * A subscription to the Speech service. [Create one](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) if you haven't already.
 
