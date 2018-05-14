@@ -3,6 +3,7 @@ title: Onboarding machines for management by Azure Automation DSC
 description: How to setup machines for management with Azure Automation DSC
 services: automation
 ms.service: automation
+ms.component: dsc
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018

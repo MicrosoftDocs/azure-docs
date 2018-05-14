@@ -169,4 +169,4 @@ To set an application’s **single sign-on** mode, follow these instructions:
 7.  Once the application loads, click **Provisioning** from the application’s left-hand navigation menu.
 
 ## Next steps
-[Managing Applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+[Managing Applications with Azure Active Directory](manage-apps/what-is-application-management.md)
