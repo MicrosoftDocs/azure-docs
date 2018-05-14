@@ -94,7 +94,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-The `details=2` element adds more details that Custom Decision Service might extract from articles' SEO metatags ([featurization code](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
+The `details=2` element adds more details that Custom Decision Service might extract from articles' SEO metatags [featurization code](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
 
 - `title` from `<meta property="og:title" content="..." />` or `<meta property="twitter:title" content="..." />` or `<title>...</title>`
 - `description` from `<meta property="og:description" ... />` or `<meta property="twitter:description" content="..." />` or `<meta property="description" content="..." />`
