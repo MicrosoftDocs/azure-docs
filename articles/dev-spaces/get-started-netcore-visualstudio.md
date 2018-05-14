@@ -101,7 +101,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 
 ## Run *mywebapi*
 1. Open the project `mywebapi` in a *separate Visual Studio window*.
-1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than create a new development environment this time, select the same one you already created. As before, leave the Space defaulted to `mainline` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your development environment in order to speed things up when you start debugging.
+1. Select **Azure Dev Spaces** from the launch settings dropdown as you did previously for the `webfrontend` project. Rather than create a new development environment this time, select the same one you already created. As before, leave the Space defaulted to `default` and click **OK**. In the Output window, you may notice Visual Studio starts to "warm up" this new service in your development environment in order to speed things up when you start debugging.
 1. Hit F5, and wait for the service to build and deploy. You'll know it's ready when the Visual Studio status bar turns orange
 1. Take note of the endpoint URL displayed in the **Azre Dev Spaces for AKS** pane in the **Output** window. It will look something like http://localhost:\<portnumber\>. It might seem like the container is running locally, but actually it's running in the development environment in Azure.
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
@@ -172,7 +172,7 @@ With Azure Dev Spaces, you can set up a *shared* development environment in Azur
 ### Work in your own space
 As you develop code for your service, and before you're ready to check it in, code often won't be in a good state. You're still iteratively shaping it, testing it, and experimenting with solutions. Azure Dev Spaces provides the concept of a **space**, which allows you to work in isolation, and without the fear of breaking your team members.
 
-Do the following to make sure both your `webfrontend` and `mywebapi` services are running in your development environment **and in the `mainline` space**.
+Do the following to make sure both your `webfrontend` and `mywebapi` services are running in your development environment **and in the `default` space**.
 1. Close any F5/debug sessions for both services, but keep the projects open in their Visual Studio windows.
 2. Switch to the Visual Studio window with the `mywebapi` project and press Ctrl+F5 to run the service without the debugger attached
 3. Switch to the Visual Studio window with the `webfrontend` project and press Ctrl+F5 to run it as well.
@@ -181,7 +181,7 @@ Do the following to make sure both your `webfrontend` and `mywebapi` services ar
 > It is sometimes necessary to refresh your browser after the web page is initially displayed > > 
 > following a Ctrl+F5.
 
-Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `mainline` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the development environment? To do that, you'll set up your own space.
+Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `default` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the development environment? To do that, you'll set up your own space.
 
 ### Create a new space
 From within Visual Studio, you can create additional spaces that will be used when you F5 or Ctrl+F5 your service. You can call a space anything you'd like, and you can be flexible about what it means (ex. `sprint4` or `demo`).
@@ -218,7 +218,7 @@ Do the following to create a new space:
 2. Set a breakpoint in this updated block of code (you may already have one set from before).
 3. Hit F5 to start the `mywebapi` service. This will start the service in your development environment using the selected space, which in this case is `scott`.
 
-Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `mainline` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
+Here is a diagram that will help you understand how the different spaces work. The blue path shows a request via the `default` space, which is the default path used if no space is prepended to the URL. The green path shows a request via the `scott` space.
 
 ![](media/common/Space-Routing.png)
 

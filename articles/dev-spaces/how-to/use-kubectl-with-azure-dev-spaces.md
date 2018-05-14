@@ -21,5 +21,5 @@ Running `azds resource create` or `azds resource select` will automatically add 
 - List all available contexts: `kubectl config get-contexts`. 
 - Change context: `kubectl config use-context <context-name>`
 - View the Kubernetes dashboard: run `kubectl proxy`, then open your browser to the address that this command emits (append `/ui` to the URL to navigate to the Kubernetes dashboard).
-- List the running services in the default Azure Dev Spaces space named *mainline*: `kubectl get services --namespace=mainline`
+- List the running services in the default Azure Dev Spaces space named *default*: `kubectl get services --namespace=default`
 

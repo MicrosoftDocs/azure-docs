@@ -56,7 +56,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 6. (Optional) From the command line, check that these secrets have been created:
 
       ```
-      kubectl get secret --namespace mainline -o yaml 
+      kubectl get secret --namespace default -o yaml 
       ```
 
 7. Make sure that you add _values.dev.yaml_ to the _.gitignore_ file to avoid committing secrets in source control.
@@ -102,7 +102,7 @@ Azure Dev Spaces provides two recommended options for storing secrets: in the va
 4.	(optional) View secrets from kubectl:
 
     ```
-    kubectl get secret --namespace mainline -o yaml
+    kubectl get secret --namespace default -o yaml
     ```
 
 ## Next steps

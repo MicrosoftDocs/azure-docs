@@ -44,14 +44,14 @@ Let's take a closer look at where the services are currently running. Run the `a
 ```
 Name         Space     Chart              Ports   Updated     Access Points
 -----------  --------  -----------------  ------  ----------  -------------------------
-mywebapi     mainline  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
-webfrontend  mainline  webfrontend-0.1.0  80/TCP  1m ago     https://webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
+mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
+webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     https://webfrontend-contosodev.1234abcdef.westeurope.aksapp.io
 ```
 
-The Space column shows that both services are running in a space named `mainline`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
+The Space column shows that both services are running in a space named `default`. Anyone who opens the public URL and navigates to the web app will invoke the code path you previously wrote that runs through both services. Now suppose you want to continue developing `mywebapi`. How can you make code changes and test them and not interrupt other developers who are using the dev environment? To do that, you'll set up your own space.
 
 ## Create a space
-To run your own version of `mywebapi` in a space other than `mainline`, you can create your own space by using the following command:
+To run your own version of `mywebapi` in a space other than `default`, you can create your own space by using the following command:
     ``` 
     azds space create --name scott
     ```
