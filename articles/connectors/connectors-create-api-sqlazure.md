@@ -197,7 +197,7 @@ For solution details, see these articles:
 ## Connector-specific details
 
 For technical information about this connector's triggers, actions, 
-and limits, see the [the connector's reference details](/connectors/sql/). 
+and limits, see the [connector's reference details](/connectors/sql/). 
 
 ## Next steps
 
