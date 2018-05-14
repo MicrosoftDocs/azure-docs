@@ -33,7 +33,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Adaptive Suite, you need the following items:
 
 - An Azure AD subscription
-- An Adaptive Suite single-sign on enabled subscription
+- An Adaptive Suite single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -41,7 +41,7 @@ To configure Azure AD integration with Adaptive Suite, you need the following it
 To test the steps in this tutorial, you should follow these recommendations:
 
 - Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
 In this tutorial, you test Azure AD single sign-on in a test environment. 
@@ -196,9 +196,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating an Adaptive Suite test user
 
-To enable Azure AD users to log in to Adaptive Suite, they must be provisioned into Adaptive Suite.
-
-* In the case of Adaptive Suite, provisioning is a manual task.
+To enable Azure AD users to log in to Adaptive Suite, they must be provisioned into Adaptive Suite. In the case of Adaptive Suite, provisioning is a manual task.
 
 **To configure user provisioning, perform the following steps:** 
 
