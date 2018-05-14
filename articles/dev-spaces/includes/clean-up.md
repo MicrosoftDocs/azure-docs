@@ -16,8 +16,8 @@ To completely delete an Azure Dev Space, including all the running services with
 
 The following example lists the Azure Dev Spaces in your active subscription, and then deletes the environment named 'myenv' that is in the resource group 'myenv-rg'.
 
-    ```cmd
+```cmd
     azds resource list
     azds resource rm --name myenv --resource-group myenv-rg
-    ```
+```
 
