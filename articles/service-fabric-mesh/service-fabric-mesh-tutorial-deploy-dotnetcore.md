@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 05/15/2018
 ms.author: adegeo
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run a .net core application on Service Fabric Mesh so that I can see it run and then I will deploy it to Azure.
@@ -48,7 +48,7 @@ For more information on installing the prerequisites, see [Set up your developer
 
 After you've installed the Service Fabric Mesh SDK, new templates for Service Fabric Mesh are available in Visual Studio. Open Run Visual Studio and select **File** > **New** > **Project...**
 
-In the **New Project** dialog, type **SeaBreeze** into the **Search** box at the top. Select the **SeaBreeze Application** template. Next, Make sure that **Create directory for solution** is checked.
+In the **New Project** dialog, type **mesh** into the **Search** box at the top. Select the **Service Fabric Mesh Application** template. Next, Make sure that **Create directory for solution** is checked.
 
 In the **Name** box, type **ServiceFabricMesh1** and in the **Location** box, set the folder path of where the files for the project will be stored.
 
@@ -56,17 +56,28 @@ Press **OK** to create the Service Fabric Mesh project.
 
 ![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-project.png)
 
-A new dialog is displayed, **New SeaBreeze Service**. Leave the defaults as they are. However, you may change the **Service Name** to something unique. Why? Because the name of the service is used as the repository name of the Docker image. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Use the command `docker image list` to verify your name is unique.
+A new dialog is displayed, **New Service Fabric Service**. Select the **ASP.NET Core** project type, make sure **Container OS** is set to **Windows**.
+
+You may change the **Service Name** to something unique. Why? Because the name of the service is used as the repository name of the Docker image. If you have an existing Docker image with the same repository name, it will be overwritten by Visual Studio. Use the command `docker image list` to verify your name is unique.
 
 Press **OK** to create the ASP.NET Core project. 
+
+
+![Visual studio new Service Fabric Mesh project dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-service-fabric-service.png)
 
 A new dialog is displayed, **New ASP.NET Core Web Application** dialog. Select **Web Application** and then press **OK**.
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-new-aspnetcore-app.png)
 
-Visual Studio will create your Service Fabric Mesh project and then the ASP.NET Core project. A Docker image will automatically be built and deployed to your local Docker host. This process may take some time. You can monitor the progress of the Service Fabric Mesh tools in the **Output** pane. Select the **SeaBreeze Tools** item in the pane.
+Visual Studio will create your Service Fabric Mesh project and then the ASP.NET Core project. A Docker image will automatically be built and deployed to your local Docker host. This process may take some time. You can monitor the progress of the Service Fabric tools in the **Output** pane. Select the **Service Fabric Tools** item in the pane.
 
 ![Visual studio new ASP.NET core application](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-docker-tools-start.png)
+
+>**Possible failure**  
+>The NuGet package **Microsoft.VisualStudio.Azure.SFApp.Targets** is required and may not be available, causing the project build to fail. You may need to temporarily add the NuGet package from the Service Fabric extension install directory. This is different on each computer but is generally located somewhere in the folder `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\Extensions\[UNIQUE NAME]\Nuget`. The `[UNIQUE NAME]` is different for each install and is named something similar to `x2lwnl23.hto`. Scan each directory (sort by *last modified date*) for a file named `Microsoft.VisualStudio.Azure.SFApp.Targets.0.6.0.nupkg`. Add this folder as a package source to NuGet in Visual Studio. For more information on adding package sources, see [Package Manager UI](/nuget/tools/package-manager-ui#package-sources).
+>
+> If you run into this problem, and after you have added the NuGet source, rebuild the app to verify the package can be found. Then, close your solution and reload it. Or, restart Visual Studio and reload your solution.
+
 
 Verify that the image has been created by running `docker image list` in your CLI of choice. In the results, there's a **REPOSITORY** value named the same as your ASP.NET Core project name.
 
@@ -92,8 +103,8 @@ After the local deployment is finished, and your web browser has popped up, you 
 
 ```cli
 > docker ps
-CONTAINER ID        IMAGE               COMMAND                    CREATED             STATUS              PORTS                            NAMES
-a4997407f7c2        web3:dev            "C:\\remote_debugger\\…"   2 minutes ago       Up 2 minutes        80/tcp, 0.0.0.0:8080->8080/tcp   sf-5-0082a275-aaf4-4657-9f90-7885a16a9dd9_97be639e-67dc-456a-a614-241c1e4040bd
+CONTAINER ID        IMAGE               COMMAND                    CREATED             STATUS              PORTS                      NAMES
+a4997407f7c2        web3:dev            "C:\\remote_debugger\\…"   2 minutes ago       Up 2 minutes        0.0.0.0:20000->20000/tcp   sf-5-0082a275-aaf4-4657-9f90-7885a16a9dd9_97be639e-67dc-456a-a614-241c1e4040bd
 ```
 
 Use the **CONTAINER ID** with the `docker inspect` command to find the IP address the container is using. This command returns you a **json** formatted string that gives you details about the docker container. The last part of the output should be the network settings, which provide you the IP address.
@@ -130,115 +141,40 @@ Use the **CONTAINER ID** with the `docker inspect` command to find the IP addres
 
 In Visual Studio, press **Shift+F5** to stop debugging.
 
-## Prepare to deploy to Azure
-
-It's easy to deploy your Service Fabric Mesh project to Azure. But first, some tweaking needs to happen. Currently, Service Fabric Mesh is using port **8080** in the container hosting your project. This port is routed to port **80** on the development cluster's network adapter. However, Azure cannot use this port currently and you must change any reference of port **8080** to **80**, before publishing. There are two files you need to edit, **service.yaml** and **network.yaml**. 
-
-The **service.yaml** file is located in Visual Studio at **[.NET Core Project Name]** > **Service Resources** > **service.yaml**. You can see in this example that the **endpoints** definition has **port** set to **8080**, change that value to **80**.
-
-```yaml
-## Service definition ##
-application:
-  schemaVersion: 0.0.1
-  name: seabreeze9
-  services:
-    - name: breeze1
-      description: breeze1 description.
-      osType: Windows
-      codePackages:
-        - name: breeze1
-          image: breeze1:dev
-          endpoints:
-            - name: breeze1Listener
-              port: 8080
-          resources:
-            requests:
-              cpu: 1
-              memoryInGB: 1
-      replicaCount: 1
-      networkRefs:
-        - seabreeze9Network
-```
-
-The **network.yaml** file is located in Visual Studio at **[Service Fabric Mesh Project Name]** > **App Resources** > **network.yaml**. You can see in this example that the **layer4** definition has **publicPort** set to **8080**, change that value to **80**. 
-
-```yaml
-## Network definition ##
-network:
-  schemaVersion: 0.0.1
-  name: seabreeze9Network
-  description: seabreeze9Network description.
-  addressPrefix: 10.0.0.4/22
-  ingressConfig:
-    layer4:
-      - name: breeze1Ingress
-        publicPort: 8080
-        applicationName: seabreeze9
-        serviceName: breeze1
-        endpointName: breeze1Listener
-```
-
-By changing the port to **80** in these two files, Visual Studio reacts badly and will no longer debug and deploy to the local cluster. Revert these changes after you deploy to Azure if you want to continue to work locally.
-
-## Create an ACR
-
-Service Fabric Mesh services are hosted in containers. The Service Fabric Mesh tools will automatically build and deploy a container image containing your services. This image can be stored in the public Docker Registry, or in an Azure Container Registry (ACR). Currently, Service Fabric Mesh with Visual Studio only supports using ACR, while the command line tools allow you to use the Docker Registry. For the purposes of this tutorial, create a new ACR in the **East US** location.
-
-Sign in to the Azure portal at https://portal.azure.com. Select **Create a resource** > **Containers** > **Azure Container Registry**.
-
-![Creating a container registry in the Azure portal](media/service-fabric-mesh-tutorial-deploy-dotnetcore/qs-portal-01.png)
-
-For **Registry name**, use something unique; the value `sfmeshTutorial1ACR` is used in this tutorial. For **Resource group**, create a new one with the name `sfmeshTutorial1RG`.
-
-Set **Location** to `East US` and **SKU** to `Basic`. Under **Admin user**, select `Enable`, and then select **Create** to create ACR instance.
-
-![Creating a container registry in the Azure portal](media/service-fabric-mesh-tutorial-deploy-dotnetcore/qs-portal-03.png)
-
-The Azure portal will display a **Deployment succeeded** status message when the ACR has been created. After it is created, you can continue on and deploy your Service Fabric Mesh project.
-
 ## Deploy to Azure
 
 To deploy your Service Fabric Mesh project to Azure, right-click on the **Service Fabric Mesh project** in Visual studio and select **Publish...**
 
 ![Visual studio right-click Service Fabric Mesh project](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-right-click-publish.png)
 
-You will be presented with a **Publish SeaBreeze Application** dialog.
+You will see a **Publish Service Fabric Application** dialog.
 
 ![Visual studio Service Fabric Mesh publish dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Provide your Azure account and subscription. The **Location** must be set to **eastus**. Unselect **New resource group** and then choose the same resource group you previously created, `sfmeshTutorial1RG`. Select the Azure Container Registry you created in the previous section. Press **Publish** to start the deployment.
+Select your Azure account and subscription. The **Location** must be set to **East US**. 
 
-When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the Service Fabric Mesh tools by selecting the **SeaBreeze Tools** item in the Visual Studio **Output** pane. Once the deployment has finished, the **SeaBreeze Tools** output will display the network information of the hosting container for Service Fabric Mesh.
+Under **Resource group**, select **\<Create New Resource Group...>**. This will show you a dialog where you will create a new resource group. Choose the **East US** location and name the group **sfmeshTutorial1RG**. Press **Create** to create the resource group and return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
+
+Back in the **Publish Service Fabric Application** dialog, under **Azure Container Registry**, select **\<Create New Container Registry...>**. In the **Create Container Registry** dialog, use a unique name for the **Container registry name**. For **Location**, pick **East US**. Select the **sfmeshTutorial1RG** resource group. Set the **SKU** to **Basic** and then press **Create** to return to the publish dialog.
+
+![Visual studio Service Fabric Mesh new resource group dialog](media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
+
+In the publish dialog, press the **Publish** button to deploy your Service Fabric application to Azure.
+
+When you publish to Azure for the first time, it can take up to 10 or more minutes. Subsequent publishes of the same project generally take around five minutes. Obviously, these estimates will vary based on your internet connection speed and other factors. You can monitor the progress of the deployment by selecting the **Service Fabric Tools** item in the Visual Studio **Output** pane. Once the deployment has finished, the **Service Fabric Tools** output will display the IP address and port of your application in the form of a URL.
 
 ```json
-Network Information:
-{
-  "type": "Microsoft.ServiceFabric/networks",
-  "location": "eastus",
-  "id": "/subscriptions/ba2s53e145-3c4e-bbbb-bbbb-c755f8df945e/resourcegroups/sfmeshTutorial1RG/providers/Microsoft.ServiceFabric/networks/seabreeze9Network",
-  "name": "seabreeze9Network",
-  "tags": {},
-  "properties": {
-    "provisioningState": "Succeeded",
-    "description": "seabreeze9Network description.",
-    "addressPrefix": "10.0.0.4/22",
-    "ingressConfig": {
-      "qosLevel": "Bronze",
-      "publicIPAddress": "52.111.111.11",
-      "layer4": [
-        {
-          "publicPort": 80,
-          "applicationName": "seabreeze9",
-          "serviceName": "breeze1",
-          "endpointName": "breeze1Listener"
-        }
-      ]
-    }
-  }
-}
+Packaging Application...
+Building Images...
+Web1 -> C:\Code\ServiceFabricMesh1\Web1\bin\Any CPU\Release\netcoreapp2.0\Web1.dll
+Uploading the images to Azure Container Registy...
+Deploying application to remote endpoint...
+The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 
-Open a web browser and navigate to the IP address in the **publicIPAddress** field of the results.
+Open a web browser and navigate to the URL to see the website running in Azure.
 
 ## Clean up resources
 
