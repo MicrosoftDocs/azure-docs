@@ -21069,6 +21069,11 @@
             "source_path": "articles/storage/queues/index.md",
             "redirect_url": "/azure/storage/queues/storage-queues-introduction",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/dev-spaces/index.md",
+            "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
+            "redirect_document_id": false
         }
         
     ]
