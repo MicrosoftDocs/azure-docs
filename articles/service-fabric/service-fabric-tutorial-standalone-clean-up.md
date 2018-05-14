@@ -26,9 +26,34 @@ This tutorial is part four of a series. This part of the tutorial shows you how 
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Clean up your resources
+> * Clean up Service Fabric cluster
+> * Clean up your AWS resources
 
-## Clean up
+## Clean up Service Fabric cluster
+
+* RDP into the EC2 instance that you used to installed Service Fabric
+* Open PowerShell
+* Change the directory to the extracted folder from the second tutorial.
+* Run the following command to remove the Service Fabric cluster:
+
+```powershell
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
+```
+
+* `Y` when prompted, if it was successful your output will look like the following, with your own IP addresses substituted in:
+
+```powershell
+Best Practices Analyzer completed successfully.
+Removing configuration from machine 172.31.21.141
+Removing configuration from machine 172.31.27.1
+Removing configuration from machine 172.31.20.163
+Configuration removed from machine 172.31.21.141
+Configuration removed from machine 172.31.27.1
+Configuration removed from machine 172.31.20.163
+The cluster is successfully removed.
+```
+
+## Clean up AWS resources
 
 * Log in to your AWS Account
 * Go to the EC2 Console.

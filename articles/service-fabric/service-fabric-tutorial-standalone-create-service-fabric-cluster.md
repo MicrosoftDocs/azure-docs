@@ -56,7 +56,7 @@ After updating the nodes, they appear as follows:
         }
 ```
 
-Then you need to update a couple of the properties.  On line 34, you need to modify the connectionstring for the diagnostic store it should look like this after modification, with your IP address replaced in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this after modification, with your IP address replaced in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
 
 After you update the connection string be sure to create the folder.  The following command will create it, be sure to replace the ip address below with the IP address you inserted into the connection string:
 
@@ -64,19 +64,33 @@ After you update the connection string be sure to create the folder.  The follow
 mkdir \\172.31.27.1\c$\DiagnosticsStore
 ```
 
+Finally, in the `nodeTypes` section add of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should like like the following:
+
+```json
+"applicationPorts": {
+    "startPort": "20001",
+    "endPort": "20031"
+},
+"ephemeralPorts": {
+    "startPort": "20606",
+    "endPort": "20861"
+},
+"isPrimary": true
+```
+
 ## Validate the environment
 
 The *TestConfiguration.ps1* script in the standalone package is used as a best practices analyzer to validate whether a cluster can be deployed on a given environment. [Deployment preparation](service-fabric-cluster-standalone-deployment-preparation.md) lists the pre-requisites and environment requirements. Run the script to verify if you can create the development cluster:
 
 ```powershell
-cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.1.480.9494\
+cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
 You should see output like below. If the bottom field "Passed" is returned as `True`, sanity checks have passed and the cluster looks to be deployable based on the input configuration.
 
 ```powershell
-Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.1.480.9494\DeploymentTraces
+Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
 Running Best Practices Analyzer...
 Best Practices Analyzer completed successfully.
 
@@ -100,7 +114,7 @@ Passed                     : True
 Once you have a successfully validated your cluster config run the *CreateServiceFabricCluster.ps1* script to deploy the Service Fabric cluster to the virtual machines in the configuration file.
 
 ```powershell
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Windows.MultiMachine.json -AcceptEULA
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA
 ```
 
 If it all works, you'll get output that looks like this:
