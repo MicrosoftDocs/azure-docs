@@ -30,9 +30,13 @@ Read more details about Azure AD [duplicated resilience](https://aka.ms/dupattri
 When **QuarantinedAttributeValueMustBeUnique** and **AttributeValueMustBeUnique** sync errors happen, it is common to see User Principal Name or Proxy Addresses conflict in Azure AD. You may solve the sync errors by updating the conflicting source object from on premises side. The sync error will be resolved after the following synchronization. 
 For example, the picture below indicates that two users are having conflict of their UserPrincipalName as *Joe.J@contoso.com*. The conflicting objects are quarantined in Azure AD. 
 
+![Diagnose Sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
+
 ### Orphaned object scenario
 We sometimes identify that an existing user loses the Source Anchor. The deletion of source object happened in on premises Active Directory, but the change of deletion signal never got synchronized to Azure AD. It can happen due to reasons such as sync engine issue or domain migration. When same object got restored or recreated, logically existing user should be the user to synchronize from the Source Anchor. For existing user as cloud only object, we also see conflicting user synchronized to Azure AD and cannot be matched in sync to the existing object. There is no direct way to remap the Source Anchor. Read more about the [existing KB](https://support.microsoft.com/help/2647098). 
 For example, the existing object in Azure AD preserves the license of Joe. Newly synchronized object with different source anchor occurred in duplicated attribute state in Azure AD. Changes of Joe in on-premises AD will not be able to be applied to Joe’s original user (existing object) in Azure AD.  
+
+![Diagnose Sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
 ## Diagnostic and troubleshooting steps in Connect Health 
 Diagnose feature supports User objects with following duplicated attributes:
@@ -53,6 +57,7 @@ Following the steps from Azure portal, we will be able to narrow down the sync e
 
 From the Azure portal, we will be able to go through a few steps to identify specific fixable scenarios:
 1.	In Diagnose status column, the status will show if there is a potential troubleshooting flows to narrow down the error case and potentially fix directly from Azure Active Directory.
+
 | Status | What does it mean? |
 | ------------------ | -----------------|
 | Not started | You have not visited this diagnosis process. Depends on the diagnostic result, there is potentially a way to fix the sync error from the portal directly. |
@@ -103,7 +108,7 @@ In the case below the two objects belongs to the same user *Joe Johnson*.
 
 
 ## What happened after fix is applied for orphaned object scenario
-Based on the answers of raised questions, you will be able to see “Apply Fix” button when there is a fix available from the Azure AD. In this case, the on premises object is synchronizing with an unexpected Azure AD object. The two objects are mapped using the "Source Anchor". The apply change will perform steps such as:
+Based on the answers of raised questions, you will be able to see **Apply Fix** button when there is a fix available from the Azure AD. In this case, the on premises object is synchronizing with an unexpected Azure AD object. The two objects are mapped using the "Source Anchor". The apply change will perform steps such as:
 - Update the Source Anchor to the correct object in Azure AD.
 - Delete the conflicting object in Azure AD if it present.
 
