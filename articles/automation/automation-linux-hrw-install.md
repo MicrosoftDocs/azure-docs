@@ -30,13 +30,13 @@ The following is a list of Linux distributions that are supported:
 
 To install and configure a Hybrid Runbook Worker on your Linux computer, you follow a straight forward process to manually install and configure the role. It requires enabling the **Automation Hybrid Worker** solution in your Log Analytics workspace and then running a set of commands to register the computer as a worker and add it to a new or existing group.
 
-The following are the minimum requirements for a Linux Hybrid Runbook Worker.
+The following are the minimum requirements for a Linux Hybrid Runbook Worker:
 
-* A minimum of two cores.
-* A minimum of 4 GB of RAM.
+* A minimum of two cores
+* A minimum of 4 GB of RAM
 * Port 443 (outbound)
 
-### Package Requirements
+### Package requirements
 
 | **Required package** | **Description** | **Minimum version**|
 |--------------------- | --------------------- | -------------------|
