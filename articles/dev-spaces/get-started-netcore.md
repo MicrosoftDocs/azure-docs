@@ -28,9 +28,11 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
-[!INCLUDE[](includes/create-env-cli.md)]
+[!INCLUDE[](includes/use-dev-spaces.md)]
 
-While you're waiting for the environment to be created, you can start developing code.
+[!INCLUDE[](includes/install-vscode-extension.md)]
+
+While you're waiting for the cluster to be created, you can start developing code.
 
 ## Create an ASP.NET Core web app
 If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core Web App in a folder named `webfrontend`.

@@ -31,6 +31,6 @@ While you can use the Azure Dev Spaces CLI as a standalone tool, rich features l
 1. Download the [VS Azure Dev Spaces extension](https://aka.ms/get-azds-code).
 1. Install the extension: 
 
-```cmd
-code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix
-```
+    ```cmd
+    code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix
+    ```

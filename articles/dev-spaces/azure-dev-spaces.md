@@ -11,7 +11,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "douge"
 ---
-# Azure Dev Spaces for Azure Kubernetes Service (AKS)
+# Azure Dev Spaces
 Azure Dev Spaces helps you develop with speed on Kubernetes. With Azure Dev Spaces, you also add full development capabilities such as debugging to your Azure Kubernetes containers, and you can iteratively develop containers in the cloud using familiar tools like VS Code, Visual Studio, or the command line. Azure Dev Spaces is especially relevant in team development where isolation of individual code branches in their own spaces is a critical part of the development lifecycle.
 
 This approach carries several benefits:
