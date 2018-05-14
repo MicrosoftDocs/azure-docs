@@ -74,7 +74,7 @@ The algorithm ignores obvious "false positives" contributing to the impossible t
 
 This risk event type considers past sign-in locations (IP, Latitude / Longitude and ASN) to determine new / unfamiliar locations. The system stores information about previous locations used by a user, and considers these “familiar” locations. The risk event is triggered when the sign-in occurs from a location that's not already in the list of familiar locations. The system has an initial learning period of 30 days, during which it does not flag any new locations as unfamiliar locations. The system also ignores sign-ins from familiar devices, and locations that are geographically close to a familiar location. 
 
-Identity Protection detects sign-ins from unfamiliar locations also for basic authentication / legacy protocols. Because these protocols do not have modern familiar features such as client id, there is less telemetry to reduce false positives. To reduce the number of detected risk events, you should move to modern authentication.   
+Identity Protection detects sign-ins from unfamiliar locations also for basic authentication / legacy protocols. Because these protocols do not have modern familiar features such as client id, there is not enough telemetry to reduce false positives. To reduce the number of detected risk events, you should move to modern authentication.   
 
 ### Sign-ins from infected devices
 
