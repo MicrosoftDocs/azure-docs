@@ -102,15 +102,18 @@ The main factors that influence performance of an application running on Premium
 Throughout this section, refer to the application requirements checklist that you created, to identify how much you need to optimize your application performance. Based on that, you will be able to determine which factors from this section you will need to tune. To witness the effects of each factor on your application performance, run benchmarking tools on your application setup. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for steps to run common benchmarking tools on Windows and Linux VMs.
 
 ### Optimizing IOPS, Throughput and Latency at a glance
-The table below summarizes all the performance factors and the steps to optimize IOPS, Throughput and Latency. The sections following this summary will describe each factor is much more depth.
+
+The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput and latency. The sections following this summary will describe each factor is much more depth.
+
+For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](../articles/virtual-machines/linux/sizes) or [Windows VM sizes]((../articles/virtual-machines/windows/sizes)).
 
 | &nbsp; | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
 | **Example Scenario** |Enterprise OLTP application requiring very high transactions per second rate. |Enterprise Data warehousing application processing large amounts of data. |Near real-time applications requiring instant responses to user requests, like online gaming. |
 | Performance factors | &nbsp; | &nbsp; | &nbsp; |
 | **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
-| **VM size** |Use a VM size that offers IOPS greater than your application requirement. See VM sizes and their IOPS limits here. |Use a VM size with Throughput limit greater than your application requirement. See VM sizes and their Throughput limits here. |Use a VM size that offers scale limits greater than your application requirement. See VM sizes and their limits here. |
-| **Disk size** |Use a disk size that offers IOPS greater than your application requirement. See disk sizes and their IOPS limits here. |Use a disk size with Throughput limit greater than your application requirement. See disk sizes and their Throughput limits here. |Use a disk size that offers scale limits greater than your application requirement. See disk sizes and their limits here. |
+| **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
+| **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |
 | **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by premium storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
 | **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
 | **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. Note that the combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
