@@ -3991,6 +3991,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cdn/cdn-cloud-service-with-cdn.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cloud-services/cloud-services-nodejs-enable-remote-desktop.md",
             "redirect_url": "/azure/cloud-services/cloud-services-role-enable-remote-desktop-powershell",
             "redirect_document_id": false
@@ -21233,6 +21238,11 @@
         {
             "source_path": "articles/active-directory/application-proxy-enable-remote-access-sharepoint.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/develop/active-directory-enterprise-app-role-management.md",
+            "redirect_url": "/azure/active-directory/active-directory-enterprise-app-role-management",
             "redirect_document_id": false
         }
 
