@@ -30,6 +30,8 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
 
 1. Set up your local Service Fabric environment following these instructions: [Prepare your development environment on Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started)
 
+1. Make sure the Docker for Window service is running before proceeding with the next step.
+
 1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name.
     1. Open PowerShell as administrator
     1. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
