@@ -64,6 +64,7 @@ All operation APIs require a Location parameter, which indicates the region to w
 
 The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
+
 |**Name**|**Param value**|**Description**|
 |---|---|---|
 |Trial|trial|Used for trial accounts.|
