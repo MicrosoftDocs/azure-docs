@@ -22,31 +22,7 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 The following code shows how to create a job with an HTTPS URL input.
 
-```csharp
-private static Job SubmitJob(IAzureMediaServicesClient client, string transformName, string jobName)
-{
-    Asset outputAsset = client.Assets.CreateOrUpdate(Guid.NewGuid().ToString() + "-output", new Asset());
-
-    JobInputHttp jobInput = 
-        new JobInputHttp(files: new[] { "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4" });
-
-    JobOutput[] jobOutputs =
-    {
-        new JobOutputAsset(outputAsset.Name),
-    };
-
-    Job job = client.Jobs.CreateOrUpdate(
-        transformName,
-        jobName,
-        new Job
-        {
-            Input = jobInput,
-            Outputs = jobOutputs,
-        });
-
-    return job;
-}
-```
+[!code-csharp[Main](../../../media-services-v3-dotnet-quickstarts/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ## Next steps
 
