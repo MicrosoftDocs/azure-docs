@@ -37,7 +37,7 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 In the following example, you create a metric measurement alert rule based off of the *Azure VMs - Processor Utilization* query saved in the [Visualize data tutorial](log-analytics-tutorial-dashboards.md).  An alert is created for each virtual machine that exceeds a threshold of 90%.  
 
 1. In the Azure portal, click **All services**. In the list of resources, type **Monitor**. As you begin typing, the list filters based on your input. Select **Monitor**.
-2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** on the top of the page to create a new alert.<br><br> ![Create new alert rule](./media/log-analytics-tutorial-response/azure-alerts-01.png)<br>
+2. In the left-hand pane, select **Alerts** and then click **New Alert Rule** on the top of the page to create a new alert.<br><br> ![Create new alert rule](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. For the first step, under the **Create Alert** section, you are going to select your Log Analytics workspace as the resource since we this is a log based alert signal.  Filter the results by choosing the specific **Subscription** from the drop-down list if you have more than one, which contains the VM and Log Analytics workspace created earlier.  Filter the **Resource Type** by selecting **Log Analytics** from the drop-down list.  Finally, select the **Resource** **DefaultLAWorkspace** and then click **Done**.<br><br> ![Create alert step 1 task](./media/log-analytics-tutorial-response/alert-rule-01.png)<br>
 4. Under the section **Alert Criteria**, click **Add Criteria** to select our saved query and then specify logic that the alert rule follows.  From the **Configure signal logic** pane, select *Azure VMs - Processor Utilization* from the list.  The pane updates to present the configuration settings for the alert.  On the top it shows the results for the last thirty minutes of the selected signal and the search query itself.  
 5. Configure the alert with the following information:  
@@ -54,9 +54,9 @@ In the following example, you create a metric measurement alert rule based off o
    c. Verify the default values for **Subscription** an **Resource group** are correct. If not, select the correct one from the drop-down list.   
    d. Under the Actions section, specify a name for the action, such as **Send Email** and under **Action Type** select **Email/SMS/Push/Voice** from the drop-down list. The **Email/SMS/Push/Voice** properties pane will open to the right in order to provide additional information.
    e. On the **Email/SMS/Push/Voice** pane, enable **Email** and provide a valid email SMTP address to deliver the message to. 
-   f. Click **OK** to save your changes.<br><br> ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-02.png)<br>
+   f. Click **OK** to save your changes.<br><br> ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
 10. Click **OK** to complete the action group. 
-11. Click **Create alert rule**  to complete the alert rule. It starts running immediately. 
+11. Click **Create alert rule**  to complete the alert rule. It starts running immediately.<br><br> ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
 ## View your alerts in Azure portal
 Now that you have created an alert, you can view Azure alerts in a single pane and manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Included is an aggregated summary of all the fired alerts, and total configured/enabled alert rules.<br><br> ![Azure Alerts status page](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
