@@ -57,11 +57,3 @@ While you can keep the default view if you like it, you can also add, and delete
 To navigate back to the overview experience just select:
 
 ![Overview Button](.\media\app-insights-overview-dashboard\07.png)
-
-There is also a new button called _Pin Parts_.
-
-![Overview Button](.\media\app-insights-overview-dashboard\008.png)
-
-This replicates a little known feature from the classic overview that allows you to take any of the tiles from the old overview experience _(Alerts, Availability, Live Metrics, Usage, Proactive Detections, and Application Map)_ and add them into custom dashboards. 
-
-In the case of the default _Application Dashboard_ we have already added these tiles. But if you create additional custom dashboards, or if someone on your team deletes a classic tile and you want to add it back, _Pin parts_ provides that functionality in any easy to find place.
