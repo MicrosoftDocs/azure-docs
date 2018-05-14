@@ -1,5 +1,5 @@
 # Azure Premium Storage: Design for High Performance
-## Overview
+
 This article provides guidelines for building high performance applications using Azure Premium Storage. You can use the instructions provided in this document combined with performance best practices applicable to technologies used by your application. To illustrate the guidelines, we have used SQL Server running on Premium Storage as an example throughout this document.
 
 While we address performance scenarios for the Storage layer in this article, you will need to optimize the application layer. For example, if you are hosting a SharePoint Farm on Azure Premium Storage, you can use the SQL Server examples from this article to optimize the database server. Additionally, optimize the SharePoint Farm's Web server and Application server to get the most performance.
@@ -90,7 +90,7 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Throughput** |Amount of data read from or written to the disk per second. |Disk Read Bytes/sec <br> Disk Write Bytes/sec |kB_read/s <br> kB_wrtn/s |
 | **Latency** |Total time to complete a disk IO request. |Average Disk sec/Read <br> Average disk sec/Write |await <br> svctm |
 | **IO size** |The size of I/O requests issues to the storage disks. |Average Disk Bytes/Read <br> Average Disk Bytes/Write |avgrq-sz |
-| **Queue Depth** |Number of outstanding I/O requests waiting to be read form or written to the storage disk. |Current Disk Queue Length |avgqu-sz |
+| **Queue Depth** |Number of outstanding I/O requests waiting to be read from or written to the storage disk. |Current Disk Queue Length |avgqu-sz |
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
