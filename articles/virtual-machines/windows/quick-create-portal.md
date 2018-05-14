@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 05/09/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -53,15 +53,17 @@ Log in to the Azure portal at https://portal.azure.com.
 
 ## Connect to virtual machine
 
-Create a remote desktop connection to the virtual machine.
+Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-1. Click the **Connect** button on the virtual machine properties. A Remote Desktop Protocol file (.rdp file) is created and downloaded.
+1. Click the **Connect** button on the virtual machine properties page. 
 
     ![Connect to an Azure VM from the portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+	
+2. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 3389 and click **Download RDP file**.
 
-2. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
+2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. Enter the user name and password you specified when creating the virtual machine, then click **Ok**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\*username*, enter password you created for the for the virtual machine, and then click **OK**.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to proceed with the connection.
 

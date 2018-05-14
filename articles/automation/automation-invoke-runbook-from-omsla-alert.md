@@ -3,6 +3,7 @@ title: Call an Azure Automation runbook from a Log Analytics alert
 description: This article provides an overview of how to invoke an Automation runbook from a Log Analytics alert in Azure.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
