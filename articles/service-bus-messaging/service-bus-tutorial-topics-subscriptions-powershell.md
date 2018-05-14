@@ -13,7 +13,7 @@ ms.custom: mvc
 
 ---
 
-# Update inventory using PowerShell and .NET
+# Update inventory using PowerShell and topics/subscriptions
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. 
 

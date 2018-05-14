@@ -14,11 +14,11 @@
     href: service-bus-quickstart-cli.md
 - name: Tutorials
   items:
-  - name: Update inventory - Portal
+  - name: Update inventory with topics/subscriptions - Portal
     href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: Update inventory - CLI
+  - name: Update inventory with topics/subscriptions - CLI
     href: service-bus-tutorial-topics-subscriptions-cli.md
-  - name: Update inventory - PowerShell
+  - name: Update inventory with topics/subscriptions - PowerShell
     href: service-bus-tutorial-topics-subscriptions-powershell.md
 - name: Samples
   items:
