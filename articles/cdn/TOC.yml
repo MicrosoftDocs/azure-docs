@@ -32,8 +32,6 @@
   items:
   - name: Integrate
     items:
-    - name: Cloud Services
-      href: cdn-cloud-service-with-cdn.md
     - name: Storage
       items:
       - name: Integrate a storage account
