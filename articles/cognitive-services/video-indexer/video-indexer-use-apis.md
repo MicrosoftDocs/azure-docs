@@ -62,12 +62,14 @@ You are ready to start integrating with the API. Find [the detailed description 
 
 All operation APIs require a Location parameter which indicates the region to which the call should be routed and in which the account was created.
 
-The following values apply:
+The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
-* Trial – for trial accounts
-* Westus2 – Azure West US 2 region
-* Northeurrope – Azure North Europe region
-* Eastasia – Azure East Asia region
+|**Name**|**Param value**|**Description**|
+|---|---|---|
+|Trial|trial|Used for trial accounts.|
+|West US|westus2|Used for the Azure West US 2 region.|
+|North Europe |northeurope|Used for the Azure North Europe region.|
+|East Asia|eastasia|Used for the Azure East Asia region.|
 
 ## Recommendations
 
