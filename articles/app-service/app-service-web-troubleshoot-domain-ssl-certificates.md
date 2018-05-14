@@ -18,9 +18,9 @@ ms.author: genli
 ---
 # Troubleshoot domain and SSL certificate problems in Azure web apps
 
-This article lists common problems that you might encounter when you configure domain or SSL certificate for your Azure web apps. It also describes possible causes and resolutions for these problems.
+This article lists common problems that you might encounter when you configure a domain or SSL certificate for your Azure web apps. It also describes possible causes and resolutions for these problems.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN forum for Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
+If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
 ## Certificate problems
 
@@ -30,11 +30,11 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 When you add an SSL binding, you receive the following error message:
 
-**Failed to add SSL binding. Cannot set certificate for existing VIP because another VIP already uses that certificates.**
+"Failed to add SSL binding. Cannot set certificate for existing VIP because another VIP already uses that certificate."
 
 #### Cause
 
-This problem can occur if you have multiple IP-based SSL bindings for the same IP address across multiple web apps. For example, web app A has an IP-based SSL with an old certificate. Web app B has an IP-based SSL with a new certificate for the same IP address. When you update the web app SSL binding with the new certificate, it will fail with this error because the same IP address is being used for another app. 
+This problem can occur if you have multiple IP-based SSL bindings for the same IP address across multiple web apps. For example, web app A has an IP-based SSL with an old certificate. Web app B has an IP-based SSL with a new certificate for the same IP address. When you update the web app SSL binding with the new certificate, it fails with this error because the same IP address is being used for another app. 
 
 #### Solution 
 
@@ -49,7 +49,7 @@ To fix this problem, use one of the following methods:
 
 When you try to delete a certificate, you receive the following error message:
 
-**Unable to delete the certificate because it is currently being used in an SSL binding. The SSL binding must be removed before you can delete the certificate.**
+"Unable to delete the certificate because it is currently being used in an SSL binding. The SSL binding must be removed before you can delete the certificate."
 
 #### Cause
 
@@ -57,12 +57,12 @@ This problem might occur if another web app uses the certificate.
 
 #### Solution
 
-Remove the SSL binding for that certificate from the web apps. Then try to delete the certificate. If you still cannot delete the certificate, clear the internet browser cache and reopen the Azure portal in a new browser window. And then try to delete the certificate.
+Remove the SSL binding for that certificate from the web apps. Then try to delete the certificate. If you still can't delete the certificate, clear the internet browser cache and reopen the Azure portal in a new browser window. Then try to delete the certificate.
 
 ### You can't purchase an App Service certificate 
 
 #### Symptom
-You cannot purchase an [Azure App Service certificate](./web-sites-purchase-ssl-web-site.md) from the Azure portal.
+You can't purchase an [Azure App Service certificate](./web-sites-purchase-ssl-web-site.md) from the Azure portal.
 
 #### Cause and solution
 This problem can occur for any of the following reasons:
@@ -71,7 +71,7 @@ This problem can occur for any of the following reasons:
 
     **Solution**: Upgrade the App Service plan for web app to Standard.
 
-- The Subscription does not have a valid credit card.
+- The subscription does not have a valid credit card.
 
     **Solution**: Add a valid credit card to your subscription. 
 
@@ -81,10 +81,10 @@ This problem can occur for any of the following reasons:
 
 - The subscription reached the limit of purchases that are allowed on a subscription.
 
-    **Solution**: App Service certificates have a limit of 10 certificate purchases for Pay-As-Go and EA subscription types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+    **Solution**: App Service certificates have a limit of 10 certificate purchases for the Pay-As-You-Go and EA subscription types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours."
 
-    **Solution**: If the certificate is marked as fraud and has not been resolved after 24 hours, follow these steps:
+    **Solution**: If the certificate is marked as fraud and isn't resolved after 24 hours, follow these steps:
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Go to **App Service Certificates**, and select the certificate.
@@ -102,7 +102,7 @@ You purchased an App Service certificate for the wrong domain. You can't update 
 
 Delete that certificate and then buy a new certificate.
 
-If the current certificate that uses the wrong domain is in the “Issued” state, then you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
+If the current certificate that uses the wrong domain is in the “Issued” state, you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
 
 ### An App Service certificate was renewed, but the web app shows the old certificate 
 
@@ -134,13 +134,13 @@ Manually verify your domain by adding a TXT record:
 
 Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification. 
 
-An alternative method to manually verify your domain is the HTML webpage method. You can use this method to allow the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
+As an alternative, you can use the HTML webpage method to manually verify your domain. This method allows the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
 
 1.	Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
 3.	Upload this file at the root of the web server that's hosting your domain.
 4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
-For example, if you're buying a standard certificate for azure.com with the domain verification token `1234abcd`, a web request made to http://azure.com/1234abcd.html should return `1234abcd`. 
+For example, if you're buying a standard certificate for azure.com with the domain verification token 1234abcd, a web request made to http://azure.com/1234abcd.html should return 1234abcd. 
 
 > [!IMPORTANT]
 > A certificate order has only 15 days to complete the domain verification operation. After 15 days, the certificate authority denies the certificate, and you are not charged for the certificate. In this situation, delete this certificate and try again.
@@ -160,7 +160,7 @@ This problem occurs for one of the following reasons:
 
     **Solution**: Add a valid credit card to your subscription.
 
-- You're not the subscription owner, so you don't have permission to buy a domain.
+- You're not the subscription owner, so you don't have permission to purchase a domain.
 
     **Solution**: [Add the Owner role](../billing/billing-add-change-azure-subscription-administrator.md) to your account. Or contact the subscription administrator to get permission to purchase a domain.
 - You have reached the limit for purchasing domains on your subscription. The current limit is 20.
@@ -170,7 +170,7 @@ This problem occurs for one of the following reasons:
 
     **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.
 
-### You can't add a hostname to Web app 
+### You can't add a host name to a web app 
 
 #### Symptom
 
@@ -197,7 +197,9 @@ This problem occurs for one of the following reasons:
 
 #### Symptom
 
-You received a "The DNS record could not be located" error message.
+You received the following error message:
+
+"The DNS record could not be located."
 
 #### Cause
 This problem occurs for one of the following reasons:
@@ -227,7 +229,7 @@ If your domain was deleted fewer than seven days ago, the domain has not yet sta
 
 When you browse to the site by using the custom domain name, you receive the following error message:
 
-**Error 404-Web app not found.**
+"Error 404-Web app not found."
 
 
 #### Cause and solution
