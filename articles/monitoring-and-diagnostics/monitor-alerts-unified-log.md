@@ -89,7 +89,7 @@ Consider a scenario where you wanted an alert if any computer exceeded processor
 - **Time period:** 30 minutes<br>
 - **Alert frequency:** five minutes<br>
 - **Aggregate value:** Great than 90<br>
-- **Trigger alert based on:** Total breaches Greater than 5<br>
+- **Trigger alert based on:** Total breaches Greater than 2<br>
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
 

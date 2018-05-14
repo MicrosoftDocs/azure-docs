@@ -176,12 +176,13 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 Write-Host "Get the subnet in the virtual network:"
 
+# Get the subnet, assume the first subnet contains the Service Fabric cluster.
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
+
 $subnetName = $subnet.Name
 $subnetID = $subnet.Id
 $addressPrefix = $subnet.AddressPrefix
 
-# Get the subnet, assume the first subnet contains the Service Fabric cluster.
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet | Select-Object -first 1
 Write-Host "Subnet name: " $subnetName " Address prefix: " $addressPrefix " ID: " $subnetID
 
 # Assign a Virtual Service endpoint 'Microsoft.Sql' to the subnet.

@@ -154,6 +154,24 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "media-services-v3-dotnet-quickstarts",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
+      "branch": "master",
+      "branch_mapping": {}
+    },  
+    {
+      "path_to_root": "media-services-v3-dotnet-tutorials",
+      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-javascript",
+      "url": "https://github.com/Microsoft/tsiclient",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

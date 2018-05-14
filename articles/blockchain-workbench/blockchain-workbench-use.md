@@ -77,4 +77,5 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 
 ## Next steps
 
-[How to troubleshoot Azure Blockchain Workbench](blockchain-workbench-troubleshooting.md)
+> [!div class="nextstepaction"]
+> [How to troubleshoot Azure Blockchain Workbench](blockchain-workbench-troubleshooting.md)

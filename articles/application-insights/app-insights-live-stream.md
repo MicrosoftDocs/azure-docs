@@ -113,7 +113,7 @@ The custom filters criteria you specify are sent back to the Live Metrics compon
 
 ### Add API key to Configuration
 
-# [.NET Standard](#tab/.net-standard)
+### Classic ASP.NET
 
 In the applicationinsights.config file, add the AuthenticationApiKey to the QuickPulseTelemetryModule:
 ``` XML
@@ -130,7 +130,8 @@ Or in code, set it on the QuickPulseTelemetryModule:
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
-# [.NET Core] (#tab/.net-core)
+
+### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0-beta or greater)
 
 Modify your startup.cs file as follows:
 
@@ -138,26 +139,14 @@ First add
 
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
-using Microsoft.ApplicationInsights.Extensibility;
 ```
 
-Then under the Configure method add:
+Then within the ConfigureServices method add:
 
 ``` C#
-  QuickPulseTelemetryModule dep;
-            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
-            foreach (var module in modules)
-            {
-                if (module is QuickPulseTelemetryModule)
-                {
-                    dep = module as QuickPulseTelemetryModule;
-                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
-                    dep.Initialize(TelemetryConfiguration.Active);
-                }
-            }
+services.ConfigureTelemetryModule<QuickPulseTelemetryModule>( module => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
 
----
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 
