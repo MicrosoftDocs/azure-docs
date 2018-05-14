@@ -15,10 +15,10 @@ ms.author: heidist
 
 In Azure Search, a [service is provisioned](search-create-service-portal.md) at a specific pricing tier or SKU. Options include **Free**, **Basic**, or **Standard**, where **Standard** is available in multiple configurations and capacities. 
 
-The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
+The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding how much capacity you actually need. Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
 
 > [!NOTE]
-> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can increase replica and partition counts within the service. For more information, see [Allocate partitions and replicas for query and indexing workloads](search-capacity-planning.md).
+> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can [increase replica and partition counts](search-capacity-planning.md) within the service. For more information, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## Billing concepts
@@ -67,7 +67,7 @@ Previously, document limits were a consideration but are no longer applicable fo
 
 Capacity and costs of running the service go hand-in-hand. You should develop rough estimates on the following:
 
-+ Number and size of indexes you plan to create. You will have to build an initial index to determine how source data translates to an index. The data structure in Azure Search is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which is completely different from databases, blobs, or other document stores. For an inverted index, size and complexity is determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.
++ Number and size of indexes you plan to create. You will have to build an initial index to determine how source data translates to an index. The data structure in Azure Search is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which has different characteristics than document stores providing the data you want to search on. For an inverted index, size and complexity is determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.
 
 + Some idea of query volume, in terms of Queries Per Second (QPS). For more information on how to calculate QPS, see [Azure Search performance and optimization](search-performance-optimization.md).
 
