@@ -10,9 +10,9 @@ ms.author: owend
 ms.reviewer: minewiskan
 
 ---
-# Quickstart: Configure firewall - Portal
+# Quickstart: Configure a firewall - Portal
 
-This quickstart helps you configure a firewall for your Azure Analysis Services server. Enabling a firewall and configuring an IP address range for only those computers that should access your server are an important part of securing your server and data model.
+This quickstart helps you configure a firewall for your Azure Analysis Services server. Enabling a firewall and configuring an IP address range for only those computers that should access your server are an important part of securing your server and data model.git
 
 ## Prerequisites
 

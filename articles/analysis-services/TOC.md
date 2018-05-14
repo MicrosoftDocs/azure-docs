@@ -6,7 +6,8 @@
 # Quickstarts
 
 ## [Create a server - Portal](analysis-services-create-server.md)
-## [Create a server -PowerShell](analysis-services-create-powershell.md)
+## [Create a server - PowerShell](analysis-services-create-powershell.md)
+## [Configure a firewall - Portal]
 
 # Tutorials
 ## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 
