@@ -1,6 +1,6 @@
 ---
 title: Azure AD v2 UWP Getting Started | Microsoft Docs
-description: How Universal Windows Platform (XAML) applications can call an API that require access tokens by Azure Active Directory v2 endpoint
+description: How Universal Windows Platform applications (XAML) can call an API that requires access tokens by the Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -19,21 +19,21 @@ ms.custom: aaddev
 
 ---
 
-# Call the Microsoft Graph API from a Universal Windows Platform (UWP) application
+# Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
-This guide demonstrates how a native Universal Windows Platform (XAML) application can get an access token and then use this access token to call Microsoft Graph API, or other APIs that require access tokens from Azure Active Directory v2 endpoint.
+This guide explains how a native Universal Windows Platform (UWP) application (XAML) gets an access token and then uses this access token to call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Azure Active Directory v2.0 endpoint.
 
-At the end of this guide, your application will be able to call a protected API using personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has Azure Active Directory.  
+At the end of this guide, your application will call a protected API using personal accounts (including outlook.com, live.com, and others). Your application will also call work and school accounts from any company or organization that has Azure Active Directory.
 
-> This guide requires Visual Studio 2017 with Universal Windows Platform development installed. Check this [article](https://docs.microsoft.com/windows/uwp/get-started/get-set-up "Set up Visual Studio for UWP") for instructions on how to download and configure Visual Studio to develop Universal Windows Platform Apps.
+> This guide requires Visual Studio 2017 with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
 
 ### How this guide works
 
 ![How this guide works](media/active-directory-mobileanddesktopapp-windowsuniversalplatform-introduction/uwp-intro.png)
 
-The sample application created by this guide enables a UWP app to query Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. Token acquisitions and renewals are handled by the Microsoft Authentication Library (MSAL).
+This guide creates a sample application that a UWP app uses to query Microsoft Graph API or a Web API that accepts tokens from the Azure Active Directory v2.0 endpoint. For this scenario, a token is added to HTTP requests via the Authorization header. The Microsoft Authentication Library (MSAL) handles token acquisitions and renewals.
 
-### NuGet Packages
+### NuGet packages
 
 This guide uses the following NuGet packages:
 
@@ -44,35 +44,37 @@ This guide uses the following NuGet packages:
 
 ## Set up your project
 
-This section provides step-by-step instructions for how to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft* so it can query Web APIs that require a token, such as Microsoft Graph API.
+This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with *Sign-In with Microsoft*. Then it can query Web APIs that require a token, such as Microsoft Graph API.
 
-The application created by this guide displays a button used to query Graph API, a sign-out button, and text boxes that display the results of the calls.
+This guide creates an application that displays a button that's used to query Graph API, a sign-out button, and text boxes that display the results of the calls.
 
-> Prefer to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before executing.
+> Do you want to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before executing.
 
 
 ### Create your application
-1. In Visual Studio: **File** > **New** > **Project**<br/>
-2. Under *Templates*, select **Visual C#**
-3. Select **Blank App (Universal Windows)**
-4. Give it a name and click 'Ok'.
-5. If prompted, fell free to select any version for *Target* and *Minimum* version and click 'Ok':<br/><br/>![Minimum and Target versions](media/active-directory-uwp-v2.md/vs-minimum-target.png)
+1. In Visual Studio, select **File** > **New** > **Project**.
+2. Under *Templates*, select **Visual C#**.
+3. Select **Blank App (Universal Windows)**.
+4. Name the app, and select **Ok**.
+5. If prompted, select any version for *Target* and *Minimum* version, and select **Ok**.
 
-## Add the Microsoft Authentication Library (MSAL) to your project
-1. In Visual Studio: **Tools** > **NuGet Package Manager** > **Package Manager Console**
-2. Copy/paste the following command in the Package Manager Console window:
+    >![Minimum and Target versions](media/active-directory-uwp-v2.md/vs-minimum-target.png)
+
+## Add the Microsoft Authentication Library to your project
+1. In Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. Copy and paste the following command in the Package Manager Console window:
 
     ```powershell
     Install-Package Microsoft.Identity.Client -Pre
     ```
 
 > [!NOTE]
-> The package above installs the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL handles acquiring, caching, and refreshing user tokens used to access APIs protected by Azure Active Directory v2.
+> The package installs the [Microsoft Authentication Library (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Azure Active Directory v2.0.
 
 ## Initialize MSAL
-This step helps you create a class to handle interaction with MSAL Library, such as handling of tokens.
+This step helps you create a class to handle interaction with the MSAL, such as handling tokens.
 
-1. Open the **App.xaml.cs** file and add the reference for MSAL library to the class:
+1. Open the **App.xaml.cs** file and add the reference for MSAL to the class:
 
     ```csharp
     using Microsoft.Identity.Client;
