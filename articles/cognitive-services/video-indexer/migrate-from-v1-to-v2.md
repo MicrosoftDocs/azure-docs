@@ -79,7 +79,7 @@ Video Indexer now has a simplified data model to deliver much clearer insights. 
 
 ### Swagger
 
-The Video Indexer API definitions were update accordingly and available to download through the [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+The Video Indexer API definitions were updated accordingly and available to download through the [API portal](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 ## Next steps
 
