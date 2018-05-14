@@ -67,7 +67,7 @@ Previously, document limits were a consideration but are no longer applicable fo
 
 Capacity and costs of running the service go hand-in-hand. You should develop rough estimates on the following:
 
-+ Number and size of indexes you plan to create.
++ Number and size of indexes you plan to create. You will have to build an initial index to determine how source data translates to an index. The data structure in Azure Search is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which is completely different from databases, blobs, or other document stores. For an inverted index, size and complexity is determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.
 
 + Some idea of query volume, in terms of Queries Per Second (QPS). For more information on how to calculate QPS, see [Azure Search performance and optimization](search-performance-optimization.md).
 
@@ -94,9 +94,9 @@ The **Free** tier and preview features do not come with [service level agreement
 
 ## Next steps
 
-**Step 1:** Start with a **Free** tier and build an initial index using a subset of your data to gain insights into how well your source data translates to an index. The data structure in Azure Search is an inverted index. The size and complexity of an inverted index is determined by your content, not necessarily the amount of data you feed into it. A large data source with redundant content could result in a smaller index than a smaller database containing highly variable content.
+**Step 1:** Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index. The size and complexity of an inverted index is determined by content. As a generalization, highly redundant content typically results in a smaller index than highly irregular content.
 
-**Step 2:** Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article: **Basic** or one of the standard tiers. Relax any artificial constraints on data subsets and rebuild an index to include all of the data you actually want to be searchable.
+**Step 2:** Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article: **Basic** or one of the standard tiers. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
 
 **Step 3:** [Allocate partitions and replicas](search-capacity-planning.md) to get the performance and scale you require.
 
