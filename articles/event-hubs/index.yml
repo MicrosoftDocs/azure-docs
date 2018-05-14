@@ -32,15 +32,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/event-hubs/media/index/portal.svg
       text: Azure portal
       href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-portal
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/event-hubs/media/index/cli.svg
       text: Azure CLI
       href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-cli
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-powershell
 - title: Step-by-Step Tutorials
