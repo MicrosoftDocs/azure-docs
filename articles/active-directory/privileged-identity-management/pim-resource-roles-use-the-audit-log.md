@@ -20,7 +20,7 @@ ms.custom: pim
 Resource audit gives you a view of all role activity for the resource. You can filter the information using a predefined date or custom range.
 ![Filter information](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
-Resource audit also provides quick access to a user’s activity detail. Under **Audit type**, select **Activate**. Select **(activity)** to see that user’s actions on Azure Resources.
+Resource audit also provides quick access to a user’s activity detail. Under **Audit type**, select **Activate**. Select **(activity)** to see that user’s actions in Azure resources.
 ![Activity detail](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 ![More activity detail](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)

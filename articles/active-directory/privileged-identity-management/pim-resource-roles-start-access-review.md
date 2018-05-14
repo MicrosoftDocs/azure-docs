@@ -34,7 +34,7 @@ To create an access review, first name it, and then set a start and end date.
 
 ![Configure review - screenshot](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
 
-Make the length of the review long enough for users to complete it. If you finish before the end date, you can always stop the review early.
+Make the length of the review long enough for users to complete it. If they finish before the end date, they can always stop the review early.
 
 ### Choose a role to review
 Each review focuses on only one role. Unless you started the access review from a specific role blade, you need to choose a role now.
@@ -62,7 +62,7 @@ Finally, you can require that users provide a reason for approving access. Add a
 Make sure you let your users know that there's an access review waiting for them, and show them [how to perform an access review](pim-resource-roles-perform-access-review.md).
 
 ## Manage the access review
-You can track the progress as the reviewers complete their reviews in the PIM Azure resources dashboard, in the access reviews section. No access rights are changed in the directory until [the review has been completed](pim-resource-roles-complete-access-review.md).
+In the PIM Azure resources dashboard, you can track the progress as the reviewers complete their reviews. No access rights are changed in the directory until [the review has been completed](pim-resource-roles-complete-access-review.md).
 
 Until the review period is over, you can remind users to complete their review, or stop the review early from the access reviews section.
 

@@ -37,7 +37,7 @@ To view a role's membership, select **Role settings** from the bar at the top of
 
 To modify the role settings, select the **Edit** button at the top.
 
-In the section under **Activate**, select the check box to **Require Multi-Factor Authentication on direct assignment**. Then select **Save**.
+In the section under **Activate**, select the check box to **Require Multi-Factor Authentication on activation**. Then select **Save**.
 
 ![Require Multi-Factor Authentication on activation](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa.png)
 
@@ -45,9 +45,9 @@ In the section under **Activate**, select the check box to **Require Multi-Facto
 
 In some cases, a resource administrator might want to assign a member to a role for a short duration (one day, for example). In this case, they don't need the assigned member(s) to request activation. In this scenario, PIM cannot enforce Multi-Factor Authentication when the member uses their role assignment, since they are already active in the role from the moment they are assigned.
 
-To ensure that the resource administrator fulfilling the assignment is who they say they are, you can enforce Multi-Factor AuthenticationA on assignment.
+To ensure that the resource administrator fulfilling the assignment is who they say they are, you can enforce Multi-Factor Authentication on assignment.
 
-From the same role setting details screen, check the box to **Require Multi-Factor Authentication on assignment**.
+From the same role setting details screen, check the box to **Require Multi-Factor Authentication on direct assignment**.
 
 ![Require Multi-Factor Authentication on direct assignment](media/azure-pim-resource-rbac/aadpim_rbac_require_mfa_on_assignment.png)
 
