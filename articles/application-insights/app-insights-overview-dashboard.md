@@ -1,5 +1,5 @@
 ---
-title: Application Insights Overview Dashboard | Microsoft Docs
+title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
 services: application-insights
 documentationcenter: ''
@@ -16,13 +16,13 @@ ms.author: mbullwin
 
 ---
 
-# Overview dashboard (preview)
+# Application Insights Overview dashboard (preview)
 
-Application Insights has always provided a summary overview pane to allow quick, at-a-glance assessment of your application's health and performance. Starting on May 15, 2018 a new faster more flexible experience will be released as a preview. On May 29, 2018 the classic overview experience will be retired.
+Application Insights has always provided a summary overview pane to allow quick, at-a-glance assessment of your application's health and performance. The new preview overview dashboard provides a faster more flexible experience.
 
 ## How do I test out the new experience?
 
-On May 15, the new experience will begin to show up in Application Insights under: _Investigate_ > _Overview (preview)_.
+ In Application Insights under: _Investigate_ select _Overview (preview)_.
 
 ![Overview Preview](.\media\app-insights-overview-dashboard\01.png)
 
@@ -57,11 +57,3 @@ While you can keep the default view if you like it, you can also add, and delete
 To navigate back to the overview experience just select:
 
 ![Overview Button](.\media\app-insights-overview-dashboard\07.png)
-
-There is also a new button called _Pin Parts_.
-
-![Overview Button](.\media\app-insights-overview-dashboard\008.png)
-
-This replicates a little known feature from the classic overview that allows you to take any of the tiles from the old overview experience _(Alerts, Availability, Live Metrics, Usage, Proactive Detections, and Application Map)_ and add them into custom dashboards. 
-
-In the case of the default _Application Dashboard_ we have already added these tiles. But if you create additional custom dashboards, or if someone on your team deletes a classic tile and you want to add it back, _Pin parts_ provides that functionality in any easy to find place.
