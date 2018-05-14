@@ -84,6 +84,6 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 To learn about adding a custom domain to your CDN endpoint, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Add Azure CDN to a web app](app-service-web-tutorial-content-delivery-network.md)
 
 
