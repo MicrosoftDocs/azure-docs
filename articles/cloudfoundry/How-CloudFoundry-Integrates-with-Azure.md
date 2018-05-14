@@ -7,7 +7,6 @@ author: ningk
 manager: timlt
 editor: ''
 tags: Cloud-Foundry
-
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -17,7 +16,7 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
 ---
-#Integrate Cloud Foundry with Azure for Enterprice Grade Experiences 
+# Integrate Cloud Foundry with Azure for Enterprice Grade Experiences 
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) is a PaaS platform running on top of cloud providers’ IaaS platform. While it offers consistent application deployment experience across different cloud providers, it can also be integrated with various Azure services for enterprise grade high availability, scalability, and long-term cost saving.
 There are [6 subsystems of Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/),  that can be flexibly scale online, including:  1.Routing  2. Authentication 3. Application life cycle management   4. Service management   5. Messaging   6. Monitoring. For each of the subsystems, you can configure Cloud Foundry to utilize correspondent Azure service. 
@@ -25,7 +24,7 @@ Note these features are based on Azure, more details will be available for Azure
 
 ![Cloud Foundry on Azure Integration Architecture](media/CFOnAzureEcosystem-colored.png)
 
-1. ##HA and Scalability 
+## 1. HA and Scalability
 ### Managed Disk
 Bosh utilizes Azure CPI (Cloud Provider Interface) for disk creating and deleting routines. By default, unmanaged disks are used. This requires customer to manually create storage accounts, then configure them in CF manifest file, due to the limitation on the number of disks per storage account.
 Now with [Managed Disk](https://azure.microsoft.com/en-us/services/managed-disks/), that offers managed secure and relaible persistent disk storage for virtual machines, customer no longer need to deal with the complexity of storage account for scale and HA. Azure arranges disks automatically. 
@@ -37,18 +36,18 @@ By default, customer can utilize [Azure Availability Set](https://github.com/clo
 Azure Availability Zone achieves HA by placing a set of VMs into 2+ data centers, each set of VMs are redundant to other sets; If one Zone is down, the other sets are still live, isolated from the disaster.
 Note Azure Availablity Zone is not offered to all regions yet, follow these instructions to test [Azure Availability Zone with CF](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/availability-zone).
 
-2. ##Network Routing
+## 2. Network Routing
 By default, Azure basic load balancer is used for incoming CF API/apps requests, forwarding them to the Gorouters. CF components like Diego Brain, MySQL, ERT can also use the load balancer to balance the traffic for HA. In addition, Azure provides a set of fully managed load balancing solutions. If you are looking for TLS termination ("SSL offload") or per HTTP/HTTPS request application layer processing, consider Application Gateway. For high availability and scalability load balancing on layer 4, check standard load balancer.
 ### Azure Application Gateway 
 [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-introduction) offers various layer 7 load balancing capabilities, including SSL offloading, end to end SSL, Web Application Firewall, cookie-based session affinity and more. It is now supported in Pivotal Cloud Foundry deployment. See the instruction of [configuration Azure Application Gateway with PCF]( https://docs.pivotal.io/pivotalcf/2-1/pcf-release-notes/opsmanager-rn.html#azure-application-gateway).
 ### Azure Standard Load Balancer*
 Azure Load Balancer is a Layer 4 load balancer that is used to distribute the traffic among instances of services in a load-balanced set. The standard version provides advanced features on top of the basic version, including 1. The backend pool max limit is raised from 100 to 1000 VMs.  2. The endpoints now support multiple availability sets instead of single availability set.  3. High SLA  4. Additional features like HA ports, richer monitoring data, etc. See detailed [feature details and comparison with basic verion here](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). If you use load balancer with Azure Availabity Zone, standard load balancer is required.
 
-3.	##Authentication 
+## 3. Authentication 
 [Cloud Foundry User Account and Authentication](https://docs.cloudfoundry.org/concepts/architecture/uaa.html) is the central identity management service for CF and its various components. [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) is Microsoft’s multi-tenant, cloud-based directory and identity management service. 
 By default, UAA is used for Cloud Foundry authentication. For customers that need to leverage existing Azure AD credetial, UAA can also be configured to supoort Azure AD as an external user store in Cloud Foundry. This enables Azure AD users to use their LDAP identity to access Cloud Foundry, without the need for additional Cloud Foundry account.   Follow these steps to [configure the Azure AD for UAA in PCF](http://docs.pivotal.io/p-identity/1-6/azure/index.html).
 
-4.	##Data storage for Cloud Foundry App store and App life cycle management
+## 4. Data storage for Cloud Foundry App store and App life cycle management
 Cloud Foundry offers great extensibility to use Azure blobstore or Azure MySQL/PostgreSQL services for application runtime data.
 ### Azure Blobstore for Cloud Foundry Cloud Controller blobstore
 The Cloud Controller blobstore is a critical data store for buildpacks, droplets, packages, and resource pools. By default, NFS server is used for Cloud Controller blobstore. 
@@ -63,14 +62,14 @@ The database for User Account and Authentication. It stores the user authenticat
 By default, a local system database (MySQL) can be used. Now customer can leverage Azure managed MySQL or PostgreSQL services for scale. 
 Here is the test instruction on [enabling Azure MySQL/PostgreSQL for CCDB, UAADB and other system databases](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
 
-5.	##Open Service Broker
+## 5. Open Service Broker
 Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure) project provides a single and simple way to deliver services to applications running within cloud native platforms across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://network.pivotal.io/products/azure-open-service-broker-pcf/) for deployment instructions.
 
-6.	##Metrics and logging
+## 6. Metrics and logging
 The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
 Click [here](https://docs.microsoft.com/en-us/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to your CF environment, and then access the data from the Azure Log Analytics OMS console. 
 
-7.	##Cost Saving
+## 7. Cost Saving
 ### Cost saving for dev/test environments
 #### B-Series: 
 While F and D VM series were commonly recommended for Pivotal Cloud Foundry production environment, the new “burstable” [B-series](https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/) brings new options. The B-series burstable VMs are ideal for workloads that do not need the full performance of the CPU continuously, like web servers, small databases and development and test environments. These workloads typically have burstable performance requirements. It is $0.012/hour (B1) compared to $0.05/hour (F1), see the full list of [VM sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) and [prices](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) for details. 
