@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install and configure PowerShell for Azure Stack quickstart  | Microsoft Docs
 description: Learn about installing and configuring PowerShell for Azure Stack.
 services: azure-stack

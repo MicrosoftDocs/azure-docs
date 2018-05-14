@@ -16,7 +16,7 @@ manager: femila
 
 You can use Azure Blockchain Workbench to create blockchain applications that represent multi-party workflows defined by configuration and smart contract code.
 
-You'll learn how to:
+You learn how to:
 
 > [!div class="checklist"]
 > * Configure a blockchain application
@@ -32,6 +32,8 @@ You'll learn how to:
 
 Let's build a basic application in which a requestor sends a request and a responder send a response to the request. 
 For example, a request can be, "Hello, how are you?", and the response can be, "I'm great!". Both the request and the response are recorded on the underlying blockchain. 
+
+Follow the steps to create the application files or you can [download the sample from GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/hello-blockchain). 
 
 ## Configuration file
 
@@ -395,4 +397,7 @@ For more information about managing users in Blockchain Workbench, see [managing
 
 ## Next steps
 
-Now that you have created an application, try [using a blockchain application](blockchain-workbench-use.md).
+In this how-to article, you've created a basic request and response application. To learn how to use the application, continue to the next how-to article.
+
+> [!div class="nextstepaction"]
+> [Using a blockchain application](blockchain-workbench-use.md)
