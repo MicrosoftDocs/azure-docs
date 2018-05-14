@@ -1,20 +1,20 @@
 ---
 title: Set environment variables in Azure Container Instances
-description: Learn how to set environment variables in Azure Container Instances
+description: Learn how to set environment variables in the containers you run in Azure Container Instances
 services: container-instances
-author: david-stanford
+author: mmacy
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/13/2018
-ms.author: dastanfo
+ms.date: 05/16/2018
+ms.author: marsma
 ---
 # Set environment variables
 
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container.
 
-You're currently able to set environment variables from the CLI and PowerShell. In both cases, you would use a flag on the commands to set the environment variables. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you use the microsoft/aci-wordcount container image you can modify the behavior by specifying the following environment variables:
+You're currently able to set environment variables with the Azure CLI and Azure PowerShell. In both cases, you supply an argument to set the variables when you create a container instance. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -22,7 +22,7 @@ You're currently able to set environment variables from the CLI and PowerShell. 
 
 ## Azure CLI example
 
-To see the default output of the container run the following command:
+To see the default output of the container, run the following command:
 
 ```azurecli-interactive
 az container create \
@@ -43,22 +43,24 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Once the container status shows as *Terminated* (use [az container show][az-container-show] to check its status), display its logs to see the output.  To view the output of the container with no environment variables set --name to be mycontainer1 instead of mycontainer2.
+Once the container status shows as *Terminated* (use [az container show][az-container-show] to check its status), display its logs to see the output.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
+To view the output of the container you started with no environment variables, run the command with `--name` to "mycontainer1" instead of "mycontainer2".
+
 ## Azure PowerShell example
 
-To see the default output of the container run the following command:
+To see the default output of the container, run the following command:
 
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
-    --restart-policy OnFailure
+```azurepowershell-interactive
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer1 `
+    -Image microsoft/aci-wordcount:latest `
+    -RestartPolicy OnFailure
 ```
 
 By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs should display different output.
@@ -73,13 +75,15 @@ New-AzureRmContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Once the container status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check its status), display its logs to see the output. To view the container logs with no environment variables set ContainerGroupName to be mycontainer1 instead of mycontainer2.
+Once the container status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check its status), display its logs to see the output.
 
 ```azurepowershell-interactive
 Get-AzureRmContainerInstanceLog `
     -ResourceGroupName myResourceGroup `
     -ContainerGroupName mycontainer2
 ```
+
+To view the output of the container you started with no environment variables, run the command with `-ContainerGroupName` set to "mycontainer1" instead of "mycontainer2".
 
 ## Example output without environment variables
 
@@ -108,11 +112,10 @@ Get-AzureRmContainerInstanceLog `
 
 ## Next steps
 
-Now that you know how to customize the input to your container, learn how to persist the output of containers that run to completion.
-> [!div class="nextstepaction"]
-> [Mounting an Azure file share with Azure Container Instances](container-instances-mounting-azure-files-volume.md)
+For more information on running task-based containers, such as for batch computing scenarios, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- LINKS Internal -->
+[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
 [azure-cloud-shell]: ../cloud-shell/overview.md
 [azure-cli-install]: /cli/azure/
 [azure-powershell-install]: /powershell/azure/install-azurerm-ps
