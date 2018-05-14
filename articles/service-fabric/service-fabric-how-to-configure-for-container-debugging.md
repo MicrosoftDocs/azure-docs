@@ -13,64 +13,39 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ms.workload: NA
-ms.date: 01/19/2018
+ms.date: 05/14/2018
 ms.author: mikhegn
 
 ---
 # How to configure your developer environment to debug containers in Azure Service Fabric on Windows
 
-Using the alpha pack of the Service Fabric Tools for Visual Stuido 2017, you can debug .NET applications running in containers running in Service Fabric on Windows 10. This article shows you how to configure your environment to support this scenario.
+With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in containers as Service Fabric services. This article shows you how to configure your environment for this scenario.
 
-## Procedure for configuring Windows 10, Docker Community Edition for Windows and Service Fabric on Windows
+## Procedure for configuring Windows to run docker contaienrs with Service Fabric
 
-1. Follow the guidelines in this article to [configure your Windows 10 computer to run Windows containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+1. Follow the guidelines on this page to [configure your Windows computer to run Windows containers](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start)
+> [!NOTE]
+> Both Windows 10 and Windows Server 2016 are supported.
+>
 
-1. Install the Service Fabric Tools for Visual Stuido 2017 Alpha Pack
-    1. Download the alpha pack from here -  ----LINK----.
-    1. Run the installer.
-    1. When running the installer, choose the Visual Stuido 2017 instance to install the tool with. - What's supported?
+1. Set up your local Service Fabric environment following these instructions: [Prepare your development environment on Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started)
 
-1. Change you Docker Community Edition for Windows to expose the daemon without TLS
-    1. Start Docker for Windows.
-    1. Right-click the taskbar icon and select **Settings**.
-    1. Check the **Expose daemon on tcp://localhost:2375 without TLS** chekc-box.
+1. In order to support DNS resolution between containers, you will have to set up your local development cluster, using the machine name.
+    1. Open PowerShell as administrator
+    1. Navigate to the SDK Cluster setup folder, typically `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`
+    1. Run the script `DevClusterSetup.ps1` with the parameter `-UseMachineName`
+
+    ``` PowerShell
+      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+    ```
 
     > [!NOTE]
-    > To ensure the security of your Windows 10 computer, make sure this port is blocked by your firewall.
+    > You can use the `-CreateOneNodeCluster` to setup a one-node cluster. The default will create a local five-node cluster.
     >
+
+    > [!NOTE]
+    > To learn more about the DNS Service in Service Fabric see here: [DNS Service in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice)
     >
-
-1. Configure you local Service Fabric development cluster for Docker Community Edition for Windows
-    1. Change the clustermanifest for you dev cluster, by navigating to the SDK folder **C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup** folder.
-    1. In the folder hierarchy, you'll find four cluster manifest template files, ordered by the type of cluster you are using locally. The default configuration will use the manifest template from the this folder: **C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\NonSecure\OneNode**.
-    1. For each of the relevant files, which you plan to use, add the following settings to the ClusterManifestTemplate file under the **properties/fabricSettings/"name": "Hosting"** paramters array:
-        ```json
-              {
-                "name": "SkipDockerProcessManagement",
-                "value": "true"
-              },
-              {
-                "name": "ContainerHostAddress",
-                "value": "http://localhost:2375"
-              }
-        ```
-
-        The new configuration should look like this:
-        ```json
-          {
-            "name": "Hosting",
-            "parameters": [
-              {
-                "name": "SkipDockerProcessManagement",
-                "value": "true"
-              },
-              {
-                "name": "ContainerHostAddress",
-                "value": "http://localhost:2375"
-              },
-        ```
-
-    1. Reset or setup your local development cluster, using the configuration matching the confgiuration file you've changed.
 
 ## Next steps
 To learn how to debug a .NET application in a container, see the [Debug a .NET application in Windows containers with Service Fabric](service-fabric-how-to-debug-containers.md).
