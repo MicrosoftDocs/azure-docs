@@ -33,7 +33,7 @@ For example, the picture below indicates that two users are having conflict of t
 ![Diagnose Sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
 ### Orphaned object scenario
-We sometimes identify that an existing user loses the Source Anchor. The deletion of source object happened in on premises Active Directory, but the change of deletion signal never got synchronized to Azure AD. It can happen due to reasons such as sync engine issue or domain migration. When same object got restored or recreated, logically existing user should be the user to synchronize from the Source Anchor. For existing user as cloud only object, we also see conflicting user synchronized to Azure AD and cannot be matched in sync to the existing object. There is no direct way to remap the Source Anchor. Read more about the [existing KB](https://support.microsoft.com/help/2647098). 
+Occasionally you may find an existing user loses the Source Anchor. The deletion of source object happened in on premises AD, but the change of deletion signal never got synchronized to Azure AD. It can happen due to reasons such as sync engine issue or domain migration. When same object got restored or recreated, logically existing user should be the user to synchronize from the Source Anchor. For existing user as cloud only object, you can also see conflicting user synchronized to Azure AD and cannot be matched in sync to the existing object. There is no direct way to remap the Source Anchor. Read more about the [existing KB](https://support.microsoft.com/help/2647098). 
 For example, the existing object in Azure AD preserves the license of Joe. Newly synchronized object with different source anchor occurred in duplicated attribute state in Azure AD. Changes of Joe in on-premises AD will not be able to be applied to Joe’s original user (existing object) in Azure AD.  
 
 ![Diagnose Sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
@@ -52,11 +52,11 @@ Diagnose feature supports User objects with following duplicated attributes:
 > It requires **Global Admin** permission or **Contributor** from RBAC settings to be able to access this feature. 
 >
 
-Following the steps from Azure portal, we will be able to narrow down the sync error details and provide more specific solutions:
+Following the steps from Azure portal, you will be able to narrow down the sync error details and provide more specific solutions:
 
 ![Diagnose Sync error diagnose steps](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixSteps.png)
 
-From the Azure portal, we will be able to go through a few steps to identify specific fixable scenarios:
+From the Azure portal, you will be able to go through a few steps to identify specific fixable scenarios:
 1.	In Diagnose status column, the status will show if there is a potential troubleshooting flows to narrow down the error case and potentially fix directly from Azure Active Directory.
 
 | Status | What does it mean? |
@@ -80,32 +80,31 @@ From the Azure portal, we will be able to go through a few steps to identify spe
 ## How to answer the diagnosis questions 
 ### Does the user exist in your on premises Active Directory?
 
-We are trying to identify source object of existing user from on-prem Active Directory.
-
+The question is trying to identify source object of existing user from on-prem Active Directory.  
 1.	Check if your Active Directory has an object with the provided UserPrincipalName. If No, answer No.
 2.	If Yes, check if the object is still in scope for Syncing.
 - Search in the Azure AD Connector Space with the DN.
 - If the object is found with the **Pending Add** state, answer No. Azure AD Connect is not able to connect the object to the right AD Object.
 - If the object is not found, answer Yes.
 
-Taking the following diagram for example, we are trying to figure out if *Joe Jackson* still exist in on-prem Active Directory.
+> Taking the following diagram, for example, the question is trying to identify if *Joe Jackson* still exist in on-prem Active Directory.
 For **common scenario**, both user *Joe Johnson* and *Joe Jackson* will be present in your on-prem Active Directory. The quarantined objects are two different users.
 
 ![Diagnose Sync error common scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
-For **orphaned object scenario**, only single user – *Joe Johnson* will be present from the on-prem Active Directory:
+> For **orphaned object scenario**, only single user – *Joe Johnson* will be present from the on-prem Active Directory:
 
 ![Diagnose Sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
 ### Do both these accounts belong to the same user?
-We are checking incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.
+The question is checking incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
 1.	Conflicting object is newly synced to Azure Active Directory. Compare the object from its:
 -	Display Name
 -	User Principal Name
 -	Object ID
-2.	If failed to compare them, check your Active Directory has objects with the provided UserPrincipalNames. Answer NO if both are found.
+2.	If failed to compare them, check your Active Directory has objects with the provided UserPrincipalNames. Answer NO if both are found.  
 
-In the case below the two objects belongs to the same user *Joe Johnson*.
+> In the case below, the two objects belongs to the same user *Joe Johnson*.
 
 ![Diagnose Sync error orphaned object scenario](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
@@ -113,7 +112,7 @@ In the case below the two objects belongs to the same user *Joe Johnson*.
 ## What happened after fix is applied for orphaned object scenario
 Based on the answers of raised questions, you will be able to see **Apply Fix** button when there is a fix available from the Azure AD. In this case, the on premises object is synchronizing with an unexpected Azure AD object. The two objects are mapped using the "Source Anchor". The apply change will perform steps such as:
 - Update the Source Anchor to the correct object in Azure AD.
-- Delete the conflicting object in Azure AD if it present.
+- Delete the conflicting object in Azure AD if it presents.
 
 ![Diagnose Sync error after the fix](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixAfterFix.png)
 
@@ -121,20 +120,20 @@ Based on the answers of raised questions, you will be able to see **Apply Fix** 
 > The Apply Fix change will only apply to the orphaned object cases.
 >
 
-After the steps above, the user will be able to access to original resource which is link to existing object. 
+After the steps above, the user will be able to access to original resource, which is link to existing object. 
 The **Diagnose status** value in the list view will be updated to be **Pending Sync**.
-Sync error will be resolved after the following synchronization. Connect Health will remove the sync error from the list view. 
+Sync error will be resolved after the following synchronization. Connect Health will not showing the resolved sync error from the list view anymore. 
 
 
 ## FAQ
 1.	What happened if execution of the apply failed?  
 If execution fails, it is possible Azure AD Connect is running import or export error at the time. Refresh the portal page and retry after the following synchronization. The default synchronization cycle is 30 minutes. 
 
-2.	What if the existing object should be the object to be deleted?  
-If existing object should be deleted in this case, we still recommend fix it from on-prem Active Directory.
+2.	What if the **existing object** should be the object to be deleted?  
+If existing object should be deleted in this case, the process does not involve change of Source Anchor. You should be able to fix it from your on-prem AD.  
 
 3.	What is the permission for user to be able to apply the fix?  
-Global Admin or Contributor from RBAC settings will have the permission to access this the diagnostic and troubleshooting process.
+Global Admin or Contributor from RBAC settings will have the permission to access the diagnostic and troubleshooting process.
 
 4.	Do we need to config AAD Connect or update Azure AD Connect Health agent for this feature?  
 No, this is a complete cloud-based feature.
