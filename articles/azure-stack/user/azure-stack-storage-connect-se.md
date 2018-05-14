@@ -56,7 +56,7 @@ For the Azure Stack Development Kit, you need to export the Azure Stack authorit
 
     ![Import the certificate into Storage Explorer](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. After Storage Explorer restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
+7. After Storage Explorer restarts, select the **Edit** menu, and check to see if **Target Azure Stack** is selected. If it isn't,select **Target Azure Stack**, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
     ![Ensure Target Azure Stack is selected](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
