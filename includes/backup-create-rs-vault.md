@@ -52,6 +52,7 @@ To create a Recovery Services vault:
    >
 
 9. When you are ready to create the Recovery Services vault, click **Create**.
+
     ![List of backup vaults](./media/backup-create-rs-vault/click-create-button.png)
 
     It can take a while for the Recovery Services vault to be created. Monitor the status notifications in the Notifications section (the upper-right area of the portal). After your vault is created, it appears in the list of Recovery Services vaults. If you still don't see your vault, click **Refresh**.
