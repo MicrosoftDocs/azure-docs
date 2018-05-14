@@ -8,7 +8,7 @@ author: kgremban
 manager: timlt
 
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -34,7 +34,7 @@ This tutorial assumes that you're using a computer or virtual machine running Wi
    * Windows 10 
    * Windows Server
 2. Install [Docker for Windows][lnk-docker] and make sure it's running.
-3. Install [Python 2.7 on Windows][lnk-python] and make sure you can use the pip command.
+3. Install [Python on Windows][lnk-python] and make sure you can use the pip command. This quickstart was tested with Python versions >=2.7.9 and >=3.5.4.  
 4. Run the following command to download the IoT Edge control script.
 
    ```cmd
