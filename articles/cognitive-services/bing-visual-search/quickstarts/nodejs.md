@@ -79,7 +79,7 @@ function requestCallback(err, res, body) {
 
 ## Next steps
 
-[Get insights about an image you upload](../upload-image.md#using-node.js)
+[Get insights about an image you upload](../upload-image.md#using-nodejs)
 [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
