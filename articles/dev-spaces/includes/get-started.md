@@ -16,13 +16,13 @@ manager: "douge"
 Please select a **language-specific guide** to get started:
 
 > [!div class="nextstepaction"]
-> [.NET Core (VS Code & CLI)](quickstart-netcore.md)
+> [.NET Core (VS Code & CLI)](../quickstart-netcore.md)
 
 > [!div class="nextstepaction"]
-> [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
+> [.NET Core (Visual Studio 2017)](../quickstart-netcore-visualstudio.md)
 
 > [!div class="nextstepaction"]
-> [Node.js (VS Code & CLI)](quickstart-nodejs.md)
+> [Node.js (VS Code & CLI)](../quickstart-nodejs.md)
 
 
 
