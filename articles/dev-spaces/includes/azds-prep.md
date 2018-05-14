@@ -22,7 +22,7 @@ So far, you have a basic web app that can run locally. You'll now containerize i
     azds prep --public
     ```
 
-The Azure Dev Spaces CLI's ```prep``` command generates Docker and Kubernetes assets with default settings:
+The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
 * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
 

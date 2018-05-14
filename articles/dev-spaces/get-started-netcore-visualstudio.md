@@ -23,7 +23,7 @@ In this guide, you will learn how to:
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-## Install the Azure Dev Spaces CLI
+## Install the Azure CLI
 Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users.
 
 1. Install [Git for Windows](https://git-scm.com/downloads), select the default install options. 
@@ -35,7 +35,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your development 
 [!INCLUDE[](includes/use-dev-spaces.md)]
 
 ## Get Kubernetes debugging tools
-While you can use the Azure Dev Spaces CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
+While you can use the Azure CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
 
 ### Visual Studio debugging 
 1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
