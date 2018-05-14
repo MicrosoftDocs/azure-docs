@@ -14,7 +14,7 @@ ms.author: marsma
 
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container.
 
-You're currently able to set environment variables with the Azure CLI and Azure PowerShell. In both cases, you supply an argument to set the variables when you create a container instance. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
+You're currently able to set environment variables with the [Azure CLI][azure-cli-install] and [Azure PowerShell][azure-powershell-install]. In both cases, you supply an argument to set the variables when you create a container instance. Setting environment variables in ACI is similar to the `--env` command-line argument to `docker run`. For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -22,7 +22,7 @@ You're currently able to set environment variables with the Azure CLI and Azure 
 
 ## Azure CLI example
 
-To see the default output of the container, run the following command:
+To see the default output of the container, run the following [az container create][az-container-create] command:
 
 ```azurecli-interactive
 az container create \
@@ -49,11 +49,11 @@ Once the container status shows as *Terminated* (use [az container show][az-cont
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-To view the output of the container you started with no environment variables, run the command with `--name` to "mycontainer1" instead of "mycontainer2".
+To view the output of the container you started with no environment variables, run the command with `--name` set to "mycontainer1" instead of "mycontainer2."
 
 ## Azure PowerShell example
 
-To see the default output of the container, run the following command:
+To see the default output of the container, run the following [New-AzureRmContainerGroup][new-azurermcontainergroup] command:
 
 ```azurepowershell-interactive
 New-AzureRmContainerGroup `
@@ -83,7 +83,7 @@ Get-AzureRmContainerInstanceLog `
     -ContainerGroupName mycontainer2
 ```
 
-To view the output of the container you started with no environment variables, run the command with `-ContainerGroupName` set to "mycontainer1" instead of "mycontainer2".
+To view the output of the container you started with no environment variables, run the command with `-ContainerGroupName` set to "mycontainer1" instead of "mycontainer2."
 
 ## Example output without environment variables
 
@@ -114,10 +114,13 @@ To view the output of the container you started with no environment variables, r
 
 For more information on running task-based containers, such as for batch computing scenarios, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
-<!-- LINKS Internal -->
+<!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
-[azure-cloud-shell]: ../cloud-shell/overview.md
+
+<!-- LINKS Internal -->
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
