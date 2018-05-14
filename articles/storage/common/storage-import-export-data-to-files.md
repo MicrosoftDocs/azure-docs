@@ -7,7 +7,7 @@ services: storage
 
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: alkohli
 
 ---
@@ -21,7 +21,7 @@ The Import/Export service supports only import of Azure Files into Azure Storage
 
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
-- Have an active Azure subscription that can be used for the Import/Export service.
+- Have an active Azure subscription to use with Import/Export service.
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
@@ -36,9 +36,9 @@ Perform the following steps to prepare the drives.
 
 1. Connect our disk drives to the Windows system via SATA connectors.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-3. Create a *dataset.csv* file. Use the content in the following examples in this dataset file.  
+3. Create a *dataset.csv* file. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.  
 
-    - **To import a file**: In the following example, your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, one is created. Folder structure is maintained.
+    - **To import a file**: In the following example, your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it is created. Folder structure is maintained.
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -62,7 +62,7 @@ Perform the following steps to prepare the drives.
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
 
-4. Create a *driveset.csv* for driveset. Use the content in the following examples in this dataset file. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
+4. Create a *driveset.csv* file. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
@@ -71,7 +71,8 @@ Perform the following steps to prepare the drives.
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     H,Format,SilentMode,Encrypt,
     ```
-    - **For a disk that is already encrypted**: Specify *AlreadyEncrypted* and supply the key.
+    
+    - **For a disk that is already encrypted**: Specify *AlreadyEncrypted* and supply the BitLocker key.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
@@ -81,23 +82,23 @@ Perform the following steps to prepare the drives.
 
     Multiple entries can be made in the same file corresponding to multiple drives. 
 
-5.	Use the PrepImport option to copy and prepare data to the disk drive.
-
-         for the first copy session to copy directories and/or files with a new copy session:
+5.	Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
         ```
         WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
         ```
 
-        **Import example**
+    An import example is shown below.
 
+  
         ```
         WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
         ```
  
-6. A journal file with name provided with /j: parameter is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
+6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files are not processed.
 
->[!WARNING] Do not modify the data on the disk drives or the journal file after completing disk preparation.
+> [!WARNING]
+> Do not modify the data on the disk drives or the journal file after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
@@ -109,16 +110,16 @@ Perform the following steps to create an import job in the Azure portal.
 3. In **Basics**:
 
     - Select **Import into Azure**.
-    - Enter a string for job name.
-    - Select a subscription.
-    - Select a resource group. 
     - Enter a descriptive name for the import job. Use this name to track your jobs while they are in progress and once they are completed.
         -  This name may contain only lowercase letters, numbers, hyphens, and underscores.
         -  The name must start with a letter, and may not contain spaces. 
+    - Select a subscription.
+    - Select a resource group. 
+
 
 3. In **Job details**:
     
-    - Upload the journal files that you created during the preceding drive preparation step. If waimportexport.exe version1 was used, you need to upload one file for each drive that you have prepared. 
+    - Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). 
     - Select the storage account that the data will be imported into. 
     - The drop-off location is automatically populated based on the region of the storage account selected.
    
@@ -144,29 +145,34 @@ A[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage
 
 ## Samples for journal files
 
-In order to **add more drives**, one can create a new driveset file and run the command as below. For subsequent copy sessions to the different disk drives than specified in InitialDriveset .csv file, specify a new driveset CSV file and provide it as a value to the parameter "AdditionalDriveSet". Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
+To **add more drives**, create a new driveset file and run the command as below. 
 
-```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
-```
+For subsequent copy sessions to the different disk drives than specified in *InitialDriveset .csv* file, specify a new driveset *.csv* file and provide it as a value to the parameter `AdditionalDriveSet`. Use the **same journal file** name and provide a **new session ID**. The format of AdditionalDriveset CSV file is same as InitialDriveSet format.
 
-**Import example 1**
-```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
-```
+    ```
+    WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>
+    ```
 
-In order to add additional data to the same driveset, WAImportExport tool PrepImport command can be called for subsequent copy sessions to copy additional files/directory:
-For subsequent copy sessions to the same hard disk drives specified in InitialDriveset .csv file, specify the **same journal file** name and provide a **new session ID**; there is no need to provide the storage account key.
+An import example is shown below.
 
-```
-WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
-```
+    ```
+    WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3  /AdditionalDriveSet:driveset-2.csv
+    ```
 
-**Import example 2**
 
-```
-WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
-```
+To add additional data to the same driveset, use the PrepImport command for subsequent copy sessions to copy additional files/directory.
+
+For subsequent copy sessions to the same hard disk drives specified in *InitialDriveset.csv* file, specify the **same journal file** name and provide a **new session ID**; there is no need to provide the storage account key.
+
+    ```
+    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] DataSet:<dataset.csv>
+    ```
+
+An import example is shown below
+
+    ```
+    WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
+    ```
 
 ## Next steps
 
