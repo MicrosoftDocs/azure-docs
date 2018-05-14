@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
 
 ---
@@ -205,7 +205,9 @@ When moving a virtual network, you must also move its dependent resources. For e
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
-You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+
+You can't move a virtual network to a different subscription if the virtual network contains a custom DNS server. To move the virtual network, set it to Default (Azure-provided) DNS server. After the move, reconfigure the custom DNS server.
 
 ## App Service limitations
 
