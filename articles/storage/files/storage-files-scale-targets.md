@@ -39,7 +39,8 @@ With Azure File Sync, we have tried as much as possible to design for limitless 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## Azure File Sync performance metrics
-blah
+[!INCLUDE [storage-sync-files-perf-metrics](../../../includes/sstorage-sync-files-perf-metrics.md)]
+
 
 ## See also
 - [Planning for an Azure Files deployment](storage-files-planning.md)
