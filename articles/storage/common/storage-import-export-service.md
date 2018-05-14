@@ -15,7 +15,7 @@ ms.author: alkohli
 
 Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites. Data from one or more disks can be imported either to Azure Blob storage or Azure Files. 
 
-## When should I use the Azure Import/Export service?
+## Azure Import/Export usecases
 
 Consider using Azure Import/Export service when uploading or downloading data over the network is too slow, or getting additional network bandwidth is cost-prohibitive. Use this service in the following scenarios:
 
@@ -28,7 +28,7 @@ Consider using Azure Import/Export service when uploading or downloading data ov
 
 Import/Export service uses the following components:
 
-- **Import/Export**service: This service available in Azure portal helps the user create and track import and export jobs. It also notifies the Azure datacenter when the 
+- **Import/Export**service: This service available in Azure portal helps the user create and track import and export jobs.  
 
 - **WAImportExport tool**: This command line tool
     - Prepares your drives that are shipped for import.
@@ -125,7 +125,7 @@ The Azure Import/Export service supports copying data to and from all Public Azu
 
 The data on the drive is encrypted using BitLocker Drive Encryption. This encryption protects your data while it is in transit.
 
-For import jobs, there are two ways to perform the encryption.  
+For import jobs, drives are encrypted in two ways.  
 
 
 - Specify the option when using *dataset.csv* file while running the WAImportExport tool during drive preparation. 
