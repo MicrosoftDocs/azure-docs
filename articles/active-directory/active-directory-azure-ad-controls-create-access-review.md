@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 05/14/2018
 ms.author: billmath
 ---
 
@@ -33,7 +33,7 @@ Access assignments become "stale" when users have access they don't need any mor
 
 6. To make the access review recurring, change the frequency from One time to Weekly, Monthly, Quarterly or Annually, and use the slider or text box to define how many days each review of the recurring series will runbe open for input from reviewers. For example, Tthe maximum duration for you can set for a monthly review is 27 days, to avoid overlapping reviews. 
 
-7.	The recurring access review series can end in 3 ways: it runscontinue to start reviews indefinitely or until a specific date, or after a defined number of occurrences has been completed you or anothera global administrator can stops the series after creation by changing the date in Settings, so that it ends on that date. a specific date or ends after a defined number of occurrences has been completed.
+7.	The recurring access review series can end in 3 ways: it runs continuously to start reviews indefinitely, or until a specific date, or after a defined number of occurrences has been completed. You or another global administrator can stop the series after creation by changing the date in Settings, so that it ends on that date.
 
 8. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the app), rather than reviewing all the users who are members or who have access to the application.
 
