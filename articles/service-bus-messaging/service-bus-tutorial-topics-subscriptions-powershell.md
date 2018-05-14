@@ -6,7 +6,7 @@ author: sethmanheim
 manager: timlt
 
 ms.author: sethm;chwolf
-ms.date: 04/23/2018
+ms.date: 05/14/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc

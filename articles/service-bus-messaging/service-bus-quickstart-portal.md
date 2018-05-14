@@ -9,7 +9,7 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/03/2018
+ms.date: 05/14/2018
 ms.author: sethm
 
 ---

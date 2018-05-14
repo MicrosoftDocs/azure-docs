@@ -8,7 +8,7 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/03/2018
+ms.date: 05/14/2018
 ms.author: sethm
 
 ---
