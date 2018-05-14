@@ -131,7 +131,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
  
 ## Clean up resources
 
-When you no longer need the resources you created, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to delete the resource group. This will delete the resource groups and all of the resources it contains.
+When you no longer need the resources you created, use the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) command to delete the resource group. This will delete the resource groups and all of the resources they contain.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name TestRG1
