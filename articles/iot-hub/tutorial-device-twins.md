@@ -104,7 +104,7 @@ To view the simulated device sample code that receives desired properties, navig
 
 The following code connects to your IoT hub and gets a device twin object:
 
-[!code-nodejs][Create IoT Hub client](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")
+[!code-javascript[Create IoT Hub client](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")]
 
 ```nodejs
 // Create the IoTHub client
