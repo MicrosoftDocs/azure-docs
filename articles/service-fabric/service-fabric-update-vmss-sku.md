@@ -23,7 +23,7 @@ ms.author: v-rachiw
 This article describes how to upgrade/migrate the SKU for PrimaryNodeType to higher SKU using Azure PowerShell
 
 ## Add a new Virtual Machine Scale Set with the same NodeType name as the primary node type
-Deploy a new Virtual Machine Scale Set and load balancer, the Service Fabric extension configuration (especially the node type) should be the same as the Virtual Machine Scale Set you're trying to upgrade. Verify in the SF explorer that your new nodes are available. 
+Deploy a new Virtual Machine Scale Set and load balancer. The Service Fabric extension configuration (especially the node type) of new Virtual Machine Scale Set should be same as the old Virtual Machine Scale Set you're trying to upgrade. Verify in the SF explorer that your new nodes are available. 
 
 ### Azure PowerShell
 The following example uses Azure PowerShell to deploy updated Resource Manager template *template.json* using the resource group named *myResourceGroup*:
@@ -272,7 +272,7 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 
 ## Remove knowledge of the SF node from the FM
 
-Notify Service Fabric that the node, which is down has been removed from hte cluster.
+Notify Service Fabric that the node, which is down has been removed from the cluster.
 (If the Durability level of the old Virtual Machine Scale Set was silver or gold, this step may not be needed. Since that step is done by the system automatically.)
 
 ### Azure PowerShell
