@@ -91,7 +91,7 @@ Next, add a rule for the ephemeral port range.  Select **Add Rule**, from the dr
 
 For the final two rules for Service Fabric, open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `19000-19003`, and `19080-19081` then change the Source drop down to Anywhere.
 
-Finally, we just need to open up port 80 so you can see the application when it's deployed. Select **Add Rule**, from the drop-down select **HTTP**. All of the fields should have been auto-populated.
+Finally, we just need to open up port 8080 so you can see the application when it's deployed. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `8080` then change the Source drop down to Anywhere.
 
 All of the rules are now entered. Select **Save**.
 

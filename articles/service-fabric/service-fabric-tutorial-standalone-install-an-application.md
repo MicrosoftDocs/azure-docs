@@ -61,9 +61,9 @@ Once the application is downloaded, you can deploy it to a cluster directly from
 
 5. Select the dropdown for the **Connection Endpoint** and enter the public DNS Name of one of the nodes in your cluster.  For example, `ec2-34-215-183-77.us-west-2.compute.amazonaws.com:19000`
 
-6. Open you preferred browser and type in the cluster address (the connection endpoint without the port information - for example, ec2-34-215-183-77.us-west-2.compute.amazonaws.com).
+6. Open you preferred browser and type in the cluster address (the connection endpoint, this app deploys on port 8080 - for example, ec2-34-215-183-77.us-west-2.compute.amazonaws.com:8080).
 
-    ![API Response from Cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/response-from-cluster.png)
+    ![API Response from Cluster](./media/service-fabric-tutorial-standalone-cluster/deployed-app.png)
 
 ## Next steps
 
