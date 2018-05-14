@@ -58,6 +58,8 @@
 ### [Partner solution – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## Azure Consumption API
 ### [Azure Consumption REST API](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [Usage REST API](https://msdn.microsoft.com/library/azure/mt219003.aspx)
 ## [Enterprise Reporting Overview](billing-enterprise-api.md)
 ### [Enterprise Reporting REST API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
 ## Billing code samples
