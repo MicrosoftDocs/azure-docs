@@ -4,7 +4,7 @@ description: Overview of private DNS hosting service on Microsoft Azure.
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jennoc
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 

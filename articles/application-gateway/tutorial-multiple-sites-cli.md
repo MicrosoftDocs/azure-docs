@@ -29,6 +29,9 @@ In this tutorial, you learn how to:
 
 ![Multi-site routing example](./media/tutorial-multiple-sites-cli/scenario.png)
 
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -208,7 +211,7 @@ for i in `seq 1 2`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 
 done
