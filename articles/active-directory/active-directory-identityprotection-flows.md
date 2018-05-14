@@ -46,10 +46,7 @@ This topic gives you an overview of a user's sign-in experience for all cases th
 ## Multi-factor authentication registration
 The best user experience for both, the compromised account recovery flow and the risky sign-in flow, is when the user can self-recover. If users are registered for multi-factor authentication, they already have a phone number associated with their account that can be used to pass security challenges. No help desk or administrator involvement is needed to recover from account compromise. Thus, it’s highly recommended to get your users registered for multi-factor authentication. 
 
-Administrators can:
-
-* set a policy that requires users to set up their accounts for additional security verification. 
-* allow skipping multi-factor authentication registration for up to 30 days, in case they want to give users a grace period before registering.
+Administrators can set a policy that requires users to set up their accounts for additional security verification. This policy allows users to skip multi-factor authentication registration for up to 14 days. The 14-day grace period is not configurable.
 
 **The multi-factor authentication registration has three steps:**
 

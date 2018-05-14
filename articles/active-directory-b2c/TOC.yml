@@ -108,6 +108,8 @@
           href: active-directory-b2c-setup-li-app.md
         - name: Twitter
           href: active-directory-b2c-setup-twitter-app.md
+        - name: GitHub
+          href: active-directory-b2c-setup-github-app.md
         - name: Weibo
           href: active-directory-b2c-setup-weibo-app.md
         - name: QQ
