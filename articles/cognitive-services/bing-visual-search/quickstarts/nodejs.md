@@ -31,12 +31,13 @@ To run this application, follow these steps:
 
 1. Create a folder for your project (or use your favorite IDE or editor).
 2. From a command prompt or terminal, navigate to the folder you just created.
-3. Install the request and form-data modules:  
-  ```
-  npm install request
-  ```
-  ```
-  npm install form-data
+3. Install the request modules:  
+  ```  
+  npm install request  
+  ```  
+3. Install the form-data modules:  
+  ```  
+  npm install form-data  
   ```  
 4. Create a file named GetVisualInsights.js and add the following code to it.
 5. Replace the `subscriptionKey` value with your subscription key.
@@ -81,8 +82,8 @@ function requestCallback(err, res, body) {
 
 ## Next steps
 
-[Get insights about an image you upload](../upload-image.md#using-nodejs)
-[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
+[Get insights about an image you upload](../upload-image.md#using-nodejs)  
+[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
