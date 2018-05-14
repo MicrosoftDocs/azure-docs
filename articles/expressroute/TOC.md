@@ -1,23 +1,31 @@
 # [ExpressRoute Documentation](index.md)
 
 # Overview
+
 ## [What is ExpressRoute?](expressroute-introduction.md)
-## [ExpressRoute FAQ](expressroute-faqs.md)
+
+# Tutorials
+## [Create and modify a circuit](expressroute-howto-circuit-portal-resource-manager.md)
+## [Create and modify peering configuration](expressroute-howto-routing-portal-resource-manager.md)
+## [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md)
+## [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)
+
+# Concepts
+
 ## [Connectivity models](expressroute-connectivity-models.md)
 ## [Circuits and routing domains](expressroute-circuit-peerings.md)
 ## [Locations and partners](expressroute-locations.md)
 ### [Providers by location](expressroute-locations-providers.md)
 ### [Locations by provider](expressroute-locations.md)
 ## [Virtual network gateways for ExpressRoute](expressroute-about-virtual-network-gateways.md)
-
-# Get Started
 ## [Prerequisites](expressroute-prerequisites.md)
 ## [Workflows](expressroute-workflows.md)
 ## [Routing requirements](expressroute-routing.md)
 ## [QoS requirements](expressroute-qos.md)
 ## [About moving circuits from classic to Resource Manager](expressroute-move.md)
 
-# How To
+# How-to guides
+
 ## Create and modify a circuit
 ### [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 ### [Azure PowerShell](expressroute-howto-circuit-arm.md)
@@ -52,13 +60,11 @@
 ### [Link a virtual network to an ExpressRoute circuit](expressroute-howto-linkvnet-classic.md)
 ### [Configure ExpressRoute and S2S coexisting connections](expressroute-howto-coexist-classic.md)
 ### [Add a gateway to a VNet](expressroute-howto-add-gateway-classic.md)
-
 ## Best Practices
 ### [Best practices for network security and cloud services](../best-practices-network-security.md)
 ### [Optimize routing](expressroute-optimize-routing.md)
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
 ### [NAT for ExpressRoute](expressroute-nat.md)
-
 ## Troubleshoot
 ### [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
 ### [Resolving network performance issues](expressroute-troubleshooting-network-performance.md)
@@ -67,19 +73,14 @@
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+
+## [Azure PowerShell](/powershell/module/azurerm.network#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (classic)](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Related
-## [Virtual Network](/azure/virtual-network/)
-## [VPN Gateway](/azure/vpn-gateway/)
-## [Virtual Machines](/azure/virtual-machines/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
-
 # Resources
+## [ExpressRoute FAQ](expressroute-faqs.md)
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Case Studies](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [Networking Blog](https://azure.microsoft.com/blog/topics/networking/)
