@@ -83,7 +83,7 @@ and starts running your app's workflow.
 
 1. In the Azure portal or Visual Studio, 
 create a blank logic app, which opens Logic Apps Designer. 
-For this example, use the Azure portal.
+This example uses the Azure portal.
 
 2. In the search box, enter "sql server" as your filter. 
 From the triggers list, select the SQL trigger that you want. 
@@ -126,10 +126,19 @@ In this example, the logic app starts with the
 [Recurrence trigger](../connectors/connectors-native-recurrence.md), 
 and calls an action that gets a row from a SQL database.
 
-1. On the Logic App Designer, under the trigger, 
+1. In the Azure portal or Visual Studio, 
+open your logic app in Logic Apps Designer. 
+This example uses the Azure portal.
+
+2. In the Logic App Designer, under the trigger or action, 
 choose **New step** > **Add an action**.
 
    ![Choose "New step", "Add an action"](./media/connectors-create-api-sqlazure/add-action.png)
+   
+   To add an action between existing steps, 
+   move your mouse over the connecting arrow. 
+   Choose the plus sign (**+**) that appears, 
+   and then choose **Add an action**.
 
 2. In the search box, enter "sql server" as your filter. 
 From the actions list, select any SQL action that you want. 
