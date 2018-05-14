@@ -71,7 +71,7 @@ The following section helps you decide which authentication method is right for 
 
 * **Advanced scenarios**. If organizations choose to, it's possible to use insights from identities with Azure AD Identity Protection reports. An example is as the leaked credentials report. Windows Hello for Business is another option that has [specific requirements when you use password hash synchronization](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). 
 
-* Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication. Those organizations can't use third-party or on-premises multifactor authentication methods.
+	Organizations that require multifactor authentication with password hash synchronization must use Azure AD multifactor authentication. Those organizations can't use third-party or on-premises multifactor authentication methods.
 
 * **Business continuity**. Using password hash synchronization with cloud authentication is highly available as a cloud service that scales to all Microsoft datacenters. To make sure password hash synchronization does not go down for extended periods, deploy a second Azure AD Connect server in staging mode in a standby configuration.
 
@@ -86,21 +86,21 @@ Refer to [implementing password hash synchronization](https://docs.microsoft.com
 
 * **Effort**. For pass-through authentication, you need one or more (we recommend three) lightweight agents installed on existing servers. These agents must have access to your on-premises Active Directory Domain Services, including your on-premises AD domain controllers. They need outbound access to the Internet and access to your domain controllers. For this reason, it's not supported to deploy the agents in a perimeter network. 
 
-* Pass-through Authentication requires unconstrained network access to domain controllers. All network traffic is encrypted and limited to authentication requests. For more information on this process, see the [security deep dive](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) on pass-through authentication.
+	Pass-through Authentication requires unconstrained network access to domain controllers. All network traffic is encrypted and limited to authentication requests. For more information on this process, see the [security deep dive](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-security-deep-dive) on pass-through authentication.
 
 * **User experience**. To improve users' sign-in experience, deploy seamless SSO with Pass-through Authentication. Seamless SSO eliminates unnecessary prompts after users sign in.
 
 * **Advanced scenarios**. Pass-through Authentication enforces the on-premises account policy at the time of sign in. For example, access is denied when an on-premises user’s account state is disabled, locked out, or [password expired](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) or falls outside the hours when the user is allowed to sign in. 
 
-* Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA). Those organizations can't use a third-party or on-premises multifactor authentication method. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
+	Organizations that require multifactor authentication with pass-through authentication must use Azure Multi-Factor Authentication (MFA). Those organizations can't use a third-party or on-premises multifactor authentication method. Advanced features require that password hash synchronization is deployed whether or not you choose pass-through authentication. An example is the leaked credentials report of Identity Protection.
 
 * **Business Continuity**. We recommend that you deploy two extra pass-through authentication agents. These extras are in addition to the first agent on the Azure AD Connect server. This additional deployment ensures high availability of authentication requests. When you have three agents deployed, one agent can still fail when another agent is down for maintenance. 
 
-* There's another benefit to deploying password hash synchronization in addition to pass-through authentication. It acts as a backup authentication method when the primary authentication method is no longer available.
+	There's another benefit to deploying password hash synchronization in addition to pass-through authentication. It acts as a backup authentication method when the primary authentication method is no longer available.
 
 * **Considerations**. You might use password hash synchronization as a backup authentication method for pass-through authentication, and the agents can't validate a user's credentials. Then the failover to password hash synchronization doesn't happen automatically. Switch the sign-on method manually by using Azure AD Connect. 
 
-* Pass-through Authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols. Some protocols are ActiveSync, POP3, and IMAP4. For example, Microsoft Office 2013 and later support modern authentication, but earlier versions don't. For more information on Office app support, see [Updated Office 365 modern authentication](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+	Pass-through Authentication only supports cloud apps that use modern authentication and specific Exchange Online protocols. Some protocols are ActiveSync, POP3, and IMAP4. For example, Microsoft Office 2013 and later support modern authentication, but earlier versions don't. For more information on Office app support, see [Updated Office 365 modern authentication](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). For other considerations on Pass-through Authentication, including Alternate ID support, see [frequently asked questions](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Refer to [implementing pass-through authentication](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) for deployment steps.
 
@@ -119,7 +119,7 @@ Refer to [implementing pass-through authentication](https://docs.microsoft.com/a
 
 * **Business continuity**. Federated systems typically require a load-balanced array of servers, known as a farm. This farm is configured in an internal network and perimeter network topology to ensure high availability for authentication requests.
 
-Deploy password hash synchronization along with federated authentication as a backup authentication method when the primary authentication method is no longer available. An example is when the on-premises servers aren't available. Some large enterprise organizations require a federation solution to support multiple Internet ingress points configured with geo-DNS for low-latency authentication requests.
+	Deploy password hash synchronization along with federated authentication as a backup authentication method when the primary authentication method is no longer available. An example is when the on-premises servers aren't available. Some large enterprise organizations require a federation solution to support multiple Internet ingress points configured with geo-DNS for low-latency authentication requests.
 
 * **Considerations**. Federated systems typically require a more significant investment in on-premises infrastructure. Most organizations choose this option if they already have an on-premises federation investment. And  if it's a strong business requirement to use a single-identity provider. Federation is more complex to operate and troubleshoot compared to cloud authentication solutions.
 
