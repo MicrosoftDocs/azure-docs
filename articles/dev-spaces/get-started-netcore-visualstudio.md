@@ -25,15 +25,7 @@ In this guide, you will learn how to:
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
-## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-[!INCLUDE[](includes/use-dev-spaces.md)]
-
-## Get Kubernetes debugging tools
-While you can use the Azure CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
-
-### Visual Studio debugging 
+## Get the Visual Studio tools
 1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
 1. In the Visual Studio installer make sure the following Workload is selected:
     * ASP.NET and web development
@@ -62,11 +54,19 @@ In the dialog that is displayed next, make sure you are signed in with the appro
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.PNG)
 
-Leave the **Space** dropdown defaulted to `mainline` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
+Leave the **Space** dropdown defaulted to `default` for now. Later, you'll learn more about this option. Check the **Publicly Accessible** checkbox so the web app will be accessible via a public endpoint. This setting isn't required, but it will be helpful to demonstrate some concepts later in this walkthrough. But don’t worry, in either case you will be able to debug your website using Visual Studio.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
-Click **OK** to select or create the development environment. A background task will be started to accomplish this, it will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
+Click **OK** to select or create the cluster.
+
+If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, you'll see a message asking if you want to configure it.
+
+![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+
+Choose **OK**.
+
+ A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
 ![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
