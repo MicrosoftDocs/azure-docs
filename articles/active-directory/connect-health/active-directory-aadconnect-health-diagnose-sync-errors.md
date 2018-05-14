@@ -56,15 +56,13 @@ Following the steps from Azure portal, you will be able to narrow down the sync 
 
 ![Diagnose Sync error diagnose steps](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixSteps.png)
 
-From the Azure portal, you will be able to go through a few steps to identify specific fixable scenarios:
+From the Azure portal, you will be able to go through a few steps to identify specific fixable scenarios:  
 1.	In Diagnose status column, the status will show if there is a potential troubleshooting flows to narrow down the error case and potentially fix directly from Azure Active Directory.
-
 | Status | What does it mean? |
 | ------------------ | -----------------|
 | Not Started | You have not visited this diagnosis process. Depends on the diagnostic result, there is potentially a way to fix the sync error from the portal directly. |
 | Manual Fix Required | The error does not fit into the criteria of available fix from the portal. The case can be (1) Conflicting object types are not users (2) You already went through the diagnostic steps and no fix resolution available from the portal. In this case, fix from on-prem side will still be one of the solutions. [Read more about on-premises fix](https://support.microsoft.com/help/2647098) | 
 | Pending Sync | Fix was applied. Waiting for the next sync cycle to clear the error. |
-
 >[!IMPORTANT]
 > The diagnostic status column will be reset after each sync cycle. 
 >
@@ -83,9 +81,9 @@ From the Azure portal, you will be able to go through a few steps to identify sp
 The question is trying to identify source object of existing user from on-prem Active Directory.  
 1.	Check if your Active Directory has an object with the provided UserPrincipalName. If No, answer No.
 2.	If Yes, check if the object is still in scope for Syncing.  
-- Search in the Azure AD Connector Space with the DN.
-- If the object is found with the **Pending Add** state, answer No. Azure AD Connect is not able to connect the object to the right AD Object.
-- If the object is not found, answer Yes.
+  - Search in the Azure AD Connector Space with the DN.
+  - If the object is found with the **Pending Add** state, answer No. Azure AD Connect is not able to connect the object to the right AD Object.
+  - If the object is not found, answer Yes.
 
 > Taking the following diagram, for example, the question is trying to identify if *Joe Jackson* still exist in on-prem Active Directory.
 For **common scenario**, both user *Joe Johnson* and *Joe Jackson* will be present in your on-prem Active Directory. The quarantined objects are two different users.
@@ -99,9 +97,9 @@ For **common scenario**, both user *Joe Johnson* and *Joe Jackson* will be prese
 ### Do both these accounts belong to the same user?
 The question is checking incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
 1.	Conflicting object is newly synced to Azure Active Directory. Compare the object from its:  
--	Display Name
--	User Principal Name
--	Object ID
+  - Display Name
+  - User Principal Name
+  - Object ID
 2.	If failed to compare them, check your Active Directory has objects with the provided UserPrincipalNames. Answer NO if both are found.  
 
 > In the case below, the two objects belongs to the same user *Joe Johnson*.
