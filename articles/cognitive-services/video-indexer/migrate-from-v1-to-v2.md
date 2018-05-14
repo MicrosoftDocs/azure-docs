@@ -40,11 +40,38 @@ Each request should have a valid token, matching the access level of the API you
 
 For more information about the different access tokens, see [Use Azure Video Indexer API](video-indexer-use-apis.md).
 
+#### Upload a video
+
+Upload a video in V1:
+
+```
+https://videobreakdown.azure-api.net/Breakdowns/Api/Partner/Breakdowns?name=some_name&description=some_description&privacy=private&videoUrl=http://URL_TO_YOUR_VIDEO
+```
+
+Upload a video in V2:
+
+1. Getting access token for the upload request:
+  ```
+  https://api.videoindexer.ai/auth/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/AccessToken?allowEdit=true
+  ```
+  
+2. Upload a video:
+
+```
+  https://api.videoindexer.ai/westus2/Accounts/00000000-c48b-4703-a5d6-2d3fd810ff9c/Videos?accessToken=YOUR_ACCESS_TOKEN&name=my-video&description=my-video-description&language=English&videoUrl=http://url-to-the-video&indexingPreset=Default&streamingPreset=Default&privacy=Private
+  ```
 ### Locations
 
-Each call to the API should include the location of your Video Indexer account. For example:  https://api.videoindexer.ai/northeurope/Accounts/{accountId}/Videos/{videoId}/Index?language=English. API calls without the location or with a wrong location will fail.
+Each call to the API should include the location of your Video Indexer account. API calls without the location or with a wrong location will fail.
 
-For trial accounts, you should use 'trial' as the location. For example:  https://api.videoindexer.ai/trial/Accounts/{accountId}/Videos/{videoId}/Index?language=English.
+The values described in the following table apply. The **Param value** is the value you pass when using the API.
+
+|**Name**|**Param value**|**Description**|
+|---|---|---|
+|Trial|trial|Used for trial accounts. For example: https://api.videoindexer.ai/trial/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
+|West US|westus2|Used for the Azure West US 2 region.  For example: https://api.videoindexer.ai/westus2/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
+|North Europe |northeurope|Used for the Azure North Europe region. For example:  https://api.videoindexer.ai/northeurope/Accounts/{accountId}/Videos/{videoId}/Index?language=English. |
+|East Asia|eastasia|Used for the Azure East Asia region. For example:  https://api.videoindexer.ai/eastasia/Accounts/{accountId}/Videos/{videoId}/Index?language=English.|
 
 ### Data Model
 
