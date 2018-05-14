@@ -59,7 +59,7 @@ Header|Values|Comments
 
 A sample request is shown below.
 
-```
+```xml
 POST /cognitiveservices/v1
 HTTP/1.1
 Host: westus.tts.speech.microsoft.com
