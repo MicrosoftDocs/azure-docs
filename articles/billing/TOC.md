@@ -53,11 +53,19 @@
 ### [Enterprise cost view disabled](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 # Reference
-## [API Overview](billing-usage-rate-card-overview.md)
-## [Enterprise Reporting API Overview](billing-enterprise-api.md)
-## [Invoice REST](/rest/api/billing)
-## [Usage and RateCard REST](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
-## [Partner solution: Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## [Azure Billing API Overview](billing-usage-rate-card-overview.md)
+### [Azure Billing REST API](https://docs.microsoft.com/rest/api/billing)
+### [Partner solution – Cloud Cruiser](billing-usage-rate-card-partner-solution-cloudcruiser.md)
+## Azure Consumption API
+### [Azure Consumption REST API](https://docs.microsoft.com/rest/api/consumption) 
+### [RateCard REST API](https://msdn.microsoft.com/library/azure/mt219005.aspx)
+### [Usage REST API](https://msdn.microsoft.com/library/azure/mt219003.aspx)
+## [Enterprise Reporting Overview](billing-enterprise-api.md)
+### [Enterprise Reporting REST API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary)
+## Billing code samples
+### [Invoice API code sample](https://github.com/Azure-Samples/billing-dotnet-core-invoice-download)
+### [Usage API code sample](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+### [RateCard API code sample](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)
