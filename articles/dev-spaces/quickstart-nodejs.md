@@ -107,7 +107,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 ![](media/get-started-node/debug-configuration-nodejs.png)
 
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
+> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces.
 
 ### Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes!
