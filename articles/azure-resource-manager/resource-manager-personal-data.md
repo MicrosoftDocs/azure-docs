@@ -20,7 +20,7 @@ ms.author: tomfitz
 
 To avoid exposing sensitive information, delete any personal information you may have provided in deployments, resource groups, or tags. Azure Resource Manager provides operations that let you manage personal data you may have provided in deployments, resource groups, or tags.
 
-[!INCLUDE [<title>](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 ## Delete personal data in deployment history
 
