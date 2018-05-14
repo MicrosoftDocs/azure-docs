@@ -39,7 +39,7 @@
       href: search-fiddler.md
 - name: Tutorials
   items:
-  - name: Cognitive search development (REST)
+  - name: Cognitive search development
     href: cognitive-search-tutorial-blob.md
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md

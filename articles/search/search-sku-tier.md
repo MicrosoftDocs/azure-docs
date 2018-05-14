@@ -19,13 +19,13 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
 
-> [!NOTE]
+> [!TIP]
 > Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can [increase replica and partition counts](search-capacity-planning.md) within the service. For more information about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## Billing concepts
 
-Concepts you need to understand for tier selection include capacity, service limits, and service units.
+Concepts you need to understand for tier selection include capacity definitions, service limits, and service units. 
 
 Feature availability is not a billing consideration. All tiers, including the **Free** tier, offer feature parity, but indexing and resource constraints effectively limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
 
@@ -36,17 +36,15 @@ Capacity is structured as *replicas* and *partitions*. Replicas are instances of
 > [!NOTE]
 > All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
 
-### Services limits
+### Limits on resources
 
-Services host resources, such as indexes, indexers, and so forth. Service limits for each resource also vary by tier, with a cap on the number of indexes and indexers as the second differentiating feature across tiers.
-
-Given that tiers impose limits on two levels (storage and resources), you should think about both because whichever one you reach first is the effective limit. 
+Services host resources, such as indexes, indexers, and so forth. Each tier imposes limits on the quantity of resources you can create. As such, a cap on the number of indexes (and other objects) is the second differentiating feature across tiers.
 
 ### Service units
 
-The most important billing concept to understand is a *service unit* (SU), which is the billing unit for Azure Search. Although each tier offers progressivey higher capacity, most customers bring a portion of total capacity online, keeping the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated through an SU formula, that determines what you actually pay.
+The most important billing concept to understand is a *service unit* (SU), which is the billing unit for Azure Search. An SU is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
 
-SU formulation is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
+Although each tier offers progressivey higher capacity, most customers bring a portion of total capacity online, keeping the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
 Billing rate is hourly, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
@@ -76,9 +74,15 @@ Previously, document limits were a consideration but are no longer applicable fo
 
 ## Evaluation considerations
 
-Capacity and costs of running the service go hand-in-hand. For a best-guess estimate on which tier to start with, develop rough estimates of indexes and volume.
+Capacity and costs of running the service go hand-in-hand. Tiers impose limits on two levels (storage and resources), so you should think about both because whichever one you reach first is the effective limit. 
 
-Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. Azure Search [tracks query volume and latency](search-monitor-usage.md), which you can see in the portal. You can also configure deep monitoring by enabling [search traffic analytics](search-traffic-analytics.md).
+Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
+
++ Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
+
++ Start with a higher level, **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
+
+You can [monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. Additionally, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
 
 **Limits on number and size of indexes**
 
@@ -96,11 +100,11 @@ Number and size are equally relevant to your analysis because maximum limits are
 
 **Query volume considerations**
 
-Queries-per-second (QPS) is a metric that gains prominence during performance tuning, but is generally not a tier a consideration unless you expect very high query volume at the outset.
+Queries-per-second (QPS) is a metric that gains prominence during performance tuning, but is generally not a tier consideration unless you expect very high query volume at the outset.
 
 All of the standard tiers can deliver a balance of replicas to partitions, supporting faster query turnaround through additional replicas for loading balancing and additional partitions for parallel processing. You can tune for query throughput after the service is provisioned.
 
-Customer who expect strong sustained query volumes from the outset should consider higher tiers, backed by more powerful hardware, and then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
+Customer who expect strong sustained query volumes from the outset should consider higher tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
 
 
 **Service level agreements**
