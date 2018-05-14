@@ -22,8 +22,8 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
-    title: Create a SQL database on Azure. (3:12)
-    href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
+    title: Azure Messaging and event based architecture
+    href: https://azure.microsoft.com/en-us/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -36,15 +36,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure portal
-      href: https://review.docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
+      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
       text: Azure CLI
-      href: https://review.docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
+      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-cli
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://review.docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-powershell?branch=release-mvc-service-bus
+      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -74,8 +74,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-    - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>
+    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Azure PowerShell</a>
+    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Azure CLI</a>
 - title: Reference
   items:
   - type: list
@@ -83,7 +83,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/servicebus">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p>
     - title: REST
