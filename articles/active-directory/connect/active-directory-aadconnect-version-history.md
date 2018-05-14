@@ -52,7 +52,7 @@ New features and improvements
     -	**Device writeback**: Device writeback is used to enable conditional access based on devices to AD FS (2012 R2 or higher) protected devices
 
    >[!NOTE] 
-   > - The option to enable device writeback from Customize synchronization options will is greyed out. 
+   > - The option to enable device writeback from Customize synchronization options will be greyed out. 
    > -	The PowerShell module for ADPrep is deprecated with this release.
 
 
@@ -62,7 +62,7 @@ New features and improvements
 
 - Sync Rule Processing:  outbound Join sync rules with no Join Condition should be de-applied if the parent syncrule is no longer applicable
 - Azure AD Connect Wizard: Error creating AD Connector account when Azure AD Connect is in a workgroup
-- Azure AD Connect Wizard: On the AAD Sign-in page display the verification checkbox whenever there is any mismatch in AD domains and Azure AD Verified domains
+- Azure AD Connect Wizard: On the Azure AD Sign-in page display the verification checkbox whenever there is any mismatch in AD domains and Azure AD Verified domains
 - Auto-upgrade PowerShell fix to set auto upgrade state correctly in certain cases after auto upgrade attempted.
 - Azure AD Connect Wizard: Updated telemetry to capture previously missing information
 - Azure AD Connect Wizard: Install PTA agent before converting a domain to managed
