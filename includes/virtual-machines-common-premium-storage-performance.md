@@ -105,7 +105,7 @@ Throughout this section, refer to the application requirements checklist that yo
 
 The table below summarizes performance factors and the steps necessary to optimize IOPS, throughput and latency. The sections following this summary will describe each factor is much more depth.
 
-For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](../articles/virtual-machines/linux/sizes) or [Windows VM sizes]((../articles/virtual-machines/windows/sizes)).
+For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) or [Windows VM sizes](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
