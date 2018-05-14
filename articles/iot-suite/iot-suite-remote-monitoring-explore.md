@@ -1,20 +1,20 @@
 ---
 title: Get started with the remote monitoring solution - Azure | Microsoft Docs 
-description: This tutorial uses simulated scenarios to introduce the remote monitoring preconfigured solution. These scenarios are created when you deploy the remote monitoring preconfigured solution for the first time.
-services: ''
+description: This tutorial uses simulated scenarios to introduce the remote monitoring solution accelerator. These scenarios are created when you deploy the remote monitoring solution accelerator for the first time.
+services: iot-suite
 suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 02/22/2018
+ms.date: 05/01/2018
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ---
 
-# Explore the capabilities of the remote monitoring preconfigured solution
+# Explore the capabilities of the remote monitoring solution accelerator
 
 This tutorial shows you the key capabilities of the remote monitoring solution. To introduce these capabilities, the tutorial showcases common customer scenarios using a simulated IoT application for a company called Contoso.
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Respond to an alarm
+> * Respond to an alert
 > * Update the firmware in your devices
 > * Organize your assets
 > * Stop and start the simulated devices
@@ -37,14 +37,14 @@ The following video shows a walkthrough of the remote monitoring solution:
 
 To complete this tutorial, you need a deployed instance of the remote monitoring solution in your Azure subscription.
 
-If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) tutorial.
+If you haven't deployed the remote monitoring solution yet, you should complete the [Deploy the remote monitoring solution accelerator](iot-suite-remote-monitoring-deploy.md) tutorial.
 
 ## The Contoso sample IoT deployment
 
 You can use the Contoso sample IoT deployment to understand the basic scenarios the remote monitoring solution provides out-of-the-box. These scenarios are based on real-life IoT deployments. Most likely, you will choose to customize the remote monitoring solution to meet your specific requirements, but the Contoso sample helps you learn the basics.
 
 > [!NOTE]
-> If you used the CLI to deploy the preconfigured solution, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
+> If you used the CLI to deploy the solution accelerator, the file `deployment-{your deployment name}-output.json` contains information about deployment such as the URL to access the deployed sample.
 
 The Contoso sample provisions a set of simulated devices and rules to act on them. Once you understand the basic scenarios, you can continue exploring more of the solution features in [Perform advanced device monitoring using the remote monitoring solution](iot-suite-remote-monitoring-monitor.md).
 
@@ -63,7 +63,7 @@ The following table shows a summary of the provisioned device types:
 | ------------------ | ------------------------------------------ | ------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------- |
 | Chiller            | Temperature, Humidity, Pressure            | Type, Firmware version, Model               | Location, Floor, Campus | Reboot, Firmware Update, Emergency Valve Release, Increase Pressure                          |
 | Prototyping device | Temperature, Pressure, Geo-location        | Type, Firmware version, Model               | Location, Mode          | Reboot, Firmware Update, Move device, Stop device, Temperature release, Temperature increase |
-| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Restart, Firmware Update, Empty tank, Fill tank                                              |
+| Engine             | Tank fuel level, Coolant sensor, Vibration | Type, Firmware version, Model               | Location, Floor, Campus | Firmware Update, Empty tank, Fill tank                                              |
 | Truck              | Geo-location, Speed, Cargo temperature     | Type, Firmware version, Model               | Location, Load          | Lower cargo temperature, Increase cargo temperature, Firmware update                         |
 | Elevator           | Floor, Vibration, Temperature              | Type, Firmware version, Model, Geo-location | Location, Campus        | Stop elevator, Start elevator, Firmware update                                               |
 
@@ -84,43 +84,35 @@ Operators at Contoso know the thresholds that determine whether a device is work
 
 ### Operate the Contoso sample deployment
 
-You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the preconfigured solution.
+You have now seen the initial setup in the Contoso sample. The following sections describe three scenarios in the Contoso sample that illustrate how an operator might use the solution accelerator.
 
-## Respond to a pressure alarm
+## Respond to a pressure alert
 
-This scenario shows you how to identify and respond to an alarm that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
+This scenario shows you how to identify and respond to an alert that's triggered by a chiller device. The chiller is located in Redmond, in building 43, floor 2.
 
-As an operator, you see in the dashboard that there's an alarm related to the pressure of a chiller. You can pan and zoom on the map to see more detail.
+As an operator, you see in the dashboard that there's an alert related to the pressure of a chiller. You can pan and zoom on the map to see more detail.
 
-1. On the **Dashboard** page, in the **System Alarms** grid, you can see the **Chiller pressure too high** alarm. The chiller is also highlighted on the map:
+1. On the **Dashboard** page, in the **Alerts** grid, you can see the **Chiller pressure too high** alert. The chiller is also highlighted on the map:
 
-    ![Dashboard shows pressure alarm and device on map](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
+    ![Dashboard shows pressure alert and device on map](media/iot-suite-remote-monitoring-explore/dashboardalarm.png)
 
-1. To view the device details and telemetry, click the highlighted chiller on the map. The telemetry shows a pressure spike:
+1. To navigate to the **Maintenance** page, choose **Maintenance** on the navigation menu. On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alert.
 
-    ![Choose device on map to view detail](media/iot-suite-remote-monitoring-explore/dashboarddetail.png)
+1. The list of alerts shows the number of times the alert has triggered, acknowledgments, and open and closed alerts:
 
-1. Close **Device detail**.
+    ![Maintenance page shows list of alerts that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
-1. To navigate to the **Maintenance** page, choose **Maintenance** on the navigation menu.
+1. The last alert in the list is the most recent one. Click the **Chiller Pressure Too High** alert to view the associated devices and telemetry. The telemetry shows pressure spikes for the chiller:
 
-On the **Maintenance** page, you can view the details of the rule that triggered the chiller pressure alarm.
+    ![Maintenance page shows telemetry for selected alert](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
 
-1. The list of notifications shows the number of times the alarm has triggered, acknowledgments, and open and closed alarms:
+You have now identified the issue that triggered the alert and the associated device. As an operator, the next steps are to acknowledge the alert and mitigate the issue.
 
-    ![Maintenance page shows list of alarms that have triggered](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
+1. To indicate that you are now working on the alert, change the **Alert status** to **Acknowledged**:
 
-1. The first alarm in the list is the most recent one. Click the **Chiller Pressure Too High** alarm to view the associated devices and telemetry. The telemetry shows pressure spikes for the chiller:
+    ![Select and acknowledge the alert](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
 
-    ![Maintenance page shows telemetry for selected alarm](media/iot-suite-remote-monitoring-explore/maintenancetelemetry.png)
-
-You have now identified the issue that triggered the alarm and the associated device. As an operator, the next steps are to acknowledge the alarm and mitigate the issue.
-
-1. To indicate that you are now working on the alarm, change the **Alarm status** to **Acknowledged**:
-
-    ![Select and acknowledge the alarm](media/iot-suite-remote-monitoring-explore/maintenanceacknowledge.png)
-
-1. To act on the chiller, select it and then choose **Schedule**. Select **EmergencyValveRelease**, add a job name **ChillerPressureRelease**, and choose **Apply**. These settings create a job that executes immediately:
+1. To act on the chiller, select it and then choose **Jobs**. Select **Run method**, then **EmergencyValveRelease**, add a job name **ChillerPressureRelease**, and choose **Apply**. These settings create a job that executes immediately:
 
     ![Select the device and schedule an action](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
@@ -130,13 +122,13 @@ You have now identified the issue that triggered the alarm and the associated de
 
 Finally, confirm that the telemetry values from the chiller are back to normal.
 
-1. To view the alarms grid, navigate to the **Dashboard** page.
+1. To view the alerts grid, navigate to the **Dashboard** page.
 
-1. To view the device telemetry, select the device for the original alarm on the map, and confirm that is back to normal.
+1. To view the device telemetry, select the device for the original alert on the map, and confirm that is back to normal.
 
-1. To close the incident, navigate to the **Maintenance** page, select the alarm, and set the status to **Closed**:
+1. To close the incident, navigate to the **Maintenance** page, select the alert, and set the status to **Closed**:
 
-    ![Select and close the alarm](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
+    ![Select and close the alert](media/iot-suite-remote-monitoring-explore/maintenanceclose.png)
 
 ## Update device firmware
 
@@ -155,7 +147,7 @@ To perform the necessary device management tasks, use the **Devices** page. Star
 
     ![Select a device on the devices page](media/iot-suite-remote-monitoring-explore/devicesselect.png)
 
-1. Click the **Schedule** button and then choose **Firmware update**. Enter values for **Job name**, **Firmware Version**, and **Firmware URI**. Choose **Apply** to schedule the job to run now:
+1. Click the **Jobs** button, choose **Run method**, and then choose **Firmware update**. Enter values for **Job name**, **Firmware Version**, and **Firmware URI**. Choose **Apply** to schedule the job to run now:
 
     ![Schedule firmware update on device](media/iot-suite-remote-monitoring-explore/devicesschedulefirmware.png)
 
@@ -172,17 +164,18 @@ You can use the **Maintenance** page to track the job as it runs.
 
 1. Locate the event related to the job you created. Verify that the firmware update process was initiated correctly.
 
+<!-- 05/01 broken 
 You can create a filter to verify the firmware version updated correctly.
 
-1. To create a filter, navigate to the **Devices** page and select **Manage filters**:
+1. To create a filter, navigate to the **Devices** page and select **Manage device groups**:
 
-    ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Create a filter that includes only devices with the new firmware version:
 
     ![Create device filter](media/iot-suite-remote-monitoring-explore/devicescreatefilter.png)
 
-1. Return to the **Devices** page and verify that the device has the new firmware version.
+1. Return to the **Devices** page and verify that the device has the new firmware version. -->
 
 ## Organize your assets
 
@@ -199,7 +192,7 @@ You can create tag names to use with devices.
 
     ![Show all devices](media/iot-suite-remote-monitoring-explore/devicesalldevices.png)
 
-1. Select the **Trucks** and **Prototyping** devices. Then choose **Tag**:
+1. Select the **Trucks** and **Prototyping** devices. Then choose **Jobs**:
 
     ![Select prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
@@ -207,19 +200,19 @@ You can create tag names to use with devices.
 
     ![Add tag to prototype and truck devices](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
-1. Select the **Chiller**, **Elevator**, and **Engine** devices. Then choose **Tag**:
+1. Select the **Chiller**, **Elevator**, and **Engine** devices. Then choose **Jobs**:
 
     ![Select chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Choose **Tag** and then create a new text tag called **FieldService** with a value **SmartBuilding**. Choose a name for the job. Then click **Save**:
+1. Choose **Tag** and then create a new text tag called **FieldService** with a value **SmartBuilding**. Choose a name for the job. Then click **Apply**:
 
     ![Add tag to chiller, engine, and elevator devices](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 
 You can use the tag values to create filters.
 
-1. On the **Devices** page, choose **Manage filters**:
+1. On the **Devices** page, choose **Manage device groups**:
 
-    ![Manage device filters](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
+    ![Manage device groups](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
 1. Create a new filter that uses the tag name **FieldService** and value **SmartBuilding**. Save the filter as **Smart Building**.
 
@@ -233,9 +226,17 @@ You can use the settings menu to stop the simulated devices. This helps to reduc
 
 1. Choose the **Settings** icon.
 
-1. Then toggle **Running** on or off:
+1. Then toggle **Flowing** on or off:
 
     ![Settings menu](media/iot-suite-remote-monitoring-explore/settings.png)
+
+## Customize the UI
+
+From the settings menu, you can apply basic customisations to the Remote Monitoring solution accelerator. You can:
+
+- Switch between the light and dark themes.
+- Change the name of the solution.
+- Upload a custom logo.
 
 ## Next steps
 
@@ -243,7 +244,7 @@ In this tutorial, you learned to:
 
 >[!div class="checklist"]
 > * Visualize and filter devices on the dashboard
-> * Respond to an alarm
+> * Respond to an alert
 > * Update the firmware in your devices
 > * Organize your assets
 > * Stop and start the simulated devices

@@ -1,7 +1,7 @@
 - name: Content Moderator Documentation
 - name: Overview
   items: 
-  - name: What is Content Moderator
+  - name: What is Content Moderator?
     href: overview.md
 - name: Samples
   items:

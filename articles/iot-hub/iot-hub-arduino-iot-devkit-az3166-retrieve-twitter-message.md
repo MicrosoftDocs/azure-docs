@@ -189,6 +189,6 @@ If you experience other problems, refer to [FAQs](https://microsoft.github.io/az
 
 ## Next steps
 
-Now that you have learned how to connect a DevKit device to your Azure IoT Suite and retrieve a tweet, here are the suggested next steps:
+Now that you have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and retrieve a tweet, here are the suggested next steps:
 
-* [Azure IoT Suite overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)

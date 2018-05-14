@@ -25,7 +25,7 @@ To [set a version](luis-how-to-manage-versions.md#set-active-version) as the act
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-![Change active version](./media/luis-concept-version/version-in-nav-bar.png)
+[ ![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
@@ -38,7 +38,7 @@ You can import a version at the app level. That version becomes the active versi
 
 You can export a version at the app level or you can export a version at the version level. The only different is that the app-level exported version is the currently active version while at the version level, you can choose any version to export on the **[Settings](luis-how-to-manage-versions.md)** page. 
 
-The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you will need to add these back once the version is imported into the new app.
+The exported file does not contain machine-learned information because the app is retrained after it is imported. The exported file does not contain collaborators -- you need to add these back once the version is imported into the new app.
 
 ## Export each version as app backup
 In order to back up your LUIS app, export each version on the **[Settings](luis-how-to-manage-versions.md)** page.
@@ -54,6 +54,8 @@ The owner and all [collaborators](luis-how-to-collaborate.md) have full access t
 
 ## Next steps
 
-See [Add entities](Add-entities.md) to learn more about how to add entities to your LUIS app.
+See how to add [versioning](luis-how-to-manage-versions.md) on the app settings page. 
+
+Learn how to design [intents](luis-concept-intent.md) into the model.
 
 [LUIS]:luis-reference-regions.md
