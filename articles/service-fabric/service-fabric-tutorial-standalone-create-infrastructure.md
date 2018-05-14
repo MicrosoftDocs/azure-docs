@@ -85,11 +85,13 @@ For the last three dependencies, you need to follow a similar process.  Select *
 
 ![Security group ports][aws-ec2securityports]
 
-Now that the ports for the dependencies are open, you need to do the same thing for the ports that Service Fabric itself uses to communicate. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `19000-19003`, and `20001-20031` for each rule and again enter the security group in the source box.
+Now that the ports for the dependencies are open, you need to do the same thing for the ports that Service Fabric itself uses to communicate. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `20001-20031` enter the security group in the source box.
 
 Next, add a rule for the ephemeral port range.  Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `20606-20861`. Finally, in the source box enter your security group ID.
 
-For the final rule, open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter `19080-19081`, change the Source drop down to Anywhere.
+For the final two rules for Service Fabric, open it up to the world so you can manage your service fabric cluster from your personal computer. Select **Add Rule**, from the drop-down select **Custom TCP Rule**, in the port range enter one of `19000-19003`, and `19080-19081` then change the Source drop down to Anywhere.
+
+Finally, we just need to open up port 80 so you can see the application when it's deployed. Select **Add Rule**, from the drop-down select **HTTP**. All of the fields should have been auto-populated.
 
 All of the rules are now entered. Select **Save**.
 
