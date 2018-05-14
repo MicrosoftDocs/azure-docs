@@ -27,9 +27,19 @@ Microsoft is committed to helping keep your environments secure. As part of this
 If unusual activities that may indicate unauthorized access to some of your users’ accounts were detected, you receive notifications enabling you to take action. Providing you with notifications does not mean that Microsoft’s own systems have in any way been compromised.
  
 
-## Azure Active Directory report access
+## Access the users flagged for risk report
+
+To access the [users flagged for risk security report](active-directory-reporting-security-user-at-risk.md), you need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+
+
+
+
+
+
 
 You can review users flagged for risk through an online Azure Active Directory report. If you are not a subscriber to Azure, you can go through the subscription process at no cost at [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD).  
+
 Once complete, you can use your Office 365 credentials to access the Azure Admin Center. Please note that at the basic subscription level, the amount of detail provided is limited. Additional data and analytics are available for Azure Premium subscribers. For more information, see the [Users flagged for risk security report in the Azure Active Directory portal](active-directory-reporting-security-user-at-risk.md).
 
 Once you have activated your access to Azure AD, you are redirected to the [Azure AD portal](https://portal.azure.com). To go directly to the report, navigate to the following URL: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
