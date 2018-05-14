@@ -21,7 +21,6 @@ This approach carries several benefits:
 * Share a Kubernetes instance across your development team to save costs and to minimize local machine setup for new team members.
 * Develop your code in isolation, and do end-to-end testing with other components without replicating or mocking up dependencies.
 
-> [!div class="nextstepaction"]
-> [Get Started](get-started.md)
+[!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
