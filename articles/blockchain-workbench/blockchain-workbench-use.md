@@ -49,9 +49,6 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 ## Take action on contract
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
-
-    ![Application list](media/blockchain-workbench-use/apps-list.png)
-
 2. Select the contract in the list. Details about the contract are displayed in different sections. 
 
     ![Contract details](media/blockchain-workbench-use/contract-details.png)
