@@ -59,7 +59,7 @@ In the following example, you create a metric measurement alert rule based off o
 11. Click **Create alert rule**  to complete the alert rule. It starts running immediately. 
 
 ## View your alerts in Azure portal
-Now that you have created an alert, you can view Azure alerts in a single pane and manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Included is an aggregated summary of all the fired alerts, and total configured/enabled alert rules.<br><br> ![Azure Alerts status page](./media/log-analytics-tutorial-response/log-analytics-alerts-01.png)  
+Now that you have created an alert, you can view Azure alerts in a single pane and manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Included is an aggregated summary of all the fired alerts, and total configured/enabled alert rules.<br><br> ![Azure Alerts status page](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
 When the alert triggers, the table reflects the condition and how many times it occurred within the time range selected (the default is last six hours).  There should be a corresponding email in your inbox similar to the following example showing the offending virtual machine and the top results that matched the search query in this case.<br><br> ![Alert email action example](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
