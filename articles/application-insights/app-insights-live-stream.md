@@ -128,8 +128,8 @@ Or in code, set it on the QuickPulseTelemetryModule:
 ``` C#
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 using Microsoft.ApplicationInsights.Extensibility;
-   
-            TelemetryConfiguration configuration = new TelemetryConfiguration();
+
+             TelemetryConfiguration configuration = new TelemetryConfiguration();
             configuration.InstrumentationKey = "YOUR-IKEY-HERE";
 
             QuickPulseTelemetryProcessor processor = null;
@@ -149,6 +149,13 @@ using Microsoft.ApplicationInsights.Extensibility;
             };
             QuickPulse.Initialize(configuration);
             QuickPulse.RegisterTelemetryProcessor(processor);
+            foreach (var telemetryProcessor in configuration.TelemetryProcessors)
+                {
+                if (telemetryProcessor is ITelemetryModule telemetryModule)
+                    {
+                    telemetryModule.Initialize(configuration);
+                    }
+                }
 
 ```
 
