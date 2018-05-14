@@ -235,7 +235,7 @@ Click **Play** to hear the text spoken in your custom voice font.
 
 ![Endpoint Testing](media/custom-voice/endpoint-testing.png)
 
-The custom endpoint is functionally identical to the standard endpoint used for Text-to-Speech requests. See [REST API](rest-api.md) for more information.
+The custom endpoint is functionally identical to the standard endpoint used for Text-to-Speech requests. See [REST API](rest-apis.md) for more information.
 
 ## Next steps
 
