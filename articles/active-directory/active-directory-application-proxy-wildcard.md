@@ -111,7 +111,7 @@ If you use this option, you also need another CNAME entry for the value `AppId.d
 
 The wildcard application is represented with just one tile in the [MyApps panel](https://myapps.microsoft.com). By default this tile is hidden. To show the tile and have users land on a specific page:
 
-1. Follow the guidelines for [setting a homepage URL](application-proxy-office365-app-launcher.md).
+1. Follow the guidelines for [setting a homepage URL](manage-apps/application-proxy-configure-custom-home-page.md).
 2. Set **Show Application** to **true** on the application properties page.
 
 ### Kerberos constrained delegation

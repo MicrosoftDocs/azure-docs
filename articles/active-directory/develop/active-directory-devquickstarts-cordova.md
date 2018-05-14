@@ -1,23 +1,24 @@
 ---
-title: Azure AD Cordova Getting Started | Microsoft Docs
+title: Azure AD Cordova getting started | Microsoft Docs
 description: How to build a Cordova application that integrates with Azure AD for sign-in and calls Azure AD-protected APIs by using OAuth.
 services: active-directory
 documentationcenter: ''
-author: vibronet
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-
 ---
+
 # Azure AD Cordova getting started
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
@@ -30,7 +31,7 @@ A Cordova plug-in wraps Azure AD native SDKs on iOS, Android, Windows Store, and
 In this tutorial, we'll use the Apache Cordova plug-in for Active Directory Authentication Library (ADAL) to improve a simple app by adding the following features:
 
 * With just a few lines of code, authenticate a user and obtain a token.
-* Use that token to invoke the Graph API to query that directory and display the results.  
+* Use that token to invoke the Graph API to query that directory and display the results. 
 * Use the ADAL token cache to minimize authentication prompts for the user.
 
 To make those improvements, you need to:
@@ -44,7 +45,7 @@ To make those improvements, you need to:
 To complete this tutorial, you need:
 
 * An Azure AD tenant where you have an account with app development rights.
-* A development environment that's configured to use Apache Cordova.  
+* A development environment that's configured to use Apache Cordova. 
 
 If you have both already set up, proceed directly to step 1.
 
@@ -96,8 +97,8 @@ After you finish registration, Azure AD assigns a unique application ID to your 
 
 To run `DirSearchClient Sample`, grant the newly created app permission to query the Azure AD Graph API:
 
-1. From the **Settings** page, select **Required Permissions**, and then select **Add**.  
-2. For the Azure Active Directory application, select **Microsoft Graph** as the API and add the **Access the directory as the signed-in user** permission under **Delegated Permissions**.  This enables your application to query the Graph API for users.
+1. From the **Settings** page, select **Required Permissions**, and then select **Add**. 
+2. For the Azure Active Directory application, select **Microsoft Graph** as the API and add the **Access the directory as the signed-in user** permission under **Delegated Permissions**. This enables your application to query the Graph API for users.
 
 ## Step 2: Clone the sample app repository
 From your shell or command line, type the following command:

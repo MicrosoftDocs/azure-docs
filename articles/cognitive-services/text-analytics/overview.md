@@ -38,7 +38,7 @@ Text analysis can mean different things, but in Cognitive Services, the Text Ana
 
 3. [Formulate a request](how-tos/text-analytics-how-to-call-api.md#json-schema) containing your data as raw unstructured text, in JSON. 
 
-4. Post the request to the endpoint established during sign-up, appending the desired resource: sentiment analysis, key phrase extraction, or language detection.
+4. Post the request to the endpoint established during sign-up, appending the desired resource: sentiment analysis, key phrase extraction, language detection, or entity identification.
 
 5. Stream or store the response locally. Depending on the request, results are either a sentiment score, a collection of extracted key phrases, or a language code.
 
@@ -57,7 +57,7 @@ This section has been moved to a separate article for better discoverability. Re
 
 ## Data limits
 
-All three Text Analytics APIs accept raw text data. The current limit is 5,000 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+All of the Text Analytics API endpoints accept raw text data. The current limit is 5,000 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
 
 |Limits | |
 |------------------------|---------------|
