@@ -73,6 +73,18 @@ Toggle settings
 | Device property | Die number   | dieNumber  | number    |
 | Text            | Location     | location   | N/A       |
 
+### States 
+
+| Name          | Display name   | NORMAL | CAUTION | DANGER | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Device State   | Green  | Orange  | Red    | 
+
+### Events 
+
+| Name             | Display name      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Button B Pressed  | 
+
 ### Add a real device
 
 In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
@@ -84,7 +96,7 @@ In your Azure IoT Central application, add a real device from the **MXChip** dev
 
 To prepare the DevKit device:
 
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/Microsoft/microsoft-iot-central-firmware/releases) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
+1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://github.com/Azure/iot-central-firmware/releases) page on GitHub. The download filename on the releases page looks like `AZ3166-IoT-Central-X.X.X.bin`.
 
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
 
@@ -93,14 +105,14 @@ To prepare the DevKit device:
 1. When the DevKit device restarts, the following screen displays:
 
     ```
-    WiFi name:
+    Connect HotSpot:
     AZ3166_??????
-    mac:????
-    Ready to connect
+    go-> 192.168.0.1 
+    PIN CODE xxxxx
     ```
 
     > [!NOTE]
-    > If the screen displays a MAC address consisting of only zeros, press the **Reset** button on the device.
+    > If the screen displays anything else, press the **Reset** button on the device. 
 
 1. The device is now in access point (AP) mode. You can connect to this WiFi access point from your computer or mobile device.
 
@@ -110,10 +122,13 @@ To prepare the DevKit device:
 
     ![Device configuration page](media/howto-connect-devkit/configpage.png)
 
-    In the web page, add the name of your WiFi network, your WiFi network password, and the connection string of your device. Select all the available telemetry measurements.
-
-    > [!NOTE]
-    > You made a note of the connection string in the "Before you begin" section in this article.
+    In the web page: 
+    - add the name of your WiFi network 
+    - your WiFi network password 
+    - PIN CODE shown on the device LCD 
+    - the connection string of your device. 
+      You can find the connection string @ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (on the top right) 
+    - Select all the available telemetry measurements! 
 
 1. After you choose **Configure Device**, you see this page:
 
@@ -122,7 +137,7 @@ To prepare the DevKit device:
 1. Press the **Reset** button on your device.
 
 > [!NOTE]
-> To reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously.
+> To reconfigure the device to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons on the board simultaneously. If it doesn't work, press **reset** button and try again. 
 
 ## View the telemetry
 
@@ -159,17 +174,17 @@ If you want to explore and modify the device code, you can download it from GitH
 To download the source code, run the following command on your desktop machine:
 
 ```cmd/sh
-git clone https://github.com/Microsoft/microsoft-iot-central-firmware.git
+git clone https://github.com/Azure/iot-central-firmware
 ```
 
-The previous command downloads the source code to a folder called `microsoft-iot-central-firmware`.
+The previous command downloads the source code to a folder called `iot-central-firmware`. 
 
 > [!NOTE]
 > If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
 
 ## Review the code
 
-Use Visual Studio Code, which was installed when you prepared your development environment, to open the `AZ3166` folder in the `microsoft-iot-central-firmware` folder:
+Use Visual Studio Code, which was installed when you prepared your development environment, to open the `AZ3166` folder in the `iot-central-firmware` folder: 
 
 ![Visual Studio Code](media/howto-connect-devkit/vscodeview.png)
 
