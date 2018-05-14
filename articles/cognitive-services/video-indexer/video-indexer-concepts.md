@@ -16,10 +16,6 @@ ms.author: juliako
  
 This topic describes some concepts of the Video Indexer service.
  	
-## Breakdowns
-
-The **breakdowns** element has the full list and details of everything. For example, it has a list of blocks where each block has its transcript lines, OCR lines, faces. In addition, transcript lines, OCR lines, faces have their timestamps and other details. This is where the full transcript comes from. However, the breakdown can be too detailed and too long for most users, in which case you would look at **Summarized insights**.
-
 ## Summarized insights
 
 Summarized insights contain an aggregated view of the data: faces, keywords, sentiments. For example, instead of going over each of the thousands of time ranges and checking which faces are in it, the summarized insights contains all the faces and for each one, the time ranges it appears in and the % of the time it is shown.
