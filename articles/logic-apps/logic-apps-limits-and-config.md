@@ -13,7 +13,7 @@ ms.workload: logic-apps
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 5/10/2018
+ms.date: 05/14/2018
 ms.author: estfan
 ---
 
@@ -53,20 +53,20 @@ Here are the limits for a single logic app run:
 
 | Name | Limit | Notes | 
 |------|-------|-------| 
-| Run duration | 90 days | You can reduce this limit. See [change run duration](#change-duration). | 
-| Storage retention | 90 days from the run's start time | You can reduce this limit. See [change storage retention](#change-retention). | 
-| Minimum recurrence interval | 1 second </br>For logic apps with an App Service Plan: 15 seconds | | 
+| Run duration | 90 days | To change this limit, see [change run duration](#change-duration). | 
+| Storage retention | 90 days from the run's start time | To change this limit, see [change storage retention](#change-retention). | 
+| Minimum recurrence interval | 1 second | | 
 | Maximum recurrence interval | 500 days | | 
-||| 
+|||| 
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### Change run duration and storage retention
 
-You can reduce the limit for your logic app's run duration and storage retention. 
-The minimum is seven days. However, to exceed the limits for run duration or 
-storage retention, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
+You can change this limit to a value between seven days and 90 days. 
+However, to exceed the maximum limit, 
+[contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
 1. In the Azure portal, on your logic app's menu, 
