@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 05/15/2018
 ms.author: adegeo
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want to use visual studio to locally run a .net core application on Service Fabric Mesh so that I can see it run and then I will deploy it to Azure.
