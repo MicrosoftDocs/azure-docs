@@ -46,8 +46,8 @@ In the following example, you create a metric measurement alert rule based off o
    c. Under Trigger Alert Based On section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of 3.  
    d. Under Evaluation based on section, accept the defaults. The rule will run every five minutes and return records that were created within this range of the current time.  
 6. Click **Done** to complete the alert rule.<br><br> ![Configure alert signal](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
-7. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.<br><br> ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-03.png)<br>
-8. To immediately activate the alert rule on creation,  accept the default value for **Enable rule upon creation**.
+7. Now moving onto the second step, provide a name of your alert in the **Alert rule name** field, such as **Percentage CPU greater than 90 percent**.  Specify a **Description** detailing specifics for the alert, and select **Critical(Sev 0)** for the **Severity** value from the options provided.<br><br> ![Configure alert details](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.
 9. For the third and final step, you specify an **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define.  Configure a new action group with the following information:  
    a. Select **New action group** and the **Add action group** pane appears.
    b. For **Action group name**, specify a name such as **IT Operations - Notify** and a **Short name** such as **itops-n**.  
@@ -56,7 +56,7 @@ In the following example, you create a metric measurement alert rule based off o
    e. On the **Email/SMS/Push/Voice** pane, enable **Email** and provide a valid email SMTP address to deliver the message to. 
    f. Click **OK** to save your changes.<br><br> ![Create new action group](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
 10. Click **OK** to complete the action group. 
-11. Click **Create alert rule**  to complete the alert rule. It starts running immediately.<br><br> ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
+11. Click **Create alert rule** to complete the alert rule. It starts running immediately.<br><br> ![Complete creating new alert rule](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
 ## View your alerts in Azure portal
 Now that you have created an alert, you can view Azure alerts in a single pane and manage all alert rules across your Azure subscriptions. It lists all the alert rules (enabled or disabled) and can be sorted based on target resources, resource groups, rule name, or status. Included is an aggregated summary of all the fired alerts, and total configured/enabled alert rules.<br><br> ![Azure Alerts status page](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
