@@ -23,7 +23,7 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 |Platform |Version |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
-|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Servier 2012 R2         |
+|Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
 
