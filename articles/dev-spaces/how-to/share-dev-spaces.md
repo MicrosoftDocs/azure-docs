@@ -1,5 +1,5 @@
 ---
-title: "How to share Azure Dev Spaces| Microsoft Docs"
+title: "How to share Azure Dev Spaces | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
