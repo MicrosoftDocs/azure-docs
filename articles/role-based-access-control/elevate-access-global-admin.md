@@ -110,8 +110,17 @@ Use the following basic steps to elevate access for a Global administrator using
 
 1. Revoke your User Access Administrator privileges until they're needed again.
 
+## List role assignments at the root scope (/) using the REST API
 
-## How to undo the elevateAccess action with the REST API
+You can list all of the role assignments for a user at the root scope (`/`).
+
+- Call [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope) where `{objectIdOfUser}` is the object ID of the user whose role assignments you want to retrieve.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## Revoke elevated access using the REST API
 
 When you call `elevateAccess`, you create a role assignment for yourself, so to revoke those privileges you need to delete the assignment.
 
