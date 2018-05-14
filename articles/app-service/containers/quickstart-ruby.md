@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Create a Ruby App in App Service on Linux
 
-[Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
+[Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](https://rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
