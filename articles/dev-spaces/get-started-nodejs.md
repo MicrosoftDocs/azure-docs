@@ -125,11 +125,11 @@ You have full access to debug information just like you would if the code was ex
 ### Edit code and refresh the debug session
 With the debugger active, make a code edit; for example, modify the hello message again:
 
-    ```javascript
-    app.get('/api', function (req, res) {
-        res.send('**** Hello from webfrontend running in Azure! ****');
-    });
-    ```
+```javascript
+app.get('/api', function (req, res) {
+    res.send('**** Hello from webfrontend running in Azure! ****');
+});
+```
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 
