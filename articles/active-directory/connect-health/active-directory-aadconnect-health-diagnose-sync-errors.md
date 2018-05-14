@@ -82,7 +82,7 @@ From the Azure portal, you will be able to go through a few steps to identify sp
 
 The question is trying to identify source object of existing user from on-prem Active Directory.  
 1.	Check if your Active Directory has an object with the provided UserPrincipalName. If No, answer No.
-2.	If Yes, check if the object is still in scope for Syncing.
+2.	If Yes, check if the object is still in scope for Syncing.  
 - Search in the Azure AD Connector Space with the DN.
 - If the object is found with the **Pending Add** state, answer No. Azure AD Connect is not able to connect the object to the right AD Object.
 - If the object is not found, answer Yes.
@@ -98,7 +98,7 @@ For **common scenario**, both user *Joe Johnson* and *Joe Jackson* will be prese
 
 ### Do both these accounts belong to the same user?
 The question is checking incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
-1.	Conflicting object is newly synced to Azure Active Directory. Compare the object from its:
+1.	Conflicting object is newly synced to Azure Active Directory. Compare the object from its:  
 -	Display Name
 -	User Principal Name
 -	Object ID
