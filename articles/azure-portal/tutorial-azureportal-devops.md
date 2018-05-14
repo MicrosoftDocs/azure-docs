@@ -12,7 +12,7 @@ ms.service: azure-portal
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
 
