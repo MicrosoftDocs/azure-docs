@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 10/26/2017
+ms.date: 05/14/2018
 ms.author: danlep
 
 ---
