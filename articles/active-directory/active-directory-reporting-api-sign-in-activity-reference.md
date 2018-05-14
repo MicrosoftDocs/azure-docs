@@ -49,7 +49,7 @@ Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal
 ## Prerequisites
 To access this report through the reporting API, you must have:
 
-* An [Azure Active Directory Premium P1 or P2 edition](active-directory-editions.md)
+* An [Azure Active Directory Premium P1 or P2 edition](active-directory-whatis.md)
 * Completed the [prerequisites to access the Azure AD reporting API](active-directory-reporting-api-prerequisites.md). 
 
 ## Accessing the API
