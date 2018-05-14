@@ -30,7 +30,7 @@ Import/Export service uses the following components:
 
 - **Import/Export**service: This service available in Azure portal helps the user create and track import and export jobs.  
 
-- **WAImportExport tool**: This command line tool
+- **WAImportExport tool**: This command-line tool
     - Prepares your drives that are shipped for import.
     - Facilitates copying your data to the drive.
     - Encrypts the data on the drive with BitLocker.
@@ -44,13 +44,13 @@ Import/Export service uses the following components:
 
     The WAImportExport tool is only compatible with 64-bit Windows operating system. For specific OS versions supported, go to [Azure Import/Export requirements](#storage-import-export-requirements.md#supported-operating-system).
 
-- **Disks**: You can ship Solid state drives (SSDs) or Hard disk drives (HDDs) to the Azure datacenter. When creating an import job, you ship disk drives containing your data. When creating an export job, you ship empty drives to the Azure datacenter. For specific disk types, go to [Supported disk types]().
+- **Disks**: You can ship Solid-state drives (SSDs) or Hard disk drives (HDDs) to the Azure datacenter. When creating an import job, you ship disk drives containing your data. When creating an export job, you ship empty drives to the Azure datacenter. For specific disk types, go to [Supported disk types]().
 
 ## How does Import/Export work?
 
-Azure Import/Export service allows data transfer to Azure Blobs and Azure Files by creating jobs. Each job is associated with a single storage account. The jobs can be import or export jobs. 
+Azure Import/Export service allows data transfer into Azure Blobs and Azure Files by creating jobs. Use Azure portal or Azure ARM REST API to create jobs. Each job is associated with a single storage account. 
 
-An import job allows you to import data into Azure Blobs or Azure files whereas the export job allows data to be exported from Azure Blobs. For an import job, you ship drives containing your data. When you create an export job, you ship empty drives to an Azure datacenter. In each case, you can ship up to 10 disk drives per job.
+The jobs can be import or export jobs. An import job allows you to import data into Azure Blobs or Azure files whereas the export job allows data to be exported from Azure Blobs. For an import job, you ship drives containing your data. When you create an export job, you ship empty drives to an Azure datacenter. In each case, you can ship up to 10 disk drives per job.
 
 > [!IMPORTANT]
 > Exporting data into Azure Files is not supported.
@@ -104,7 +104,7 @@ For step-by-step instructions on data export, go to [Export data from Azure Blob
 
 ## Region availability 
 
-The Azure Import/Export service supports copying data to and from all Public Azure storage accounts. You can ship disk drives to one of the listed locations. If your storage account is in a public Azure location which is not specified here, an alternate shipping location will be provided when you are creating the job using the Azure portal or the Import/Export REST API.
+The Azure Import/Export service supports copying data to and from all Azure storage accounts. You can ship disk drives to one of the listed locations. If your storage account is in an Azure location that is not specified here, an alternate shipping location is provided when you create the job.
 
 ### Supported shipping locations
 
@@ -148,7 +148,7 @@ When you ship drives to Azure, you pay the shipping cost to the shipping carrier
 
 **Transaction costs**
 
-There are no transaction costs in addition to standard storage transaction costs when importing data into Azure Storage. The standard egress charges are applicable when data is exported from Blob storage. For more details on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
+There are no transaction costs in addition to standard storage transaction costs when importing data into Azure Storage. The standard egress charges are applicable when data is exported from Blob storage. For more information on transaction costs, see [Data transfer pricing.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
 
 ## Next steps
