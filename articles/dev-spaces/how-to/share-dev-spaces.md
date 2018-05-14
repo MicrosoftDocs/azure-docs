@@ -1,5 +1,9 @@
 ---
 title: "How to share Azure Dev Spaces| Microsoft Docs"
+titleSuffix: Azure Dev Spaces
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"

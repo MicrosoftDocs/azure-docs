@@ -1,6 +1,10 @@
 ---
 title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
+titleSuffix: Azure Dev Spaces
 author: "ghogen"
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 ms.author: "ghogen"
 ms.date: "05/11/2018"
 ms.topic: "quickstart"
@@ -15,7 +19,7 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/install-cli-and-vscode.md)]
+[!INCLUDE[](includes/install-cli-vscode.md)]
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
@@ -38,16 +42,16 @@ Download code from GitHub by navigating to https://github.com/Azure/dev-spaces a
 
 [!INCLUDE[](includes/ensure-env-created.md)]
 
-[!INCLUDE[](includes/build-and-run-in-k8s-cli.md)]
+[!INCLUDE[](includes/build-run-k8s-cli.md)]
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 1. Locate the file `./public/index.html` and make an edit to the HTML. For example, change the page's background color to a shade of blue:
 
-```html
-<body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
-```
+    ```html
+    <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
+    ```
 
 2. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
 1. Go to your browser and refresh the page. You should see your color update.
@@ -61,12 +65,12 @@ To fix this, you'll add a `viewport` meta tag:
 1. Open the file `./public/index.html`
 1. Add a `viewport` meta tag in the existing `head` element:
 
-```html
-<head>
-    <!-- Add this line -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-```
+    ```html
+    <head>
+        <!-- Add this line -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    ```
 
 1. Save the file.
 1. Refresh your device's browser. You should now see the web app rendered correctly. 
@@ -79,9 +83,9 @@ Updating server-side code files requires a little more work, because a Node.js a
 1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
 1. Open the code file named `server.js`, and edit service's hello message: 
 
-```javascript
-res.send('Hello from webfrontend running in Azure!');
-```
+    ```javascript
+    res.send('Hello from webfrontend running in Azure!');
+    ```
 
 3. Save the file.
 1. Run  `azds up` in the terminal window. 
@@ -96,7 +100,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 [!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
-## Select the AZDS debug configuration
+### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Program (AZDS)** as the active debug configuration.
 
@@ -105,7 +109,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have [installed the VS Code extension for Azure Dev Spaces](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code).
 
-## Debug the container in Kubernetes
+### Debug the container in Kubernetes
 Hit **F5** to debug your code in Kubernetes!
 
 Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
@@ -116,14 +120,14 @@ Set a breakpoint in a server-side code file, for example within the `app.get('/a
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
-## Edit code and refresh the debug session
+### Edit code and refresh the debug session
 With the debugger active, make a code edit; for example, modify the hello message again:
 
-```javascript
-app.get('/api', function (req, res) {
-    res.send('**** Hello from webfrontend running in Azure! ****');
-});
-```
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('**** Hello from webfrontend running in Azure! ****');
+    });
+    ```
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 
@@ -133,7 +137,7 @@ Instead of rebuilding and redeploying a new container image each time code edits
 
 Refresh the web app in the browser, or press the *Say It Again* button. You should see your custom message appear in the UI.
 
-## Use NodeMon to develop even faster
+### Use NodeMon to develop even faster
 *Nodemon* is a popular tool that Node.js developers use for rapid development. Instead of manually restarting the Node process each time a server-side code edit is made, developers will often configure their Node project to have *nodemon* monitor file changes and automatically restart the server process. In this style of working, the developer just refreshes their browser after making a code edit.
 
 With Azure Dev Spaces, you can use many of the same development workflows you use when developing locally. To illustrate this, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
@@ -153,4 +157,4 @@ In this configuration, the container is configured to start *nodemon*. When serv
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md
+> [Working with multiple containers and team development](get-started-nodejs.md)

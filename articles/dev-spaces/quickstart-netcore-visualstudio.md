@@ -1,6 +1,10 @@
 ---
 title: "Create a Kubernetes development environment in the cloud| Microsoft Docs"
+titleSuffix: Azure Dev Spaces
 author: "ghogen"
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 ms.author: "ghogen"
 ms.date: "05/11/2018"
 ms.topic: "quickstart"
@@ -12,8 +16,8 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-1. Create a Kubernetes-based environment in Azure that is optimized for development.
-1. Iteratively develop code in containers using Visual Studio.
+- Create a Kubernetes-based environment in Azure that is optimized for development.
+- Iteratively develop code in containers using Visual Studio.
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
@@ -28,7 +32,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your development 
 
 [!INCLUDE[](includes/use-dev-spaces.md)]
 
-## Get Kubernetes Debugging Tools
+## Get Kubernetes debugging tools
 While you can use the Azure Dev Spaces CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
 
 ### Visual Studio debugging 

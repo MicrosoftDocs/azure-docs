@@ -1,5 +1,9 @@
 ---
-title: "How to use a custom NuGet feed in a Azure Dev Spaces | Microsoft Docs"
+title: "How to use a custom NuGet feed in Azure Dev Spaces | Microsoft Docs"
+titleSuffix: Azure Dev Spaces
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 author: "johnsta"
 ms.author: "johnsta"
 ms.date: "05/11/2018"
@@ -11,6 +15,8 @@ manager: "ghogen"
 #  Use a custom NuGet feed in an Azure Dev Space
 
 A NuGet feed provides a convenient way to include package sources in a project. Azure Dev Spaces will need to be able to access this feed in order for dependencies to be properly installed in the Docker container.
+
+## Set up a NuGet feed
 
 To set up a NuGet feed:
 1. Add a [package reference](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) in the `*.csproj` file under the `PackageReference` node.

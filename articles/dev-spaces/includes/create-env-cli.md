@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -9,9 +13,9 @@ manager: "douge"
 ---
 ## Create a Kubernetes development environment in Azure
 With Azure Dev Spaces, you can create Kubernetes-based environments that are fully managed by Azure and optimized for development. The command creates an environment named `mydevenvironment` in `eastus`.
-```cmd
-az aks create --name mydevenvironment --location eastus
-```
+    ```cmd
+    az aks create --name mydevenvironment --location eastus
+    ```
 
 Supported locations: `eastus`, `westeurope`
 

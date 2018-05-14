@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -17,11 +21,11 @@ Your sample application isn't very complex at the moment. But in real-world deve
 
 Picture yourself working on a service that interacts with dozens of other services.
 
-1. It can become unrealistic to run everything locally for development. Your dev machine may not have enough resources to run the entire app. Or, perhaps your app has endpoints that need to be publicly reachable (for example, your app responds to a webhook from a SaaS app).
+- It can become unrealistic to run everything locally for development. Your dev machine may not have enough resources to run the entire app. Or, perhaps your app has endpoints that need to be publicly reachable (for example, your app responds to a webhook from a SaaS app).
 
-1. You can try to only run the services that you depend on, but this means you'd need know the full closure of dependencies (for example, dependencies of dependencies). Or, it's a matter of not easily knowing how to build and run your dependencies because you didn't work on them.
-1. Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this approach leads to your dev environment looking very different to production, and subtle bugs can creep in.
-1. It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
+- You can try to only run the services that you depend on, but this means you'd need know the full closure of dependencies (for example, dependencies of dependencies). Or, it's a matter of not easily knowing how to build and run your dependencies because you didn't work on them.
+- Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this approach leads to your dev environment looking very different to production, and subtle bugs can creep in.
+- It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
 
 ![](../media/common/microservices-challenges.png)
 
@@ -48,9 +52,9 @@ The Space column shows that both services are running in a space named `mainline
 
 ## Create a space
 To run your own version of `mywebapi` in a space other than `mainline`, you can create your own space by using the following command:
-``` 
-azds space create --name scott
-```
+    ``` 
+    azds space create --name scott
+    ```
 
 In the example above, I've used my name for the new space so that it is identifiable to my peers that it's the space I'm working in, but you can call it anything you like and be flexible about what it means, like 'sprint4' or 'demo.'
 

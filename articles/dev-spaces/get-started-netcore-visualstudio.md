@@ -1,5 +1,9 @@
 ---
 title: "Create a Kubernetes development environment in the cloud using .NET Core and Visual Studio | Microsoft Docs"
+titleSuffix: Azure Dev Spaces
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
@@ -12,10 +16,10 @@ manager: "douge"
 
 In this guide, you will learn how to:
 
-1. Create a Kubernetes-based environment in Azure that is optimized for development.
-1. Iteratively develop code in containers using Visual Studio.
-1. Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
-1. Productively develop and test your code in a team environment.
+- Create a Kubernetes-based environment in Azure that is optimized for development.
+- Iteratively develop code in containers using Visual Studio.
+- Independently develop two separate services, and used Kubernetes' DNS service discovery to make a call to another service.
+- Productively develop and test your code in a team environment.
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
@@ -30,7 +34,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your development 
 
 [!INCLUDE[](includes/use-dev-spaces.md)]
 
-## Get Kubernetes Debugging Tools
+## Get Kubernetes debugging tools
 While you can use the Azure Dev Spaces CLI as a standalone tool, rich features like **Kubernetes debugging** are available for .NET Core developers using **VS Code** or **Visual Studio**.
 
 ### Visual Studio debugging 
@@ -71,7 +75,7 @@ Click **OK** to select or create the development environment. A background task 
 ![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)
 
 > [!Note]
-Until the development environment is successfully created you cannot debug your application.
+> Until the development environment is successfully created you cannot debug your application.
 
 ## Look at the files added to project
 While you wait for the development environment to be created, look at the files that have been added to your project when you chose to use a development environment.
@@ -112,24 +116,24 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 ## Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window that has the `webfrontend` project. In the `HomeController.cs` file *replace* the code for the About method with the following code:
 
- ```csharp
-    public async Task<IActionResult> About()
-    {
-        ViewData["Message"] = "Hello from webfrontend";
-        
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
+    ```csharp
+        public async Task<IActionResult> About()
         {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            ViewData["Message"] = "Hello from webfrontend";
+            
+            // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
+            // headers in the incoming request to any outgoing requests
+            using (var client = new HeaderPropagatingHttpClient(this.Request))
+            {
+                // Call *mywebapi*, and display its response in the page
+                var response = await client.GetAsync("http://mywebapi/api/values/1");
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
+        
+            return View();
         }
-    
-        return View();
-    }
 
-```
+    ```
 
 Note how Kubernetes' DNS service discovery is employed to refer to the service as `http://mywebapi`. **Code in your development environment is running the same way it will run in production**.
 
@@ -159,10 +163,10 @@ Your sample application isn't very complex at the moment. But in real-world deve
 
 Picture yourself working on a service that interacts with dozens of other services.
 
-1. It can become unrealistic to run everything locally for development. Your dev machine may not have enough resources to run the entire app. Or, perhaps your app has endpoints that need to be publicly reachable (for example, your app responds to a webhook from a SaaS app).
-1. You can try to only run the services that you depend on, but this means you'd need know the full closure of dependencies (for example, dependencies of dependencies). Or, it's a matter of not easily knowing how to build and run your dependencies because you didn't work on them.
-1. Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking different to production, and subtle bugs can creep in.
-1. It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen after a commit, which means you see problems later in the development cycle.
+- It can become unrealistic to run everything locally for development. Your dev machine may not have enough resources to run the entire app. Or, perhaps your app has endpoints that need to be publicly reachable (for example, your app responds to a webhook from a SaaS app).
+- You can try to only run the services that you depend on, but this means you'd need know the full closure of dependencies (for example, dependencies of dependencies). Or, it's a matter of not easily knowing how to build and run your dependencies because you didn't work on them.
+- Some developers resort to simulating, or mocking up, many of their service dependencies. This can help sometimes, but managing those mocks can soon take on its own development effort. Plus, this leads to your dev environment looking different to production, and subtle bugs can creep in.
+- It follows that doing any type of end-to-end testing becomes difficult. Integration testing can only realistically happen after a commit, which means you see problems later in the development cycle.
 
     ![](media/common/microservices-challenges.png)
 
@@ -178,11 +182,12 @@ Do the following to make sure both your `webfrontend` and `mywebapi` services ar
 3. Switch to the Visual Studio window with the `webfrontend` project and press Ctrl+F5 to run it as well.
 
 > [!Note]
-It is sometimes necessary to refresh your browser after the web page is initially displayed following a Ctrl+F5.
+> It is sometimes necessary to refresh your browser after the web page is initially displayed > > 
+> following a Ctrl+F5.
 
 Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `mainline` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the development environment? To do that, you'll set up your own space.
 
-### Create a New Space
+### Create a new space
 From within Visual Studio, you can create additional spaces that will be used when you F5 or Ctrl+F5 your service. You can call a space anything you'd like, and you can be flexible about what it means (ex. `sprint4` or `demo`).
 
 Do the following to create a new space:
@@ -223,13 +228,11 @@ Here is a diagram that will help you understand how the different spaces work. T
 
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
-### Test Code Running in the `scott` Space
+### Test code running in the `scott` space
 To test your new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for `webfrontend` (for example, https://webfrontend-teamenv.123456abcdef.westeurope.aksapp.io) and go to the About page. You should see the original message "Hello from webfrontend and Hello from mywebapi".
 
 Now, add the "scott-" part to the URL so it reads something like https://scott-webfrontend-teamenv.123456abcdef.westeurope.aksapp.io and refresh the browser. The breakpoint you set in your `mywebapi` project should get hit. Click F5 to proceed and in your browser you should now see the new message "Hello from webfrontend and mywebapi now says something new." This is because the path to your updated code in `mywebapi` is running in the `scott` space.
 
 [!INCLUDE[](includes/well-done.md)]
-
-[!INCLUDE[](includes/take-survey.md)]
 
 [!INCLUDE[](includes/clean-up.md)]

@@ -1,5 +1,8 @@
 ---
 title: "Azure Dev Spaces | Microsoft Docs"
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"

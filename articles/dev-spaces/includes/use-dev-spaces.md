@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"

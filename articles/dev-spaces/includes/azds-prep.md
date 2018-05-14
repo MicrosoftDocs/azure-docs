@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -14,9 +18,9 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Open the Integrated Terminal in VS Code (using the **View > Integrated Terminal** menu).
 1. Run this command (be sure that **webfrontend** is your current folder):
 
-```cmd
-azds prep --public
-```
+    ```cmd
+    azds prep --public
+    ```
 
 The Azure Dev Spaces CLI's ```prep``` command generates Docker and Kubernetes assets with default settings:
 * `./Dockerfile` describes the app's container image, and how the source code is built and runs within the container.

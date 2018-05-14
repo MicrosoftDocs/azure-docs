@@ -1,6 +1,10 @@
 ---
 title: "Create a Kubernetes development environment in the cloud| Microsoft Docs"
+titleSuffix: Azure Dev Spaces
 author: "ghogen"
+services: azure-dev-spaces
+ms.service: azure-dev-spaces
+ms.component: azds-kubernetes
 ms.author: "ghogen"
 ms.date: "05/11/2018"
 ms.topic: "quickstart"
@@ -15,11 +19,11 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/install-cli-and-vscode.md)]
+[!INCLUDE[](includes/install-cli-vscode.md)]
 
 You're now ready to create a Kubernetes-based development environment in Azure.
 
-# Create a Kubernetes-based development environment in Azure
+## Create a Kubernetes-based development environment in Azure
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
@@ -29,11 +33,11 @@ You're now ready to create a Kubernetes-based development environment in Azure.
 
 While you're waiting for the environment to be created, you can start developing code.
 
-## Create an ASP.NET Core Web App
-If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core Web App in a folder named `webfrontend`.
-```cmd
-dotnet new mvc --name webfrontend
-```
+## Create an ASP.NET Core web app
+If you have [.NET Core](https://www.microsoft.com/net) installed, you can quickly create an ASP.NET Core web app in a folder named `webfrontend`.
+    ```cmd
+    dotnet new mvc --name webfrontend
+    ```
 
 Or, **download sample code from GitHub** by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/dotnetcore/getting-started/webfrontend`.
 
@@ -41,7 +45,7 @@ Or, **download sample code from GitHub** by navigating to https://github.com/Azu
 
 [!INCLUDE[](includes/ensure-env-created.md)]
 
-[!INCLUDE[](includes/build-and-run-in-k8s-cli.md)]
+[!INCLUDE[](includes/build-run-k8s-cli.md)]
 
 ## Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
@@ -96,13 +100,13 @@ You have full access to debug information just like you would if the code was ex
 ### Edit code and refresh
 With the debugger active, make a code edit. For example, modify the About page's message in `Controllers/HomeController.cs`. 
 
-```csharp
-public IActionResult About()
-{
-    ViewData["Message"] = "My custom message in the About page.";
-    return View();
-}
-```
+    ```csharp
+    public IActionResult About()
+    {
+        ViewData["Message"] = "My custom message in the About page.";
+        return View();
+    }
+    ```
 
 Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
 

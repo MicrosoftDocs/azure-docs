@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -19,7 +23,7 @@ webfrontend  mainline  webfrontend-0.1.0  80/TCP  5h ago      https://scott-webf
 
 ![](../media/common/space-routing.png)
 
-This built-in capability of Azure Dev Spaces enables you test code end-to-end in a shared evironment without requiring each developer to re-create the full stack of services in their space. Note that this routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
+This built-in capability of Azure Dev Spaces enables you test code end-to-end in a shared evironment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 
 ## Test code in a space
 To test our new version of `mywebapi` in conjunction with `webfrontend`, open your browser to the public access point URL for webfrontend and go to the About page. You should see your new message displayed.

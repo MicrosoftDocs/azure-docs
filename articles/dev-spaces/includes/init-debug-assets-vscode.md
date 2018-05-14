@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -16,5 +20,5 @@ This adds debug configuration for Azure Dev Spaces under the `.vscode` folder.
 
 ![](../media/common/command-palette.png)
 
-> [!Note]
-> **IMPORTANT**: Due to a bug, please close and re-open VS Code before proceeding.
+> [!Important]
+> Due to a bug, please close and re-open VS Code before proceeding.

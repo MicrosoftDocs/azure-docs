@@ -1,4 +1,8 @@
 ---
+title: "include file"
+description: "include file"
+ms.custom: "include file"
+services: azure-dev-spaces
 ms.service: "azure-dev-spaces"
 ms.component: "azds-kubernetes"
 author: "ghogen"
@@ -8,7 +12,7 @@ ms.topic: "include"
 manager: "douge"
 ---
 
-## Sign in to Azure
+## Sign in to the Azure portal
 
 Sign in to the Azure portal at http://portal.azure.com.
 
@@ -33,7 +37,7 @@ Sign in to the Azure portal at http://portal.azure.com.
 
    ![Enable Http Application Routing](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-> [!IMPORTANT]
-> You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
+    > [!IMPORTANT]
+    > You must be sure to enable Http Application Routing when you create your AKS cluster. It is not possible to change this setting later.
 
 1. Select **Review + create** and then **Create** when complete.
