@@ -22,7 +22,7 @@ abstract:
       height: 110
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
-    title: Azure Messaging and event based architecture
+    title: Azure Messaging and event based architecture (1:24:32)
     href: https://azure.microsoft.com/en-us/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
     width: 250
 sections:
