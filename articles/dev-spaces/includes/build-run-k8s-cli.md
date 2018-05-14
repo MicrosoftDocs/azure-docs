@@ -14,9 +14,9 @@ manager: "douge"
 ## Build and run code in Kubernetes
 Let's run our code! In the terminal window, run this command from the **root code folder**, webfrontend:
 
-    ```cmd
-    azds up
-    ```
+```cmd
+azds up
+```
 
 Keep an eye on the command's output, you'll notice several things as it progresses:
 - Source code is synced to the development environment in Azure.
