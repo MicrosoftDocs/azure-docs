@@ -1,4 +1,16 @@
-<!--alkohli, last modified: 05/11/2018-->
+---
+title: Update Azure Import/Export job | Microsoft Docs
+description: Learn how to update Azure Import/Export job in Azure portal with tracking information.
+author: alkohli
+manager: jeconnoc
+services: storage
+
+ms.service: storage
+ms.topic: include
+ms.date: 05/14/2018
+ms.author: alkohli
+
+---
 
 After shipping the disks, return to the **Import/Export** page on the Azure portal. If the tracking number is not updated within 2 weeks of creating the job, the job expires. To update the tracking number, perform the following steps.
  

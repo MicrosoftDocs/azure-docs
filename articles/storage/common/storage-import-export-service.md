@@ -30,11 +30,12 @@ Import/Export service uses the following components:
 
 - **Import/Export**service: This service available in Azure portal helps the user create and track import and export jobs. It also notifies the Azure datacenter when the 
 
-- **WAImportExport tool**: This command line tool helps:
-    - Prepare your drives that are shipped for import.
+- **WAImportExport tool**: This command line tool
+    - Prepares your drives that are shipped for import.
     - Facilitates copying your data to the drive.
     - Encrypts the data on the drive with BitLocker.
     - Generates the drive journal files used during import creation.
+    - Helps identify numbers of drives needed for export jobs.
 
     This tool is available in two versions, version 1 and 2. We recommend that you use:
 

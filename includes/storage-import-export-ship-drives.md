@@ -1,4 +1,16 @@
-<!--alkohli, last modified: 05/09/2018-->
+---
+title: Ship disk drives used for Azure Import/Export | Microsoft Docs
+description: Learn how to ship disk drives used in Azure Import/Export service.
+author: alkohli
+manager: jeconnoc
+services: storage
+
+ms.service: storage
+ms.topic: include
+ms.date: 05/14/2018
+ms.author: alkohli
+
+---
 
 FedEx, UPS, or DHL can be used to ship the package to Azure datacenter. 
 
