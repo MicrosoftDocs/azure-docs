@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Encrypt a Windows VM | Microsoft Docs
 description: Azure PowerShell Script Sample - Encrypt a Windows VM 
 services: virtual-machines-windows
