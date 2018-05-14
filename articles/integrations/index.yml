@@ -1,0 +1,50 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Developer Tool Integrations
+metadata:
+  title: Developer Tool Integrations
+  meta.description: from-team
+  services: from-team
+  author:   
+  manager: from-team
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: from-team
+  ms.tgt_pltfrm: from-team
+  ms.devlang: from-team
+  ms.topic: landing-page
+  ms.date: 09/15/2017
+  ms.author: from-team
+abstract:
+  description: 
+sections:
+  - title: 
+    items:
+    - type: list
+      style: cards
+      className: cardsA
+      items:  
+      - html: <a href="/java/azure/intellij/azure-toolkit-for-intellij">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_intellij.svg" alt="">
+              <br><b>IntelliJ</b></a>
+              <p>The Azure Toolkit for IntelliJ provides templates and functionality that you can use to easily create, develop, test, and deploy Azure applications by using the IntelliJ integrated development environment (IDE).</p>
+      - html: <a href="/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_maven.svg" alt="">
+              <br><b>Maven</b></a>
+              <p>The Maven Plugin for Azure Web Apps for Apache Maven provides seamless integration of Azure App Service into Maven projects, and streamlines the process for developers to deploy web apps to Azure App Service.</p>
+      - html: <a href="/java/azure/eclipse/azure-toolkit-for-eclipse">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_eclipse.svg" alt="">
+              <br><b>Eclipse</b></a>
+              <p>The Azure Toolkit for Eclipse provides templates and functionality that you can use to easily create, develop, test, and deploy cloud applications to Azure from inside the Eclipse integrated development environment (IDE).</p>
+      - html: <a href="/azure/ansible/">
+              <img height="48" width="48" src="../media/index/ansible.svg" alt="">
+              <br><b>Ansible</b></a>
+              <p>Automate cloud provisioning, configuration management, and application deployments.</p>
+      - html: <a href="/azure/jenkins/">
+              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_jenkins.svg" alt="">
+              <br><b>Jenkins</b></a>
+              <p>Build your apps in the cloud and deploy them to Azure.</p>
+      - html: <a href="/azure/terraform/">
+              <img height="48" width="48" src="../media/index/terraform.png" alt="">
+              <br><b>Terraform</b></a>
+              <p>Reliably version and create infrastructure on Azure.</p>

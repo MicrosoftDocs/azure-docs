@@ -3,15 +3,16 @@ title: Configure sign-in auto-acceleration for an application using a Home Realm
 description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
 services: active-directory
 documentationcenter: 
-author: billmath
+author: barbkess
 manager: mtillman
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
 ms.date: 11/09/2017
-ms.author: billmath
+ms.author: barbkess
 ---
 
 # Configure sign-in auto-acceleration for an application by using a Home Realm Discovery policy
@@ -154,7 +155,7 @@ In this example, you create a policy that auto-accelerates users to an AD FS sig
 
 #### Step 1: Create an HRD policy
 ``` powershell
-New-AzureADPoly -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 If you have a single federated domain that authenticates users for applications, you need to create only one HRD policy.  

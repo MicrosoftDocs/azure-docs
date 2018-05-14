@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Backup and restore service | Microsoft D
 description: Azure PowerShell Script Sample - Backup and restore service
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 

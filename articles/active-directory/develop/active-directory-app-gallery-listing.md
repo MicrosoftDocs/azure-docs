@@ -1,14 +1,15 @@
 ---
-title: Listing your application in the Azure Active Directory application gallery | Microsoft Docs
-description: How to list an application that supports single sign-on in the Azure Active Directory app gallery
+title: List your application in the Azure Active Directory application gallery | Microsoft Docs
+description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
 documentationcenter: dev-center-name
-author: bryanla
-manager: mbaldwin
+author: CelesteDG
+manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
