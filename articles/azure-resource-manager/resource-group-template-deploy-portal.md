@@ -20,6 +20,8 @@ ms.author: tomfitz
 
 This topic shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
 
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
 ## Create resource group
 
 1. To create an empty resource group, select **Resource groups**.
