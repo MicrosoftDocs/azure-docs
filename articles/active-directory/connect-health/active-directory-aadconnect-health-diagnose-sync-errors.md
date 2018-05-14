@@ -125,7 +125,7 @@ Sync error will be resolved after the following synchronization. Connect Health 
 
 ## FAQ
 1.	What happened if execution of the apply failed?  
-If execution fails, it is possible Azure AD Connect is running import or export error at the time. Refresh the portal page and retry after the following synchronization. The default synchronization cycle is 30 minutes. 
+If execution fails, it is possible Azure AD Connect is running export error at the time. Refresh the portal page and retry after the following synchronization. The default synchronization cycle is 30 minutes. 
 
 2.	What if the **existing object** should be the object to be deleted?  
 If existing object should be deleted in this case, the process does not involve change of Source Anchor. You should be able to fix it from your on-prem AD.  
@@ -136,5 +136,5 @@ Global Admin or Contributor from RBAC settings will have the permission to acces
 4.	Do I have to config AAD Connect or update Azure AD Connect Health agent for this feature?  
 No, diagnosis process is a complete cloud-based feature.
 
-5.	If the existing is soft deleted, does Diagnose process restore the object to be active again?  
-No, the change will not update object attribute other than Source Anchor. 
+5.	If the existing object is soft deleted, will the Diagnose process restore the object to be active again?  
+No, the fix will not update object attribute other than Source Anchor. 
