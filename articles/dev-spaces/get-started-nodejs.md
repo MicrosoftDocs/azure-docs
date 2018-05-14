@@ -18,8 +18,6 @@ manager: "douge"
 
 [!INCLUDE[](includes/see-troubleshooting.md)]
 
-[!INCLUDE[](includes/install-cli-vscode.md)]
-
 You're now ready to create a Kubernetes-based development environment in Azure.
 
 [!INCLUDE[](includes/portal-aks-cluster.md)]
