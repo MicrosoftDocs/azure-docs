@@ -1,7 +1,7 @@
 # Azure Dev Spaces
 ## [Overview](azure-dev-spaces.md)
 
-## [Quickstarts](get-started.md)
+## Quickstarts
 ###[.NET Core (VS Code & CLI)](quickstart-netcore.md)
 ###[.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ###[Node.js (VS Code & CLI)](quickstart-nodejs.md)

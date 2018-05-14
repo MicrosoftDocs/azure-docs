@@ -1,20 +1,19 @@
 ---
-title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
-titleSuffix: Azure Dev Spaces
+title: "include file"
+description: "include file"
+ms.custom: "include file"
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: "ghogen"
 ms.author: "ghogen"
 ms.date: "05/11/2018"
-ms.topic: "conceptual"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+ms.topic: "include"
 manager: "douge"
 ---
 # Get Started on Azure Dev Spaces
 
-Welcome! Please select a **language-specific guide** to get started:
+Please select a **language-specific guide** to get started:
 
 > [!div class="nextstepaction"]
 > [.NET Core (VS Code & CLI)](quickstart-netcore.md)
