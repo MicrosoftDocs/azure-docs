@@ -4,6 +4,7 @@ description: This article provides an overview of Automation security and the di
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
