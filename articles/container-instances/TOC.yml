@@ -13,6 +13,10 @@
     href: container-instances-quickstart-portal.md
   - name: Create container - PowerShell
     href: container-instances-quickstart-powershell.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
 - name: Tutorials
   items:
   - name: 1 - Create container image
