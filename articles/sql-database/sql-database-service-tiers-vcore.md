@@ -45,7 +45,7 @@ In the vCore-based purchasing model (preview) customers pay for:
 \*\* During preview, 7 days of backups and IOs are free
 
 > [!IMPORTANT]
-> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 
 > [!IMPORTANT]
 > Region limitations: 
