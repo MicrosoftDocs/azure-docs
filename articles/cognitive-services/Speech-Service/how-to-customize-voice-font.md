@@ -31,7 +31,7 @@ You also need:
 
     ![Create panel](media/custom-voice/create-panel.png)
 
-After creating your subscription, you can find two susbcription keys on the Quickstart panel or the Overview panel of the new subscription. You may use either key.
+After creating your subscription, you can find two subscription keys on the Quickstart panel or the Overview panel of the new subscription. You may use either key.
 
 Finally, connect your subscription to the Custom Voice portal as follows.
 
@@ -124,7 +124,7 @@ After preparing your audio file archive and transcripts, upload them via the [Cu
 
 7. Choose the script and audio files to upload. 
 
-8. Click **Import** to upload your data. For larger datasets, this may take several minutes.
+8. Click **Import** to upload your data. For larger datasets, importing may take several minutes.
 
 > [!NOTE]
 > Free subscription users can upload two datasets at a time. Standard subscription users can upload five datasets simultaneously. If you reach the limit, wait until at least one of your datasets finishes importing, then try again.
@@ -147,9 +147,9 @@ After validation is complete, you can see the total number of matched utterances
 
 You can download a report to check the pronunciation scores and the noise level for each of your recordings. The pronunciation score ranges from 0 to 100; a score below 70 normally indicates a speech error or script mismatch. A heavy accent can reduce your pronunciation score and impact the generated digital voice.
 
-A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording through professional studios. Audio with a SNR below 20 can result in obvious noise in your generated voice.
+A higher signal-to-noise ratio (SNR) indicates lower noise in your audio. You can typically reach a 50+ SNR by recording through professional studios. Audio with an SNR below 20 can result in obvious noise in your generated voice.
 
-Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If this is not possible, you might exclude those utterances from your dataset.
+Consider re-recording any utterances with low pronunciation scores or poor signal-to-noise ratios. If re-recording is not possible, you might exclude those utterances from your dataset.
 
 ## Build your voice font
 
@@ -200,7 +200,7 @@ Once your voice font is successfully built, you can test it before deploying it 
 
 ![My Voice Fonts, part 2](media/custom-voice/my-voice-fonts2.png)
 
-Click **Test with text** button under the table title to display a pop-up menu for submitting text requests. You can submit your test request in either plain text or SSML. The maximum input sizeis 1,024 characters, including all tags for SSML request. The language of your text must be the same as the language of your voice font.
+Click **Test with text** button under the table title to display a pop-up menu for submitting text requests. You can submit your test request in either plain text or SSML. The maximum input size is 1,024 characters, including all tags for SSML request. The language of your text must be the same as the language of your voice font.
 
 ![Voice Font Testing](media/custom-voice/voice-font-testing.png)
 
