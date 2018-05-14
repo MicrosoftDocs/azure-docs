@@ -12,7 +12,7 @@ ms.reviewer: owend
 
 # 2 - Configure server administrator and user roles
 
- In this stutorial, you will use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You are also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you will use the XMLA query editor in SSMS.  
+ In this stutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You are also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. You complete these tasks: 
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -55,7 +55,7 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
     ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Choosing Active Directory Universal with MFA Support authentication type is recommended. This authentication type supports [non-interactive and multi-factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication.md). 
 
 3. In **Object Explorer**, verify the server name and expand to see server objects. Right click to see server properties.
    
@@ -85,7 +85,7 @@ In this task, you add a user or group account to an Internet Sales Administrator
 
     ![New Query Editor Window](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
-3. In the **XMLAQuery**, change **"memberName":** to a user or group account in your Azure AD. By default, the account you're signed in with will be included; however, you do not need to add your own account because you are already a server administrator.
+3. In the **XMLAQuery**, change **"memberName":** to a user or group account in your Azure AD. By default, the account you're signed in with is included; however, you do not need to add your own account because you are already a server administrator.
 
     ![TMSL script in XMLA query](./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png)
 
@@ -99,7 +99,7 @@ In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-servi
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:
 
-    ```
+    ```XMLA
     {
     "create": {
       "parentObject": {
@@ -136,8 +136,8 @@ When no longer needed, delete the user or group accounts and roles. To do so, us
 
 
 ## Next steps
-In this tutorial, you learned how to connect to your Azure AS server and explore the adventureworks sample model databases and properties. You also learned how to use SSMS and TMSL scripts to add users or groups to existing and new roles.
+In this tutorial, you learned how to connect to your Azure AS server and explore the adventureworks sample model databases and properties in SSMS. You also learned how to use SSMS and TMSL scripts to add users or groups to existing and new roles. Now that you have user permissions configured for your server and sample model database, you and other users can connect to it by using client applications like Power BI. To learn more, continue to the next tutorial. 
 
-> [!div class="checklist"]
-> * [Connect with Power BI Desktop](analysis-services-tutorial-pbid.md)
-> 
+> [!div class="nextstepaction"]
+> [Connect with Power BI Desktop](analysis-services-tutorial-pbid.md)
+

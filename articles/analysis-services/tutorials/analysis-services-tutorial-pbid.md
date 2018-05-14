@@ -1,5 +1,5 @@
 ---
-title: 3 - Connect to Azure Analysis Services by using Power BI Desktop | Microsoft Docs
+title: 3 - Connect to Azure Analysis Services with Power BI Desktop | Microsoft Docs
 author: minewiskan
 manager: kfile
 ms.service: analysis-services
@@ -9,9 +9,9 @@ ms.author: owend
 ms.reviewer: owend
 #Customer intent: As a BI developer, I want to connect to a sample tabular model on a server and create a basic report by using the Power BI Desktop client application.
 ---
-# 3 - Connect by using Power BI Desktop
+# 3 - Connect with Power BI Desktop
 
-In this tutorial, you use Power BI Desktop to connect to the adventureworks sample model database on your server. This simulates a typical user connection to the model and creating a basic report from model data.
+In this tutorial, you use Power BI Desktop to connect to the adventureworks sample model database on your server. The tasks you complete simulate a typical user connection to the model and creating a basic report from model data.
 
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -20,7 +20,7 @@ In this tutorial, you use Power BI Desktop to connect to the adventureworks samp
 
 ## Prerequisites
 
-- [Add the adventureworks sample model](../analysis-services-create-sample-model.md) to your server.
+- [Add the adventureworks sample model database](../analysis-services-create-sample-model.md) to your server.
 - Have [*read*](../analysis-services-server-admins.md) permissions for the adventureworks sample model database.
 - [Install the newest Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
@@ -65,4 +65,4 @@ In **Azure portal** > server > **Overview** > **Server name**, copy the server n
 If no longer needed, do not save your report or delete the file if you did save.
 
 ## Next steps
-In this tutorial, you learned how to use Power BI Desktop to connect to an Azure AS server and create a basic report. To learn more about connecting to your server by using tools and clients.
+In this tutorial, you learned how to use Power BI Desktop to connect to an Azure AS server and create a basic report. To learn more about connecting to your server by using tools and clients, see [Connecting to servers](../analysis-services-connect.md).

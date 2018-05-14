@@ -11,31 +11,28 @@ ms.reviewer: minewiskan
 
 ---
 
-# Create an Azure Analysis Services server by using PowerShell
+# Quickstart: Create a server - PowerShell
 
-This quickstart describes using PowerShell from the command line to create an Azure Analysis Services server in an [Azure resource group](../azure-resource-manager/resource-group-overview.md) in your Azure subscription.
+This quickstart describes using PowerShell from the command line to create an Azure Analysis Services server in your Azure subscription.
 
-This task requires Azure PowerShell module version 4.0 or later. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
-> [!NOTE]
-> Creating a server might result in a new billable service. To learn more, see [Analysis Services pricing](https://azure.microsoft.com/pricing/details/analysis-services/).
+## Prerequisites
 
-## Before you begin
-To complete this quickstart, you need:
-
-* **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
-* **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+- **Azure subscription**: Visit [Azure Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) to create an account.
+- **Azure Active Directory**: Your subscription must be associated with an Azure Active Directory tenant and you must have an account in that directory. To learn more, see [Authentication and user permissions](analysis-services-manage-users.md).
+- **Azure PowerShell module version 4.0 or later**. To find the version, run ` Get-Module -ListAvailable AzureRM`. To install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 ## Import AzureRm.AnalysisServices module
+
 To create a server in your subscription, you use the [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)  component module. Load the AzureRm.AnalysisServices module into your PowerShell session.
 
 ```powershell
 Import-Module AzureRM.AnalysisServices
 ```
 
-## Sign in to Azure
+## Log in to Azure
 
-Sign in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
+Log in to your Azure subscription by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) command. Follow the on-screen directions.
 
 ```powershell
 Connect-AzureRmAccount
@@ -51,7 +48,7 @@ New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
 
 ## Create a server
 
-Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the West US region, at the D1 tier, and specifies philipc@adventureworks.com as a server administrator.
+Create a new server by using the [New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) command. The following example creates a server named myServer in myResourceGroup, in the West US region, at the D1 (free) tier, and specifies philipc@adventureworks.com as a server administrator.
 
 ```powershell
 New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventure-works.com"
@@ -67,6 +64,8 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 ```
 
 ## Next steps
-[Manage Azure Analysis Services with PowerShell](analysis-services-powershell.md)
-[Deploy a model from SSDT](analysis-services-deploy.md)
-[Create a model in Azure portal](analysis-services-create-model-portal.md)
+
+In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can add a basic sample data model to it from the portal. Having a sample model is helpful to learn about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

@@ -5,13 +5,13 @@
 
 # Quickstarts
 
-## [Create a server - portal](analysis-services-create-server.md)
-## [Create a server - PowerShell](analysis-services-create-powershell.md)
+## [Create a server - Portal](analysis-services-create-server.md)
+## [Create a server -PowerShell](analysis-services-create-powershell.md)
 
 # Tutorials
 ## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 
-## [2 - Configure server administrator and user roles](tutorials/analysis-services-tutorials-roles.md)
-## [3 - Connect by using Power BI Desktop](tutorials/analysis-services-tutorials-pbid.md)
+## [2 - Configure server administrator and user roles](tutorials/analysis-services-tutorial-roles.md)
+## [3 - Connect with Power BI Desktop](tutorials/analysis-services-tutorial-pbid.md)
 
 # Concepts
 
