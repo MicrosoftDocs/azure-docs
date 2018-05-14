@@ -16,7 +16,7 @@ ms.service: iot-edge
 
 # Properties of the Edge agent and Edge hub module twins
 
-The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture]](iot-edge-runtime.md). 
+The Edge agent and Edge hub are two modules that make up the IoT Edge runtime. For more information about what duties each module performs, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md). 
 
 This article provides the desired properties and reported properties of the runtime module twins. See [Deployment and monitoring][lnk-deploy] for more information on how to deploy modules on IoT Edge devices.
 

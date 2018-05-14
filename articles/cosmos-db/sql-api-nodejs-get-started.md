@@ -5,7 +5,7 @@ keywords: node.js tutorial, node database
 services: cosmos-db
 documentationcenter: node.js
 author: AndrewHoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 
 ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550

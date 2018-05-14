@@ -226,10 +226,10 @@ Because of the configuration created earlier under **Identity** > **Single sign-
 ![Selecting Azure AD as the authentication service](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### Optional: Configure user provisioning in Azure AD
-If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-app-provisioning).
+If you want Azure AD to directly handle user provisioning for an SaaS app, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
 ## Next steps
 
-- [Managing applications with Azure Active Directory](active-directory-enable-sso-scenario.md)
+- [Managing applications with Azure Active Directory](manage-apps/what-is-application-management.md)
 - [Manage access to apps](active-directory-managing-access-to-apps.md)
 - [Azure AD Connect federation](active-directory-aadconnectfed-whatis.md)

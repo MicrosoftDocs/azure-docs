@@ -1,21 +1,13 @@
 ---
 title: Import a Power BI Desktop file into Azure Analysis Services | Microsoft Docs
 description: Describes how to import a Power BI Desktop file (pbix) by using Azure portal.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/26/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
+ms.reviewer: minewiskan
 
 ---
 
@@ -24,9 +16,8 @@ ms.author: owend
 You can create a new model in Azure AS by importing a Power BI Desktop file (pbix) file. Model metadata, cached data, and datasource connections are imported. Reports and visualizations are not imported.
 
 **Restrictions**   
-- The pbix model must connect to [Analysis Services supported data sources](analysis-services-datasource.md) only. 
+- The pbix model can connect to Azure SQL Database and Azure SQL Data Warehouse data sources only. 
 - The pbix model cannot have live or DirectQuery connections. 
-- If the pbix model connects to on-premises data sources, an [On-premises data gateway](analysis-services-gateway.md) must be configured for your Analysis Services server.
 - Import may fail if your pbix data model contains metadata not supported in Analysis Services.
 
 ## To import from pbix

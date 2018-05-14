@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 04/01/2018
 ms.custom: mvc
 ---
 
@@ -34,31 +34,6 @@ The following example creates a resource group named `myresourcegroup` in the `w
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
-```
-
-## Add the extension
-Add the updated Azure Database for MySQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.4"
-}
-```
-
-If version 0.0.4 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
 ```
 
 ## Create an Azure Database for MySQL server

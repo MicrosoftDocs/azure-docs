@@ -4,7 +4,7 @@ description: Learn how to use Terraform to create and manage a complete Linux vi
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: timlt
+manager: jeconnoc
 editor: na
 tags: azure-resource-manager
 
@@ -109,7 +109,7 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
-    ;
+    
     security_rule {
         name                       = "SSH"
         priority                   = 1001

@@ -1,22 +1,14 @@
 ﻿---
-title: Use Azure Machine Learning endpoints in Stream Analytics | Microsoft Docs
-description: Machine Language User defined functions in Stream Analytics
-keywords: ''
-documentationcenter: ''
+title: Use Machine Learning endpoints in Azure Stream Analytics
+description: This article describes how to use Machine Language user defined functions in Azure Stream Analytics.
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
+author: jseb225
+ms.author: jeanb
+manager: kfile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: samacha
-
 ---
 # Machine Learning integration in Stream Analytics
 Stream Analytics supports user-defined functions that call out to Azure Machine Learning endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](https://msdn.microsoft.com/library/azure/dn835031.aspx). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
@@ -192,7 +184,7 @@ Now query the UDF (here named scoreTweet) for every input event and write a resp
 
 
 ## Get help
-For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)

@@ -31,6 +31,14 @@ This article is designed to help you troubleshoot and resolve issues that you mi
 If you do a resource move from one subscription to another subscription, file sync (Storage Sync Service) resources will be blocked from being moved. 
 
 ## Agent installation and server registration
+### During server registration, get the error "The term 'find-AzureRMResource' is not recognized as the name..."
+The issue is that the cmdlet find-AzureRMResource was changed in AzureRM v6.  The next version of the Sync agent will be fixed to support AzureRM v6.  Until then, you can work around this issue by:
+1. Stop the current ServerRegistration.exe via taskmgr
+2. Bring up a PowerShell command prompt as Administrator
+3. PS C:\> Uninstall-Module AzureRM
+4. PS C:\> install-module -name AzureRM -RequiredVersion 5.7.0
+5. Start C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+
 <a id="agent-installation-failures"></a>**Troubleshoot agent installation failures**  
 If the Azure File Sync agent installation fails, at an elevated command prompt, run the following command to turn on logging during agent installation:
 

@@ -4,7 +4,7 @@ description: Learn all about the SQL Python API and SDK including release dates,
 services: cosmos-db
 documentationcenter: python
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
 ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 1/4/2018
+ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 
@@ -27,11 +27,11 @@ ms.custom: H1Hack27Feb2017
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/documentdb/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
+> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 <table>
 
@@ -49,6 +49,9 @@ ms.custom: H1Hack27Feb2017
 </table></br>
 
 ## Release notes
+### <a name="2.3.2"/>2.3.2
+* Added support for default retries on connection issues.
+
 ### <a name="2.3.1"/>2.3.1
 * Updated documentation to reference Azure Cosmos DB instead of Azure DocumentDB.
 
@@ -135,6 +138,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.3.2](#2.3.2) |May 08, 2018 |--- |
 | [2.3.1](#2.3.1) |December 21, 2017 |--- |
 | [2.3.0](#2.3.0) |November 10, 2017 |--- |
 | [2.2.1](#2.2.1) |Sep 29, 2017 |--- |

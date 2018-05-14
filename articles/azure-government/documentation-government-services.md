@@ -117,7 +117,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Monitoring + Management
 | Generally Available | Preview |
 | --- | --- |
-| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| |
+| [Automation](documentation-government-services-monitoringandmanagement.md#automation)| [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) |
 | [Backup](documentation-government-services-backup.md) | |
 | [Log Analytics](documentation-government-services-monitoringandmanagement.md#log-analytics) | |
 | [Site Recovery](documentation-government-services-monitoringandmanagement.md#site-recovery) | | 
@@ -125,6 +125,11 @@ The **services available in Azure Government** are listed by category, as well a
 | [Monitoring and Diagnostics](documentation-government-services-monitoringandmanagement.md#monitor) | |
 | [Azure Portal](documentation-government-services-monitoringandmanagement.md#azure-portal) | |
 | [Azure Resource Manager](documentation-government-services-monitoringandmanagement.md#azure-resource-manager) | |
+
+## Developer Tools
+| Generally Available | Preview |
+| --- | --- |
+| [DevTest Labs](documentation-government-services-devtools.md#devtest-labs)| |
 
 
 ## Next steps

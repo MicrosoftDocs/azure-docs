@@ -1,4 +1,4 @@
----
+﻿---
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
 author: muralikk
@@ -26,7 +26,7 @@ Follow the below steps if the data on the disk is to be imported into Azure Stor
 2.  Depending on total size of the data, procure the required number of 2.5 inch SSD or 2.5" or 3.5" SATA II or III hard disk drives.
 3.	Attach the hard drives directly using SATA or with external USB adaptors to a windows machine.
 1.  Create a single NTFS volume on each hard drive and assign a drive letter to the volume. No mountpoints.
-2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx.
+2.  To enable encryption on the windows machine, enable bit locker encryption on the NTFS volume. Use the instructions on https://technet.microsoft.com/library/cc731549(v=ws.10).aspx.
 3.  Completely copy data to these encrypted single NTFS volumes on disks using copy & paste or  drag & drop or Robocopy or any such tool.
 7.	Download WAImportExport V1 from https://www.microsoft.com/en-us/download/details.aspx?id=42659
 8.	Unzip to the default folder waimportexportv1. For example, C:\WaImportExportV1  
@@ -572,7 +572,7 @@ Max Page Blob size is 1TB.
 
 Azure Import/Export service by default encrypts with AES 128 bitlocker encryption but this can be increased to AES 256 by manually encrypting with bitlocker before data is copied. 
 
-If using [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+If using [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

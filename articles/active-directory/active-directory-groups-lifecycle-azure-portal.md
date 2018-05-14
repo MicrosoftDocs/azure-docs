@@ -7,11 +7,9 @@ author: curtand
 manager: mtillman
 editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand                   
@@ -64,7 +62,7 @@ Email notifications such as this one are sent to the Office 365 group owners 30 
 
 ![Expiration email notification](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-From the **Renew group** notification email, group owners can directly access t hegroup details page in the Access Panel. There, the users can get more information about the group such as its description, when it was last renewed, when it will expire, and also the ability to renew the group. The group details page now also includes links to the Office 365 group resources, so that the group owner can conveniently view the content and activity in their group.
+From the **Renew group** notification email, group owners can directly access the group details page in the Access Panel. There, the users can get more information about the group such as its description, when it was last renewed, when it will expire, and also the ability to renew the group. The group details page now also includes links to the Office 365 group resources, so that the group owner can conveniently view the content and activity in their group.
 
 When a group expires, the group is deleted one day after the expiration date. An email notification such as this one is sent to the Office 365 group owners informing them about the expiration and subsequent deletion of their Office 365 group.
 
@@ -135,7 +133,7 @@ New-AzureADMSGroupLifecyclePolicy:  This cmdlet sets the lifetime for all Office
   Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
   ````
   
-The following cmdlets can be used to configure the policy in more detail. For more informatin, see [PowerShell documentation](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+The following cmdlets can be used to configure the policy in more detail. For more informatin, see [PowerShell documentation](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 
 * Get-AzureADMSGroupLifecyclePolicy
 * New-AzureADMSGroupLifecyclePolicy

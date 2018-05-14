@@ -44,7 +44,7 @@ Organizations can enable diagnostic logging for their Azure Data Lake Store acco
 		
 		* Select the option to **Stream to an event hub** to stream log data to an Azure Event Hub. Most likely you will use this option if you have a downstream processing pipeline to analyze incoming logs at real time. If you select this option, you must provide the details for the Azure Event Hub you want to use.
 
-		* Select the option to **Send to Log Analytics** to use the Azure Log Analytics service to analyze the generated log data. If you select this option, you must provide the details for the Operations Management Suite workspace that you would use the perform log analysis. See [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics.
+		* Select the option to **Send to Log Analytics** to use the Azure Log Analytics service to analyze the generated log data. If you select this option, you must provide the details for the Log Analytics workspace that you would use the perform log analysis. See [View or analyze data collected with Log Analytics log search](../log-analytics/log-analytics-tutorial-viewdata.md) for details on using Log Analytics.
      
    * Specify whether you want to get audit logs or request logs or both.
    * Specify the number of days for which the data must be retained. Retention is only applicable if you are using Azure storage account to archive log data.

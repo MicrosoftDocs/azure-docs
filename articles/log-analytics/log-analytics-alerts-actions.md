@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2018
+ms.date: 04/13/2018
 ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
@@ -21,6 +21,11 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Add actions to alert rules in Log Analytics
+
+> [!NOTE]
+> Alerts in Log Analytics are [being extended into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md).  Alerts in Azure use [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md) to define their actions instead of the information in this article.
+
+
 When an [alert is created in Log Analytics](log-analytics-alerts.md), you have the option of [configuring the alert rule](log-analytics-alerts.md) to perform one or more actions.  This article describes the different actions that are available and details on configuring each kind.
 
 | Action | Description |
@@ -31,7 +36,7 @@ When an [alert is created in Log Analytics](log-analytics-alerts.md), you have t
 
 
 ## Email actions
-Email actions send an e-mail with the details of the alert to one or more recipients.  You can specify the subject of the mail, but it's content is a standard format constructed by Log Analytics.  It includes summary information such as the name of the alert in addition to details of up to ten records returned by the log search.  It also includes a link to a log search in Log Analytics that will return the entire set of records from that query.   The sender of the mail is *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*. 
+Email actions send an e-mail with the details of the alert to one or more recipients.  You can specify the subject of the mail, but its content is a standard format constructed by Log Analytics.  It includes summary information such as the name of the alert in addition to details of up to ten records returned by the log search.  It also includes a link to a log search in Log Analytics that returns the entire set of records from that query.   The sender of the mail is *Microsoft Operations Management Suite Team &lt;noreply@oms.microsoft.com&gt;*. 
 
 Email actions require the properties in the following table.
 
@@ -43,7 +48,7 @@ Email actions require the properties in the following table.
 
 ## Webhook actions
 
-Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it will use any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
+Webhook actions allow you to invoke an external process through a single HTTP POST request.  The service being called should support webhooks and determine how it uses any payload it receives.  You could also call a REST API that doesn't specifically support webhooks as long as the request is in a format that the API understands.  Examples of using a webhook in response to an alert are sending a message in [Slack](http://slack.com) or creating an incident in [PagerDuty](http://pagerduty.com/).  A complete walkthrough of creating an alert rule with a webhook to call Slack is available at [Webhooks in Log Analytics alerts](log-analytics-alerts-webhooks.md).
 
 Webhook actions require the properties in the following table.
 
@@ -53,10 +58,8 @@ Webhook actions require the properties in the following table.
 | Custom JSON payload |Custom payload to send with the webhook.  See below for details. |
 
 
-Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload will include the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
+Webhooks include a URL and a payload formatted in JSON that is the data sent to the external service.  By default, the payload includes the values in the following table.  You can choose to replace this payload with a custom one of your own.  In that case you can use the variables in the table for each of the parameters to include their value in your custom payload.
 
->[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the webook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.
 
 | Parameter | Variable | Description |
 |:--- |:--- |:--- |
@@ -84,7 +87,7 @@ This example payload would resolve to something like the following when sent to 
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 
-To include search results in a custom payload, add the following line as a top level property in the json payload.  
+To include search results in a custom payload, add the following line as a top-level property in the json payload.  
 
     "IncludeSearchResults":true
 
@@ -109,9 +112,9 @@ Runbook actions require the properties in the following table.
 | Runbook | Runbook that you want to start when an alert is created. |
 | Run on | Specify **Azure** to run the runbook in the cloud.  Specify **Hybrid worker** to run the runbook on an agent with [Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md ) installed.  |
 
-Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it will automatically create a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
+Runbook actions start the runbook using a [webhook](../automation/automation-webhooks.md).  When you create the alert rule, it automatically creates a new webhook for the runbook with the name **OMS Alert Remediation** followed by a GUID.  
 
-You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) will include the details of the alert, including the results of the log search that created it.  The runbook will need to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResult** (for runbook actions and webhook actions with standard payload) or **SearchResults** (webhook actions with custom payload including **IncludeSearchResults":true**) in the **RequestBody** property of **$WebhookData**.  This will have with the properties in the following table.
+You cannot directly populate any parameters of the runbook, but the [$WebhookData parameter](../automation/automation-webhooks.md) includes the details of the alert, including the results of the log search that created it.  The runbook needs to define **$WebhookData** as a parameter for it to access the properties of the alert.  The alert data is available in json format in a single property called **SearchResult** (for runbook actions and webhook actions with standard payload) or **SearchResults** (webhook actions with custom payload including **IncludeSearchResults":true**) in the **RequestBody** property of **$WebhookData**.  This has with the properties in the following table.
 
 >[!NOTE]
 > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the runbook payload has changed.  Details of the format are in [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).  You can see an example in [Samples](#sample-payload) below.  
@@ -120,43 +123,12 @@ You cannot directly populate any parameters of the runbook, but the [$WebhookDat
 |:--- |:--- |
 | id |Path and GUID of the search. |
 | __metadata |Information about the alert including the number of records and status of the search results. |
-| value |Separate entry for each record in the search results.  The details of the entry will match the properties and values of the record. |
+| value |Separate entry for each record in the search results.  The details of the entry match the properties and values of the record. |
 
 For example, the following runbooks would extract the records returned by the log search  and assign different properties based on the type of each record.  Note that the runbook starts by converting **RequestBody** from json so that it can be worked with as an object in PowerShell.
 
 >[!NOTE]
-> Both of these runbooks use **SearchResult** which is the property that contains results for runbook actions and webhook actions with standard payload.  If the runbook were called from a webhook response using a custom payload, you would need to change this property to **SearchResults**.
-
-The following runbook will work with the payload from a [legacy Log Analytics workspace](log-analytics-log-search-upgrade.md).
-
-    param ( 
-        [object]$WebhookData
-    )
-
-    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResult.value
-
-    foreach ($Record in $Records)
-    {
-        $Computer = $Record.Computer
-
-        if ($Record.Type -eq 'Event')
-        {
-            $EventNo    = $Record.EventID
-            $EventLevel = $Record.EventLevelName
-            $EventData  = $Record.EventData
-        }
-
-        if ($Record.Type -eq 'Perf')
-        {
-            $Object    = $Record.ObjectName
-            $Counter   = $Record.CounterName
-            $Instance  = $Record.InstanceName
-            $Value     = $Record.CounterValue
-        }
-    }
-
-The following runbook will work with the payload from an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
+> This runbook uses **SearchResult** which is the property that contains results for runbook actions and webhook actions with standard payload.  If the runbook were called from a webhook response using a custom payload, you would need to change this property to **SearchResults**.
 
     param ( 
         [object]$WebhookData
@@ -207,88 +179,12 @@ The following runbook will work with the payload from an [upgraded Log Analytics
 
 
 ## Sample payload
-This section shows sample payload for webhook and runbook actions in both a legacy and an [upgraded Log Analytics workspace](log-analytics-log-search-upgrade.md).
+This section shows sample payload for webhook and runbook actions.
 
 ### Webhook actions
-Both of these examples use **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, this property would be **SearchResults**.
+This example uses **SearchResult** which is the property that contains results for webhook actions with standard payload.  If the webhook used a custom payload that includes search results, this property would be **SearchResults**.
 
-#### Legacy workspace.
-Following is a sample payload for a webhook action in a legacy workspace.
-
-    {
-    "WorkspaceId": "workspaceID",
-    "AlertRuleName": "WebhookAlert",
-    "SearchQuery": "Type=Usage",
-    "SearchResult": {
-        "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/SearchGUID|10.1.0.7|2017-09-27T10-30-38Z",
-        "__metadata": {
-        "resultType": "raw",
-        "total": 1,
-        "top": 2147483647,
-        "RequestId": "SearchID|10.1.0.7|2017-09-27T10-30-38Z",
-        "CoreSummaries": [
-            {
-            "Status": "Successful",
-            "NumberOfDocuments": 135000000
-            }
-        ],
-        "Status": "Successful",
-        "NumberOfDocuments": 135000000,
-        "StartTime": "2017-09-27T10:30:38.9453282Z",
-        "LastUpdated": "2017-09-27T10:30:44.0907473Z",
-        "ETag": "636421050440907473",
-        "sort": [
-            {
-            "name": "TimeGenerated",
-            "order": "desc"
-            }
-        ],
-        "requestTime": 361
-        },
-        "value": [
-        {
-            "Computer": "-",
-            "SourceSystem": "OMS",
-            "TimeGenerated": "2017-09-26T13:59:59Z",
-            "ResourceUri": "/subscriptions/df1ec963-d784-4d11-a779-1b3eeb9ecb78/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/workspace-861bd466-5400-44be-9552-5ba40823c3aa",
-            "DataType": "Operation",
-            "StartTime": "2017-09-26T13:00:00Z",
-            "EndTime": "2017-09-26T13:59:59Z",
-            "Solution": "LogManagement",
-            "BatchesWithinSla": 8,
-            "BatchesOutsideSla": 0,
-            "BatchesCapped": 0,
-            "TotalBatches": 8,
-            "AvgLatencyInSeconds": 0.0,
-            "Quantity": 0.002502,
-            "QuantityUnit": "MBytes",
-            "IsBillable": false,
-            "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-            "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-            "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-            "Type": "Usage",
-            "MG": "00000000-0000-0000-0000-000000000000",
-            "__metadata": {
-            "Type": "Usage",
-            "TimeGenerated": "2017-09-26T13:59:59Z"
-            }
-        }
-        ]
-    },
-    "SearchIntervalStartTimeUtc": "2017-09-26T08:10:40Z",
-    "SearchIntervalEndtimeUtc": "2017-09-26T09:10:40Z",
-    "AlertThresholdOperator": "Greater Than",
-    "AlertThresholdValue": 0,
-    "ResultCount": 1,
-    "SearchIntervalInSeconds": 3600,
-    "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2017-09-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Type%3DUsage",
-    "Description": null,
-    "Severity": "Low"
-    }
-
-
-#### Upgraded workspace.
-Following is a sample payload for a webhook action in an upgraded workspace.
+Following is a sample payload for a webhook action.
 
     {
     "WorkspaceId": "workspaceID",
@@ -426,64 +322,7 @@ Following is a sample payload for a webhook action in an upgraded workspace.
 
 ### Runbooks
 
-#### Legacy workspace
-Following is a sample payload for a runbook action in a legacy workspace.
-
-    {
-        "SearchResult": {
-            "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
-            "__metadata": {
-                "resultType": "raw",
-                "total": 1,
-                "top": 2147483647,
-                "RequestId": "searchGUID|10.1.0.7|2017-09-27T10-51-43Z",
-                "CoreSummaries": [{
-                    "Status": "Successful",
-                    "NumberOfDocuments": 135000000
-                }],
-                "Status": "Successful",
-                "NumberOfDocuments": 135000000,
-                "StartTime": "2017-09-27T10:51:43.3075124Z",
-                "LastUpdated": "2017-09-27T10:51:51.1002092Z",
-                "ETag": "636421063111002092",
-                "sort": [{
-                    "name": "TimeGenerated",
-                    "order": "desc"
-                }],
-                "requestTime": 511
-            },
-            "value": [{
-                "Computer": "-",
-                "SourceSystem": "OMS",
-                "TimeGenerated": "2017-09-26T13:59:59Z",
-                "ResourceUri": "/subscriptions/AnotherSubscriptionID/resourcegroups/SampleResourceGroup/providers/microsoft.operationalinsights/workspaces/workspace-workspaceID",
-                "DataType": "Operation",
-                "StartTime": "2017-09-26T13:00:00Z",
-                "EndTime": "2017-09-26T13:59:59Z",
-                "Solution": "LogManagement",
-                "BatchesWithinSla": 8,
-                "BatchesOutsideSla": 0,
-                "BatchesCapped": 0,
-                "TotalBatches": 8,
-                "AvgLatencyInSeconds": 0.0,
-                "Quantity": 0.002502,
-                "QuantityUnit": "MBytes",
-                "IsBillable": false,
-                "MeterId": "a4e29a95-5b4c-408b-80e3-113f9410566e",
-                "LinkedMeterId": "00000000-0000-0000-0000-000000000000",
-                "id": "954f7083-cd55-3f0a-72cb-3d78cd6444a3",
-                "Type": "Usage",
-                "MG": "00000000-0000-0000-0000-000000000000",
-                "__metadata": {
-                    "Type": "Usage",
-                    "TimeGenerated": "2017-09-26T13:59:59Z"
-                }
-            }]
-        }
-    }
-
-#### Upgraded workspace
-Following is a sample payload for a runbook action in an upgraded workspace.
+Following is a sample payload for a runbook action.
 
     {
     "WorkspaceId": "workspaceID",
@@ -602,6 +441,7 @@ Following is a sample payload for a runbook action in an upgraded workspace.
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

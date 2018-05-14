@@ -3,8 +3,8 @@ title: Static internal private IP - Azure VM - Classic
 description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
-ms.author: jdial
+ms.author: genli
 
 ---
 # How to set a static internal private IP address using PowerShell (Classic)

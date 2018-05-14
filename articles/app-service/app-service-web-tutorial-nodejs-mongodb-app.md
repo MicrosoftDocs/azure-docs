@@ -17,7 +17,7 @@ ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ---
-# Build a Node.js and MongoDB web app in Azure
+# Tutorial: Build a Node.js and MongoDB web app in Azure
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a Node.js and MongoDB web app in Azure App Service on Linux](./containers/tutorial-nodejs-mongodb-app.md).

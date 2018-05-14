@@ -100,9 +100,9 @@ Use the following procedure:
 
     **Alert logic**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
+     - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
+     - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
 
         **Sample signal graph with alert logic applied** :
 

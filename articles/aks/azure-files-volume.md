@@ -3,7 +3,7 @@ title: Use Azure File with AKS
 description: Use Azure Disks with AKS
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Volumes with Azure files
 
-Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Container Service.
+Container-based applications often need to access and persist data in an external data volume. Azure files can be used as this external data store. This article details using Azure files as a Kubernetes volume in Azure Kubernetes Service.
 
 For more information on Kubernetes volumes, see [Kubernetes volumes][kubernetes-volumes].
 
@@ -63,7 +63,7 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 
 ## Mount file share as volume
 
-You can mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
+Mount your Azure Files share into your pod by configuring the volume in its spec. Create a new file named `azure-files-pod.yaml` with the following contents. Update `aksshare` with the name given to the Azure Files share.
 
 ```yaml
 apiVersion: v1
@@ -91,7 +91,7 @@ Use kubectl to create a pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running container with your Azure file share mounted in the `/mnt/azure` directory. You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
+You now have a running container with your Azure file share mounted in the `/mnt/azure` directory.  You can see the volume mount when inspecting your pod via `kubectl describe pod azure-files-pod`.
 
 ## Next steps
 

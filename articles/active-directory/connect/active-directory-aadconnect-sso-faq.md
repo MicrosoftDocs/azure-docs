@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Seamless Single Sign-On - Frequently asked questions | Microsoft Docs'
 description: Answers to frequently asked questions about Azure Active Directory Seamless Single Sign-On.
 services: active-directory
@@ -22,7 +22,7 @@ In this article, we address frequently asked questions about Azure Active Direct
 
 ## What sign-in methods do Seamless SSO work with?
 
-Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
+Seamless SSO can be combined with either the [Password Hash Synchronization](active-directory-aadconnectsync-implement-password-hash-synchronization.md) or [Pass-through Authentication](active-directory-aadconnect-pass-through-authentication.md) sign-in methods. However this feature cannot be used with Active Directory Federation Services (ADFS).
 
 ## Is Seamless SSO a free feature?
 
@@ -78,7 +78,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 ### Step 1. Get list of AD forests where Seamless SSO has been enabled
 
 1. First, download, and install the [Microsoft Online Services Sign-In Assistant](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
+2. Then download and install the [64-bit Azure Active Directory module for Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
 3. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
 4. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
 5. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
