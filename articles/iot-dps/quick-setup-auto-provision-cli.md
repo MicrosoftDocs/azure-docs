@@ -58,7 +58,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 Create a provisioning service with the [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create) command. 
 
-The following example creates an provisioning service named *my-sample-dps* in the *westus* location.  
+The following example creates an provisioning service named *my-sample-dps* in the *westus* location. Please replace *my-sample-dps* with your device provisioning service name.  
 
 ```azurecli-interactive 
 az iot dps create --name my-sample-dps --resource-group my-sample-resource-group --location westus
