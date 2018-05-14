@@ -24,7 +24,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Certificate problems
 
-### Unable to add bind SSL certificate to a Web App 
+### You can't add an SSL certificate binding to a web app 
 
 #### Symptom
 
@@ -43,7 +43,7 @@ To fix this problem, use one of the following methods:
 - Delete the IP-based SSL binding on the web app that uses the old certificate. 
 - Create a new IP-based SSL binding that uses the new certificate.
 
-### Unable to delete a certificate 
+### You can't delete a certificate 
 
 #### Symptom
 
@@ -59,169 +59,169 @@ This problem might occur if another web app uses the certificate.
 
 Remove the SSL binding for that certificate from the web apps. Then try to delete the certificate. If you still cannot delete the certificate, clear the internet browser cache and reopen the Azure portal in a new browser window. And then try to delete the certificate.
 
-### Unable to purchase an App Service certificate 
+### You can't purchase an App Service certificate 
 
 #### Symptom
-You cannot purchase an [App Service certificate](./web-sites-purchase-ssl-web-site.md) from the Azure portal.
+You cannot purchase an [Azure App Service certificate](./web-sites-purchase-ssl-web-site.md) from the Azure portal.
 
 #### Cause and solution
 This problem can occur for any of the following reasons:
 
-- The App Service plan is "Free" or "Shared". We do not support SSL for these pricing tiers. 
+- The App Service plan is Free or Shared. We do not support SSL for these pricing tiers. 
 
-    **Solution**: Upgrade the App Service plan for web app to "Standard".
+    **Solution**: Upgrade the App Service plan for web app to Standard.
 
 - The Subscription does not have a valid credit card.
 
     **Solution**: Add a valid credit card to your subscription. 
 
-- The Subscription offer does not support purchasing an App Service certificate such as Microsoft Student.  
+- The subscription offer does not support purchasing an App Service certificate such as Microsoft Student.  
 
     **Solution**: Upgrade your subscription. 
 
-- The Subscription has reached the maximum limit of purchases that are allowed on a subscription.
+- The subscription reached the limit of purchases that are allowed on a subscription.
 
-    **Solution**: App Service certificates have a limit of 10 certificate purchases for Pay-As-Go and EA subscriptions types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- The App Service certificate was marked as fraud. You receive the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours".
+    **Solution**: App Service certificates have a limit of 10 certificate purchases for Pay-As-Go and EA subscription types. For other subscription types, the limit is 3. To increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- The App Service certificate was marked as fraud. You received the following error message: "Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours."
 
-    **Solution**: If the certificate is marked as Fraud and has not been resolved after 24 hours, then follow these steps:
+    **Solution**: If the certificate is marked as fraud and has not been resolved after 24 hours, follow these steps:
 
-    1. Log in to the [Azure portal](https://portal.azure.com).
-    2. Go to **App Service Certificates**, select the certificate.
-    3. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This sends an email notice to the Azure certificate provider to resolve the problem.
+    1. Sign in to the [Azure portal](https://portal.azure.com).
+    2. Go to **App Service Certificates**, and select the certificate.
+    3. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This step sends an email notice to the Azure certificate provider to resolve the problem.
 
 ## Domain problems
 
-### Purchased SSL certificate for wrong domain
+### You purchased an SSL certificate for the wrong domain
 
 #### Symptom
 
-You purchased an App Service certificate for the wrong domain and you cannot update the certificate to use the correct domain.
+You purchased an App Service certificate for the wrong domain. You can't update the certificate to use the correct domain.
 
 #### Solution
 
-- Delete that certificate and then buy a new certificate.
-- If the current certificate that uses the wrong domain is in the “Issued” state, then you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
+Delete that certificate and then buy a new certificate.
 
-### App Service certificate was renewed but still shows the old certificate 
+If the current certificate that uses the wrong domain is in the “Issued” state, then you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
+
+### An App Service certificate was renewed, but the web app shows the old certificate 
 
 #### Symptom
 
-The App Service certificate was renewed but the web app that uses the App Service certificate is still using the old certificate. Also, you received a warning that the HTTPS protocol is required.
+The App Service certificate was renewed, but the web app that uses the App Service certificate is still using the old certificate. Also, you received a warning that the HTTPS protocol is required.
 
 #### Cause 
-The Web app service runs a background job every eight hours and syncs the certificate resource if there are any changes. Therefore, when you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. This is because the job to sync the certificate resource has not run yet. 
+The Web Apps feature of Azure App Service runs a background job every eight hours and syncs the certificate resource if there are any changes. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource has not run yet. 
  
 #### Solution
 
 You can force a sync of the certificate:
 
-1. Log in to the [Azure portal](https://portal.azure.com). Select the **App service Certificates**, and then select the certificate.
-2. Click **Rekey and Sync**, and then click **Sync**. This takes some time to finish. 
-3. When the sync is completed, you see the following notification: "Successfully updated all the resources with the latest certificate".
+1. Sign in to the [Azure portal](https://portal.azure.com). Select **App Service Certificates**, and then select the certificate.
+2. Select **Rekey and Sync**, and then select **Sync**. The sync takes some time to finish. 
+3. When the sync is completed, you see the following notification: "Successfully updated all the resources with the latest certificate."
 
 ### Domain verification is not working 
 
 #### Symptom 
-The App Service certificate requires domain verification before the certificate is ready to use. When you click **Verify**, the process fails.
+The App Service certificate requires domain verification before the certificate is ready to use. When you select **Verify**, the process fails.
 
 #### Solution
 Manually verify your domain by adding a TXT record:
  
 1.	Go to the Domain Name Service (DNS) provider that hosts your domain name.
-2.	Add a TXT record for your domain that uses the value of the domain token that is shown in the Azure portal. 
+2.	Add a TXT record for your domain that uses the value of the domain token that's shown in the Azure portal. 
 
-Wait a few minutes for DNS propagation to run, and click then **Refresh** button to trigger the verification. 
+Wait a few minutes for DNS propagation to run, and then select the **Refresh** button to trigger the verification. 
 
-Alternate method to manually verify is the "HTML Web Page method" that can be used to allow the certificate authority to confirm the domain ownership of the domain the certificate is issued for.
+An alternative method to manually verify your domain is the HTML webpage method. You can use this method to allow the certificate authority to confirm the domain ownership of the domain that the certificate is issued for.
 
-1.	Create an HTML file that is named {Domain Verification Token}.html. 
-2.	Content of this file should be the value of Domain Verification Token.
-3.	Upload this file at the root of the web server that is hosting your domain
-4.	Click **Refresh** to check the Certificate status. It might take few minutes for verification to finish.
+1.	Create an HTML file that's named {domain verification token}.html. The content of this file should be the value of domain verification token.
+3.	Upload this file at the root of the web server that's hosting your domain.
+4.	Select **Refresh** to check the certificate status. It might take few minutes for verification to finish.
 
-For example, if you are buying a standard certificate for azure.com with Domain Verification Token ‘1234abcd’ then a web request made to http://azure.com/1234abcd.html should return 1234abcd. 
+For example, if you're buying a standard certificate for azure.com with the domain verification token `1234abcd`, a web request made to http://azure.com/1234abcd.html should return `1234abcd`. 
 
 > [!IMPORTANT]
-> A certificate order has only 15 days to complete the domain verification operation. After 15 days the certificate is denied by the certificate authority, and you are not charged for the certificate. In this situation, delete this certificate and try again.
+> A certificate order has only 15 days to complete the domain verification operation. After 15 days, the certificate authority denies the certificate, and you are not charged for the certificate. In this situation, delete this certificate and try again.
 >
 > 
 
-### Unable to purchase a domain
+### You can't purchase a domain
 
 #### Symptom
-You cannot buy a domain from Web app or App Service Domain in the Azure portal.
+You can't buy a domain from the Web Apps or App Service domain in the Azure portal.
 
 #### Cause and solution
 
 This problem occurs for one of the following reasons:
 
-- No credit card on the Azure subscription or invalid credit card.
+- There's no credit card on the Azure subscription, or the credit card is invalid.
 
-    **Solution**: Add a valid credit card to your subscription if you don’t have one.
+    **Solution**: Add a valid credit card to your subscription.
 
-- If you are not the subscription owner, you may not have permission to buy domain.
+- You're not the subscription owner, so you don't have permission to buy a domain.
 
-    **Solution**: [Add the Owner role](../billing/billing-add-change-azure-subscription-administrator.md) to your account or contact with the subscription administrator to get permissions to purchase a domain.
+    **Solution**: [Add the Owner role](../billing/billing-add-change-azure-subscription-administrator.md) to your account. Or contact the subscription administrator to get permission to purchase a domain.
 - You have reached the limit for purchasing domains on your subscription. The current limit is 20.
 
-    **Solution**: To request increase the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Your Azure subscription type does not support the purchase of App Service domain.
+    **Solution**: To request an increase to the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Your Azure subscription type does not support the purchase of an App Service domain.
 
-    **Solution**: Upgrade your Azure subscription to other subscription types such as a Pay-as-you-go subscription.
+    **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.
 
-### Unable to add a hostname to Web app 
+### You can't add a hostname to Web app 
 
 #### Symptom
 
-When you add a hostname, the process fails to validate and verify the domain.
+When you add a host name, the process fails to validate and verify the domain.
 
 #### Cause 
 
 This problem occurs for one of the following reasons:
 
-- You don’t have permission to add a hostname.
+- You don’t have permission to add a host name.
 
-    **Solution**: Check with subscription administrator to make sure that you have a permission to add a hostname.
+    **Solution**: Ask the subscription administrator to give you permission to add a host name.
 - Your domain ownership could not be verified.
 
-    **Solution**: Verify if your CNAME or A record are configured correctly. To map custom domain to web app, create either a CNAME or A Record. If you want to use root domain, you must use A and TXT records:
+    **Solution**: Verify that your CNAME or A record is configured correctly. To map a custom domain to web app, create either a CNAME record or an A record. If you want to use a root domain, you must use A and TXT records:
 
     |Record type|Host|Point to|
     |------|------|-----|
-    |A|@|IP address for web app|
+    |A|@|IP address for a web app|
     |TXT|@|<app-name>.azurewebsites.net|
     |CNAME|www|<app-name>.azurewebsites.net|
 
-### DNS cannot be resolved
+### DNS can't be resolved
 
 #### Symptom
 
-You receive a "The DNS record could not be located" error message.
+You received a "The DNS record could not be located" error message.
 
 #### Cause
 This problem occurs for one of the following reasons:
 
-- The Time to Live (TTL) period has not expired. Check the DNS configuration for your domain to determine the TTL value, and then wait for the period to expire.
+- The time to live (TTL) period has not expired. Check the DNS configuration for your domain to determine the TTL value, and then wait for the period to expire.
 - The DNS configuration is incorrect.
 
 #### Solution
 - Wait for 48 hours for this problem to resolve itself.
 - If you can change the TTL setting in your DNS configuration, change the value to 5 minutes to see whether this resolves the problem.
-- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app IP address. If it does not, configure the A record to the correct IP address of the web app.
+- Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app's IP address. If it doesn't, configure the A record to the correct IP address of the web app.
 
-### Restore a deleted domain 
+### You need to restore a deleted domain 
 
 #### Symptom
 Your domain is no longer visible in the Azure portal.
 
 #### Cause 
-The domain may have been accidentally deleted by the owner of the subscription.
+The owner of the subscription might have accidentally deleted the domain.
 
 #### Solution
-If your domain was deleted less than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription (make sure to type the exact domain name in search box). You will not be charged again for this domain. If the domain was deleted more than seven days ago, please contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
+If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You will not be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
 
-### Custom domain returns 404 or site inaccessible 
+### A custom domain returns a 404 error 
 
 #### Symptom
 
@@ -238,28 +238,28 @@ The custom domain that you configured is missing a CNAME or A record.
 
 **Solution for cause 1**
 
-- If you added an A record, make sure a TXT record is also added. For more information, see [Create-the-a-record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- If you do not have to use root domain for your web app, it is recommended to use a CNAME record instead of A record.
-- Do not use both a CNAME and A record for the same domain. This can cause conflict and prevent the domain from resolving. 
+- If you added an A record, make sure that a TXT record is also added. For more information, see [Create the A record](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
+- If you don't have to use the root domain for your web app, we recommend that you use a CNAME record instead of an A record.
+- Don't use both a CNAME record and an A record for the same domain. This can cause a conflict and prevent the domain from being resolved. 
 
 **Cause 2** 
 
-The Internet browser might still be caching the old IP address for your domain. 
+The internet browser might still be caching the old IP address for your domain. 
 
 **Solution for Cause 2**
 
-Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app IP address. 
+Clear the browser. For Windows devices, you can run the command `ipconfig /flushdns`. Use [WhatsmyDNS.net](https://www.whatsmydns.net/) to verify that your domain points to the web app's IP address. 
 
-### Unable to add subdomain 
+### You can't add a subdomain 
 
 #### Symptom
 
-You cannot add a new hostname to a web app to assign a sub-domain.
+You can't add a new host name to a web app to assign a subdomain.
 
 #### Solution
 
-- Check with subscription administrator to make sure you have permissions to add a hostname to the web app.
-- If you need more sub-domains,  we recommend that you change the domain hosting to Azure DNS. By using Azure DNS, you can add 500 hostnames to your web app. For more information, see [add a sub domain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Check with subscription administrator to make sure that you have permissions to add a host name to the web app.
+- If you need more subdomains, we recommend that you change the domain hosting to Azure DNS. By using Azure DNS, you can add 500 host names to your web app. For more information, see [Add a subdomain](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 
 
