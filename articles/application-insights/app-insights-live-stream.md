@@ -125,7 +125,7 @@ In the applicationinsights.config file, add the AuthenticationApiKey to the Quic
 ```
 Or in code, set it on the QuickPulseTelemetryModule:
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 using Microsoft.ApplicationInsights.Extensibility;
 
