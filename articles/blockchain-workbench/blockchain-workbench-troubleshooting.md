@@ -66,4 +66,5 @@ The summary file gives you a snapshot of the overall state of the application an
 
 ## Next steps
 
-* [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench architecture](blockchain-workbench-architecture.md)
