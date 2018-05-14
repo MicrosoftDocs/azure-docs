@@ -40,7 +40,8 @@ Maximum limits on storage, workloads, and quantities of indexes, documents, and 
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |
 | Maximum fields per index |1000 |100 |1000 |1000 |1000 |1000 |
-| Maximum scoring profiles per index |100 |100 |100 |100 |100 |100 |
+| Maximum [suggesters](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |
+| Maximum [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5. Basic tier is the only SKU with a lower limit of 100 fields per index.
