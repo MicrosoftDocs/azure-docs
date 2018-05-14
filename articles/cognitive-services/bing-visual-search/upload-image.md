@@ -358,6 +358,39 @@ Replace the BingImageSearch method with this code:
         }
 ```
 
+<a name="using-nodejs" />
+## Using Node.js
+
+The following shows how to send the message using FormData in Node.js.
+
+```javascript
+var request = require('request');
+var FormData = require('form-data');
+var fs = require('fs');
+
+var baseUri = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch';
+var subscriptionKey = '<yoursubscriptionkeygoeshere>';
+var imagePath = "<pathtoyourimagegoeshere>";
+
+var form = new FormData();
+form.append("image", fs.createReadStream(imagePath));
+
+form.getLength(function(err, length){
+  if (err) {
+    return requestCallback(err);
+  }
+
+  var r = request.post(baseUri, requestCallback);
+  r._form = form; 
+  r.setHeader('Ocp-Apim-Subscription-Key', subscriptionKey);
+});
+
+function requestCallback(err, res, body) {
+    console.log(JSON.stringify(JSON.parse(body), null, '  '))
+}
+```
+
+
 
 ## Next steps
 
