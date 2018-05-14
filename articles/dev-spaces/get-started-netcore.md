@@ -80,9 +80,9 @@ But there is an even *faster method* for developing code, which you'll explore i
 [!INCLUDE[](includes/init-debug-assets-vscode.md)]
 
 
-### Select the VSCE debug configuration
+### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **.NET Core Launch (VSCE)** as the active debug configuration.
+1. Select **.NET Core Launch (AZDS)** as the active debug configuration.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
