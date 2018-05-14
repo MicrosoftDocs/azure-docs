@@ -74,7 +74,7 @@ Using [PowerShellGet](https://docs.microsoft.com/powershell/module/powershellget
 After installation, your modules are automatically persisted across Cloud Shell sessions.
 
 > [!TIP]
-> Modules installed by users are saved in the `$Home\CloudDrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
+> Modules installed by users are saved in the `$Home\clouddrive\.pscloudshell\WindowsPowerShell` folder. A symbolic link for this folder is created in the user's documents folder (`$home\Documents\WindowsPowerShell`).
 
 ![](media/features-powershell/powershellget-module.png)
 
@@ -87,7 +87,7 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 
 |**Category**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure tools     |[Azure PowerShell (5.6.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.30)](https://docs.microsoft.com/cli/azure)|
+|Azure tools     |[Azure PowerShell (5.7.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI (2.0.31)](https://docs.microsoft.com/cli/azure)|
 |Text editors    |vim<br> nano                             |
 |Package Manager |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Source control  |git                                      |
@@ -99,8 +99,8 @@ These commands are built on top of PowerShell remoting and require PowerShell co
 |**Language**|**Version**|
 |------------|-----------|
 |.NET        |4.6        |
-|Node.js     |6.10       |
-|PowerShell  |5.1 and [6.0.2](https://github.com/PowerShell/powershell/releases)       |
+|Node.js     |8.9.4       |
+|PowerShell  |5.1 and [6.1.0-preview.1](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## Next steps

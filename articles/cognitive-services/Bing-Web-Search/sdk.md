@@ -7,7 +7,7 @@ author: mikedodaro
 manager: rosh
 ms.assetid: 
 ms.service: cognitive-services
-ms.technology: bing-web-search
+ms.component: bing-web-search
 ms.topic: article
 ms.date: 1/11/2018
 ms.author: v-gedod
@@ -18,6 +18,9 @@ The Bing Web Search API samples include scenarios that:
 2. Query on a phrase, verify the number of results, and print out name and URL of first result.
 3. Query on search term with response filters set to `news` and print the details of news results.
 4. Query on a search term with `answerCount` and `promote` parameters, then print details of results.
+
+> [!NOTE] 
+> Some SDKs are now in GA and changes to documentation are pending. 
 
 The Bing Search SDKs make web search functionality readily accessible in the following programming languages:
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 

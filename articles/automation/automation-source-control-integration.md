@@ -3,6 +3,7 @@ title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 ms.service: automation
+ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018

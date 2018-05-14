@@ -8,6 +8,7 @@ manager: mtillman
 editor: 
 
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -69,6 +70,7 @@ To create an MSI-enabled VM:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
 ## Create a Cosmos DB account 
 
@@ -146,7 +148,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 4. Use CURL to get an access token for Azure Resource Manager: 
      
     ```bash
-    curl http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -H Metadata:true   
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -H Metadata:true   
     ```
  
     > [!NOTE]

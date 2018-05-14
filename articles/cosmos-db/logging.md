@@ -23,7 +23,7 @@ After you start to use one or more Azure Cosmos DB databases, you may want to mo
 
 ## Logs available in Azure
 
-Before we talk about how to monitor your Azure Cosmos DB account, let's clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, and so on. There is a plethora of logs. You can see the complete list of logs in [Azure Log Analytics](https://azure.microsoft.com/en-us/services/log-analytics/) in the Azure portal. 
+Before we talk about how to monitor your Azure Cosmos DB account, let's clarify a few things about logging and monitoring. There are different types of logs on the Azure platform. There are [Azure Activity Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), [Azure Diagnostic Logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs), [Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics), events, heartbeat monitoring, operations logs, and so on. There is a plethora of logs. You can see the complete list of logs in [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/) in the Azure portal. 
 
 The following image shows the different kinds of Azure logs that are available:
 
@@ -48,7 +48,7 @@ Activity Logs (control plane operations) can be richer in nature and can include
 
 ### Azure metrics
 
-[Azure metrics](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-metrics) have the most important type of Azure telemetry data (also called _performance counters_) that's emitted by most Azure resources. Metrics let you view information about throughput, storage, consistency, availability, and the latency of your Azure Cosmos DB resources. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
+[Azure metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) have the most important type of Azure telemetry data (also called _performance counters_) that's emitted by most Azure resources. Metrics let you view information about throughput, storage, consistency, availability, and the latency of your Azure Cosmos DB resources. For more information, see [Monitoring and debugging with metrics in Azure Cosmos DB](use-metrics.md).
 
 ### Azure Diagnostic Logs
 

@@ -1,22 +1,17 @@
 ---
 title: 'Azure AD SSPR data requirements | Microsoft Docs'
 description: Data requirements for Azure AD self-service password reset and how to satisfy them
+
 services: active-directory
-keywords: 
-documentationcenter: ''
+ms.service: active-directory
+ms.component: authentication
+ms.topic: article
+ms.date: 01/11/2018
+
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
-ms.assetid: 
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
-ms.author: joflore
-ms.custom: it-pro
 
 ---
 # Deploy password reset without requiring end-user registration
@@ -151,7 +146,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [Do you have a licensing question?](concept-sspr-licensing.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](../active-directory-passwords-writeback.md)
+* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

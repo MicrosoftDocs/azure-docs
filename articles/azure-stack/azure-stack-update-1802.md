@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: justini
 
@@ -54,9 +54,10 @@ The Azure Stack 1802 update build number is **20180302.1**.
 
 
 ### Post-update steps
-After the installation of 1802, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
-- [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348)
+After the installation of 1802, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
+- Azure Stack hotfix **1.0.180302.4**. [KB 4131152 - Existing Virtual Machine Scale Sets may become unusable]( https://support.microsoft.com/help/4131152) 
 
+  This fix also resolves the issues detailed in  [KB 4103348 - Network Controller API service crashes when you try to install an Azure Stack update](https://support.microsoft.com/help/4103348).
 
 
 ### New features and fixes
@@ -81,6 +82,8 @@ This update includes the following improvements and fixes for Azure Stack.
 - **Role-Based Access Control (RBAC) improvements** - You can now use RBAC to delegate permissions to Universal User Groups when Azure Stack is deployed with AD FS. To learn more about RBAC, see [Manage RBAC](azure-stack-manage-permissions.md).
 
 - **Support is added for multiple fault domains**.  For more information, see [High availability for Azure Stack](azure-stack-key-features.md#high-availability-for-azure-stack).
+
+- **Support for physical memory upgrades** - You can now expand the memory capacity of Azure Stack integrated system after your initial deployment. For more information, see [Manage physical memory capacity for Azure Stack](azure-stack-manage-storage-physical-memory-capacity.md).
 
 - **Various fixes** for performance, stability, security, and the operating system that is used by Azure Stack.
 
@@ -191,7 +194,7 @@ There are no known issues after updating to 1802.
     - *Allow:*
  
       ```powershell    
-      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
       
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
       
@@ -221,7 +224,7 @@ There are no known issues after updating to 1802.
 
         ```powershell
         
-        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
+        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
         
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
         

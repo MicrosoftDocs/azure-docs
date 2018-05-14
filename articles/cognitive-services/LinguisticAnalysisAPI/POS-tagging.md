@@ -4,9 +4,8 @@ description: Learn how Part-of-Speech Tagging in Microsoft Cognitive Services id
 services: cognitive-services
 author: RichardSunMS
 manager: wkwok
-
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
+ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: lesun

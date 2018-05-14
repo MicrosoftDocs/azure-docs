@@ -105,7 +105,7 @@ This role should now appear in the list of roles in the **Access control** blade
 
 ![View RBAC roles](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-For more information, go to [Create a custom RBAC role using PowerShell](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+For more information, go to [Custom roles](../role-based-access-control/custom-roles.md).
 
 ### Sample output for custom role creation via the PowerShell
 

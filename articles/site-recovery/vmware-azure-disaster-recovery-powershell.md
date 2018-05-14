@@ -252,7 +252,7 @@ $FailbackReplicationPolicy = Get-ASRPolicy -Name "ReplicationPolicy-Failback"
 
 # Associate the replication policies to the protection container corresponding to the Configuration Server. 
 
-$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+$Job_AssociatePolicy = New-ASRProtectionContainerMapping -Name "PolicyAssociation1" -PrimaryProtectionContainer $ProtectionContainer -Policy $ReplicationPolicy
 
 # Check the job status
 while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.State -eq "NotStarted")){ 
@@ -261,7 +261,12 @@ while (($Job_AssociatePolicy.State -eq "InProgress") -or ($Job_AssociatePolicy.S
 }
 $Job_AssociatePolicy.State
 
-$Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -Policy $Policy[0]
+<# In the protection container mapping used for failback (replicating failed over virtual machines 
+   running in Azure, to the primary VMware site.) the protection container corresponding to the 
+   Configuration server acts as both the Primary protection container and the recovery protection
+   container
+#>
+ $Job_AssociateFailbackPolicy = New-ASRProtectionContainerMapping -Name "FailbackPolicyAssociation" -PrimaryProtectionContainer $ProtectionContainer -RecoveryProtectionContainer $ProtectionContainer -Policy $FailbackReplicationPolicy
 
 # Check the job status
 while (($Job_AssociateFailbackPolicy.State -eq "InProgress") -or ($Job_AssociateFailbackPolicy.State -eq "NotStarted")){ 
