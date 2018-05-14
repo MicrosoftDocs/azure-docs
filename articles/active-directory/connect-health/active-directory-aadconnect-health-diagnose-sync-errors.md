@@ -15,7 +15,7 @@ ms.date: 05/11/2018
 ms.author: zhiweiw
 ---
 
-# Duplicate attribute sync errors diagnosis
+# Duplicate attribute sync errors diagnosis and remediation 
 
 ## Overview
 Taking one step further of highlighting sync errors, Azure Active Directory Connect Health is introducing a self-service remediation experience to troubleshoot duplicated attribute sync errors and fix orphaned objects from Azure AD. 
@@ -61,9 +61,9 @@ From the Azure portal, you will be able to go through a few steps to identify sp
 
 | Status | What does it mean? |
 | ------------------ | -----------------|
-| Not started | You have not visited this diagnosis process. Depends on the diagnostic result, there is potentially a way to fix the sync error from the portal directly. |
-| Manual fix required | The error does not fit into the criteria of available fix from the portal. The case can be (1) Conflicting object types are not users (2) You already went through the diagnostic steps and no fix resolution available from the portal. In this case, fix from on-prem side will still be one of the solutions. [Read more about on-premises fix](https://support.microsoft.com/help/2647098) | 
-| Pending sync | Fix was applied. Waiting for the next sync cycle to clear the error. |
+| Not Started | You have not visited this diagnosis process. Depends on the diagnostic result, there is potentially a way to fix the sync error from the portal directly. |
+| Manual Fix Required | The error does not fit into the criteria of available fix from the portal. The case can be (1) Conflicting object types are not users (2) You already went through the diagnostic steps and no fix resolution available from the portal. In this case, fix from on-prem side will still be one of the solutions. [Read more about on-premises fix](https://support.microsoft.com/help/2647098) | 
+| Pending Sync | Fix was applied. Waiting for the next sync cycle to clear the error. |
 
 >[!IMPORTANT]
 > The diagnostic status column will be reset after each sync cycle. 
@@ -122,7 +122,7 @@ Based on the answers of raised questions, you will be able to see **Apply Fix** 
 
 After the steps above, the user will be able to access to original resource, which is link to existing object. 
 The **Diagnose status** value in the list view will be updated to be **Pending Sync**.
-Sync error will be resolved after the following synchronization. Connect Health will not showing the resolved sync error from the list view anymore. 
+Sync error will be resolved after the following synchronization. Connect Health will not show resolved sync error from the list view anymore. 
 
 
 ## FAQ
@@ -135,8 +135,8 @@ If existing object should be deleted in this case, the process does not involve 
 3.	What is the permission for user to be able to apply the fix?  
 Global Admin or Contributor from RBAC settings will have the permission to access the diagnostic and troubleshooting process.
 
-4.	Do we need to config AAD Connect or update Azure AD Connect Health agent for this feature?  
-No, this is a complete cloud-based feature.
+4.	Do I have to config AAD Connect or update Azure AD Connect Health agent for this feature?  
+No, diagnosis process is a complete cloud-based feature.
 
 5.	If the existing is soft deleted, does Diagnose process restore the object to be active again?  
 No, the change will not update object attribute other than Source Anchor. 
