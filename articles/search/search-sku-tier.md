@@ -19,15 +19,15 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 Tiers determine capacity, not features. If a tier's capacity turns out to be too low, you will need to provision a new service at the higher tier and then [reload your indexes](search-howto-reindex.md). There is no in-place upgrade of the same service from one SKU to another.
 
+Feature availability is not a tier consideration. All tiers, including the **Free** tier, offer feature parity, but indexing and resource constraints effectively limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
+
 > [!TIP]
-> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can [increase replica and partition counts](search-capacity-planning.md) within the service. For more information about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
+> Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development. After you choose a tier and [provision a search service](search-create-service-portal.md), you can [increase replica and partition counts](search-capacity-planning.md) for performance tuning. For more information about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## Billing concepts
 
 Concepts you need to understand for tier selection include capacity definitions, service limits, and service units. 
-
-Feature availability is not a billing consideration. All tiers, including the **Free** tier, offer feature parity, but indexing and resource constraints effectively limit the extent of feature usage. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be very small.
 
 ### Capacity
 
@@ -36,15 +36,15 @@ Capacity is structured as *replicas* and *partitions*. Replicas are instances of
 > [!NOTE]
 > All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple free services.
 
-### Limits on resources
+### Limits
 
-Services host resources, such as indexes, indexers, and so forth. Each tier imposes limits on the quantity of resources you can create. As such, a cap on the number of indexes (and other objects) is the second differentiating feature across tiers.
+Services host resources, such as indexes, indexers, and so forth. Each tier imposes [service limits](search-limits-quotas-capacity.md) on the quantity of resources you can create. As such, a cap on the number of indexes (and other objects) is the second differentiating feature across tiers. As you review each option in the portal, note the limits on number of indexes. Other resources, such as indexers, data sources, and skillsets, are pegged to index limits.
 
 ### Service units
 
-The most important billing concept to understand is a *service unit* (SU), which is the billing unit for Azure Search. An SU is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
+The most important billing concept to understand is a *service unit* (SU), which is the billing unit for Azure Search. Because Azure Search depends on both replicas and partitions to function, it doesn't make sense to bill by one or the other. Instead, billing is based on a composite of both. Formulaically, an SU is the product of replica and partitions used by a service: (R X P = SU). At a minimum, every service starts with 1 SU (one replica multiplied by one partition), but a more realistic model might be a 3-replica, 3-partition service billed as 9 SUs. 
 
-Although each tier offers progressivey higher capacity, most customers bring a portion of total capacity online, keeping the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
+Although each tier offers progressively higher capacity, you can bring a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
 Billing rate is hourly, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
@@ -63,36 +63,49 @@ Shifting focus to the more commonly used standard tiers, **S1-S3** are a progres
 | partition size|  25 GB | 100 GB | 250 GB |  |  |  |  |
 | index and indexer limits| 50 | 200 | 200 |  |  |  |  |
 
-**S1** is where many customers start. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more realistic and balanced compositions.)
+**S1** is a common choice when dedicated resources become a necessity. With partitions of 25 GB for up to 12 partitions, the per-service limit on **S1** is 300 GB total if you maximize partitions over replicas (see [Allocate partitions and replicas](search-capacity-planning.md#chart) for more realistic and balanced compositions.)
 
 Beyond storage and limits, other aspects of service capability are uniform across tiers. Replicas, which are instances of the search engine (handling both indexing and query operations), do not vary by tier: an **S1** replica is the same as an **S3** replica. Similarly, request and response payloads, queries-per-second throughput, and maximum execution time also do not vary by tier.
 
-Previously, document limits were a consideration but are no longer applicable for most Azure Search services provisioned after January 2018. For more information about conditions for which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
+**S3** and **S3 HD** are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. **S3** targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). **S3 HD** targets a large number of very small indexes. At 1,000 indexes, **S3 HD** reaches its limits in the form of index constraints. If you are an **S3 HD** customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
 
 > [!NOTE]
-> **S3** and **S3 HD** are backed by identical high capacity infrastructure but each one reaches its maximum limit in different ways. **S3** targets a smaller number of very large indexes. As such, its maximum limit is resource-bound (2.4 TB for each service). **S3 HD** targets a large number of very small indexes. At 1,000 indexes, **S3 HD** reaches its limits in the form of index constraints. If you are an **S3 HD** customer who requires more than 1,000 indexes, contact Microsoft Support for information on how to proceed.
+> Previously, document limits were a consideration but are no longer applicable for most Azure Search services provisioned after January 2018. For more information about conditions for which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
+>
 
-## Evaluation considerations
+## Evaluate capacity
 
 Capacity and costs of running the service go hand-in-hand. Tiers impose limits on two levels (storage and resources), so you should think about both because whichever one you reach first is the effective limit. 
 
-Most customers develop realistic estimates of index quantity, size, and query volumes during the development cycle. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
+Business requirements typically dictate the number of indexes you will need. For example, a global index for a large repository of documents, or perhaps multiple indexes based on region, application, or business niche.
+
+To determine the size of an index, you have to [build one](search-create-index-portal.md). The data structure in Azure Search is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.  As such, it's rarely possible to infer index size based on the size of the original data set.
+
+### Preliminary estimates using the Free tier
+
+One approach for estimating capacity is to start with the Free tier. Recall that the Free service offers up to 3 indexes, 50 MB of storage, 2 minutes of indexing time, and 10,000 documents. It can be challenging to estimate a projected index size with these constraints, but the following example illustrates an approach:
+
++ Create a free service
++ Prepare a small, representative data set (assume five thousand documents, at ten percent of the full data set)
++ [Build an initial index](search-create-index-portal.md) and note its size in the portal (assume 30 MB)
+
+A 30 MB index becomes 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to account for two indexes (development and production), for a total of 600 MB in storage requirements. This is easily satisfied by the **Basic** tier, so you would start there.
+
+### Advanced estimating using a paid tier
+
+Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
 + Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
 
-+ Start with a higher level, **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
-
-You can [monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. Additionally, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
-
-**Limits on number and size of indexes**
++ Start at a higher level, **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
 
 1. [Review service limits at each tier](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
 
-2. For index sizing, you will have to build an initial index to determine how source data translates to an index. 
+2. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
-   The data structure in Azure Search is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index), which has different characteristics than document stores that contribute the data you are indexing. For an inverted index, size and complexity is determined by content, not necessarily the amount of data you feed into it. A large data source with massive redundancy could result in a smaller index than a smaller dataset containing highly variable content.
+3. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. Additionally, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
 
-Number and size are equally relevant to your analysis because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. 
+Index number and size are equally relevant to your analysis because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. The portal helps you keep track of both, showing current usage and maximum limits side by side on the Overview page.
 
 > [!NOTE]
 > Storage requirements can be over-inflated if documents contain extraneous data. Ideally, documents contain only searchable data or metadata. Binary data is non-searchable and should be stored separately (perhaps in an Azure table or blob storage) with a field in the index to hold a URL reference to the external data. The maximum size of an individual document is 16 MB (or less if you are bulk uploading multiple documents in one request). [Service limits in Azure Search](search-limits-quotas-capacity.md) has more information.
