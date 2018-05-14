@@ -50,7 +50,7 @@ Once you subscribed to the Authorization API, you will be able to obtain access 
 
 Each call to the Operations API should be associated with an access token, matching the authorization scope of the call.
 
-- User level -  user level access tokens let you perform operations on the user level. E.g.,  get associated accounts.
+- User level -  user level access tokens let you perform operations on the user level. For example,  get associated accounts.
 - Account level – account level access tokens let you perform operations on the account level. for example, Upload video, list all videos, create a language model, etc.
 - Video level – video level access tokens let you perform operations on specific videos. for example, get video insights, download captions, get widgets, etc. 
 
@@ -60,7 +60,7 @@ You are ready to start integrating with the API. Find [the detailed description 
 
 ## Location
 
-All operation APIs require a Location parameter which indicates the region to which the call should be routed and in which the account was created.
+All operation APIs require a Location parameter, which indicates the region to which the call should be routed and in which the account was created.
 
 The values described in the following table apply. The **Param value** is the value you pass when using the API.
 
