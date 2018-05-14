@@ -24,12 +24,15 @@ You'll be working on your local machine. Set up your working environment as foll
 - Clone the open-source repo for the Custom Decision Service, [mwt-ds](https://github.com/Microsoft/mwt-ds) on GitHub.
   - Enter your Azure storage connection string in *mwt-ds/DataScience/ds.config*, using *AppID: ConnectionString* format. You can specify multiple AppIDs.
 
-Download the logged data. Go to `mwt-ds/DataScience` and run `LogDownloader.py` with relevant arguments. For example, use this command to download all data starting from January 1, 2018, to folder `d:\data`.
+Download the logged data. Go to `mwt-ds/DataScience` and run `LogDownloader.py` with relevant arguments. For example, use this command to download all data for January 1-7, 2018, to folder `d:\data`.
 
 ```cmd 
-python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -o 4 --create_gzip
+python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -e 2018-01-07 -o 4 --create_gzip
 ```
 The output is gzipped, which is required for the data analysis and visualization tools described next. Refer to the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
+
+>[!TIP]
+>Logged data may be very large for a high-volume application. We recommend an end-to-end practice run with a small date range. Use `--dry_run` option to find out how much data would have been downloaded, without actually downloading it.
 
 ## Performance visualization
 
