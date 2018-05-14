@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Tutorial: Manage the state of a device from a back-end service
 
-In addition to sending telemetry to your IoT hub, a device may report status such as its current firmware or network configuration. You may also need to configure a device from a back-end application. For example, setting a target temperature or other operational parameters.
+As well as sending telemetry to your IoT hub, a device may report status such as its current firmware or network configuration. You may also need to configure a device from a back-end application. For example, setting a target temperature or other operational parameters.
 
 To synchronize state information between a device and an IoT hub, you use *device twins*. A device twin is a JSON document, associated with a specific device, and stored in your IoT hub's device identity registry. A device twin contains desired properties, reported properties, and tags. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. This tutorial shows you how to use desired and reported properties to synchronize state information.
 
@@ -29,10 +29,8 @@ In this tutorial, you perform the following tasks:
 
 > [!div class="checklist"]
 > * Create an IoT hub and add a test device to the identity registry.
-> * Set desired properties in your solution back-end.
-> * Receive and process desired properties in a simulated device.
-> * Set reported properties in your simulated device.
-> * Receive and process reported properties in your solution back-end.
+> * Use desired properties to send state information to your simulated device.
+> * Use reported properties to receive state information from your simulated device.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +54,7 @@ Download the sample Node.js project from https://github.com/Azure-Samples/azure-
 
 To complete this tutorial, you need an IoT hub with a device added to the device identity registry.
 
-If you don't already have an IoT hub set up in your subscription, you can use the following CLI script to set one up. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run the script. The script creates the resource group and hub in the **West US** region, you can change to a region closer to you:
+If you don't already have an IoT hub set up in your subscription, you can set one up with following CLI script. This script uses the name **tutorial-iot-hub** for the IoT hub, you should replace this name with your own unique name when you run it. The script creates the resource group and hub in the **West US** region, you can change the region to one closer to you:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -93,15 +91,20 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ```
 
-## Receive desired properties
+## Send state information
 
-You use desired properties to send state information from a back-end application to a device. In this section, you first see how to receive and process desired properties on a device, and then how to send desired properties from a back-end application.
+You use desired properties to send state information from a back-end application to a device. In this section, you see:
+
+* How to receive and process desired properties on a device.
+* How to send desired properties from a back-end application.
 
 To view the simulated device sample code that receives desired properties, navigate to the **Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
 ### Retrieve the device twin object
 
 The following code connects to your IoT hub and gets a device twin object:
+
+[!code-nodejs][Create IoT Hub client](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=createhubclient&highlight=2 "Create IoT Hub client")
 
 ```nodejs
 // Create the IoTHub client
@@ -115,7 +118,7 @@ client.getTwin(function(err, twin) {
 
 ### Sample desired properties
 
-The following snippet shows the structure of the desired properties JSON used in this tutorial:
+You can structure your desired properties in any way that's convenient to your application. This example uses one top-level property called **fanOn** and groups the remaining properties into separate **components**. The following JSON snippet shows the structure of the desired properties this tutorial uses:
 
 ```json
 {
@@ -140,7 +143,7 @@ The following snippet shows the structure of the desired properties JSON used in
 
 ### Create handlers
 
-You can create handlers for desired property updates that respond to updates at different levels in the hierarchy. For example, this handler sees all desired property changes. The **delta** variable contains the desired properties sent from the solution backend:
+You can create handlers for desired property updates that respond to updates at different levels in the JSON hierarchy. For example, this handler sees all desired property changes sent to the device. The **delta** variable contains the desired properties sent from the solution backend:
 
 ```nodejs
 twin.on('properties.desired', function(delta) {
@@ -170,13 +173,13 @@ twin.on('properties.desired.components.climate', function(delta) {
 });
 ```
 
-The local **twin** object stores a complete set of properties, a **delta** sent from the back end might update just a subset of desired properties.
+The local **twin** object stores a complete set of desired and reported properties. The **delta** sent from the back end might update just a subset of desired properties.
 
 ### Handle insert, update, and delete operations
 
-The desired properties sent from the back end do not indicate what operation is being performed on a particular desired property. Your code needs to infer the operation from the current set of desired properties stored locally and the changes sent from the hub.
+The desired properties sent from the back end don't indicate what operation is being performed on a particular desired property. Your code needs to infer the operation from the current set of desired properties stored locally and the changes sent from the hub.
 
-The following snippet shows how the simulated device handles insert, update, and delete operations on the list of components in the desired properties. You can see how **null** values are used to indicate that a component should be deleted:
+The following snippet shows how the simulated device handles insert, update, and delete operations on the list of **components** in the desired properties. You can see how to use **null** values to indicate that a component should be deleted:
 
 ```nodejs
 // Keep track of all the components the device knows about
@@ -225,7 +228,7 @@ twin.on('properties.desired.components', function(delta) {
 
 ### Send desired properties to a device from the back end
 
-You've seen how a device can implement handlers for receiving desired property updates. This section shows you how to send desired property changes to a device from the back end.
+You've seen how a device implements handlers for receiving desired property updates. This section shows you how to send desired property changes to a device from a back-end application.
 
 To view the simulated device sample code that receives desired properties, navigate to the **Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the ServiceClient.js file in a text editor.
 
@@ -239,7 +242,7 @@ registry.getTwin(deviceId, async (err, twin) => {
 });
 ```
 
-The following snippet shows an example desired properties path that changes the **fanOn** property on the device:
+The following snippet shows an example desired properties patch that changes the **fanOn** property on the device:
 
 ```nodejs
 var twinPatchFanOn = {
@@ -262,9 +265,54 @@ async function sendDesiredProperties(twin, patch) {
 }
 ```
 
-### Run the applications
+## Receive state information
 
-To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources in a previous step.
+Your back-end application receives state information from a device as reported properties. A device sets the reported properties, and sends them to your hub. A back-end application can read the current values of the reported properties from the device twin stored in your hub.
+
+### Send reported properties from a device
+
+You can send updates to reported property values as a *patch*. The following snippet shows a template for the patch the simulated device sends. The simulated device updates the fields in the patch before sending it to the hub:
+
+```nodejs
+// Create a patch to send to the hub
+var reportedPropertiesPatch = {
+  firmwareVersion:'1.2.1',
+  lastPatchReceivedId: '',
+  fanOn:'',
+  minTemperature:'',
+  maxTemperature:''
+};
+```
+
+The simulated device uses the following function to send the patch that contains the reported properties to the hub:
+
+```nodejs
+function sendReportedProperties() {
+  twin.properties.reported.update(reportedPropertiesPatch, function(err) {
+    if (err) throw err;
+    console.log(chalk.blue('\nTwin state reported'));
+    console.log(JSON.stringify(reportedPropertiesPatch, null, 2));
+  });
+}
+```
+
+### Process reported properties
+
+A back-end application accesses the current reported property values for a device through the device twin. The following snippet shows you how the back-end application reads the reported property values for the simulated device:
+
+```node.js
+function printReportedProperties(twin) {
+  console.log("Last received patch: " + twin.properties.reported.lastPatchReceivedId);
+  console.log("Firmware version: " + twin.properties.reported.firmwareVersion);
+  console.log("Fan status: " + twin.properties.reported.fanOn);
+  console.log("Min temperature set: " + twin.properties.reported.minTemperature);
+  console.log("Max temperature set: " + twin.properties.reported.maxTemperature);
+}
+```
+
+## Run the applications
+
+To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
 To run the simulated device application, open a shell or command prompt window and navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
 
@@ -285,9 +333,6 @@ The following screenshots show the output as the simulated device and back-end a
 ![Simulated device](./media/tutorial-device-twins/SimulatedDevice.png)
 
 ![Back-end application](./media/tutorial-device-twins/BackEnd.png)
-
-## Send reported properties
-
 
 ## Clean up resources
 

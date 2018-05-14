@@ -148,6 +148,12 @@
       "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
       "branch": "GuidedSetup",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "iot-samples-node",
+      "url": "https://github.com/dominicbetts/azure-iot-samples-node",
+      "branch": "tutorial-device-twin",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
