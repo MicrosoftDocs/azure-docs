@@ -56,7 +56,7 @@ Install-Package Microsoft.Azure.KeyVault
 
 ## <a id="webconfig"></a>Modify web.config
 
-There are three application settings that need to be added to the web.config file as follows.
+There are three application settings that need to be added to the web.config file as follows. If you aren't going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise, leave the dummy values. We'll be adding the actual values in the Azure portal for an additional level of security.
 
 ```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
@@ -67,13 +67,11 @@ There are three application settings that need to be added to the web.config fil
     <add key="SecretUri" value="secreturi" />
 ```
 
-If you aren't going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise, leave the dummy values. We'll be adding the actual values in the Azure portal for an additional level of security.
+
 
 ## <a id="gettoken"></a>Add method to get an access token
 
-To use the Key Vault API, you need an access token. The Key Vault Client handles calls to the Key Vault API but you need to supply it with a function that gets the access token.  
-
-Following is the code to get an access token from Azure Active Directory. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
+To use the Key Vault API, you need an access token. The Key Vault Client handles calls to the Key Vault API but you need to supply it with a function that gets the access token. The following is the code to get an access token from Azure Active Directory. This code can go anywhere in your application. I like to add a Utils or EncryptionHelper class.  
 
 ```cs
 //add these using statements
@@ -144,9 +142,7 @@ makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Make note of the end date and the password for the .pfx (in this example: July 31, 2018 and test123). You'll need them for the script below.
-
-For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
+Make note of the end date and the password for the .pfx (in this example: July 31, 2018 and test123). You'll need them for the script below. For more information on creating a test certificate, see [How to: Create Your Own Test Certificate](https://msdn.microsoft.com/library/ff699202.aspx)
 
 ### Associate the certificate with an Azure AD application
 
@@ -170,15 +166,13 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "ht
 $x509.Thumbprint
 ```
 
-After you've run these commands, you can see the application in Azure AD. When searching, make sure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog.
-
-To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
+After you've run these commands, you can see the application in Azure AD. When searching, make sure you select "Applications my company owns" instead of "Applications my company uses" in the search dialog. To learn more about Azure AD Application Objects and ServicePrincipal Objects, see [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md).
 
 ### Add code to your web app to use the certificate
 
-Now we'll add code to your Web App to access the cert and use it for authentication.
+Now we'll add code to your Web App to access the cert and use it for authentication. 
 
-First there's code to access the cert.
+First, there's code to access the cert. Note that StoreLocation is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
 
 ```cs
 public static class CertificateHelper
@@ -203,7 +197,7 @@ public static class CertificateHelper
 }
 ```
 
-Note that StoreLocation is CurrentUser instead of LocalMachine. And that we're supplying 'false' to the Find method because we're using a test cert.
+
 
 Next is code that uses the CertificateHelper and creates a ClientAssertionCertificate that is needed for authentication.
 
@@ -217,7 +211,7 @@ public static void GetCert()
 }
 ```
 
-Here is the new code to get the access token. This code replaces the GetToken method in the preceding example. I've given it a different name for convenience.
+Here is the new code to get the access token. This code replaces the GetToken method in the preceding example. I've given it a different name for convenience. I've put all of this code into my Web App project's Utils class for ease of use.
 
 ```cs
 public static async Task<string> GetAccessToken(string authority, string resource, string scope)
@@ -228,7 +222,7 @@ public static async Task<string> GetAccessToken(string authority, string resourc
 }
 ```
 
-I've put all of this code into my Web App project's Utils class for ease of use.
+
 
 The last code change is in the Application_Start method. First we need to call the GetCert() method to load the ClientAssertionCertificate. And then we change the callback method that we supply when creating a new KeyVaultClient. This code replaces the code that we had in the preceding example.
 
@@ -243,9 +237,7 @@ Adding a Certificate to your Web App is a simple two-step process. First, go to 
 
 ![Adding a Certificate to a Web App in the Azure portal][2]
 
-The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will make sure that all Certificates are loaded. If you wanted to load only the Certificates that you've uploaded, then you can enter a comma-separated list of their thumbprints.
-
-To learn more about adding a Certificate to a Web App, see [Using Certificates in Azure Websites Applications](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
+The last thing that you need to do is to add an Application Setting to your Web App that has the name WEBSITE\_LOAD\_CERTIFICATES and a value of *. This will make sure that all Certificates are loaded. If you wanted to load only the Certificates that you've uploaded, then you can enter a comma-separated list of their thumbprints. To learn more about adding a Certificate to a Web App, see [Using Certificates in Azure Websites Applications](https://azure.microsoft.com/blog/2014/10/27/using-certificates-in-azure-websites-applications/)
 
 ### Add a certificate to Key Vault as a secret
 
