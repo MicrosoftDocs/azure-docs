@@ -31,7 +31,7 @@ Before you can enable and use Application Proxy services, you need to have:
 * A server running Windows Server 2012 R2 or 2016, on which you can install the Application Proxy Connector. The server needs to be able to connect to the Application Proxy services in the cloud, and the on-premises applications that you are publishing.
   * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
-If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](../application-proxy-working-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
+If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
 
 ## Open your ports
 
@@ -49,7 +49,7 @@ To prepare your environment for Azure AD Application Proxy, you first need to en
    > [!IMPORTANT]
    > The table reflects the port requirements for connector versions 1.5.132.0 and newer. If you still have an older connector version, you also need to enable the following ports in addition to 80 and 443: 5671, 8080, 9090-9091, 9350, 9352, 10100–10120.
    >
-   >For information about updating your connectors to the newest version, see [Understand Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md#automatic-updates).
+   >For information about updating your connectors to the newest version, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md#automatic-updates).
 
 2. If your firewall or proxy allows DNS whitelisting, you can whitelist connections to msappproxy.net and servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653), which are updated each week.
 
@@ -97,10 +97,10 @@ On your server, check the list of active services for the connector and the conn
 
    ![App Proxy Connector services - screenshot](./media/application-proxy-enable/app_proxy_services.png)
 
-For information about connectors and how they stay up to date, see [Understand Azure AD Application Proxy connectors](../application-proxy-understand-connectors.md).
+For information about connectors and how they stay up to date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
 
 ## Next steps
 You are now ready to [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
 
-If you have applications that are on separate networks or different locations, use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](../active-directory-application-proxy-connectors-azure-portal.md).
+If you have applications that are on separate networks or different locations, use connector groups to organize the different connectors into logical units. Learn more about [Working with Application Proxy connectors](application-proxy-connector-groups.md).
