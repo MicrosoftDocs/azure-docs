@@ -851,6 +851,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-docker-host.md",
+            "redirect_url": "https://docs.docker.com/docker-for-azure/",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/virtual-machines/windows/accelerated-maintenance.md",
             "redirect_url": "/azure/virtual-machines/windows/mitigate-se",
             "redirect_document_id": false
