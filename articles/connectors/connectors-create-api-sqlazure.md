@@ -14,8 +14,8 @@ ms.workload: logic-apps
 ms.devlang: 
 ms.tgt_pltfrm: 
 ms.topic: article
-ms.date: 05/14/2018
-ms.author: estfan; LADocs
+ms.date: 05/15/2018
+ms.author: estfan
 ---
 
 # Connect to SQL Server or Azure SQL Database from Azure Logic Apps
@@ -35,7 +35,8 @@ app that automatically checks for new records in Dynamics CRM Online,
 adds items to your SQL database for any new records, and then sends email alerts.
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. If you're new to logic apps, review 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+If you're new to logic apps, review 
 [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 For connector-specific technical information, see the 
@@ -65,17 +66,9 @@ You need these credentials so that you can authorize your logic to access your S
 
     "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
 
-* Before you can connect logic apps to on-premises systems, 
-such as SQL Server, you must [set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). That way, 
-you can select the gateway when you create the SQL connection for your logic app.
-
-<a name="create-connection"></a>
-
-## Connect to your database
-
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
-[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
+* Before you can connect logic apps to on-premises systems, such as SQL Server, you must 
+[set up an on-premises data gateway](../logic-apps/logic-apps-gateway-install.md). 
+That way, you can select the gateway when you create the SQL connection for your logic app.
 
 <a name="add-sql-trigger"></a>
 
@@ -160,8 +153,15 @@ From the actions list, select any SQL action that you want.
    other actions in this connector or other connectors, see 
    [Logic Apps connectors](../connectors/apis-list.md).
 
-4. When you're done, on the designer toolbar, choose **Save**, 
-which updates your logic app. 
+4. When you're done, on the designer toolbar, choose **Save**. 
+
+<a name="create-connection"></a>
+
+## Connect to your database
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
 ## Process data in bulk
 
@@ -196,9 +196,8 @@ For solution details, see these articles:
 
 ## Connector-specific details
 
-For more information about the triggers, actions, 
-and limits defined by the connector's Swagger, 
-see the [connector's details](/connectors/sql/). 
+For technical information about this connector's triggers, actions, 
+and limits, see the [the connector's reference details](/connectors/sql/). 
 
 ## Next steps
 
