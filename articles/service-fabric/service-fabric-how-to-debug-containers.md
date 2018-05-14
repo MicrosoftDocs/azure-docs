@@ -41,4 +41,3 @@ The below procedure shows you how to debug a .NET application in a container run
 
 ## More Information
 To learn how to configure your developer environment to debug .NET applications in containers, see the [How to configure your developer environment to debug containers in Azure Service Fabric on Windows](service-fabric-how-to-configure-for-container-debugging.md).
-

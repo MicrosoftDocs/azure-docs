@@ -47,5 +47,20 @@ With Visual Studio 2017 Update 7 (15.7), you can debug .NET applications in cont
     > To learn more about the DNS Service in Service Fabric see here: [DNS Service in Azure Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice)
     >
 
+## Known limitations with the Service Fabric DNS Service
+
+The below is a list of known issue with the DNS Service in Service Fabric:
+
+1.	Using localhost for ClusterFQDNotIP will not support DNS resolution in containers
+    -	Resolution: Setup the local cluster using machine name (see above)
+1.	Running Windows10 in a Virutal Machine will not get DNS reply back to the container 
+    -	Resolution: Disable UDP checksum offload for IPv4 on the Virtual Machines NIC
+1.	Resolving services in same application using service name does not work 
+    - Resolution: Use servicename.applicationinstancename to resolve service endpoints
+1.	If using IP-address for ClusterFQDNorIP, changing primary IP on the host will break functionality 
+    - Resolution: Recreate the cluster using the new primary IP on the host or use machine name
+1.	If the FQDN machine name the cluster was created with is not resolvable on the network, DNS will fail 
+    -	Resolution: Recreate the local cluster using the primary IP of the host
+
 ## Next steps
 To learn how to debug a .NET application in a container, see the [Debug a .NET application in Windows containers with Service Fabric](service-fabric-how-to-debug-containers.md).
