@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory conditional access | Microsoft Docs
 description: Learn how conditional access in Azure Active Directory can help you to manage access control from a central location.
 services: active-directory
