@@ -16,7 +16,7 @@ ms.author: mbullwin ; daviste
 
 # Application Insights cohorts
 
-A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. You might analyze a specific set of users or events repeatedly. Cohorts can give you more flexibility to express exactly the set you’re interested in.
+A cohort is a set of users, sessions, events, or operations that have something in common. In Azure Application Insights, cohorts are defined by an analytics query. In cases where you have to analyze a specific set of users or events repeatedly, cohorts can give you more flexibility to express exactly the set you’re interested in.
 
 ![Cohorts pane](.\media\app-insights-usage-cohorts\001.png)
 
