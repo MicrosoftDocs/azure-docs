@@ -23,7 +23,7 @@
     href: container-instances-tutorial-deploy-app.md
 - name: Samples
   items:
-  - name: Azure code samples
+  - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
 - name: Concepts
   items:
