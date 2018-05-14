@@ -38,8 +38,6 @@ This update includes the following improvements for Azure Stack.
  
 - <!-- 1779474, 1779458 - IS --> **Use Av2 and F series virtual machines**. Azure Stack can now use virtual machines based on the Av2-series and F-series virtual machine sizes. For more information see [Virtual machine sizes supported in Azure Stack](/user/azure-stack-vm-sizes.md). 
 
-- <!-- 1951191 - IS - ASDK --> **VPN Gateway capacity is doubled**  Azure Stack now has twice the number of active infrastructure multi-tenant gateways, which doubles the number of Site-to-Site VPN connections that an Azure Stack deployment can host. For more information, see [About VPN Gateway](azure-stack-vpn-gateway-about-vpn-gateways.md).  
-
 - <!-- 1759172 - IS, ASDK --> **More granular administrative subscriptions**. With version 1804 and later, the Default Provider subscription is now complemented with two additional subscriptions. The additions facilitate separating the management of core infrastructure, additional resource providers, and workloads. The following three subscriptions are available after the update installs:
   - *Default Provider subscription*. Use this subscription for core infrastructure only. Do not deploy resources or resource providers on this subscription.
   - *Metering subscription*. Use this subscription for resource provider deployment. Resources deployed on this subscription are not charged.
