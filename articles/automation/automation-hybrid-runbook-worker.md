@@ -136,7 +136,7 @@ In addition to the standard addresses and ports that the Hybrid Runbook Worker r
 
 ## Troubleshooting
 
-The Hybrid Runbook Worker depends on the Microsoft Monitoring Agent to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error:
+The Hybrid Runbook Worker depends on agent to cummincate with your Automation account to register the worker, receive runbook jobs, and report status. For Windows this agent is the Microsoft Monitoring Agent for Linux it is the OMS Agent for Linux. If registration of the worker fails, here are some possible causes for the error:
 
 ### The hybrid worker is behind a proxy or firewall
 
