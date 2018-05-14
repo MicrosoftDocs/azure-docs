@@ -25,12 +25,12 @@ From the PIM application main page, go to:
 
 ![Add access reviews](media/azure-pim-resource-rbac/rbac-access-review-home.png)
 
-When you select the **Add** button, the **Create an access review** blade appears. On this blade, configure the review with a name and time limit, choose a role to review, and decide who does the review.
+When you select the **Add** button, the **Create an access review** blade appears. On this blade, configure the review with a name and time limit, choose a role to review, and then decide who does the review.
 
 ![Create an access review](media/azure-pim-resource-rbac/rbac-create-access-review.png)
 
 ### Configure the review
-To create an access review, you need to name it and set a start and end date.
+To create an access review, first name it, and then set a start and end date.
 
 ![Configure review - screenshot](media/azure-pim-resource-rbac/rbac-access-review-setting-1.png)
 
@@ -52,17 +52,17 @@ There are three options for performing a review. You can assign the review to so
    * **Selected users**: Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
    * **Assigned (self)**: Use this option to have the users review their own role assignments.
    
-2. Navigate to **Select reviewers**
+2. Go to **Select reviewers**.
    
     ![Select reviewers - screenshot](media/azure-pim-resource-rbac/rbac-access-review-setting-3.png)
 
 ### Start the review
-Finally, you can require that users provide a reason if they approve their access. Add a description of the review if you like. Then select **Start**.
+Finally, you can require that users provide a reason for approving access. Add a description of the review if you like. Then select **Start**.
 
-Make sure you let your users know that there's an access review waiting for them, and show them [show to perform an access review](pim-resource-roles-perform-access-review.md).
+Make sure you let your users know that there's an access review waiting for them, and show them [how to perform an access review](pim-resource-roles-perform-access-review.md).
 
 ## Manage the access review
-You can track the progress as the reviewers complete their reviews in the PIM Azure Resources dashboard, in the access reviews section. No access rights are changed in the directory until [the review has been completed](pim-resource-roles-complete-access-review.md).
+You can track the progress as the reviewers complete their reviews in the PIM Azure resources dashboard, in the access reviews section. No access rights are changed in the directory until [the review has been completed](pim-resource-roles-complete-access-review.md).
 
 Until the review period is over, you can remind users to complete their review, or stop the review early from the access reviews section.
 
