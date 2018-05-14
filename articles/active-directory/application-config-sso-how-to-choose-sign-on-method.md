@@ -78,5 +78,5 @@ To set an application’s **single sign-on** mode, follow these instructions:
 7.  Once the application loads, click **Single sign-on** from the application’s left-hand navigation menu.
 
 ## Next steps
-[Provide single sign-on to your apps with Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
+[Provide single sign-on to your apps with Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
