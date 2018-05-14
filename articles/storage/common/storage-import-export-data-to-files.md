@@ -66,21 +66,21 @@ Perform the following steps to prepare the drives.
 
     This example assumes that two disks are attached and basic NTFS volumes G:\ and H:\ are created. H:\is not encrypted while G: is already encrypted. The tool formats and encrypts the disk that hosts H:\ only (and not G:\).
 
-   - **For a disk that is not encrypted**: Specify *Encrypt* to enable BitLocker encryption on the disk..
-    ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    H,Format,SilentMode,Encrypt,
-    ```
+    - **For a disk that is not encrypted**: Specify *Encrypt* to enable BitLocker encryption on the disk.
+
+        ```
+        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+        H,Format,SilentMode,Encrypt,
+        ```
     
     - **For a disk that is already encrypted**: Specify *AlreadyEncrypted* and supply the BitLocker key.
-    ```
-    DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
-    G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
-    ```
 
-    Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
+        ```
+        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
+        ```
 
-    Multiple entries can be made in the same file corresponding to multiple drives. 
+    Multiple entries can be made in the same file corresponding to multiple drives. Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
 
 5.	Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
@@ -89,7 +89,6 @@ Perform the following steps to prepare the drives.
         ```
 
     An import example is shown below.
-
   
         ```
         WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -141,7 +140,7 @@ Perform the following steps to create an import job in the Azure portal.
 
 ## Step 4: Update the job with tracking information
 
-A[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+[!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
 ## Samples for journal files
 
