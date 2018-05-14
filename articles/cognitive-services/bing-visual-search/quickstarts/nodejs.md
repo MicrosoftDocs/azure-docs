@@ -34,6 +34,8 @@ To run this application, follow these steps:
 3. Install the request and form-data modules:  
   ```
   npm install request
+  ```
+  ```
   npm install form-data
   ```  
 4. Create a file named GetVisualInsights.js and add the following code to it.

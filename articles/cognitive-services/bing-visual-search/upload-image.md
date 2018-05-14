@@ -358,7 +358,7 @@ Replace the BingImageSearch method with this code:
         }
 ```
 
-<a name="using-nodejs">
+<a name="using-nodejs" />
 ## Using Node.js
 
 The following shows how to send the message using FormData in Node.js.
