@@ -25,7 +25,7 @@ Sign in to the Azure portal at http://portal.azure.com.
     - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
     - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
     - **AUTHENTICATION**: create a new service principal or use an existing one. When using an existing SPN, you need to provide the SPN client ID and secret.
-    - **SCALE**: select a VM size for the AKS nodes. The VM size **cannot** be changed once an AKS cluster has been deployed. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed.
+    - **SCALE**: select a VM size for the AKS nodes. Although the VM size can't be changed once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up. Also, select the number of nodes to deploy into the cluster. Node count **can** be adjusted after the cluster has been deployed. If you're getting started with Azure Dev Spaces, one node is enough to explore all the features.
 
    Make sure to choose Kubernetes version 1.9.6 or later.
 
