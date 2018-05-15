@@ -154,7 +154,8 @@ The example described demonstrated how to use stored procedures. Next you will l
 When defining a stored procedure by using Azure portal or the SDK, input parameters are always sent as a string to the stored procedure. So if you are planning to pass an array of strings as an input for the stored procedure, the arrary is converted to string and sent to the stored procedure. 
 
 To workaround this issue, you can add few lines of code to the stored procedure to parse the string as an array. For example add the following code block to your stored procedure to workaround this issue: 
- 
+
+``` 
 function sample(arr) {
     if (typeof arr === "string") arr = JSON.parse(arr);
     
@@ -163,7 +164,7 @@ function sample(arr) {
         console.log(a);
     });
 }
-
+```
 
 ## Database program transactions
 Transaction in a typical database can be defined as a sequence of operations performed as a single logical unit of work. Each transaction provides **ACID guarantees**. ACID is a well-known acronym that stands for four properties -  Atomicity, Consistency, Isolation, and Durability.  
