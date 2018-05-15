@@ -16,9 +16,14 @@ Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read this 
 ## Intents
 Use only as many [intents](luis-concept-intent.md) as you need to perform the functions of your app. The general rule is to create an intent when this intent would trigger an action in the calling application or bot. 
 
+### Non-overlapping intents
 The intents should be specific. They should not overlap each other. If multiple intents are semantically close, consider merging them.
 
+### Don't add too many intents
 If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general as to be overlapping. 
+
+### Negative intentions
+If you want to determine negative and positive intentions, such as "I **want** a car" and "I **don't** want a car", create two intents (one positive, and one negative) and add appropriate utterances for each.
 
 ### If you need more than the maximum number of intents
 First, consider whether your system is using too many intents. Intents that are too similar can make it more difficult for LUIS to distinguish between them. Intents should be varied enough to capture the main tasks that the user is asking for, but they don't need to capture every path your code takes. For example, BookFlight and BookHotel might be separate intents in a travel app, but BookInternationalFlight and BookDomesticFlight are too similar. If your system needs to distinguish them, use entities or other logic rather than intents.
@@ -57,7 +62,7 @@ Begin with 10-15 [utterances](luis-concept-utterance.md) per intent, but not mor
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](publishapp.md), and [test](train-test.md) again. 
 
-LUIS builds effective models with utterances that are selected carefully. Too many utterances is not valuable because it can introduce confusion. 
+LUIS builds effective models with utterances that are selected carefully. Too many utterances are not valuable because it can introduce confusion. 
 
 It is better to start with a few utterances, then [review endpoint utterances](label-suggested-utterances.md) for correct intent prediction and entity extraction. 
 
