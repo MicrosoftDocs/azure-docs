@@ -84,7 +84,7 @@ Microsoft’s goal is to provide choice to the developer community in terms of l
 | Scenario | Use Azure Maps when… | Use Bing Maps when… |
 | ------------- | ------------- | ------------- |
 | Development environment | Building in or coordinating with other Azure services | Using a third-party cloud or other developer environment |
-| Development stage  | Because Azure Maps is currently in Public Preview, it is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
+| Development stage  | Azure Maps is optimized for early stage testing and Proof of Concept development | An enterprise grade SLA is required for a production environment |
 | Pricing options | Preliminary developer pricing options suffice | Customized enterprise grade pricing is required |
 | Use case environment | In-vehicle usage is required | In-vehicle usage is not required |
 | Geographic coverage | India, China, Japan, and South Korea are not required | India, China, Japan, and South Korean map coverage are required |
