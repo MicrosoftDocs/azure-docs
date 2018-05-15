@@ -15,15 +15,20 @@ ms.author: v-geberr
 --- 
 
 # Quickstart: Create app that uses hierarchical entity
-In this quickstart, create an app that demonstrates how to find related entities based on context. 
+In this quickstart, create an app that demonstrates how to find related pieces of data based on context. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
-## Purpose of the app
-This app determine if a user wants to book a flight. It uses the hierarchical entity to determine origin city and destination city. 
+## Purpose of the app with this entity
+This app determine if a user wants to book a flight. It uses the hierarchical entity to determine the locations, origin city and destination city, within the user's text. 
 
-## Purpose of the hierarchical entity
-The purpose of the **hierarchical** entity is to find simple entities that are related to each other based on context within the utterance. Consider the following utterance:
+The hierarchical entity is a good fit for this type of data because the two pieces of data:
+
+* Are both locations, usually expressed as cities or airport codes.
+* Usually have unique word choice around the words to be able to determine which is the origin and which is the destination. These words include: to, headed toward, from, leaving.
+* Both locations are frequently in the same utterance. 
+
+The purpose of the **hierarchical** entity is to find related data within the utterance based on context. Consider the following utterance:
 
 ```JSON
 1 ticket from Seattle to Cairo`

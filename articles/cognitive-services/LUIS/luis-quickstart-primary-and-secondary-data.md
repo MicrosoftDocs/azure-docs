@@ -14,7 +14,7 @@ ms.author: v-geberr
 --- 
 
 # Quickstart: Create app that uses simple entity
-In this quickstart, you create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
+In this quickstart, create an app that demonstrates how to extract machine-learned data from an utterance using the **Simple** entity.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
@@ -25,7 +25,7 @@ This app demonstrates how to pull data out of an utterance. Consider the followi
 Send a message telling them to stop
 ```
 
-The intent is to send a message. The content of the message is `telling them to stop`.  
+The intent is to send a message. The important data of the utterance is the message itself,  `telling them to stop`.  
 
 ## Purpose of the simple entity
 The purpose of the simple entity is to teach LUIS what a message is and where it can be found in an utterance. The part of the utterance that is the message can change from utterance to utterance based on word choice and utterance length. LUIS needs examples of messages in any utterance across all intents.  
