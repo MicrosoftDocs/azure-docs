@@ -32,7 +32,6 @@ To run this application, follow these steps:
 1. Create a new Python project in your favorite IDE or editor.
 2. Create a file named visualsearch.py and add the code shown in this quickstart.
 3. Replace the `SUBSCRIPTION_KEY` value with your subscription key.
-3. Replace the `INSIGHTS_TOKEN` value with an insights token from an /images/search response.
 4. Run the program.
 
 
