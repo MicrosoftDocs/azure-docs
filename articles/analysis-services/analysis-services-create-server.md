@@ -1,5 +1,5 @@
 ---
-title: Create an Analysis Services server in Azure | Microsoft Docs
+title: Quickstart - Create an Analysis Services server by using Azure portal | Microsoft Docs
 description: Learn how to create an Analysis Services server instance in Azure.
 author: minewiskan
 manager: kfile
@@ -12,7 +12,7 @@ ms.reviewer: minewiskan
 ---
 # Quickstart: Create a server - Portal
 
-This article walks you through creating an Analysis Services server resource in your Azure subscription.
+This article describes how to create an Analysis Services server resource in your Azure subscription by using the portal.
 
 ## Prerequisites 
 
@@ -54,9 +54,9 @@ When no longer needed, delete your server. In your server's **Overview**, click 
 
 
 ## Next steps
-In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can add a basic sample data model to it from the portal. Having a sample model is helpful to learn about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
+In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can help secure it by configuring an (optional) server firewall. You can also add a basic sample data model to your server right from the portal. Having a sample model is helpful when learning about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configure a firewall - Portal](analysis-services-qs-firewall.md)   
+> [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)   
 > [!div class="nextstepaction"]
 > [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

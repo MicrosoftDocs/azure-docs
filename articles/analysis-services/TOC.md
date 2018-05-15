@@ -7,7 +7,7 @@
 
 ## [Create a server - Portal](analysis-services-create-server.md)
 ## [Create a server - PowerShell](analysis-services-create-powershell.md)
-## [Configure a firewall - Portal]
+## [Configure server firewall - Portal](analysis-services-qs-firewall.md)
 
 # Tutorials
 ## [1 - Add a sample model - portal](analysis-services-create-sample-model.md) 

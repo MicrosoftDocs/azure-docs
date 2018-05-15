@@ -1,5 +1,5 @@
 ﻿---
-title: Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
+title: Quickstart - Create an Azure Analysis Services server by using PowerShell | Microsoft Docs
 description: Learn how to create an Azure Analysis Services server by using PowerShell
 author: minewiskan
 manager: kfile
@@ -64,7 +64,9 @@ Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myReso
 
 ## Next steps
 
-In this quickstart, you learned how to create a server in your Azure subscription. Now that you have server, you can add a basic sample data model to it from the portal. Having a sample model is helpful to learn about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
+In this quickstart, you learned how to create a server in your Azure subscription by using PowerShell. Now that you have server, you can help secure it by configuring an (optional) server firewall. You can also add a basic sample data model to your server right from the portal. Having a sample model is helpful when learning about configuring model database roles and testing client connections. To learn more, continue to the tutorial for adding a sample model.
 
+> [!div class="nextstepaction"]
+> [Quickstart: Configure server firewall - Portal](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
 > [Tutorial: Add a sample model to your server](analysis-services-create-sample-model.md)

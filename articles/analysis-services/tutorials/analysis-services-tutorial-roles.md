@@ -12,7 +12,7 @@ ms.reviewer: owend
 
 # 2 - Configure server administrator and user roles
 
- In this stutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You are also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. You complete these tasks: 
+ In this stutorial, you use SQL Server Management Studio (SSMS) to connect to your server in Azure to configure server administrator and model database roles. You're also introduced  to [Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL is a JSON based scripting language for tabular models at the 1200 and higher compatibility levels. It can be used to automate many tabular modeling tasks. TMSL is often used with PowerShell, but in this tutorial, you use the XMLA query editor in SSMS. With this tutorial, you complete these tasks: 
   
 > [!div class="checklist"]
 > * Get your server name from the portal
@@ -50,42 +50,42 @@ For the remaining tasks, you use SSMS to connect to and manage your server.
 
     ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
-2. In the **Connect to Server** dialog box, in **Server name** paste in the server name you copied from the portal, then in **Authentication**, choose **Active Directory Universal with MFA Support**, enter your user account, and then press **Connect**.
+2. In the **Connect to Server** dialog box, in **Server name**, paste in the server name you copied from the portal. In **Authentication**, choose **Active Directory Universal with MFA Support**, then enter your user account, and then press **Connect**.
    
     ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
     > Choosing Active Directory Universal with MFA Support is recommended. This type of authentication type supports [non-interactive and multi-factor authentication](../../sql-database/sql-database-ssms-mfa-authentication.md). 
 
-3. In **Object Explorer**, verify the server name and expand to see server objects. Right click to see server properties.
+3. In **Object Explorer**, expand to see server objects. Right-click to see server properties.
    
     ![Connect in SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-objexp.png)
 
 ## Add a user account to the server administrator role
 
-In this task, you add a user or group account to the server administrator role.
+In this task, you add a user or group account from your Azure AD to the server administrator role.
 
 1. In **Object Explorer**, right-click your server name, and then click **Properties**. 
-2. In the **Analysis Server Properties** window, click **Security** > **Add**. You may be prompted to sign-in.
+2. In the **Analysis Server Properties** window, click **Security** > **Add**.
 3. In the **Select a User or Group** window, search or manually enter a user or group account in your Azure AD, and then cick **Add**. 
    
      ![Add server admin](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
 
-4. Click **OK** to close **Analysis Server Properties**.
+4. Click **OK**, to close **Analysis Server Properties**.
 
     > [!TIP]
     > You can also add server administrators by using **Analysis Services Admins** in the portal. 
 
 ## Add a user to the model database administrator role
 
-In this task, you add a user or group account to an Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) TMSL command included in a script created for you.
+In this task, you add a user or group account to the Internet Sales Administrator role that already exists in the model. This role has Full control (Administrator) permissions for the adventureworks sample model database. This task uses the [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) TMSL command in a script created for you.
 
 1. In **Object Explorer**, expand **Databases** > **adventureworks** > **Roles**. 
 2. Right-click **Internet Sales Administrator**, then click **Script Role as** > **CREATE OR REPLACE To** > **New Query Editor Window**.
 
     ![New Query Editor Window](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
-3. In the **XMLAQuery**, change **"memberName":** to a user or group account in your Azure AD. By default, the account you're signed in with is included; however, you do not need to add your own account because you are already a server administrator.
+3. In the **XMLAQuery**, change the value for **"memberName":** to a user or group account in your Azure AD. By default, the account you're signed in with is included; however, you do not need to add your own account because you are already a server administrator.
 
     ![TMSL script in XMLA query](./media/analysis-services-tutorial-roles/aas-add-db-admin-script.png)
 
@@ -99,7 +99,7 @@ In this task, you use the [Create](https://docs.microsoft.com/sql/analysis-servi
 1. In **Object Explorer**, right-click **adventureworks**, and then click **New Query** > **XMLA**. 
 2. Copy and paste the following TMSL script into the query editor:
 
-    ```XMLA
+    ```JSON
     {
     "create": {
       "parentObject": {
