@@ -51,7 +51,7 @@ Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.micr
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
-New-AzureRMResourceGroup `
+New-AzureRmResourceGroup `
    -Name $resourceGroup `
    -Location $location 
 ```
@@ -104,7 +104,7 @@ Before defining the Stream Analytics job, prepare the data that is configured as
 
 ## Create a Stream Analytics job
 
-Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, and the job definition as parameters. The job name can be any friendly name that identifies your job. It can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
+Create a Stream Analytics job with [New-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, and the job definition as parameters. The job name can be any friendly name that identifies your job. It can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. The job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
 
 ```json
 {    
@@ -120,12 +120,12 @@ Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.
 }
 ```
 
-Next, run the `New-AzureRMStreamAnalyticsJob` cmdlet. Make sure to replace the value of `jobDefinitionFile` variable with the path where you have stored the job definition JSON file. 
+Next, run the `New-AzureRmStreamAnalyticsJob` cmdlet. Make sure to replace the value of `jobDefinitionFile` variable with the path where you have stored the job definition JSON file. 
 
 ```powershell
 $jobName = "MyStreamingJob"
 $jobDefinitionFile = "C:\JobDefinition.json"
-New-AzureRMStreamAnalyticsJob `
+New-AzureRmStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -File $jobDefinitionFile `
   -Name $jobName `
@@ -134,7 +134,7 @@ New-AzureRMStreamAnalyticsJob `
 
 ## Configure input to the job
 
-Add an input to your job by using the [New-AzureRMStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you will create a blob storage as an input. 
+Add an input to your job by using the [New-AzureRmStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you will create a blob storage as an input. 
 
 On your local machine, create a file named `JobInputDefinition.json` and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account’s access key that is the value stored in $storageAccountKey value. 
 
@@ -168,12 +168,12 @@ On your local machine, create a file named `JobInputDefinition.json` and add the
 }
 ```
 
-Next, run the `New-AzureRMStreamAnalyticsInput` cmdlet, make sure to replace the value of `jobDefinitionFile` variable with the path where you have stored the job input definition JSON file. 
+Next, run the `New-AzureRmStreamAnalyticsInput` cmdlet, make sure to replace the value of `jobDefinitionFile` variable with the path where you have stored the job input definition JSON file. 
 
 ```powershell
 $jobInputName = "MyBlobInput"
 $jobInputDefinitionFile = "C:\JobInputDefinition.json"
-New-AzureRMStreamAnalyticsInput `
+New-AzureRmStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobInputDefinitionFile `
@@ -216,12 +216,12 @@ On your local machine, create a file named `JobOutputDefinition.json`, and add t
 }
 ```
 
-Next, run the `New-AzureRMStreamAnalyticsOutput` cmdlet. Make sure to replace the value of `jobOutputDefinitionFile` variable with the path where you have stored the job output definition JSON file. 
+Next, run the `New-AzureRmStreamAnalyticsOutput` cmdlet. Make sure to replace the value of `jobOutputDefinitionFile` variable with the path where you have stored the job output definition JSON file. 
 
 ```powershell
 $jobOutputName = "MyBlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
-New-AzureRMStreamAnalyticsOutput `
+New-AzureRmStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
   –JobName $jobName `
   –File $jobOutputDefinitionFile `
@@ -244,12 +244,12 @@ Add a transformation your job by using the [New-AzureRmStreamAnalyticsTransforma
 }
 ```
 
-Next run the `New-AzureRMStreamAnalyticsTransformation` cmdlet. Make sure to replace the value of `jobTransformationDefinitionFile` variable with the path where you have stored the job transformation definition JSON file. 
+Next run the `New-AzureRmStreamAnalyticsTransformation` cmdlet. Make sure to replace the value of `jobTransformationDefinitionFile` variable with the path where you have stored the job transformation definition JSON file. 
 
 ```powershell
 $jobTransformationName = "MyJobTransformation"
 $jobTransformationDefinitionFile = "C:\JobTransformationDefinition.json"
-New-AzureRMStreamAnalyticsTransformation `
+New-AzureRmStreamAnalyticsTransformation `
   -ResourceGroupName $resourceGroup `
   –JobName $jobName `
   –File $jobTransformationDefinitionFile `
@@ -258,12 +258,12 @@ New-AzureRMStreamAnalyticsTransformation `
 
 ## Start the Stream Analytics job and check the output
 
-Start the job by using the [Start-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`. To learn more about what each of these values are referring to, see the [parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) section in PowerShell documentation. In this example, specify mode as `CustomTime` and provide a value for the `OutputStartTime`. 
+Start the job by using the [Start-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. `OutputStartMode` accepts values of `JobStartTime`, `CustomTime`, or `LastOutputEventTime`. To learn more about what each of these values are referring to, see the [parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) section in PowerShell documentation. In this example, specify mode as `CustomTime` and provide a value for the `OutputStartTime`. 
 
 For time value, select `2018-01-01`. This start date is chosen because it precedes the event timestamp from the sample data. After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data. 
 
 ```powershell
-Start-AzureRMStreamAnalyticsJob `
+Start-AzureRmStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
   -OutputStartMode CustomTime `
