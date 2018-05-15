@@ -92,7 +92,7 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximum indexers |3 |5 or 15|50 |200 |200 |N/A |
 | Maximum datasources |3 |5 or 15 |50 |200 |200 |N/A |
-| Maximum skillsets |3 |5 or 15 |50 |200 |200 |N/A |
+| Maximum skillsets <sup>4</sup> |3 |5 or 15 |50 |200 |200 |N/A |
 | Maximum indexing load per invocation |10,000 documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |Limited only by maximum documents |N/A |
 | Maximum running time | 1-3 minutes |24 hours |24 hours |24 hours |24 hours |N/A  |
 | Blob indexer: maximum blob size, MB |16 |16 |128 |256 |256 |N/A  |
@@ -103,6 +103,8 @@ Basic services created after late 2017 have an increased limit of 15 indexes, da
 <sup>2</sup> Basic services created after late 2017 have an increased limit of 15 indexes, data sources, and indexers. Services created earlier have 5.
 
 <sup>3</sup> S3 HD services do not include indexer support.
+
+<sup>4</sup> Maximum of 30 skills per skillset.
 
 ## Queries per second (QPS)
 
