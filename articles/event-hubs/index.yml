@@ -21,7 +21,7 @@ abstract:
       src: https://docs.microsoft.com/azure/sql-database/media/index/create-sql-database-on-azure.png
       width: 250  
     title: Azure Messaging and event based architecture (1:24:32)
-    href: https://azure.microsoft.com/en-us/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
+    href: https://azure.microsoft.com/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
     width: 250
 sections:
 - title: 5-Minute Quickstarts
@@ -32,17 +32,17 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/event-hubs/media/index/portal.svg
+        src: /azure/event-hubs/media/index/portal.svg
       text: Azure portal
-      href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-portal
+      href: /azure/event-hubs/event-hubs-quickstart-portal
     - image: 
-        src: https://docs.microsoft.com/azure/event-hubs/media/index/cli.svg
+        src: /azure/event-hubs/media/index/cli.svg
       text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-cli
+      href: /azure/event-hubs/event-hubs-quickstart-cli
     - image: 
-        src: https://docs.microsoft.com/azure/event-hubs/media/index/logo_powershell.svg
+        src: /azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-quickstart-powershell
+      href: /azure/event-hubs/event-hubs-quickstart-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
