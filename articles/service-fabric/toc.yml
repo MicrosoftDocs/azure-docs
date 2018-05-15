@@ -601,6 +601,8 @@
         href: service-fabric-view-entities-aggregated-health.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+    - name: Diagnosing common scenarios
+      href: service-fabric-diagnostics-common-scenarios.md
 - name: Reference
   items:
   - name: Azure PowerShell
