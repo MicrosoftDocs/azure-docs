@@ -153,7 +153,6 @@ sections:
       - html: <a href="local-emulator">Develop your application locally using the emulator</a>
       - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Create an HTTP Trigger with an Azure Cosmos DB input binding</a>
       - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">Build a basic web application to host static files in Cosmos DB</a>
-      - html: <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/storage-explorer">Manage Azure Cosmos DB data using Azure Storage Explorer</a>
       
   - title: Reference
     items:
