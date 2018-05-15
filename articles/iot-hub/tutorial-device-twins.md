@@ -23,7 +23,7 @@ ms.custom: mvc
 
 As well as sending telemetry to your IoT hub, a device may report status such as its current firmware or network configuration. You may also need to configure a device from a back-end application. For example, setting a target temperature or other operational parameters.
 
-To synchronize state information between a device and an IoT hub, you use *device twins*. A device twin is a JSON document, associated with a specific device, and stored in your IoT hub's device identity registry. A device twin contains desired properties, reported properties, and tags. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. This tutorial shows you how to use desired and reported properties to synchronize state information.
+To synchronize state information between a device and an IoT hub, you use _device twins_. A device twin is a JSON document, associated with a specific device, and stored in your IoT hub's device identity registry. A device twin contains _desired properties_, _reported properties_, and _tags_. A desired property is set by a back-end application and read by a device. A reported property is set by a device and read by a back-end application. A tag is set by a back-end application and is never sent to a device. This tutorial shows you how to use desired and reported properties to synchronize state information.
 
 In this tutorial, you perform the following tasks:
 
@@ -93,10 +93,10 @@ az iot hub device-identity show-connection-string --device-id MyTwinDevice --hub
 
 ## Send state information
 
-You use desired properties to send state information from a back-end application to a device. In this section, you see:
+You use desired properties to send state information from a back-end application to a device. In this section, you see how to:
 
-* How to receive and process desired properties on a device.
-* How to send desired properties from a back-end application.
+* Receive and process desired properties on a device.
+* Send desired properties from a back-end application.
 
 To view the simulated device sample code that receives desired properties, navigate to the **Tutorials/DeviceTwins** folder in the sample Node.js project you downloaded. Then open the SimulatedDevice.js file in a text editor.
 
@@ -160,6 +160,34 @@ The following snippet shows how the back-end application sends a desired propert
 
 [!code-javascript[Send desired properties](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=senddesiredproperties&highlight=2 "Send desired properties")]
 
+### Run the applications
+
+In this section, you run two sample applications to observe as a back-end application sends desired property updates to a simulated device application.
+
+To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
+
+To run the simulated device application, open a shell or command prompt window and navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+
+```cmd/sh
+npm install
+node SimulatedDevice.js "{your device connection string}"
+```
+
+To run the back-end application, open another shell or command prompt window. Then navigate to the **Tutorials/DeviceTwins** folder in the Node.js project you downloaded. Then run the following commands:
+
+```cmd/sh
+npm install
+node ServiceClient.js "{your service connection string}"
+```
+
+The following screenshot shows the output from the simulated device application and highlights how it handles an update to the **maxTemperature** desired property. You can see how both the top-level handler and the climate component handlers run:
+
+![Simulated device](./media/tutorial-device-twins/SimulatedDevice1.png)
+
+The following screenshot shows the output from the back-end application and highlights how it sends an update to the **maxTemperature** desired property:
+
+![Back-end application](./media/tutorial-device-twins/BackEnd1.png)
+
 ## Receive state information
 
 Your back-end application receives state information from a device as reported properties. A device sets the reported properties, and sends them to your hub. A back-end application can read the current values of the reported properties from the device twin stored in your hub.
@@ -180,7 +208,11 @@ A back-end application accesses the current reported property values for a devic
 
 [!code-javascript[Display reported properties](~/iot-samples-node/Tutorials/DeviceTwins/ServiceClient.js?name=displayreportedproperties&highlight=2 "Display reported properties")]
 
-## Run the applications
+### Run the applications
+
+In this section, you run two sample applications to observe as a simulated device application sends reported property updates to a back-end application.
+
+You run the same two sample applications that you ran to see how desired properties are sent to a device.
 
 To run the simulated device and back-end applications, you need the device and service connection strings. You made a note of the connection strings when you created the resources at the start of this tutorial.
 
@@ -198,11 +230,13 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-The following screenshots show the output as the simulated device and back-end applications run:
+The following screenshot shows the output from the simulated device application and highlights how it sends a reported property update to your hub:
 
-![Simulated device](./media/tutorial-device-twins/SimulatedDevice.png)
+![Simulated device](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-![Back-end application](./media/tutorial-device-twins/BackEnd.png)
+The following screenshot shows the output from the back-end application and highlights how it receieves and processes a reported property update from a device:
+
+![Back-end application](./media/tutorial-device-twins/BackEnd2.png)
 
 ## Clean up resources
 
@@ -223,10 +257,8 @@ In this tutorial, you learned how to synchronize state information between your 
 
 > [!div class="checklist"]
 > * Create an IoT hub and add a test device to the identity registry.
-> * Set desired properties in your solution back-end.
-> * Receive and process desired properties in a simulated device.
-> * Set reported properties in your simulated device.
-> * Receive and process reported properties in your solution back-end.
+> * Use desired properties to send state information to your simulated device.
+> * Use reported properties to receive state information from your simulated device.
 
 Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
 
