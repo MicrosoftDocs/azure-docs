@@ -36,7 +36,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Force -Scope CurrentUser
 
 ## Visual Studio
 
-Deploying Service Fabric Applications to Service Fabric Mesh requires Visual Studio 2017. Install version 15.6.0 or greater and enable the following workloads:
+Deploying Service Fabric Applications to Service Fabric Mesh requires Visual Studio 2017. [Install version 15.6.0][download-visual-studio] or greater and enable the following workloads:
 
 - ASP.NET and Web Development
 - Azure Development
@@ -81,3 +81,4 @@ Read through the [Deploy a .NET Core app to Service Fabric Mesh](service-fabric-
 [download-sdk]: http://aka.ms/meshdlsdk
 [download-tools]: https://aka.ms/sfapptools
 [powershell5-download]: https://www.microsoft.com/download/details.aspx?id=50395
+[download-visual-studio]: https://www.visualstudio.com/downloads/
