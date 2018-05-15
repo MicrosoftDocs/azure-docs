@@ -59,3 +59,5 @@ Close the **multi-factor authentication** window.
 In this tutorial, you have enabled specific authentication methods for use in MFA and SSPR. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to MFA and SSPR before you roll out the solution in a pilot.
 
 [Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
+
+For more information about all of the configurable authentication methods, see the article [What are authentication methods?](concept-authentication-methods.md)
