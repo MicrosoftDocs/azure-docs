@@ -173,13 +173,13 @@ Now that the application is ready, you can deploy it to a cluster directly from 
 ## Scale applications and services in a cluster
 Service Fabric services can easily be scaled across a cluster to accommodate for a change in the load on the services. You scale a service by changing the number of instances running in the cluster. You have multiple ways of scaling your services, you can use scripts or commands from PowerShell or Service Fabric CLI (sfctl). In this example, use Service Fabric Explorer.
 
-Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer runs in all Service Fabric clusters and can be accessed from a browser, by browsing to the clusters HTTP management port (19080), for example, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
 You may receive a browser warning that the location is not trusted. This is because the certificate is self-signed. You may choose to ignore the warning and proceed. When prompted by the browser, select the installed certificate to connect. 
 
 To scale the web front-end service, do the following steps:
 
-1. Open Service Fabric Explorer in your cluster - for example,`http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Open Service Fabric Explorer in your cluster - for example,`https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. In the tree view, expand **Applications**->**VotingType**->**fabric:/Voting**. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
