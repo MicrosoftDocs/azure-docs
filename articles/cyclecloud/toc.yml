@@ -7,45 +7,45 @@
 - name: CycleCloud Tools and Software
   items:
   - name: Prerequisites
-    href: prerequisites.md
+    href: cyclecloud-prerequisites.md
   - name: Installation
-    href: installation.md
+    href: cyclecloud-installation.md
   - name: Configure CycleCloud
-    href: configure-cyclecloud.md
+    href: cyclecloud-configuration.md
   - name: Install CycleCloud CLI
-    href: install-cli.md
+    href: cyclecloud-install-cli.md
   - name: Jetpack
-    href: jetpack.md
+    href: cyclecloud-jetpack.md
   - name: pogo
     items:
     - name: Overview
-      href: pogo.md
+      href: cyclecloud-pogo-overview.md
     - name: pogo Configuration
-      href: pogo-configuration.md
+      href: cyclecloud-pogo-configuration.md
     - name: Using pogo
-      href: using-pogo.md
+      href: cyclecloud-pogo-guide.md
   - name: SubmitOnce
     items:
     - name: Overview
-      href: submit-once.md
+      href: cyclecloud-submit-once.md
     - name: Installation and Configuration
-      href: submit-once-installation.md
+      href: cyclecloud-submit-once-installation.md
     - name: User Management
-      href: submit-once-user-management.md
+      href: cyclecloud-submit-once-user-management.md
     - name: CLI
-      href: submit-once-cli.md
+      href: cyclecloud-submit-once-cli.md
     - name: Available Commands
-      href: submit-once-commands.md
+      href: cyclecloud-submit-once-commands.md
     - name: Appendicies
-      href: submit-once-appendix.md
+      href: cyclecloud-submit-once-appendix.md
 - name: Quickstarts
   items:
   - name: Quickstart 1
-    href: quickstart1.md
+    href: cyclecloud-quickstart1.md
   - name: Quickstart 2
-    href: quickstart2.md
+    href: cyclecloud-quickstart2.md
   - name: Quickstart 3
-    href: quickstart3.md
+    href: cyclecloud-quickstart3.md
 - name: Templates
   items:
   - name: CycleCloud Templates
@@ -55,73 +55,73 @@
   - name: Clusters and Nodes
     items:
     - name: Cluster Management
-      href: cluster-management.md
+      href: cyclecloud-cluster-management.md
     - name: Nodes and Node Arrays
-      href: nodes.md
+      href: cyclecloud-nodes.md
     - name: Images
-      href: images.md
+      href: cyclecloud-images.md
     - name: Auto-Scale
-      href: autoscale-api.md
+      href: cyclecloud-autoscale-api.md
   - name: Projects
     items:
     - name: Cluster-Init Projects
-      href: cluster-init-projects.md
+      href: cyclecloud-cluster-init-projects.md
     - name: Cluster Init
-      href: cluster-init.md
+      href: cyclecloud-cluster-init.md
   - name: Disaster Recovery
     items:
     - name: Synchronization
-      href: dr-synchronization.md
+      href: cyclecloud-disasterrecovery-synchronization.md
     - name: Virtualization
       href: dr-virtualization.md
   - name: Monitoring
     items:
     - name: Monitoring
-      href: monitoring.md
+      href: cyclecloud-monitoring.md
     - name: Alerts
-      href: alerts.md
+      href: cyclecloud-alerts.md
     - name: Usage
-      href: usage.md
+      href: cyclecloud-usage.md
   - name: Reports
     items:
     - name: Reports
-      href: reports.md
+      href: cyclecloud-reports.md
     - name: Event Logs
-      href: event-logs.md
+      href: cyclecloud-event-logs.md
   - name: Data Management
     items:
     - name: Overview
-      href: data-overview.md
+      href: cyclecloud-data-overview.md
     - name: Endpoint Creation
-      href: endpoint-creation.md
+      href: cyclecloud-endpoint-creation.md
     - name: Data Encrytion
-      href: data-encryption.md
+      href: cyclecloud-data-encryption.md
   - name: Storage
     items:
     - name: Storage
-      href: storage.md
+      href: cyclecloud-storage.md
     - name: Blobs
-      href: blobs.md
+      href: cyclecloud-blobs.md
   - name: User Creation and RBAC
     href:
 - name: How-To
   items:
   - name: Create Custom Images
-    href: custom-images.md
+    href: cyclecloud-custom-images.md
   - name: Create Custom Alerts
-    href: custom-alerts.md
+    href: cyclecloud-custom-alerts.md
   - name: Transfer Data
-    href: transfer-data.md
+    href: cyclecloud-transfer-data.md
   - name: Enable Return Nodes
-    href: return-nodes.md
+    href: cyclecloud-return-nodes.md
 - name: Reference
   items:
   - name: CLI
     href:
   - name: Common Cookbook Reference
-    href: common-cookbook-reference.md
+    href: cyclecloud-cookbook-reference.md
   - name: HealthCheck
-    href: healthcheck.md
+    href: cyclecloud-healthcheck.md
   - name: Node Configuration
     href:
   - name: Performance Tuning
