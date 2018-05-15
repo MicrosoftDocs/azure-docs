@@ -4,12 +4,12 @@ description: This article explains the JSON structure of an Azure Dashboard
 services: azure-portal
 documentationcenter: ''
 author: adamab
-manager: timlt
+manager: dougeby
 editor: tysonn
 
 ms.service: azure-portal
 ms.devlang: NA
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
