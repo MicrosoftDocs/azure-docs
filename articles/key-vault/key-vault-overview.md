@@ -6,7 +6,7 @@ author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid: 34af20ee-3fa7-4f28-9d98-6168b1759764
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na

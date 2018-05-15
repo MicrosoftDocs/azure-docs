@@ -102,6 +102,24 @@ The following snippets are all taken from the Dal.cs file in the DAL directory.
     collection.Find(new BsonDocument()).ToList();
     ```
 
+* Creates a task and insert it into the MongoDB collection
+
+   ```csharp
+    public void CreateTask(MyTask task)
+    {
+        var collection = GetTasksCollectionForEdit();
+        try
+        {
+            collection.InsertOne(task);
+        }
+        catch (MongoCommandException ex)
+        {
+            string msg = ex.Message;
+        }
+    }
+   ```
+   Similarly, you can update and delete documents by using the [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) and [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) methods. 
+
 ## Update your connection string
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
