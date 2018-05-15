@@ -38,7 +38,7 @@ Account administrator, Service administrator, and Co-administrator are the three
 | --- | --- | --- | --- |
 | Account administrator | 1 per Azure account | <ul><li>Access the [Azure Account Center](https://account.azure.com/Subscriptions)</li><li>Manage all subscriptions in an account</li><li>Create new subscriptions</li><li>Cancel subscriptions</li><li>Change the billing for a subscription</li><li>Change the Service administrator</li></ul> | Conceptually, the billing owner of the subscription.|
 | Service administrator | 1 per Azure subscription | <ul><li>Manage services in the [Azure portal](https://portal.azure.com)</li><li>Assign users to the Co-administrator role</li></ul> | By default, for a new subscription, the Account administrator is also the Service administrator.<br>The Service administrator has the equivalent access of user who is assigned the Owner role at the subscription scope. |
-| Co-administrator | 200 per subscription | <ul><li>Same access privileges as the Service administrator but can’t change the association of subscriptions to Azure directories</li></ul> | The Co-administrator  has the equivalent access of user who is assigned the Owner role at the subscription scope. |
+| Co-administrator | 200 per subscription | <ul><li>Same access privileges as the Service administrator, but can’t change the association of subscriptions to Azure directories</li><li>Assign users to the Co-administrator role, but cannot change the Service administrator</li></ul> | The Co-administrator  has the equivalent access of user who is assigned the Owner role at the subscription scope. |
 
 In the Azure portal, you can see who is assigned to the Account administrator and Service administrator by viewing the properties of your subscription.
 
@@ -67,11 +67,11 @@ Azure AD administrator roles are used to manage Azure AD resources in a director
 | [Password administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#password-administrator--helpdesk-administrator) | <ul><li>Change passwords for users and other Helpdesk administrators</li><li>Manage service requests</li><li>Monitor service health</li></ul> |  |
 | [Billing administrator](../active-directory/active-directory-assign-admin-roles-azure-portal.md#billing-administrator) | <ul><li>Make purchases</li><li>Manage subscriptions</li><li>Manage support tickets</li><li>Monitors service health</li></ul> |  |
 
+For a list of all the Azure AD administrator roles, see [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+
 In the Azure portal, you can assign the Azure AD administrator roles in the **Azure Active Directory** pane.
 
 ![Azure AD administrator roles in the Azure portal](./media/rbac-and-directory-admin-roles/directory-admin-roles.png)
-
-For more information and a list of all the Azure AD administrator roles, see [Assigning administrator roles in Azure Active Directory](/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ## Azure RBAC roles
 
