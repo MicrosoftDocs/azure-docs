@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 05/15/2017
 ms.author: jeedes
 
 ---
@@ -164,9 +164,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Cornerstone OnDemand. Cornerstone OnDemand supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-cornerstone-ondemand-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-In order to enable Azure AD users to log into Cornerstone OnDemand, they must be provisioned into Cornerstone OnDemand. In the case of Cornerstone OnDemand, provisioning is a manual task.
+**If you need to create user manually, perform following steps:**
 
 To configure user provisioning, send the information (e.g.: Name, Email) about the Azure AD user you want to provision to the [Cornerstone OnDemand support team](mailTo:moreinfo@csod.com).
 
