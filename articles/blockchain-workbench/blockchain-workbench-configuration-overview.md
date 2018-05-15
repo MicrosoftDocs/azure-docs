@@ -487,5 +487,5 @@ The following example defines a basic request-response application in which a re
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [Azure Blockchain Workbench REST API reference](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
 
