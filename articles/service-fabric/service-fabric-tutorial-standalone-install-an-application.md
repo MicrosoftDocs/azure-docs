@@ -48,9 +48,6 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 Once the application is downloaded, you can deploy it to a cluster directly from Visual Studio.
 
-> [!NOTE]
-> Many services use the reverse proxy to communicate with each other. Clusters created from Visual Studio and party clusters have reverse proxy enabled by default.  If using an existing cluster, you must [enable the reverse proxy in the cluster](service-fabric-reverseproxy.md#setup-and-configuration).
-
 1. Open Visual Studio
 
 2. Select **File** > **Open**
