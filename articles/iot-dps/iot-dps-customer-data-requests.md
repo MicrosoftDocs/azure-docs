@@ -31,13 +31,11 @@ Tenant administrators may remove enrollments from the Azure portal, and this rem
 
 For more information, see [How to manage device enrollments](how-to-manage-enrollments.md).
 
-It is also possible to perform delete operations for enrollments and registration records using REST APIs.
+It is also possible to perform delete operations for enrollments and registration records using REST APIs:
 
-To delete enrollment information for a single device, you can use [Device Enrollment - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
-
-To delete enrollment information for a group of devices, you can use [Device Enrollment Group - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
-
-To delete information about devices that have been provisioned, you can use [Registration State - Delete Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
+* To delete enrollment information for a single device, you can use [Device Enrollment - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete).
+* To delete enrollment information for a group of devices, you can use [Device Enrollment Group - Delete](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete).
+* To delete information about devices that have been provisioned, you can use [Registration State - Delete Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate).
 
 ## Exporting customer data
 
@@ -47,19 +45,17 @@ Tenant administrators can view enrollments and registration records through the 
 
 For more information on how to manage enrollments, see [How to manage device enrollments](how-to-manage-enrollments.md).
 
-It is also possible to perform export operations for enrollments and registration records using REST APIs.
+It is also possible to perform export operations for enrollments and registration records using REST APIs:
 
-To export enrollment information for a single device, you can use [Device Enrollment - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
-
-To export enrollment information for a group of devices, you can use [Device Enrollment Group - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
-
-To export information about devices that have already been provisioned, you can use [Registration State - Get Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
+* To export enrollment information for a single device, you can use [Device Enrollment - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get).
+* To export enrollment information for a group of devices, you can use [Device Enrollment Group - Get](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get).
+* To export information about devices that have already been provisioned, you can use [Registration State - Get Registration State](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate).
 
 > [!NOTE]
 > When you use Microsoft's enterprise services, Microsoft generates some information, known as system-generated logs. Some Azure IoT Hub Device Provisioning Service system-generated logs are not accessible or exportable by tenant administrators. These logs constitute factual actions conducted within the service and diagnostic data related to individual devices.
 
 ## Links to additional documentation
 
-Full documentation for Azure IoT Hub Device Provisioning service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps)
+Full documentation for Azure IoT Hub Device Provisioning service APIs is located at [https://docs.microsoft.com/rest/api/iot-dps](https://docs.microsoft.com/rest/api/iot-dps).
 
 Azure IoT Hub [customer data request features](../iot-hub/iot-hub-customer-date-requests.md).
