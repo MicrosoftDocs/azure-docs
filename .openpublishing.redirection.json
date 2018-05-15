@@ -15896,6 +15896,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/active-directory/active-directory-troubleshooting.md",
+            "redirect_url": "/azure/active-directory/get-started-azure-ad",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/batch/batch-cli-samples.md",
             "redirect_url": "/azure/batch/batch-cli-get-started",
             "redirect_document_id": false
