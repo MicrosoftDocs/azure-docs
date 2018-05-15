@@ -21294,11 +21294,6 @@
             "source_path": "articles/iot-suite/iot-suite-what-is-azure-iot.md",
             "redirect_url": "/azure/iot-solutions/iot-solutions-what-is-azure-iot",
             "redirect_document_id": false
-        },
-        {
-            "source_path": "articles/iot-suite/TOC.md",
-            "redirect_url": "/azure/iot-solutions/toc",
-            "redirect_document_id": false
         }
     ]
 }
