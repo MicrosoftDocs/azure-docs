@@ -31,7 +31,7 @@
         href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Use APIs
     items: 
-    - name: Call LUIS endpoint API
+    - name: Get utterance prediction with endpoint query
       items:
       - name: C#
         href: luis-get-started-cs-get-intent.md
@@ -47,7 +47,7 @@
         href: luis-get-started-php-get-intent.md
       - name: Ruby
         href: luis-get-started-ruby-get-intent.md
-    - name: Call LUIS authoring API
+    - name: Add utterance to intent and train app
       items: 
       - name: C#
         href: luis-quickstart-cs-add-utterance.md
