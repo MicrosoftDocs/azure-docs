@@ -13,7 +13,7 @@
     items:
     - name: Use prebuilt domain
       href: luis-get-started-create-app.md
-    - name: Find user intentions
+    - name: Find user intention
       href: luis-quickstart-intents-only.md
     - name: Get data from text
       items: 
@@ -27,7 +27,7 @@
         href: luis-quickstart-intents-regex-entity.md
       - name: KeyPhrase entity
         href: luis-quickstart-intent-and-key-phrase.md
-      - name: Create a new app with Sentiment analysis
+      - name: Sentiment analysis
         href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: Use APIs
     items: 
