@@ -30,7 +30,7 @@
 ### [Renew certs for O365 and Azure AD](active-directory-aadconnect-o365-certs.md)
 ### [Update the SSL certificate for an Active Directory Federation Services (AD FS) farm](active-directory-aadconnectfed-ssl-update.md)
 
-### [Device Option](active-directory-aadconnect-device-options.md)
+### [Device options](active-directory-aadconnect-device-options.md)
 #### [Enable device writeback](active-directory-aadconnect-feature-device-writeback.md)
 #### [Hybrid Azure AD join post-config tasks](active-directory-aadconnect-hybrid-aad-join-post-config-tasks.md)
 
