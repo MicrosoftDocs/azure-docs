@@ -223,9 +223,9 @@ $jobOutputName = "MyBlobOutput"
 $jobOutputDefinitionFile = "C:\JobOutputDefinition.json"
 New-AzureRmStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
-  –JobName $jobName `
-  –File $jobOutputDefinitionFile `
-  –Name $jobOutputName -Force 
+  -JobName $jobName `
+  -File $jobOutputDefinitionFile `
+  -Name $jobOutputName -Force 
 ```
 
 ## Define the transformation query
