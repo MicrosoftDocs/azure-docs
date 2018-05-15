@@ -36,7 +36,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 
 1. On the **Ubuntu Server** tab, select **Ubuntu Server 16.04 LTS**.
 
-    ![When creating a Ubuntu virtual machine, specify the version you need](./media/chef-extension-portal/ubuntu-server-version.png)
+    ![When creating an Ubuntu virtual machine, specify the version you need](./media/chef-extension-portal/ubuntu-server-version.png)
 
 1. On the **Ubuntu Server 16.04 LTS** tab, select **Create**.
 
@@ -47,11 +47,11 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 1. On the **Basics** tab, specify the following values, and then select **OK**.
 
     - **Name** - Enter a name for the new virtual machine.
-    - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, refer to the article     [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage).
+    - **VM disk type** - Specify either **SSD** or **HDD** for the storage disk type. For more information about virtual machine disk types on Azure, see the article     [High-performance Premium Storage and managed disks for VMs](/azure/virtual-machines/windows/premium-storage).
     - **User name** - Enter a user name that is granted administrator privileges on the virtual machine.
-    - **Authentication type** - Select **Password**. You can also select **SSH public key**, and supply a SSH public key value. For purposes of this demo (and in the screenshots), **Password** is selected.
+    - **Authentication type** - Select **Password**. You can also select **SSH public key**, and supply an SSH public key value. For purposes of this demo (and in the screenshots), **Password** is selected.
     - **Password** and **Confirm password** - Enter a password for the user.
-    - **Login with Azure Active Directory** - Select **Disabled**.
+    - **Log in with Azure Active Directory** - Select **Disabled**.
     - **Subscription** - Select the desired Azure subscription, if you have more than one.
     - **Resource group** - Enter a name for your resource group.
     - **Location** - Select **East US**.
@@ -85,7 +85,7 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
     - **Chef Client version** - Enter the version of the chef client to install. A blank value will cause the latest version to be installed. This can be blank.
     - **SSL Verification Mode** - Select either **None** or **Peer**. I selected *None* for the demo.
     - **Chef Environment** - Enter the Chef environment this node should be a member of. This can be blank.
-    - **Encrypted Databag Secret** - Select a file containing the secret for the Encryped Databag this machine should have access to. This can be blank.
+    - **Encrypted Databag Secret** - Select a file containing the secret for the Encrypted Databag this machine should have access to. This can be blank.
     - **Chef Server SSL Certificate** - Select the SSL Certificate assigned to your Chef Server. This can be blank.
 
     ![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/install-extension.png)
