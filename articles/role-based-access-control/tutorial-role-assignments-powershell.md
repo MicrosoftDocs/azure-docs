@@ -296,12 +296,14 @@ To assign a role (grant access), you use the [New-AzureRmRoleAssignment](/powers
 
 ## (Optional) List role assignments in the Azure portal
 
-1. To see how the role assignments look in the Azure portal, you can view the **Access control (IAM)** pane for the resource group and storage account.
+1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** pane for the storage account.
 
     ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-resource-group.png)
-    
+
+1. Next, view the **Access control (IAM)** pane for the storage account.
+
     ![Role assignments for a group](./media/tutorial-role-assignments-powershell/role-assignments-storage-account.png)
-    
+
 ## Remove role assignments
 
 To remove a role assignment (revoke access) for users, groups, and applications, use [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
