@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/14/2018
 ms.author: magoedte
 ---
 
@@ -32,7 +32,7 @@ When an Operations Manager management group is integrated with Log Analytics, th
 
 To provide high availability for direct connected or Operations Management groups that communicate with Log Analytics through the gateway, you can use network load balancing to redirect and distribute the traffic across multiple gateway servers.  If one gateway server goes down, the traffic is redirected to another available node.  
 
-It is recommended that you install the OMS agent on the computer running the OMS Gateway software to monitor the OMS Gateway and analyze performance or event data. Additionally, the agent helps the OMS Gateway identify the service end points that it needs to communicate with.
+The OMS agent is required on the computer running the OMS Gateway in order for it to identify the service end points that it needs to communicate with, and monitor the OMS Gateway to analyze its performance or event data.
 
 Each agent must have network connectivity to its gateway so that agents can automatically transfer data to and from the gateway. Installing the gateway on a domain controller is not recommended.
 
@@ -52,6 +52,7 @@ When designating a computer to run the OMS Gateway, this computer must have the 
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2,  Windows Server 2008
 * .Net Framework 4.5
 * Minimum of a 4-core processor and 8 GB of memory 
+* OMS Agent for Windows 
 
 ### Language availability
 

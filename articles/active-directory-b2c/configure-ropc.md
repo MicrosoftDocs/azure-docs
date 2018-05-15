@@ -15,7 +15,7 @@ ms.author: davidmu
 ---
 # Configure the resource owner password credentials flow (ROPC) in Azure AD B2C
 
-The resource owner password credentials (ROPC) flow is an OAUTH standard authentication flow where the application, also know as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
+The resource owner password credentials (ROPC) flow is an OAUTH standard authentication flow where the application, also known as the relying party, exchanges valid credentials such as userid and password for an ID token, access token, and a refresh token. 
 
 > [!NOTE]
 > This feature is in preview.
