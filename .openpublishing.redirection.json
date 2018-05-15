@@ -1967,7 +1967,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
-            "redirect_url": "/azure/cdn/app-service-web-tutorial-content-delivery-network",
+            "redirect_url": "/azure/cdn/cdn-add-to-web-app",
             "redirect_document_id": false
         },
         {
