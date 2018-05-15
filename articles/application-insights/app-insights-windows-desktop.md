@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/16/2018
+ms.date: 05/15/2018
 ms.author: mbullwin
 
 ---
 # Monitoring usage and performance in Windows Desktop apps
 
-Although telemetry can be sent to Application Insights from a desktop application, this is chiefly useful for debugging and experimental purposes.
+Applications hosted on premises, in Azure, and in other clouds can all take advantage of Application Insights. The only limitation is the need to [allow communication](app-insights-ip-addresses.md) to the Application Insights service. 
 
 ## To send telemetry to Application Insights from a Windows application
 1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
