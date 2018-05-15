@@ -34,15 +34,15 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+        src: /azure/service-bus-messaging/media/index/portal.svg
       text: Azure portal
       href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
+        src: /azure/service-bus-messaging/media/index/cli.svg
       text: Azure CLI
       href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
     - image: 
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
+        src: /azure/service-bus-messaging/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/service-bus-messaging/service-bus-quickstart-powershell
 - title: Step-by-Step Tutorials
