@@ -16,6 +16,8 @@
 
 # Concepts
 
+## [Authentication methods](../active-directory/authentication/concept-authentication-methods.md)
+
 ## Self-service password reset
 ### [How password reset works](../active-directory/authentication/concept-sspr-howitworks.md)
 ### [Password reset options](../active-directory/authentication/concept-sspr-customization.md)
