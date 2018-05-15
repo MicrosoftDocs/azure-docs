@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: sethmanheim
 manager: timlt
 
-ms.author: sethm;chwolf
-ms.date: 04/20/2018
+ms.author: sethm
+ms.date: 05/14/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 
 ---
 
-# Update inventory using CLI and Java
+# Update inventory using CLI and topics/subscriptions
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using Azure CLI and Java.
 
@@ -49,17 +49,17 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 ## Log in to Azure
 
-Once CLI is installed, open Cloud Shell and issue the following commands to log in to Azure:
+Once CLI is installed, open a command prompt and issue the following commands to log in to Azure. These steps are not necessary if you're using Cloud Shell:
 
 1. If you are using Azure CLI locally, run the following command to log in to Azure. This login step is not necessary if you're running these commands in Cloud Shell:
 
-   ```azurecli
+   ```azurecli-interactive
    az login
    ```
 
 2. Set the current subscription context to the Azure subscription you want to use:
 
-   ```azurecli
+   ```azurecli-interactive
    az account set --subscription Azure_subscription_name
    ```
 
@@ -67,34 +67,40 @@ Once CLI is installed, open Cloud Shell and issue the following commands to log 
 
 Issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
-```azurecli
+```azurecli-interactive
 # Create a resource group
-az group create --name my-resourcegroup --location eastus
+az group create --name myResourcegroup --location eastus
 
-# Create a Service Bus messaging namespace
-az servicebus namespace create --name namespace-name --resource-group my-resourcegroup -l eastus2
+# Create a Service Bus messaging namespace with a unique name
+namespaceName=myNameSpace$RANDOM
+az servicebus namespace create \
+   --resource-group myResourceGroup \
+   --name $namespaceName \
+   --location eastus
 
 # Create a Service Bus topic
-az servicebus topic create --resource-group my-resourcegroup --namespace-name my-namespace-name --name my-topic-name
+az servicebus topic create --resource-group myResourceGroup \
+   --namespace-name $namespaceName \
+   --name myTopic
 
 # Create subscription 1 to the topic
-az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S1
+az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S1
 
 # Create filter 1 - use custom properties
-az servicebus rule create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --subscription-name S1 --name MyFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3')"
+az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MyFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3')"
 
 # Create filter 2 - use custom properties
-az servicebus rule create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --subscription-name S1 --name MySecondFilter --filter-sql-expression "StoreId = 'Store4'"
+az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S1 --name MySecondFilter --filter-sql-expression "StoreId = 'Store4'"
 
 # Create subscription 2
-az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S2
+az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S2
 
 # Create filter 3 - use message header properties via IN list and 
 # combine with custom properties.
-az servicebus rule create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --subscription-name S2 --name MyFilter --filter-sql-expression "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'"
+az servicebus rule create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --subscription-name S2 --name MyFilter --filter-sql-expression "sys.To IN ('Store5','Store6','Store7') OR StoreId = 'Store8'"
 
 # Create subscription 3
-az servicebus subscription create --resource-group my-resourcegroup --namespace-name my-namespace-name --topic-name my-topic-name --name S3
+az servicebus subscription create --resource-group myResourceGroup --namespace-name $namespaceName --topic-name myTopic --name S3
 
 # Create filter 4 - Get everything except messages for subscription 1 and 2. 
 # Also modify and add an action; in this case set the label to a specified value. 
@@ -106,7 +112,11 @@ re5','Store6','Store7','Store8') OR StoreId NOT IN ('Store1','Store2','Store3','
 e8')" --action-sql-expression "SET sys.Label = 'SalesEvent'"
 
 # Get the connection string
-az servicebus namespace authorizationrule keys list --resource-group my-resourcegroup --namespace-name my-namespace-name --name RootManageSharedAccessKey
+connectionString=$(az servicebus namespace authorization-rule keys list \
+   --resource-group myResourceGroup \
+   --namespace-name  $namespaceName \
+   --name RootManageSharedAccessKey \
+   --query primaryConnectionString --output tsv)
 ```
 
 After the last command runs, copy and paste the connection string, and the queue name you selected, to a temporary location such as Notepad. You will need it in the next step.
@@ -146,7 +156,7 @@ After the namespace and topic/subscriptions are provisioned, and you have the ne
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```azurecli
+```azurecli-interactive
 az group delete --resource-group my-resourcegroup
 ```
 

@@ -5,15 +5,15 @@ services: service-bus-messaging
 author: sethmanheim
 manager: timlt
 
-ms.author: sethm;chwolf
-ms.date: 05/02/2018
+ms.author: sethm
+ms.date: 05/14/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
 
 ---
 
-# Update inventory using Azure portal and .NET
+# Update inventory using Azure portal and topics/subscriptions
 
 Microsoft Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. Asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities. This tutorial shows how to use Service Bus topics and subscriptions in a retail inventory scenario, with publish/subscribe channels using the Azure portal and .NET.
 

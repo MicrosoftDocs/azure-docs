@@ -9,7 +9,7 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/03/2018
+ms.date: 05/14/2018
 ms.author: sethm
 
 ---
@@ -48,7 +48,7 @@ This quickstart requires that you are running the latest version of Azure PowerS
 
 3. Issue the following commands to set the current subscription context, or to see the currently active subscription:
 
-   ```azurepowershell
+   ```azurepowershell-interactive
    Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
    Get-AzureRmContext
    ```
@@ -57,7 +57,7 @@ This quickstart requires that you are running the latest version of Azure PowerS
 
 From the PowerShell prompt, issue the following commands to provision Service Bus resources. Be sure to replace all placeholders with the appropriate values:
 
-```azurepowershell
+```azurepowershell-interactive
 # Create a resource group 
 New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
 
@@ -115,7 +115,7 @@ To run the code, do the following:
 
 Run the following command to remove the resource group, namespace, and all related resources:
 
-```powershell
+```powershell-interactive
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
