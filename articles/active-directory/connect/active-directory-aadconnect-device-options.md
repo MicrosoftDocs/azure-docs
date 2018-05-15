@@ -20,7 +20,7 @@ ms.author: anandy
 
 #Azure AD Connect: Device options
 
-This following documentation provides information about the various device options available in Azure AD Connect. You can use Azure AD Connect to configure the following two operations: 
+The following documentation provides information about the various device options available in Azure AD Connect. You can use Azure AD Connect to configure the following two operations: 
 * **Hybrid Azure AD join**: If your environment has an on-premises AD footprint and you also want benefit from the capabilities provided by Azure Active Directory, you can implement hybrid Azure AD joined devices. These are devices that are both, joined to your on-premises Active Directory and your Azure Active Directory.
 * **Device writeback**: Device writeback is used to enable conditional access based on devices to AD FS (2012 R2 or higher) protected devices
 
@@ -38,7 +38,7 @@ This following documentation provides information about the various device optio
 2.	After providing the credentials for Azure AD, you can chose the operation to be performed on the Device options page.
     ![Device operations](./media/active-directory-aadconnect-device-options/deviceoptionsselection.png)
 
-## Next Steps
+## Next steps
 
 * [Configure Hybrid Azure AD join](../device-management-hybrid-azuread-joined-devices-setup.md)
 * [Configure / Disable device writeback](./active-directory-aadconnect-feature-device-writeback.md)

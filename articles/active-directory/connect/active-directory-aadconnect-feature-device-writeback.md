@@ -36,7 +36,7 @@ This provides additional security and assurance that access to applications is g
 > 
 
 ## Part 1: Install Azure AD Connect
-1. Install Azure AD Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
+Install Azure AD Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
 
 ## Part 2: Enable device writeback in Azure AD Connect
 1. Run the installation wizard again. Select **Configure device options** from the Additional Tasks page and click **Next**. 

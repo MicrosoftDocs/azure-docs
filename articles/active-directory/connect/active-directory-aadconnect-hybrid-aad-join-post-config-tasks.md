@@ -23,7 +23,7 @@ ms.author: anandyadavmsft
 After you have run Azure AD Connect to configure your organization for Hybrid Azure AD join, there are a few additional steps that you must complete to finalize that setup.  Carry out only the steps that apply for your devices.
 
 ## 1. Configure controlled rollout (Optional)
-All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:
+All domain-joined devices running Windows 10 and Windows Server 2016 automatically register with Azure AD once all configuration steps are complete. If you prefer a controlled rollout rather than this auto-registration, you can use group policy to selectively enable or disable automatic rollout.  This group policy should be set before starting the other configuration steps:Azure AD
 * Create a group policy object in your Active Directory.
 * Name it (ex- Hybrid Azure AD join).
 * Edit & go to:  Computer Configuration > Policies > Administrative Templates > Windows Components > Device Registration.
@@ -45,16 +45,16 @@ Make sure that the following URLs are accessible from computers inside your orga
 ## 3. Implement WPAD for Windows 10 devices
 If your organization accesses the Internet via an outbound proxy, implement Web Proxy Auto-Discovery (WPAD)to enable Windows 10 computers to register to Azure AD.
 
-## 4. Configure the SCP in any forests that were not configured by AAD Connect 
+## 4. Configure the SCP in any forests that were not configured by Azure AD Connect 
 
-The service connection point (SCP) contains your Azure AD tenant information that will be used by your devices for auto-registration.  Run the PowerShell script, ConfigureSCP.ps1, that you downloaded from AAD Connect.
+The service connection point (SCP) contains your Azure AD tenant information that will be used by your devices for auto-registration.  Run the PowerShell script, ConfigureSCP.ps1, that you downloaded from Azure AD Connect.
 
-## 5. Configure any federation service that was not configured by AAD Connect
+## 5. Configure any federation service that was not configured by Azure AD Connect
 
 If your organization uses a federation service to sign in to Azure AD, the claim rules in your Azure AD relying party trust must allow device authentication. If you are using federation with AD FS, go to [AD FS Help](https://aka.ms/aadrptclaimrules) to generate the claim rules. If you are using a non-Microsoft federation solution, contact that provider for guidance.  
 
 >[!NOTE]
->If you have Windows down-level devices, the service must support issuing the authenticationmethod and wiaormultiauthn claims when receiving requests to the Azure AD trust. In AD FS, you should add an issuance transform rule that passes-through the authentication method.)
+>If you have Windows down-level devices, the service must support issuing the authenticationmethod and wiaormultiauthn claims when receiving requests to the Azure AD trust. In AD FS, you should add an issuance transform rule that passes-through the authentication method.
 
 ## 6. Enable Azure AD Seamless SSO for Windows down-level devices
 
