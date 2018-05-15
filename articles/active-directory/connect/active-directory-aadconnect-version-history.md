@@ -69,8 +69,6 @@ New features and improvements
 - Azure AD Connect Wizard: The following changes have been made when you use the **Change user sign-in** task to switch from AD FS to Pass-through Authentication:
     - The Pass-through Authentication Agent is installed on the Azure AD Connect server and the Pass-through Authentication feature is enabled, before we convert domain(s) from federated to managed.
     - Users are no longer converted from federated to managed. Only domain(s) are converted.
-- Azure AD Connect Wizard: Install PTA agent before converting a domain to managed
-- Azure AD Connect Wizard: Do not convert users to managed (convert only domain) for PTA
 - Azure AD Connect Wizard: AD FS Multi Domain Regex is not correct when user UPN has ' special character Regex update to support special characters
 - Azure AD Connect Wizard: Remove spurious "Configure source anchor attribute" message when no change 
 - Azure AD Connect Wizard: AD FS support for the dual federation scenario
