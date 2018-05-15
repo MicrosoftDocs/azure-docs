@@ -34,14 +34,13 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ## 1.1.819.0
 
-5/4/2018: Released for auto upgrade and download.
+### Release status
 
-
+5/14/2018: Released for auto upgrade and download.
 
 ### New features and improvements
 
 New features and improvements
-
 
 - This release includes the public preview of the integration of PingFederate in Azure AD Connect. With this release customers can easily and reliable configure their Azure Active Directory environment to leverage PingFederate as their federation provider. To learn more about how to use this new feature, please visit our [online documentation](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - We updated the Azure AD Connect Wizard Troubleshooting Utility, where we now analyze more error scenario’s, such as Linked Mailboxes and AD Dynamic Groups. Read more about the troubleshooting utility [here](active-directory-aadconnect-troubleshoot-objectsync.md).
