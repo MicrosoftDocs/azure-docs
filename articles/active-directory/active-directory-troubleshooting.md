@@ -3,8 +3,9 @@ title: 'Troubleshooting: ''Active Directory'' item is missing or not available |
 description: What to do when Active Directory menu item doesn't appear in the Azure Management Portal.
 services: active-directory
 documentationcenter: na
-author: bryanla
-manager: mtillman
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman 
 editor: ''
 
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
@@ -14,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
+
 
 ---
 # Troubleshooting: 'Active Directory' item is missing or not available
