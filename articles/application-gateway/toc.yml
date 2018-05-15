@@ -66,14 +66,14 @@
     href: create-ssl-portal.md
   - name: Host multiple sites - Portal
     href: create-multiple-sites-portal.md
-    - name: Customize WAF rules
+  - name: Customize WAF rules
     items:
-      - name: Portal
-        href: application-gateway-customize-waf-rules-portal.md
-      - name: Azure PowerShell
-        href: application-gateway-customize-waf-rules-powershell.md
-      - name: Azure CLI
-        href: application-gateway-customize-waf-rules-cli.md
+    - name: Portal
+      href: application-gateway-customize-waf-rules-portal.md
+    - name: Azure PowerShell
+      href: application-gateway-customize-waf-rules-powershell.md
+    - name: Azure CLI
+      href: application-gateway-customize-waf-rules-cli.md
     - name: Redirect external traffic
     items:
       - name: Azure PowerShell
