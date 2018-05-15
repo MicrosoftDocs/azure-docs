@@ -21,8 +21,6 @@ For this article, you need a free [LUIS][LUIS] account in order to author your L
 ## Purpose of the regular expression entity
 The purpose of an entity is to get important data from the utterance. The app's use of the regular expression entity is to pull out Knowledge Base (KB) article numbers from an utterance. It is not machine-learned. 
 
-For this Knowledge Base app, LUIS extracts the KB document number in such as way that a standard order can be created and filled. LUIS allows utterances to have variations, abbreviations, and slang. 
-
 Simple example utterances from users include:
 
 ```

@@ -14,12 +14,14 @@ ms.author: v-geberr
 --- 
 
 # Quickstart: Create app using a list entity
-In this quickstart, create an app that demonstrates how return exact data that matches a predefined list. When you're finished, you'll have a LUIS endpoint running in the cloud. 
+In this quickstart, create an app that demonstrates how to get data that matches a predefined list. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
 ## Purpose of the list entity
-This app takes drink orders such as `1 coke and 1 milk please`. A **list** entity of drinks looks for exact text matches and returns those matches. Use this entity when the data values are a known set. 
+This app takes drink orders such as `1 coke and 1 milk please` and returns the data such as the type of drink. A **list** entity of drinks looks for exact text matches and returns those matches. 
+
+A list entity is a good choice for this type of data when the data values are a known set. The names of drinks can vary including slang, and abbreviations but the names do not frequently change. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  

@@ -15,7 +15,7 @@ ms.author: v-geberr
 # Quickstart: Create app to determine user's intention
 In this quickstart, create an app that demonstrates how to use **intents** to determine the user's _intention_ based on the utterance (text) they submit to the app. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
-This app is the simplest type of LUIS app because it doesn't extract data from the utterances. 
+This app is the simplest type of LUIS app because it doesn't extract data from the utterances. It only determines an utterance's intention.
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
 
