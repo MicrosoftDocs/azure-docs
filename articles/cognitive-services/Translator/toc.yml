@@ -60,7 +60,7 @@
     - name: Dictionary Examples
       href: reference/v3-0-dictionary-examples.md
   - name: v2 Translator Text API reference (Deprecated)
-    href: http://docs.microsofttranslator.com/text-translate.html
+    href: reference/v2-0-reference.md
     items:
     - name: Transform text
       href: transform-text.md
