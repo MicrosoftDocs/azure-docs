@@ -136,7 +136,7 @@ New-AzureRMStreamAnalyticsJob `
 
 Add an input to your job by using the [New-AzureRMStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you will create a blob storage as an input. 
 
-On your local machine, create a file named `JobInputDefinition.json` and add the following JSON data to it. Make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
+On your local machine, create a file named `JobInputDefinition.json` and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account’s access key that is the value stored in $storageAccountKey value. 
 
 ```json
 {
@@ -184,7 +184,7 @@ New-AzureRMStreamAnalyticsInput `
 
 Add an output to your job by using the [New-AzureRmStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsoutput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job’s output. This example uses blob storage as output. 
 
-On your local machine, create a file named `JobOutputDefinition.json`, and add the following JSON data to it. Make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
+On your local machine, create a file named `JobOutputDefinition.json`, and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account’s access key that is the value stored in $storageAccountKey value. 
 
 ```json
 {
