@@ -11,37 +11,53 @@ ms.author: rosh, v-gedod
 ---
 # Bing Search API use and display requirements
 
-Use and display requirements apply to any implementation of the content and associated information, for example, relationships, metadata and other signals, available through calls to Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, Web Search, Spell Check, and Autosuggest APIs. Implementation details related to these requirements can be found in documentation for specific features and results.     
+Use and display requirements apply to any implementation of the content and associated information. For example, the requirements apply to relationships, metadata, and other signals. These can be available through calls to the following APIs:
 
-## 1. Bing Spell Check and Bing Autosuggest API.
+- Bing Custom Search
+- Entity Search
+- Image Search
+- News Search
+- Video Search
+- Visual Search
+- Web Search
+- Spell Check
+- Autosuggest
+
+You can find implementation details related to these requirements in the documentation for specific features and results.     
+
+## Bing Spell Check and Bing Autosuggest APIs
 
 Do not:
 
-- copy, store, or cache any data you receive from the Bing Spell Check, or Bing Autosuggest APIs
-- use data you receive from the Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services which you or third parties may offer.
+- Copy, store, or cache any data you receive from Bing Spell Check or Bing Autosuggest APIs.
+- Use data you receive from Bing Spell Check or Bing Autosuggest APIs as part of any machine learning or similar algorithmic activity. Do not use this data to train, evaluate, or improve new or existing services that you or third parties might offer.
 
-## 2. Definitions
+## Definitions
 
-- "answer" refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news;   
-- "response" means any and all answers and associated data received in response to a single call to a Search API;
-- "result" refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
-- “Search APIs” means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, and Web Search APIs. 
+- *Answer* refers to a category of results returned in a response. For example, a response from the Bing Web Search API may include answers in the categories of webpage results, image, video, visual, and news.   
+- *Response* means any and all answers and associated data received in response to a single call to a Search API.
+- *Result* refers to an item of information in an answer. For example, the set of data connected with a single news article is a result in a news answer.
+- *Search APIs* means, collectively, the Bing Custom Search, Entity Search, Image Search, News Search, Video Search, Visual Search, and Web Search APIs. 
 
 
-## 3. Search APIs
+## Search APIs
 
-The requirements in this Section 3 apply to the Search APIs.
+The requirements in this section apply to the Search APIs.
 
-**A. Internet search experience.** All data returned in responses may only be used in internet search experiences. An internet search experience means the content displayed, as applicable: 
-- is relevant and responsive to the end user's direct query or other indication of the user's search interest and intent (for example, user-indicated search query); 
-- helps users find and navigate to the sources of data (for example, the provided URLs are implemented as hyperlinks so the content or attribution is a clickable link conspicuously displayed with the data); or, if of Bing Entity Search API, visibly link to the bing.com URL provided in the response that enables the user to navigate to the search results for the relevant query on bing.com;
-- includes multiple results for the end user to select from (for example, several results from the news answer are displayed, or all results if fewer than several are returned); 
-- is limited to an amount appropriate to serve the search purpose (for example, image thumbnails are thumbnail-sized in proportion to the user's display); 
-- includes visible indication to the end user that the content is Internet search results (for example, a statement that the content is "From the web"); and
-- includes any other combination of measures appropriate to ensure your use of data received from the Search APIs does not violate any applicable laws or third-party rights (for example, if relying on a Creative Commons license, complying with the applicable license terms). Consult your legal advisors to determine what measures may be appropriate.
-The only exception to the internet search experience requirement is for URL discovery as described in Section 3E (Non-display URL discovery) following. 
+### Internet search experience
 
-**B. Restrictions.** Do not:
+All data returned in responses may only be used in internet search experiences. An internet search experience means the content displayed, as applicable: 
+- Is relevant and responsive to the end user's direct query or other indication of the user's search interest and intent (for example, a user-indicated search query). 
+- Helps users find and navigate to the sources of data (for example, the provided URLs are implemented as hyperlinks, so the content or attribution is a clickable link conspicuously displayed with the data). Or, if using Bing Entity Search API, visibly link to the bing.com URL provided in the response that enables the user to navigate to the search results for the relevant query on bing.com.
+- Includes multiple results for the user to select from (for example, several results from the news answer are displayed, or all results if fewer than several are returned). 
+- Is limited to an amount appropriate to serve the search purpose (for example, image thumbnails are thumbnail-sized in proportion to the user's display). 
+- Includes a visible indication to the user that the content is internet search results (for example, a statement that the content is "from the web").
+- Includes any other combination of measures appropriate to ensure your use of data received from the Search APIs does not violate any applicable laws or third-party rights. For example, if you are relying on a Creative Commons license, you comply with the applicable license terms. Consult your legal advisors to determine what measures may be appropriate.
+The only exception to the internet search experience requirement is for URL discovery, as described later in this article. 
+
+### Restrictions
+
+Do not:
 
 - copy, store, or cache any data from responses (except retention to the extent permitted by the "Continuity of Service" section following); 
 - use data received from the Search APIs as part of any machine learning or similar algorithmic activity to train, evaluate, or improve new or existing services that you or third parties may offer.
