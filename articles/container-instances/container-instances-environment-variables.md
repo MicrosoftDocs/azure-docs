@@ -12,7 +12,7 @@ ms.author: marsma
 ---
 # Set environment variables
 
-Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container. To set environment variables in a container, specify them when you create a container instance. You can set environment variables when you start a container with the [Azure CLI][azure-cli-install], [Azure PowerShell][azure-powershell-install], and the [Azure portal][portal].
+Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container. To set environment variables in a container, specify them when you create a container instance. You can set environment variables when you start a container with the [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), and the [Azure portal](#azure-portal-example).
 
 For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
@@ -141,13 +141,13 @@ To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container 
 
 ![Portal page showing environment variable Enable button and text boxes][portal-env-vars-01]
 
-To view the container's logs, select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
+To view the container's logs, under **SETTINGS** select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
 
 ![Portal showing container log output][portal-env-vars-02]
 
 ## Next steps
 
-For more information on running task-based containers, such as for batch computing scenarios, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom environment variables at runtime. For more information on running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
