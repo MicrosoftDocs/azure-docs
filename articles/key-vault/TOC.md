@@ -38,6 +38,7 @@
 ### [Azure automation](automation-manage-key-vault.md)
 
 # Reference
+## [Azure Key Vault customer data features](key-vault-customer-data.md)
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
 ## [.NET](/dotnet/api/microsoft.azure.keyvault)
