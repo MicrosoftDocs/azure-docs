@@ -20,7 +20,7 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 ## Prepare for deployment
 
-Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned in your Azure subscription.
+Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned within a resource group in your Azure subscription.
 
 * 2 App Service resource groups (Standard)
 * 1 Application Insights
