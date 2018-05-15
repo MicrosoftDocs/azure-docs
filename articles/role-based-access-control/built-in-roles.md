@@ -1439,7 +1439,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they�re connected to. |
+> | **Description** | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 > | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read authorization |
