@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: 
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/16/2018
 ms.author: bryanla
 # Customer intent: As a developer, I want learn about the TSI JavaScript client library, so I can use the APIs in my own applications.
 ---
