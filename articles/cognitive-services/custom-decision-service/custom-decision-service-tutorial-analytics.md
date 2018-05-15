@@ -17,24 +17,43 @@ This tutorial addresses the offline analytics capability in Custom Decision Serv
 
 You'll be working on your local machine. Set up your working environment as follows:
 
-- Install [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) and add it to your path. Use the [msi installer](https://github.com/eisber/vowpal_wabbit/releases) under windows, [get the source code](https://github.com/JohnLangford/vowpal_wabbit/releases) on other platforms. 
+- Install [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) and add it to your path. Use the [msi installer](https://github.com/eisber/vowpal_wabbit/releases) under windows, [get the source code](https://github.com/JohnLangford/vowpal_wabbit/releases) on other platforms.
 - Install [Python 3](https://www.python.org/download/releases/3.0/) and add it to your path. We recommend the 64-bit version to handle large files.
   - Make sure [NumPy package](http://www.numpy.org/) is installed along with Python. Use a package manager of your choice.
   - Install the azure-storage-blob package from [Microsoft Azure Storage Library for Python](https://github.com/Azure/azure-storage-python). Use [installation option 1](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Clone the open-source repo for the Custom Decision Service, [mwt-ds](https://github.com/Microsoft/mwt-ds) on GitHub.
-  - Enter your Azure storage connection string in *mwt-ds/DataScience/ds.config*, using *AppID: ConnectionString* format. You can specify multiple AppIDs.
+- Go to `mwt-ds\DataScience`
+  - Enter your Azure storage connection string in `ds.config`, as `AppID:ConnectionString`. You can specify multiple AppIDs.
+  - You will use three files in this folder: `LogDownloader.py`, `dashboard_utils.py`, and `index.html`.
 
-Download the logged data. Go to `mwt-ds/DataScience` and run `LogDownloader.py` with relevant arguments. For example, use this command to download all data for January 1-7, 2018, to folder `d:\data`.
+Download the logged data using a python script `LogDownloader.py`. For example, use this command to download all data for January 1-7, 2018, in folder `d:\data`, overwriting if needed.
 
 ```cmd 
-python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -e 2018-01-07 -o 4 --create_gzip
+python LogDownloader.py -a AppId -l d:\data -s 2018-01-01 -e 2018-01-07 -o 2 --create_gzip
 ```
-The output is gzipped, which is required for the data analysis and visualization tools described next. Refer to the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
+
+The script creates a single file, as long as the Custom Decision Service has been run with the same setting throughout the specified date range. The file is gzipped, which is required for the data analysis and visualization tools described next. Refer to the [LogDownloader reference](custom-decision-service-log-downloader-reference.md) for a detailed syntax.
+
+The script may create several files if the Custom Decision Service settings have been changed during the specified date range. Use this command to merge two or more log files:
+
+```cmd
+command to be specified
+```
 
 >[!TIP]
->Logged data may be very large for a high-volume application. We recommend an end-to-end practice run with a small date range. Use `--dry_run` option to find out how much data would have been downloaded, without actually downloading it.
+>Logged data may be very large for a high-volume application. We recommend an end-to-end practice run with a small date range. Use `--dry_run` option to find out which files you'd be downloading, and their sizes, without actually downloading them.
 
 ## Performance visualization
+
+You can use HTML-based dashboard to visualize how the rewards of the Custom Decision Service evolve over time.
+
+First, pre-process a raw log file into a `.dash` data file used by the dashboard.
+
+```cmd
+python dashboard_utils.py -f d:/data/raw_log.gz -o d:/dashboard/data.dash
+```
+
+Copy `index.html` from `mwt-ds/DataScience/` to the folder containing `.dash` file, and open it with any browser.
 
 ## Offline optimization
 
