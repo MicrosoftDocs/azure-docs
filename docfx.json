@@ -76,7 +76,7 @@
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {
           "depot_name": "MSDN.microsoft-iot-central",
-          "folder_relative_path_in_docset": "."
+          "folder_relative_path_in_docset": "articles"
         },
         "articles/billing/billing-add-change-azure-subscription-administrator.md": {
           "folder_relative_path_in_docset": "articles"
