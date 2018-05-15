@@ -46,7 +46,7 @@ The most important billing concept to understand is a *service unit* (SU), which
 
 Although each tier offers progressively higher capacity, you can bring a portion of total capacity online, holding the rest in reserve. In terms of billing, it's the number of partitions and replicas that you bring online, calculated using the SU formula, that determines what you actually pay.
 
-Billing rate is hourly, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
+Billing rate is hourly per SU, with each tier having a different rate. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
 ## Consumption patterns
 
