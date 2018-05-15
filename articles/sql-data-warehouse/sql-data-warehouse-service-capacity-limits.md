@@ -28,7 +28,7 @@ Maximum values allowed for various components of Azure SQL Data Warehouse.
 ## Database objects
 | Category | Description | Maximum |
 |:--- |:--- |:--- |
-| Database |Max size |240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). |
+| Database |Max size | Gen1: 240 TB compressed on disk. This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X.  This compression allows the database to grow to approximately 1 PB when all tables are clustered columnstore (the default table type). <br/><br/> Gen2: 240TB for rowstore and unlimited storage for columnstore tables |
 | Table |Max size |60 TB compressed on disk |
 | Table |Tables per database |10,000 |
 | Table |Columns per table |1024 columns |
