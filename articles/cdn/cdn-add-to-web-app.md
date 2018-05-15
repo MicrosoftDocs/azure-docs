@@ -24,7 +24,7 @@ This tutorial shows how to add [Azure CDN](cdn-overview.md) to a [web app in Azu
 
 Here's the home page of the sample static HTML site that you'll work with:
 
-![Sample app home page](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page.png)
+![Sample app home page](media/cdn-add-to-web-app/sample-app-home-page.png)
 
 What you'll learn:
 
@@ -55,15 +55,15 @@ Open a browser and navigate to the [Azure portal](https://portal.azure.com).
 
 In the left navigation, select **App Services**, and then select the app that you created in the [static HTML quickstart](../app-service/app-service-web-get-started-html.md).
 
-![Select App Service app in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-app-services.png)
+![Select App Service app in the portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 
 In the **App Service** page, in the **Settings** section, select **Networking > Configure Azure CDN for your app**.
 
-![Select CDN in the portal](media/app-service-web-tutorial-content-delivery-network/portal-select-cdn.png)
+![Select CDN in the portal](media/cdn-add-to-web-app/portal-select-cdn.png)
 
 In the **Azure Content Delivery Network** page, provide the **New endpoint** settings as specified in the table.
 
-![Create profile and endpoint in the portal](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint.png)
+![Create profile and endpoint in the portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
@@ -75,7 +75,7 @@ Select **Create** to create a CDN profile.
 
 Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list, and when it's provisioned, the status is **Running**.
 
-![New endpoint in list](media/app-service-web-tutorial-content-delivery-network/portal-new-endpoint-in-list.png)
+![New endpoint in list](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
 ### Test the CDN endpoint
 
@@ -100,7 +100,7 @@ Navigate a browser to the following URL:
 http://<endpointname>.azureedge.net/index.html
 ```
 
-![Sample app home page served from CDN](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
+![Sample app home page served from CDN](media/cdn-add-to-web-app/sample-app-home-page-cdn.png)
 
  You see the same page that you ran earlier in an Azure web app. Azure CDN has retrieved the origin web app's assets and is serving them from the CDN endpoint
 
@@ -137,7 +137,7 @@ Once deployment has completed, browse to the web app URL to see the change.
 http://<appname>.azurewebsites.net/index.html
 ```
 
-![V2 in title in web app](media/app-service-web-tutorial-content-delivery-network/v2-in-web-app-title.png)
+![V2 in title in web app](media/cdn-add-to-web-app/v2-in-web-app-title.png)
 
 If you browse to the CDN endpoint URL for the home page, you won't see the change because the cached version in the CDN hasn't expired yet. 
 
@@ -145,7 +145,7 @@ If you browse to the CDN endpoint URL for the home page, you won't see the chang
 http://<endpointname>.azureedge.net/index.html
 ```
 
-![No V2 in title in CDN](media/app-service-web-tutorial-content-delivery-network/no-v2-in-cdn-title.png)
+![No V2 in title in CDN](media/cdn-add-to-web-app/no-v2-in-cdn-title.png)
 
 ### Purge the CDN in the portal
 
@@ -153,27 +153,27 @@ To trigger the CDN to update its cached version, purge the CDN.
 
 In the portal left navigation, select **Resource groups**, and then select the resource group that you created for your web app (myResourceGroup).
 
-![Select resource group](media/app-service-web-tutorial-content-delivery-network/portal-select-group.png)
+![Select resource group](media/cdn-add-to-web-app/portal-select-group.png)
 
 In the list of resources, select your CDN endpoint.
 
-![Select endpoint](media/app-service-web-tutorial-content-delivery-network/portal-select-endpoint.png)
+![Select endpoint](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
 At the top of the **Endpoint** page, select **Purge**.
 
-![Select Purge](media/app-service-web-tutorial-content-delivery-network/portal-select-purge.png)
+![Select Purge](media/cdn-add-to-web-app/portal-select-purge.png)
 
 Enter the content paths you want to purge. You can pass a complete file path to purge an individual file, or a path segment to purge and refresh all content in a folder. Because you changed *index.html*, ensure that is in one of the paths.
 
 At the bottom of the page, select **Purge**.
 
-![Purge page](media/app-service-web-tutorial-content-delivery-network/app-service-web-purge-cdn.png)
+![Purge page](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
 ### Verify that the CDN is updated
 
 Wait until the purge request finishes processing, which is typically a couple of minutes. To see the current status, select the bell icon at the top of the page. 
 
-![Purge notification](media/app-service-web-tutorial-content-delivery-network/portal-purge-notification.png)
+![Purge notification](media/cdn-add-to-web-app/portal-purge-notification.png)
 
 When you browse to the CDN endpoint URL for *index.html*, you'll see the *V2* that you added to the title on the home page, which indicates that the CDN cache has been refreshed.
 
@@ -181,7 +181,7 @@ When you browse to the CDN endpoint URL for *index.html*, you'll see the *V2* th
 http://<endpointname>.azureedge.net/index.html
 ```
 
-![V2 in title in CDN](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title.png)
+![V2 in title in CDN](media/cdn-add-to-web-app/v2-in-cdn-title.png)
 
 For more information, see [Purge an Azure CDN endpoint](../cdn/cdn-purge-endpoint.md). 
 
@@ -205,7 +205,7 @@ Select **Cache every unique URL** from the **Query string caching behavior** dro
 
 Select **Save**.
 
-![Select query string caching behavior](media/app-service-web-tutorial-content-delivery-network/portal-select-caching-behavior.png)
+![Select query string caching behavior](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
 ### Verify that unique URLs are cached separately
 
@@ -232,13 +232,13 @@ In a browser, go to the CDN endpoint URL with a new query string, such as `q=2`.
 http://<endpointname>.azureedge.net/index.html?q=2
 ```
 
-![V3 in title in CDN, query string 2](media/app-service-web-tutorial-content-delivery-network/v3-in-cdn-title-qs2.png)
+![V3 in title in CDN, query string 2](media/cdn-add-to-web-app/v3-in-cdn-title-qs2.png)
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=1
 ```
 
-![V2 in title in CDN, query string 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
+![V2 in title in CDN, query string 1](media/cdn-add-to-web-app/v2-in-cdn-title-qs1.png)
 
 This output shows that each query string is treated differently:
 
