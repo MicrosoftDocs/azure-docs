@@ -50,13 +50,13 @@ Azure Key Vault diagnostic logs containing personal data can be retrieved by mak
 
 ## Next steps
 
-- [Azure Key Vault Logging](/key-vault-logging.md)
+- [Azure Key Vault Logging](key-vault-logging.md)
 
-- [Azure Key Vault soft-delete overview](key-vault/key-vault-ovw-soft-delete.md)
+- [Azure Key Vault soft-delete overview](key-vault-soft-delete.md)
 
 - [Vaults](https://docs.microsoft.com/rest/api/keyvault/vaults)
 
-- [Azure Key Vault key operations](keyvault/key-operations.md)
+- [Azure Key Vault key operations](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault secret operations](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
