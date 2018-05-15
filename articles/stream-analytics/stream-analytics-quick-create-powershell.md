@@ -127,8 +127,9 @@ $jobName = "MyStreamingJob"
 $jobDefinitionFile = "C:\JobDefinition.json"
 New-AzureRMStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
-  –File $jobDefinitionFile `
-  –Name $jobName -Force 
+  -File $jobDefinitionFile `
+  -Name $jobName `
+  -Force 
 ```
 
 ## Configure input to the job
