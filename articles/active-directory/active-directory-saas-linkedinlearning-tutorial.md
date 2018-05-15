@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.author: jeedes
 
 ---
@@ -210,7 +210,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a LinkedIn Learning test user
 
-Linked Learning Application supports. Just in time user provisioning and after authentication users are created in the application automatically. You can find more details [here](active-directory-saas-linkedinlearning-provisioning-tutorial.md) on how to configure automatic user provisioning. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active to enable Just in time provisioning and this will also assign a license to the user.
+Linked Learning Application supports. Just in time user provisioning and after authentication users are created in the application automatically. You can find more details [here](active-directory-saas-linkedinlearning-provisioning-tutorial.md) on how to configure automatic user provisioning. On the admin settings page on the LinkedIn Learning portal flip the switch **Automatically Assign licenses** to active Just in time provisioning and this will also assign a license to the user.
 
    ![Creating an Azure AD test user](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
