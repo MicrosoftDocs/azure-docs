@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/11/2018
+ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
@@ -120,7 +120,7 @@ Once you have a successfully validated your cluster config run the *CreateServic
 If it all works, you'll get output that looks like this:
 
 ```powershell
-Your cluster is successfully created! You can connect and manage your cluster using Microsoft Azure Service Fabric Explorer or Powershell. To connect through Powershell, run 'Connect-ServiceFabricCluster [ClusterConnectionEndpoint]'.
+Your cluster is successfully created! You can connect and manage your cluster using Microsoft Azure Service Fabric Explorer or PowerShell. To connect through PowerShell, run 'Connect-ServiceFabricCluster [ClusterConnectionEndpoint]'.
 ```
 
 > [!NOTE]

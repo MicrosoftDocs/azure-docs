@@ -17,7 +17,7 @@ ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
 ---
-# Tutorial: Cleanup your standalone cluster
+# Tutorial: Clean up your standalone cluster
 
 Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.
 

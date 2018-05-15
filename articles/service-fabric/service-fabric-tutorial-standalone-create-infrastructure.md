@@ -61,7 +61,7 @@ New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Acti
 </powershell>
 ```
 
-Once you've entered the powershell script select **Review and Launch**
+Once you've entered the PowerShell script select **Review and Launch**
 
 ![EC2 review and launch][aws-ec2configure2]
 
@@ -95,7 +95,7 @@ Finally, we just need to open up port 8080 so you can see the application when i
 
 All of the rules are now entered. Select **Save**.
 
-## Connect to an instance and validate inter-connectivity
+## Connect to an instance and validate connectivity
 
 From the security group tab, select **Instances** from the left-hand menu.  Select each of the instances that you've created and note their private IP addresses for the examples below will use `172.31.21.141` and `172.31.20.163`.
 
@@ -127,13 +127,13 @@ If you were creating this from scratch, you'd need to take a couple extra steps.
 
 To make it easier you embedded all of this work when you bootstrapped the instances with your user data script.
 
-To enable SMB, this is the powershell command you used:
+To enable SMB, this is the PowerShell command you used:
 
 ```powershell
 netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
 ```
 
-To open the ports in the firewall here is the powershell command:
+To open the ports in the firewall here is the PowerShell command:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
