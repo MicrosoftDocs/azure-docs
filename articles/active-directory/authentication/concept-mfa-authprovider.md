@@ -14,8 +14,8 @@ manager: mtillman
 ms.reviewer: richagi
 
 ---
-
 # Getting started with an Azure Multi-Factor Authentication Provider
+
 Two-step verification is available by default for global administrators who have Azure Active Directory, and Office 365 users. However, if you wish to take advantage of [advanced features](howto-mfa-mfasettings.md) then you should purchase the full version of Azure Multi-Factor Authentication (MFA).
 
 An Azure Multi-Factor Auth Provider is used to take advantage of features provided by the full version of Azure MFA. It is for users who **do not have licenses through Azure MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS)**.  Azure MFA, Azure AD Premium, and EMS include the full version of Azure MFA by default. If you have licenses, then you do not need an Azure Multi-Factor Auth Provider.
