@@ -17,15 +17,27 @@ ms.custom: it-pro
 ---
 
 # Where does Microsoft Azure Active Directory (Azure AD) store identity data for European customers
-Most Azure AD data stays in Europe and isn't replicated outside Europe. The only exceptions are a few attributes that can identify customers, and some metadata that's required for certain identity services to function properly. This article provides details about the stored Azure AD data, including what customers need to know while they plan for their own data residency and storage requirements.
+Azure AD helps you to manage user identities and to create intelligence-driven access policies to help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/en-us/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-## Data storage and residency
-Most Azure AD data for European-based customers stays within the European datacenters, managed by Microsoft. Azure AD data that's not stored in the European datacenters, includes:
+This article provides details about the data stored both inside and outside of the European datacenters.
+
+## Azure AD data stored outside of European datacenters for European customers
+Most European identity data, with European-based addresses, remains in European datacenters. Azure AD data that's not stored in the European datacenters, includes:
+
+- **User-related attributes**
+    The following user-related attributes are stored in the United States (U.S.).
+    - GivenName
+    - Surname
+    - userPrincipalName
+    - Domain
+    - PasswordHash (varies)
+
+    In the situation where someone uses an on-premise, federated authentication method that stops the PasswordHash value from syncing with Azure AD, the associated value isn't stored in the U.S.
+    
+    Beyond these user-related attributes, some service-specific data is also stored in the U.S. However, these attributes are needed for the normal operation of Azure AD services and don't include any personal data.
 
 - **Identity-related attributes**
-
-    A small set of identity-related info is replicated to the United States (U.S.):
-
+    The following identity-related attributes will be replicated to the U.S.:
     -   SourceAnchor
     -   PasswordHash
     -   GivenName
@@ -39,8 +51,7 @@ Most Azure AD data for European-based customers stays within the European datace
     -   Domain
 
 - **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
-
-    Multi-factor authentication stores all user data at-rest in European datacenters. However, in some cases data might be stored in the U.S., as follows:
+    MFA stores all user data at-rest in European datacenters. However, some MFA service-specific data is stored in the U.S., including:
     
     - Two-factor authentication and its related personal data might be stored in the U.S. if you're using MFA or SSPR.
         - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
@@ -62,7 +73,7 @@ Most Azure AD data for European-based customers stays within the European datace
 
 - **Services and apps integrated with Azure AD**
 
-    Any services and apps that integrate with Azure AD have access to identity data. Customers must evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet the company's data storage requirements.
+    Any services and apps that integrate with Azure AD have access to identity data. You must evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet your company's data storage requirements.
 
     For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/en-us/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
