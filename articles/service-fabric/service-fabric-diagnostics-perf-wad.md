@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
-ms.author: dekapur; srrengar
+ms.author: srrengar
 
 ---
 

@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/15/2018
-ms.author: mfussell;mikhegn
+ms.author: mfussell
 
 ---
 # Deploy an existing executable to Service Fabric

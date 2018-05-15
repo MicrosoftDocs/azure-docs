@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: suhuruli;mikhegn
+ms.author: suhuruli
 
 ---
 # Debug your Java Service Fabric application using Eclipse
