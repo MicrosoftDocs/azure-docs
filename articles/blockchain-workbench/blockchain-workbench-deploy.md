@@ -20,6 +20,21 @@ For more information about the components of Blockchain Workbench, see [Azure Bl
 
 ## Prepare for deployment
 
+Blockchain Workbench allows you to deploy a blockchain ledger along with a set of relevant Azure services most often used to build a blockchain-based application. Deploying Blockchain Workbench results in the following Azure services being provisioned in your Azure subscription.
+
+* 2 App Service resource groups (Standard)
+* 1 Application Insights
+* 1 Event Grid Topic
+* 2 Azure Key Vaults
+* 1 Service Bus Namespace
+* 1 SQL Database (Standard S0)
+* 2 Azure Storage accounts (Standard LRS)
+* 2 Virtual machine scale sets (validator and worker nodes)
+* 2 Virtual Network resource groups (load balancer, network security group, public IP address, virtual network)
+* Optional: Azure Monitor
+
+The cost of Blockchain Workbench is an aggregate of the cost of the underlying Azure services. Pricing information for Azure services can be calculated using the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/).
+
 Azure Blockchain Workbench requires several prerequisites prior to the deployment. The prerequisites include Azure AD configuration and application registrations.
 
 ### Blockchain Workbench API app registration
@@ -249,6 +264,15 @@ Once the Azure Blockchain Workbench has been deployed, the next step is to make 
     ![Reply URLs](media/blockchain-workbench-deploy/configure-reply-url.png)
 
 7. Select **Save** to update the client registration.
+
+## Remove a deployment
+
+When a deployment is no longer needed, you can remove a deployment by deleting the Blockchain Workbench resource group.
+
+1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete. 
+2. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
+
+![Delete resource group](media/blockchain-workbench-deploy/delete-resource-group.png)
 
 ## Next steps
 
