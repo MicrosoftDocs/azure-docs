@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 05/14/2018
 ms.author: tomfitz
 
 ---
@@ -111,6 +111,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Application Insights
 * Automation
 * Azure Cosmos DB
+* Azure Relay
 * Batch
 * Bing Maps
 * CDN
@@ -127,6 +128,7 @@ The services that enable moving to both a new resource group and subscription ar
 * IoT Hubs
 * Key Vault
 * Load Balancers - see [Load Balancer limitations](#lb-limitations)
+* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Media Services
@@ -134,7 +136,7 @@ The services that enable moving to both a new resource group and subscription ar
 * Notification Hubs
 * Operational Insights
 * Operations Management
-* Power BI
+* Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - see [Public IP limitations](#pip-limitations)
 * Redis Cache
 * Scheduler
@@ -161,6 +163,8 @@ The services that currently do not enable moving a resource are:
 * AD Hybrid Health Service
 * Application Gateway
 * Azure Database for MySQL
+* Azure Database for PostgreSQL
+* Azure Migrate
 * BizTalk Services
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
 * Kubernetes Service
@@ -201,7 +205,9 @@ When moving a virtual network, you must also move its dependent resources. For e
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.
 
-You cannot move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+You can't move a virtual network to a different subscription if the virtual network contains a subnet with resource navigation links. For example, if a Redis Cache resource is deployed into a subnet, that subnet has a resource navigation link.
+
+You can't move a virtual network to a different subscription if the virtual network contains a custom DNS server. To move the virtual network, set it to Default (Azure-provided) DNS server. After the move, reconfigure the custom DNS server.
 
 ## App Service limitations
 

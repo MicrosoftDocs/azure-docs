@@ -3,23 +3,25 @@ title: How to build an app that can sign in any Azure AD user
 description: Shows how to build a multi-tenant application which can sign in a user from any Azure Active Directory tenant.
 services: active-directory
 documentationcenter: ''
-author: celestedg
+author: CelesteDG
 manager: mtillman
 editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2018
 ms.author: celested
+ms.reviewer: elisol
 ms.custom: aaddev
-
 ---
+
 # How to sign in any Azure Active Directory user using the multi-tenant application pattern
-If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (AD) tenant. This configuration is called making your application multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application.  
+If you offer a Software as a Service application to many organizations, you can configure your application to accept sign-ins from any Azure Active Directory (AD) tenant. This configuration is called making your application multi-tenant. Users in any Azure AD tenant will be able to sign in to your application after consenting to use their account with your application. 
 
 If you have an existing application that has its own account system, or supports other kinds of sign-ins from other cloud providers, adding Azure AD sign-in from any tenant is simple. Just register your app, add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign In with Microsoft" button][AAD-App-Branding] in your application.
 
@@ -36,19 +38,19 @@ There are four simple steps to convert your application into an Azure AD multi-t
 Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples][AAD-Samples-MT].
 
 ## Update registration to be multi-tenant
-By default, web app/API registrations in Azure AD are single tenant.  You can make your registration multi-tenant by finding the **Multi-Tenanted** switch on the **Properties** pane of your application registration in the [Azure portal][AZURE-portal] and setting it to **Yes**.
+By default, web app/API registrations in Azure AD are single tenant. You can make your registration multi-tenant by finding the **Multi-Tenanted** switch on the **Properties** pane of your application registration in the [Azure portal][AZURE-portal] and setting it to **Yes**.
 
 Before an application can be made multi-tenant, Azure AD requires the App ID URI of the application to be globally unique. The App ID URI is one of the ways an application is identified in protocol messages. For a single tenant application, it is sufficient for the App ID URI to be unique within that tenant. For a multi-tenant application, it must be globally unique so Azure AD can find the application across all tenants. Global uniqueness is enforced by requiring the App ID URI to have a host name that matches a verified domain of the Azure AD tenant. By default, apps created via the Azure portal have a globally unique App ID URI set on app creation, but you can change this value.
 
-For example, if the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`.  If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
+For example, if the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
 > [!NOTE] 
-> Native client registrations as well as [v2 applications](./active-directory-appmodel-v2-overview.md) are multi-tenant by default.  You don’t need to take any action to make these application registrations multi-tenant.
+> Native client registrations as well as [v2 applications](./active-directory-appmodel-v2-overview.md) are multi-tenant by default. You don’t need to take any action to make these application registrations multi-tenant.
 
 ## Update your code to send requests to /common
 In a single tenant application, sign-in requests are sent to the tenant’s sign-in endpoint. For example, for contoso.onmicrosoft.com the endpoint would be: `https://login.microsoftonline.com/contoso.onmicrosoft.com`
 
-Requests sent to a tenant’s endpoint can sign in users (or guests) in that tenant to applications in that tenant. With a multi-tenant application, the application doesn’t know up front what tenant the user is from, so you can’t send requests to a tenant’s endpoint.  Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`
+Requests sent to a tenant’s endpoint can sign in users (or guests) in that tenant to applications in that tenant. With a multi-tenant application, the application doesn’t know up front what tenant the user is from, so you can’t send requests to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`
 
 When Azure AD receives a request on the /common endpoint, it signs the user in and, as a consequence, discovers which tenant the user is from. The /common endpoint works with all of the authentication protocols supported by Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0, and WS-Federation.
 
@@ -58,12 +60,12 @@ The sign-in response to the application then contains a token representing the u
 > The /common endpoint is not a tenant and is not an issuer, it’s just a multiplexer. When using /common, the logic in your application to validate tokens needs to be updated to take this into account. 
 
 ## Update your code to handle multiple issuer values
-Web applications and web APIs receive and validate tokens from Azure AD.  
+Web applications and web APIs receive and validate tokens from Azure AD. 
 
 > [!NOTE]
-> While native client applications request and receive tokens from Azure AD, they do so to send them to APIs, where they are validated.  Native applications do not validate tokens and must treat them as opaque.
+> While native client applications request and receive tokens from Azure AD, they do so to send them to APIs, where they are validated. Native applications do not validate tokens and must treat them as opaque.
 
-Let’s look at how an application validates tokens it receives from Azure AD.  A single tenant application normally takes an endpoint value like:
+Let’s look at how an application validates tokens it receives from Azure AD. A single tenant application normally takes an endpoint value like:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
@@ -83,7 +85,7 @@ Because the /common endpoint doesn’t correspond to a tenant and isn’t an iss
 
     https://sts.windows.net/{tenantid}/
 
-Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which are not based on the tenant ID portion of the issuer value.  
+Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which are not based on the tenant ID portion of the issuer value. 
 
 For example, if a multi-tenant application only allows sign-in from specific tenants who have signed up for their service, then it must check either the issuer value or the `tid` claim value in the token to make sure that tenant is in their list of subscribers. If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
 
@@ -134,7 +136,7 @@ This is demonstrated in a multi-tier native client calling web API sample in the
 
 **Multiple tiers in multiple tenants**
 
-A similar case happens if the different tiers of an application are registered in different tenants. For example, consider the case of building a native client application that calls the Office 365 Exchange Online API. To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present. In this case, the developer and customer must purchase Exchange Online for the service principal to be created in their tenants.  
+A similar case happens if the different tiers of an application are registered in different tenants. For example, consider the case of building a native client application that calls the Office 365 Exchange Online API. To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present. In this case, the developer and customer must purchase Exchange Online for the service principal to be created in their tenants. 
 
 In the case of an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent the application into their customers' tenants. The recommended design is for the third party developer to build the API such that it can also function as a web client to implement sign-up. To do this:
 
