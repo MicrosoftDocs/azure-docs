@@ -282,11 +282,11 @@ $Blobs.ICloudBlob.Undelete()
 ### Azure CLI 
 To enable soft delete, update a blob client’s service properties:
 
-Enable or Update Policy 
 ```azurecli-interactive
 az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
 ```
-Show Policy
+To verify soft delete is turned on use the following command. 
+
 ```azurecli-interactive
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
