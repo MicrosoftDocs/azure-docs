@@ -53,13 +53,16 @@ For each server that you intend to use with Azure File Sync, including server no
     4. In the **Internet Explorer Enhanced Security Configuration** dialog box, select **Off** for **Administrators** and **Users**:  
         ![The Internet Explorer Enhanced Security Configuration pop-window with "Off" selected](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-3.png)
 
-2. Ensure that you are running at least PowerShell 5.1.\* (PowerShell 5.1 is the default on Windows Server 2016). You can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
+2. If you are using Windows Server 2012 R2, ensure that you are running at least PowerShell 5.1.\*. You can safely skip this check on Windows Server 2016 as PowerShell 5.1 is the default version out-of-box. On Windows Server 2012 R2, you can verify that you are running PowerShell 5.1.\* by looking at the value of the **PSVersion** property of the **$PSVersionTable** object:
 
     ```PowerShell
     $PSVersionTable.PSVersion
     ```
 
     If your PSVersion value is less than 5.1.\*, as will be the case with most installations of Windows Server 2012 R2, you can easily upgrade by downloading and installing [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
+
+    > [!Note]  
+    > Azure File Sync does not yet support PowerShell 6 on either Windows Server 2012 R2 or Windows Server 2016.
 
 3. [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). We recommend using the latest version of the Azure PowerShell modules.
 
