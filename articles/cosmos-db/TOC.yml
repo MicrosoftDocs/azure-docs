@@ -175,7 +175,7 @@ items:
           href: bulk-executor-dot-net.md
         - name: BulkExecutor - Java
           href: bulk-executor-java.md
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md          
         - name: Query
           items:
@@ -265,7 +265,7 @@ items:
           href: sql-api-sql-query-reference.md
       - name: Resources
         items:
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
@@ -329,11 +329,11 @@ items:
           href: mongodb-indexing.md
         - name: Visualize your data with Power BI
           href: powerbi-visualize.md
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
       - name: Resources
         items:
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
@@ -357,7 +357,7 @@ items:
         items:
         - name: Graph partitioning
           href: graph-partitioning.md
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
         - name: Integrate
           items:
@@ -369,7 +369,7 @@ items:
             href: graph-sdk-dotnet.md
       - name: Resources
         items:
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
         - name: Visual Studio Code extension
           href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
@@ -427,7 +427,7 @@ items:
             href: table-sdk-python.md  
       - name: Resources
         items:
-        - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+        - name: Manage using Storage Explorer
           href: storage-explorer.md
         - name: Table storage overview
           href: table-storage-overview.md
@@ -471,11 +471,11 @@ items:
       href: key-value-store-cost.md
     - name: Expire data automatically
       href: time-to-live.md
-    - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+    - name: Manage using Storage Explorer
       href: storage-explorer.md
   - name: Resources
     items:
-    - name: Manage Azure Cosmos DB data using Azure Storage Explorer
+    - name: Manage using Storage Explorer
       href: storage-explorer.md 
     - name: Query cheat sheet
       href: query-cheat-sheet.md
