@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Generate a Thumbnail from an Image with C&#35;
+# Quickstart: Generate a Thumbnail with C&#35;
 
 In this quickstart, you generate a thumbnail from an image using Computer Vision.
 

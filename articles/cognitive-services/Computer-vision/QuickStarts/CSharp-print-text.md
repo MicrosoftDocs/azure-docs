@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Printed Text (OCR) from an Image with C&#35;
+# Quickstart: Extract Printed Text (OCR) with C&#35;
 
 In this quickstart, you extract printed text from an image using Computer Vision.
 
