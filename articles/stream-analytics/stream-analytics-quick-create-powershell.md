@@ -251,9 +251,9 @@ $jobTransformationName = "MyJobTransformation"
 $jobTransformationDefinitionFile = "C:\JobTransformationDefinition.json"
 New-AzureRmStreamAnalyticsTransformation `
   -ResourceGroupName $resourceGroup `
-  –JobName $jobName `
-  –File $jobTransformationDefinitionFile `
-  –Name $jobTransformationName -Force
+  -JobName $jobName `
+  -File $jobTransformationDefinitionFile `
+  -Name $jobTransformationName -Force
 ```
 
 ## Start the Stream Analytics job and check the output
