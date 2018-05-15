@@ -7,7 +7,7 @@ author: robinsh
 manager: timlt
 
 ms.author: robinsh
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
@@ -20,8 +20,6 @@ Microsoft Azure Event Hubs is a big data streaming service that can collect and 
 
 In this tutorial, you feed simulated events to an event hub, then read the stream of data with Azure 
 Stream Analytics and visualize the anomalies with a PowerBI visualization. This is similar to what a company might do if they were ingesting credit card transactions into an event hub, and then separating the valid transactions from the invalid transactions. 
-
-<!-- robin Is it really fair to describe it this way, when it doesn't decide which ones are valid or invalid, it's a field on the incoming data -- double check that. -->
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -36,7 +34,7 @@ In this tutorial, you learn how to:
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Install [Visual Studio for Windows](https://www.visualstudio.com/). 
+- Install [Visual Studio](https://www.visualstudio.com/). 
 
 - A PowerBI account to analyze the stream analytics. ([Try PowerBI for free](https://app.powerbi.com/signupredirect?pbi_source=web))
 
@@ -77,15 +75,18 @@ The following sections describe how to do these required steps. Follow the CLI *
 
 3. Create an Event Hub.
 
-3. Create a standard V1 storage account with Standard_LRS replication.
+4. Create a standard V1 storage account with Standard_LRS replication.
+
+<!-- some day they will approve the tab control; 
+  When that happens, put CLI and PSH in tabs. -->
 
 ### Azure CLI instructions
 
-The easiest way to use this script is to copy it and paste it into Cloud Shell. Assuming yuou are already logged in, it will run the script one line at a time.
+The easiest way to use this script is to copy it and paste it into Cloud Shell. Assuming you are already logged in, it will run the script one line at a time.
 
-```azure-cli-interactive
+```azurecli-interactive
 
-# Set the values for the resource names.
+# Set the values for location and resource group name.
 location=westus
 resourceGroup=ContosoResourcesEH
 
@@ -132,24 +133,19 @@ az eventhubs namespace create --resource-group $resourceGroup \
 eventHubName=ContosoEHhub$RANDOM
 echo "Event Hub Name = " $eventHubName
 
-#create the event hub 
+# Create the event hub.
 az eventhubs eventhub create --resource-group $resourceGroup \
     --namespace-name $eventHubNamespace \
     --name $eventHubName \
     --message-retention 3 \
     --partition-count 2
 
-az eventhubs namespace authorization-rule keys list \
-   --resource-group $resourceGroup \
-   --namespace-name $eventHubNamespace \
-   --name RootManageSharedAccessKey
-
-# Save the connection string.
+# Get the connection string.
 connectionString=$(az eventhubs namespace authorization-rule keys list \
    --resource-group $resourceGroup \
    --namespace-name $eventHubNamespace \
    --name RootManageSharedAccessKey \
-   --query primaryConnectionString 
+   --query primaryConnectionString \
    --output tsv)
 echo "Connection string = " $connectionString 
 ```
@@ -158,13 +154,13 @@ echo "Connection string = " $connectionString
 
 The easiest way to use this script is to open [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copy the script to the clipboard, and then paste the whole script into the script window. 
 
-You can change the values for the resource names (if you wish) before running the script. The variables that must be globally unique have `(Get-Random)` concatenated to them; this results in a random numeric string being concatenated to the end of the fixed string, which will hopefluly make it unique.
+If you paste the script in one line at a time, you can change the values for the resource names (if you wish) before running the script. The variables that must be globally unique have `(Get-Random)` concatenated to them; this results in a random numeric string being concatenated to the end of the fixed string, which will hopefully make it unique.
 
 ```azurepowershell-interactive
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the location and resource group.
 $location = "West US"
 $resourceGroup = "ContosoResourcesEH"
 
@@ -226,7 +222,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 There is an app that will produce test data for you. Download the [Azure Event Hubs samples](https://github.com/Azure/azure-event-hubs/archive/master.zip) from GitHub and unzip it locally. Go to the folder \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ and double-click on AnomalyDetector.sln to open the solution in Visual Studio. 
 
-Open Program.cs and replace {EventHubsConnectionString} with the connection string you saved when running the script. Replace {EventHubName} with your event name hub. Click F5 to run the application. It will start sending events to your event hub.
+Open Program.cs and replace **"Event Hubs connection string"** with the connection string you saved when running the script. Replace **Event Hub name** with your event hub name. Click F5 to run the application. It will start sending events to your event hub.
 
 ## Set up Azure Stream Analytics
 
@@ -248,7 +244,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
    ![Screenshot showing how to create a new Azure Stream Analytics job.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
-    Leave the rest to use the defaults and click **Create**. 
+    Accept the defaults for the rest of the fields. Click **Create**. 
 
     To get to your Stream Analytics job, click **Resource Groups** in the portal, then select your resource group. This tutorial uses **ContosoResourcesEH**. This shows all of the resources in the group; select your stream analytics job. 
 
@@ -256,7 +252,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 1. Under **Job Topology**, click **Inputs**.
 
-2. In the **Inputs** pane, click **Add stream input** and select Event Hub. On the screen that comes up, fill in the following fields:
+2. In the **Inputs** pane, click **Add stream input** and select Event Hub. On the screen that appears, fill in the following fields:
 
    **Input alias**: This tutorial uses **contosoinputs**.
 
@@ -270,7 +266,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
    **Event Hub consumer group**: Leave this blank to use the default consumer group.
 
-   For the rest of the fields, use the defaults. 
+   Accept the defaults for the rest of the fields.
 
    ![Screenshot showing how to add an input stream to the Stream Analytics job.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-inputs.png)
 
@@ -292,7 +288,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 3. Click **Authorize**, and sign into your PowerBI account.
 
-4. For the rest of the fields, use the defaults. 
+4. Accept the defaults for the rest of the fields.
 
    ![Screenshot showing how to set up the output for a Stream Analytics job.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-outputs.png)
 
@@ -304,7 +300,7 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
 
 2. Replace the query with the following one. 
 
-   ```
+   ```SQL
    /* criteria for fraud:
       credit card purchases with the same card
       in different locations within 5 seconds
@@ -321,7 +317,6 @@ To use the data in a PowerBI visualization, first set up a Stream Analytics job 
        /* where the location is different */
    WHERE CS1.Location != CS2.Location
    GROUP BY TumblingWindow(Duration(second, 1))
-
    ```
 
 4. Click **Save**.
@@ -350,11 +345,11 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 2. Sign in to your [PowerBI](https://powerbi.microsoft.com/) account.
 
-3. Go to **Workspaces** and select the workspace that you set when you created the output for the Stream Analytics job. This tutorial uses **My Workspace**. 
+3. Go to **My Workspace**.
 
 4. Click **Datasets**.
 
-   You should see the listed dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosoehdataset**. It may take 5-10 minutes for the dataset to show up the first time.
+   You should see the dataset that you specified when you created the output for the Stream Analytics job. This tutorial uses **contosoehdataset**. It may take 5-10 minutes for the dataset to show up the first time.
 
 5. Click **Dashboards**, then click **Create** and select **Dashboard**.
 
@@ -376,7 +371,6 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
    ![Screenshot specifying visualization type and fields.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
-
    Click **Next**.
 
 10. Specify a title and subtitle for the tile. Click **Apply**. It will save the tile to your dashboard.
@@ -397,7 +391,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 15. Under **Time window to display**, select the last 5 minutes. Click **Next**.
 
-16. Specify a title and subtitle for the tile, click **Apply**. This tutorial uses **Show fraudulent uses over time** for the title, and specified no subtitle. You are returned to your dashboard.
+16. Specify a title and subtitle for the tile, click **Apply**. This tutorial uses **Show fraudulent uses over time** for the title, and specifies no subtitle. You are returned to your dashboard.
 
 17. Run the Anomaly Detector app again to send some data to the event hub. You will see the Fraudulent Uses tile change as it analyzes the data, and the line chart will show data. 
 
@@ -409,7 +403,8 @@ If you want to remove all of the resources you've created, delete the resource g
 
 ### Clean up resources in the PowerBI visualization
 
-Log into your [PowerBI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the PowerBI visualization, go to DataSets and click the trash can icon to delete the dataset. This tutorial uses **contosodataset**. When you remove the dataset, the report is removed as well.
+Log into your [PowerBI](https://powerbi.microsoft.com/) account. Go to your workspace. This tutorial uses **My Workspace**. To remove the PowerBI visualization, go to DataSets and click the trash can icon to delete your dataset. This tutorial uses **contosoehdataset**. 
+<!-- robin  how to delete the dashboard ? -->
 
 ### Clean up resources using Azure CLI
 
@@ -442,4 +437,4 @@ Advance to the next article to learn about Event Hubs.
 
 
 > [!div class="nextstepaction"]
-> [Do something really complicated with Event Hubs](event-hubs-quickstart-powershell.md)
+> [Get started sending messages to Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
