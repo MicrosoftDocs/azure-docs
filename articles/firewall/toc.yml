@@ -1,0 +1,56 @@
+- name: Azure Firewall Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Firewall
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: 
+    href: 
+
+- name: Tutorials
+  items:
+  - name: 
+    href: 
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    href: 
+- name: Concepts
+  items:
+  - name: Restrict web traffic - Portal
+    href: create-waf-portal.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/network/application-gateway
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/applicationgateway
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+- name: Resources
+  items:
+  - name: Author templates
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Community templates
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-application-gateway

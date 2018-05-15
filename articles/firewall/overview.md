@@ -8,43 +8,42 @@ manager: jpconnock
 ms.service: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.workload: infrastructure-services
-ms.date: 5/11/2018
+ms.date: 5/15/2018
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Firewall and what I can use it for.
 ---
 # What is Azure Firewall - Public Preview?
 
-Azure Firewall is a cloud-based network security service with build-in high availability that auto-scales as traffic grows.
+Azure Firewall is a cloud-based network security service, providing filtering capabilities with built-in highly availability, unrestricted cloud scalability and zero maintenance.
 
 You can centrally create and enforce application and network connectivity policies to protect your Azure virtual network resources. It is fully integrated with the Azure platform, portal, and services.
 
 The Azure Firewall public preview offers the following features:
 
-##  FQDN filtering 
-You can filter traffic using HTTP and HTTPS fully qualified domain names (FQDN). This does not support SSL termination.
-
 ## Built-in high availability
-High availability is built in, so there is nothing you need to configure.
+High availability is built in, so no additional load balancers are required and there is nothing you need to configure.
 
 ## Unrestricted cloud scalability 
-Azure Firewall can scale up or down to accommodate growing or shrinking network traffic flows.
+Azure Firewall can scale up as much as you need  to accommodate changing network traffic flows, so you don't need to budget for your peak traffic.
+
+##  FQDN filtering 
+You can limit outbound HTTPS/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination.
 
 ## Layer-3 and layer-4 traffic filtering rules
 
-You can centrally create allow or deny filter rules by source and destination IP address, port, and protocol (5-tuple rules).
+You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful. Rules are enforced and logged across multiple subscriptions and VNets.
 
 ## Outbound SNAT support
 
-Source network address translation (SNAT) is supported to translate IP addresses outbound from your virtual networks to Internet destinations.
+All outbound VNET traffic IP addresses are translated to the Azure Firewall public IP (SNAT). You can identify and allow traffic originating from your VNet to remote Internet destinations.
 
 ## Azure Monitor logging and metrics
 
-Events are integrated with Azure Monitor and Azure Diagnostics and you can archive logs to a storage account. You can stream events to your Event Hub, or send them to Log Analytics.
+All events are integrated with Azure Monitor, allowing you to archive logs to a storage account, stream events to your Event Hub, or send them to Log Analytics.
 
 ## Next steps
 
-You can create a test Azure Firewall using Azure PowerShell:
+You can create a test Azure Firewall using a Quickstart template.
 
 - Quickstart: 
 
