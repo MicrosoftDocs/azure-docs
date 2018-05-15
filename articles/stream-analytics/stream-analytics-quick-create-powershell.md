@@ -44,7 +44,9 @@ Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.micr
 ```powershell
 $resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
-New-AzureRMResourceGroup -Name $resourceGroup -Location $location 
+New-AzureRMResourceGroup `
+   -Name $resourceGroup `
+   -Location $location 
 ```
 
 ## Prepare the input data
@@ -107,7 +109,7 @@ Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.
       "eventsOutOfOrderPolicy":"adjust",  
       "eventsOutOfOrderMaxDelayInSeconds":10,  
       "compatibilityLevel": 1.1
-}
+   }
 }
 ```
 
