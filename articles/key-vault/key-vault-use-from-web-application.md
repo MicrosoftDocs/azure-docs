@@ -37,7 +37,7 @@ To complete this tutorial, you must have the following items:
 
 Complete the steps in [Get Started with Azure Key Vault](key-vault-get-started.md) to get the URI to a secret, Client ID, Client Secret, and register the application. For more information about creating Azure Web Apps, see [Web Apps overview](../app-service/app-service-web-overview.md).
 
-This sample depends on an older way of manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. For more information, see the sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/).
+This sample depends on manually provisioning AAD Identities. Currently, there is a new feature in preview called [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), which can automatically provision AAD Identities. For more information, see the sample on [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and the related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 
 
 ## <a id="packages"></a>Add NuGet packages
@@ -56,7 +56,7 @@ Install-Package Microsoft.Azure.KeyVault
 
 ## <a id="webconfig"></a>Modify web.config
 
-There are three application settings that need to be added to the web.config file as follows. If you aren't going to host your application as an Azure Web App, then you should add the actual ClientId, Client Secret, and Secret URI values to the web.config. Otherwise, leave the dummy values. We'll be adding the actual values in the Azure portal for an additional level of security.
+There are three application settings that need to be added to the web.config file as follows. We'll be adding the actual values in the Azure portal for an additional level of security.
 
 ```xml
     <!-- ClientId and ClientSecret refer to the web application registration with Azure Active Directory -->
@@ -65,6 +65,7 @@ There are three application settings that need to be added to the web.config fil
 
     <!-- SecretUri is the URI for the secret in Azure Key Vault -->
     <add key="SecretUri" value="secreturi" />
+    <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
 
 
@@ -95,11 +96,11 @@ public static async Task<string> GetToken(string authority, string resource, str
 
     return result.AccessToken;
 }
+// Using Client ID and Client Secret is a way to authenticate an Azure AD application.
+// Using it in your web application allows for a separation of duties and more control over your key management. 
+// However, it does rely on putting the Client Secret in your configuration settings.
+// For some people, this can be as risky as putting the secret in your configuration settings.
 ```
- Using Client ID and Client Secret is another way to authenticate an Azure AD application. Using it in your web application allows for a separation of duties and more control over your key management. However, it does rely on putting the Client Secret in your configuration settings. This can be as risky as putting the secret that you want to protect in your configuration settings for some people. 
-
-> [!NOTE]
-> Currently, the new feature Managed Service Identity (MSI) is the easiest way to authenticate. For more information, see the following link to the sample using [Key Vault with MSI in an application in .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) and related [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 
 ## <a id="appstart"></a>Retrieve the secret on Application Start
 
@@ -114,24 +115,24 @@ using System.Web.Configuration;
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetToken));
 var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri"]);
 
-//I put a variable in a Utils class to hold the secret for general  application use.
+//I put a variable in a Utils class to hold the secret for general application use.
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Add app settings in the Azure portal (optional)
+## <a id="portalsettings"></a>Add app settings in the Azure portal
 
-If you have an Azure Web App, you can now add the actual values for the AppSettings in the Azure portal. By doing this, the actual values won't be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
+In the Azure Web App, you can now add the actual values for the AppSettings in the Azure portal. By doing this, the actual values won't be in the web.config but protected via the Portal where you have separate access control capabilities. These values will be substituted for the values that you entered in your web.config. Make sure that the names are the same.
 
 ![Application Settings displayed in Azure portal][1]
 
 ## Authenticate with a certificate instead of a client secret
 
-Another way to authenticate an Azure AD application is by using a Client ID and a Certificate instead of a Client ID and Client Secret. To use a Certificate in an Azure Web App, use the following steps:
+Now that you understand authenticating an Azure AD app using Client ID and Client Secret, let's use a Client ID and a certificate. To use a certificate in an Azure Web App, use the following steps:
 
-1. Get or Create a Certificate
-2. Associate the Certificate with an Azure AD application
-3. Add code to your Web App to use the Certificate
-4. Add a Certificate to your Web App
+1. Get or create a Certificate
+2. Associate the certificate with an Azure AD application
+3. Add code to your web app to use the certificate
+4. Add a certificate to your web app
 
 ### Get or create a certificate
 
@@ -146,7 +147,7 @@ Make note of the end date and the password for the .pfx (in this example: July 3
 
 ### Associate the certificate with an Azure AD application
 
-Now that you have a certificate, you need to associate it with an Azure AD application. Presently, the Azure portal doesn't support this workflow; this can be completed through PowerShell. Run the following commands to associate the certificate with the Azure AD application:
+Now that you have a certificate, you need to associate it with an Azure AD application. This can be completed through PowerShell. Run the following commands to associate the certificate with the Azure AD application:
 
 ```ps
 $x509 = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
