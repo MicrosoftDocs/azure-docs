@@ -85,19 +85,19 @@ To determine the size of an index, you have to [build one](search-create-index-p
 
 One approach for estimating capacity is to start with the **Free** tier. Recall that the **Free** service offers up to 3 indexes, 50 MB of storage, 2 minutes of indexing time, and 10,000 documents. It can be challenging to estimate a projected index size with these constraints, but the following example illustrates an approach:
 
-+ Create a free service
++ [Create a free service](search-create-service-portal.md)
 + Prepare a small, representative data set (assume five thousand documents and ten percent sample size)
 + [Build an initial index](search-create-index-portal.md) and note its size in the portal (assume 30 MB)
 
 Assuming the sample was both representative and ten percent of the entire data source, a 30 MB index becomes 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to budget for two indexes (development and production), for a total of 600 MB in storage requirements. This is easily satisfied by the **Basic** tier, so you would start there.
 
-### Advanced estimating using a paid tier
+### Advanced estimated using a billable tier
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
 1. [Review service limits at each tier](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
 
-1. Create a service at paid tier:
+1. [Create a service at a billable tier](search-create-service-portal.md):
 
     + Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
     + Start high, at **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
