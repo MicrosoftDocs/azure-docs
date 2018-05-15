@@ -55,10 +55,10 @@ To select an existing Log Analytics workspace:
 
 2. From the pull-down menu, select a workspace to store collected data.
 
-> [!NOTE]
-> In the pull down menu, all the workspaces across all of your subscriptions are available. See [cross subscription workspace selection](security-center-enable-data-collection.md#cross-subscription-workspace-selection) for more information.
->
->
+  > [!NOTE]
+  > In the pull down menu, all the workspaces across all of your subscriptions are available. See [cross subscription workspace selection](security-center-enable-data-collection.md#cross-subscription-workspace-selection) for more information.
+  >
+  >
 
 3. Select **Save**.
 4. After selecting **Save**, you will be asked if you would like to reconfigure monitored VMs.
@@ -73,7 +73,7 @@ To select an existing Log Analytics workspace:
 
    - Select **Cancel** to cancel the operation.
 
-   ![Select existing workspace][3]
+     ![Select existing workspace][3]
 
 ## Cross subscription workspace selection
 When you select a workspace to store your data, all the workspaces across all of your subscriptions are available. Cross subscription workspace selection allows you to collect data from virtual machines running in different subscriptions and store it in the workspace of your choice. This capability works for both virtual machines running on Linux and Windows.
