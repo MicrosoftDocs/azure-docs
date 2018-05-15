@@ -63,36 +63,36 @@ Before defining the Stream Analytics job, you should prepare the data that is co
 
    4. Copy the storage key that is outputted by the code, and paste that key in the JSON files for creating the streaming job's input and outputs later on.
 
-```powershell
-$storageAccountName = "mystorageaccount"
-$storageAccount = New-AzureRmStorageAccount `
-  -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
-
-$ctx = $storageAccount.Context
-$containerName = "streamanalytics"
-
-New-AzureStorageContainer `
-  -Name $containerName `
-  -Context $ctx `
-  -Permission blob
-
-Set-AzureStorageBlobContent `
-  -File "c:\HelloWorldASA-InputStream.json" `
-  -Blob "input/HelloWorldASA-InputStream.json" `
-  -Container $containerName `
-  -Context $ctx  
-
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
-  -ResourceGroupName $resourceGroup `
-  -Name $storageAccountName).Value[0]
-
-Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
-Write-Host $storageAccountKey -ForegroundColor Cyan
-```
+   ```powershell
+   $storageAccountName = "mystorageaccount"
+   $storageAccount = New-AzureRmStorageAccount `
+     -ResourceGroupName $resourceGroup `
+     -Name $storageAccountName `
+     -Location $location `
+     -SkuName Standard_LRS `
+     -Kind Storage
+   
+   $ctx = $storageAccount.Context
+   $containerName = "streamanalytics"
+   
+   New-AzureStorageContainer `
+     -Name $containerName `
+     -Context $ctx `
+     -Permission blob
+   
+   Set-AzureStorageBlobContent `
+     -File "c:\HelloWorldASA-InputStream.json" `
+     -Blob "input/HelloWorldASA-InputStream.json" `
+     -Container $containerName `
+     -Context $ctx  
+   
+   $storageAccountKey = (Get-AzureRmStorageAccountKey `
+     -ResourceGroupName $resourceGroup `
+     -Name $storageAccountName).Value[0]
+   
+   Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
+   Write-Host $storageAccountKey -ForegroundColor Cyan
+   ```
 
 ## Create a Stream Analytics job
 
