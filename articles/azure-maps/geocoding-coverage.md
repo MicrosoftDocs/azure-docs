@@ -294,7 +294,7 @@ When you search for a location with Azure Maps, the search service takes your se
 
 ## Next steps
 
-For more information about Azure Maps geocoding, see the [Search](https://docs.microsoft.com/rest/api/azure-maps/search) reference pages.
+For more information about Azure Maps geocoding, see the [Search](https://docs.microsoft.com/rest/api/maps/search) reference pages.
 
 Learn about the [coverage areas for the Maps traffic service](traffic-coverage.md). 
 
