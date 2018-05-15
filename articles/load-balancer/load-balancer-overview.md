@@ -146,7 +146,7 @@ The following figure shows a load-balanced endpoint for web traffic that is shar
 
 *Figure: Load balancing web traffic by using a public load balancer*
 
-When internet clients send webpage requests to the public IP address of a web app on TCP port 80, Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about load balancer algorithms, see the [load balancer overview page](load-balancer-overview.md#load-balancer-features).
+When internet clients send webpage requests to the public IP address of a web app on TCP port 80, Azure Load Balancer distributes the requests across the three VMs in the load-balanced set. For more information about load balancer algorithms, see the [load balancer features](load-balancer-overview.md##fundamental-load-balancer-features) section of this article.
 
 By default, Azure Load Balancer distributes network traffic equally among multiple VM instances. You can also configure session affinity. For more information, see [load balancer distribution mode](load-balancer-distribution-mode.md).
 
