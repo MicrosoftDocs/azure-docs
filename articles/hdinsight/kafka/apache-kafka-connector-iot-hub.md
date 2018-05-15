@@ -32,18 +32,7 @@ Learn how to use the [Kafka Connect Azure IoT Hub](https://github.com/Azure/toke
 
 * An Azure IoT Hub. For this tutorial, I recommend the [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
 
-* An SSH client. The steps in this document use SSH to connect to the cluster.
-
-    The `ssh` command is provided by default on Linux, Unix, and macOS systems. On Windows 10, use one of the following methods to install the `ssh` command:
-
-    * Use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). The cloud shell provides the `ssh` command, and can be configured to use either Bash or PowerShell as the shell environment.
-
-    * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
-
-    > [!IMPORTANT]
-    > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.
-    >
-    > For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
+* An SSH client. The steps in this document use SSH to connect to the cluster. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 
 ## Kafka connect API
 
