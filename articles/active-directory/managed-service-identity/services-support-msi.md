@@ -7,6 +7,7 @@ ms.author: daveba
 ms.date: 03/28/2018
 ms.topic: reference
 ms.service: active-directory
+ms.component: msi
 manager: mtillman
 ---
 

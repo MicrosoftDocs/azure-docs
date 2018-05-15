@@ -250,6 +250,8 @@ The queue trigger provides several [metadata properties](functions-triggers-bind
 |`NextVisibleTime`|`DateTimeOffset`|The time that the message will next be visible.|
 |`PopReceipt`|`string`|The message's pop receipt.|
 
+See [code examples](#trigger---example) that use these properties earlier in this article.
+
 ## Trigger - poison messages
 
 When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.
@@ -480,7 +482,7 @@ In JavaScript functions, use `context.bindings.<name>` to access the output queu
 
 | Binding |  Reference |
 |---|---|
-| Queue | [Queue Error Codes](https://docs.microsoft.com/en-us/rest/api/storageservices/queue-service-error-codes) |
+| Queue | [Queue Error Codes](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Table, Queue |  [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

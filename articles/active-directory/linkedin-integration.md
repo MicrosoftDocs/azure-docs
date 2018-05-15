@@ -7,10 +7,9 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/02/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
@@ -21,6 +20,9 @@ In this article, you can learn how to manage LinkedIn account connections for yo
 
 > [!IMPORTANT]
 > LinkedIn account connections functionality is currently being rolled out to Azure AD tenants. When it is rolled out to your tenant, it is enabled by default. It is not available for United States government customers, and organizations with Exchange Online mailboxes hosted in Australia, Canada, China, France, Germany, India, South Korea, United Kingdom, Japan, and South Africa. Support for these mailbox locations is coming soon.  For an up-to-date view of rollout information, see the [Office 365 Roadmap](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc) page.
+
+## Benefit to users
+After users connect their LinkedIn account, LinkedIn information is used to show personalized information and features in various Microsoft apps or services. Users can see insights about the people they work with in the Microsoft profile card, even if those people outside your organization. Over time, their LinkedIn experience will also become more relevant and tailored to their work. For example, LinkedIn can suggest new connections based on who users work with, or surface insights about people on their calendar that day.
 
 ## How LinkedIn account connections appear to the user
 LinkedIn account connections allow users to see public LinkedIn profile information within some of their Microsoft apps. Users in your tenant can choose to connect their LinkedIn and Microsoft work or school accounts to see additional LinkedIn profile information. For more information, see [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740).

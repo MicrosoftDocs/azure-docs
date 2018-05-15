@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Set up custom domain | Microsoft Docs
 description: Azure PowerShell Script Sample - Set up custom domain
 services: api-management
 documentationcenter: ''
-author: juliako
+author: vladvino
 manager: cfowler
 editor: ''
 
