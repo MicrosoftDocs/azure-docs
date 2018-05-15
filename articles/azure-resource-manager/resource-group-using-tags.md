@@ -21,7 +21,7 @@ ms.author: tomfitz
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## PowerShell
 
