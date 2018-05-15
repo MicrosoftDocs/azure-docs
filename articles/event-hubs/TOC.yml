@@ -29,6 +29,8 @@
 - name: Samples
 - name: Concepts
   items:
+  - name: Integrate with Event Grid
+    href: ../event-grid/event-grid-event-hubs-integration.md
   - name: Programming guide
     href: event-hubs-programming-guide.md
   - name: Event Hubs features
