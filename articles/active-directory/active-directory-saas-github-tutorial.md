@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.author: jeedes
 ms.reviewer: jeedes
 
@@ -87,7 +87,7 @@ To configure and test Azure AD single sign-on with GitHub, you need to complete 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a GitHub test user](#creating-a-github-test-user)** - to have a counterpart of Britta Simon in GitHub that is linked to the Azure AD representation of her.
+3. **[Creating a GitHub test user](#creating-a-GitHub-test-user)** - to have a counterpart of Britta Simon in GitHub that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -207,11 +207,7 @@ The objective of this section is to create a test user in the Azure Management p
 
 The objective of this section is to create a user called Britta Simon in GitHub. GitHub supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-github-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-In order to enable Azure AD users to log into GitHub, they must be provisioned into GitHub. In the case of GitHub, provisioning is a manual task.
-
-**To provision a user accounts, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. Log in to your GitHub company site as an administrator.
 
