@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: nolachar
 ---
-# Quickstart: Extract Handwritten Text from an Image with C&#35;
+# Quickstart: Extract Handwritten Text with C&#35;
 
 In this quickstart, you extract handwritten txt from an image using Computer Vision.
 
