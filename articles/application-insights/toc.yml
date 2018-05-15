@@ -53,6 +53,8 @@
       href: app-insights-asp-net-core.md
     - name: Console
       href: application-insights-console.md
+    - name: Application dashboard
+      href: app-insights-overview-dashboard.md
   - name: Monitor Java apps
     items:
     - name: Web apps
