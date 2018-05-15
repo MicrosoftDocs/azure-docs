@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.topic: article
 ---
 
@@ -33,6 +33,3 @@ Documents leave configurations and processes open to interpretation. Executable 
 
 ## Keep up with rapidly changing threat and compliance landscapes
 InSpec allows you to write and publish detection code the same day and write new rules in quick response to new regulations. This means that changes in threats or regulations no longer equal emergencies.
-
-## Next steps
-* [Scan Azure resources for compliance with InSpec](chef-scan-azure-resources.md) 

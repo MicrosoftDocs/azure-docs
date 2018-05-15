@@ -6,7 +6,7 @@ keywords:  azure, chef, devops, virtual machines, overview, automate
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.topic: article
 ---
 
@@ -20,6 +20,3 @@ Companies require speed, velocity, and safety to compete in the digital marketpl
 
 ## Test drive Chef Automate on Azure
 Supported by Chef, the [Chef Automate Azure Marketplace solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate) enables you to build, deploy, and manage your infrastructure and applications collaboratively. One click gets you instant access to all commercial features included with Chef Automate; gain end-to-end visibility across your entire fleet, enable continuous compliance, and manage all change with a unified workflow.
-
-## Next steps
-* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)

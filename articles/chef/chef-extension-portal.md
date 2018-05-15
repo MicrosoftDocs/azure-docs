@@ -6,7 +6,7 @@ ms.service: virtual-machines-linux
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 05/14/2018
+ms.date: 05/15/2018
 ms.topic: article
 ---
 
