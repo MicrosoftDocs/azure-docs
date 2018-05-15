@@ -22,7 +22,7 @@ For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container i
 
 ## Azure CLI example
 
-To see the default output of the [microsoft/aci-wordcount][aci-wordcount]  container, run the following [az container create][az-container-create] command:
+To see the default output of the [microsoft/aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
 
 ```azurecli-interactive
 az container create \
@@ -32,29 +32,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Once the container status shows as *Terminated* (use [az container show][az-container-show] to check its status), display its logs with [az container logs][az-container-logs] to see the output.
-
-```azurecli-interactive
-az container logs --resource-group myResourceGroup --name mycontainer1
-```
-
-Without environment variables, the first container's log output is:
-
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer1
-[('the', 990),
- ('and', 702),
- ('of', 628),
- ('to', 610),
- ('I', 544),
- ('you', 495),
- ('a', 453),
- ('my', 441),
- ('in', 399),
- ('HAMLET', 386)]
-```
-
-By specifying `NumWords=5` and `MinLength=8` for the container's environment variables, the container logs display different output. This example adds the `--environment-variables` argument, and specifies the *NumWords* and *MinLength* variables:
+To modify its output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables:
 
 ```azurecli-interactive
 az container create \
@@ -65,10 +43,29 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-With environment variables, the second container's log output is:
+Once both containers' status shows as *Terminated* (use [az container show][az-container-show] to check status), display their logs with [az container logs][az-container-logs] to see the output.
+
+```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer1
+az container logs --resource-group myResourceGroup --name mycontainer2
+```
+
+The output for each container shows how you've modified the script run by the container by setting environment variables.
 
 ```console
-$ az container logs --resource-group myResourceGroup --name mycontainer2
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -80,7 +77,7 @@ $ az container logs --resource-group myResourceGroup --name mycontainer2
 
 Setting environment variables in PowerShell is similar to the CLI, but uses the `-EnvironmentVariable` command-line argument.
 
-First, launch the container in its default configuration with this [New-AzureRmContainerGroup][new-azurermcontainergroup] command:
+First, launch the [microsoft/aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzureRmContainerGroup][new-azurermcontainergroup] command:
 
 ```azurepowershell-interactive
 New-AzureRmContainerGroup `
@@ -89,7 +86,7 @@ New-AzureRmContainerGroup `
     -Image microsoft/aci-wordcount:latest
 ```
 
-Now run the following [New-AzureRmContainerGroup][new-azurermcontainergroup] command, which specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
+Now run the following [New-AzureRmContainerGroup][new-azurermcontainergroup] command. This one specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
 
 ```azurepowershell-interactive
 $envVars = @{NumWords=5;MinLength=8}
@@ -101,39 +98,60 @@ New-AzureRmContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Once each container's status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check its status), pull its logs with the [Get-AzureRmContainerInstanceLog][azure-instance-log] command.
+Once both containers' status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check status), pull their logs with the [Get-AzureRmContainerInstanceLog][azure-instance-log] command.
 
 ```azurepowershell-interactive
-Get-AzureRmContainerInstanceLog `
-    -ResourceGroupName myResourceGroup `
-    -ContainerGroupName mycontainer2
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 ```
 
-Output of the second container shows that you've limited the number words to five, and the minimum word length to eight characters:
+The output for each container shows how you've modified the script run by the container by setting environment variables.
 
 ```console
-PS Azure:\> $envVars = @{NumWords=5;MinLength=8}
-Azure:\
-PS Azure:\> New-AzureRmContainerGroup `
->>     -ResourceGroupName myResourceGroup `
->>     -Name mycontainer2 `
->>     -Image microsoft/aci-wordcount:latest `
->>     -RestartPolicy OnFailure `
->>     -EnvironmentVariable $envVars
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
  ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]
+ ('GUILDENSTERN', 54)]ILDENSTERN', 54)]
 ```
 
 ## Azure portal example
 
-TODO
+To set environment variables when you start a container in the Azure portal, specify them in the **Configuration** page when you create the container.
+
+When you deploy with the portal, you're currently limited to three variables, and you must enter them in this format: `"variableName":"value"`
+
+To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
+
+1. Set the **Restart policy** to *On failure*
+2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable.
+
+![Portal page showing environment variable Enable button and text boxes][portal-env-vars-01]
+
+To view the container's logs, select **Containers**, then **Logs**. Similar to the output shown in the previous CLI and PowerShell sections, you can see how the script's behavior has been modified by the environment variables. Only five words are displayed, each with a minimum length of eight characters.
+
+![Portal showing container log output][portal-env-vars-02]
 
 ## Next steps
 
 For more information on running task-based containers, such as for batch computing scenarios, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+
+<!-- IMAGES -->
+[portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
+[portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
 [aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
