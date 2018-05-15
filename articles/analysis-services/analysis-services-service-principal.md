@@ -12,9 +12,9 @@ ms.reviewer: minewiskan
 
 # Automation with service principals
 
-Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They are a unique type of *user identity* with an application ID and password or certificate. The application, or service prinicipal, has the limited permissions necessary only to perform specific tasks defined by the roles and permissions for which it is assigned. 
+Service principals are an Azure Active Directory application resource you create within your tenant to perform unattended resource and service level operations. They're a unique type of *user identity* with an application ID and password or certificate. A service principal has only those permissions necessary to perform tasks defined by the roles and permissions for which it's assigned. 
 
-In Analysis Services, service principals can be used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
+In Analysis Services, service principals are used with Azure Automation, PowerShell unattended mode, custom client applications, and web apps to automate common tasks. For example, provisioning servers, deploying models, data refresh, scale up/down, and pause/resume can all be automated by using service principals. Permissions are assigned to service principals through role membership, much like regular Azure AD UPN accounts.
 
 ## Create service principals
  
@@ -25,14 +25,14 @@ Service principals can be created in the Azure portal or by using PowerShell. To
 
 ## Store credential and certificate assets in Azure Automation
 
-Service prinicipal credentials and certificates can be stored securely in Azure Automation for runbook operations. To learn more, see these articles:
+Service principal credentials and certificates can be stored securely in Azure Automation for runbook operations. To learn more, see these articles:
 
 [Credential assets in Azure Automation](../automation/automation-credentials.md)   
 [Certificate assets in Azure Automation](../automation/automation-certificates.md)
 
 ## Add service principals to server admin role
 
-Before you can use a service principal Analysis Services server management operations, you must add it to the server administrators role. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
+Before you can use a service principal for Analysis Services server management operations, you must add it to the server administrators role. To learn more, see [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md).
 
 ## Service principals in connection strings
 
