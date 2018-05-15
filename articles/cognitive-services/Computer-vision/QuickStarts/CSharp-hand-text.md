@@ -485,5 +485,9 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Next steps
+
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag and describe visual features, including faces, in an image.
+
 > [!div class="nextstepaction"]
 > [Computer Vision API C&#35; Tutorial](../Tutorials/CSharpTutorial.md)
