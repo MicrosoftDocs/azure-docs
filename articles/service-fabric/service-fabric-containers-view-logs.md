@@ -29,11 +29,11 @@ In the tree view, find the code package on the *_lnxvm_0* node by expanding **No
 
 ![Service Fabric platform][Image1]
 
-## Access the logs of a dead or crashed containers
+## Access the logs of a dead or crashed container
 Starting in v6.2, you can also fetch the logs for a dead or crashed container using [REST APIs](/rest/api/servicefabric/sfclient-index) or [Service Fabric CLI (SFCTL)](service-fabric-cli.md) commands.
 
 ### REST
-Use the [Get Container Logs Deployed On Node](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operation to get the logs for a crashed container. Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. The response will contain the container logs for the container.
+Use the [Get Container Logs Deployed On Node](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) operation to get the logs for a crashed container. Specify the name of the node that the container was running on, application name, service manifest name, and the code package name.  Specify `&Previous=true`. The response will contain the container logs for the dead container of the code package instance.
 
 Request:
 ```
@@ -46,7 +46,7 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### Service Fabric (SFCTL)
-Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. The response will contain the container logs for the container.
+Use the [sfctl service get-container-logs](service-fabric-sfctl-service.md) command to fetch the logs for a crashed container.  Specify the name of the node that the container was running on, application name, service manifest name, and the code package name. Specify the `-previous` flag.  The response will contain the container logs for the dead container of the code package instance.
 
 ```
 sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
