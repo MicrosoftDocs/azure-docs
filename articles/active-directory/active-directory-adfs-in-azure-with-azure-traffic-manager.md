@@ -91,6 +91,10 @@ Follow the steps below to create a traffic manager profile. For more information
    
     <code>fs.fabidentity.com IN CNAME mysts.trafficmanager.net</code>
 
+> [!NOTE]
+> We do not recommend using Traffic Manager on your AD FS servers since it will set public IP to AD FS servers and will put AD FS servers at security risk. Also, there is following known issue if you use CNAME to resolve federation service to point to your Traffic Manager for AD FS servers. https://blogs.technet.microsoft.com/rmilne/2014/04/28/how-to-install-adfs-2012-r2-for-office-365/
+
+
 ## Test the routing and AD FS sign-in
 ### Routing test
 A very basic test for the routing would be to try ping the federation service DNS name from a machine in each geographic region. Depending on the routing method chosen, the endpoint it actually pings will be reflected in the ping display. For example, if you selected the performance routing, then the endpoint nearest to the region of the client will be reached. Below is the snapshot of two pings from two different region client machines, one in EastAsia region and one in West US. 
