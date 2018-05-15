@@ -62,7 +62,7 @@ Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Co
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
 ```powershell
-Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
+Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 ```
 
 ### Use Azure Service Fabric CLI (sfctl)
