@@ -88,7 +88,7 @@ $storageAccountKey = (Get-AzureRmStorageAccountKey `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName).Value[0]
 
-Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files:" 
+Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files with this key value:" 
 Write-Host $storageAccountKey -ForegroundColor Cyan
 ```
 
@@ -103,7 +103,7 @@ Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.
       "sku":{    
          "name":"standard"  
       },  
-      "eventsOutOfOrderPolicy":"drop",  
+      "eventsOutOfOrderPolicy":"adjust",  
       "eventsOutOfOrderMaxDelayInSeconds":10,  
       "compatibilityLevel": 1.1
 }
@@ -247,14 +247,14 @@ New-AzureRMStreamAnalyticsTransformation `
 
 Start the job by using the [Start-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. OUtpputStartMode accepts two values JobStartTime, CustomTime, or LastOutputEventTime to learn about what each of these values are referring to, see the [parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) section in PowerShell documentation. In this example, you can specify mode as CustomTime and provide a value for the OutputStartTime. 
 
-For time value, select `2018-01-24`. This start date is chosen because it precedes the event timestamp from the sample data. After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data. 
+For time value, select `2018-01-01`. This start date is chosen because it precedes the event timestamp from the sample data. After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data. 
 
 ```powershell
 Start-AzureRMStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
   -OutputStartMode CustomTime `
-  -OutputStartTime 2018-01-24T00:00:00Z 
+  -OutputStartTime 2018-01-01T00:00:00Z 
 ```
 
 ## Clean up resources
