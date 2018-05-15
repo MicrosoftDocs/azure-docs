@@ -178,7 +178,7 @@ Do the following to make sure both your `webfrontend` and `mywebapi` services ar
 3. Switch to the Visual Studio window with the `webfrontend` project and press Ctrl+F5 to run it as well.
 
 > [!Note]
-> It is sometimes necessary to refresh your browser after the web page is initially displayed > > 
+> It is sometimes necessary to refresh your browser after the web page is initially displayed 
 > following a Ctrl+F5.
 
 Anyone who opens the public URL and navigates to the web app will invoke the code path you have written which runs through both services using the default `default` space. Now suppose you want to continue developing `mywebapi` - how can you do this and not interrupt other developers who are using the development environment? To do that, you'll set up your own space.

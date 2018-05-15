@@ -11,6 +11,9 @@ ms.date: "05/11/2018"
 ms.topic: "include"
 manager: "douge"
 ---
+
+### Run the service
+
 1. Hit F5 (or type `azds up` in the Terminal Window) to run the service. The service will automatically run in your newly selected space `scott`. 
 1. You can confirm that your service is running in its own space by running `azds resource list` again. First, you'll notice an instance of `mywebapi` is now running in the `scott` space (the version running in the `default` is still running but it is not listed). Secondly, the access point URL for `webfrontend` is prefixed with the text *scott-*. This URL is unique to the `scott` space, and signifies that requests sent to the "scott URL" will attempt to first route to services in the `scott` space, and will fall back to services in the `default` space.
 

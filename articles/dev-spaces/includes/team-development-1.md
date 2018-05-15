@@ -52,9 +52,10 @@ The Space column shows that both services are running in a space named `default`
 
 ## Create a space
 To run your own version of `mywebapi` in a space other than `default`, you can create your own space by using the following command:
-    ``` 
-    azds space create --name scott
-    ```
+
+``` 
+azds space create --name scott
+```
 
 In the example above, I've used my name for the new space so that it is identifiable to my peers that it's the space I'm working in, but you can call it anything you like and be flexible about what it means, like 'sprint4' or 'demo.'
 
