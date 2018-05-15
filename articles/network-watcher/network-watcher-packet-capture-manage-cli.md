@@ -180,61 +180,26 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## Get a packet capture
 
-Running the `az network watcher packet-capture show` cmdlet, retrieves the status of a currently running, or completed packet capture.
+Running the `az network watcher packet-capture show-status` cmdlet, retrieves the status of a currently running, or completed packet capture.
 
 ```azurecli
-az network watcher packet-capture show --name packetCaptureName --location westcentralus
+az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-The following example is the output from the `az network watcher packet-capture show` cmdlet. The following example is after the capture is complete. The PacketCaptureStatus value is Stopped, with a StopReason of TimeExceeded. This value shows that the packet capture was successful and ran its time.
+The following example is the output from the `az network watcher packet-capture show-status` cmdlet. The following example is when the capture is Stopped, with a StopReason of TimeExceeded. 
 
 ```
 {
-  "bytesToCapturePerPacket": 0,
-  "etag": "W/\"b8cf3528-2e14-45cb-a7f3-5712ffb687ac\"",
-  "filters": [
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "20"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "80"
-    },
-    {
-      "localIpAddress": "10.0.0.3",
-      "localPort": "",
-      "protocol": "TCP",
-      "remoteIpAddress": "1.1.1.1-255.255.255",
-      "remotePort": "443"
-    },
-    {
-      "localIpAddress": "",
-      "localPort": "",
-      "protocol": "UDP",
-      "remoteIpAddress": "",
-      "remotePort": ""
-    }
-  ],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/packetCaptures/packetCaptureName",
-  "name": "packetCaptureName",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "NetworkWatcherRG",
-  "storageLocation": {
-    "filePath": null,
-    "storageId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/gwteststorage123abc",
-    "storagePath": "https://gwteststorage123abc.blob.core.windows.net/network-watcher-logs/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/{resourceGroupName}/providers/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapt
-ure_16_22_34_630.cap"
+  "additionalProperties": {
+    "status": "Succeeded"
   },
-  "target": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}",
-  "timeLimitInSeconds": 18000,
-  "totalBytesPerSession": 1073741824
+  "captureStartTime": "2016-12-06T17:20:01.5671279Z",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatchers/NetworkWatcher_westcentralus/pa
+cketCaptures/packetCaptureName",
+  "name": "packetCaptureName",
+  "packetCaptureError": [],
+  "packetCaptureStatus": "Stopped",
+  "stopReason": "TimeExceeded"
 }
 ```
 
