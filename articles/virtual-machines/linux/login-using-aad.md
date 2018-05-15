@@ -34,6 +34,8 @@ There are many benefits of using Azure AD authentication to log in to Linux VMs 
 
 - **Seamless collaboration:** With Role-Based Access Control (RBAC), you can specify who can sign in to a given VM as a regular user or with administrator privileges. When users join or leave your team, you can update the RBAC policy for the VM to grant access as appropriate. This experience is much simpler than having to scrub VMs to remove unnecessary SSH public keys. When employees leave your organization and their user account is disabled or removed from Azure AD, they no longer have access to your resources.
 
+The ability to log in to Linux VMs with Azure Active Directory also works for customers that use [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+
 ### Supported Azure regions and Linux distributions
 
 The following Linux distributions are currently supported during the preview of this feature:
