@@ -4,7 +4,7 @@ description: This quickstart details using the Azure PowerShell module to deploy
 services: stream-analytics
 author: SnehaGunda
 ms.author: sngun
-ms.date: 03/16/2018
+ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
@@ -24,7 +24,7 @@ The Azure PowerShell module is used to create and manage Azure resources by usin
 
 ## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and enter your Azure credentials in the pop-up browser. After signing in, if you have multiple subscriptions, select the subscription that you would like to use for this quickstart by running the following cmdlets. Make sure to replace <your subscription> with the name of your subscription:  
+Log in to your Azure subscription with the `Connect-AzureRmAccount` command and enter your Azure credentials in the pop-up browser. After signing in, if you have multiple subscriptions, select the subscription that you would like to use for this quickstart by running the following cmdlets. Make sure to replace <your subscription name> with the name of your subscription:  
 
 ```powershell
 # Log in to your Azure account
@@ -42,24 +42,22 @@ Get-AzureRmSubscription -SubscriptionName "<your subscription name>" | Select-Az
 Create an Azure resource group with [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
-$resourceGroup = "ASAPSRG"
+$resourceGroup = "StreamAnalyticsRG"
 $location = "WestUS2"
-New-AzureRMResourceGroup `
-  -Name $resourceGroup `
-  -Location $location 
+New-AzureRMResourceGroup -Name $resourceGroup -Location $location 
 ```
 
 ## Prepare the input data
 
 Before defining the Stream Analytics job, you should prepare the data that is configured as input to the job. Run the following steps to prepare the input data required by the job: 
 
-1. Download the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub.  
+1. Download the [sensor sample data](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. Right-click the link and **Save Link As...** or **Save target as**.
 
-2. Create a standard general-purpose storage account with LRS replication using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet  
+2. Create a standard general-purpose storage account with locally-redundant storage using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet. See the following code block for an example of the commands. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default).  
 
-3. Retrieve the storage account context that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default).  
+3. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. 
 
-4. Next create a container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), set the permissions to 'blob' to allow public access of the files, and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. 
+4. Create a storage container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. You need to note the storage key, and use that key in the JSON files for creating the streaming job's input and outputs.
 
 These steps are achieved by running the following PowerShell script:
 
@@ -73,7 +71,7 @@ $storageAccount = New-AzureRmStorageAccount `
   -Kind Storage
 
 $ctx = $storageAccount.Context
-$containerName = "myinputcontainer"
+$containerName = "streamanalytics"
 
 New-AzureStorageContainer `
   -Name $containerName `
@@ -81,13 +79,17 @@ New-AzureStorageContainer `
   -Permission blob
 
 Set-AzureStorageBlobContent `
-  -File "C:\HelloWorldASA-InputStream.json" `
+  -File "c:\HelloWorldASA-InputStream.json" `
+  -Blob "input/HelloWorldASA-InputStream.json" `
   -Container $containerName `
   -Context $ctx  
 
 $storageAccountKey = (Get-AzureRmStorageAccountKey `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName).Value[0]
+
+Write-Host "The <storage account key> placeholder needs to be replaced in your input and output json files:" 
+Write-Host $storageAccountKey -ForegroundColor Cyan
 ```
 
 ## Create a Stream Analytics job
@@ -96,7 +98,7 @@ Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.
 
 ```json
 {    
-   "location":"Central US",  
+   "location":"WestUS2",  
    "properties":{    
       "sku":{    
          "name":"standard"  
@@ -134,10 +136,10 @@ On your local machine, create a file named “JobInputDefinition.json” and add
                 "storageAccounts": [
                 {
                    "accountName": "mystorageaccount",
-                   "accountKey":"<Your storage account key>"
+                   "accountKey":"<storage account key>"
                 }],
-                "container": "myinputcontainer",
-                "pathPattern": "",
+                "container": "streamanalytics",
+                "pathPattern": "input/",
                 "dateFormat": "yyyy/MM/dd",
                 "timeFormat": "HH"
             }
@@ -180,10 +182,10 @@ On your local machine, create a file named “JobOutputDefinition.json” and ad
                 "storageAccounts": [
                     {
                       "accountName": "mystorageaccount",
-		              "accountKey": "<Your storage account key>"
+		              "accountKey": "<storage account key>"
                     }],
-                "container": "myoutputcontainer",
-                "pathPattern": "",
+                "container": "streamanalytics",
+                "pathPattern": "output/",
                 "dateFormat": "yyyy/MM/dd",
                 "timeFormat": "HH"
             }
@@ -245,14 +247,14 @@ New-AzureRMStreamAnalyticsTransformation `
 
 Start the job by using the [Start-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, output start mode, and start time as parameters. OUtpputStartMode accepts two values JobStartTime, CustomTime, or LastOutputEventTime to learn about what each of these values are referring to, see the [parameters](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/start-azurermstreamanalyticsjob?view=azurermps-5.4.0) section in PowerShell documentation. In this example, you can specify mode as CustomTime and provide a value for the OutputStartTime. 
 
-For time value, select one day prior to when you uploaded the file to blob storage because the time at which the file was uploaded is earlier that the current time. After you run the following cmdlet, it returns “True” as output if the job starts. A container named “myoutputcontainer” is created in the storage account with the transformed data. 
+For time value, select `2018-01-24`. This start date is chosen because it precedes the event timestamp from the sample data. After you run the following cmdlet, it returns `True` as output if the job starts. In the storage container, an output folder is created with the transformed data. 
 
 ```powershell
 Start-AzureRMStreamAnalyticsJob `
   -ResourceGroupName $resourceGroup `
   -Name $jobName `
   -OutputStartMode CustomTime `
-  -OutputStartTime 2018-03-11T14:45:12Z 
+  -OutputStartTime 2018-01-24T00:00:00Z 
 ```
 
 ## Clean up resources
