@@ -27,11 +27,11 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Understand your Azure charges</h3>
+                        <h3>Understand Azure charges</h3>
                         <p>
-                        <a href="/azure/billing/billing-understand-your-bill">Understand your bill</a><br/>
-                        <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Download Azure billing invoice and daily usage data</a><br/>
-                        <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">Understand your Azure external service charges</a><br/>
+                        <a href="/azure/billing/billing-understand-your-bill">Understand bill</a><br/>
+                        <a href="/azure/billing/billing-download-azure-invoice-daily-usage-date">Download bill</a><br/>
+                        <a href="/azure/billing/billing-understand-your-azure-marketplace-charges">External service charges</a><br/>
                         </p>
                     </div>
                 </div>
@@ -43,12 +43,12 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Forcast and track Azure costs</h3>
+                        <h3>Forecast + track costs</h3>
                         <p>
                         <a href="/azure/billing/billing-getting-started">Prevent unexpected costs</a><br/>
-                        <a href="/azure/billing/billing-set-up-alerts">Set up billing alerts for Azure subscriptions</a><br/>
+                        <a href="/azure/billing/billing-set-up-alerts">Set up alerts</a><br/>
                         <a href="https://azure.microsoft.com/pricing/calculator/">Calculate pricing</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags to understand costs for projects or teams</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags</a><br/>
                         </p>
                     </div>
                 </div>
@@ -60,13 +60,13 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Manage Azure subscription or account</h3>
+                        <h3>Manage subscription + account</h3>
                         <p>
                         <a href="/azure/billing/billing-subscription-become-disable">Reactivate subscription</a><br/>
-                        <a href="/azure/billing/billing-subscription-transfer">Change ownership of your subscription</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources to new subscription</a><br/>
-                        <a href="/azure/billing/billing-how-to-cancel-azure-subscription">Cancel your subscription</a><br/>
-                        <a href="/azure/billing/billing-how-to-change-credit-card">Change your credit card for Azure</a>
+                        <a href="/azure/billing/billing-subscription-transfer">Change ownership</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a><br/>
+                        <a href="/azure/billing/billing-how-to-cancel-azure-subscription">Cancel subscription</a><br/>
+                        <a href="/azure/billing/billing-how-to-change-credit-card">Change credit card</a>
                         </p>
                     </div>
                 </div>
@@ -80,11 +80,11 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                     <div class="cardText">
                         <h3>Free account</h3>
                         <p>
-                        <a href="https://azure.microsoft.com/free/">Create a free account</a><br/>
-                        <a href="/azure/billing/billing-create-free-services-included-free-account">Create free services with Azure free account</a><br/>
-                        <a href="/azure/billing/billing-avoid-charges-free-account">Avoid charges for your Azure free account</a><br/>
-                        <a href="/azure/billing/billing-check-free-service-usage">Monitor and track usage of free services </a><br/>
-                        <a href="/azure/billing/billing-upgrade-azure-subscription">Upgrade your free Azure subscription to Pay-As-You-Go</a>
+                        <a href="https://azure.microsoft.com/free/">Create  free account</a><br/>
+                        <a href="/azure/billing/billing-create-free-services-included-free-account">Create free services</a><br/>
+                        <a href="/azure/billing/billing-avoid-charges-free-account">Avoid charges</a><br/>
+                        <a href="/azure/billing/billing-check-free-service-usage">Monitor usage</a><br/>
+                        <a href="/azure/billing/billing-upgrade-azure-subscription">Upgrade subscription</a>
                         </p>
                     </div>
                 </div>
@@ -98,10 +98,10 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                     <div class="cardText">
                         <h3>Billing administrator</h3>
                         <p>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Understand how Reserved Virtual Machine Instance discount is applied</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage Reserved Virtual Machine Instances</a><br/>
-                        <a href="/azure/billing/billing-manage-access">Manage access to Azure billing using roles</a><br/>
-                        <a href="/azure/azure-resource-manager/management-groups-overview">Organize your resources with Azure Management Groups</a>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Reserved VM Instance discount </a><br/>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Manage Reserved VM Instances</a><br/>
+                        <a href="/azure/billing/billing-manage-access">Manage access to billing</a><br/>
+                        <a href="/azure/azure-resource-manager/management-groups-overview">Organize resources</a>
                         </p>
                     </div>
                 </div>
@@ -115,10 +115,10 @@ Learn how to understand your Azure billing, and monitor usage and costs.
                     <div class="cardText">
                         <h3>Developer / ISV</h3>
                         <p>
-                        <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs docs</a><br/>
-                        <a href="/azure/billing/billing-enterprise-api">Azure Billing Enterprise APIs docs</a><br/>
-                        <a href="/rest/api/billing/">Azure Invoice APIs reference</a><br/>
-                        <a href="/rest/api/consumption/">Azure Consumption APIs reference</a>
+                        <a href="/azure/billing/billing-usage-rate-card-overview">Azure Billing APIs</a><br/>
+                        <a href="/azure/billing/billing-enterprise-api">Azure Billing Enterprise APIs</a><br/>
+                        <a href="/rest/api/billing/">Azure Invoice APIs </a><br/>
+                        <a href="/rest/api/consumption/">Azure Consumption APIs </a>
                         </p>
                     </div>
                 </div>
@@ -130,12 +130,12 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Save money by pre-paying for Azure virtual machines</h3>
+                        <h3>Reserved VM Instance</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">What are Reserved VM Instances?</a><br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances">Prepay for Virtual Machines with Reserved VM Instances</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Understand how the Reserved Virtual Machine Instance discount is applied</a><br/>
-                        <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Windows software costs not included with Reserved Instances</a>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">What is it?</a><br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances">How to buy it</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">How discount is applied</a><br/>
+                        <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Software costs not included</a>
                         </p>
                     </div>
                 </div>
@@ -147,11 +147,11 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Organize your resources</h3>
+                        <h3>Organize resources</h3>
                         <p>
-                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Use resource tags to understand costs for projects or teams</a><br/>
-                        <a href="/azure/azure-resource-manager/management-groups-overview">Organize your resources with Azure Management Groups</a><br/>
-                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources to new subscription or resource group</a>
+                        <a href="/azure/azure-resource-manager/resource-group-using-tags">Resource tags</a><br/>
+                        <a href="/azure/azure-resource-manager/management-groups-overview">Azure Management Groups</a><br/>
+                        <a href="/azure/azure-resource-manager/resource-group-move-resources">Move Azure resources</a>
                         </p>
                     </div>
                 </div>
@@ -163,15 +163,15 @@ Learn how to understand your Azure billing, and monitor usage and costs.
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Troubleshoot Azure billing issues</h3>
+                        <h3>Troubleshoot</h3>
                         <p>
-                        <a href="/azure/billing/billing-understand-your-bill">Charges on my invoice</a><br/>
+                        <a href="/azure/billing/billing-understand-your-bill">Charges</a><br/>
                         <a href="/azure/billing/billing-subscription-become-disable">Deactivated subscription</a><br/>
-                        <a href="/azure/billing/billing-no-subscriptions-found">'No subscription found' error</a><br/>
+                        <a href="/azure/billing/billing-no-subscriptions-found">'No subscription found'</a><br/>
                         <a href="/azure/billing/billing-azure-subscription-past-due-balance">Past due balance</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Declined card at Azure sign-up</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up issues</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in issues</a><br/>
+                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Declined card</a><br/>
+                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Sign up</a><br/>
+                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Sign in</a><br/>
                         </p>
                     </div>
                 </div>
