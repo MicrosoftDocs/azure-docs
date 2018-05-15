@@ -250,6 +250,8 @@ The queue trigger provides several [metadata properties](functions-triggers-bind
 |`NextVisibleTime`|`DateTimeOffset`|The time that the message will next be visible.|
 |`PopReceipt`|`string`|The message's pop receipt.|
 
+See [code examples](#trigger---example) that use these properties earlier in this article.
+
 ## Trigger - poison messages
 
 When a queue trigger function fails, Azure Functions retries the function up to five times for a given queue message, including the first try. If all five attempts fail, the functions runtime adds a message to a queue named *&lt;originalqueuename>-poison*. You can write a function to process messages from the poison queue by logging them or sending a  notification that manual attention is needed.

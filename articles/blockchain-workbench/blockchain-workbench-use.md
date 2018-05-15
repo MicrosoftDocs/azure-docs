@@ -49,14 +49,7 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 ## Take action on contract
 
 1. In Blockchain Workbench application section, select the application tile that contains the contract to take the action.
-
-    ![Application list](media/blockchain-workbench-use/apps-list.png)
-
-2. Select the contract in the list.
-
-    ![Contract list](media/blockchain-workbench-use/select-contract.png)
-
-    Details about the contract are displayed in different sections. 
+2. Select the contract in the list. Details about the contract are displayed in different sections. 
 
     ![Contract details](media/blockchain-workbench-use/contract-details.png)
 
@@ -71,10 +64,16 @@ To create a new contract, you need to be a member of the **AllowedInstanceRoles*
 
 4. The details about the current state of the contract are displayed in a pane. Choose the action you want to take in the drop-down. 
 
+    ![Choose action](media/blockchain-workbench-use/choose-action.png)
+
+5. Select **Take action** to initiate the action.
+6. If parameters are required for the action, specify the values for the action.
+
     ![Take action](media/blockchain-workbench-use/take-action.png)
 
-5. Select **Execute** to take the action.
+7. Select **Take action** to execute the action.
 
 ## Next steps
 
-[How to troubleshoot Azure Blockchain Workbench](blockchain-workbench-troubleshooting.md)
+> [!div class="nextstepaction"]
+> [How to troubleshoot Azure Blockchain Workbench](blockchain-workbench-troubleshooting.md)
