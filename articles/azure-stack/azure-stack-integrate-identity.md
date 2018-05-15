@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords:
@@ -263,7 +263,7 @@ If you decide to manually run the commands, follow these steps:
 
 4. When you use Internet Explorer or the Edge browser to access Azure Stack, you must ignore token bindings. Otherwise, the sign-in attempts fail. On your AD FS instance or a farm member, run the following command:
 
-   > [!note]  
+   > [!Note]  
    > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.
 
    ```powershell
@@ -285,6 +285,9 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - Resource providers in Azure Stack when deployed with AD FS
 - Various applications
 - You require a non-interactive logon
+
+> [!Note]  
+> When you use AD FS as your identify provider, only interactive logon sessions are supported. If you require non-interactive logon for an automated solution, you must use a SPN.
 
 For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
