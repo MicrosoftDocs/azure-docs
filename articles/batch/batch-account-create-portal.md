@@ -75,7 +75,7 @@ Once the account has been created, click the account to access its settings and 
 
 * To view the name and keys of the storage account associated with your Batch account, click **Storage account**.
 
-* To view the resource quotas that apply to the Batch account, click  **Quotas**. For details, see [Batch service quotas and limits](batch-quota-limit.md)
+* To view the resource quotas that apply to the Batch account, click  **Quotas**. For details, see [Batch service quotas and limits](batch-quota-limit.md).
 
 
 ## Additional configuration for user subscription mode
