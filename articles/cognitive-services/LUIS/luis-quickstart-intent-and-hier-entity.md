@@ -14,12 +14,24 @@ ms.author: v-geberr
 
 --- 
 
-# Quickstart: Create app with intents and a hierarchical entity
-In this quickstart, you create an app that demonstrates how to use the parent-child entity named **Hierarchical** entity to extract information out of utterances.
-
-This simple app has two [intents](luis-concept-intent.md) and one hierarchical [entity](luis-concept-entity-types.md). Its purpose is to book flights such as '1 ticket from Seattle to Cairo`. 
+# Quickstart: Create app that uses hierarchical entity
+In this quickstart, create an app that demonstrates how to find related entities based on context. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the app
+This app determine if a user wants to book a flight. It uses the hierarchical entity to determine origin city and destination city. 
+
+## Purpose of the hierarchical entity
+The purpose of the **hierarchical** entity is to find simple entities that are related to each other based on context within the utterance. Consider the following utterance:
+
+```JSON
+1 ticket from Seattle to Cairo`
+```
+
+The utterance has two locations specified. One is the origin city, Seattle, and the other is the destination city, Cairo. This cities are both important to book a flight. While they could be found using simple entities, they are related to each other and will frequently be found in the same utterance. Therefore, it makes sense that they are both grouped as children of a hierarchical entity, **"Location"**. 
+
+As machine-learned entities, the app will need example utterances with the origin and destination cities labeled. This teaches LUIS where the entities are in utterances, how long they are and the words around them. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: BookFlight and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  

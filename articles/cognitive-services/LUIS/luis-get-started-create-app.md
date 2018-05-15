@@ -12,7 +12,7 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
 
-# Quickstart: Create app with prebuilt domain intents and entities
+# Quickstart: Use prebuilt Home automation app
 
 In this quickstart, you create a LUIS app that uses the prebuilt domain `HomeAutomation` with intents and entities already created for you. The prebuilt domain provides intents and entities for a home automation system for turning lights and appliances on and off. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
