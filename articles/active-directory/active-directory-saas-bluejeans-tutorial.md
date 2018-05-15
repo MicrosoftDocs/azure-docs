@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.author: jeedes
 
 ---
@@ -198,13 +198,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in BlueJeans. BlueJeans supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-bluejeans-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-To enable Azure AD users to log in to BlueJeans, they must be provisioned into BlueJeans.
-
-In case of BlueJeans, provisioning is a manual task.
-
-**To provision a user accounts, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. Log in to your **BlueJeans** company site as an administrator.
 
