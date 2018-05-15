@@ -1,22 +1,13 @@
 ---
-title: 'Azure Backup: Create a Recovery Services vault | Microsoft Docs'
-description: The steps for how to create a Recovery Services vault in Azure portal.
+title: include file
+description: include file
 services: backup
-documentationcenter: ''
 author: markgalioto
-manager: carmonm
-editor: ''
-keywords:
-
-ms.assetid:
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/2/2018
+ms.topic: include
+ms.date: 5/14/2018
 ms.author: markgal
-
+ms.custom: include file
 ---
 
 ## Create a Recovery Services vault
