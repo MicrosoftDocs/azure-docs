@@ -32,7 +32,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-To modify its output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables:
+To modify the output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables:
 
 ```azurecli-interactive
 az container create \
@@ -43,14 +43,14 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Once both containers' status shows as *Terminated* (use [az container show][az-container-show] to check status), display their logs with [az container logs][az-container-logs] to see the output.
+Once both containers' state shows as *Terminated* (use [az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] to see the output.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-The output for each container shows how you've modified the script run by the container by setting environment variables.
+The output of the containers show how you've modified the second container's script behavior by setting environment variables.
 
 ```console
 azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
@@ -98,7 +98,7 @@ New-AzureRmContainerGroup `
     -EnvironmentVariable $envVars
 ```
 
-Once both containers' status is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check status), pull their logs with the [Get-AzureRmContainerInstanceLog][azure-instance-log] command.
+Once both containers' state is *Terminated* (use [Get-AzureRmContainerInstanceLog][azure-instance-log] to check state), pull their logs with the [Get-AzureRmContainerInstanceLog][azure-instance-log] command.
 
 ```azurepowershell-interactive
 Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
@@ -120,12 +120,15 @@ PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -
  ('in', 399),
  ('HAMLET', 386)]
 
+Azure:\
 PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
  ('ROSENCRANTZ', 69),
- ('GUILDENSTERN', 54)]ILDENSTERN', 54)]
+ ('GUILDENSTERN', 54)]
+
+Azure:\
 ```
 
 ## Azure portal example
@@ -136,8 +139,8 @@ When you deploy with the portal, you're currently limited to three variables, an
 
 To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
 
-1. Set the **Restart policy** to *On failure*
-2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable.
+1. In **Configuration**, set the **Restart policy** to *On failure*
+2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable. Select **OK** to verify and then deploy the container.
 
 ![Portal page showing environment variable Enable button and text boxes][portal-env-vars-01]
 
@@ -147,7 +150,7 @@ To view the container's logs, under **SETTINGS** select **Containers**, then **L
 
 ## Next steps
 
-Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom environment variables at runtime. For more information on running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+Task-based scenarios, such as batch processing a large dataset with several containers, can benefit from custom environment variables at runtime. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
