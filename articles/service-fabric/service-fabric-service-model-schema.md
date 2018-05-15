@@ -9,7 +9,7 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: xml
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 01/30/2018
