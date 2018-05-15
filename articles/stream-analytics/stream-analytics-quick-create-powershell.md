@@ -77,8 +77,7 @@ Before defining the Stream Analytics job, you should prepare the data that is co
    
    New-AzureStorageContainer `
      -Name $containerName `
-     -Context $ctx `
-     -Permission blob
+     -Context $ctx
    
    Set-AzureStorageBlobContent `
      -File "c:\HelloWorldASA-InputStream.json" `
