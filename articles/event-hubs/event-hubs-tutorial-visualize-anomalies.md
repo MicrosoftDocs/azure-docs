@@ -83,20 +83,18 @@ The following sections describe how to do these required steps. Follow the CLI *
 
 The easiest way to use this script is to copy it and paste it into Cloud Shell. Assuming yuou are already logged in, it will run the script one line at a time.
 
-<!-- test this script ROBIN-->
-
 ```azure-cli-interactive
 
 # Set the values for the resource names.
 location=westus
-resourceGroup=ContosoEHResources
+resourceGroup=ContosoResourcesEH
 
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
 
-storageAccountName=contosoresultsstorage$RANDOM
+storageAccountName=contosostorage$RANDOM
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -141,8 +139,19 @@ az eventhubs eventhub create --resource-group $resourceGroup \
     --message-retention 3 \
     --partition-count 2
 
-#*** how to get the connection string? Ask Shubha. --robin***
+az eventhubs namespace authorization-rule keys list \
+   --resource-group $resourceGroup \
+   --namespace-name $eventHubNamespace \
+   --name RootManageSharedAccessKey
 
+# Save the connection string.
+connectionString=$(az eventhubs namespace authorization-rule keys list \
+   --resource-group $resourceGroup \
+   --namespace-name $eventHubNamespace \
+   --name RootManageSharedAccessKey \
+   --query primaryConnectionString 
+   --output tsv)
+echo "Connection string = " $connectionString 
 ```
 
 ### Azure PowerShell instructions
