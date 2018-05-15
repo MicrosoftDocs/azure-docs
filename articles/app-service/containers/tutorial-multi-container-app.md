@@ -41,7 +41,6 @@ To complete this tutorial, you need:
 
 * Install [Azure CLI](/cli/azure/install-azure-cli).
 * Experience with [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/).
-* Experience with Azure DB for MySQL <!-- not sure if this is needed? -->
 
 ## Create a deployment user
 
@@ -161,7 +160,7 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app m
 
 ![Sample multi-container app on Web App for Containers][1]
 
-**Congratulations**, you've created a multi-container app in Web App for Containers. Next you'll configure your app to use Azure Database for MySQL. You shouldn't install WordPress at this time.
+**Congratulations**, you've created a multi-container app in Web App for Containers. Next you'll configure your app to use Azure Database for MySQL. Don't install WordPress at this time.
 
 > [!IMPORTANT]
 > It's not recommended to use database containers in a production environment. Next you'll configure an Azure Database for MySQL to use with WordPress.
@@ -205,8 +204,6 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 >
 
 ### Create the WordPress database
-
-You need to create the WordPress database.
 
 ```bash
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
@@ -322,7 +319,7 @@ Browse to the deployed app at (`http://<app_name>.azurewebsites.net`). The app i
 
 ## Add persistent storage
 
-Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files are not persisted. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
 
 ### Configure environment variables
 
@@ -501,11 +498,9 @@ Click the **Enable Object Cache** button.
 
 ![Click the 'Enable Object Cache' button][5]
 
-WordPress connects to the Redis server. The connection **status** appears on the same page.
+![WordPress connects to the Redis server. The connection **status** appears on the same page.][6]
 
-![Once WordPress is connected to Redis, your screen should show this.][6]
-
-**Congratulations**, you've connected WordPress to Redis. The production-ready app is now using **Azure Database for MySQL, persistent storage and Redis**. You can now scale out your App Service Plan to multiple instances.
+**Congratulations**, you've connected WordPress to Redis. The production-ready app is now using **Azure Database for MySQL, persistent storage, and Redis**. You can now scale out your App Service Plan to multiple instances.
 
 ## Use a Kubernetes configuration (optional)
 
@@ -596,7 +591,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 
 ### Create the WordPress database
 
-You need to create the WordPress database. If you haven't already, create an [Azure Database for MySQL server](#create-an-azure-database-for-mysql-server).
+If you haven't already, create an [Azure Database for MySQL server](#create-an-azure-database-for-mysql-server).
 
 ```bash
 az mysql db create --resource-group myResourceGroup --server-name <mysql_server_name> --name wordpress
@@ -653,7 +648,7 @@ When the app setting has been created, the Azure CLI shows information similar t
 
 ### Add persistent storage
 
-Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files are not persisted. In this section, you'll add persistent storage to your WordPress container.
+Your multi-container is now running in Web App for Containers. The data will be erased on restart because the files aren't persisted. In this section, you'll add persistent storage to your WordPress container.
 
 ### Configure environment variables
 
