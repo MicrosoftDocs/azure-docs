@@ -20,9 +20,9 @@ abstract:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/azure/service-bus-messaging/media/index/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons.png
+      src: https://review.docs.microsoft.com/en-us/azure/service-bus-messaging/media/index/azure-messaging-and-event-based-architecture.png?branch=pr-en-us-41091
       width: 250  
-    title: Azure Messaging and event based architecture (1:24:32)
+    title: Azure Messaging and event-based architecture (1:24:32)
     href: https://azure.microsoft.com/en-us/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
     width: 250
 sections:
@@ -36,15 +36,15 @@ sections:
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
       text: Azure portal
-      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
       text: Azure CLI
-      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-cli
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-powershell
+      href: /azure/service-bus-messaging/service-bus-quickstart-powershell
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
