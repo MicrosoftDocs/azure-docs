@@ -49,7 +49,7 @@
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
-    href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+    href: load-balancer-get-started-internet-az-portal.md
     items:
     - name: Create a zone redundant public Standard Load Balancer (PowerShell)
       href: load-balancer-get-started-internet-az-powershell.md
@@ -76,7 +76,6 @@
     - name: Create public Load Balancer with IPv6 (Template)
       href: load-balancer-ipv6-internet-template.md
   - name: Configure internal Load Balancer
-    href: load-balancer-get-started-ilb-arm-portal.md
     items:
     - name: Configure internal Load Balancer (PowerShell)
       href: load-balancer-get-started-ilb-arm-ps.md

@@ -21,6 +21,12 @@
     href: container-instances-tutorial-prepare-acr.md
   - name: 3 - Deploy application
     href: container-instances-tutorial-deploy-app.md
+- name: Samples
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+  - name: Resource Manager templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance
 - name: Concepts
   items:
   - name: Quotas and regional limits
