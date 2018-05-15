@@ -13,12 +13,13 @@ ms.author: v-geberr
 #Customer intent: As a new user, I want to understand how and why to use the list entity. 
 --- 
 
-# Quickstart: Create app with intents and a list entity
-In this quickstart, you create an app that demonstrates how to use the exact text matched entity named **List** entity to extract information out of utterances.
-
-This simple app has two [intents](luis-concept-intent.md) and one list [entity](luis-concept-entity-types.md). Its purpose is to take drink orders such as `1 coke and 1 milk please`. 
+# Quickstart: Create app using a list entity
+In this quickstart, create an app that demonstrates how return exact data that matches a predefined list. When you're finished, you'll have a LUIS endpoint running in the cloud. 
 
 For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+
+## Purpose of the list entity
+This app takes drink orders such as `1 coke and 1 milk please`. A **list** entity of drinks looks for exact text matches and returns those matches. Use this entity when the data values are a known set. 
 
 ## App intents
 The intents are categories of what the user wants. This app has two intents: OrderDrink and None. The [None](luis-concept-intent.md#none-intent-is-fallback-for-app) intent is purposeful, to indicate anything outside the app.  

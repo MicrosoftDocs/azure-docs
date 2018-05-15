@@ -29,7 +29,6 @@ The following utterances show examples of sentiment:
 |positive - 0.89 |The soup and salad combo was great.|
 |negative - 0.07 |I didn't like the appetizer during the dinner service.|
 
-Your chat bot can consider the sentiment score as part of the information used to decide the next step in the conversation.
 
 ## Create a new app
 1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
