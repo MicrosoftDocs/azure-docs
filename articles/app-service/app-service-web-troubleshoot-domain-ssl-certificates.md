@@ -18,7 +18,7 @@ ms.author: genli
 ---
 # Troubleshoot domain and SSL certificate problems in Azure web apps
 
-This article lists common problems that you might encounter when you configure a domain or SSL certificate for your Azure web apps. It also describes possible causes and resolutions for these problems.
+This article lists common problems that you might encounter when you configure a domain or SSL certificate for your Azure web apps. It also describes possible causes and solutions for these problems.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
@@ -67,15 +67,15 @@ You can't purchase an [Azure App Service certificate](./web-sites-purchase-ssl-w
 #### Cause and solution
 This problem can occur for any of the following reasons:
 
-- The App Service plan is Free or Shared. We do not support SSL for these pricing tiers. 
+- The App Service plan is Free or Shared. These pricing tiers don't support SSL. 
 
     **Solution**: Upgrade the App Service plan for web app to Standard.
 
-- The subscription does not have a valid credit card.
+- The subscription doesn't have a valid credit card.
 
     **Solution**: Add a valid credit card to your subscription. 
 
-- The subscription offer does not support purchasing an App Service certificate such as Microsoft Student.  
+- The subscription offer doesn't support purchasing an App Service certificate such as Microsoft Student.  
 
     **Solution**: Upgrade your subscription. 
 
@@ -88,7 +88,7 @@ This problem can occur for any of the following reasons:
 
     1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Go to **App Service Certificates**, and select the certificate.
-    3. Select **Certificate Configuration** > **Step 2 : Verify** > **Domain Verification**. This step sends an email notice to the Azure certificate provider to resolve the problem.
+    3. Select **Certificate Configuration** > **Step 2: Verify** > **Domain Verification**. This step sends an email notice to the Azure certificate provider to resolve the problem.
 
 ## Domain problems
 
@@ -102,7 +102,7 @@ You purchased an App Service certificate for the wrong domain. You can't update 
 
 Delete that certificate and then buy a new certificate.
 
-If the current certificate that uses the wrong domain is in the “Issued” state, you will also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
+If the current certificate that uses the wrong domain is in the “Issued” state, you'll also be billed for that certificate. App Service certificates are not refundable, but you can contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to see whether there are other options. 
 
 ### An App Service certificate was renewed, but the web app shows the old certificate 
 
@@ -111,7 +111,7 @@ If the current certificate that uses the wrong domain is in the “Issued” sta
 The App Service certificate was renewed, but the web app that uses the App Service certificate is still using the old certificate. Also, you received a warning that the HTTPS protocol is required.
 
 #### Cause 
-The Web Apps feature of Azure App Service runs a background job every eight hours and syncs the certificate resource if there are any changes. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource has not run yet. 
+The Web Apps feature of Azure App Service runs a background job every eight hours and syncs the certificate resource if there are any changes. When you rotate or update a certificate, sometimes the application is still retrieving the old certificate and not the newly updated certificate. The reason is that the job to sync the certificate resource hasn't run yet. 
  
 #### Solution
 
@@ -221,7 +221,7 @@ Your domain is no longer visible in the Azure portal.
 The owner of the subscription might have accidentally deleted the domain.
 
 #### Solution
-If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You will not be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
+If your domain was deleted fewer than seven days ago, the domain has not yet started the deletion process. In this case, you can buy the same domain again on the Azure portal under the same subscription. (Be sure to type the exact domain name in the search box.) You won't be charged again for this domain. If the domain was deleted more than seven days ago, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for help to restore the domain.
 
 ### A custom domain returns a 404 error 
 
