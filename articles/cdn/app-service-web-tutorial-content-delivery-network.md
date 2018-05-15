@@ -20,7 +20,7 @@ ms.custom: mvc
 ---
 # Tutorial: Add Azure CDN to an Azure App Service web app
 
-This tutorial shows how to add Azure CDN to a [web app in Azure App Service](../app-service/app-service-web-overview.md). [Azure Content Delivery Network (CDN)](cdn-overview.md) caches static web content at strategically placed locations to provide maximum throughput for delivering content to users. Azure CDN also decreases server load on your web app. 
+This tutorial shows how to add [Azure CDN](cdn-overview.md) to a [web app in Azure App Service](../app-service/app-service-web-overview.md). Web apps is a service for hosting web applications, REST APIs, and mobile back ends. 
 
 Here's the home page of the sample static HTML site that you'll work with:
 
@@ -32,7 +32,7 @@ What you'll learn:
 > * Create a CDN endpoint.
 > * Refresh cached assets.
 > * Use query strings to control cached versions.
-> * Use a custom domain for the CDN endpoint.
+
 
 ## Prerequisites
 
@@ -46,12 +46,6 @@ To complete this tutorial:
 ## Create the web app
 
 To create the web app that you'll work with, follow the [static HTML quickstart](../app-service/app-service-web-get-started-html.md) through the **Browse to the app** step.
-
-### Have a custom domain ready
-
-To complete the custom domain step of this tutorial, you need to own a custom domain and have access to your DNS registry for your domain provider. For example, to add DNS entries for contoso.com and www.contoso.com, you must have access to configure the DNS settings for the contoso.com root domain.
-
-If you don't already have a domain name, consider following the [App Service domain tutorial](../app-service/custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
 
 ## Log in to the Azure portal
 
@@ -73,11 +67,11 @@ In the **Azure Content Delivery Network** page, provide the **New endpoint** set
 
 | Setting | Suggested value | Description |
 | ------- | --------------- | ----------- |
-| **CDN profile** | myCDNProfile | Select **Create new** to create a CDN profile. A CDN profile is a collection of CDN endpoints with the same pricing tier. |
+| **CDN profile** | myCDNProfile | A CDN profile is a collection of CDN endpoints with the same pricing tier. |
 | **Pricing tier** | Standard Akamai | The [pricing tier](cdn-features.md) specifies the provider and available features. This tutorial uses *Standard Akamai*. |
-| **CDN endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *\<endpointname>.azureedge.net*.
+| **CDN endpoint name** | Any name that is unique in the azureedge.net domain | You access your cached resources at the domain *&lt;endpointname&gt;*.azureedge.net.
 
-Select **Create**.
+Select **Create** to create a CDN profile.
 
 Azure creates the profile and endpoint. The new endpoint appears in the **Endpoints** list, and when it's provisioned, the status is **Running**.
 
@@ -85,7 +79,10 @@ Azure creates the profile and endpoint. The new endpoint appears in the **Endpoi
 
 ### Test the CDN endpoint
 
-If you selected Verizon pricing tier, it typically takes about 90 minutes for endpoint propagation. For Akamai, it takes a couple minutes for propagation.
+ Because it takes time for the registration to propagate, the endpoint isn't immediately available for use: 
+   - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes. 
+   - For **Azure CDN Standard from Akamai** profiles, propagation usually completes within one minute. 
+   - For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, propagation usually completes within 90 minutes. 
 
 The sample app has an *index.html* file and *css*, *img*, and *js* folders that contain other static assets. The content paths for all of these files are the same at the CDN endpoint. For example, both of the following URLs access the *bootstrap.css* file in the *css* folder:
 
@@ -250,46 +247,6 @@ This output shows that each query string is treated differently:
 
 For more information, see [Control Azure CDN caching behavior with query strings](../cdn/cdn-query-string.md).
 
-## Map a custom domain to a CDN endpoint
-
-You'll map your custom domain to your CDN endpoint by creating a CNAME record. A CNAME record is a DNS feature that maps a source domain to a destination domain. For example, you might map cdn.contoso.com or static.contoso.com to contoso.azureedge.net.
-
-If you don't have a custom domain, consider following the [App Service domain tutorial](../app-service/custom-dns-web-site-buydomains-web-app.md) to purchase a domain using the Azure portal. 
-
-### Find the hostname to use with the CNAME
-
-In the Azure portal **Endpoint** page, ensure **Overview** is selected in the left navigation, and then select the **+ Custom Domain** button at the top of the page.
-
-![Select Add Custom Domain](media/app-service-web-tutorial-content-delivery-network/portal-select-add-domain.png)
-
-In the **Add a custom domain** page, you'll see the endpoint host name to use in creating a CNAME record. The host name is derived from your CDN endpoint URL: **&lt;EndpointName>.azureedge.net**. 
-
-![Add Domain page](media/app-service-web-tutorial-content-delivery-network/portal-add-domain.png)
-
-### Configure the CNAME with your domain registrar
-
-Navigate to your domain registrar's web site, and locate the section for creating DNS records. For example, this section might be named **Domain Name**, **DNS**, or **Name Server Management**.
-
-Find the section for managing CNAMEs. You may have to go to an advanced settings page and look for the words CNAME, Alias, or Subdomains.
-
-Create a CNAME record that maps your chosen subdomain (for example, **static** or **cdn**) to the **Endpoint host name** shown earlier in the portal. 
-
-### Enter the custom domain in Azure
-
-Return to the **Add a custom domain** page, and enter your custom domain, including the subdomain, in the dialog box. For example, enter *cdn.contoso.com*.   
-   
-Azure verifies that the CNAME record exists for the domain name you have entered. If the CNAME is correct, your custom domain is validated.
-
-It can take time for the CNAME record to propagate to name servers on the Internet. If your domain is not validated immediately, wait a few minutes and try again.
-
-### Test the custom domain
-
-In a browser, navigate to the *index.html* file using your custom domain (for example, cdn.contoso.com/index.html) to verify that the result is the same as when you go directly to &lt;endpointname&gt;azureedge.net/index.html.
-
-![Sample app home page using custom domain URL](media/app-service-web-tutorial-content-delivery-network/home-page-custom-domain.png)
-
-For more information, see [Map Azure CDN content to a custom domain](../cdn/cdn-map-content-to-custom-domain.md).
-
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
@@ -300,7 +257,6 @@ What you learned:
 > * Create a CDN endpoint.
 > * Refresh cached assets.
 > * Use query strings to control cached versions.
-> * Use a custom domain for the CDN endpoint.
 
 Learn how to optimize CDN performance in the following articles:
 
