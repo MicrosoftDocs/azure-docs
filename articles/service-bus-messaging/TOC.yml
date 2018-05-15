@@ -4,6 +4,8 @@
   items:
   - name: What is Service Bus Messaging?
     href: service-bus-messaging-overview.md
+    name: Compare messaging services
+    href: ../event-grid/compare-messaging-services.md
 - name: Quickstarts
   items:
   - name: Send and receive messages - Portal and PowerShell
@@ -24,6 +26,28 @@
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
+- name: Concepts
+  items:
+  - name: Plan and design
+    items:
+    - name: Service Bus architecture
+      href: service-bus-architecture.md
+    - name: Managed Service Identity (preview)
+      href: service-bus-managed-service-identity.md
+    - name: Role-Based Access Control (preview)
+      href: service-bus-role-based-access-control.md
+    - name: Premium messaging
+      href: service-bus-premium-messaging.md
+    - name: Compare Azure Queues and Service Bus queues
+      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
+    - name: Optimize performance
+      href: service-bus-performance-improvements.md
+    - name: Geo-disaster recovery and geo-replication
+      href: service-bus-geo-dr.md
+    - name: Asynchronous messaging and high availability
+      href: service-bus-async-messaging.md
+    - name: Handling outages and disasters
+      href: service-bus-outages-disasters.md
 - name: How-to guides
   items:
   - name: Create a namespace
@@ -57,29 +81,7 @@
     - name: Python
       href: service-bus-python-how-to-use-topics-subscriptions.md
     - name: Ruby
-      href: service-bus-ruby-how-to-use-topics-subscriptions.md
-- name: How To
-  items:
-  - name: Plan and design
-    items:
-    - name: Service Bus architecture
-      href: service-bus-architecture.md
-    - name: Managed Service Identity (preview)
-      href: service-bus-managed-service-identity.md
-    - name: Role-Based Access Control (preview)
-      href: service-bus-role-based-access-control.md
-    - name: Premium messaging
-      href: service-bus-premium-messaging.md
-    - name: Compare Azure Queues and Service Bus queues
-      href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
-    - name: Optimize performance
-      href: service-bus-performance-improvements.md
-    - name: Geo-disaster recovery and geo-replication
-      href: service-bus-geo-dr.md
-    - name: Asynchronous messaging and high availability
-      href: service-bus-async-messaging.md
-    - name: Handling outages and disasters
-      href: service-bus-outages-disasters.md
+      href: service-bus-ruby-how-to-use-topics-subscriptions.md      
   - name: Develop
     items:
     - name: Build a multi-tier Service Bus application
