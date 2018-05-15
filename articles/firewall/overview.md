@@ -31,11 +31,11 @@ You can limit outbound HTTPS/S traffic to a specified list of fully qualified do
 
 ## Layer-3 and layer-4 traffic filtering rules
 
-You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful. Rules are enforced and logged across multiple subscriptions and VNets.
+You can centrally create allow or deny network filtering rules by source and destination IP address, port, and protocol. Azure Firewall is fully stateful. Rules are enforced and logged across multiple subscriptions and virtual networks.
 
 ## Outbound SNAT support
 
-All outbound VNET traffic IP addresses are translated to the Azure Firewall public IP (SNAT). You can identify and allow traffic originating from your VNet to remote Internet destinations.
+All outbound virtual network traffic IP addresses are translated to the Azure Firewall public IP (Source Network Address Translation). You can identify and allow traffic originating from your virtual network to remote Internet destinations.
 
 ## Azure Monitor logging and metrics
 
