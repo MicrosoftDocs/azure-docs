@@ -17,22 +17,22 @@ contents of the logical image and one or more corresponding `Artifact` records
 that specify the actual image id in the appropriate cloud provider. For example,
 a custom image with R installed on it might consist of this Package record:
 
-  AdType = "Package"
-  Name = "r_execute"
-  Version = "2.1.1"
-  PackageType = "image"
-  Label = "R"
+    AdType = "Package"
+    Name = "r_execute"
+    Version = "2.1.1"
+    PackageType = "image"
+    Label = "R"
 
 Once you add that record, you can specify that image by including either `Image = R` or `ImageName = r_execute` in the cluster template.
 
-If this image existed as a single Azure Virtual Machine in East US with an id of `123456`, it would need to have the following artifact stored:
+If this image existed as a single Azure Virtual Machine in East US with an id of `Order66`, it would need to have the following artifact stored:
 
-  AdType = "Artifact"
-  Package = "r_execute"
-  Version = "2.1.1"
-  Name = "az/ue"
-  Provider = "az"
-  ImageId = "123456"
+    AdType = "Artifact"
+    Package = "r_execute"
+    Version = "2.1.1"
+    Name = "az/ue"
+    Provider = "az"
+    ImageId = "Order66"
 
 You must specify `Provider` on the artifact.
 
@@ -47,46 +47,44 @@ To override this, specify `ImageVersion` on the node, as either a literal (eg `1
 
 You can also automatically `import a set of image ids <https://docs.cyclecomputing.com/admin-guide-v6.5.6/image_reference#Import_the_Image>`_ to be used in CycleCloud.
 
-Azure Custom Images
--------------------
+## Azure Custom Images
 
 Private custom Azure images can be specified in the template file with the ImageID attribute. This ID can be found in the Azure portal as the Resource ID for the image. In addition, the ImageOS attribute must be set to either windows or linux:
 
-  [[node demo]]
+    [[node demo]]
 
-    ImageId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
-    ImageOS = linux
+      ImageId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
+      ImageOS = linux
 
-    Azure.Publisher = OpenLogic
-    Azure.Offer = CentOS-HPC
-    Azure.Sku = 7.4
-    Azure.ImageVersion = 7.4.20180301
-    Azure.OS = linux
+      Azure.Publisher = OpenLogic
+      Azure.Offer = CentOS-HPC
+      Azure.Sku = 7.4
+      Azure.ImageVersion = 7.4.20180301
+      Azure.OS = linux
 
-    InstallJetpack = true
-    JetpackVersion = 7.1.0
-    JetpackPlatform = centos-7
-    AwaitInstallation = true
+      InstallJetpack = true
+      JetpackVersion = 7.1.0
+      JetpackPlatform = centos-7
+      AwaitInstallation = true
 
 `jetpackplatform = windows` works for all versions of Windows, or with centos-6, centos-7, ubuntu-14, or ubuntu-16 only. If jetpack will not be installed, set the `installjetpack` attribute to false and leave out the remaining information.
 
-Azure Marketplace Images
--------------------------
+## Azure Marketplace Images
 
 Azure Marketplace images can be directly specified as well. The following attributes must be set to identify the image:
 
-  [[node demo]]
+    [[node demo]]
 
-    Azure.Publisher = OpenLogic
-    Azure.Offer = CentOS-HPC
-    Azure.Sku = 7.4
-    Azure.ImageVersion = 7.4.20180301
-    Azure.OS = linux
+      Azure.Publisher = OpenLogic
+      Azure.Offer = CentOS-HPC
+      Azure.Sku = 7.4
+      Azure.ImageVersion = 7.4.20180301
+      Azure.OS = linux
 
-    InstallJetpack = true
-    JetpackVersion = 7.1.0
-    JetpackPlatform = centos-7
-    AwaitInstallation = true
+      InstallJetpack = true
+      JetpackVersion = 7.1.0
+      JetpackPlatform = centos-7
+      AwaitInstallation = true
 
 As an alternative to specific version most publishers support referencing the latest image with a label: `Azure.ImageVersion = latest`.
 
@@ -104,12 +102,12 @@ Users have two options for installing Jetpack:
 
 For new images that are not managed by CycleCloud, you must specify which version and platform of Jetpack to install:
 
-  [[node demo]]
+    [[node demo]]
 
-    InstallJetpack = true
-    JetpackVersion = 7.1.0
-    JetpackPlatform = centos-7
-    AwaitInstallation = true
+      InstallJetpack = true
+      JetpackVersion = 7.1.0
+      JetpackPlatform = centos-7
+      AwaitInstallation = true
 
 Jetpack packages are currently built for the following operating systems:
 - Enterprise Linux 6, 7 (CentOS, RHEL)
