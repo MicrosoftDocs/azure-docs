@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -80,10 +80,15 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can sign in to an app directly by using the app's **Sign-on URL**. When you use the app's URL, the extension detects the action and gives you the option of signing in from the extension.
 - You can launch any of your apps from the access panel by using the *quick search* feature of the extension. 
 - The extension shows you the last three applications that you launched in **Recently Used** section.
+- You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Additional features are available only for Edge, Chrome, and Firefox.
 >
+You can download the extension directly from the following sites:
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
 1. While you are *not* signed in to the extension, right-click the extension icon.
@@ -91,6 +96,12 @@ If you are using a My Apps URL other than `https://myapps.microsoft.com`, config
 3. Select your default URL.
 4. Select the extension icon.
 5. Select **Sign in to get started**.
+
+To use internal company URLs while remote using the extension, do the following:
+1. [Configure Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) on your tenant.
+2. [Publish the application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) and URL through Application Proxy.
+3. Install the extension, and sign in to it by selecting Sign in to get started.
+4. You can now browse to the internal company URL even while remote.
 
 ## Mobile app support
 

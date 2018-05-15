@@ -83,19 +83,26 @@ Global
 
 ## V3 API text translations methods
 
-Languages
+[Languages](reference/v3-0-languages.md)
 
-Translate
+[Translate](reference/v3-0-translate.md)
 
-Transliterate
+[Transliterate](reference/v3-0-transliterate.md)
 
-BreakSentence
+[BreakSentence](reference/v3-0-break-sentence.md)
 
-Detect
+[Detect](reference/v3-0-detect.md)
 
-Dictionary/lookup
+[Dictionary/lookup](reference/v3-0-dictionary-lookup.md)
 
-Dictionary/example
+[Dictionary/example](reference/v3-0-dictionary-examples.md)
+
+## Customization
+
+Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub which only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](customization.md)
+
+Neural translation with the V3 text API does not support the use of standard categories (smt, speech, text, generalnn).
+
 
 ## Links
 
@@ -106,4 +113,4 @@ Dictionary/example
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [View V3.0 Documentation](/reference/v3-0-reference.md)
+> [View V3.0 Documentation](reference/v3-0-reference.md)

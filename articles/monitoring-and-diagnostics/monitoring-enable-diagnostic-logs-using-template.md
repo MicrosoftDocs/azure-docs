@@ -173,7 +173,7 @@ Here is a full example that creates a Logic App and turns on streaming to Event 
       "location": "[resourceGroup().location]",
       "properties": {
         "definition": {
-          "$schema": "http://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
           "contentVersion": "1.0.0.0",
           "parameters": {
             "testURI": {
@@ -256,7 +256,7 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 3. Add the contents of your WADCfg XML file into the XMLCfg property, escaping all XML characters properly.
 
 > [!WARNING]
-> This last step can be tricky to get right. [See this article](../virtual-machines/windows/extensions-diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
+> This last step can be tricky to get right. [See this article](../virtual-machines/extensions/diagnostics-template.md#diagnostics-configuration-variables) for an example that splits the Diagnostics Configuration Schema into variables that are escaped and formatted correctly.
 > 
 > 
 
