@@ -16,7 +16,7 @@ The Azure IoT Hub Device Provisioning Service is a REST API-based cloud service 
 
 Individual devices are assigned a registration ID and device ID by a tenant administrator. Data from and about these devices is based on these IDs. Microsoft maintains no information and has no access to data that would allow correlation of these devices to an individual.
 
-Many of the devices managed in Azure Device Provisioning Service are not personal devices, for example an office thermostat or factory robot. Customers may, however, consider some devices to be personally identifiable and at their discretion may maintain their own asset or inventory tracking methods that tie devices to individuals. Azure Device Provisioning Service manages and stores all data associated with devices as if it were personally identifiable information.
+Many of the devices managed in Azure Device Provisioning Service are not personal devices, for example an office thermostat or factory robot. Customers may, however, consider some devices to be personally identifiable and at their discretion may maintain their own asset or inventory tracking methods that tie devices to individuals. Azure Device Provisioning Service manages and stores all data associated with devices as if it were personal data.
 
 Tenant administrators can use either the Azure portal or the service's REST APIs to fulfill information requests by exporting or deleting data associated with a device ID or registration ID.
 
@@ -27,7 +27,7 @@ Tenant administrators can use either the Azure portal or the service's REST APIs
 
 The Azure IoT Hub Device Provisioning Service stores enrollments and registration records. Enrollments contain information about devices that are allowed to be provisioned, and registration records show which devices have already gone through the provisioning process.
 
-Tenant administrators may remove enrollments from the Azure Portal, and this removes any associated registration records as well.
+Tenant administrators may remove enrollments from the Azure portal, and this removes any associated registration records as well.
 
 For more information, see [How to manage device enrollments](how-to-manage-enrollments.md).
 
