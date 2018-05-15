@@ -10,11 +10,11 @@ editor: vturecek; mani-ramaswamy
 ms.assetid: 0c88a533-73f8-4ae1-a939-67d17456ac06
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
-ms.author: masnider;
+ms.author: masnider
 
 ---
 # Reliable Services overview
