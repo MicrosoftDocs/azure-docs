@@ -140,7 +140,7 @@ The desired properties sent from the back end don't indicate what operation is b
 
 The following snippet shows how the simulated device handles insert, update, and delete operations on the list of **components** in the desired properties. You can see how to use **null** values to indicate that a component should be deleted:
 
-[!code-javascript[Handle components](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,12 "Handle components")]
+[!code-javascript[Handle components](~/iot-samples-node/Tutorials/DeviceTwins/SimulatedDevice.js?name=components&highlight=2,6,13 "Handle components")]
 
 ### Send desired properties to a device from the back end
 
