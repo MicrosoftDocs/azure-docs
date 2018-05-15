@@ -283,6 +283,7 @@
 ### [Guest access with access reviews](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 ### [Managing user access with reviews](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Managing programs and controls](active-directory-azure-ad-controls-manage-programs-controls.md)
+### [Retrieve access review results](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Secure your identities
 ### [Conditional access](active-directory-conditional-access-azure-portal.md)
