@@ -1,6 +1,6 @@
 ---
-title: Monitoring and Diagnostics for Windows Containers in Azure Service Fabric | Microsoft Docs
-description: In this tutorial, you set up monitoring and diagnostics for Windows Container orchestrated on Azure Service Fabric.
+title: Monitor and diagnose Windows containers on Service Fabric in Azure | Microsoft Docs
+description: In this tutorial, you configure Log Analytics for monitoring and diagnostics of Windows containers on Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -18,9 +18,7 @@ ms.author: dekapur
 ms.custom: mvc
 
 ---
-
-
-# Tutorial: monitor Windows containers on Service Fabric using Log Analytics
+# Tutorial: Monitor Windows containers on Service Fabric using Log Analytics
 
 This is part two of a tutorial, and walks you through setting up Log Analytics to monitor your Windows containers orchestrated on Service Fabric.
 
@@ -32,13 +30,16 @@ In this tutorial, you learn how to:
 > * Configure the OMS agent to pick up container and node metrics
 
 ## Prerequisites
+
 Before you begin this tutorial, you should:
-- Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-- [Deploy a containerized application to it](service-fabric-host-app-in-a-container.md)
+
+* Have a cluster on Azure, or [create one with this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+* [Deploy a containerized application to it](service-fabric-host-app-in-a-container.md)
 
 ## Setting up Log Analytics with your cluster in the Resource Manager template
 
 In the case that you used the [template provided](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with Log Analytics:
+
 * Make the following changes to your Resource Manager template.
 * Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
 
@@ -47,7 +48,7 @@ In the case that you used the [template provided](https://github.com/ChackDan/Se
 Make the following changes in your *template.json*:
 
 1. Add the Log Analytics workspace location and name to your *parameters* section:
-    
+
     ```json
     "omsWorkspacename": {
       "type": "string",
@@ -72,15 +73,15 @@ Make the following changes in your *template.json*:
 
     To change the value used for either add the same parameters to your *template.parameters.json* and change the values used there.
 
-2. Add the solution name and the solution to your *variables*: 
-    
+2. Add the solution name and the solution to your *variables*:
+
     ```json
     "omsSolutionName": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
     "omsSolution": "ServiceFabric"
     ```
 
-3. Add the OMS Microsoft Monitoring Agent as a virtual machine extension. Find virtual machine scale sets resource: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under the *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, add the following extension description under the *ServiceFabricNode* extension: 
-    
+3. Add the OMS Microsoft Monitoring Agent as a virtual machine extension. Find virtual machine scale sets resource: *resources* > *"apiVersion": "[variables('vmssApiVersion')]"*. Under the *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*, add the following extension description under the *ServiceFabricNode* extension:
+
     ```json
     {
         "name": "[concat(variables('vmNodeType0Name'),'OMS')]",
@@ -100,7 +101,7 @@ Make the following changes in your *template.json*:
     ```
 
 4. Add the Log Analytics workspace as an individual resource. In *resources*, after the virtual machine scale sets resource, add the following:
-    
+
     ```json
     {
         "apiVersion": "2015-11-01-preview",
@@ -189,23 +190,23 @@ To set up the Container solution in your workspace, search for *Container Monito
 
 ![Adding Containers solution](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-When prompted for the *Log Analytics Workspace*, select the workspace that was created in your resource group, and click **Create**. This adds a *Container Monitoring Solution* to your workspace, will automatically cause the OMS agent deployed by the template to start collecting docker logs and stats. 
+When prompted for the *Log Analytics Workspace*, select the workspace that was created in your resource group, and click **Create**. This adds a *Container Monitoring Solution* to your workspace, will automatically cause the OMS agent deployed by the template to start collecting docker logs and stats.
 
-Navigate back to your *resource group*, where you should now see the newly added monitoring solution. If you click into it, the landing page should show you the number of container images you have running. 
+Navigate back to your *resource group*, where you should now see the newly added monitoring solution. If you click into it, the landing page should show you the number of container images you have running.
 
 *Note that I ran 5 instances of my fabrikam container from [part two](service-fabric-host-app-in-a-container.md) of the tutorial*
 
 ![Container solution landing page](./media/service-fabric-tutorial-monitoring-wincontainers/solution-landing.png)
 
-Clicking into the **Container Monitor Solution** will take you to a more detailed dashboard, which allows you to scroll through multiple panels as well as run queries in Log Analytics. 
+Clicking into the **Container Monitor Solution** will take you to a more detailed dashboard, which allows you to scroll through multiple panels as well as run queries in Log Analytics.
 
 *Note that as of September, 2017, the solution is going through some updates - ignore any errors you may get about Kubernetes events as we work on integrating multiple orchestrators into the same solution.*
 
-Since the agent is picking up docker logs, it defaults to showing *stdout* and *stderr*. If you scroll to the right, you will see container image inventory, status, metrics, and sample queries that you could run to get more helpful data. 
+Since the agent is picking up docker logs, it defaults to showing *stdout* and *stderr*. If you scroll to the right, you will see container image inventory, status, metrics, and sample queries that you could run to get more helpful data.
 
 ![Container solution dashboard](./media/service-fabric-tutorial-monitoring-wincontainers/container-metrics.png)
 
-Clicking into any of these panels will take you to the Log Analytics query that is generating the displayed value. Change the query to *\** to see all the different kinds of logs that are being picked up. From here, you can query or filter for container performance, logs, or look at Service Fabric platform events. Your agents are also constantly emitting a heartbeat from each node, that you can look at to make sure data is still being gathered from all your machines if your cluster configuration changes.   
+Clicking into any of these panels will take you to the Log Analytics query that is generating the displayed value. Change the query to *\** to see all the different kinds of logs that are being picked up. From here, you can query or filter for container performance, logs, or look at Service Fabric platform events. Your agents are also constantly emitting a heartbeat from each node, that you can look at to make sure data is still being gathered from all your machines if your cluster configuration changes.
 
 ![Container query](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
@@ -215,7 +216,8 @@ Another benefit of using the OMS agent is the ability to change the performance 
 
 ![OMS portal](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
 
-This will take you to your workspace in the OMS portal, where you can view your solutions, create custom dashboards, as well as configure the OMS agent. 
+This will take you to your workspace in the OMS portal, where you can view your solutions, create custom dashboards, as well as configure the OMS agent.
+
 * Click on the **cog wheel** on the top right corner of your screen to open up the *Settings* menu.
 * Click on **Connected Sources** > **Windows Servers** to verify that you have *5 Windows Computers Connected*.
 * Click on **Data** > **Windows Performance Counters** to search for and add new performance counters. Here you will see a list of recommendations from Log Analytics for perf counters you could collect as well as the option to search for other counters. Click **Add the selected performance counters** to start collecting the suggested metrics.
@@ -224,10 +226,9 @@ This will take you to your workspace in the OMS portal, where you can view your 
 
 Back in the Azure portal, **refresh** your Container Monitoring Solution in a few minutes, and you should start to see *Computer Performance* data coming in. This will help you understand how your resources are being used. You can also use these metrics to make appropriate decisions about scaling your cluster, or to confirm if a cluster is balancing your load as expected.
 
-*Note: Make sure your time filters are set appropriately for you to consume these metrics.* 
+*Note: Make sure your time filters are set appropriately for you to consume these metrics.*
 
 ![Perf counters 2](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters2.png)
-
 
 ## Next steps
 
