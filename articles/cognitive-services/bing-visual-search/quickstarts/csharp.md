@@ -261,11 +261,8 @@ namespace BingSearchApisQuickstart
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
-
-## See also 
-
+[Get insights about an image you upload](../upload-image.md)
+[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)
 [Bing Visual Search overview](../overview.md)  
 [Try it](https://aka.ms/bingvisualsearchtryforfree)  
 [Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  

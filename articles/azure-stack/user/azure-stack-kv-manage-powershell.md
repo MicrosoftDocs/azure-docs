@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 05/10/2018
 ms.author: mabrigg
 
 ---
@@ -28,7 +28,7 @@ You can manage Key Vault in Azure Stack using PowerShell. Learn how to use Key V
 * Store and manage cryptographic keys and secrets.
 * Authorize users or applications to invoke operations in the vault.
 
->[NOTE]
+>[!NOTE]
 >The Key Vault PowerShell cmdlets descibed in this article are provided in the Azure PowerShell SDK.
 
 ## Prerequisites

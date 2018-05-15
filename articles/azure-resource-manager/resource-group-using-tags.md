@@ -21,6 +21,8 @@ ms.author: tomfitz
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
 
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
 ## PowerShell
 
 The examples in this article require version 3.0 or later of Azure PowerShell. If you do not have version 3.0 or later, [update your version](/powershell/azureps-cmdlets-docs/) by using PowerShell Gallery or Web Platform Installer.
