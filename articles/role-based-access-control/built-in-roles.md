@@ -97,7 +97,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Traffic Manager Contributor](#traffic-manager-contributor) | Lets you manage Traffic Manager profiles, but does not let you control who has access to them. |
 | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. |
 | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | -  Users with this role have the ability to login to a virtual machine with Windows administrator or Linux root user privileges. |
-| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they�re connected to. |
+| [Virtual Machine Contributor](#virtual-machine-contributor) | Lets you manage virtual machines, but not access to them, and not the virtual network or storage account they're connected to. |
 | [Virtual Machine User Login](#virtual-machine-user-login) | Users with this role have the ability to login to a virtual machine as a regular user. |
 | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. |
 | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. |
