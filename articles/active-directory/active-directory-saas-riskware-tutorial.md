@@ -104,19 +104,21 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Riskware Domain and URLs single sign-on information](./media/active-directory-saas-riskware-tutorial/tutorial_riskware_url.png)
 
-	a. In the **Sign-on URL** textbox, type a URL using the following pattern:
-	|||
+	a. In the **Sign on URL** textbox, type a URL using the following pattern:
+	| Environment| URL Pattern|
 	|--|--|
-	| UAT: `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
-	| prod: `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-	| demo: `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+	| UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
+	| prod| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
+	| demo| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+	|||
 
-    b. In the **Identifier** textbox, type a URL:
-	|||
+    b. In the **Identifier (Entity ID)** textbox, type a URL:
+	| Environment| URL Pattern|
 	|--|--|
-	| UAT: `https://riskcloud.net/uat` |
-	| prod: `https://riskcloud.net/prod` |
-	| demo: `https://riskcloud.net/demo` | 
+	| UAT| `https://riskcloud.net/uat` |
+	| prod| `https://riskcloud.net/prod` |
+	| demo| `https://riskcloud.net/demo` | 
+	|||
 
 	> [!NOTE] 
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Riskware Client support team](mailto:support@pansoftware.com.au) to get these values.
@@ -135,7 +137,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. In a different web browser window, log in to your Riskware company site as an administrator.
 
-8. In Riskware, on the top right click **Maintenance** to open the maintenance page. 
+8. On the top right, click **Maintenance** to open the maintenance page. 
 
 	![Riskware Configurations maintain](./media/active-directory-saas-riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -161,7 +163,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	g. In the **XML Identity Tag Name** textbox, type attribute, which contains the unique identifier in the SAML response like NameID.
 
-	h. In the **Certificate** textbox, paste the certificate from the Metadata file, which you have downloaded from Azure portal.
+	h. Open the downloaded **Metadata Xml** from Azure portal in notepad, copy the certificate from the Metadata file and paste it into the **Certificate** textbox
 	
 	i. In **Consumer URL** textbox, paste the value of **Reply URL**, which you get from the support team.
 
@@ -216,7 +218,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 1. Log in to Riskware as a Security Administrator.
 
-2. In Riskware, on the top right click **Maintenance** to open the maintenance page. 
+2. On the top right, click **Maintenance** to open the maintenance page. 
 
 	![Riskware Configuration maintains](./media/active-directory-saas-riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -232,7 +234,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	b. In **First Name** textbox, enter the first name of user like **Britta**.
 
-	c. In **SurName** textbox, enter the last name of user like **Simon**.
+	c. In **Surname** textbox, enter the last name of user like **Simon**.
 
 5. On the **Security** tab, perform the following steps:	
 
@@ -242,7 +244,7 @@ To enable Azure AD users to log in to Riskware, they must be provisioned into Ri
 
 	b. Under **Logon Details** section, in the **User ID** textbox, enter the email of user like **brittasimon@contoso.com**.
 
-	c. In the **Password** textbox, enter the password.
+	c. In the **Password** textbox, enter password of the user.
 
 6. On the **Organisation** tab, perform the following steps:
 
