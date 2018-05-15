@@ -44,10 +44,10 @@ Each job may be used to transfer data to or from only one storage account. In ot
 The following list of storage types is supported with Azure Import/Export service.
 
 
-|Job  |Storage  |Not supported  |
-|---------|---------|---------|
-|Import     |  Azure Blob storage. Block blobs and page blobs supported. <br> Azure Files supported.       |         |
-|Export     |   Azure Blob storage. Block blobs, Page blobs, and Append blobs supported.       | Azure Files not supported.        |
+|Job  |Storage  |Supported  |Not supported  |
+|---------|---------|---------|---------|
+|Import     |  Azure Blob storage. <br>Block Blobs, Page blobs supported. <br> Azure Files supported.       |         |
+|Export     |   Azure Blob storage. <br>Block blobs, Page blobs, and Append blobs supported.       | Azure Files not supported.        |
 
 
 ## Supported hardware 
@@ -62,7 +62,7 @@ The following list of disks is supported for use with the Import/Export service.
 |Disk type  |Size  |Supported |Not supported  |
 |---------|---------|---------|---------|
 |SSD    |   2.5"      |         |         |
-|HDD     |  2.5"<br>3.5"       |SATA II<br>SATA III         |External HDD with built-in USB adaptor <br> Disk inside the casing of an external HDD         |
+|HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |External HDD with built-in USB adaptor <br> Disk inside the casing of an external HDD         |
 
 
 A single import/export job can have:
