@@ -647,15 +647,15 @@
   - name: Service model XML schema
     href: service-fabric-service-model-schema.md
     items:
-      name: Elements
+    - name: Elements
       href: service-fabric-service-model-schema-elements.md
-      name: Complex types
+    - name: Complex types
       href: service-fabric-service-model-schema-complex-types.md
-      name: Attribute groups
+    - name: Attribute groups
       href: service-fabric-service-model-schema-attribute-groups.md
-      name: Simple types
+    - name: Simple types
       href: service-fabric-service-model-schema-simple-types.md
-      name: Element groups
+    - name: Element groups
       href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
