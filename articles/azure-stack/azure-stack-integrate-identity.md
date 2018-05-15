@@ -287,7 +287,7 @@ There are many scenarios that require the use of a service principal name (SPN) 
 - You require a non-interactive logon
 
 > [!Important]  
-> AD FS only supports interactive logon sessions. If you require a non-interactive logon for automation scenarios you must use a SPN.
+> AD FS only supports interactive logon sessions. If you require a non-interactive logon for an automated scenario, you must use a SPN.
 
 For more information about creating an SPN, see [Create service principal for AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
