@@ -49,17 +49,19 @@ New-AzureRMResourceGroup -Name $resourceGroup -Location $location
 
 ## Prepare the input data
 
-Before defining the Stream Analytics job, you should prepare the data that is configured as input to the job. Run the following steps to prepare the input data required by the job: 
+Before defining the Stream Analytics job, you should prepare the data that is configured as input to the job.
 
 1. Download the [sensor sample data](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. Right-click the link and **Save Link As...** or **Save target as**.
 
-2. Create a standard general-purpose storage account with locally-redundant storage using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet. See the following code block for an example of the commands. This example creates a storage account called mystorageaccount with locally redundant storage(LRS) and blob encryption (enabled by default).  
+2. The following PowerShell code block does multiple commands to prepare the input data required by the job. Review the sections to understand the code. 
 
-3. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. 
+   1. Create a standard general-purpose storage account using [New-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/New-AzureRmStorageAccount) cmdlet.  This example creates a storage account called mystorageaccount with locally-redundant storage(LRS) and blob encryption (enabled by default).  
 
-4. Create a storage container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. You need to note the storage key, and use that key in the JSON files for creating the streaming job's input and outputs.
+   2. Retrieve the storage account context `$storageAccount.Context` that defines the storage account to be used. When working with storage accounts, you reference the context instead of repeatedly providing the credentials. 
 
-These steps are achieved by running the following PowerShell script:
+   3. Create a storage container using [New-AzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer), and upload the [sensor sample data](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) that you downloaded earlier. 
+
+   4. Copy the storage key that is outputted by the code, and paste that key in the JSON files for creating the streaming job's input and outputs later on.
 
 ```powershell
 $storageAccountName = "mystorageaccount"
@@ -94,7 +96,7 @@ Write-Host $storageAccountKey -ForegroundColor Cyan
 
 ## Create a Stream Analytics job
 
-Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, and the job definition as parameters. Job name can be any friendly name that identifies your job, Stream Analytics job name can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. Job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named “JobDefinition.json” and add the following JSON data to it:
+Create a Stream Analytics job with [New-AzureRMStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsjob?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, resource group name, and the job definition as parameters. Job name can be any friendly name that identifies your job, Stream Analytics job name can contain alphanumeric characters, hyphens, and underscores only and it must be between 3 and 63 characters long. Job definition is a JSON file that contains the properties required to create a job. On your local machine, create a file named `JobDefinition.json` and add the following JSON data to it:
 
 ```json
 {    
@@ -124,7 +126,7 @@ New-AzureRMStreamAnalyticsJob `
 ## Configure input to the job
 
 Add an input to your job by using the [New-AzureRMStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsinput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. Job input definition is a JSON file that contains the properties required to configure the job’s input, in this example you will create a blob storage as an input. 
-On your local machine, create a file named “JobInputDefinition.json” and add the following JSON data to it, make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
+On your local machine, create a file named `JobInputDefinition.json` and add the following JSON data to it, make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
 
 ```json
 {
@@ -171,7 +173,7 @@ New-AzureRMStreamAnalyticsInput `
 ## Configure output to the job
 
 Add an output to your job by using the [New-AzureRmStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticsoutput?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. Job output definition is a JSON file that contains the properties required to configure job’s output, in this example you will create a blob storage as output. 
-On your local machine, create a file named “JobOutputDefinition.json” and add the following JSON data to it, make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
+On your local machine, create a file named `JobOutputDefinition.json` and add the following JSON data to it, make sure to replace the value for **accountKey** with your storage account’s access key that is the value stored in $storageAccountKey value. 
 
 ```json
 {
@@ -217,7 +219,7 @@ New-AzureRMStreamAnalyticsOutput `
 
 ## Define the transformation query
 
-Add a transformation your job by using the [New-AzureRmStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticstransformation?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. On your local machine, create a file named “JobTransformationDefinition.json” and add the following JSON data to it. The JSON file contains a query parameter that defines the transformation query:
+Add a transformation your job by using the [New-AzureRmStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/new-azurermstreamanalyticstransformation?view=azurermps-5.4.0) cmdlet. This cmdlet takes the job name, job transformation name, resource group name, and the job transformation definition as parameters. On your local machine, create a file named `JobTransformationDefinition.json` and add the following JSON data to it. The JSON file contains a query parameter that defines the transformation query:
 
 ```json
 {     
