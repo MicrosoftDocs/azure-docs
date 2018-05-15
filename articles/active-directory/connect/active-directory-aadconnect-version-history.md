@@ -34,7 +34,7 @@ Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615
 
 ## 1.1.819.0
 
-5/4/2018: Released for auto upgrade, will be available for download soon.
+5/4/2018: Released for auto upgrade and download.
 
 
 

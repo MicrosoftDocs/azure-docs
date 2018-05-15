@@ -61,7 +61,7 @@ Azure Backup Server stores backup data on Azure disks attached to the virtual ma
 
 Storing backup data in Azure reduces backup infrastructure on Azure Stack. If data is more than five days old, it should be stored in Azure.
 
-To store backup data in Azure, create or use a Recovery Services vault. When preparing to back up the Azure Backup Server workload, you will [configure the Recovery Services vault](backup-azure-microsoft-azure-backup.md#recovery-services-vault). Once configured, each time a backup job runs, a recovery point is created in the vault. Each Recovery Services vault holds up to 9999 recovery points. Depending on the number of recovery points created, and how long they are retained, you can retain backup data for many years. For example, you could create monthly recovery points, and retain them for five years.
+To store backup data in Azure, create or use a Recovery Services vault. When preparing to back up the Azure Backup Server workload, you [configure the Recovery Services vault](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Once configured, each time a backup job runs, a recovery point is created in the vault. Each Recovery Services vault holds up to 9999 recovery points. Depending on the number of recovery points created, and how long they are retained, you can retain backup data for many years. For example, you could create monthly recovery points, and retain them for five years.
  
 ### Using SQL Server
 If you want to use a remote SQL Server for the Azure Backup Server database, select only an Azure Stack VM running SQL Server.
