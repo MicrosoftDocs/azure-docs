@@ -272,7 +272,7 @@ When a deployment is no longer needed, you can remove a deployment by deleting t
 1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete. 
 2. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
 
-![Delete resource group](media/blockchain-workbench-deploy/delete-resource-group.png)
+    ![Delete resource group](media/blockchain-workbench-deploy/delete-resource-group.png)
 
 ## Next steps
 
