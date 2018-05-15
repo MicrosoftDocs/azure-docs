@@ -32,3 +32,6 @@ Habitat reduces the complexity of managing containers in production environments
 
 ## Integrate into the Chef DevOps workflow
 The Habitat project is sponsored by Chef. Habitat leverages Chef’s deep experience with infrastructure automation to bring unprecedented automation capabilities to applications. Chef will offer commercial support for Habitat and ensure seamless integration between Habitat and Chef Delivery to fully automate the application release cycle, from development to deployment.
+
+## Next steps
+* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)

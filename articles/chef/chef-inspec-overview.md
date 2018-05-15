@@ -1,5 +1,5 @@
 ---
-title: Use InSpec for compliance automation
+title: Use InSpec for compliance automation of your Azure infrastructure
 description: Learn how to use InSpec to detect issues in your Azure deployments
 keywords: azure, chef, devops, virtual machines, overview, automate, inspce
 ms.service: virtual-machines-linux
@@ -10,8 +10,7 @@ ms.date: 05/15/2018
 ms.topic: article
 ---
 
-# Use InSpec for compliance automation
-
+# Use InSpec for compliance automation of your Azure infrastructure
 [InSpec](https://www.chef.io/inspec/) is a free and open-source framework for testing and auditing your applications and infrastructure. InSpec works by comparing the actual state of your system with the desired state that you express in easy-to-read and easy-to-write InSpec code. InSpec detects violations and displays findings in the form of a report, but puts you in control of remediation. You can use InSpec to validate the state of your virtual machines running in Azure. You can also use InSpec to scan and validate the state of resources and resource groups inside of a subscription.
 
 This article describes the benefits of using InSpec to make security and compliance easier on Azure.
@@ -33,3 +32,6 @@ Documents leave configurations and processes open to interpretation. Executable 
 
 ## Keep up with rapidly changing threat and compliance landscapes
 InSpec allows you to write and publish detection code the same day and write new rules in quick response to new regulations. This means that changes in threats or regulations no longer equal emergencies.
+
+## Next steps
+* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)
