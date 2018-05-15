@@ -26,7 +26,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the bare API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *your key* `";`
    
     or in ApplicationInsights.config (if you installed one of the standard telemetry packages):
    
