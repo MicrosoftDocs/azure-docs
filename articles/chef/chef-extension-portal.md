@@ -99,3 +99,6 @@ In this section, you'll first use the Azure portal to create a Linux machine. Du
 When the process of creating and deploying the virtual machine with the Chef Extension is complete, a notification indicates the success or failure of the operation. In addition, the resource page for the new virtual machine automatically opens in the Azure portal once it's been created.
 
 ![Installing the Chef Server on a Linux virtual machine](./media/chef-extension-portal/resource-created.png)
+
+## Next steps
+* [Create a Windows virtual machine on Azure using Chef](/azure/virtual-machines/windows/chef-automation)
