@@ -57,6 +57,10 @@ Begin with 10-15 [utterances](luis-concept-utterance.md) per intent, but not mor
 
 In each iteration of the model, do not add a large quantity of utterances. Add utterances in quantities of tens. [Train](luis-how-to-train.md), [publish](publishapp.md), and [test](train-test.md) again. 
 
+LUIS builds effective models with utterances that are selected carefully. Too many utterances is not valuable because it can introduce confusion. 
+
+It is better to start with a few utterances, then [review endpoint utterances](label-suggested-utterances.md) for correct intent prediction and entity extraction. 
+
 ## Testing utterances
 Developers should start testing their LUIS application with real traffic by sending utterances to the endpoint. These utterances are used to improve the performance of the intents and entities with [Review utterances](label-suggested-utterances.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning.
 
