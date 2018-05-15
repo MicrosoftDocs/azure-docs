@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/15/2018
 ms.author: jeedes
 
 ---
@@ -183,11 +183,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 The objective of this section is to create a user called Britta Simon in Pingboard. Pingboard supports automatic user provisioning, which is by default enabled. You can find more details [here](active-directory-saas-pingboard-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
-**If you need to create user manually, please perform following steps:**
-
-In order to enable Azure AD users to log into Pingboard, they must be provisioned into Pingboard. For Pingboard, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
+**If you need to create user manually, perform following steps:**
 
 1. Log in to your Pingboard company site as an administrator.
 
