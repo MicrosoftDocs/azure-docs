@@ -8,6 +8,7 @@
     href: luis-supported-languages.md
 - name: Quickstarts
   expanded: true
+  name: Build app model
   items: 
   - name: Use prebuilt domain
     href: luis-get-started-create-app.md
@@ -27,6 +28,8 @@
       href: luis-quickstart-intent-and-key-phrase.md
     - name: Create a new app with Sentiment analysis
       href: luis-quickstart-intent-and-sentiment-analysis.md
+  name: Use APIs
+  items: 
   - name: Call LUIS endpoint API
     items:
     - name: C#
