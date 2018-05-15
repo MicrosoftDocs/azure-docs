@@ -22,7 +22,6 @@ These quickstarts provide information and code samples to help you quickly get s
 
 The code in these samples is similar, which is expected since the majority of the work is setting up the request, and retrieving and displaying the response. The differences appear in the request parameters sent and the response received. These differences are summarized in the following table:
 
-[!div class="mx-tdCol2BreakAll"]
 | Quickstart               | Request Parameters                          | Response          |
 | ------------------------ | ------------------------------------------- | ----------------  |
 | Analyze an image         | visualFeatures=Categories,Description,Color | JSON string       |

@@ -82,7 +82,7 @@ namespace CSHttpClientSample
             {
                 // Make the REST API call.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
-                MakeAnalysisRequest(imageFilePath).Wait(); // Beware of using Wait in a GUI or ASP.NET app.
+                MakeAnalysisRequest(imageFilePath).Wait();
             }
             else
             {
