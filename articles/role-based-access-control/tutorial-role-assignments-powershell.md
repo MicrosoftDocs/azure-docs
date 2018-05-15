@@ -34,10 +34,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-To complete this tutorial, you will need one of the following:
+To complete this tutorial, you will need:
 
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
-- [Azure PowerShell](/powershell/azure/install-azurerm-ps) with the [Azure AD module](/powershell/azure/active-directory/install-adv2)
+- Permissions to create groups in Azure Active Directory (or have an existing group)
+- [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell) -OR- [Azure PowerShell](/powershell/azure/install-azurerm-ps) with the [Azure AD module](/powershell/azure/active-directory/install-adv2)
 
 ## Role assignments
 
