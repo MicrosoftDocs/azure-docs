@@ -1967,7 +1967,7 @@
         },
         {
             "source_path": "articles/app-service/app-service-web-tutorial-content-delivery-network.md",
-            "redirect_url": "/azure/cdn/app-service-web-tutorial-content-delivery-network",
+            "redirect_url": "/azure/cdn/cdn-add-to-web-app",
             "redirect_document_id": false
         },
         {
@@ -21141,6 +21141,8 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/dev-spaces/index.md",
+            "redirect_url": "/azure/dev-spaces/azure-dev-spaces",
             "source_path": "articles/active-directory/active-directory-application-proxy-enable.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-proxy-enable",
             "redirect_document_id": false
