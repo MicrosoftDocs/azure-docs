@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar;chackdan
+ms.author: subramar
 
 ---
 # Service Fabric application upgrade: advanced topics

@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
+editor: aljo
 
 ms.assetid: 
 ms.service: service-fabric
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi;aljo
+ms.author: ryanwi
 
 ---
 # Change cluster from certificate thumbprint to common name

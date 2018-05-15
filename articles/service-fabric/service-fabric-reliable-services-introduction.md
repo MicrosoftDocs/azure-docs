@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
-ms.author: masnider;
+ms.author: masnider
 
 ---
 # Reliable Services overview

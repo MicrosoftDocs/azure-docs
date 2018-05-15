@@ -5,7 +5,7 @@ services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
+editor: aljo
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: ryanwi;aljo
+ms.author: ryanwi
 
 ---
 # Manually roll over a Service Fabric cluster certificate
