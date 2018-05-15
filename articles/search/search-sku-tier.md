@@ -91,7 +91,7 @@ One approach for estimating capacity is to start with the **Free** tier. Recall 
 
 Assuming the sample was both representative and ten percent of the entire data source, a 30 MB index becomes 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to budget for two indexes (development and production), for a total of 600 MB in storage requirements. This is easily satisfied by the **Basic** tier, so you would start there.
 
-### Advanced estimated using a billable tier
+### Advanced estimates using a billable tier
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
