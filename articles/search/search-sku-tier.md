@@ -83,27 +83,28 @@ To determine the size of an index, you have to [build one](search-create-index-p
 
 ### Preliminary estimates using the Free tier
 
-One approach for estimating capacity is to start with the Free tier. Recall that the Free service offers up to 3 indexes, 50 MB of storage, 2 minutes of indexing time, and 10,000 documents. It can be challenging to estimate a projected index size with these constraints, but the following example illustrates an approach:
+One approach for estimating capacity is to start with the **Free** tier. Recall that the **Free** service offers up to 3 indexes, 50 MB of storage, 2 minutes of indexing time, and 10,000 documents. It can be challenging to estimate a projected index size with these constraints, but the following example illustrates an approach:
 
 + Create a free service
-+ Prepare a small, representative data set (assume five thousand documents, at ten percent of the full data set)
++ Prepare a small, representative data set (assume five thousand documents and ten percent sample size)
 + [Build an initial index](search-create-index-portal.md) and note its size in the portal (assume 30 MB)
 
-A 30 MB index becomes 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to account for two indexes (development and production), for a total of 600 MB in storage requirements. This is easily satisfied by the **Basic** tier, so you would start there.
+Assuming the sample was both representative and ten percent of the entire data source, a 30 MB index becomes 300 MB if all documents are indexed. Armed with this preliminary number, you might double that amount to budget for two indexes (development and production), for a total of 600 MB in storage requirements. This is easily satisfied by the **Basic** tier, so you would start there.
 
 ### Advanced estimating using a paid tier
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
-+ Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
-
-+ Start at a higher level, **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
-
 1. [Review service limits at each tier](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
 
-2. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
+1. Create a service at paid tier:
 
-3. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. Additionally, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
+    + Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
+    + Start high, at **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
+
+1. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
+
+1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. Additionally, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
 
 Index number and size are equally relevant to your analysis because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. The portal helps you keep track of both, showing current usage and maximum limits side by side on the Overview page.
 
@@ -134,10 +135,10 @@ The **Free** tier and preview features do not come with [service level agreement
 
 ## Next steps
 
-**Step 1:** Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it's content characteristics rather than the size of the data set that determines index storage requirements.
+Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it's content characteristics rather than the size of the data set that determines index storage requirements.
 
-**Step 2:** Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic** or a **Standard** tier. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
+Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic** or a **Standard** tier. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
 
-**Step 3:** [Allocate partitions and replicas](search-capacity-planning.md) to get the performance and scale you require.
+[Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
 
-**Step 4:** If performance and capacity are fine, you are done. Otherwise, re-create a search service at a different tier that more closely aligns with your needs.
+If performance and capacity are fine, you are done. Otherwise, re-create a search service at a different tier that more closely aligns with your needs.

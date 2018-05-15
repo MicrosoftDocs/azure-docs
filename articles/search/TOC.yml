@@ -77,7 +77,7 @@
       href: search-sku-tier.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Service scalability
+    - name: Allocate partitions and replicas
       href: search-capacity-planning.md
     - name: Design patterns for multitenancy
       href: search-modeling-multitenant-saas-applications.md
