@@ -5,12 +5,12 @@ Azure CycleCloud ships with support for standard operating systems. You can spec
     [[node defaults]]
     Image = Cycle Windows 2016
 
-You can also specify by `ImageName`::
+You can also specify by `ImageName`:
 
     [[node defaults]]
     ImageName = cycle.image.win2016
 
-Finally, you can always select a specific image by `ImageId` or `ImageUrl`::
+Finally, you can always select a specific image by `ImageId` or `ImageUrl`:
 
     [[node defaults]]
     ImageId = order66
@@ -19,9 +19,6 @@ Finally, you can always select a specific image by `ImageId` or `ImageUrl`::
     ImageUrl = http://cloud-provider/path/to/custom-image
 
 CycleCloud automatically uses the latest released version of the image for the cloud provider and region that the instance is in.
-
-> [!NOTE]
-> For AWS, CycleCloud picks the virtualization type (`hvm` or `pvm`) to match the instance type being used. Instance types that support both will default to `hvm` virtualization, unless you override it with `AWS.Virtualization = pvm` on your node.
 
 > [!NOTE]
 If you are using a custom (non-standard) image that was created with Jetpack, you can set `AwaitInstallation=true` on the node, specifying that the image supports sending status messages back to CycleCloud. This will allow for more accurate representations of the node's state within CycleCloud.

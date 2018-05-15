@@ -45,11 +45,11 @@ by treating the version number as a dotted string and comparing each part as a n
 For instance, 2.0 is newer than 1.2, 1.10 is newer than 1.2, and 1.2.3 is newer than 1.2.
 To override this, specify `ImageVersion` on the node, as either a literal (eg `1.2`) or a wildcard (`1.x`).
 
-You can also automatically `import a set of image ids <https://docs.cyclecomputing.com/admin-guide-v6.5.6/image_reference#Import_the_Image>`_ to be used in CycleCloud.
+You can also automatically import a set of image ids be used in CycleCloud.
 
 ## Azure Custom Images
 
-Private custom Azure images can be specified in the template file with the ImageID attribute. This ID can be found in the Azure portal as the Resource ID for the image. In addition, the ImageOS attribute must be set to either windows or linux:
+Private custom Azure images can be specified in the template file with the ImageID attribute. This ID can be found in the Azure portal as the Resource ID for the image. In addition, the ImageOS attribute must be set to either `windows` or `linux`:
 
     [[node demo]]
 
