@@ -76,7 +76,7 @@ Here is some sample Python code for using this share folder to read and write to
 import os
 
 # write to the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "wb") as f1:
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "w") as f1:
     f1.write(“Hello World”)
 
 # read from the shared folder
